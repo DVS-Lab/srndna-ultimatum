@@ -31,7 +31,8 @@ if [ ! -e $CONFOUNDEVS ]; then
 	echo "missing: $CONFOUNDEVS " >> ${maindir}/re-runL1.log
 	exit # exiting to ensure nothing gets run without confounds
 fi
-EVDIR=${srndnadatadir}/derivatives/fsl/EVfiles/sub-${sub}/${TASK}/run-0${run}
+EVDIR=${maindir}/derivatives/fsl/EVfiles/sub-${sub}/${TASK}-pmod/run-0${run}
+RTEVS=${maindir}/derivatives/fsl/EVfiles/sub-${sub}/ultimatum-rt/run-0${run}
 
 # check for empty EVs (extendable to other studies)
 MISSED_TRIAL=${EVDIR}_missed_trial.txt
@@ -96,6 +97,7 @@ if [ "$ppi" == "ecn" -o  "$ppi" == "dmn" ]; then
 	-e 's@INPUT6@'$INPUT6'@g' \
 	-e 's@INPUT8@'$INPUT8'@g' \
 	-e 's@INPUT9@'$INPUT9'@g' \
+	-e 's@RTEVS@'$RTEVS'@g' \
 	<$ITEMPLATE> $OTEMPLATE
 	feat $OTEMPLATE
 
@@ -129,6 +131,7 @@ else # otherwise, do activation and seed-based ppi
 		-e 's@EV_SHAPE@'$EV_SHAPE'@g' \
 		-e 's@SMOOTH@'$sm'@g' \
 		-e 's@CONFOUNDEVS@'$CONFOUNDEVS'@g' \
+		-e 's@RTEVS@'$RTEVS'@g' \
 		<$ITEMPLATE> $OTEMPLATE
 	else
 		PHYS=${MAINOUTPUT}/ts_task-${TASK}_mask-${ppi}_run-0${run}.txt
@@ -142,6 +145,7 @@ else # otherwise, do activation and seed-based ppi
 		-e 's@PHYS@'$PHYS'@g' \
 		-e 's@SMOOTH@'$sm'@g' \
 		-e 's@CONFOUNDEVS@'$CONFOUNDEVS'@g' \
+		-e 's@RTEVS@'$RTEVS'@g' \
 		<$ITEMPLATE> $OTEMPLATE
 	fi
 	feat $OTEMPLATE
