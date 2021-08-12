@@ -5,19 +5,16 @@ scriptdir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 maindir="$(dirname "$scriptdir")"
 
 # the "type" variable below is setting a path inside the main script
-for type in ppi_seed-PCC ppi_seed-rFFA ppi_seed-rTPJ ppi_seed-VMPFCface ppi_seed-VMPFCwin ppi_seed-VS; do
-	for subrun in "104 5" "105 5" "106 3" "107 5" "108 5" "109 2" "110 2" "111 5" "112 5" "113 5" "115 5" "116 5" "117 5" "118 5" "120 5" "121 5" "122 5" "124 5" "125 5" "126 5" "127 5" "128 5" "129 5" "130 5" "131 5" "132 5" "133 5" "134 4" "135 5" "136 2" "137 5" "138 4" "140 5" "141 4" "142 5" "143 3" "144 2" "145 2" "147 5" "149 4" "150 5" "151 5" "152 2" "153 5" "154 2" "155 5" "156 2" "157 5" "158 5" "159 5"; do
-			set -- $subrun
-			sub=$1
-			nruns=$2
+for type in act nppi-ecn nppi-dmn; do
+	for sub in 104 105 106 107 108 109 110 111 112 113 115 116 117 118 120 121 122 124 125 126 127 128 129 130 131 132 133 134 135 136 137 138 140 141 142 143 144 145 147 149 150 151 152 153 154 155 156 157 158 159; do
 
 			# Manages the number of jobs and cores
 	  	SCRIPTNAME=${maindir}/code/L2stats.sh
-	  	NCORES=22
+	  	NCORES=10
 	  	while [ $(ps -ef | grep -v grep | grep $SCRIPTNAME | wc -l) -ge $NCORES ]; do
 	    		sleep 1s
 	  	done
-	  	bash $SCRIPTNAME $sub $nruns $type &
+	  	bash $SCRIPTNAME $sub $type &
 	  	sleep 1s
 
 	done
