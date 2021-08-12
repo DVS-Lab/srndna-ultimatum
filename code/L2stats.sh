@@ -47,6 +47,7 @@ else
 	sed -e 's@OUTPUT@'$OUTPUT'@g' \
 	-e 's@INPUT1@'$INPUT1'@g' \
 	-e 's@INPUT2@'$INPUT2'@g' \
+	<$ITEMPLATE> $OTEMPLATE
 	feat $OTEMPLATE
 
 	# delete unused files
