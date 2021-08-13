@@ -24,7 +24,7 @@ copenum=$1
 copenum_thresh_randomise=7 # actual contrasts start here. no need to do randomise main effects (e.g., reward > nothing/fixation/baseline)
 copename=$2
 REPLACEME=$3 # this defines the parts of the path that differ across analyses
-MAINOUTPUT=${maindir}/derivatives/fsl/L3_model-02_task-${task}_n${N}_flame1+2_retest
+MAINOUTPUT=${maindir}/derivatives/fsl/L3_model-02_task-${task}_n${N}_flame1+2
 mkdir -p $MAINOUTPUT
 
 
@@ -105,7 +105,7 @@ fi
 ### --- One group ------------------------------
 # set outputs and check for existing
 cnum_pad=`zeropad ${copenum} 2`
-OUTPUT=${MAINOUTPUT}/L3_task-${task}_${REPLACEME}_cnum-${cnum_pad}_cname-${copename}_onegroup_new
+OUTPUT=${MAINOUTPUT}/L3_task-${task}_${REPLACEME}_cnum-${cnum_pad}_cname-${copename}_onegroup
 if [ -e ${OUTPUT}.gfeat/cope1.feat/cluster_mask_zstat1.nii.gz ]; then
 
 	# run randomise if output doesn't exist and the contrasts (copes) are valid
