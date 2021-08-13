@@ -16,7 +16,7 @@ for analysis in act nppi-dmn nppi-ecn; do
 	# these define the cope number (copenum) and cope name (copename)
 	# "1 comp" "2 comp_p" "3 in" "4 in_p" "5 out" "6 out_p"
 	# "7 in_p-out_p" "8 soc_p-nonsoc_p" "9 in-out" "10 soc-nonsoc" "11 phys"
-	for subrun in "1 comp" "2 comp_p" "3 in" "4 in_p" "5 out" "6 out_p" "7 in_p-out_p" "8 soc_p-nonsoc_p" "9 in-out" "10 soc-nonsoc" "11 phys"; do
+	for copeinfo in "1 comp" "2 comp_p" "3 in" "4 in_p" "5 out" "6 out_p" "7 in_p-out_p" "8 soc_p-nonsoc_p" "9 in-out" "10 soc-nonsoc" "11 phys"; do
 
 		# split copeinfo variable
 		set -- $copeinfo
