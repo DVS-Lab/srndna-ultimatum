@@ -14,6 +14,14 @@ TASK=ultimatum
 mask=${outdir}/L1_task-${TASK}_model-02_type-act_run-0${run}_sm-${sm}.feat/mask
 mcf=${datadir}/derivatives/fmriprep/sub-${sub}/func/sub-${sub}_task-${TASK}_run-${run}_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz
 
+# define the number of volumes, and minus one to do the math
+tmax=`$FSLDIR/bin/fslval ${mcf} dim4`;
+tmax1=`echo $tmax - 1 | bc`;
+
+# set up the motion-corrected files
+$FSLDIR/bin/fslroi $mcf ${mcf}1 0 $tmax1
+    $FSLDIR/bin/fslroi $mcf ${mcf}2 1 $tmax1
+    $FSLDIR/bin/fslmaths 
 
 # generate MSSD (as per Nomi et al., 2017: https://www.jneurosci.org/content/jneuro/37/22/5539.full.pdf)
 # MSSD: #  
