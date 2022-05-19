@@ -27,7 +27,8 @@ fslmerge -t $basedir/derivatives/fsl/mergedAllSubsRuns_mssd $basedir/derivatives
 # make 4d file with all subjects. final analysis will need to have one image per subject (average both runs)
 fslmerge -t $basedir/derivatives/fsl/mergedAllSubsRuns_dvars $basedir/derivatives/fsl/sub-*_mc/sub-*_run-?_dvarsTmean.nii.gz
 
-# convert dvars image to text file
+# convert dvars image to text file and remove junk
 fsl2ascii $basedir/derivatives/fsl/mergedAllSubsRuns_dvars $basedir/derivatives/fsl/meanDVARS.txt
 cat $basedir/derivatives/fsl/meanDVARS.txt[0-9]* | grep [0-9] >> $basedir/derivatives/fsl/meanDVARS.txt
+rm -rf $basedir/derivatives/fsl/meanDVARS.txt0*
 
