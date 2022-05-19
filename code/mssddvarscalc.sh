@@ -37,10 +37,6 @@ fslmaths ${mcfout}2 -sub ${mcfout}1 -mas ${mask} -sqr -Xmean -Ymean -Zmean -div 
 fslmaths ${outdir}/sub-${sub}_run-${run}_dvars4d -div $brainmed -mul 1000 ${outdir}/sub-${sub}_run-${run}_dvars4d
 fslmaths ${outdir}/sub-${sub}_run-${run}_dvars4d -Tmean ${outdir}/sub-${sub}_run-${run}_dvarsTmean
 
-# correlate MSSD and DVARS (will want to output this to a file)
-corr=`fslcc -t -1 --noabs -m $mask ${outdir}/sub-${sub}_run-${run}_dvarsTmean ${outdir}/sub-${sub}_run-${run}_mssd3d`
-echo -e "$sub,$run,$corr" >> $summaryfile
-
 # clean up intermediate files
 rm -rf ${mcfout}1.nii.gz ${mcfout}2.nii.gz
 
