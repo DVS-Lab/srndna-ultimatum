@@ -1,0 +1,10 @@
+/ContrastName1	dvars_pos 
+/ContrastName2	dvars_neg 
+/NumWaves	2
+/NumContrasts	2
+/PPheights		7.328850e+01	7.328850e+01
+/RequiredEffect		2.298	2.298
+
+/Matrix
+1.000000e+00 0.000000e+00 
+-1.000000e+00 0.000000e+00 
