@@ -32,7 +32,7 @@ for mask in roi-VS roi-VMPFC roi-dACC roi-aINS; do
 
 				ntrials=`fslnvols sub-${sub}_run-0${run}_type-act_merged_z`
 				if [ $ntrials -ne 72 ]; then
-					echo "missing data sub-${sub}_run-0${run}: found $ntrials" >> missingData.log
+					echo "missing data sub-${sub}_run-0${run}: found $ntrials" >> ${scriptdir}/missingData.log
 				fi
 
 				# output for extractions
