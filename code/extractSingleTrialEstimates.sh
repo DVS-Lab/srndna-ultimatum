@@ -31,7 +31,7 @@ for mask in roi-VS roi-VMPFC roi-dACC roi-aINS; do
 				fslmerge -t sub-${sub}_run-0${run}_type-act_merged_z zstat_trial-*.nii.gz
 
 				ntrials=`fslnvols sub-${sub}_run-0${run}_type-act_merged_z`
-				if [ ! $ntrials -eq 72 ]; then
+				if [ $ntrials -ne 72 ]; then
 					echo "missing data sub-${sub}_run-0${run}: found $ntrials" >> missingData.log
 				fi
 
