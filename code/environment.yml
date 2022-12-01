@@ -1,0 +1,4 @@
+name: UGDG_env
+channels:
+  - defaults
+prefix: /home/strange/anaconda3/envs/UGDG_env
