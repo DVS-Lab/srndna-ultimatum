@@ -1,0 +1,10 @@
+metric	value	detail
+analysis_sample_runs_expected	94	47 participants x 2 runs
+rendered_design_fsf_found	94	activation model-02
+rendered_design_mat_found	94	activation model-02
+rt_files_found_now	0	paths recorded by rendered design.fsf
+rt_pmod_files_found_now	0	paths recorded by rendered design.fsf
+rt_file_rows_match_source_event_RT_rows	0	current EV file versus curated source-event count
+designs_with_nonconstant_rt_column	94	retained design.mat original EV column 8
+designs_with_nonconstant_rt_pmod_column	94	retained design.mat original EV column 9
+runs_with_three_main_task_ev_files_found_now	0	computer, similar, and dissimilar task EV paths from design.fsf

@@ -1,0 +1,4 @@
+model	runs_expected	design_matrices_found	rank_deficient_runs	runs_with_warning_keywords	condition_number_median	condition_number_range	worst_condition_run	max_abs_correlation_median	max_abs_correlation_range	worst_correlation_run	runs_with_pair_abs_r_gt_0_80	runs_with_pair_abs_r_gt_0_90	runs_with_pair_abs_r_gt_0_95
+act	94	94	50	50	21.5414592037	8.85285487154,102.203026556	sub-116_run-01	0.907362901124	0.711706116103,0.998316700597	sub-116_run-02	80	49	21
+nppi-dmn	94	94	50	50	59.4216329774	34.5960112006,1712.27764142	sub-110_run-01	0.924105848875	0.800265731478,0.998316700597	sub-116_run-02	94	66	30
+nppi-ecn	94	94	50	50	63.6279245939	33.6869812645,1725.77821509	sub-110_run-01	0.933456644679	0.776055081118,0.998316700597	sub-116_run-02	92	71	35
