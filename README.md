@@ -1,53 +1,79 @@
-# SRNDNA: Ultimatum Game Data and Analyses
-This repository contains code related to our in prep project relating to the ultimatum game and aging. All hypotheses and analysis plans were pre-registered on AsPredicted on 7/26/2018 and data collection commenced on 7/31/2018. Imaging data will be shared via [OpenNeuro][openneuro] when the manuscript is posted on bioRxiv.
+# SRNDNA Ultimatum Game
 
+Repository of record for **Older Adults Show Altered Default Mode and Executive
+Control Network Connectivity during Fairness Decisions**
+([bioRxiv DOI 10.1101/2025.08.13.670194](https://doi.org/10.1101/2025.08.13.670194)).
 
-## A few prerequisites and recommendations
-- Understand BIDS and be comfortable navigating Linux
-- Install [FSL](https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/FslInstallation)
-- Install [miniconda or anaconda](https://stackoverflow.com/questions/45421163/anaconda-vs-miniconda)
+This repository preserves the original production analysis history and now
+also contains the compact reviewer-response workflow. MRI source data are
+available from OpenNeuro dataset `ds003745`; MRI images and FEAT directories
+are not duplicated in Git.
 
+## Reproducible entry points
 
-## Notes on repository organization and files
-- Raw DICOMS (an input to heudiconv) are private and only accessible locally (Smith Lab Linux: /data/sourcedata)
-- Some of the contents of this repository are not tracked (.gitignore) because the files are large and we do not yet have a nice workflow for datalad. These folders include `/data/sourcedata` (dicoms) and parts of `bids` and `derivatives`.
-- Tracked folders and their contents:
-  - `code`: analysis code
-  - `templates`: fsf template files used for FSL analyses
-  - `masks`: images used as masks, networks, and seed regions in analyses
-  - `stimuli`: psychopy scripts and matlab scripts for delivering stimuli and organizing output
-  - `bids`: bids data (only text files since images need to be obtained from [OpenNeuro][openneuro], as described below)
-  - `derivatives`: derivatives from analysis scripts, but only text files (re-run script to regenerate larger outputs)
+Run from the repository root:
 
-
-## Basic commands to reproduce our analyses
-```
-# get code and data (two options for data)
-git clone https://github.com/DVS-Lab/srndna-ultimatum
-cd srndna-ultimatum
-
-rm -rf bids # remove bids subdirectory since it will be replaced below
-# can this be made into a sym link?
-
-datalad clone https://github.com/OpenNeuroDatasets/ds003745.git bids
-# the bids folder is a datalad dataset
-# you can get all of the data with the command below:
-datalad get sub-*
-
-
-# run preprocessing and generate confounds and timing files for analyses
-bash code/run_fmriprep.sh
-python code/MakeConfounds.py --fmriprepDir="derivatives/fmriprep"
-bash code/run_gen3colfiles.sh
-
-# run statistics
-bash code/run_L1stats.sh
-bash code/run_L2stats.sh
-bash code/run_L3stats.sh
+```bash
+make test
+make reviewer-behavior
+make reviewer-imaging-audit
 ```
 
+The behavioral workflow requires R with `lme4`, `lmerTest`, `ggplot2`, and
+`scales`. Image-header checks require FSL's `fslhd` and `fslstats`; validation
+skips them cleanly when FSL is unavailable.
+
+The production imaging audit is read-only and must run on Linux against
+`/ZPOOL/data/projects/srndna-ultimatum`. Follow
+`docs/SERVER_IMAGING_AUDIT.md`; do not launch FEAT, FLAME, or `randomise` as
+part of that audit.
+
+## Repository map
+
+- `code/`: original preprocessing/FEAT scripts and active revision audits.
+- `templates/`: original production templates. Later files recovered from the
+  separate working repository are isolated under `templates/later_working_tree/`
+  until compared with rendered production designs.
+- `derivatives/`: compact historical text derivatives retained by the original
+  repository; large local FSL/fMRIPrep outputs remain ignored.
+- `masks/`: original network, ROI, and seed masks.
+- `masks_SANS/` and `imaging_plots_SANS/`: focal submitted masks and compact
+  plotting extracts used by the reviewer audit.
+- `source_data/`: curated public events TSVs and partner-rating inputs only.
+- `behavioral_analyses/data/`: compact cleaned inputs used by the active
+  reviewer models.
+- `results/reviewer/`: aggregate revision tables and figures.
+- `logs/records/`: durable provenance records; participant-level audit output
+  and server captures are ignored.
+- `tests/`: fast static and synthetic workflow checks.
+
+Start with `code/WORKFLOW_AUDIT.md`. The machine-readable result index is
+`logs/records/manuscript-result-manifest.tsv`.
+
+## Data and provenance boundaries
+
+OpenNeuro `ds003745` is the source for the public BIDS dataset. The manuscript
+cites snapshot 2.0.2. The local root-level `bids/` directory is intentionally
+ignored; only small analysis-support TSV/JSON files belong under
+`source_data/`.
+
+The Linux checkout at `/ZPOOL/data/projects/srndna-ultimatum` is both a clean
+checkout of this repository and the location of the production derivative
+tree. Historical absolute paths inside FSFs are provenance and should not be
+silently rewritten. New audit scripts accept explicit roots or derive paths
+from the checkout.
+
+The separate `DVS-Lab/srndna-ug` repository contains later working material
+but is not the repository of record. Its unrelated history is not merged here;
+only paper-relevant, compact artifacts are imported with their status made
+explicit. See `docs/REPOSITORY_OF_RECORD.md`.
+
+The analyses were not preregistered. Reviewer-requested work is labeled as
+revision analysis and is not presented as part of the submitted workflow.
 
 ## Acknowledgments
-This work was supported, in part, by grants from the National Institutes of Health (R21-MH113917 and R03-DA046733 to DVS and R15-MH122927 to DSF) and a Pilot Grant from the Scientific Research Network on Decision Neuroscience and Aging [to DVS; Subaward of NIH R24-AG054355 (PI Gregory Samanez-Larkin)]. We thank Victoria Kelly, Nicole Henninger, Dennis Desalme, Ben Muzekari, Isaac Levy, Gemma Goldstein, and Srikar Katta for assistance with participant recruitment and data collection, and Jeffrey Dennison for assistance with data processing. DVS was a Research Fellow of the Public Policy Lab at Temple University during the preparation of the manuscript (2019-2020 academic year).
 
-[openneuro]: https://openneuro.org/
+This work was supported in part by NIH awards R21-MH113917 and R03-DA046733 to
+David V. Smith, R15-MH122927 to Dominic S. Fareri, and a Scientific Research
+Network on Decision Neuroscience and Aging pilot award (NIH R24-AG054355,
+Gregory Samanez-Larkin, PI). See the manuscript for the full contributor list.
