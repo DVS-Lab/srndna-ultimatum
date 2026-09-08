@@ -134,9 +134,11 @@ dmypy.json
 
 # potentially private
 .heudiconv
+participants.tsv
 
 # imaging output
 bids/**/*.nii.gz
+/bids/
 derivatives/fsl
 derivatives/fmriprep/**/*.nii.gz
 derivatives/fmriprep/*/anat
@@ -147,3 +149,13 @@ derivatives/fmriprep/*/func/*AROMAnoiseICs.csv
 derivatives/fmriprep/*/func/*_mask.json
 derivatives/fmriprep/*/func/*_bold.json
 sub-*.html
+
+# Local-only reviewer derivatives and audit captures
+/results/reviewer/private/
+/logs/audits/
+/logs/runs/
+
+# Never add imaging payloads to the curated source-data mirror.
+/source_data/bids/**/*.nii
+/source_data/bids/**/*.nii.gz
+/source_data/bids/**/*.dcm

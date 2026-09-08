@@ -1,0 +1,12 @@
+metric	value	detail
+participants	47	analysis sample
+runs	94	ultimatum event files
+trials	6768	one row per task trial
+missed_trials	113	all partners
+responded_trials_missing_event_RT_row	931	source BIDS event construction; see production RT audit for the isolated sub-143 exception
+first_block_trials_missing_event_RT_row	805	of 805 responded first trials at block onset
+nonfirst_trials_missing_event_RT_row	126	responded trials outside block onset
+runs_with_missing_event_RT_row	94	of 94 runs
+trial_duration_mean_seconds	3.517634082	SD=0.006874040
+within_block_gap_mean_seconds	0.764993350	SD=0.004989174
+between_block_gap_counts_rounded	8:253;10:258;12:241	gap seconds:count

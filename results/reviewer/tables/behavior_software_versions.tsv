@@ -1,0 +1,5 @@
+component	version
+R	4.5.2
+lme4	2.0.1
+lmerTest	3.2.1
+ggplot2	4.0.1

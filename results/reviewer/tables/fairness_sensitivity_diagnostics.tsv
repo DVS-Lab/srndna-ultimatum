@@ -1,0 +1,7 @@
+metric	value
+tracked_vs_rederived_correlation	0.99999999999433
+tracked_vs_rederived_max_absolute_difference	4.15040124551735e-06
+unified_vs_submitted_correlation	0.672076797199407
+correlated_unified_model_singular	1
+uncorrelated_unified_model_singular	0
+unified_random_interaction_sd	0.155700096467768
