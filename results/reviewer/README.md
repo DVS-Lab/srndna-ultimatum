@@ -93,6 +93,9 @@ make reviewer-behavior
   pending.
 - `tables/dmn_roi_influence_summary.tsv`: descriptive selected-ROI diagnostics
   and leave-one-out coefficient range. Participant rows remain in `private/`.
+- `production_audits/`: compact Linux production-design, cluster-table,
+  provenance, checksum, and image-header captures. The collector never copies
+  NIfTI payloads; inspect the bundle before committing it.
 
 Production imaging provenance remains server-gated. The source-event audit has
 isolated the systematic first-trial omissions and both sub-143 runs for

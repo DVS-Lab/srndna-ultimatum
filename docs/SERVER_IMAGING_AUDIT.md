@@ -47,13 +47,13 @@ descriptive flags, not automatic failure criteria.
 ## Locate rendered 47-participant group designs
 
 ```bash
-mkdir -p logs/audits/server
+mkdir -p results/reviewer/production_audits
 find derivatives/fsl -type f -name design.fsf -print0 |
   while IFS= read -r -d '' fsf; do
     grep -q 'set fmri(npts) 47' "$fsf" && printf '%s\n' "$fsf"
   done |
   sort |
-  tee logs/audits/server/l3-design-fsf-paths.txt
+  tee results/reviewer/production_audits/l3-design-fsf-paths.txt
 ```
 
 Inspect the resulting path list for the focal DMN age-group and ECN
@@ -65,12 +65,13 @@ cope-level `.feat` directory, run:
 bash code/audit_server_imaging.sh \
   --fmriprep-root /ZPOOL/data/projects/srndna-ultimatum/derivatives/fmriprep \
   --group-dir /ABSOLUTE/PATH/TO/CONFIRMED/COPE.feat \
-  --output-dir logs/audits/server/RESULT-ID
+  --output-dir results/reviewer/production_audits/RESULT-ID
 ```
 
 Repeat for the focal DMN and ECN results. The collector copies small design,
 log, cluster-table, and preprocessing-provenance files and records image
-headers/volumes; it does not copy NIfTI payloads.
+headers/volumes; it does not copy NIfTI payloads. These compact bundles and
+paths are intended to be committed after inspection.
 
 ## Required production evidence
 
