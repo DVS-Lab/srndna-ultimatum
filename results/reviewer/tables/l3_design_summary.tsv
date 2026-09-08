@@ -1,0 +1,3 @@
+template_id	template_path	n_points	n_evs	matrix_rank	scaled_condition_number	max_design_variance_factor	input_count	duplicate_input_count	group_membership_values
+submitted_dmn_age	templates/L3_template_n47_ultimatum_twogroup_wCovs.fsf	47	6	6	4.50414845344352	4.55203961927577	47	0	1
+later_ecn_sensitivity_reconstruction	templates/later_working_tree/L3_template_n47_ug_twogroup_wCovs_in-out_sensitivity2_logit.fsf	47	8	8	4.55536156941094	4.62197962818444	47	0	1

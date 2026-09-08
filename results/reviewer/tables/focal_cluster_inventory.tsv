@@ -1,0 +1,4 @@
+result_id	path	sha256	dim_x	dim_y	dim_z	dim_t	voxel_x_mm	voxel_y_mm	voxel_z_mm	tr_seconds	nonzero_voxels	nonzero_volume_mm3	intent	qform	sform
+dmn_age	masks_SANS/dmn_p_in-out_y-o.nii.gz	2b09578d66e14e8c3c44ba0c7871a4987fb99150509e4b42b709e63de923896c	66	78	61	1	2.973000	2.973000	3.220000	2.020000	26	739.978455	Z-score	MNI_152	MNI_152
+ecn_sensitivity	masks_SANS/ecn_p_in-out_o-y_sens-logit.nii.gz	cb454d0eb557f1468d9461a71fabfea59031266e2dceb9817a97e1104919dcd2	66	78	61	1	2.973000	2.973000	3.220000	2.020000	23	654.596313	Z-score	MNI_152	MNI_152
+activation	masks_SANS/act_p_in-out_o-y_norm-logit.nii.gz	a0ceaf947d1be84604bcbe6043b747fb8a0ba8a94e3796aaed051dfb46007706	66	78	61	1	2.973000	2.973000	3.220000	2.020000	161	4582.173828	Z-score	MNI_152	MNI_152
