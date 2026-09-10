@@ -1,0 +1,4 @@
+mask_id	mask_path	mask_sha256	exact_match_count	search_root	matched_cluster_mask	cluster_mask_modified_utc	zstat_index	gfeat_path	cope_dir	npts	mixed_yn	robust_yn	z_thresh	prob_thresh	input_count	unique_participants	sub144_input_indices	sub144_input_paths	source_copes	design_fsf_sha256	design_mat_sha256	design_con_sha256	design_grp_sha256	smoothness_path	dlh	volume	resels	cluster_table_path	cluster_table_sha256
+dmn_age	/ZPOOL/data/projects/srndna-ultimatum/masks_SANS/dmn_p_in-out_y-o.nii.gz	2b09578d66e14e8c3c44ba0c7871a4987fb99150509e4b42b709e63de923896c	0																										
+ecn_sensitivity	/ZPOOL/data/projects/srndna-ultimatum/masks_SANS/ecn_p_in-out_o-y_sens-logit.nii.gz	cb454d0eb557f1468d9461a71fabfea59031266e2dceb9817a97e1104919dcd2	0																										
+activation	/ZPOOL/data/projects/srndna-ultimatum/masks_SANS/act_p_in-out_o-y_norm-logit.nii.gz	a0ceaf947d1be84604bcbe6043b747fb8a0ba8a94e3796aaed051dfb46007706	0																										
