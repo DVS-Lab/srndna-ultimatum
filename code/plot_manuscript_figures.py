@@ -63,22 +63,24 @@ def build_figure3(repository: Path, source_root: Path, figure_root: Path) -> Non
         display_mode="ortho",
         cut_coords=(0, -54, 27),
         threshold=0.5,
-        cmap="Greens",
-        colorbar=False,
+        cmap="RdBu_r",
+        vmax=4.0,
+        symmetric_cbar=True,
+        colorbar=True,
         annotate=True,
         draw_cross=False,
         axes=network_axis,
     )
     plotting.plot_stat_map(
         zstat_path,
-        display_mode="ortho",
-        cut_coords=(-13.3, 34.0, 27.8),
+        display_mode="x",
+        cut_coords=(-13.3,),
         threshold=3.1,
         cmap="YlOrRd",
         vmin=3.1,
         vmax=4.1,
-        colorbar=True,
-        annotate=True,
+        colorbar=False,
+        annotate=False,
         draw_cross=False,
         axes=cluster_axis,
     )
@@ -97,8 +99,9 @@ def build_figure3(repository: Path, source_root: Path, figure_root: Path) -> Non
         estimates = condition_rows["flame_cluster_mean_estimate"].to_numpy(
             dtype=float
         )
-        lower = condition_rows["display_conf_low"].to_numpy(dtype=float)
-        upper = condition_rows["display_conf_high"].to_numpy(dtype=float)
+        standard_errors = condition_rows[
+            "mean_voxelwise_standard_error"
+        ].to_numpy(dtype=float)
         roi_axis.bar(
             group_positions + offsets[condition],
             estimates,
@@ -112,7 +115,7 @@ def build_figure3(repository: Path, source_root: Path, figure_root: Path) -> Non
         roi_axis.errorbar(
             group_positions + offsets[condition],
             estimates,
-            yerr=np.vstack((estimates - lower, upper - estimates)),
+            yerr=standard_errors,
             fmt="none",
             ecolor="black",
             elinewidth=1.4,

@@ -78,4 +78,31 @@ The export records the 94 input-level cluster-average COPE and VARCOPE values
 for diagnostics. Bar heights come from the corresponding condition-specific
 FLAME group COPE maps, not a hand-computed inverse-varcope average. Display
 error bars use the cluster mean of the voxelwise FLAME standard-error map and
-are descriptive rather than an independent cluster-average inferential test.
+show one model standard error. They are descriptive rather than an independent
+cluster-average inferential test.
+
+### Candidate activation validation analysis
+
+The first-level activation model does not contain one contrast averaging the
+human-partner offer-size slopes. Cope 4 is the age-similar offer-size slope,
+cope 6 is the age-dissimilar slope, and cope 7 is their difference. Therefore,
+an all-participant cope-7 model must not be described as a basic fairness main
+effect. `code/prepare_activation_fairness_l3.py` prepares corrected,
+intercept-based L3 models for copes 4 and 6 separately. Each model includes
+centered age group, sex, tSNR, mean FD, and event-corrected task-wide mean RT.
+These are paired revision diagnostics: inspect both complete thresholded maps
+before deciding whether a validation figure is scientifically useful.
+
+```bash
+ACTIVATION_FAIRNESS_ROOT=/ZPOOL/data/scratch/srndna-ultimatum-activation-fairness-v1
+python3 code/prepare_activation_fairness_l3.py \
+  --work-root "$ACTIVATION_FAIRNESS_ROOT"
+python3 code/run_ultimatum_repair_jobs.py \
+  --manifest "$ACTIVATION_FAIRNESS_ROOT/activation_fairness_l3_jobs.tsv" \
+  --stage l3 --jobs 1 --dry-run
+```
+
+Remove `--dry-run` only after the manifest confirms 47 corrected activation
+inputs for each condition. A single combined human-partner fairness map would
+require a new first-level contrast and is not inferred by averaging these two
+group maps after the fact.

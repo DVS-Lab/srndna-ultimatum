@@ -76,7 +76,8 @@ into four age-group-by-partner bars. Bar heights are cluster-mean group COPE
 estimates from corrected condition-specific FLAME 1+2 models, so the display
 retains FLAME's within- and between-participant variance modeling. The
 participant-level condition COPE and VARCOPE extracts and all image hashes are
-tracked under `results/manuscript/source_data/` for auditability.
+tracked under `results/manuscript/source_data/` for auditability. Figure error
+bars show one model standard error rather than 95% confidence intervals.
 
 ## Acknowledgments
 

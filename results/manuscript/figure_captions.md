@@ -22,8 +22,10 @@ offer-size × age-group × partner-similarity interaction was not detected,
 
 ## Figure 3. Age difference in task-dependent default mode network connectivity
 
-(A) The continuous default mode network map used to derive the network time
-series. (B) A 29-voxel anterior cingulate cluster showed a larger
+(A) The signed continuous default mode network map used to derive the network
+time series (display range clipped at -4 to 4 for visualization). (B) A
+29-voxel anterior cingulate cluster, shown at its sagittal peak, exhibited a
+larger
 similar-minus-dissimilar offer-modulation effect in younger than older adults,
 cluster-corrected p = .0138, Zmax = 4.07, peak MNI [-13.3, 34.0,
 27.8]. The whole-brain analysis used FLAME 1+2 with Z > 3.1 and
@@ -32,12 +34,12 @@ and event-corrected task-wide mean response time as covariates (N = 47).
 (C) Bars show cluster-mean group COPE estimates from separate corrected
 condition-specific FLAME 1+2 models for age-similar and age-dissimilar
 partners. These covariate-adjusted estimates incorporate the input VARCOPEs
-and FLAME's estimate of between-participant variance. Error bars show 1.96
-times the cluster mean of the voxelwise FLAME standard errors. The bars and
-error bars are descriptive decompositions of the retained contrast, not
-independent region-of-interest tests. Because the cluster was selected by the
-group contrast, inference comes from the whole-brain similar-minus-dissimilar
-FLAME 1+2 model reported in panel B.
+and FLAME's estimate of between-participant variance. Error bars show one
+model standard error, calculated as the cluster mean of the voxelwise FLAME
+standard errors. The bars and error bars are descriptive decompositions of the
+retained contrast, not independent region-of-interest tests. Because the
+cluster was selected by the group contrast, inference comes from the
+whole-brain similar-minus-dissimilar FLAME 1+2 model reported in panel B.
 
 ## Removed submitted figure
 
