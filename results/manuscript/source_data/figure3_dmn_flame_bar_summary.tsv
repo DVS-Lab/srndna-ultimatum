@@ -1,0 +1,5 @@
+age_group	condition	flame_cluster_mean_estimate	mean_voxelwise_standard_error	display_conf_low	display_conf_high
+younger	similar	4.011111	1.45609	1.1571746	6.8650474
+older	similar	-1.87226	1.664521	-5.13472116	1.39020116
+younger	dissimilar	-3.495245	1.543537	-6.52057752	-0.46991248
+older	dissimilar	3.412099	1.834673	-0.18386008	7.00805808
