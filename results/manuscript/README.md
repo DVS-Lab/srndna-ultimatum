@@ -55,3 +55,29 @@ whole-brain FLAME 1+2 result, not a test on the extracted values. The plotting
 script writes `source_data/figure3_dmn_plot_data.tsv`, retaining both the raw
 cope 7 extraction and an ordinary-least-squares nuisance-adjusted display
 value derived from the exact corrected six-column design matrix.
+
+### Four-bar FLAME decomposition
+
+The participant scatter is provisional. The intended final panel contains
+four bars (younger/older by similar/dissimilar) from two condition-specific
+FLAME 1+2 models. These models reuse the exact corrected six-column group
+design and substitute L2 cope 4 or cope 6 for the cope 7 inputs. They retain
+the repaired sub-144 images. The legacy 94-row stacked-condition template is
+not used because it does not model the two observations per participant.
+
+Prepare and run the two small Linux models with:
+
+```bash
+DMN_BAR_ROOT=/ZPOOL/data/scratch/srndna-ultimatum-dmn-bars-v1
+python3 code/prepare_dmn_condition_bar_models.py --work-root "$DMN_BAR_ROOT"
+python3 code/run_ultimatum_repair_jobs.py \
+  --manifest "$DMN_BAR_ROOT/dmn_condition_bar_jobs.tsv" \
+  --stage l3 --jobs 2
+python3 code/export_dmn_condition_bar_data.py --work-root "$DMN_BAR_ROOT"
+```
+
+The export records the 94 input-level cluster-average COPE and VARCOPE values
+for diagnostics. Bar heights come from the corresponding condition-specific
+FLAME group COPE maps, not a hand-computed inverse-varcope average. Display
+error bars use the cluster mean of the voxelwise FLAME standard-error map and
+are descriptive rather than an independent cluster-average inferential test.
