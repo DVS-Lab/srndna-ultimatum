@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import csv
 import sys
 import tempfile
 import unittest
@@ -11,6 +12,7 @@ sys.path.insert(0, str(ROOT / "code"))
 
 from prepare_ultimatum_l3_repair import parse_evs, parse_inputs, render
 from audit_prepared_ultimatum_l3_designs import read_header_value, read_matrix
+from collect_ultimatum_l3_repair_designs import collect
 from run_ultimatum_repair_jobs import complete, read_manifest
 
 
@@ -109,6 +111,59 @@ class UltimatumL3RepairTests(unittest.TestCase):
             )
             self.assertEqual(len(rows), 1)
             self.assertEqual(rows[0]["run"], "fairness-covariate-corrected")
+
+    def test_compiled_design_collection_is_complete_and_non_overwriting(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            base = Path(directory)
+            manifest = base / "scratch/l3_repair_jobs.tsv"
+            manifest.parent.mkdir()
+            fields = [
+                "stage",
+                "model",
+                "run",
+                "fsf",
+                "source_fsf",
+                "covariate_policy",
+                "changed_ev_columns",
+                "n_evs",
+                "design_rank",
+                "expected_zstats",
+                "sub144_repaired_l2",
+                "standard_image",
+            ]
+            with manifest.open("w", newline="", encoding="utf-8") as stream:
+                writer = csv.DictWriter(
+                    stream, fieldnames=fields, delimiter="\t", lineterminator="\n"
+                )
+                writer.writeheader()
+                for index in range(5):
+                    fsf = manifest.parent / f"design-{index}.fsf"
+                    for suffix in (".fsf", ".mat", ".con", ".grp"):
+                        fsf.with_suffix(suffix).write_text(
+                            f"artifact {index} {suffix}\n", encoding="utf-8"
+                        )
+                    writer.writerow(
+                        {
+                            "stage": "l3",
+                            "model": f"model-{index}",
+                            "run": "image-only",
+                            "fsf": fsf,
+                            "source_fsf": "production.fsf",
+                            "covariate_policy": "production",
+                            "changed_ev_columns": "",
+                            "n_evs": "6",
+                            "design_rank": "6",
+                            "expected_zstats": "4",
+                            "sub144_repaired_l2": "cope1.nii.gz",
+                            "standard_image": "standard.nii.gz",
+                        }
+                    )
+            output = base / "collected"
+            inventory = collect(manifest, output)
+            self.assertEqual(len(inventory.read_text().splitlines()), 6)
+            self.assertEqual(len(list(output.glob("model-*/*/design.*"))), 20)
+            with self.assertRaises(FileExistsError):
+                collect(manifest, output)
 
     def test_l3_completion_requires_every_expected_zstat(self) -> None:
         with tempfile.TemporaryDirectory() as directory:

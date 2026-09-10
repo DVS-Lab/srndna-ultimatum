@@ -51,6 +51,10 @@
 - `audit_prepared_ultimatum_l3_designs.py`: compile the five scratch FSFs with
   `feat_model` only and require 47 rows, the expected EV rank, group rows, and
   contrast count before any group image fit.
+- `collect_ultimatum_l3_repair_designs.py`: copy only the exact rendered FSF,
+  design matrix, contrasts, and group files from the validated scratch manifest
+  into a compact Git provenance bundle. It refuses a nonempty destination and
+  never copies image payloads.
 - `audit_l1_designs.py`: aggregate rank, conditioning, and column-correlation
   diagnostics for retained activation and nPPI design matrices.
 - `audit_server_imaging.sh`: read-only collection of compact production

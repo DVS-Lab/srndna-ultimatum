@@ -131,6 +131,9 @@ The guarded group-repair workflow in `code/prepare_ultimatum_l3_repair.py`
 creates scratch-only image-repair and fairness-covariate-corrected designs from
 the exact recovered production FSFs. It never edits the original GFEAT trees or
 uses the submitted binary focal masks as model inputs.
+`l3_repair_designs/` is populated on Linux after `feat_model` validation and
+contains the exact rendered FSF/matrix/contrast/group bundles plus checksums;
+the much larger GFEAT outputs remain under scratch and untracked.
 
 Participant-level event, sensitivity, rating, and completeness tables are
 written to the ignored `private/` directory. They use study identifiers but no

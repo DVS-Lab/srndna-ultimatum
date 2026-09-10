@@ -236,6 +236,14 @@ python3 code/audit_prepared_ultimatum_l3_designs.py \
 
 cut -f1-5,7-12 "$L3_REPAIR_ROOT/l3_repair_jobs.tsv"
 
+python3 code/collect_ultimatum_l3_repair_designs.py \
+  --manifest "$L3_REPAIR_ROOT/l3_repair_jobs.tsv" \
+  --output-dir results/reviewer/l3_repair_designs
+
+git add results/reviewer/l3_repair_designs
+git commit -m "audit: record rendered Ultimatum L3 repair designs"
+git push origin main
+
 python3 code/run_ultimatum_repair_jobs.py \
   --manifest "$L3_REPAIR_ROOT/l3_repair_jobs.tsv" \
   --stage l3 --run image-only --jobs 1 --dry-run
@@ -245,6 +253,9 @@ python3 code/run_ultimatum_repair_jobs.py \
   --stage l3 --run fairness-covariate-corrected --jobs 1 --dry-run
 ```
 
+The collection commit records the exact modified templates and compiled
+designs before image fitting; it does not include NIfTI data. The historical
+production and later-working-tree templates remain unchanged as provenance.
 Preparation refuses a nonempty root. If `v1` already exists, inspect it rather
 than deleting it; choose a new versioned root only if a genuinely fresh render
 is required. Both audits must pass before fitting images. While the Trust LSS
