@@ -30,11 +30,10 @@ class ManuscriptFigureContractTests(unittest.TestCase):
             all("cope7.feat/stats/cope1.nii.gz" in str(path) for path in inputs)
         )
 
-    def test_condition_paths_are_derived_from_difference_path(self):
+    def test_participant_is_parsed_from_difference_path(self):
         module = load_export_module()
         example = Path("/tmp/sub-101/example.gfeat/cope7.feat/stats/cope1.nii.gz")
-        self.assertIn("/cope4.feat/", str(module.condition_input(example, 4)))
-        self.assertIn("/cope6.feat/", str(module.condition_input(example, 6)))
+        self.assertEqual(module.participant_from_path(example), "sub-101")
 
     def test_final_result_set_has_only_supported_revision_dispositions(self):
         path = ROOT / "results/manuscript/tables/final_result_set.tsv"

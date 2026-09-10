@@ -34,8 +34,12 @@ python3 code/export_corrected_dmn_figure_data.py \
 
 This exports only the compact 29-voxel corrected cluster, its thresholded
 Z-stat values, and the 47-row descriptive source table. It validates that the
-participant order matches the rendered FSF and that cope 7 equals cope 4 minus
-cope 6 within the cluster.
+participant order matches the rendered FSF and extracts the exact L2 cope 7
+images entered into the corrected group model. Although first-level cope 7 is
+defined as cope 4 minus cope 6, separately combined L2 cope estimates need not
+retain that numerical identity because FSL combines them using their own
+run-level variance estimates. The figure therefore uses the actual L2 cope 7
+group inputs rather than subtracting independently combined L2 copes 4 and 6.
 
 Then build all three figures with a Python environment containing NumPy,
 pandas, matplotlib, nibabel, and nilearn:

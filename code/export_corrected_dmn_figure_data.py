@@ -4,8 +4,8 @@
 This script is intended to run on the Linux analysis host after the corrected
 group model has completed.  It reads the exact participant inputs from the
 tracked, rendered FSF, isolates the significant cluster from the corrected
-younger-minus-older contrast, and extracts participant-level condition and
-difference estimates.  It does not modify any FEAT/GFEAT directory.
+younger-minus-older contrast, and extracts the participant-level cope 7 values
+entered into that model. It does not modify any FEAT/GFEAT directory.
 """
 
 from __future__ import annotations
@@ -82,14 +82,6 @@ def participant_from_path(path: Path) -> str:
     return match.group(1)
 
 
-def condition_input(difference_input: Path, cope: int) -> Path:
-    marker = "/cope7.feat/"
-    value = str(difference_input)
-    if marker not in value:
-        raise ValueError(f"expected a cope7 FEAT input, found {difference_input}")
-    return Path(value.replace(marker, f"/cope{cope}.feat/", 1))
-
-
 def mean_in_mask(image: Path, mask: Path) -> float:
     if not image.is_file():
         raise FileNotFoundError(f"missing participant input: {image}")
@@ -126,7 +118,6 @@ def main() -> int:
     parser.add_argument("--repair-root", type=Path, default=DEFAULT_REPAIR_ROOT)
     parser.add_argument("--expected-voxels", type=int, default=29)
     parser.add_argument("--cluster-label", type=int, default=1)
-    parser.add_argument("--difference-tolerance", type=float, default=0.001)
     args = parser.parse_args()
 
     repository = args.repository.resolve()
@@ -191,30 +182,16 @@ def main() -> int:
         )
 
         roi_rows: list[dict[str, object]] = []
-        maximum_discrepancy = 0.0
         for index, difference_input in enumerate(inputs, start=1):
             participant = participants[index - 1]
-            similar_input = condition_input(difference_input, 4)
-            dissimilar_input = condition_input(difference_input, 6)
-            similar = mean_in_mask(similar_input, temporary_mask)
-            dissimilar = mean_in_mask(dissimilar_input, temporary_mask)
             difference = mean_in_mask(difference_input, temporary_mask)
-            discrepancy = abs((similar - dissimilar) - difference)
-            maximum_discrepancy = max(maximum_discrepancy, discrepancy)
             roi_rows.append(
                 {
                     "design_index": index,
                     "participant": participant,
                     "age_group": age_groups[participant],
-                    "similar_offer_modulation": f"{similar:.9g}",
-                    "dissimilar_offer_modulation": f"{dissimilar:.9g}",
                     "similar_minus_dissimilar": f"{difference:.9g}",
                 }
-            )
-        if maximum_discrepancy > args.difference_tolerance:
-            raise ValueError(
-                "cope7 is not consistent with cope4 minus cope6 within the corrected "
-                f"cluster (maximum discrepancy {maximum_discrepancy:.6g})"
             )
 
         shutil.copyfile(temporary_mask, mask_output)
@@ -225,8 +202,6 @@ def main() -> int:
                 "design_index",
                 "participant",
                 "age_group",
-                "similar_offer_modulation",
-                "dissimilar_offer_modulation",
                 "similar_minus_dissimilar",
             ],
             roi_rows,
@@ -237,15 +212,15 @@ def main() -> int:
         {"artifact": "rendered_corrected_design_sha256", "value": sha256(design)},
         {"artifact": "corrected_group_model", "value": str(model)},
         {"artifact": "contrast", "value": "zstat3: younger > older"},
+        {
+            "artifact": "participant_image",
+            "value": "L2 cope7: in_p-out_p (similar-minus-dissimilar offer modulation)",
+        },
         {"artifact": "cluster_label", "value": args.cluster_label},
         {"artifact": "cluster_voxels", "value": args.expected_voxels},
         {"artifact": "cluster_mask_sha256", "value": sha256(mask_output)},
         {"artifact": "cluster_zstat_sha256", "value": sha256(zstat_output)},
         {"artifact": "participant_rows", "value": len(roi_rows)},
-        {
-            "artifact": "maximum_cope_identity_discrepancy",
-            "value": f"{maximum_discrepancy:.9g}",
-        },
         {
             "artifact": "inference",
             "value": "FLAME 1+2; Z > 3.1; cluster-corrected p < .05",
@@ -261,7 +236,6 @@ def main() -> int:
         "PASS: exported corrected DMN Figure 3 source data: "
         f"{len(roi_rows)} participants, {args.expected_voxels} voxels"
     )
-    print(f"PASS: maximum cope identity discrepancy={maximum_discrepancy:.6g}")
     print(f"PASS: output root={output_root}")
     return 0
 
