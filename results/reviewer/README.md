@@ -72,7 +72,10 @@ make reviewer-behavior
 - `tables/l3_covariate_correction_summary.tsv` and
   `l3_covariate_model_diagnostics.tsv`: exact production-to-historical-refit
   calibration and event-corrected fairness-sensitivity/norm-proxy diagnostics.
-  The corrected 47-row vectors remain ignored under `private/`.
+  `l3_event_corrected_covariates.tsv` contains only the five pseudonymous
+  identifier/design columns required to reproduce the corrected group models;
+  the fuller participant-level diagnostic table remains ignored under
+  `private/`.
 - `tables/l3_group_rt_provenance.tsv`: sub-144 RT summaries and the explicit
   decision to retain the submitted group RT column until its exact historical
   transformation is recovered.

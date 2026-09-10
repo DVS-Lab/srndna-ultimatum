@@ -44,7 +44,10 @@
 - `prepare_ultimatum_l3_repair.py`: render five scratch-only group jobs from
   the recovered production designs: three image-only identity repairs and
   event-corrected fairness-sensitivity/norm-proxy variants for ECN and
-  activation. The focal submitted masks are never inputs or overwrite targets.
+  activation. It consumes the calibrated minimal covariate table tracked under
+  `results/reviewer/tables/`, so Linux does not need a working R installation
+  to render the designs. The focal submitted masks are never inputs or
+  overwrite targets.
 - `audit_prepared_ultimatum_l3_designs.py`: compile the five scratch FSFs with
   `feat_model` only and require 47 rows, the expected EV rank, group rows, and
   contrast count before any group image fit.

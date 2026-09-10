@@ -81,6 +81,31 @@ class ResultContractTests(unittest.TestCase):
         self.assertTrue(all(row["singular"] == "FALSE" for row in diagnostics))
         self.assertTrue(all(row["convergence_message"] == "NA" for row in diagnostics))
 
+        l3_rows = rows("l3_event_corrected_covariates.tsv")
+        self.assertEqual(len(l3_rows), 47)
+        self.assertEqual(
+            set(l3_rows[0]),
+            {
+                "subjID",
+                "corrected_sensitivity_young",
+                "corrected_sensitivity_old",
+                "corrected_norm_young",
+                "corrected_norm_old",
+            },
+        )
+        sensitivity_sum = sum(
+            float(row["corrected_sensitivity_young"])
+            + float(row["corrected_sensitivity_old"])
+            for row in l3_rows
+        )
+        norm_sum = sum(
+            float(row["corrected_norm_young"])
+            + float(row["corrected_norm_old"])
+            for row in l3_rows
+        )
+        self.assertAlmostEqual(sensitivity_sum, 0.0, places=10)
+        self.assertAlmostEqual(norm_sum, 0.0, places=10)
+
 
 if __name__ == "__main__":
     unittest.main()

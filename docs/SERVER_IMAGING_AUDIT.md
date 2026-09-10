@@ -204,8 +204,9 @@ and `RESELS` values. The larger all-design inventory remains under ignored
 ## Prepare and run the scratch-only group repair
 
 The production trace is complete and all three repaired sub-144 L2 models pass
-the full completion check. Regenerate the two behavior-derived covariates, then
-render five group designs from the exact production FSFs. The three
+the full completion check. The checked-in minimal covariate table was generated
+by the calibrated behavioral workflow; Linux does not need to refit the mixed
+models before rendering five group designs from the exact production FSFs. The three
 `image-only` jobs change only the sub-144 cope-7 input. The ECN and activation
 `fairness-covariate-corrected` jobs additionally replace EVs 7 and 8 with the
 event-corrected version of the submitted sensitivity or norm-proxy estimand.
@@ -223,8 +224,6 @@ STANDARD_IMAGE="$FSLDIR/data/standard/MNI152_T1_2mm_brain.nii.gz"
 
 cd "$REPOSITORY"
 git pull --ff-only origin main
-
-make reviewer-behavior
 
 python3 code/prepare_ultimatum_l3_repair.py \
   --production-fsl-root "$REPOSITORY/derivatives/fsl" \

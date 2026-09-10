@@ -302,7 +302,7 @@ def parse_args(argv: Sequence[str] | None = None) -> argparse.Namespace:
     parser.add_argument(
         "--covariates",
         type=Path,
-        default=root / "results/reviewer/private/corrected_l3_covariates.tsv",
+        default=root / "results/reviewer/tables/l3_event_corrected_covariates.tsv",
     )
     return parser.parse_args(argv)
 

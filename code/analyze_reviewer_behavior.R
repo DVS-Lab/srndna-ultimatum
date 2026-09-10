@@ -341,6 +341,16 @@ stopifnot(
   all(is.finite(corrected_covariates$corrected_norm_centered))
 )
 write_tsv(corrected_covariates, file.path(private_dir, "corrected_l3_covariates.tsv"))
+write_tsv(
+  corrected_covariates[, c(
+    "subjID",
+    "corrected_sensitivity_young",
+    "corrected_sensitivity_old",
+    "corrected_norm_young",
+    "corrected_norm_old"
+  )],
+  file.path(table_dir, "l3_event_corrected_covariates.tsv")
+)
 
 covariate_columns <- list(
   fairness_sensitivity = c("submitted_sensitivity_centered", "corrected_sensitivity_centered"),
