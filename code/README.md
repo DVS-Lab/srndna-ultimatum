@@ -4,6 +4,9 @@
 
 - `validate_workflow.sh`: syntax, unit, contract, and path-portability checks.
 - `audit_task_events.py`: task timing, missing trials, and source RT-event audit.
+- `build_event_corrected_trials.py`: non-destructive overlay of recovered
+  sub-144 trial labels onto the historical trial-order brain estimates; every
+  nonbehavioral column is required to remain unchanged.
 - `analyze_reviewer_behavior.R`: reviewer-requested mixed models, aggregate
   tables, and figures.
 - `audit_image_headers.py`: focal mask checksums, grids, and volumes.

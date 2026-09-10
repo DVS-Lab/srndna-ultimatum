@@ -1,4 +1,4 @@
 scope	evidence_level	responded_task_trials	companion_event_RT_present	companion_event_RT_missing	missing_percent	affected_runs	total_runs	detail
-all_responded_trials	curated_BIDS_events_only	6655	5724	931	13.989482	94	94	current derivative mirror verified for 92/94 runs; legacy production L1 audit pending
-responded_first_trial_of_block	curated_BIDS_events_only	805	0	805	100.000000	94	94	systematic block-first-trial source-event omission
+all_responded_trials	curated_BIDS_events_only	6654	5724	930	13.976555	94	94	current derivative mirror verified for 92/94 runs; legacy production L1 audit pending
+responded_first_trial_of_block	curated_BIDS_events_only	804	0	804	100.000000	94	94	systematic block-first-trial source-event omission
 responded_nonfirst_trials	curated_BIDS_events_only	5850	5724	126	2.153846	2	94	sub-143:126

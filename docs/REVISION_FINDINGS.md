@@ -10,9 +10,10 @@ authoritative production derivatives have been collected and checked.
 The draft response to Reviewer 1 Comment 1 says that the full fixed-effects
 model will be reported with a participant random intercept because the random
 offer slope did not converge. That is no longer the best-supported response.
-With the current manuscript dataset, R 4.5.2, lme4 2.0.1, centered offer, and
+With the event-corrected manuscript dataset, R 4.5.2, lme4 2.0.1, centered offer, and
 `bobyqa`, the intended `(1 + Offer | participant)` model converges without a
-singular fit. Five `allFit` optimizers agree.
+singular fit. Three of five `allFit` alternatives converge cleanly and agree;
+two NLopt alternatives retain convergence warnings.
 
 Suggested replacement:
 
@@ -21,12 +22,14 @@ Suggested replacement:
 > size and increasing the optimizer iteration budget. The model retained fixed
 > effects of Offer Size, Age Group, Partner Similarity, and all interactions,
 > with participant-specific intercepts and offer-size slopes. It converged
-> without a singular fit, and five optimizers produced nearly identical
-> estimates. The Offer Size × Age Group × Partner Similarity coefficient was
-> 0.0667 (SE = 0.0945, z = 0.705, p = .481, 95% CI [-0.1186, 0.2519]; 47
-> participants, 4,439 trials). A random-intercept-only robustness model led to
-> the same inferential conclusion (β = 0.0258, SE = 0.0923, z = 0.279,
-> p = .780, 95% CI [-0.1551, 0.2066]). We now report the intended
+> without a singular fit. Three of five alternative optimizers also converged
+> cleanly and produced nearly identical estimates; two NLopt alternatives
+> retained convergence warnings. The Offer Size × Age Group × Partner
+> Similarity coefficient was 0.1136 (SE = 0.0947, z = 1.200, p = .230,
+> 95% CI [-0.0720, 0.2991]; 47 participants, 4,438 trials). A
+> random-intercept-only robustness model led to the same inferential conclusion
+> (β = 0.0684, SE = 0.0915, z = 0.748, p = .455, 95% CI [-0.1109,
+> 0.2477]). We now report the intended
 > random-intercept and random-offer-slope model as primary and avoid
 > interpreting the nonsignificant interaction as evidence of equivalence.
 
@@ -34,23 +37,25 @@ Suggested replacement:
 
 ### Behavioral fairness sensitivity
 
-The tracked submitted score is reproducible to numerical precision. A unified
+The tracked submitted score is reproducible from the historical duplicated
+labels, but correcting sub-144 changes that participant's score from -0.2065
+to 0.4931. The tracked and corrected vectors correlate r = .981. A unified
 model with correlated participant interaction slopes is singular; an explicit
 uncorrelated random-effects model is nonsingular. Its fixed Offer × Similarity
-coefficient is -0.0530 (SE = 0.0622, z = -0.851, p = .395, 95% CI [-0.1750,
-0.0690]). Unified participant slopes correlate r = .672 with the submitted
+coefficient is -0.0342 (SE = 0.0622, z = -0.550, p = .582, 95% CI [-0.1561,
+0.0877]). Unified participant slopes correlate r = .669 with the corrected
 separate-model score. This supports reporting the unified quantity as a
 robustness check, not silently replacing the submitted imaging covariate.
 
-The submitted score does not differ detectably by age group: younger mean
--0.0419 (SD = 0.4640), older mean 0.0202 (SD = 0.6182), younger-minus-older
-difference -0.0621, 95% CI [-0.3882, 0.2641], Welch p = .702. Positive values
+The corrected score does not differ detectably by age group: younger mean
+-0.0209 (SD = 0.4930), older mean 0.0770 (SD = 0.6896), younger-minus-older
+difference -0.0979, 95% CI [-0.4564, 0.2607], Welch p = .584. Positive values
 mean a steeper offer-acceptance slope for similar than dissimilar partners;
 negative values mean the reverse. The standardized difference is Hedges'
-g = -0.11 (approximate 95% CI [-0.68, 0.46]).
+g = -0.16 (approximate 95% CI [-0.73, 0.40]).
 
 **Author decision pending:** First compare the estimands, scaling, shrinkage,
-distribution, age association, and r = .672 correspondence of the submitted
+distribution, age association, and r = .669 correspondence of the corrected
 and unified participant measures. Do not construct or run a new ECN group model
 unless that comparison supports it and the author decides it is scientifically
 useful. The behavioral correlation is not evidence of equivalence or neural
@@ -58,15 +63,15 @@ robustness.
 
 ### Missed trials and response time
 
-The 47-person sample contributes 6,768 trials. Participants missed 113 trials
-(1.67%): 37 among younger adults and 76 among older adults. Mean misses were
-1.48 (SD = 3.55) for younger and 3.45 (SD = 4.48) for older participants;
-younger-minus-older difference -1.97 trials, 95% CI [-4.38, 0.43], Welch
-p = .105. Partner identity for misses was reconstructed from the enclosing
+The 47-person sample contributes 6,768 trials. Participants missed 114 trials
+(1.68%): 37 among younger adults and 77 among older adults. Mean misses were
+1.48 (SD = 3.55) for younger and 3.50 (SD = 4.45) for older participants;
+younger-minus-older difference -2.02 trials, 95% CI [-4.41, 0.37], Welch
+p = .096. Partner identity for misses was reconstructed from the enclosing
 block because the BIDS miss row omits it.
 
-Mean response-selection latency was 0.392 s after choices appeared. The older
-group coefficient was -0.1215 s (SE = 0.0560, p = .035); the similarity effect
+Mean response-selection latency was 0.393 s after choices appeared. The older
+group coefficient was -0.1187 s (SE = 0.0556, p = .038); the similarity effect
 and age-by-similarity interaction were not detected. Treat this secondary
 result as descriptive/exploratory. The task source confirms that the partner,
 offer, and selected response remained visible through the approximately 3.5-s
@@ -74,12 +79,14 @@ epoch, so first-level task regressors do not isolate deliberation.
 
 ### RT nuisance-event construction: production audit pending
 
-The curated BIDS event files contain 6,655 responded task trials, but only
-5,724 matching `event_RT` rows. All 805 responded first trials of blocks lack
+The curated BIDS event files contain 6,654 responded task trials, but only
+5,724 matching `event_RT` rows. All 804 responded first trials of blocks lack
 the companion row. An additional 126 non-first omissions occur in sub-143;
-both of that participant's runs contain no `event_RT` rows at all. Thus 931
-responded trials (13.99%) lack the source row used by the RT 3-column
-conversion. The substantive task-event rows remain present for these trials.
+both of that participant's runs contain no `event_RT` rows at all. Thus 930
+responded trials (13.98%) lack the source row used by the RT 3-column
+conversion. The substantive task-event rows remain present for these trials;
+the retained sub-143 designs contain nonconstant RT regressors, so candidate
+EV-to-design matching is required before considering sub-143 affected.
 
 The first audit was accidentally run against the separate `srndna-ug` checkout
 and is not production evidence. Its 92/94 result is therefore excluded from

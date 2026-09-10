@@ -97,8 +97,8 @@ search mask, smoothness, and cluster tables are required.
 
 ## Known RT source-data issue
 
-The curated BIDS events contain 6,655 responded trials and 5,724 companion
-`event_RT` rows. All 805 responded first trials of blocks lack a companion RT
+The corrected curated BIDS events contain 6,654 responded trials and 5,724 companion
+`event_RT` rows. All 804 responded first trials of blocks lack a companion RT
 row, and sub-143 has another 126 omissions because neither run contains any
 `event_RT` rows. The substantive task events remain present. The Linux command
 above determines what entered the actual retained FEAT designs; it does not

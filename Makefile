@@ -5,7 +5,8 @@ test:
 
 reviewer-behavior:
 	bash code/run_logged.sh reviewer-task-events python3 code/audit_task_events.py
-	bash code/run_logged.sh reviewer-behavior Rscript code/analyze_reviewer_behavior.R
+	bash code/run_logged.sh reviewer-corrected-trials python3 code/build_event_corrected_trials.py
+	bash code/run_logged.sh reviewer-behavior Rscript code/analyze_reviewer_behavior.R --trials=results/reviewer/private/all_trials_brains_event_corrected.csv
 
 reviewer-imaging-audit:
 	bash code/run_logged.sh reviewer-image-headers python3 code/audit_image_headers.py

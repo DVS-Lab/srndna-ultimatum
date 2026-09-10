@@ -20,7 +20,7 @@ class ResultContractTests(unittest.TestCase):
         self.assertEqual(metrics["participants"], "47")
         self.assertEqual(metrics["runs"], "94")
         self.assertEqual(metrics["trials"], "6768")
-        self.assertEqual(metrics["missed_trials"], "113")
+        self.assertEqual(metrics["missed_trials"], "114")
 
     def test_primary_model_contract(self) -> None:
         target = next(
@@ -30,14 +30,18 @@ class ResultContractTests(unittest.TestCase):
             and row["term"] == "offer_c:age_groupolder:similaritysimilar"
         )
         self.assertEqual(target["n_participants"], "47")
-        self.assertEqual(target["n_trials"], "4439")
+        self.assertEqual(target["n_trials"], "4438")
         self.assertEqual(target["singular"], "FALSE")
-        self.assertAlmostEqual(float(target["estimate"]), 0.06665, places=4)
+        self.assertAlmostEqual(float(target["estimate"]), 0.11358, places=4)
 
         optimizers = rows("primary_optimizer_diagnostics.tsv")
         self.assertEqual(len(optimizers), 5)
-        self.assertTrue(all(row["converged"] == "TRUE" for row in optimizers))
+        converged = [row for row in optimizers if row["converged"] == "TRUE"]
+        self.assertEqual(len(converged), 3)
         self.assertTrue(all(row["singular"] == "FALSE" for row in optimizers))
+        self.assertTrue(
+            all(abs(float(row["estimate"]) - float(target["estimate"])) < 1e-4 for row in converged)
+        )
 
     def test_focal_cluster_contract(self) -> None:
         clusters = {row["result_id"]: row for row in rows("focal_cluster_inventory.tsv")}

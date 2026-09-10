@@ -12,7 +12,7 @@ echo "PASS: active shell syntax"
 PYTHONPYCACHEPREFIX="${TMPDIR:-/tmp}/srndna-ug-pycache" \
     python3 -m py_compile "$script_dir/audit_task_events.py" "$script_dir/audit_image_headers.py" \
     "$script_dir/audit_l1_designs.py" "$script_dir/audit_l3_template_inputs.py" \
-    "$script_dir/audit_server_rt_events.py"
+    "$script_dir/audit_server_rt_events.py" "$script_dir/build_event_corrected_trials.py"
 echo "PASS: active Python syntax"
 
 if command -v Rscript >/dev/null 2>&1; then
@@ -26,6 +26,7 @@ cd "$project_root"
 python3 -m unittest discover -s tests -p 'test_*.py' -v
 
 python3 "$script_dir/audit_task_events.py"
+python3 "$script_dir/build_event_corrected_trials.py"
 
 if command -v fslhd >/dev/null 2>&1 && command -v fslstats >/dev/null 2>&1; then
     python3 "$script_dir/audit_image_headers.py"

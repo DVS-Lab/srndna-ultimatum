@@ -37,7 +37,7 @@ dir.create(private_dir, recursive = TRUE, showWarnings = FALSE)
 dir.create(figure_dir, recursive = TRUE, showWarnings = FALSE)
 
 write_tsv <- function(x, path) {
-  write.table(x, path, sep = "\t", row.names = FALSE, quote = FALSE, na = "")
+  write.table(x, path, sep = "\t", row.names = FALSE, quote = FALSE, na = "NA")
 }
 
 wald_table <- function(model, model_id, analysis_status, n_subjects, n_trials) {
@@ -61,7 +61,7 @@ wald_table <- function(model, model_id, analysis_status, n_subjects, n_trials) {
     n_participants = n_subjects,
     n_trials = n_trials,
     singular = isSingular(model, tol = 1e-4),
-    convergence_message = if (is.null(messages)) "" else paste(messages, collapse = " | "),
+    convergence_message = if (is.null(messages)) NA_character_ else paste(messages, collapse = " | "),
     check.names = FALSE
   )
 }
@@ -75,7 +75,14 @@ participants$age_group <- factor(
   levels = c("younger", "older")
 )
 
-trials <- read_csv_clean(file.path(data_dir, "all_trials_brains.csv"))
+trials_path <- file.path(data_dir, "all_trials_brains.csv")
+trials_arg <- args[grepl("^--trials=", args)]
+if (length(trials_arg) == 1) {
+  candidate <- sub("^--trials=", "", trials_arg)
+  if (!grepl("^/", candidate)) candidate <- file.path(project_root, candidate)
+  trials_path <- normalizePath(candidate, mustWork = TRUE)
+}
+trials <- read_csv_clean(trials_path)
 trials <- merge(trials, participants[, c("subjID", "age_group")], by = "subjID")
 human <- subset(trials, missed == 0 & human == 1)
 human$accept <- as.integer(as.character(human$accept))
@@ -85,7 +92,7 @@ human$offer_c <- human$offer - mean(human$offer)
 human$subjID <- factor(human$subjID)
 human$age_group <- factor(human$age_group, levels = c("younger", "older"))
 
-stopifnot(nlevels(human$subjID) == 47, nrow(human) == 4439)
+stopifnot(nlevels(human$subjID) == 47, nrow(human) == 4438)
 
 glmer_control <- glmerControl(optimizer = "bobyqa", optCtrl = list(maxfun = 200000))
 
@@ -104,8 +111,8 @@ primary_intercept <- glmer(
 )
 
 primary_table <- rbind(
-  wald_table(primary_maximal, "primary_maximal", "revision-refit-of-intended-model", 47, nrow(human)),
-  wald_table(primary_intercept, "random_intercept_robustness", "revision-robustness", 47, nrow(human))
+  wald_table(primary_maximal, "primary_maximal", "revision-event-corrected-refit", 47, nrow(human)),
+  wald_table(primary_intercept, "random_intercept_robustness", "revision-event-corrected-robustness", 47, nrow(human))
 )
 write_tsv(primary_table, file.path(table_dir, "primary_acceptance_models.tsv"))
 
@@ -144,7 +151,7 @@ dissimilar_slopes <- conditional_offer_slopes(dissimilar_fit, "dissimilar")
 names(similar_slopes)[2] <- "similar_offer_slope_rederived"
 names(dissimilar_slopes)[2] <- "dissimilar_offer_slope_rederived"
 rederived <- merge(similar_slopes, dissimilar_slopes, by = "subjID")
-rederived$submitted_metric_rederived <- rederived$similar_offer_slope_rederived - rederived$dissimilar_offer_slope_rederived
+rederived$corrected_separate_model_metric <- rederived$similar_offer_slope_rederived - rederived$dissimilar_offer_slope_rederived
 
 submitted <- read_csv_clean(file.path(data_dir, "in_out_sensitivity_indiv_logit.csv"))
 submitted <- submitted[, c("subjID", "in_out_indiv_logit")]
@@ -173,22 +180,22 @@ unified_random <- ranef(unified)$subjID
 interaction_column <- grep("offer_c:similarity_num", names(unified_random), value = TRUE)
 stopifnot(length(interaction_column) == 1)
 sensitivity$unified_interaction_slope <- fixef(unified)["offer_c:similarity_num"] + unified_random[as.character(sensitivity$subjID), interaction_column]
-sensitivity$tracked_minus_rederived <- sensitivity$submitted_metric_tracked - sensitivity$submitted_metric_rederived
+sensitivity$tracked_minus_corrected <- sensitivity$submitted_metric_tracked - sensitivity$corrected_separate_model_metric
 write_tsv(sensitivity, file.path(private_dir, "fairness_sensitivity_by_participant.tsv"))
 
 sensitivity_diagnostics <- data.frame(
   metric = c(
-    "tracked_vs_rederived_correlation",
-    "tracked_vs_rederived_max_absolute_difference",
-    "unified_vs_submitted_correlation",
+    "tracked_vs_corrected_correlation",
+    "tracked_vs_corrected_max_absolute_difference",
+    "unified_vs_corrected_correlation",
     "correlated_unified_model_singular",
     "uncorrelated_unified_model_singular",
     "unified_random_interaction_sd"
   ),
   value = c(
-    cor(sensitivity$submitted_metric_tracked, sensitivity$submitted_metric_rederived),
-    max(abs(sensitivity$tracked_minus_rederived)),
-    cor(sensitivity$unified_interaction_slope, sensitivity$submitted_metric_tracked),
+    cor(sensitivity$submitted_metric_tracked, sensitivity$corrected_separate_model_metric),
+    max(abs(sensitivity$tracked_minus_corrected)),
+    cor(sensitivity$unified_interaction_slope, sensitivity$corrected_separate_model_metric),
     isSingular(unified_correlated, tol = 1e-4),
     isSingular(unified, tol = 1e-4),
     as.data.frame(VarCorr(unified))$sdcor[
@@ -198,10 +205,11 @@ sensitivity_diagnostics <- data.frame(
 )
 write_tsv(sensitivity_diagnostics, file.path(table_dir, "fairness_sensitivity_diagnostics.tsv"))
 
-# Participant-level age comparison of the submitted sensitivity measure.
-sensitivity_age <- t.test(submitted_metric_tracked ~ age_group, data = sensitivity)
-younger_values <- sensitivity$submitted_metric_tracked[sensitivity$age_group == "younger"]
-older_values <- sensitivity$submitted_metric_tracked[sensitivity$age_group == "older"]
+# Participant-level age comparison of the event-corrected version of the
+# submitted separate-model sensitivity estimand.
+sensitivity_age <- t.test(corrected_separate_model_metric ~ age_group, data = sensitivity)
+younger_values <- sensitivity$corrected_separate_model_metric[sensitivity$age_group == "younger"]
+older_values <- sensitivity$corrected_separate_model_metric[sensitivity$age_group == "older"]
 n_y <- length(younger_values)
 n_o <- length(older_values)
 pooled_sd <- sqrt(((n_y - 1) * var(younger_values) + (n_o - 1) * var(older_values)) / (n_y + n_o - 2))
@@ -210,13 +218,13 @@ hedges_correction <- 1 - 3 / (4 * (n_y + n_o) - 9)
 hedges_g <- hedges_correction * cohens_d
 hedges_g_se <- hedges_correction * sqrt((n_y + n_o) / (n_y * n_o) + cohens_d^2 / (2 * (n_y + n_o - 2)))
 sensitivity_group_summary <- aggregate(
-  submitted_metric_tracked ~ age_group,
+  corrected_separate_model_metric ~ age_group,
   data = sensitivity,
   FUN = function(x) c(n = length(x), mean = mean(x), sd = sd(x), min = min(x), max = max(x))
 )
 sensitivity_group_summary <- data.frame(
   age_group = sensitivity_group_summary$age_group,
-  as.data.frame(sensitivity_group_summary$submitted_metric_tracked),
+  as.data.frame(sensitivity_group_summary$corrected_separate_model_metric),
   check.names = FALSE
 )
 write_tsv(sensitivity_group_summary, file.path(table_dir, "fairness_sensitivity_age_summary.tsv"))
@@ -322,7 +330,7 @@ acceptance_plot <- ggplot(prediction_grid, aes(x = offer, y = predicted_probabil
   theme(legend.position = "top")
 ggsave(file.path(figure_dir, "acceptance_curves.png"), acceptance_plot, width = 7.2, height = 4.2, dpi = 300)
 
-sensitivity_plot <- ggplot(sensitivity, aes(x = age_group, y = submitted_metric_tracked, color = age_group)) +
+sensitivity_plot <- ggplot(sensitivity, aes(x = age_group, y = corrected_separate_model_metric, color = age_group)) +
   geom_violin(aes(fill = age_group), alpha = 0.15, color = NA, width = 0.8) +
   geom_boxplot(width = 0.18, outlier.shape = NA, alpha = 0.25) +
   geom_jitter(position = position_jitter(width = 0.08, height = 0, seed = 20260907), size = 2, alpha = 0.75) +

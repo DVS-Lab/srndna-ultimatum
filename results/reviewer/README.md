@@ -11,40 +11,39 @@ make reviewer-behavior
 
 ## Headline behavioral results
 
-- The intended logistic mixed model with participant-specific intercepts and
-  offer-size slopes converges without singularity in R 4.5.2 / lme4 2.0.1.
-  The Offer x Age Group x Partner Similarity coefficient
-  is 0.06665 (SE 0.09452, z = 0.705, p = .481, Wald 95% CI [-0.11861,
-  0.25191]; 47 participants, 4,439 trials). Five `allFit` optimizers agree on
-  the estimate and all converge without singularity.
+- The event-corrected intended logistic mixed model with participant-specific
+  intercepts and offer-size slopes converges without singularity in R 4.5.2 /
+  lme4 2.0.1. The Offer x Age Group x Partner Similarity coefficient is
+  0.11358 (SE 0.09468, z = 1.200, p = .230, Wald 95% CI [-0.07198,
+  0.29915]; 47 participants, 4,438 trials). Three of five `allFit` alternatives
+  converge cleanly and agree; two NLopt alternatives retain warnings.
 - A random-intercept robustness model also yields no three-way interaction:
-  beta = 0.02579, SE = 0.09227, z = 0.279, p = .780, 95% CI [-0.15506,
-  0.20663]. It should not replace the better-supported intended slope model.
-- The submitted two-model fairness-sensitivity score is exactly reproducible
-  up to numerical tolerance (r > .999999999; maximum absolute discrepancy
-  4.2e-6). A unified uncorrelated random-effects model is nonsingular; its
-  fixed Offer x Similarity estimate is -0.05299 (SE 0.06223, z = -0.851,
-  p = .395, 95% CI [-0.17496, 0.06899]). The participant interaction slopes
-  correlate r = .672 with the submitted score. The corresponding correlated
-  random-effects fit is singular.
-- The submitted fairness-sensitivity score does not differ detectably by age
-  group (younger-minus-older mean difference -0.0621, 95% CI [-0.3882,
-  0.2641], Welch p = .702). Positive scores mean that acceptance changes more
+  beta = 0.06840, SE = 0.09150, z = 0.748, p = .455, 95% CI [-0.11093,
+  0.24773]. It should not replace the better-supported intended slope model.
+- The corrected two-model fairness-sensitivity score differs from the tracked
+  submitted vector only for sub-144, whose value changes from -0.20647 to
+  0.49305. The vectors correlate r = .981. A unified uncorrelated random-effects
+  model is nonsingular; its fixed Offer x Similarity estimate is -0.03423
+  (SE 0.06219, z = -0.550, p = .582, 95% CI [-0.15612, 0.08766]). The
+  participant interaction slopes correlate r = .669 with the corrected score.
+- The corrected fairness-sensitivity score does not differ detectably by age
+  group (younger-minus-older mean difference -0.0979, 95% CI [-0.4564,
+  0.2607], Welch p = .584). Positive scores mean that acceptance changes more
   steeply with offer for similar than dissimilar partners; negative scores mean
   the reverse. A score of zero means no partner difference in offer slope. The
-  standardized difference is Hedges' g = -0.11 (approximate 95% CI [-0.68,
-  0.46]).
-- There are 113 missed trials among 6,768 trials (1.67%). Older participants
-  missed 3.45 trials on average versus 1.48 for younger participants; the
-  participant-level difference is imprecise (younger-minus-older -1.97, 95%
-  CI [-4.38, 0.43], Welch p = .105).
-- Mean response-selection latency is 0.392 s after the response choices appear.
-  The older-group coefficient is -0.1215 s (SE 0.0560, p = .035) in the
+  standardized difference is Hedges' g = -0.16 (approximate 95% CI [-0.73,
+  0.40]).
+- There are 114 missed trials among 6,768 trials (1.68%). Older participants
+  missed 3.50 trials on average versus 1.48 for younger participants; the
+  participant-level difference is imprecise (younger-minus-older -2.02, 95%
+  CI [-4.41, 0.37], Welch p = .096).
+- Mean response-selection latency is 0.393 s after the response choices appear.
+  The older-group coefficient is -0.1187 s (SE 0.0556, p = .038) in the
   prespecified reviewer model; neither the similarity main effect nor the age
   interaction is detectable. This secondary analysis should be presented as
   descriptive/exploratory rather than a new central claim.
-- The curated BIDS files contain 6,655 responded task trials but only 5,724
-  companion `event_RT` rows. All 805 responded first trials of blocks lack the
+- The curated BIDS files contain 6,654 responded task trials but only 5,724
+  companion `event_RT` rows. All 804 responded first trials of blocks lack the
   RT row; 126 additional omissions are the non-first trials in both sub-143
   runs, which contain no `event_RT` rows. Production 3-column EV and FEAT
   verification is required before interpreting the modeled consequence.
@@ -57,6 +56,10 @@ make reviewer-behavior
 
 ## Output map
 
+- `tables/sub144_trial_metadata_correction.tsv`: checksums and aggregate counts
+  for the non-destructive overlay of recovered sub-144 labels onto the
+  historical trial-order brain estimates. The corrected row-level file remains
+  ignored under `private/`.
 - `tables/primary_acceptance_models.tsv`: fixed effects, uncertainty, sample
   sizes, convergence, and singularity for the primary and robustness models.
 - `tables/primary_optimizer_diagnostics.tsv`: primary-model agreement across
