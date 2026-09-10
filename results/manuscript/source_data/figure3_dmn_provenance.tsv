@@ -1,0 +1,13 @@
+artifact	value
+rendered_corrected_design	results/reviewer/l3_repair_designs/dmn-age/reported-covariates-corrected/design.fsf
+rendered_corrected_design_sha256	24ca411b641832b72490539ff79baff2e80d961103b94844f62180822ade1141
+corrected_group_model	/ZPOOL/data/scratch/srndna-ultimatum-l3-repair-v2/outputs/dmn-age_reported-covariates-corrected.gfeat/cope1.feat
+contrast	zstat3: younger > older
+participant_image	L2 cope7: in_p-out_p (similar-minus-dissimilar offer modulation)
+cluster_label	1
+cluster_voxels	29
+cluster_mask_sha256	d4fc061dad517d5ddc3df3a2cdce2efaed238609c040ba34810f8008e940f081
+cluster_zstat_sha256	de3cd7bc4c2d750ac160abc83f58e8317d748021ef91972373834e22cd03fa6d
+participant_rows	47
+inference	FLAME 1+2; Z > 3.1; cluster-corrected p < .05
+display_warning	participant values are descriptive because the cluster is group-selected
