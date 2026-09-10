@@ -24,6 +24,11 @@
 - `audit_ultimatum_event_designs.py`: lightweight `feat_model`-only matching of
   retained sub-143/sub-144 activation matrices to current and historical event
   candidates. It does not fit image data or modify retained FEAT directories.
+- `prepare_sub144_imaging_repair.py`: render six corrected sub-144 L1 FSFs and
+  three dependent L2 FSFs in a new scratch tree using the retained production
+  FSFs, existing nPPI time series, and companion-RT policy.
+- `run_ultimatum_repair_jobs.py`: guarded, bounded-concurrency execution of a
+  prepared repair manifest. It refuses to overwrite an existing output.
 - `audit_l1_designs.py`: aggregate rank, conditioning, and column-correlation
   diagnostics for retained activation and nPPI design matrices.
 - `audit_server_imaging.sh`: read-only collection of compact production

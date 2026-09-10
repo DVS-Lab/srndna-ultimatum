@@ -72,6 +72,59 @@ zero. Commit and push the resulting compact TSV; the generated candidate FSFs,
 EVs, and matrices remain in scratch. This result decides whether sub-143 needs
 any refit and which RT construction preserves the submitted model.
 
+The completed audit establishes that both sub-143 runs exactly match their own
+substantive trial rows, whereas both sub-144 runs exactly match the historical
+duplicated events with the companion-RT construction. Therefore sub-143 is not
+part of the identity repair. The minimal corrected analysis uses the recovered
+sub-144 events but retains the companion-RT policy; changing RT policy is a
+separate whole-sample sensitivity analysis.
+
+## Prepare the isolated sub-144 L1/L2 repair
+
+Preparation is noncomputational and refuses a nonempty work root. It reuses
+the rendered production FSFs as model definitions, changes only required
+paths and corrected EVs, and leaves every retained FEAT output untouched.
+
+```bash
+REPOSITORY=/ZPOOL/data/projects/srndna-ultimatum
+DATASET_ROOT=/ZPOOL/data/datasets/ds003745-work
+REPAIR_ROOT=/ZPOOL/data/scratch/srndna-ultimatum-sub144-repair-v1
+
+cd "$REPOSITORY"
+python3 code/prepare_sub144_imaging_repair.py \
+  --dataset-root "$DATASET_ROOT" \
+  --production-fsl-root "$REPOSITORY/derivatives/fsl" \
+  --work-root "$REPAIR_ROOT"
+
+python3 code/run_ultimatum_repair_jobs.py \
+  --manifest "$REPAIR_ROOT/repair_jobs.tsv" \
+  --stage l1 --jobs 2 --dry-run
+```
+
+Stop after this dry run until the selected BOLD, confound, event, production
+FSF, and retained nPPI time-series paths have been inspected. The eventual L1
+execution uses six jobs (two runs each of activation, DMN nPPI, and ECN nPPI):
+
+```bash
+python3 code/run_ultimatum_repair_jobs.py \
+  --manifest "$REPAIR_ROOT/repair_jobs.tsv" \
+  --stage l1 --jobs 2
+```
+
+Only after all L1 completion checks pass should the three L2 jobs run:
+
+```bash
+python3 code/run_ultimatum_repair_jobs.py \
+  --manifest "$REPAIR_ROOT/repair_jobs.tsv" \
+  --stage l2 --jobs 2
+```
+
+The runner writes logs inside the repair root, creates only the identity
+registration links expected by the historical standard-space workflow, and
+never deletes or replaces an output. Use `--resume` only to skip jobs whose
+required completion images already exist; an incomplete existing output is a
+hard stop.
+
 ## Locate rendered 47-participant group designs
 
 ```bash
