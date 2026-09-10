@@ -1,0 +1,67 @@
+filename	/ZPOOL/data/projects/srndna-ug/derivatives/fsl/L3_SANS/manu_L3/L3_task-ug_type-nppi-ecn_cnum-07_cname-in_p-out_p_twogroup_wCovs_in-out_sensitivity2.gfeat/cope1.feat/thresh_zstat2.nii.gz
+
+sizeof_hdr	348
+data_type	FLOAT32
+dim0		3
+dim1		66
+dim2		78
+dim3		61
+dim4		1
+dim5		1
+dim6		1
+dim7		1
+vox_units	mm
+time_units	s
+datatype	16
+nbyper		4
+bitpix		32
+pixdim0		1.000000
+pixdim1		2.973000
+pixdim2		2.973000
+pixdim3		3.220000
+pixdim4		2.020000
+pixdim5		1.000000
+pixdim6		1.000000
+pixdim7		1.000000
+vox_offset	352
+cal_max		0.000000
+cal_min		0.000000
+scl_slope	1.000000
+scl_inter	0.000000
+phase_dim	0
+freq_dim	0
+slice_dim	0
+slice_name	Unknown
+slice_code	0
+slice_start	0
+slice_end	0
+slice_duration	0.000000
+toffset		0.000000
+intent		Z-score
+intent_code	5
+intent_name	
+intent_p1	0.000000
+intent_p2	0.000000
+intent_p3	0.000000
+qform_name	MNI_152
+qform_code	4
+qto_xyz:1	2.973000 0.000000 0.000000 -96.500000 
+qto_xyz:2	0.000000 2.973000 0.000000 -132.500000 
+qto_xyz:3	0.000000 0.000000 3.220000 -78.500000 
+qto_xyz:4	0.000000 0.000000 0.000000 1.000000 
+qform_xorient	Left-to-Right
+qform_yorient	Posterior-to-Anterior
+qform_zorient	Inferior-to-Superior
+sform_name	MNI_152
+sform_code	4
+sto_xyz:1	2.973000 0.000000 0.000000 -96.500000 
+sto_xyz:2	0.000000 2.973000 0.000000 -132.500000 
+sto_xyz:3	0.000000 0.000000 3.220000 -78.500000 
+sto_xyz:4	0.000000 0.000000 0.000000 1.000000 
+sform_xorient	Left-to-Right
+sform_yorient	Posterior-to-Anterior
+sform_zorient	Inferior-to-Superior
+file_type	NIFTI-1+
+file_code	1
+descrip		2203.12-dirty 2024-02-01T16:17:47+00:00
+aux_file	

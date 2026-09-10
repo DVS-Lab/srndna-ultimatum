@@ -1,0 +1,9 @@
+collected_utc=2026-09-10T11:49:13Z
+fmriprep_root=/ZPOOL/data/datasets/ds003745-work/derivatives/fmriprep
+group_dir=/ZPOOL/data/projects/srndna-ug/derivatives/fsl/L3_SANS/archive/L3_task-ug_type-act_cnum-07_cname-in_p-out_p_twogroup_wCovs_in-out_norm2_logit.gfeat/cope1.feat
+/usr/local/fsl/share/fsl/bin/fslhd
+/usr/local/fsl/share/fsl/bin/feat
+FSLDIR:  /usr/local/fsl
+Version: 6.0.7.17
+FSLDIR_version=6.0.7.17
+Python 3.11.9

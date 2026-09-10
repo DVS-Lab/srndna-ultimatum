@@ -1,0 +1,9 @@
+collected_utc=2026-09-10T11:49:07Z
+fmriprep_root=/ZPOOL/data/datasets/ds003745-work/derivatives/fmriprep
+group_dir=/ZPOOL/data/projects/srndna-ultimatum/derivatives/fsl/L3_model-02_task-ultimatum_n47_flame1+2/L3_task-ultimatum_type-nppi-dmn_cnum-07_cname-in_p-out_p_twogroup_wCovs.gfeat/cope1.feat
+/usr/local/fsl/share/fsl/bin/fslhd
+/usr/local/fsl/share/fsl/bin/feat
+FSLDIR:  /usr/local/fsl
+Version: 6.0.7.17
+FSLDIR_version=6.0.7.17
+Python 3.11.9

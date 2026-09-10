@@ -1,0 +1,5 @@
+/ZPOOL/data/datasets/ds003745-work/derivatives/fmriprep/dataset_description.json
+/ZPOOL/data/datasets/ds003745-work/derivatives/fmriprep/logs/CITATION.bib
+/ZPOOL/data/datasets/ds003745-work/derivatives/fmriprep/logs/CITATION.html
+/ZPOOL/data/datasets/ds003745-work/derivatives/fmriprep/logs/CITATION.md
+/ZPOOL/data/datasets/ds003745-work/derivatives/fmriprep/logs/CITATION.tex
