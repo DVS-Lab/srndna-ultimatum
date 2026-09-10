@@ -30,10 +30,13 @@ cluster-corrected p = .0138, Zmax = 4.07, peak MNI [-13.3, 34.0,
 cluster-corrected p < .05 and included sex, tSNR, mean framewise displacement,
 and event-corrected task-wide mean response time as covariates (N = 47).
 (C) Participant-level values extracted from the significant cluster are shown
-for visualization only; black points and error bars denote group means and
-95% confidence intervals. Because the cluster was selected by the group
-contrast, these extracted values are descriptive and are not a separate
-inferential test.
+after residualizing the sex, tSNR, mean-framewise-displacement, and response-
+time columns of the corrected group design; black points and error bars denote
+age-group means and 95% confidence intervals. This ordinary-least-squares
+adjustment is used only to visualize the direction of the covariate-adjusted
+contrast. Because the cluster was selected by the group contrast, these values
+are descriptive and are not a separate inferential test; inference comes from
+the voxelwise FLAME 1+2 model.
 
 ## Removed submitted figure
 

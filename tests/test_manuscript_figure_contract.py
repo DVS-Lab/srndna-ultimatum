@@ -35,6 +35,20 @@ class ManuscriptFigureContractTests(unittest.TestCase):
         example = Path("/tmp/sub-101/example.gfeat/cope7.feat/stats/cope1.nii.gz")
         self.assertEqual(module.participant_from_path(example), "sub-101")
 
+    def test_corrected_dmn_matrix_is_47_by_6(self):
+        path = ROOT / (
+            "results/reviewer/l3_repair_designs/dmn-age/"
+            "reported-covariates-corrected/design.mat"
+        )
+        lines = path.read_text(encoding="utf-8").splitlines()
+        matrix = [
+            line.split()
+            for line in lines[lines.index("/Matrix") + 1 :]
+            if line.strip()
+        ]
+        self.assertEqual(len(matrix), 47)
+        self.assertTrue(all(len(row) == 6 for row in matrix))
+
     def test_final_result_set_has_only_supported_revision_dispositions(self):
         path = ROOT / "results/manuscript/tables/final_result_set.tsv"
         with path.open(encoding="utf-8", newline="") as stream:
@@ -45,6 +59,25 @@ class ManuscriptFigureContractTests(unittest.TestCase):
         self.assertIn("Retain", rows["dmn_age_similarity"]["revision_disposition"])
         self.assertIn("Remove", rows["ecn_fairness_sensitivity"]["revision_disposition"])
         self.assertIn("do not add", rows["activation_norm_proxy"]["revision_disposition"])
+
+    def test_corrected_dmn_plot_data_has_expected_direction(self):
+        path = ROOT / "results/manuscript/source_data/figure3_dmn_plot_data.tsv"
+        with path.open(encoding="utf-8", newline="") as stream:
+            rows = list(csv.DictReader(stream, delimiter="\t"))
+        self.assertEqual(len(rows), 47)
+        by_group = {
+            group: [
+                float(row["nuisance_adjusted_for_display"])
+                for row in rows
+                if row["age_group"] == group
+            ]
+            for group in ("younger", "older")
+        }
+        self.assertEqual(len(by_group["younger"]), 25)
+        self.assertEqual(len(by_group["older"]), 22)
+        younger_mean = sum(by_group["younger"]) / len(by_group["younger"])
+        older_mean = sum(by_group["older"]) / len(by_group["older"])
+        self.assertGreater(younger_mean, older_mean)
 
 
 if __name__ == "__main__":

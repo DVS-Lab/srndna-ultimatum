@@ -51,4 +51,7 @@ python3 code/plot_manuscript_figures.py
 
 Participant values in Figure 3 are descriptive because the displayed cluster
 was selected by the group analysis. Inferential reporting must use the
-whole-brain FLAME 1+2 result, not a test on the extracted values.
+whole-brain FLAME 1+2 result, not a test on the extracted values. The plotting
+script writes `source_data/figure3_dmn_plot_data.tsv`, retaining both the raw
+cope 7 extraction and an ordinary-least-squares nuisance-adjusted display
+value derived from the exact corrected six-column design matrix.
