@@ -1,4 +1,4 @@
-.PHONY: test reviewer-behavior reviewer-imaging-audit
+.PHONY: test reviewer-behavior reviewer-imaging-audit manuscript-figures
 
 test:
 	bash code/validate_workflow.sh
@@ -13,3 +13,6 @@ reviewer-imaging-audit:
 	bash code/run_logged.sh reviewer-l3-template-inputs python3 code/audit_l3_template_inputs.py
 	bash code/run_logged.sh reviewer-l3-designs Rscript code/audit_l3_designs.R
 	bash code/run_logged.sh reviewer-roi-influence Rscript code/audit_roi_influence.R
+
+manuscript-figures:
+	python3 code/plot_manuscript_figures.py

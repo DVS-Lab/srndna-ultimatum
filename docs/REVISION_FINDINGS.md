@@ -2,8 +2,26 @@
 
 This file translates the completed repository audit into submission-facing
 changes. It is a working author aid, not a reviewer response ready for upload.
-Items labeled **server pending** must remain bracketed in the response until the
-authoritative production derivatives have been collected and checked.
+The focal corrected group analyses have now completed. The fully corrected
+models—not the image-only provenance reruns—define the revision endpoint.
+
+## Final corrected imaging endpoint
+
+- The DMN age-group result is confirmed after correcting sub-144 and the
+  reported group covariates: 29 voxels, cluster-corrected p = .0138,
+  Zmax = 4.07, peak MNI [-13.3, 34.0, 27.8]. It replaces the submitted
+  26-voxel result and remains Figure 3.
+- The corrected ECN sensitivity model contains no significant clusters in any
+  of its eight contrasts. The ECN claim and submitted Figure 4 must be removed.
+  The spatially overlapping image-only result is a provenance diagnostic, not
+  a third reportable analysis.
+- The corrected activation/norm-proxy audit contains a significant focal
+  cluster, but that model was not a headline result in the submitted
+  manuscript. It remains documented in the audit and is not promoted into the
+  revision as a new post hoc claim.
+- The revised main figure set therefore contains the task schematic, corrected
+  behavioral predictions, and corrected DMN result. See
+  `results/manuscript/README.md`.
 
 ## Highest priority correction to the current draft
 
@@ -58,10 +76,10 @@ mean a steeper offer-acceptance slope for similar than dissimilar partners;
 negative values mean the reverse. The standardized difference is Hedges'
 g = -0.16 (approximate 95% CI [-0.73, 0.40]).
 
-The corrected ECN repair retains the submitted two-model estimand rather than
-substituting the unified slope. The unified model remains a behavioral
-robustness check; its r = .669 correspondence is not evidence of equivalence or
-neural robustness.
+The corrected ECN repair retained the submitted two-model estimand rather than
+substituting the unified slope. No ECN cluster survives that fully corrected
+model. The unified model remains a behavioral robustness check; its r = .669
+correspondence is not evidence of equivalence or neural robustness.
 
 The submitted activation `norm2_logit` covariate is also reconstructed. It is
 the difference in participant random intercepts from separate similar and
@@ -201,26 +219,21 @@ author-pending and must not redefine the primary result.
   numerical rounding. The activation production design files likewise exactly
   match the committed `norm2_logit` companions.
 
-## Remaining server items that must not be filled by inference
+## Remaining optional server audits
 
 1. Retain the exact fMRIPrep 21.0.2 preprocessing boilerplate. The two affected
    sub-144 OpenNeuro BOLD files are byte-identical to their surviving
    `srndna-ug` copies, closing input identity for the repair. A whole-sample
    checksum inventory would strengthen general provenance but is not required
    to rerun sub-144.
-2. Corrected image-only and reported-covariates-corrected L3 results after the
-   guarded scratch jobs complete, including existing main, within-age simple,
-   and social-versus-computer contrasts. The corrected-covariate designs use
-   event-corrected task-wide mean RT, matching the manuscript, and corrected
-   fairness covariates where applicable.
-3. Interpret the production RT vector cautiously: it correlates more closely
+2. Interpret the production RT vector cautiously: it correlates more closely
    with historical participant median RT than with task-wide mean RT and is not
    an affine rescaling of the reported mean quantity. Preserve it only in the
    explicitly labeled image-only provenance reruns.
-4. Exact behavior of robust FLAME outlier deweighting in the production FSL
+3. Exact behavior of robust FLAME outlier deweighting in the production FSL
    version, including compatibility, settings, and diagnostic outputs; do not
    run it without author approval.
-5. An inventory classifying main/simple/computer-effect requests as existing,
+4. An inventory classifying main/simple/computer-effect requests as existing,
    descriptive, genuinely new, or not scientifically recommended.
 
 Use `docs/SERVER_IMAGING_AUDIT.md` to collect the evidence. Do not run the
@@ -237,7 +250,8 @@ tracked `L3stats_SANS.sh`; its current FSF redirection is defective.
 - Replace compensation, reorganization, and adaptive-recalibration claims with
   descriptive age-related connectivity differences. Compensation may be named
   only as a future hypothesis.
-- Describe DMN and ECN effects as small corrected regional clusters and include
-  the full inference details once recovered.
+- Describe the DMN effect as a small corrected regional cluster and report the
+  full inference details. Remove the unsupported ECN effect rather than
+  describing the image-only provenance result.
 - Present comparable behavior and differing connectivity as co-occurring
   observations, not evidence that connectivity preserved behavior.

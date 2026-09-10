@@ -137,6 +137,13 @@ remain unchanged; the exact rendered replacements are collected below.
 contains the exact rendered FSF/matrix/contrast/group bundles plus checksums;
 the much larger GFEAT outputs remain under scratch and untracked.
 
+The completed corrected endpoint is summarized in
+`results/manuscript/tables/final_result_set.tsv`. The DMN effect survives with
+corrected statistics; the fully corrected ECN model has no significant
+clusters and the ECN claim/Figure 4 are removed. Image-only reruns remain
+forensic provenance checks only. The final three-figure build and its compact
+source-data export are documented in `results/manuscript/README.md`.
+
 Participant-level event, sensitivity, rating, and completeness tables are
 written to the ignored `private/` directory. They use study identifiers but no
 direct identifiers and remain local unless their release is separately
