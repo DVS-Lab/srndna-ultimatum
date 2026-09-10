@@ -61,6 +61,15 @@ paper-specific L3/SANS scripts and templates were edited from 2024-08 through
 (2025-08-12). The 15 current top-level L3 templates from that working tree are
 already preserved under `templates/later_working_tree/` for comparison.
 
+The three submitted focal masks are binary derivatives rather than untouched
+FSL `cluster_mask_zstat` files: their values are 0/1, while their copied image
+headers retain FSL's Z-score intent and the `2203.12` build description. Git
+history in `srndna-ug` adds the DMN, ECN, and activation masks on 2025-04-10,
+2025-04-11, and 2025-04-12, respectively. Consequently, a compressed-file
+checksum mismatch is expected if a labeled cluster was selected and binarized.
+Production provenance requires an exact labeled-voxel-support match, not merely
+a similar location or visual appearance.
+
 The legacy SANS shell scripts are not safe to copy wholesale. They combine
 hard-coded output naming, unconditional removal of partial results, optional
 `randomise` execution, and—in one version—a broken `sed` redirection. Their

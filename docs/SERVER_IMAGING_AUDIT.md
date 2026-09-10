@@ -174,23 +174,31 @@ hard stop.
 
 ## Trace the paper masks to Jen's rendered L3 outputs
 
-The three tracked paper masks can be matched byte-for-byte to retained FSL
-cluster masks. Search both repositories because the original broad L3 tree is
-under `srndna-ultimatum`, while Jen's later paper-specific SANS work is expected
-under `srndna-ug`:
+Search both repositories because the original broad L3 tree is under
+`srndna-ultimatum`, while Jen's later paper-specific SANS work is expected under
+`srndna-ug`. The first checksum-only run established that none of the three
+small binary focal masks is an untouched compressed `cluster_mask_zstat` file.
+That does not establish a mismatch in voxel content: selecting one integer
+cluster label and binarizing it changes the file hash. Run the support-aware
+audit:
 
 ```bash
 python3 code/audit_l3_production.py \
   --search-root ultimatum="$REPOSITORY/derivatives/fsl" \
   --search-root srndna-ug=/ZPOOL/data/projects/srndna-ug/derivatives/fsl \
+  --match-mode support \
   --output-dir logs/audits/server/l3-production \
   --tracked-summary results/reviewer/tables/production_l3_trace.tsv
 ```
 
-The tracked table contains exact cluster-mask matches and their GFEAT paths,
-design hashes, sub-144 input position, threshold settings, cluster table, and
-available `DLH`, `VOLUME`, and `RESELS` values. The larger all-design inventory
-remains under ignored `logs/audits/`. Commit and push the compact tracked TSV.
+The support matcher reads NIfTI-1 files with Python's standard library and does
+not alter image data. `exact_cluster_support` means the focal mask contains
+exactly every voxel carrying one cluster label in the retained FSL output.
+Containment or partial-overlap rows are leads, not proof of identity. The
+tracked table also contains the GFEAT path, design hashes, sub-144 input
+position, threshold settings, cluster table, and available `DLH`, `VOLUME`,
+and `RESELS` values. The larger all-design inventory remains under ignored
+`logs/audits/`. Commit and push the compact tracked TSV.
 
 ## Locate all rendered 47-participant group designs manually
 

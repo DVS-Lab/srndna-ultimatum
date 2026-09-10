@@ -161,6 +161,12 @@ author-pending and must not redefine the primary result.
   in-plane resolution, 2.80-mm slice thickness, and 3.22-mm through-plane
   spacing/analyzed grid. Production headers must still confirm whether
   normalization changed any other dimension.
+- All three focal files are 0/1 binary masks whose copied headers retain FSL's
+  Z-score intent and `2203.12` build description. None is byte-identical to a
+  retained `cluster_mask_zstat` file in the two initially searched trees. Git
+  history adds the masks on three consecutive days in April 2025, consistent
+  with post-statistics extraction. Voxel-support tracing is still required;
+  neither visual similarity nor a partial overlap establishes provenance.
 
 ## Server pending items that must not be filled by inference
 
