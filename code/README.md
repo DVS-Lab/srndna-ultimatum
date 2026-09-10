@@ -41,14 +41,16 @@
 - `run_ultimatum_repair_jobs.py`: guarded, bounded-concurrency execution of a
   prepared L1, L2, or L3 repair manifest. It refuses to overwrite an existing
   output and verifies every expected cope or group Z statistic.
-- `prepare_ultimatum_l3_repair.py`: render five scratch-only group jobs from
+- `prepare_ultimatum_l3_repair.py`: render six scratch-only group jobs from
   the recovered production designs: three image-only identity repairs and
-  event-corrected fairness-sensitivity/norm-proxy variants for ECN and
-  activation. It consumes the calibrated minimal covariate table tracked under
+  three manuscript-aligned corrected-covariate variants. The latter replace
+  task-wide mean RT in every focal model and also replace the fairness-
+  sensitivity/norm-proxy EVs in the ECN/activation models. It consumes the
+  calibrated minimal covariate table tracked under
   `results/reviewer/tables/`, so Linux does not need a working R installation
   to render the designs. The focal submitted masks are never inputs or
   overwrite targets.
-- `audit_prepared_ultimatum_l3_designs.py`: compile the five scratch FSFs with
+- `audit_prepared_ultimatum_l3_designs.py`: compile the six scratch FSFs with
   `feat_model` only and require 47 rows, the expected EV rank, group rows, and
   contrast count before any group image fit.
 - `collect_ultimatum_l3_repair_designs.py`: copy only the exact rendered FSF,

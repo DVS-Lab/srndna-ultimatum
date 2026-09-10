@@ -334,11 +334,16 @@ corrected_rt <- participant_rt_summary(trials, "corrected_events")
 corrected_covariates <- merge(corrected_covariates, historical_rt, by = "subjID")
 corrected_covariates <- merge(corrected_covariates, corrected_rt, by = "subjID")
 corrected_covariates <- corrected_covariates[match(participants$subjID, corrected_covariates$subjID), ]
+corrected_covariates$corrected_mean_rt_z <- as.numeric(scale(
+  corrected_covariates$response_time_mean_corrected_events
+))
 stopifnot(
   identical(as.character(corrected_covariates$subjID), as.character(participants$subjID)),
   nrow(corrected_covariates) == 47,
   all(is.finite(corrected_covariates$corrected_sensitivity_centered)),
-  all(is.finite(corrected_covariates$corrected_norm_centered))
+  all(is.finite(corrected_covariates$corrected_norm_centered)),
+  all(is.finite(corrected_covariates$corrected_mean_rt_z)),
+  abs(sum(corrected_covariates$corrected_mean_rt_z)) < 1e-10
 )
 write_tsv(corrected_covariates, file.path(private_dir, "corrected_l3_covariates.tsv"))
 write_tsv(
@@ -347,7 +352,8 @@ write_tsv(
     "corrected_sensitivity_young",
     "corrected_sensitivity_old",
     "corrected_norm_young",
-    "corrected_norm_old"
+    "corrected_norm_old",
+    "corrected_mean_rt_z"
   )],
   file.path(table_dir, "l3_event_corrected_covariates.tsv")
 )
@@ -424,7 +430,16 @@ write_tsv(
       sub144_row$response_time_median_corrected_events -
         sub144_row$response_time_median_submitted_events
     ),
-    l3_policy = "retain submitted group RT pending exact transformation provenance"
+    sub144_corrected_mean_rt_z = sub144_row$corrected_mean_rt_z,
+    production_corrected_mean_rt_correlation = cor(
+      corrected_covariates$submitted_group_rt,
+      corrected_covariates$response_time_mean_corrected_events
+    ),
+    production_submitted_median_rt_correlation = cor(
+      corrected_covariates$submitted_group_rt,
+      corrected_covariates$response_time_median_submitted_events
+    ),
+    l3_policy = "use event-corrected task-wide mean RT, z-scored across 47 participants"
   ),
   file.path(table_dir, "l3_group_rt_provenance.tsv")
 )

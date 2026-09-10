@@ -72,13 +72,14 @@ make reviewer-behavior
 - `tables/l3_covariate_correction_summary.tsv` and
   `l3_covariate_model_diagnostics.tsv`: exact production-to-historical-refit
   calibration and event-corrected fairness-sensitivity/norm-proxy diagnostics.
-  `l3_event_corrected_covariates.tsv` contains only the five pseudonymous
-  identifier/design columns required to reproduce the corrected group models;
+  `l3_event_corrected_covariates.tsv` contains only the six pseudonymous
+  identifier/design columns required to reproduce the corrected group models,
+  including event-corrected task-wide mean RT;
   the fuller participant-level diagnostic table remains ignored under
   `private/`.
-- `tables/l3_group_rt_provenance.tsv`: sub-144 RT summaries and the explicit
-  decision to retain the submitted group RT column until its exact historical
-  transformation is recovered.
+- `tables/l3_group_rt_provenance.tsv`: sub-144 RT summaries, correlations with
+  the recovered production RT vector, and the explicit manuscript-aligned
+  policy to use event-corrected task-wide mean RT.
 - `tables/task_event_summary.tsv` and `missed_trials_*.tsv`: aggregate
   event/timing and miss results.
 - `tables/rt_event_construction_summary.tsv`: aggregate source-BIDS evidence
@@ -123,14 +124,15 @@ Production imaging provenance and the sub-143/sub-144 source-event match are
 now traced. Only sub-144 requires the identity repair. See
 `docs/SERVER_IMAGING_AUDIT.md`; the collection scripts remain read-only, while
 the separately documented repair writes new outputs only under versioned
-scratch roots. Robust FLAME deweighting, altered RT policy, reduced-nuisance
-models, participant deletion, and any genuinely missing L3 contrast remain
-outside this repair.
+scratch roots. Robust FLAME deweighting, altered first-level companion-RT
+construction, reduced-nuisance models, participant deletion, and any genuinely
+missing L3 contrast remain outside this repair.
 
 The guarded group-repair workflow in `code/prepare_ultimatum_l3_repair.py`
-creates scratch-only image-repair and fairness-covariate-corrected designs from
+creates scratch-only image-only and reported-covariates-corrected designs from
 the exact recovered production FSFs. It never edits the original GFEAT trees or
-uses the submitted binary focal masks as model inputs.
+uses the submitted binary focal masks as model inputs. Historical templates
+remain unchanged; the exact rendered replacements are collected below.
 `l3_repair_designs/` is populated on Linux after `feat_model` validation and
 contains the exact rendered FSF/matrix/contrast/group bundles plus checksums;
 the much larger GFEAT outputs remain under scratch and untracked.

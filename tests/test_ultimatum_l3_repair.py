@@ -46,6 +46,7 @@ class UltimatumL3RepairTests(unittest.TestCase):
                 standard,
                 covariates,
                 None,
+                None,
             )
             rendered_lines = destination.read_text(encoding="utf-8").splitlines()
             self.assertEqual(parse_evs(source_lines), parse_evs(rendered_lines))
@@ -84,6 +85,7 @@ class UltimatumL3RepairTests(unittest.TestCase):
                 base / "MNI152_T1_2mm_brain.nii.gz",
                 covariates,
                 "corrected_sensitivity",
+                None,
             )
             rendered_evs = parse_evs(destination.read_text(encoding="utf-8").splitlines())
             changed = {
@@ -93,13 +95,54 @@ class UltimatumL3RepairTests(unittest.TestCase):
             self.assertEqual(audit["rank"], 8)
             self.assertEqual(audit["changed_ev_columns"], "7,8")
 
+    def test_reported_covariate_render_changes_rt_and_fairness_columns(self) -> None:
+        source = ROOT / "results/reviewer/production_audits/ecn-sensitivity/design/design.fsf"
+        source_lines = source.read_text(encoding="utf-8").splitlines()
+        inputs = parse_inputs(source_lines)
+        source_evs = parse_evs(source_lines)
+        covariates = {}
+        for index, subject, _ in inputs:
+            covariates[subject] = {
+                "subjID": subject,
+                "corrected_mean_rt_z": str(source_evs[(index, 4)]),
+                "corrected_sensitivity_young": str(source_evs[(index, 7)]),
+                "corrected_sensitivity_old": str(source_evs[(index, 8)]),
+            }
+        covariates["sub-144"]["corrected_mean_rt_z"] = str(
+            float(covariates["sub-144"]["corrected_mean_rt_z"]) + 0.1
+        )
+        covariates["sub-144"]["corrected_sensitivity_old"] = str(
+            float(covariates["sub-144"]["corrected_sensitivity_old"]) + 0.1
+        )
+        with tempfile.TemporaryDirectory() as directory:
+            base = Path(directory)
+            destination = base / "rendered.fsf"
+            audit = render(
+                source,
+                destination,
+                base / "result",
+                base / "production",
+                base / "repair/sub-144/cope1.nii.gz",
+                base / "MNI152_T1_2mm_brain.nii.gz",
+                covariates,
+                "corrected_sensitivity",
+                4,
+            )
+            rendered_evs = parse_evs(destination.read_text(encoding="utf-8").splitlines())
+            changed = {
+                key for key in source_evs if abs(source_evs[key] - rendered_evs[key]) > 1e-12
+            }
+            self.assertEqual(changed, {(35, 4), (35, 8)})
+            self.assertEqual(audit["rank"], 8)
+            self.assertEqual(audit["changed_ev_columns"], "4,7,8")
+
     def test_manifest_filter_selects_one_variant(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
             manifest = Path(directory) / "jobs.tsv"
             manifest.write_text(
                 "stage\tmodel\trun\n"
                 "l3\tecn-sensitivity\timage-only\n"
-                "l3\tecn-sensitivity\tfairness-covariate-corrected\n"
+                "l3\tecn-sensitivity\treported-covariates-corrected\n"
                 "l3\tactivation-norm\timage-only\n",
                 encoding="utf-8",
             )
@@ -107,10 +150,10 @@ class UltimatumL3RepairTests(unittest.TestCase):
                 manifest,
                 "l3",
                 models={"ecn-sensitivity"},
-                runs={"fairness-covariate-corrected"},
+                runs={"reported-covariates-corrected"},
             )
             self.assertEqual(len(rows), 1)
-            self.assertEqual(rows[0]["run"], "fairness-covariate-corrected")
+            self.assertEqual(rows[0]["run"], "reported-covariates-corrected")
 
     def test_compiled_design_collection_is_complete_and_non_overwriting(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
@@ -136,7 +179,7 @@ class UltimatumL3RepairTests(unittest.TestCase):
                     stream, fieldnames=fields, delimiter="\t", lineterminator="\n"
                 )
                 writer.writeheader()
-                for index in range(5):
+                for index in range(6):
                     fsf = manifest.parent / f"design-{index}.fsf"
                     for suffix in (".fsf", ".mat", ".con", ".grp"):
                         fsf.with_suffix(suffix).write_text(
@@ -160,8 +203,8 @@ class UltimatumL3RepairTests(unittest.TestCase):
                     )
             output = base / "collected"
             inventory = collect(manifest, output)
-            self.assertEqual(len(inventory.read_text().splitlines()), 6)
-            self.assertEqual(len(list(output.glob("model-*/*/design.*"))), 20)
+            self.assertEqual(len(inventory.read_text().splitlines()), 7)
+            self.assertEqual(len(list(output.glob("model-*/*/design.*"))), 24)
             with self.assertRaises(FileExistsError):
                 collect(manifest, output)
 

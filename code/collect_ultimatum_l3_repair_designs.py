@@ -29,8 +29,8 @@ def collect(manifest: Path, output_dir: Path) -> Path:
             for row in csv.DictReader(stream, delimiter="\t")
             if row["stage"] == "l3"
         ]
-    if len(rows) != 5:
-        raise ValueError(f"expected five L3 rows in {manifest}, found {len(rows)}")
+    if len(rows) != 6:
+        raise ValueError(f"expected six L3 rows in {manifest}, found {len(rows)}")
     if output_dir.exists() and any(output_dir.iterdir()):
         raise FileExistsError(f"collection directory is not empty: {output_dir}")
     output_dir.mkdir(parents=True, exist_ok=True)

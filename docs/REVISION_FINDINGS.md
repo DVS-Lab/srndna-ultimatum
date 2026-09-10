@@ -208,12 +208,15 @@ author-pending and must not redefine the primary result.
    `srndna-ug` copies, closing input identity for the repair. A whole-sample
    checksum inventory would strengthen general provenance but is not required
    to rerun sub-144.
-2. Corrected image-only and fairness-covariate-corrected L3 results after the
+2. Corrected image-only and reported-covariates-corrected L3 results after the
    guarded scratch jobs complete, including existing main, within-age simple,
-   and social-versus-computer contrasts.
-3. Exact provenance for the submitted group RT transformation. The minimal
-   repair retains the submitted RT column; changing it would be a separately
-   labeled whole-sample sensitivity analysis.
+   and social-versus-computer contrasts. The corrected-covariate designs use
+   event-corrected task-wide mean RT, matching the manuscript, and corrected
+   fairness covariates where applicable.
+3. Interpret the production RT vector cautiously: it correlates more closely
+   with historical participant median RT than with task-wide mean RT and is not
+   an affine rescaling of the reported mean quantity. Preserve it only in the
+   explicitly labeled image-only provenance reruns.
 4. Exact behavior of robust FLAME outlier deweighting in the production FSL
    version, including compatibility, settings, and diagnostic outputs; do not
    run it without author approval.

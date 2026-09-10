@@ -5,8 +5,9 @@ The submitted focal masks remain untouched. Each rendered design preserves the
 production participant order, contrasts, nuisance covariates, inference
 settings, and continuous-network L2 inputs. Scientific changes are limited to
 the repaired sub-144 cope path and, for explicitly labeled variants, the
-event-corrected fairness covariate columns. Output, input-root, and installed
-FSL standard-image paths are remapped for portability.
+event-corrected task-wide mean-RT column plus the event-corrected fairness
+covariate columns used by the ECN and activation models. Output, input-root,
+and installed FSL standard-image paths are remapped for portability.
 """
 
 from __future__ import annotations
@@ -30,25 +31,35 @@ class Model:
     model_id: str
     bundle: str
     l2_model: str
+    rt_ev: int
     corrected_prefix: str | None
-    corrected_policy: str | None
+    corrected_policy: str
 
 
 MODELS = (
-    Model("dmn-age", "dmn-age", "nppi-dmn", None, None),
+    Model(
+        "dmn-age",
+        "dmn-age",
+        "nppi-dmn",
+        6,
+        None,
+        "event_corrected_taskwide_mean_rt",
+    ),
     Model(
         "ecn-sensitivity",
         "ecn-sensitivity",
         "nppi-ecn",
+        4,
         "corrected_sensitivity",
-        "event_corrected_fairness_sensitivity;submitted_group_rt",
+        "event_corrected_taskwide_mean_rt;event_corrected_fairness_sensitivity",
     ),
     Model(
         "activation-norm",
         "activation",
         "act",
+        4,
         "corrected_norm",
-        "event_corrected_fairness_norm_proxy;submitted_group_rt",
+        "event_corrected_taskwide_mean_rt;event_corrected_fairness_norm_proxy",
     ),
 )
 
@@ -136,6 +147,7 @@ def render(
     standard_image: Path,
     covariates: dict[str, dict[str, str]],
     corrected_prefix: str | None,
+    corrected_rt_ev: int | None,
 ) -> dict[str, object]:
     source_lines = source.read_text(encoding="utf-8", errors="replace").splitlines()
     lines = source_lines[:]
@@ -158,9 +170,17 @@ def render(
         replace_setting(lines, f"feat_files({index})", f'"{updated}"')
         input_paths.append(updated)
 
-    changed_ev_columns: tuple[int, ...] = ()
+    changed_ev_columns: set[int] = set()
+    if corrected_rt_ev is not None:
+        changed_ev_columns.add(corrected_rt_ev)
+        for index, subject, _ in inputs:
+            replace_setting(
+                lines,
+                f"fmri(evg{index}.{corrected_rt_ev})",
+                covariates[subject]["corrected_mean_rt_z"],
+            )
     if corrected_prefix is not None:
-        changed_ev_columns = (7, 8)
+        changed_ev_columns.update((7, 8))
         for index, subject, _ in inputs:
             row = covariates[subject]
             replace_setting(
@@ -194,7 +214,9 @@ def render(
         "participants": participants,
         "n_evs": len(ev_columns),
         "rank": rank,
-        "changed_ev_columns": ",".join(str(value) for value in changed_ev_columns),
+        "changed_ev_columns": ",".join(
+            str(value) for value in sorted(changed_ev_columns)
+        ),
     }
 
 
@@ -222,16 +244,15 @@ def prepare(
             / model.bundle
             / "design/design.fsf"
         )
-        variants = (
-            ("image-only",)
-            if model.corrected_prefix is None
-            else ("image-only", "fairness-covariate-corrected")
-        )
+        variants = ("image-only", "reported-covariates-corrected")
         for variant in variants:
             corrected_prefix = (
                 model.corrected_prefix
-                if variant == "fairness-covariate-corrected"
+                if variant == "reported-covariates-corrected"
                 else None
+            )
+            corrected_rt_ev = (
+                model.rt_ev if variant == "reported-covariates-corrected" else None
             )
             output_root = work_root / "outputs" / f"{model.model_id}_{variant}"
             fsf = work_root / "fsf" / f"{model.model_id}_{variant}.fsf"
@@ -250,6 +271,7 @@ def prepare(
                 standard_image,
                 covariates,
                 corrected_prefix,
+                corrected_rt_ev,
             )
             manifest_rows.append(
                 {

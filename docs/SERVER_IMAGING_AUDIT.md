@@ -206,12 +206,13 @@ and `RESELS` values. The larger all-design inventory remains under ignored
 The production trace is complete and all three repaired sub-144 L2 models pass
 the full completion check. The checked-in minimal covariate table was generated
 by the calibrated behavioral workflow; Linux does not need to refit the mixed
-models before rendering five group designs from the exact production FSFs. The three
-`image-only` jobs change only the sub-144 cope-7 input. The ECN and activation
-`fairness-covariate-corrected` jobs additionally replace EVs 7 and 8 with the
+models before rendering six group designs from the exact production FSFs. The
+three `image-only` jobs change only the sub-144 cope-7 input. The three
+`reported-covariates-corrected` jobs replace the nuisance RT EV with the
+event-corrected task-wide mean response time, z-scored across the 47-person
+analysis sample, matching the quantity stated in the manuscript. The ECN and
+activation corrected jobs additionally replace EVs 7 and 8 with the
 event-corrected version of the submitted sensitivity or norm-proxy estimand.
-They deliberately retain the submitted group RT column because its exact
-historical transformation has not been recovered.
 The recovered FSFs name the same FSL MNI152 2-mm reference under the obsolete
 `/usr/share/fsl/6.0.3` installation path; preparation records and substitutes
 the current installation path without changing the reference image choice.
@@ -219,7 +220,7 @@ the current installation path without changing the reference image choice.
 ```bash
 REPOSITORY=/ZPOOL/data/projects/srndna-ultimatum
 SUB144_REPAIR_ROOT=/ZPOOL/data/scratch/srndna-ultimatum-sub144-repair-v2
-L3_REPAIR_ROOT=/ZPOOL/data/scratch/srndna-ultimatum-l3-repair-v1
+L3_REPAIR_ROOT=/ZPOOL/data/scratch/srndna-ultimatum-l3-repair-v2
 STANDARD_IMAGE="$FSLDIR/data/standard/MNI152_T1_2mm_brain.nii.gz"
 
 cd "$REPOSITORY"
@@ -250,15 +251,15 @@ python3 code/run_ultimatum_repair_jobs.py \
 
 python3 code/run_ultimatum_repair_jobs.py \
   --manifest "$L3_REPAIR_ROOT/l3_repair_jobs.tsv" \
-  --stage l3 --run fairness-covariate-corrected --jobs 1 --dry-run
+  --stage l3 --run reported-covariates-corrected --jobs 1 --dry-run
 ```
 
 The collection commit records the exact modified templates and compiled
 designs before image fitting; it does not include NIfTI data. The historical
 production and later-working-tree templates remain unchanged as provenance.
-Preparation refuses a nonempty root. If `v1` already exists, inspect it rather
-than deleting it; choose a new versioned root only if a genuinely fresh render
-is required. Both audits must pass before fitting images. While the Trust LSS
+Preparation refuses a nonempty root. The earlier `v1` render retained the
+production RT EV and must not be fit; preserve it as scratch provenance and use
+the fresh `v2` root above. Both audits must pass before fitting images. While the Trust LSS
 queue is using most of Linux1, keep group fitting serial:
 
 ```bash
@@ -268,7 +269,7 @@ python3 code/run_ultimatum_repair_jobs.py \
 
 python3 code/run_ultimatum_repair_jobs.py \
   --manifest "$L3_REPAIR_ROOT/l3_repair_jobs.tsv" \
-  --stage l3 --run fairness-covariate-corrected --jobs 1
+  --stage l3 --run reported-covariates-corrected --jobs 1
 ```
 
 Reissuing either command with `--resume` validates and skips complete jobs. An

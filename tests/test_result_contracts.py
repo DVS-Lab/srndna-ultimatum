@@ -57,7 +57,7 @@ class ResultContractTests(unittest.TestCase):
             self.assertEqual(design["n_evs"], design["matrix_rank"])
             self.assertEqual(design["duplicate_input_count"], "0")
 
-    def test_corrected_l3_covariates_reproduce_production_before_repair(self) -> None:
+    def test_corrected_l3_covariates_are_complete_and_centered(self) -> None:
         covariates = {
             row["covariate"]: row
             for row in rows("l3_covariate_correction_summary.tsv")
@@ -91,6 +91,7 @@ class ResultContractTests(unittest.TestCase):
                 "corrected_sensitivity_old",
                 "corrected_norm_young",
                 "corrected_norm_old",
+                "corrected_mean_rt_z",
             },
         )
         sensitivity_sum = sum(
@@ -103,8 +104,11 @@ class ResultContractTests(unittest.TestCase):
             + float(row["corrected_norm_old"])
             for row in l3_rows
         )
+        mean_rt_z = [float(row["corrected_mean_rt_z"]) for row in l3_rows]
         self.assertAlmostEqual(sensitivity_sum, 0.0, places=10)
         self.assertAlmostEqual(norm_sum, 0.0, places=10)
+        self.assertAlmostEqual(sum(mean_rt_z), 0.0, places=10)
+        self.assertAlmostEqual(sum(value * value for value in mean_rt_z), 46.0, places=8)
 
 
 if __name__ == "__main__":
