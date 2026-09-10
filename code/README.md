@@ -24,9 +24,15 @@
 - `audit_ultimatum_event_designs.py`: lightweight `feat_model`-only matching of
   retained sub-143/sub-144 activation matrices to current and historical event
   candidates. It does not fit image data or modify retained FEAT directories.
+- `make_fsl_confounds.py`: dependency-light, tested reproduction of the
+  historical FSL nuisance-matrix selection and column order from fMRIPrep TSVs.
 - `prepare_sub144_imaging_repair.py`: render six corrected sub-144 L1 FSFs and
   three dependent L2 FSFs in a new scratch tree using the retained production
-  FSFs, existing nPPI time series, and companion-RT policy.
+  FSFs, existing nPPI time series, and companion-RT policy. If the historical
+  headerless FSL confound files are absent, it regenerates them under scratch.
+- `audit_prepared_ultimatum_designs.py`: run `feat_model` only on the six
+  prepared L1 FSFs and require the nuisance-regressor tail to match the
+  retained production design exactly while the corrected task block changes.
 - `run_ultimatum_repair_jobs.py`: guarded, bounded-concurrency execution of a
   prepared repair manifest. It refuses to overwrite an existing output.
 - `audit_l1_designs.py`: aggregate rank, conditioning, and column-correlation
@@ -37,6 +43,8 @@
 
 Use the root `Makefile` for local entry points and
 `docs/SERVER_IMAGING_AUDIT.md` for the Linux handoff.
+Repository-specific code provenance is recorded in
+`docs/ANALYSIS_CODE_PROVENANCE.md`.
 
 ## Original production workflow
 

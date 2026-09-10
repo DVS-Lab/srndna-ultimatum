@@ -164,7 +164,11 @@ author-pending and must not redefine the primary result.
 
 ## Server pending items that must not be filled by inference
 
-1. Exact analyzed fMRIPrep version/container and full preprocessing boilerplate.
+1. Confirm the candidate OpenNeuro fMRIPrep 21.0.2 BOLD files are byte-identical
+   to any surviving original `srndna-data`/`srndna-ug` copies, and retain the
+   exact 21.0.2 preprocessing boilerplate. Repository paths, requested output
+   space, and derivative metadata already converge on 21.0.2; the checksum is
+   the remaining input-identity check.
 2. Exact production BOLD and group-output headers.
 3. Production `design.fsf`, `design.mat`, `design.con`, and `design.grp`
    identity relative to tracked templates.

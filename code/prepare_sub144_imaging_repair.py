@@ -12,10 +12,12 @@ from __future__ import annotations
 import argparse
 import csv
 import hashlib
+import json
 import re
 from pathlib import Path
 from typing import Sequence
 
+from make_fsl_confounds import convert as convert_confounds
 from make_ultimatum_3col import generate
 
 
@@ -128,6 +130,7 @@ def discover_confound(
     subject: str,
     run: str,
     recorded: str | None,
+    generated_destination: Path,
 ) -> Path:
     candidates: list[Path] = []
     if recorded:
@@ -139,7 +142,31 @@ def discover_confound(
                 confounds
                 / f"{subject}_task-ultimatum_run-{run_label}_desc-fslConfounds.tsv"
             )
-    return unique_existing(candidates, f"FSL confounds for {subject} run-{run}")
+    if any(path.resolve().is_file() for path in candidates):
+        return unique_existing(candidates, f"FSL confounds for {subject} run-{run}")
+
+    func = dataset_root / "derivatives" / "fmriprep" / subject / "func"
+    sources: list[Path] = []
+    for run_label in (str(int(run)), run):
+        sources.extend(
+            func.glob(
+                f"{subject}_task-ultimatum_run-{run_label}_"
+                "desc-confounds_timeseries.tsv"
+            )
+        )
+        sources.extend(
+            func.glob(
+                f"{subject}_task-ultimatum_run-{run_label}_"
+                "desc-confounds_regressors.tsv"
+            )
+        )
+    source = unique_existing(
+        sources, f"fMRIPrep confounds source for {subject} run-{run}"
+    )
+    row_count = convert_confounds(source, generated_destination)
+    if row_count < 1:
+        raise ValueError(f"generated empty FSL confound matrix: {generated_destination}")
+    return generated_destination.resolve()
 
 
 def sha256(path: Path) -> str:
@@ -148,6 +175,26 @@ def sha256(path: Path) -> str:
         for block in iter(lambda: stream.read(1024 * 1024), b""):
             digest.update(block)
     return digest.hexdigest()
+
+
+def fmriprep_version(dataset_root: Path) -> str:
+    description = (
+        dataset_root / "derivatives" / "fmriprep" / "dataset_description.json"
+    )
+    if not description.is_file():
+        raise FileNotFoundError(description)
+    data = json.loads(description.read_text(encoding="utf-8"))
+    versions = {
+        str(item.get("Version", "")).strip()
+        for item in data.get("GeneratedBy", [])
+        if str(item.get("Name", "")).lower() == "fmriprep"
+        and str(item.get("Version", "")).strip()
+    }
+    if len(versions) != 1:
+        raise ValueError(
+            f"expected one fMRIPrep version in {description}, found {sorted(versions)}"
+        )
+    return versions.pop()
 
 
 def write_atomic(path: Path, text: str) -> None:
@@ -239,6 +286,7 @@ def prepare(
     fsf_dir = work_root / "fsf"
     ev_dir = work_root / "EVfiles" / subject
     output_parent = work_root / "derivatives" / "fsl" / subject
+    preprocessing_version = fmriprep_version(dataset_root)
     rows: list[dict[str, object]] = []
     l1_outputs: dict[tuple[str, str], Path] = {}
 
@@ -267,6 +315,7 @@ def prepare(
         if not act_source.is_file():
             raise FileNotFoundError(act_source)
         act_text = act_source.read_text(encoding="utf-8", errors="replace")
+        production_bold_recorded = fsf_value(act_text, "feat_files(1)") or ""
         bold = discover_bold(dataset_root, subject, run)
         confound = discover_confound(
             dataset_root,
@@ -274,6 +323,10 @@ def prepare(
             subject,
             run,
             fsf_value(act_text, "confoundev_files(1)"),
+            work_root
+            / "confounds"
+            / subject
+            / f"{subject}_task-ultimatum_run-{int(run)}_desc-fslConfounds.tsv",
         )
 
         for model in MODELS:
@@ -308,6 +361,10 @@ def prepare(
                     "inputs": f"{bold}|{confound}|{events}",
                     "source_fsf": source,
                     "event_sha256": sha256(events),
+                    "production_bold_recorded": production_bold_recorded,
+                    "candidate_bold_sha256": sha256(bold),
+                    "confound_sha256": sha256(confound),
+                    "fmriprep_version": preprocessing_version,
                     "rt_policy": "companion_event_RT",
                 }
             )
@@ -337,6 +394,10 @@ def prepare(
                 "inputs": f"{l1_outputs[(model, '01')]}|{l1_outputs[(model, '02')]}",
                 "source_fsf": source,
                 "event_sha256": "",
+                "production_bold_recorded": "",
+                "candidate_bold_sha256": "",
+                "confound_sha256": "",
+                "fmriprep_version": preprocessing_version,
                 "rt_policy": "companion_event_RT",
             }
         )
@@ -345,7 +406,8 @@ def prepare(
     write_manifest(manifest, rows)
     print(
         f"PASS: prepared {sum(row['stage'] == 'l1' for row in rows)} L1 and "
-        f"{sum(row['stage'] == 'l2' for row in rows)} L2 jobs; manifest={manifest}"
+        f"{sum(row['stage'] == 'l2' for row in rows)} L2 jobs from "
+        f"fMRIPrep {preprocessing_version}; manifest={manifest}"
     )
     return manifest
 

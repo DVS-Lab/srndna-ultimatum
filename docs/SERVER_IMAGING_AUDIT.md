@@ -83,12 +83,17 @@ separate whole-sample sensitivity analysis.
 
 Preparation is noncomputational and refuses a nonempty work root. It reuses
 the rendered production FSFs as model definitions, changes only required
-paths and corrected EVs, and leaves every retained FEAT output untouched.
+paths and corrected EVs, and leaves every retained FEAT output untouched. If
+the historical headerless FSL confound matrices are not available, the script
+reconstructs them under the repair root from the downloaded fMRIPrep confound
+TSVs using the historical column selection and order.
 
 ```bash
 REPOSITORY=/ZPOOL/data/projects/srndna-ultimatum
 DATASET_ROOT=/ZPOOL/data/datasets/ds003745-work
-REPAIR_ROOT=/ZPOOL/data/scratch/srndna-ultimatum-sub144-repair-v1
+# v1 was left intentionally untouched after the missing-confound preflight
+# stopped. Use a new root because preparation refuses nonempty destinations.
+REPAIR_ROOT=/ZPOOL/data/scratch/srndna-ultimatum-sub144-repair-v2
 
 cd "$REPOSITORY"
 python3 code/prepare_sub144_imaging_repair.py \
@@ -96,14 +101,39 @@ python3 code/prepare_sub144_imaging_repair.py \
   --production-fsl-root "$REPOSITORY/derivatives/fsl" \
   --work-root "$REPAIR_ROOT"
 
+python3 - "$DATASET_ROOT/derivatives/fmriprep/dataset_description.json" <<'PY'
+import json
+import sys
+from pathlib import Path
+
+description = Path(sys.argv[1])
+data = json.loads(description.read_text())
+print("OpenNeuro fMRIPrep GeneratedBy:", data.get("GeneratedBy"))
+PY
+
+cut -f1-4,7-12 "$REPAIR_ROOT/repair_jobs.tsv" | sed -n '1,8p'
+
+python3 code/audit_prepared_ultimatum_designs.py \
+  --manifest "$REPAIR_ROOT/repair_jobs.tsv"
+
 python3 code/run_ultimatum_repair_jobs.py \
   --manifest "$REPAIR_ROOT/repair_jobs.tsv" \
   --stage l1 --jobs 2 --dry-run
 ```
 
-Stop after this dry run until the selected BOLD, confound, event, production
-FSF, and retained nPPI time-series paths have been inspected. The eventual L1
-execution uses six jobs (two runs each of activation, DMN nPPI, and ECN nPPI):
+Do not run FEAT unless `audit_prepared_ultimatum_designs.py` reports six passes.
+That audit runs only `feat_model`: the corrected task/PPI columns must differ,
+while every nuisance column after `evs_real` must match the retained production
+matrix to numerical tolerance. Then inspect the selected BOLD, confound, event,
+production FSF, and retained nPPI time-series paths in the manifest and dry-run
+output. The eventual L1 execution uses six jobs (two runs each of activation,
+DMN nPPI, and ECN nPPI):
+
+The L1 manifest records the fMRIPrep version, candidate BOLD checksum, and the
+original path written into each production FSF. If an original BOLD copy still
+exists under `srndna-data`, `srndna-ug`, or the archive location, compare its
+`sha256sum` with `candidate_bold_sha256`. Exact equality closes the remaining
+bitwise preprocessing-input provenance check.
 
 ```bash
 python3 code/run_ultimatum_repair_jobs.py \

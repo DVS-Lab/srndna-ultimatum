@@ -12,6 +12,8 @@ sys.path.insert(0, str(ROOT / "code"))
 
 from make_ultimatum_3col import generate
 from prepare_sub144_imaging_repair import (
+    discover_confound,
+    fmriprep_version,
     fsf_value,
     remap_recorded_path,
     render_l1,
@@ -20,6 +22,59 @@ from run_ultimatum_repair_jobs import complete, read_manifest, validate_job
 
 
 class Sub144ImagingRepairTests(unittest.TestCase):
+    def test_missing_derived_confound_is_rebuilt_from_fmriprep(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            dataset = root / "dataset"
+            source = (
+                dataset
+                / "derivatives/fmriprep/sub-144/func"
+                / "sub-144_task-ultimatum_run-1_desc-confounds_timeseries.tsv"
+            )
+            source.parent.mkdir(parents=True)
+            source.write_text(
+                "\t".join(
+                    [
+                        "cosine00",
+                        "trans_x",
+                        "trans_y",
+                        "trans_z",
+                        "rot_x",
+                        "rot_y",
+                        "rot_z",
+                        *(f"a_comp_cor_{index:02d}" for index in range(6)),
+                        "framewise_displacement",
+                    ]
+                )
+                + "\n"
+                + "\t".join(["0.1", *("0" for _ in range(12)), "n/a"])
+                + "\n",
+                encoding="utf-8",
+            )
+            destination = root / "work/confounds.tsv"
+            actual = discover_confound(
+                dataset,
+                root / "production",
+                "sub-144",
+                "01",
+                None,
+                destination,
+            )
+            self.assertEqual(actual, destination.resolve())
+            self.assertTrue(destination.is_file())
+            self.assertEqual(len(destination.read_text().strip().split("\t")), 14)
+
+    def test_fmriprep_version_comes_from_derivative_metadata(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            description = root / "derivatives/fmriprep/dataset_description.json"
+            description.parent.mkdir(parents=True)
+            description.write_text(
+                '{"GeneratedBy": [{"Name": "fMRIPrep", "Version": "21.0.2"}]}',
+                encoding="utf-8",
+            )
+            self.assertEqual(fmriprep_version(root), "21.0.2")
+
     def test_rendered_activation_uses_corrected_companion_evs(self) -> None:
         events = (
             ROOT
