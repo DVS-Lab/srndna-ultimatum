@@ -29,14 +29,15 @@ cluster-corrected p = .0138, Zmax = 4.07, peak MNI [-13.3, 34.0,
 27.8]. The whole-brain analysis used FLAME 1+2 with Z > 3.1 and
 cluster-corrected p < .05 and included sex, tSNR, mean framewise displacement,
 and event-corrected task-wide mean response time as covariates (N = 47).
-(C) Participant-level values extracted from the significant cluster are shown
-after residualizing the sex, tSNR, mean-framewise-displacement, and response-
-time columns of the corrected group design; black points and error bars denote
-age-group means and 95% confidence intervals. This ordinary-least-squares
-adjustment is used only to visualize the direction of the covariate-adjusted
-contrast. Because the cluster was selected by the group contrast, these values
-are descriptive and are not a separate inferential test; inference comes from
-the voxelwise FLAME 1+2 model.
+(C) Bars show cluster-mean group COPE estimates from separate corrected
+condition-specific FLAME 1+2 models for age-similar and age-dissimilar
+partners. These covariate-adjusted estimates incorporate the input VARCOPEs
+and FLAME's estimate of between-participant variance. Error bars show 1.96
+times the cluster mean of the voxelwise FLAME standard errors. The bars and
+error bars are descriptive decompositions of the retained contrast, not
+independent region-of-interest tests. Because the cluster was selected by the
+group contrast, inference comes from the whole-brain similar-minus-dissimilar
+FLAME 1+2 model reported in panel B.
 
 ## Removed submitted figure
 

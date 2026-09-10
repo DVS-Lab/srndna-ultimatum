@@ -12,8 +12,9 @@ the group model uses them.
    the manuscript working repository.
 2. `figure2_corrected_acceptance.png` is generated from the converged,
    event-corrected behavioral model and its tracked source tables.
-3. `figure3_corrected_dmn.png` shows the corrected DMN result and descriptive
-   participant values extracted from its significant cluster.
+3. `figure3_corrected_dmn.png` shows the corrected DMN result and the four
+   descriptive age-group-by-partner FLAME estimates from its significant
+   cluster.
 
 The submitted ECN figure is deliberately absent. Its focal cluster does not
 survive the fully corrected model. The image-only rerun is retained solely as
@@ -49,21 +50,18 @@ python3 -m pip install -r requirements-figures.txt
 python3 code/plot_manuscript_figures.py
 ```
 
-Participant values in Figure 3 are descriptive because the displayed cluster
-was selected by the group analysis. Inferential reporting must use the
-whole-brain FLAME 1+2 result, not a test on the extracted values. The plotting
-script writes `source_data/figure3_dmn_plot_data.tsv`, retaining both the raw
-cope 7 extraction and an ordinary-least-squares nuisance-adjusted display
-value derived from the exact corrected six-column design matrix.
+The bars in Figure 3 are descriptive because the displayed cluster was
+selected by the group analysis. Inferential reporting must use the whole-brain
+similar-minus-dissimilar FLAME 1+2 result, not a test on the displayed bars.
 
 ### Four-bar FLAME decomposition
 
-The participant scatter is provisional. The intended final panel contains
-four bars (younger/older by similar/dissimilar) from two condition-specific
-FLAME 1+2 models. These models reuse the exact corrected six-column group
-design and substitute L2 cope 4 or cope 6 for the cope 7 inputs. They retain
-the repaired sub-144 images. The legacy 94-row stacked-condition template is
-not used because it does not model the two observations per participant.
+The final panel contains four bars (younger/older by similar/dissimilar) from
+two condition-specific FLAME 1+2 models. These models reuse the exact corrected
+six-column group design and substitute L2 cope 4 or cope 6 for the cope 7
+inputs. They retain the repaired sub-144 images. The legacy 94-row
+stacked-condition template is not used because it does not model the two
+observations per participant.
 
 Prepare and run the two small Linux models with:
 

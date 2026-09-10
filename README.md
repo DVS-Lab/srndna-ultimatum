@@ -71,6 +71,13 @@ explicit. See `docs/REPOSITORY_OF_RECORD.md`.
 The analyses were not preregistered. Reviewer-requested work is labeled as
 revision analysis and is not presented as part of the submitted workflow.
 
+The revised Figure 3 decomposes the retained default-mode-network contrast
+into four age-group-by-partner bars. Bar heights are cluster-mean group COPE
+estimates from corrected condition-specific FLAME 1+2 models, so the display
+retains FLAME's within- and between-participant variance modeling. The
+participant-level condition COPE and VARCOPE extracts and all image hashes are
+tracked under `results/manuscript/source_data/` for auditability.
+
 ## Acknowledgments
 
 This work was supported in part by NIH awards R21-MH113917 and R03-DA046733 to

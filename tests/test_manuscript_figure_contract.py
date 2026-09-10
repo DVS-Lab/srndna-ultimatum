@@ -60,24 +60,64 @@ class ManuscriptFigureContractTests(unittest.TestCase):
         self.assertIn("Remove", rows["ecn_fairness_sensitivity"]["revision_disposition"])
         self.assertIn("do not add", rows["activation_norm_proxy"]["revision_disposition"])
 
-    def test_corrected_dmn_plot_data_has_expected_direction(self):
-        path = ROOT / "results/manuscript/source_data/figure3_dmn_plot_data.tsv"
+    def test_corrected_dmn_bar_data_has_complete_age_by_partner_cells(self):
+        path = ROOT / "results/manuscript/source_data/figure3_dmn_flame_bar_summary.tsv"
         with path.open(encoding="utf-8", newline="") as stream:
             rows = list(csv.DictReader(stream, delimiter="\t"))
-        self.assertEqual(len(rows), 47)
-        by_group = {
-            group: [
-                float(row["nuisance_adjusted_for_display"])
-                for row in rows
-                if row["age_group"] == group
-            ]
-            for group in ("younger", "older")
+        self.assertEqual(len(rows), 4)
+        self.assertEqual(
+            {(row["age_group"], row["condition"]) for row in rows},
+            {
+                ("younger", "similar"),
+                ("younger", "dissimilar"),
+                ("older", "similar"),
+                ("older", "dissimilar"),
+            },
+        )
+        for row in rows:
+            estimate = float(row["flame_cluster_mean_estimate"])
+            standard_error = float(row["mean_voxelwise_standard_error"])
+            self.assertGreater(standard_error, 0)
+            self.assertLess(float(row["display_conf_low"]), estimate)
+            self.assertGreater(float(row["display_conf_high"]), estimate)
+
+    def test_corrected_dmn_condition_inputs_have_positive_varcopes(self):
+        path = ROOT / "results/manuscript/source_data/figure3_dmn_condition_input_roi.tsv"
+        with path.open(encoding="utf-8", newline="") as stream:
+            rows = list(csv.DictReader(stream, delimiter="\t"))
+        self.assertEqual(len(rows), 94)
+        for condition in ("similar", "dissimilar"):
+            condition_rows = [row for row in rows if row["condition"] == condition]
+            self.assertEqual(len(condition_rows), 47)
+            self.assertEqual(len({row["participant"] for row in condition_rows}), 47)
+            self.assertEqual(
+                sorted(int(row["design_index"]) for row in condition_rows),
+                list(range(1, 48)),
+            )
+        self.assertTrue(
+            all(float(row["cluster_mean_varcope"]) > 0 for row in rows)
+        )
+        self.assertTrue(
+            all(float(row["inverse_varcope_weight"]) > 0 for row in rows)
+        )
+
+    def test_corrected_dmn_bar_pattern_matches_retained_interaction(self):
+        path = ROOT / "results/manuscript/source_data/figure3_dmn_flame_bar_summary.tsv"
+        with path.open(encoding="utf-8", newline="") as stream:
+            rows = list(csv.DictReader(stream, delimiter="\t"))
+        estimates = {
+            (row["age_group"], row["condition"]): float(
+                row["flame_cluster_mean_estimate"]
+            )
+            for row in rows
         }
-        self.assertEqual(len(by_group["younger"]), 25)
-        self.assertEqual(len(by_group["older"]), 22)
-        younger_mean = sum(by_group["younger"]) / len(by_group["younger"])
-        older_mean = sum(by_group["older"]) / len(by_group["older"])
-        self.assertGreater(younger_mean, older_mean)
+        younger_difference = estimates[("younger", "similar")] - estimates[
+            ("younger", "dissimilar")
+        ]
+        older_difference = estimates[("older", "similar")] - estimates[
+            ("older", "dissimilar")
+        ]
+        self.assertGreater(younger_difference, older_difference)
 
 
 if __name__ == "__main__":
