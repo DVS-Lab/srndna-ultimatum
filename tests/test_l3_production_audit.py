@@ -61,7 +61,8 @@ class L3ProductionAuditTests(unittest.TestCase):
             mask = base / "paper-mask.nii.gz"
             mask.write_bytes(b"mask")
             (cope / "cluster_mask_zstat3.nii.gz").write_bytes(b"mask")
-            (cope / "cluster_zstat3.txt").write_text("cluster\n", encoding="utf-8")
+            table = cope / "cluster_zstat3_std.txt"
+            table.write_text("cluster\n", encoding="utf-8")
             (cope / "stats/smoothness").write_text(
                 "DLH 0.12\nVOLUME 100\nRESELS 25\n", encoding="utf-8"
             )
@@ -100,6 +101,8 @@ class L3ProductionAuditTests(unittest.TestCase):
             self.assertEqual(row["dlh"], "0.12")
             self.assertEqual(row["volume"], "100")
             self.assertEqual(row["resels"], "25")
+            self.assertEqual(row["cluster_table_path"], str(table))
+            self.assertTrue(row["cluster_table_sha256"])
 
     def test_support_mode_traces_binarized_cluster(self) -> None:
         with tempfile.TemporaryDirectory() as directory:

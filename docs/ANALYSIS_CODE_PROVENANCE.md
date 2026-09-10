@@ -86,8 +86,9 @@ contrast, and group-file SHA-256 values exactly match the companions committed
 with that historical template, and its group-specific sensitivity EV values
 match `in_out_sensitivity_indiv_logit.csv` to rounding error. The activation
 production design files likewise exactly match the committed `norm2_logit`
-companions. Cluster tables and peak/extent reporting remain to be recovered
-from the traced group-output directories.
+companions. The recovered standard-space tables report DMN: 26 voxels,
+corrected p = .0233, Zmax = 4.15; ECN: 23 voxels, corrected p = .0287,
+Zmax = 4.25; and activation: 161 voxels, corrected p = 1.79e-7, Zmax = 4.33.
 
 The legacy SANS shell scripts are not safe to copy wholesale. They combine
 hard-coded output naming, unconditional removal of partial results, optional

@@ -362,7 +362,20 @@ def trace_record(
     )
     zstat_match = ZSTAT_RE.search(cluster_mask.name)
     zstat = zstat_match.group(1) if zstat_match else ""
-    cluster_table = cope_dir / f"cluster_zstat{zstat}.txt"
+    # FEAT commonly writes standard-space tables with an ``_std`` suffix.
+    # Prefer the unsuffixed form when both exist, but record either retained
+    # production convention rather than reporting a false absence.
+    cluster_table = next(
+        (
+            candidate
+            for candidate in (
+                cope_dir / f"cluster_zstat{zstat}.txt",
+                cope_dir / f"cluster_zstat{zstat}_std.txt",
+            )
+            if candidate.is_file()
+        ),
+        None,
+    )
     smoothness_path, dlh, volume, resels = smoothness_values(cope_dir)
     row.update(
         {
@@ -393,10 +406,8 @@ def trace_record(
             "dlh": dlh,
             "volume": volume,
             "resels": resels,
-            "cluster_table_path": str(cluster_table) if cluster_table.is_file() else "",
-            "cluster_table_sha256": sha256(cluster_table)
-            if cluster_table.is_file()
-            else "",
+            "cluster_table_path": str(cluster_table) if cluster_table else "",
+            "cluster_table_sha256": sha256(cluster_table) if cluster_table else "",
         }
     )
     return row

@@ -247,9 +247,12 @@ The returned bundles must establish:
    any new L3 analysis is proposed;
 8. actual L1 design estimability and the downstream role of both sub-143 runs.
 
-The two focal tracked masks contain 26 and 23 voxels, but their statistical
-meaning cannot be finalized from mask size alone. The authoritative production
-search mask, smoothness, and cluster tables are required.
+The recovered production records resolve the focal cluster statistics. The
+DMN cluster contains 26 voxels (corrected p = .0233, Zmax = 4.15), the ECN
+cluster contains 23 voxels (corrected p = .0287, Zmax = 4.25), and the
+activation cluster contains 161 voxels (corrected p = 1.79e-7, Zmax = 4.33).
+All three tables are standard-space FEAT tables and correspond exactly to the
+voxel support of the tracked binary masks.
 
 ## Known RT source-data issue
 

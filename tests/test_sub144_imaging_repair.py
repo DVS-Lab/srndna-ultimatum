@@ -142,6 +142,25 @@ class Sub144ImagingRepairTests(unittest.TestCase):
                 validate_job(row, resume=True)
             self.assertFalse(complete(row))
 
+    def test_l2_completion_requires_every_model_cope(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            output = Path(directory) / "output.gfeat"
+            row = {
+                "stage": "l2",
+                "model": "act",
+                "run": "",
+                "fsf": "unused",
+                "output": str(output),
+                "inputs": "unused",
+            }
+            for index in range(1, 11):
+                image = output / f"cope{index}.feat/stats/cope1.nii.gz"
+                image.parent.mkdir(parents=True)
+                image.write_bytes(b"cope")
+            self.assertTrue(complete(row))
+            (output / "cope10.feat/stats/cope1.nii.gz").unlink()
+            self.assertFalse(complete(row))
+
     def test_manifest_stage_filter(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
             path = Path(directory) / "jobs.tsv"

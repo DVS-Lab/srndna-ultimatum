@@ -177,6 +177,12 @@ author-pending and must not redefine the primary result.
   records report DLH 0.300799 and 15.5111 resels for DMN, DLH 0.331876 and
   14.0378 resels for ECN, and DLH 0.205028 and 22.7228 resels for activation,
   each over a 56,872-voxel search volume.
+- The retained standard-space cluster tables confirm the focal cluster-level
+  results: DMN zstat 3 contains 26 voxels (corrected p = .0233, Zmax = 4.15),
+  ECN zstat 1 contains 23 voxels (corrected p = .0287, Zmax = 4.25), and the
+  activation zstat 1 cluster contains 161 voxels (corrected p = 1.79e-7,
+  Zmax = 4.33). These are the exact cluster supports used to make the three
+  tracked binary masks.
 - The ECN output predates the later filename suffix and is stored under a
   `sensitivity2` directory. Git subsequently renamed its source template to
   `sensitivity2_logit` without changing the file. Its production design matrix,
@@ -185,32 +191,25 @@ author-pending and must not redefine the primary result.
   numerical rounding. The activation production design files likewise exactly
   match the committed `norm2_logit` companions.
 
-## Server pending items that must not be filled by inference
+## Remaining server items that must not be filled by inference
 
 1. Retain the exact fMRIPrep 21.0.2 preprocessing boilerplate. The two affected
    sub-144 OpenNeuro BOLD files are byte-identical to their surviving
    `srndna-ug` copies, closing input identity for the repair. A whole-sample
    checksum inventory would strengthen general provenance but is not required
    to rerun sub-144.
-2. Exact production BOLD and group-output headers.
-3. A compact copy of the rendered production `design.fsf` files. ECN and
-   activation `design.mat`, `design.con`, and `design.grp` identity is already
-   established by exact historical checksums; the two retained DMN copies have
-   identical matrix, contrast, and group checksums.
-4. Residual smoothness, search volume/resels, cluster tables, peaks, corrected
-   probabilities, and confirmation that no post-statistics ROI mask was used.
-5. Corrected main effects, within-age simple effects, and social-versus-computer
+2. Corrected main effects, within-age simple effects, and social-versus-computer
    results from existing contrasts.
-6. Remaining first-level design correlations and RT/offer-modulator
+3. Remaining first-level design correlations and RT/offer-modulator
    estimability, including downstream provenance for both sub-143 runs. The
    source-event omissions are quantified, but no production-run subset is
    considered verified until the authoritative Linux audit is run.
-7. Exact behavior of robust FLAME outlier deweighting in the production FSL
+4. Exact behavior of robust FLAME outlier deweighting in the production FSL
    version, including compatibility, settings, and diagnostic outputs; do not
    run it without author approval.
-8. A statistical comparison of the submitted and unified sensitivity measures;
+5. A statistical comparison of the submitted and unified sensitivity measures;
    do not build a new ECN L3 model without a subsequent scientific decision.
-9. An inventory classifying main/simple/computer-effect requests as existing,
+6. An inventory classifying main/simple/computer-effect requests as existing,
    descriptive, genuinely new, or not scientifically recommended.
 
 Use `docs/SERVER_IMAGING_AUDIT.md` to collect the evidence. Do not run the

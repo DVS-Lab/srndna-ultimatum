@@ -30,7 +30,14 @@ def complete(row: dict[str, str]) -> bool:
     if row["stage"] == "l1":
         required = (output / "stats" / "cope1.nii.gz", output / "stats" / "cope7.nii.gz")
     else:
-        required = (output / "cope7.feat" / "stats" / "cope1.nii.gz",)
+        # The model-02 activation L1 has 10 contrasts and the nPPI L1 has 11.
+        # L2 fixed effects must therefore finish every corresponding cope, not
+        # merely the focal cope 7 consumed by the paper's group models.
+        cope_count = 10 if row["model"] == "act" else 11
+        required = tuple(
+            output / f"cope{index}.feat" / "stats" / "cope1.nii.gz"
+            for index in range(1, cope_count + 1)
+        )
     return all(path.is_file() and path.stat().st_size > 0 for path in required)
 
 
