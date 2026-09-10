@@ -70,6 +70,25 @@ checksum mismatch is expected if a labeled cluster was selected and binarized.
 Production provenance requires an exact labeled-voxel-support match, not merely
 a similar location or visual appearance.
 
+The Linux support audit supplied that match for all three focal masks. DMN is
+cluster label 1 of zstat 3 in the original 47-participant cope-7 DMN group
+model; the same cluster and identical design matrix, contrast, and group files
+survive in both repositories. ECN is cluster label 1 of zstat 1 in the
+47-participant cope-7 group-specific sensitivity model. Activation is cluster
+label 1 of zstat 1 in the corresponding `norm2_logit` model. Each rendered
+design specifies FLAME 1+2, no automatic outlier deweighting, Z > 3.1, and
+cluster-corrected p = .05.
+
+The ECN output directory retains the earlier `sensitivity2` name. This is not a
+different estimand: commit `924c1a4` renamed the production-era source FSF to
+`sensitivity2_logit` with 100% content identity. The production design matrix,
+contrast, and group-file SHA-256 values exactly match the companions committed
+with that historical template, and its group-specific sensitivity EV values
+match `in_out_sensitivity_indiv_logit.csv` to rounding error. The activation
+production design files likewise exactly match the committed `norm2_logit`
+companions. Cluster tables and peak/extent reporting remain to be recovered
+from the traced group-output directories.
+
 The legacy SANS shell scripts are not safe to copy wholesale. They combine
 hard-coded output naming, unconditional removal of partial results, optional
 `randomise` execution, and—in one version—a broken `sed` redirection. Their

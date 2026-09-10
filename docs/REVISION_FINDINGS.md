@@ -162,11 +162,28 @@ author-pending and must not redefine the primary result.
   spacing/analyzed grid. Production headers must still confirm whether
   normalization changed any other dimension.
 - All three focal files are 0/1 binary masks whose copied headers retain FSL's
-  Z-score intent and `2203.12` build description. None is byte-identical to a
-  retained `cluster_mask_zstat` file in the two initially searched trees. Git
-  history adds the masks on three consecutive days in April 2025, consistent
-  with post-statistics extraction. Voxel-support tracing is still required;
-  neither visual similarity nor a partial overlap establishes provenance.
+  Z-score intent and `2203.12` build description. Although none is
+  byte-identical to a labeled `cluster_mask_zstat` image, voxel-support tracing
+  establishes that each is exactly one complete labeled FSL cluster. The
+  26-voxel DMN mask is cluster 1 of zstat 3 in the original 47-participant
+  cope-7 DMN group model, with identical cluster support retained in both
+  analysis repositories. The 23-voxel ECN mask is cluster 1 of zstat 1 in the
+  47-participant cope-7 group-specific sensitivity model. The 161-voxel
+  activation mask is cluster 1 of zstat 1 in the 47-participant cope-7
+  `norm2_logit` model.
+- Every traced design uses FLAME 1+2 (`mixed_yn=1` in these FSFs), no automatic
+  outlier deweighting, Z > 3.1, and cluster-corrected p = .05. Each contains 47
+  unique participants and places sub-144 at input 35. Retained smoothness
+  records report DLH 0.300799 and 15.5111 resels for DMN, DLH 0.331876 and
+  14.0378 resels for ECN, and DLH 0.205028 and 22.7228 resels for activation,
+  each over a 56,872-voxel search volume.
+- The ECN output predates the later filename suffix and is stored under a
+  `sensitivity2` directory. Git subsequently renamed its source template to
+  `sensitivity2_logit` without changing the file. Its production design matrix,
+  contrast, and group files exactly match the committed historical companions;
+  the group-specific sensitivity EVs match the submitted logit covariate to
+  numerical rounding. The activation production design files likewise exactly
+  match the committed `norm2_logit` companions.
 
 ## Server pending items that must not be filled by inference
 
@@ -176,8 +193,10 @@ author-pending and must not redefine the primary result.
    checksum inventory would strengthen general provenance but is not required
    to rerun sub-144.
 2. Exact production BOLD and group-output headers.
-3. Production `design.fsf`, `design.mat`, `design.con`, and `design.grp`
-   identity relative to tracked templates.
+3. A compact copy of the rendered production `design.fsf` files. ECN and
+   activation `design.mat`, `design.con`, and `design.grp` identity is already
+   established by exact historical checksums; the two retained DMN copies have
+   identical matrix, contrast, and group checksums.
 4. Residual smoothness, search volume/resels, cluster tables, peaks, corrected
    probabilities, and confirmation that no post-statistics ROI mask was used.
 5. Corrected main effects, within-age simple effects, and social-versus-computer
