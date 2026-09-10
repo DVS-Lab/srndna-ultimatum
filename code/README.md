@@ -18,6 +18,12 @@
   not authorize participant deletion.
 - `audit_server_rt_events.py`: read-only comparison of BIDS RT rows, 3-column
   EVs, and retained activation designs on Linux.
+- `make_ultimatum_3col.py`: portable construction of the nine model-02 task,
+  offer-modulator, miss, and RT EV files from either historical or corrected
+  BIDS event layouts.
+- `audit_ultimatum_event_designs.py`: lightweight `feat_model`-only matching of
+  retained sub-143/sub-144 activation matrices to current and historical event
+  candidates. It does not fit image data or modify retained FEAT directories.
 - `audit_l1_designs.py`: aggregate rank, conditioning, and column-correlation
   diagnostics for retained activation and nPPI design matrices.
 - `audit_server_imaging.sh`: read-only collection of compact production
@@ -41,5 +47,6 @@ The original sequence was:
 2. generate confounds and FSL 3-column EV files;
 3. run FSL L1, L2, and L3 analyses.
 
-The production audit must remain non-mutating. Do not run FEAT, FLAME,
-`randomise`, or a replacement model as part of validation.
+The production audit must remain non-mutating. The event-provenance matcher may
+run `feat_model` in scratch space; do not run FEAT, FLAME, `randomise`, or a
+replacement image model as part of validation.

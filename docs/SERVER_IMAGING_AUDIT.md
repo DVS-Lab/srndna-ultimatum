@@ -4,7 +4,9 @@ The production checkout and derivative tree are both rooted at
 `/ZPOOL/data/projects/srndna-ultimatum`. The audit is read-only with respect to
 scientific outputs: it may write compact inventories under `logs/audits/` and
 aggregate tables under `results/reviewer/tables/`, but it must not invoke FEAT,
-FLAME, `randomise`, or replacement cluster inference.
+FLAME, `randomise`, or replacement cluster inference. The one documented
+exception is `feat_model`, which creates design matrices without fitting image
+data and is run only under scratch space.
 
 ## Synchronize and validate
 
@@ -43,6 +45,32 @@ python3 code/audit_l1_designs.py \
 This writes participant/run rows only under ignored `logs/audits/` and an
 aggregate model-level summary suitable for Git. Correlation thresholds are
 descriptive flags, not automatic failure criteria.
+
+## Match sub-143 and sub-144 to their actual event source
+
+Run this while image-fitting jobs are active; `feat_model` is brief and does
+not fit voxel data. The command tests the corrected working-tree events and the
+pre-correction event files at Git revision `02ba301`, each with both the
+explicit companion-`event_RT` and substantive-response RT constructions.
+
+```bash
+REPOSITORY=/ZPOOL/data/projects/srndna-ultimatum
+DESIGN_AUDIT_ROOT=/ZPOOL/data/scratch/srndna-ultimatum-event-design-audit
+
+cd "$REPOSITORY"
+python3 code/audit_ultimatum_event_designs.py \
+  --production-l1-root "$REPOSITORY/derivatives/fsl" \
+  --work-root "$DESIGN_AUDIT_ROOT" \
+  --output results/reviewer/tables/affected_event_design_matches.tsv
+```
+
+The script never writes inside a retained `.feat` directory. It compares the
+first nine task-design columns against each retained activation `design.mat`
+and marks the lowest relative RMSE for each participant-run. A genuine source
+match should have correlations essentially equal to 1 and relative RMSE near
+zero. Commit and push the resulting compact TSV; the generated candidate FSFs,
+EVs, and matrices remain in scratch. This result decides whether sub-143 needs
+any refit and which RT construction preserves the submitted model.
 
 ## Locate rendered 47-participant group designs
 
@@ -97,8 +125,8 @@ search mask, smoothness, and cluster tables are required.
 
 ## Known RT source-data issue
 
-The corrected curated BIDS events contain 6,654 responded trials and 5,724 companion
-`event_RT` rows. All 804 responded first trials of blocks lack a companion RT
+The corrected curated BIDS events contain 6,654 responded trials and 5,724
+companion `event_RT` rows. All 804 responded first trials of blocks lack an RT
 row, and sub-143 has another 126 omissions because neither run contains any
 `event_RT` rows. The substantive task events remain present. The Linux command
 above determines what entered the actual retained FEAT designs; it does not
