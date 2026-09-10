@@ -11,7 +11,8 @@ echo "PASS: active shell syntax"
 
 PYTHONPYCACHEPREFIX="${TMPDIR:-/tmp}/srndna-ug-pycache" \
     python3 -m py_compile "$script_dir/audit_task_events.py" "$script_dir/audit_image_headers.py" \
-    "$script_dir/audit_l1_designs.py" "$script_dir/audit_l3_template_inputs.py" \
+    "$script_dir/audit_l1_designs.py" "$script_dir/audit_l3_production.py" \
+    "$script_dir/audit_l3_template_inputs.py" \
     "$script_dir/audit_prepared_ultimatum_designs.py" \
     "$script_dir/audit_server_rt_events.py" "$script_dir/audit_ultimatum_event_designs.py" \
     "$script_dir/build_event_corrected_trials.py" "$script_dir/make_fsl_confounds.py" \
@@ -41,6 +42,7 @@ fi
 
 if grep -En '/Users/[^/]+|/home/[^/]+' \
     "$script_dir/audit_task_events.py" "$script_dir/audit_image_headers.py" \
+    "$script_dir/audit_l3_production.py" \
     "$script_dir/audit_prepared_ultimatum_designs.py" \
     "$script_dir/audit_server_rt_events.py" "$script_dir/audit_ultimatum_event_designs.py" \
     "$script_dir/make_fsl_confounds.py" "$script_dir/make_ultimatum_3col.py" \

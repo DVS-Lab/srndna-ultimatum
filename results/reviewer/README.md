@@ -99,6 +99,10 @@ make reviewer-behavior
 - `production_audits/`: compact Linux production-design, cluster-table,
   provenance, checksum, and image-header captures. The collector never copies
   NIfTI payloads; inspect the bundle before committing it.
+- `tables/production_l3_trace.tsv`: generated on Linux by exact SHA-256 matching
+  of the three tracked paper masks to retained cluster masks in both analysis
+  repositories; includes the enclosing L3 path, design hashes, sub-144 input,
+  inference settings, and available FSL smoothness values.
 
 Production imaging provenance remains server-gated. The source-event audit has
 isolated the systematic first-trial omissions and both sub-143 runs for

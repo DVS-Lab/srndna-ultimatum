@@ -135,6 +135,10 @@ exists under `srndna-data`, `srndna-ug`, or the archive location, compare its
 `sha256sum` with `candidate_bold_sha256`. Exact equality closes the remaining
 bitwise preprocessing-input provenance check.
 
+For sub-144, that comparison is complete: both OpenNeuro files exactly match
+the surviving `srndna-ug` copies (run-1 SHA-256 begins `2055f273`; run-2 begins
+`73139354`). Do not rerun fMRIPrep for the minimal identity repair.
+
 ```bash
 python3 code/run_ultimatum_repair_jobs.py \
   --manifest "$REPAIR_ROOT/repair_jobs.tsv" \
@@ -149,13 +153,46 @@ python3 code/run_ultimatum_repair_jobs.py \
   --stage l2 --jobs 2
 ```
 
+Reissuing a completed stage without `--resume` is expected to fail rather than
+overwrite data. To verify an already completed L1 stage and proceed safely:
+
+```bash
+python3 code/run_ultimatum_repair_jobs.py \
+  --manifest "$REPAIR_ROOT/repair_jobs.tsv" \
+  --stage l1 --jobs 2 --resume
+
+python3 code/run_ultimatum_repair_jobs.py \
+  --manifest "$REPAIR_ROOT/repair_jobs.tsv" \
+  --stage l2 --jobs 2 --dry-run
+```
+
 The runner writes logs inside the repair root, creates only the identity
 registration links expected by the historical standard-space workflow, and
 never deletes or replaces an output. Use `--resume` only to skip jobs whose
 required completion images already exist; an incomplete existing output is a
 hard stop.
 
-## Locate rendered 47-participant group designs
+## Trace the paper masks to Jen's rendered L3 outputs
+
+The three tracked paper masks can be matched byte-for-byte to retained FSL
+cluster masks. Search both repositories because the original broad L3 tree is
+under `srndna-ultimatum`, while Jen's later paper-specific SANS work is expected
+under `srndna-ug`:
+
+```bash
+python3 code/audit_l3_production.py \
+  --search-root ultimatum="$REPOSITORY/derivatives/fsl" \
+  --search-root srndna-ug=/ZPOOL/data/projects/srndna-ug/derivatives/fsl \
+  --output-dir logs/audits/server/l3-production \
+  --tracked-summary results/reviewer/tables/production_l3_trace.tsv
+```
+
+The tracked table contains exact cluster-mask matches and their GFEAT paths,
+design hashes, sub-144 input position, threshold settings, cluster table, and
+available `DLH`, `VOLUME`, and `RESELS` values. The larger all-design inventory
+remains under ignored `logs/audits/`. Commit and push the compact tracked TSV.
+
+## Locate all rendered 47-participant group designs manually
 
 ```bash
 mkdir -p results/reviewer/production_audits

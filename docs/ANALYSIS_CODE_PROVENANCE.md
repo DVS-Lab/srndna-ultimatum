@@ -48,8 +48,10 @@ fMRIPrep 21.0.2, and its 21.0.2 wrapper requests that space. Jen later changed
 the wrapper in `srndna-ug` to fMRIPrep 23.2.1 with only
 `MNI152NLin6Asym`, but did not change the L1 filename to that space. Thus the
 later wrapper is not evidence that the retained L1 models used 23.2.1. A hash
-comparison against any surviving original BOLD copy remains the final bitwise
-identity check.
+comparison on Linux established that both affected sub-144 BOLD files are
+byte-identical between the downloaded OpenNeuro derivative and Jen's surviving
+`srndna-ug` tree (run-1 SHA-256 begins `2055f273`; run-2 begins `73139354`).
+There is no preprocessing rerun in the minimal sub-144 repair.
 
 ## Third-level paper-analysis provenance
 

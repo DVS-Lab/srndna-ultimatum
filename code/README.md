@@ -14,6 +14,10 @@
   templates.
 - `audit_l3_template_inputs.py`: recursive inventory of original and later L3
   template inputs, including sub-143.
+- `audit_l3_production.py`: hash-match the three tracked paper masks to cluster
+  masks in retained GFEAT trees, then trace each exact match back to its group
+  design, participant inputs, inference settings, cluster table, and FSL
+  residual-smoothness record.
 - `audit_roi_influence.R`: descriptive selected-ROI influence check; it does
   not authorize participant deletion.
 - `audit_server_rt_events.py`: read-only comparison of BIDS RT rows, 3-column
