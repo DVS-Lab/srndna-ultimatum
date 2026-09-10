@@ -44,13 +44,22 @@ def read_manifest(
 
 def complete(row: dict[str, str]) -> bool:
     output = Path(row["output"])
+    expected_copes = row.get("expected_copes", "").strip()
     if row["stage"] == "l1":
-        required = (output / "stats" / "cope1.nii.gz", output / "stats" / "cope7.nii.gz")
+        last_cope = int(expected_copes) if expected_copes else 7
+        required = (
+            output / "stats" / "cope1.nii.gz",
+            output / "stats" / f"cope{last_cope}.nii.gz",
+        )
     elif row["stage"] == "l2":
         # The model-02 activation L1 has 10 contrasts and the nPPI L1 has 11.
         # L2 fixed effects must therefore finish every corresponding cope, not
         # merely the focal cope 7 consumed by the paper's group models.
-        cope_count = 10 if row["model"] == "act" else 11
+        cope_count = (
+            int(expected_copes)
+            if expected_copes
+            else (10 if row["model"] == "act" else 11)
+        )
         required = tuple(
             output / f"cope{index}.feat" / "stats" / "cope1.nii.gz"
             for index in range(1, cope_count + 1)
@@ -103,7 +112,12 @@ def ensure_identity_registration(output: Path) -> None:
 
 
 def run_one(row: dict[str, str], log_dir: Path) -> tuple[str, int]:
-    label = f"{row['stage']}_{row['model']}_run-{row['run'] or 'combined'}"
+    subject = row.get("subject", "").strip()
+    subject_part = f"_{subject}" if subject else ""
+    label = (
+        f"{row['stage']}{subject_part}_{row['model']}_"
+        f"run-{row['run'] or 'combined'}"
+    )
     if not re.fullmatch(r"[A-Za-z0-9_.-]+", label):
         raise ValueError(f"unsafe job label: {label}")
     log_path = log_dir / f"{label}.log"
@@ -136,7 +150,11 @@ def run_jobs(
     runnable: list[dict[str, str]] = []
     for row in rows:
         state = validate_job(row, resume)
-        print(f"{state.upper()}: {row['model']} run-{row['run'] or 'combined'} -> {row['output']}")
+        subject = f"{row.get('subject', '').strip()} " if row.get("subject") else ""
+        print(
+            f"{state.upper()}: {subject}{row['model']} "
+            f"run-{row['run'] or 'combined'} -> {row['output']}"
+        )
         if state == "run":
             runnable.append(row)
     if dry_run:

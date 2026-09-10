@@ -71,6 +71,22 @@ explicit. See `docs/REPOSITORY_OF_RECORD.md`.
 The analyses were not preregistered. Reviewer-requested work is labeled as
 revision analysis and is not presented as part of the submitted workflow.
 
+## Resubmission imaging models
+
+Historical production templates remain unchanged in `templates/`. Canonical
+resubmission templates are under `templates/revision/`, with their intended
+differences documented in `templates/revision/README.md`. The new task-wide
+fairness model preserves the submitted nine-EV activation GLM and adds an
+equal-weighted mean of its three partner-specific offer-size slopes as
+contrast 11. `code/prepare_activation_fairness_main_pipeline.py` prepares the
+complete 47-participant L1, L2, and covariate-adjusted L3 workflow in an
+external scratch directory; it uses current OpenNeuro inputs, substantive
+decision rows for the RT nuisance EVs, and the repaired `sub-144` source model.
+The shared manifest runner executes those jobs without replacing historical
+FEAT outputs.
+See `docs/ACTIVATION_FAIRNESS_MAIN.md` for the exact Linux1 preparation,
+preflight, execution, resume, and completion commands.
+
 The revised Figure 3 decomposes the retained default-mode-network contrast
 into four age-group-by-partner bars. Bar heights are cluster-mean group COPE
 estimates from corrected condition-specific FLAME 1+2 models, so the display
