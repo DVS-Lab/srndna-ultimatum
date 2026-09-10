@@ -1,0 +1,9 @@
+event_source	model_quantity	partner	n_trials	singular	convergence_message	log_likelihood
+submitted	offer_slope	similar	2220	FALSE	NA	-513.605295419677
+submitted	offer_slope	dissimilar	2219	FALSE	NA	-499.166648244877
+corrected	offer_slope	similar	2219	FALSE	NA	-510.716535789797
+corrected	offer_slope	dissimilar	2219	FALSE	NA	-499.148411003555
+submitted	offer3_random_intercept	similar	2220	FALSE	NA	-513.605296302454
+submitted	offer3_random_intercept	dissimilar	2219	FALSE	NA	-499.166650892677
+corrected	offer3_random_intercept	similar	2219	FALSE	NA	-510.716537520531
+corrected	offer3_random_intercept	dissimilar	2219	FALSE	NA	-499.148411329737

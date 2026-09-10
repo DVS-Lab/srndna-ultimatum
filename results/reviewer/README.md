@@ -20,10 +20,13 @@ make reviewer-behavior
 - A random-intercept robustness model also yields no three-way interaction:
   beta = 0.06840, SE = 0.09150, z = 0.748, p = .455, 95% CI [-0.11093,
   0.24773]. It should not replace the better-supported intended slope model.
-- The corrected two-model fairness-sensitivity score differs from the tracked
-  submitted vector only for sub-144, whose value changes from -0.20647 to
-  0.49305. The vectors correlate r = .981. A unified uncorrelated random-effects
-  model is nonsingular; its fixed Offer x Similarity estimate is -0.03423
+- Only sub-144's source rows change, but refitting the shared mixed models
+  updates the conditional estimates for all 47 participants. The submitted and
+  corrected centered fairness-sensitivity vectors correlate r = .981; sub-144
+  changes from -0.19364 to 0.46813 in the L3 design scale. Refitting the
+  historical rows reproduces the production vector to within 3.5e-6, confirming
+  the recovered formula. A unified uncorrelated random-effects model is
+  nonsingular; its fixed Offer x Similarity estimate is -0.03423
   (SE 0.06219, z = -0.550, p = .582, 95% CI [-0.15612, 0.08766]). The
   participant interaction slopes correlate r = .669 with the corrected score.
 - The corrected fairness-sensitivity score does not differ detectably by age
@@ -66,6 +69,13 @@ make reviewer-behavior
   optimizers.
 - `tables/fairness_sensitivity_*.tsv`: unified model,
   interpretation-relevant diagnostics, and aggregate age comparison.
+- `tables/l3_covariate_correction_summary.tsv` and
+  `l3_covariate_model_diagnostics.tsv`: exact production-to-historical-refit
+  calibration and event-corrected fairness-sensitivity/norm-proxy diagnostics.
+  The corrected 47-row vectors remain ignored under `private/`.
+- `tables/l3_group_rt_provenance.tsv`: sub-144 RT summaries and the explicit
+  decision to retain the submitted group RT column until its exact historical
+  transformation is recovered.
 - `tables/task_event_summary.tsv` and `missed_trials_*.tsv`: aggregate
   event/timing and miss results.
 - `tables/rt_event_construction_summary.tsv`: aggregate source-BIDS evidence
@@ -106,13 +116,18 @@ make reviewer-behavior
   available FSL smoothness values. A containment or partial-overlap row is a
   provenance lead rather than proof of mask identity.
 
-Production imaging provenance remains server-gated. The source-event audit has
-isolated the systematic first-trial omissions and both sub-143 runs for
-production tracing; this does not authorize an L1 rerun. See
-`docs/SERVER_IMAGING_AUDIT.md`; the collection script is strictly read-only and
-does not run FEAT, permutation inference, reduced-nuisance models, or
-participant-deletion analyses. Robust FLAME deweighting and any genuinely
-missing L3 contrast remain separate author-pending decisions.
+Production imaging provenance and the sub-143/sub-144 source-event match are
+now traced. Only sub-144 requires the identity repair. See
+`docs/SERVER_IMAGING_AUDIT.md`; the collection scripts remain read-only, while
+the separately documented repair writes new outputs only under versioned
+scratch roots. Robust FLAME deweighting, altered RT policy, reduced-nuisance
+models, participant deletion, and any genuinely missing L3 contrast remain
+outside this repair.
+
+The guarded group-repair workflow in `code/prepare_ultimatum_l3_repair.py`
+creates scratch-only image-repair and fairness-covariate-corrected designs from
+the exact recovered production FSFs. It never edits the original GFEAT trees or
+uses the submitted binary focal masks as model inputs.
 
 Participant-level event, sensitivity, rating, and completeness tables are
 written to the ignored `private/` directory. They use study identifiers but no

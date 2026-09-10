@@ -38,8 +38,12 @@ Suggested replacement:
 ### Behavioral fairness sensitivity
 
 The tracked submitted score is reproducible from the historical duplicated
-labels, but correcting sub-144 changes that participant's score from -0.2065
-to 0.4931. The tracked and corrected vectors correlate r = .981. A unified
+labels. Only sub-144's source rows change, but refitting the shared mixed
+models updates every participant's conditional estimate. On the centered L3
+scale, sub-144 changes from -0.1936 to 0.4681; the submitted and corrected
+47-person vectors correlate r = .981 and have a maximum absolute difference of
+0.6618. Refitting the historical rows reproduces the production vector to
+within 3.5e-6, confirming both the estimand and its implementation. A unified
 model with correlated participant interaction slopes is singular; an explicit
 uncorrelated random-effects model is nonsingular. Its fixed Offer × Similarity
 coefficient is -0.0342 (SE = 0.0622, z = -0.550, p = .582, 95% CI [-0.1561,
@@ -54,12 +58,17 @@ mean a steeper offer-acceptance slope for similar than dissimilar partners;
 negative values mean the reverse. The standardized difference is Hedges'
 g = -0.16 (approximate 95% CI [-0.73, 0.40]).
 
-**Author decision pending:** First compare the estimands, scaling, shrinkage,
-distribution, age association, and r = .669 correspondence of the corrected
-and unified participant measures. Do not construct or run a new ECN group model
-unless that comparison supports it and the author decides it is scientifically
-useful. The behavioral correlation is not evidence of equivalence or neural
-robustness.
+The corrected ECN repair retains the submitted two-model estimand rather than
+substituting the unified slope. The unified model remains a behavioral
+robustness check; its r = .669 correspondence is not evidence of equivalence or
+neural robustness.
+
+The submitted activation `norm2_logit` covariate is also reconstructed. It is
+the difference in participant random intercepts from separate similar and
+dissimilar models after coding offer as `offer - 3`, then grand-mean centering
+and splitting by age group. The historical refit reproduces the production
+vector within 1.1e-5. The submitted and event-corrected centered vectors
+correlate r = .981; sub-144 changes from 1.3339 to -1.5265.
 
 ### Missed trials and response time
 
@@ -77,7 +86,7 @@ result as descriptive/exploratory. The task source confirms that the partner,
 offer, and selected response remained visible through the approximately 3.5-s
 epoch, so first-level task regressors do not isolate deliberation.
 
-### RT nuisance-event construction: production audit pending
+### RT nuisance-event construction and repair policy
 
 The curated BIDS event files contain 6,654 responded task trials, but only
 5,724 matching `event_RT` rows. All 804 responded first trials of blocks lack
@@ -101,12 +110,13 @@ This establishes that sub-143 contributed the cope 7 files required by the
 focal 47-input designs and the cope 4/6 files required by condition-stacked
 templates.
 
-It does not yet establish what the sub-143 L1 RT columns contained. The
-production L1 `design.fsf`, `design.mat`, and EV files must be audited directly,
-and the rendered submitted L3 output directory must be located. Do not silently
-regenerate EVs or rerun L1. The public BIDS TSVs are source data; the FSL
-3-column EVs are generated derivatives and should be rebuilt only if a later
-scientific decision authorizes a rerun.
+The production design matcher subsequently established that sub-143's retained
+L1 task block exactly matches its own substantive trial rows; sub-143 therefore
+does not require refitting. Both sub-144 runs match the historical duplicated
+events and require the isolated event correction already prepared and run. The
+minimal identity repair preserves the submitted companion-RT construction.
+Changing that RT construction would alter all participants and remains a
+separate sensitivity analysis, not part of this repair.
 
 ### Partner ratings
 
@@ -198,18 +208,16 @@ author-pending and must not redefine the primary result.
    `srndna-ug` copies, closing input identity for the repair. A whole-sample
    checksum inventory would strengthen general provenance but is not required
    to rerun sub-144.
-2. Corrected main effects, within-age simple effects, and social-versus-computer
-   results from existing contrasts.
-3. Remaining first-level design correlations and RT/offer-modulator
-   estimability, including downstream provenance for both sub-143 runs. The
-   source-event omissions are quantified, but no production-run subset is
-   considered verified until the authoritative Linux audit is run.
+2. Corrected image-only and fairness-covariate-corrected L3 results after the
+   guarded scratch jobs complete, including existing main, within-age simple,
+   and social-versus-computer contrasts.
+3. Exact provenance for the submitted group RT transformation. The minimal
+   repair retains the submitted RT column; changing it would be a separately
+   labeled whole-sample sensitivity analysis.
 4. Exact behavior of robust FLAME outlier deweighting in the production FSL
    version, including compatibility, settings, and diagnostic outputs; do not
    run it without author approval.
-5. A statistical comparison of the submitted and unified sensitivity measures;
-   do not build a new ECN L3 model without a subsequent scientific decision.
-6. An inventory classifying main/simple/computer-effect requests as existing,
+5. An inventory classifying main/simple/computer-effect requests as existing,
    descriptive, genuinely new, or not scientifically recommended.
 
 Use `docs/SERVER_IMAGING_AUDIT.md` to collect the evidence. Do not run the

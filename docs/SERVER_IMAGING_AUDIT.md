@@ -1,12 +1,13 @@
 # Imaging revision audit on the Linux analysis server
 
 The production checkout and derivative tree are both rooted at
-`/ZPOOL/data/projects/srndna-ultimatum`. The audit is read-only with respect to
-scientific outputs: it may write compact inventories under `logs/audits/` and
-aggregate tables under `results/reviewer/tables/`, but it must not invoke FEAT,
-FLAME, `randomise`, or replacement cluster inference. The one documented
-exception is `feat_model`, which creates design matrices without fitting image
-data and is run only under scratch space.
+`/ZPOOL/data/projects/srndna-ultimatum`. Audit commands are read-only with
+respect to scientific outputs: they may write compact inventories under
+`logs/audits/` and aggregate tables under `results/reviewer/tables/`, but do
+not invoke FEAT, FLAME, `randomise`, or replacement cluster inference. The
+documented repair commands are separate: they write only to versioned scratch
+roots and never replace retained FEAT/GFEAT outputs. `feat_model` preflights
+also run only under scratch.
 
 ## Synchronize and validate
 
@@ -199,6 +200,71 @@ tracked table also contains the GFEAT path, design hashes, sub-144 input
 position, threshold settings, cluster table, and available `DLH`, `VOLUME`,
 and `RESELS` values. The larger all-design inventory remains under ignored
 `logs/audits/`. Commit and push the compact tracked TSV.
+
+## Prepare and run the scratch-only group repair
+
+The production trace is complete and all three repaired sub-144 L2 models pass
+the full completion check. Regenerate the two behavior-derived covariates, then
+render five group designs from the exact production FSFs. The three
+`image-only` jobs change only the sub-144 cope-7 input. The ECN and activation
+`fairness-covariate-corrected` jobs additionally replace EVs 7 and 8 with the
+event-corrected version of the submitted sensitivity or norm-proxy estimand.
+They deliberately retain the submitted group RT column because its exact
+historical transformation has not been recovered.
+The recovered FSFs name the same FSL MNI152 2-mm reference under the obsolete
+`/usr/share/fsl/6.0.3` installation path; preparation records and substitutes
+the current installation path without changing the reference image choice.
+
+```bash
+REPOSITORY=/ZPOOL/data/projects/srndna-ultimatum
+SUB144_REPAIR_ROOT=/ZPOOL/data/scratch/srndna-ultimatum-sub144-repair-v2
+L3_REPAIR_ROOT=/ZPOOL/data/scratch/srndna-ultimatum-l3-repair-v1
+STANDARD_IMAGE="$FSLDIR/data/standard/MNI152_T1_2mm_brain.nii.gz"
+
+cd "$REPOSITORY"
+git pull --ff-only origin main
+
+make reviewer-behavior
+
+python3 code/prepare_ultimatum_l3_repair.py \
+  --production-fsl-root "$REPOSITORY/derivatives/fsl" \
+  --sub144-repair-root "$SUB144_REPAIR_ROOT" \
+  --standard-image "$STANDARD_IMAGE" \
+  --work-root "$L3_REPAIR_ROOT"
+
+python3 code/audit_prepared_ultimatum_l3_designs.py \
+  --manifest "$L3_REPAIR_ROOT/l3_repair_jobs.tsv"
+
+cut -f1-5,7-12 "$L3_REPAIR_ROOT/l3_repair_jobs.tsv"
+
+python3 code/run_ultimatum_repair_jobs.py \
+  --manifest "$L3_REPAIR_ROOT/l3_repair_jobs.tsv" \
+  --stage l3 --run image-only --jobs 1 --dry-run
+
+python3 code/run_ultimatum_repair_jobs.py \
+  --manifest "$L3_REPAIR_ROOT/l3_repair_jobs.tsv" \
+  --stage l3 --run fairness-covariate-corrected --jobs 1 --dry-run
+```
+
+Preparation refuses a nonempty root. If `v1` already exists, inspect it rather
+than deleting it; choose a new versioned root only if a genuinely fresh render
+is required. Both audits must pass before fitting images. While the Trust LSS
+queue is using most of Linux1, keep group fitting serial:
+
+```bash
+python3 code/run_ultimatum_repair_jobs.py \
+  --manifest "$L3_REPAIR_ROOT/l3_repair_jobs.tsv" \
+  --stage l3 --run image-only --jobs 1
+
+python3 code/run_ultimatum_repair_jobs.py \
+  --manifest "$L3_REPAIR_ROOT/l3_repair_jobs.tsv" \
+  --stage l3 --run fairness-covariate-corrected --jobs 1
+```
+
+Reissuing either command with `--resume` validates and skips complete jobs. An
+existing incomplete output remains a hard stop. The original GFEAT trees,
+production covariates, continuous DMN/ECN maps, and submitted binary focal
+masks are never overwritten.
 
 ## Locate all rendered 47-participant group designs manually
 

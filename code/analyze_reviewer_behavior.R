@@ -68,6 +68,32 @@ wald_table <- function(model, model_id, analysis_status, n_subjects, n_trials) {
 
 read_csv_clean <- function(path) read.csv(path, check.names = FALSE, fileEncoding = "UTF-8-BOM")
 
+read_group_fsf_ev <- function(path, ev_index) {
+  lines <- readLines(path, warn = FALSE)
+  input_lines <- grep("^set feat_files\\([0-9]+\\) ", lines, value = TRUE)
+  input_index <- as.integer(sub("^set feat_files\\(([0-9]+)\\).*$", "\\1", input_lines))
+  participant <- sub('^.*(sub-[0-9]+).*$','\\1', input_lines)
+  value_pattern <- sprintf("^set fmri\\(evg[0-9]+\\.%d\\) ", ev_index)
+  value_lines <- grep(value_pattern, lines, value = TRUE)
+  value_index <- as.integer(sub("^set fmri\\(evg([0-9]+)\\..*$", "\\1", value_lines))
+  value <- as.numeric(sub(value_pattern, "", value_lines))
+  if (length(input_index) == 0 || length(input_index) != length(value_index)) {
+    stop(sprintf("incomplete EV %d in %s", ev_index, path))
+  }
+  values <- value[match(input_index, value_index)]
+  if (anyNA(values) || anyDuplicated(participant)) stop(sprintf("invalid EV %d in %s", ev_index, path))
+  data.frame(subjID = participant, value = values, stringsAsFactors = FALSE)
+}
+
+participant_rt_summary <- function(x, suffix) {
+  x <- subset(x, missed == 0 & is.finite(response_time))
+  means <- aggregate(response_time ~ subjID, data = x, FUN = mean)
+  medians <- aggregate(response_time ~ subjID, data = x, FUN = median)
+  names(means)[2] <- paste0("response_time_mean_", suffix)
+  names(medians)[2] <- paste0("response_time_median_", suffix)
+  merge(means, medians, by = "subjID")
+}
+
 participants <- read_csv_clean(file.path(data_dir, "participant_L3_47.csv"))
 names(participants)[1] <- "subjID"
 participants$age_group <- factor(
@@ -89,6 +115,7 @@ human$accept <- as.integer(as.character(human$accept))
 human$similarity <- factor(ifelse(human$ingroup == 1, "similar", "dissimilar"), levels = c("dissimilar", "similar"))
 human$similarity_num <- as.integer(human$similarity == "similar")
 human$offer_c <- human$offer - mean(human$offer)
+human$offer_3 <- human$offer - 3
 human$subjID <- factor(human$subjID)
 human$age_group <- factor(human$age_group, levels = c("younger", "older"))
 
@@ -142,22 +169,281 @@ write_tsv(do.call(rbind, optimizer_rows), file.path(table_dir, "primary_optimize
 similar_fit <- glmer(accept ~ offer + (1 + offer | subjID), data = subset(human, similarity == "similar"), family = binomial, control = glmer_control)
 dissimilar_fit <- glmer(accept ~ offer + (1 + offer | subjID), data = subset(human, similarity == "dissimilar"), family = binomial, control = glmer_control)
 
-conditional_offer_slopes <- function(model, label) {
+conditional_offer_slopes <- function(model) {
   values <- coef(model)$subjID$offer
   data.frame(subjID = rownames(coef(model)$subjID), value = values, stringsAsFactors = FALSE)
 }
-similar_slopes <- conditional_offer_slopes(similar_fit, "similar")
-dissimilar_slopes <- conditional_offer_slopes(dissimilar_fit, "dissimilar")
+similar_slopes <- conditional_offer_slopes(similar_fit)
+dissimilar_slopes <- conditional_offer_slopes(dissimilar_fit)
 names(similar_slopes)[2] <- "similar_offer_slope_rederived"
 names(dissimilar_slopes)[2] <- "dissimilar_offer_slope_rederived"
 rederived <- merge(similar_slopes, dissimilar_slopes, by = "subjID")
 rederived$corrected_separate_model_metric <- rederived$similar_offer_slope_rederived - rederived$dissimilar_offer_slope_rederived
+
+# The submitted activation norm proxy was the difference between participant
+# random intercepts from separate partner-condition fits using offer - 3. It
+# is not the later intercept/slope threshold metric retained in Jen's history.
+conditional_random_intercepts <- function(model) {
+  effects <- ranef(model)$subjID
+  values <- effects[, "(Intercept)"]
+  data.frame(subjID = rownames(effects), value = as.numeric(values), stringsAsFactors = FALSE)
+}
+norm_similar_fit <- glmer(
+  accept ~ offer_3 + (1 + offer_3 | subjID),
+  data = subset(human, similarity == "similar"),
+  family = binomial,
+  control = glmer_control
+)
+norm_dissimilar_fit <- glmer(
+  accept ~ offer_3 + (1 + offer_3 | subjID),
+  data = subset(human, similarity == "dissimilar"),
+  family = binomial,
+  control = glmer_control
+)
+similar_intercepts <- conditional_random_intercepts(norm_similar_fit)
+dissimilar_intercepts <- conditional_random_intercepts(norm_dissimilar_fit)
+names(similar_intercepts)[2] <- "similar_random_intercept_rederived"
+names(dissimilar_intercepts)[2] <- "dissimilar_random_intercept_rederived"
+norm_proxy <- merge(similar_intercepts, dissimilar_intercepts, by = "subjID")
+norm_proxy$corrected_norm_proxy <- (
+  norm_proxy$similar_random_intercept_rederived -
+    norm_proxy$dissimilar_random_intercept_rederived
+)
+
+# Refit the same two models to the submitted event table as a calibration
+# bridge. This separates ordinary software/refit differences from the effect
+# of replacing sub-144's duplicated behavioral labels.
+historical_human <- subset(historical_trials <- read_csv_clean(file.path(data_dir, "all_trials_brains.csv")), missed == 0 & human == 1)
+historical_human <- subset(historical_human, subjID %in% participants$subjID)
+historical_human$accept <- as.integer(as.character(historical_human$accept))
+historical_human$similarity <- factor(
+  ifelse(historical_human$ingroup == 1, "similar", "dissimilar"),
+  levels = c("dissimilar", "similar")
+)
+historical_human$offer_3 <- historical_human$offer - 3
+historical_human$subjID <- factor(historical_human$subjID)
+historical_similar_fit <- glmer(
+  accept ~ offer + (1 + offer | subjID),
+  data = subset(historical_human, similarity == "similar"),
+  family = binomial,
+  control = glmer_control
+)
+historical_dissimilar_fit <- glmer(
+  accept ~ offer + (1 + offer | subjID),
+  data = subset(historical_human, similarity == "dissimilar"),
+  family = binomial,
+  control = glmer_control
+)
+historical_similar_slopes <- conditional_offer_slopes(historical_similar_fit)
+historical_dissimilar_slopes <- conditional_offer_slopes(historical_dissimilar_fit)
+names(historical_similar_slopes)[2] <- "historical_refit_similar_slope"
+names(historical_dissimilar_slopes)[2] <- "historical_refit_dissimilar_slope"
+historical_metrics <- merge(historical_similar_slopes, historical_dissimilar_slopes, by = "subjID")
+historical_metrics$historical_refit_sensitivity <- (
+  historical_metrics$historical_refit_similar_slope -
+    historical_metrics$historical_refit_dissimilar_slope
+)
+historical_norm_similar_fit <- glmer(
+  accept ~ offer_3 + (1 + offer_3 | subjID),
+  data = subset(historical_human, similarity == "similar"),
+  family = binomial,
+  control = glmer_control
+)
+historical_norm_dissimilar_fit <- glmer(
+  accept ~ offer_3 + (1 + offer_3 | subjID),
+  data = subset(historical_human, similarity == "dissimilar"),
+  family = binomial,
+  control = glmer_control
+)
+historical_similar_intercepts <- conditional_random_intercepts(historical_norm_similar_fit)
+historical_dissimilar_intercepts <- conditional_random_intercepts(historical_norm_dissimilar_fit)
+names(historical_similar_intercepts)[2] <- "historical_refit_similar_random_intercept"
+names(historical_dissimilar_intercepts)[2] <- "historical_refit_dissimilar_random_intercept"
+historical_metrics <- merge(historical_metrics, historical_similar_intercepts, by = "subjID")
+historical_metrics <- merge(historical_metrics, historical_dissimilar_intercepts, by = "subjID")
+historical_metrics$historical_refit_norm_proxy <- (
+  historical_metrics$historical_refit_similar_random_intercept -
+    historical_metrics$historical_refit_dissimilar_random_intercept
+)
 
 submitted <- read_csv_clean(file.path(data_dir, "in_out_sensitivity_indiv_logit.csv"))
 submitted <- submitted[, c("subjID", "in_out_indiv_logit")]
 names(submitted)[2] <- "submitted_metric_tracked"
 sensitivity <- merge(rederived, submitted, by = "subjID")
 sensitivity <- merge(sensitivity, participants[, c("subjID", "age_group")], by = "subjID")
+
+# Recover the exact submitted group-design columns from the compact production
+# FSFs. The two group-specific columns sum to the participant's centered value.
+ecn_fsf <- file.path(
+  project_root, "results", "reviewer", "production_audits",
+  "ecn-sensitivity", "design", "design.fsf"
+)
+activation_fsf <- file.path(
+  project_root, "results", "reviewer", "production_audits",
+  "activation", "design", "design.fsf"
+)
+submitted_ecn_y <- read_group_fsf_ev(ecn_fsf, 7)
+submitted_ecn_o <- read_group_fsf_ev(ecn_fsf, 8)
+submitted_norm_y <- read_group_fsf_ev(activation_fsf, 7)
+submitted_norm_o <- read_group_fsf_ev(activation_fsf, 8)
+submitted_rt <- read_group_fsf_ev(activation_fsf, 4)
+names(submitted_ecn_y)[2] <- "submitted_sensitivity_young"
+names(submitted_ecn_o)[2] <- "submitted_sensitivity_old"
+names(submitted_norm_y)[2] <- "submitted_norm_young"
+names(submitted_norm_o)[2] <- "submitted_norm_old"
+names(submitted_rt)[2] <- "submitted_group_rt"
+
+corrected_covariates <- participants[, c("subjID", "younger", "older", "ismale", "tsnr", "fd_mean", "RT")]
+corrected_covariates <- merge(corrected_covariates, rederived, by = "subjID")
+corrected_covariates <- merge(corrected_covariates, norm_proxy, by = "subjID")
+corrected_covariates <- merge(corrected_covariates, historical_metrics, by = "subjID")
+for (x in list(submitted_ecn_y, submitted_ecn_o, submitted_norm_y, submitted_norm_o, submitted_rt)) {
+  corrected_covariates <- merge(corrected_covariates, x, by = "subjID")
+}
+corrected_covariates$submitted_sensitivity_centered <- (
+  corrected_covariates$submitted_sensitivity_young +
+    corrected_covariates$submitted_sensitivity_old
+)
+corrected_covariates$submitted_norm_centered <- (
+  corrected_covariates$submitted_norm_young +
+    corrected_covariates$submitted_norm_old
+)
+corrected_covariates$corrected_sensitivity_centered <- (
+  corrected_covariates$corrected_separate_model_metric -
+    mean(corrected_covariates$corrected_separate_model_metric)
+)
+corrected_covariates$corrected_norm_centered <- (
+  corrected_covariates$corrected_norm_proxy -
+    mean(corrected_covariates$corrected_norm_proxy)
+)
+corrected_covariates$historical_refit_sensitivity_centered <- (
+  corrected_covariates$historical_refit_sensitivity -
+    mean(corrected_covariates$historical_refit_sensitivity)
+)
+corrected_covariates$historical_refit_norm_centered <- (
+  corrected_covariates$historical_refit_norm_proxy -
+    mean(corrected_covariates$historical_refit_norm_proxy)
+)
+corrected_covariates$corrected_sensitivity_young <- corrected_covariates$corrected_sensitivity_centered * corrected_covariates$younger
+corrected_covariates$corrected_sensitivity_old <- corrected_covariates$corrected_sensitivity_centered * corrected_covariates$older
+corrected_covariates$corrected_norm_young <- corrected_covariates$corrected_norm_centered * corrected_covariates$younger
+corrected_covariates$corrected_norm_old <- corrected_covariates$corrected_norm_centered * corrected_covariates$older
+
+historical_rt <- participant_rt_summary(historical_trials, "submitted_events")
+corrected_rt <- participant_rt_summary(trials, "corrected_events")
+corrected_covariates <- merge(corrected_covariates, historical_rt, by = "subjID")
+corrected_covariates <- merge(corrected_covariates, corrected_rt, by = "subjID")
+corrected_covariates <- corrected_covariates[match(participants$subjID, corrected_covariates$subjID), ]
+stopifnot(
+  identical(as.character(corrected_covariates$subjID), as.character(participants$subjID)),
+  nrow(corrected_covariates) == 47,
+  all(is.finite(corrected_covariates$corrected_sensitivity_centered)),
+  all(is.finite(corrected_covariates$corrected_norm_centered))
+)
+write_tsv(corrected_covariates, file.path(private_dir, "corrected_l3_covariates.tsv"))
+
+covariate_columns <- list(
+  fairness_sensitivity = c("submitted_sensitivity_centered", "corrected_sensitivity_centered"),
+  fairness_norm_proxy = c("submitted_norm_centered", "corrected_norm_centered")
+)
+covariate_summary <- do.call(rbind, Map(
+  function(covariate_id, columns) {
+    submitted_values <- corrected_covariates[[columns[1]]]
+    corrected_values <- corrected_covariates[[columns[2]]]
+    target <- corrected_covariates$subjID == "sub-144"
+    data.frame(
+      covariate = covariate_id,
+      submitted_corrected_correlation = cor(submitted_values, corrected_values),
+      maximum_absolute_difference = max(abs(submitted_values - corrected_values)),
+      participants_changed_gt_1e_8 = sum(abs(submitted_values - corrected_values) > 1e-8),
+      sub144_submitted_centered = submitted_values[target],
+      sub144_corrected_centered = corrected_values[target]
+    )
+  },
+  names(covariate_columns),
+  covariate_columns
+))
+refit_columns <- list(
+  fairness_sensitivity = c(
+    "submitted_sensitivity_centered",
+    "historical_refit_sensitivity_centered",
+    "corrected_sensitivity_centered"
+  ),
+  fairness_norm_proxy = c(
+    "submitted_norm_centered",
+    "historical_refit_norm_centered",
+    "corrected_norm_centered"
+  )
+)
+covariate_summary$production_historical_refit_correlation <- vapply(
+  refit_columns,
+  function(columns) cor(corrected_covariates[[columns[1]]], corrected_covariates[[columns[2]]]),
+  numeric(1)
+)
+covariate_summary$production_historical_refit_max_abs_difference <- vapply(
+  refit_columns,
+  function(columns) max(abs(corrected_covariates[[columns[1]]] - corrected_covariates[[columns[2]]])),
+  numeric(1)
+)
+covariate_summary$historical_corrected_refit_correlation <- vapply(
+  refit_columns,
+  function(columns) cor(corrected_covariates[[columns[2]]], corrected_covariates[[columns[3]]]),
+  numeric(1)
+)
+covariate_summary$historical_corrected_refit_max_abs_difference <- vapply(
+  refit_columns,
+  function(columns) max(abs(corrected_covariates[[columns[2]]] - corrected_covariates[[columns[3]]])),
+  numeric(1)
+)
+sub144_row <- corrected_covariates[corrected_covariates$subjID == "sub-144", ]
+write_tsv(covariate_summary, file.path(table_dir, "l3_covariate_correction_summary.tsv"))
+write_tsv(
+  data.frame(
+    subjID = "sub-144",
+    submitted_group_design_ev = sub144_row$submitted_group_rt,
+    submitted_participant_table_RT = sub144_row$RT,
+    submitted_event_mean_response_time = sub144_row$response_time_mean_submitted_events,
+    corrected_event_mean_response_time = sub144_row$response_time_mean_corrected_events,
+    mean_response_time_change = (
+      sub144_row$response_time_mean_corrected_events -
+        sub144_row$response_time_mean_submitted_events
+    ),
+    submitted_event_median_response_time = sub144_row$response_time_median_submitted_events,
+    corrected_event_median_response_time = sub144_row$response_time_median_corrected_events,
+    median_response_time_change = (
+      sub144_row$response_time_median_corrected_events -
+        sub144_row$response_time_median_submitted_events
+    ),
+    l3_policy = "retain submitted group RT pending exact transformation provenance"
+  ),
+  file.path(table_dir, "l3_group_rt_provenance.tsv")
+)
+
+fit_diagnostics <- function(model, event_source, model_quantity, partner) {
+  messages <- model@optinfo$conv$lme4$messages
+  data.frame(
+    event_source = event_source,
+    model_quantity = model_quantity,
+    partner = partner,
+    n_trials = nobs(model),
+    singular = isSingular(model, tol = 1e-4),
+    convergence_message = if (is.null(messages)) NA_character_ else paste(messages, collapse = " | "),
+    log_likelihood = as.numeric(logLik(model))
+  )
+}
+write_tsv(
+  rbind(
+    fit_diagnostics(historical_similar_fit, "submitted", "offer_slope", "similar"),
+    fit_diagnostics(historical_dissimilar_fit, "submitted", "offer_slope", "dissimilar"),
+    fit_diagnostics(similar_fit, "corrected", "offer_slope", "similar"),
+    fit_diagnostics(dissimilar_fit, "corrected", "offer_slope", "dissimilar"),
+    fit_diagnostics(historical_norm_similar_fit, "submitted", "offer3_random_intercept", "similar"),
+    fit_diagnostics(historical_norm_dissimilar_fit, "submitted", "offer3_random_intercept", "dissimilar"),
+    fit_diagnostics(norm_similar_fit, "corrected", "offer3_random_intercept", "similar"),
+    fit_diagnostics(norm_dissimilar_fit, "corrected", "offer3_random_intercept", "dissimilar")
+  ),
+  file.path(table_dir, "l3_covariate_model_diagnostics.tsv")
+)
 
 # Unified model. A correlated interaction-slope model is singular; the explicit
 # uncorrelated form is retained and the singular attempt is documented below.

@@ -39,7 +39,15 @@
   prepared L1 FSFs and require the nuisance-regressor tail to match the
   retained production design exactly while the corrected task block changes.
 - `run_ultimatum_repair_jobs.py`: guarded, bounded-concurrency execution of a
-  prepared repair manifest. It refuses to overwrite an existing output.
+  prepared L1, L2, or L3 repair manifest. It refuses to overwrite an existing
+  output and verifies every expected cope or group Z statistic.
+- `prepare_ultimatum_l3_repair.py`: render five scratch-only group jobs from
+  the recovered production designs: three image-only identity repairs and
+  event-corrected fairness-sensitivity/norm-proxy variants for ECN and
+  activation. The focal submitted masks are never inputs or overwrite targets.
+- `audit_prepared_ultimatum_l3_designs.py`: compile the five scratch FSFs with
+  `feat_model` only and require 47 rows, the expected EV rank, group rows, and
+  contrast count before any group image fit.
 - `audit_l1_designs.py`: aggregate rank, conditioning, and column-correlation
   diagnostics for retained activation and nPPI design matrices.
 - `audit_server_imaging.sh`: read-only collection of compact production

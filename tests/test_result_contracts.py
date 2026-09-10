@@ -57,6 +57,30 @@ class ResultContractTests(unittest.TestCase):
             self.assertEqual(design["n_evs"], design["matrix_rank"])
             self.assertEqual(design["duplicate_input_count"], "0")
 
+    def test_corrected_l3_covariates_reproduce_production_before_repair(self) -> None:
+        covariates = {
+            row["covariate"]: row
+            for row in rows("l3_covariate_correction_summary.tsv")
+        }
+        self.assertEqual(
+            set(covariates), {"fairness_sensitivity", "fairness_norm_proxy"}
+        )
+        for row in covariates.values():
+            self.assertEqual(row["participants_changed_gt_1e_8"], "47")
+            self.assertGreater(
+                float(row["production_historical_refit_correlation"]), 0.999999
+            )
+            self.assertLess(
+                float(row["production_historical_refit_max_abs_difference"]),
+                2e-5,
+            )
+            self.assertGreater(float(row["submitted_corrected_correlation"]), 0.98)
+
+        diagnostics = rows("l3_covariate_model_diagnostics.tsv")
+        self.assertEqual(len(diagnostics), 8)
+        self.assertTrue(all(row["singular"] == "FALSE" for row in diagnostics))
+        self.assertTrue(all(row["convergence_message"] == "NA" for row in diagnostics))
+
 
 if __name__ == "__main__":
     unittest.main()

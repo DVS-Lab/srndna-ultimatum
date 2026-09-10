@@ -93,10 +93,11 @@ Zmax = 4.25; and activation: 161 voxels, corrected p = 1.79e-7, Zmax = 4.33.
 The legacy SANS shell scripts are not safe to copy wholesale. They combine
 hard-coded output naming, unconditional removal of partial results, optional
 `randomise` execution, and—in one version—a broken `sed` redirection. Their
-scientific content is in the templates and rendered production designs; a new
-guarded L3 repair runner should be built from those verified artifacts after
-the sub-144 L1/L2 outputs pass. No legacy script is treated as authoritative
-merely because it is newer.
+scientific content is in the templates and rendered production designs. The
+new guarded L3 preparer renders scratch-only jobs directly from the recovered
+production FSFs after the sub-144 L1/L2 outputs pass; the runner refuses to
+overwrite any existing output and verifies every expected group Z statistic.
+No legacy script is treated as authoritative merely because it is newer.
 
 ## Porting rule
 

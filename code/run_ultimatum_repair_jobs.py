@@ -14,14 +14,31 @@ from pathlib import Path
 from typing import Sequence
 
 
-SAFE_STAGE = {"l1", "l2"}
+SAFE_STAGE = {"l1", "l2", "l3"}
 
 
-def read_manifest(path: Path, stage: str) -> list[dict[str, str]]:
+def read_manifest(
+    path: Path,
+    stage: str,
+    models: set[str] | None = None,
+    runs: set[str] | None = None,
+) -> list[dict[str, str]]:
     with path.open(newline="", encoding="utf-8") as stream:
-        rows = [row for row in csv.DictReader(stream, delimiter="\t") if row["stage"] == stage]
+        rows = [
+            row
+            for row in csv.DictReader(stream, delimiter="\t")
+            if row["stage"] == stage
+            and (models is None or row["model"] in models)
+            and (runs is None or row["run"] in runs)
+        ]
     if not rows:
-        raise ValueError(f"no {stage} jobs in {path}")
+        filters = []
+        if models is not None:
+            filters.append(f"models={','.join(sorted(models))}")
+        if runs is not None:
+            filters.append(f"runs={','.join(sorted(runs))}")
+        suffix = f" matching {'; '.join(filters)}" if filters else ""
+        raise ValueError(f"no {stage} jobs{suffix} in {path}")
     return rows
 
 
@@ -29,7 +46,7 @@ def complete(row: dict[str, str]) -> bool:
     output = Path(row["output"])
     if row["stage"] == "l1":
         required = (output / "stats" / "cope1.nii.gz", output / "stats" / "cope7.nii.gz")
-    else:
+    elif row["stage"] == "l2":
         # The model-02 activation L1 has 10 contrasts and the nPPI L1 has 11.
         # L2 fixed effects must therefore finish every corresponding cope, not
         # merely the focal cope 7 consumed by the paper's group models.
@@ -37,6 +54,12 @@ def complete(row: dict[str, str]) -> bool:
         required = tuple(
             output / f"cope{index}.feat" / "stats" / "cope1.nii.gz"
             for index in range(1, cope_count + 1)
+        )
+    else:
+        expected = int(row["expected_zstats"])
+        required = tuple(
+            output / "cope1.feat" / "stats" / f"zstat{index}.nii.gz"
+            for index in range(1, expected + 1)
         )
     return all(path.is_file() and path.stat().st_size > 0 for path in required)
 
@@ -102,12 +125,14 @@ def run_jobs(
     jobs: int,
     resume: bool,
     dry_run: bool,
+    models: set[str] | None = None,
+    runs: set[str] | None = None,
 ) -> int:
     if stage not in SAFE_STAGE:
         raise ValueError(f"invalid stage: {stage}")
     if jobs < 1:
         raise ValueError("--jobs must be positive")
-    rows = read_manifest(manifest, stage)
+    rows = read_manifest(manifest, stage, models=models, runs=runs)
     runnable: list[dict[str, str]] = []
     for row in rows:
         state = validate_job(row, resume)
@@ -149,6 +174,18 @@ def parse_args(argv: Sequence[str] | None = None) -> argparse.Namespace:
     parser.add_argument("--jobs", type=int, default=1)
     parser.add_argument("--resume", action="store_true")
     parser.add_argument("--dry-run", action="store_true")
+    parser.add_argument(
+        "--model",
+        action="append",
+        dest="models",
+        help="run only this manifest model (repeatable)",
+    )
+    parser.add_argument(
+        "--run",
+        action="append",
+        dest="runs",
+        help="run only this manifest run/variant (repeatable)",
+    )
     return parser.parse_args(argv)
 
 
@@ -157,7 +194,13 @@ def main(argv: Sequence[str] | None = None) -> int:
     if not args.dry_run and shutil.which("feat") is None:
         raise SystemExit("ERROR: feat was not found on PATH")
     return run_jobs(
-        args.manifest.resolve(), args.stage, args.jobs, args.resume, args.dry_run
+        args.manifest.resolve(),
+        args.stage,
+        args.jobs,
+        args.resume,
+        args.dry_run,
+        models=set(args.models) if args.models else None,
+        runs=set(args.runs) if args.runs else None,
     )
 
 
