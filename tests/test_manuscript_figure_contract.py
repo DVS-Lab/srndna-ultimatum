@@ -61,7 +61,7 @@ class ManuscriptFigureContractTests(unittest.TestCase):
         self.assertIn("do not add", rows["activation_norm_proxy"]["revision_disposition"])
 
     def test_corrected_dmn_bar_data_has_complete_age_by_partner_cells(self):
-        path = ROOT / "results/manuscript/source_data/figure3_dmn_flame_bar_summary.tsv"
+        path = ROOT / "results/manuscript/source_data/figure4_dmn_flame_bar_summary.tsv"
         with path.open(encoding="utf-8", newline="") as stream:
             rows = list(csv.DictReader(stream, delimiter="\t"))
         self.assertEqual(len(rows), 4)
@@ -82,7 +82,7 @@ class ManuscriptFigureContractTests(unittest.TestCase):
             self.assertGreater(float(row["display_conf_high"]), estimate)
 
     def test_corrected_dmn_condition_inputs_have_positive_varcopes(self):
-        path = ROOT / "results/manuscript/source_data/figure3_dmn_condition_input_roi.tsv"
+        path = ROOT / "results/manuscript/source_data/figure4_dmn_condition_input_roi.tsv"
         with path.open(encoding="utf-8", newline="") as stream:
             rows = list(csv.DictReader(stream, delimiter="\t"))
         self.assertEqual(len(rows), 94)
@@ -102,7 +102,7 @@ class ManuscriptFigureContractTests(unittest.TestCase):
         )
 
     def test_corrected_dmn_bar_pattern_matches_retained_interaction(self):
-        path = ROOT / "results/manuscript/source_data/figure3_dmn_flame_bar_summary.tsv"
+        path = ROOT / "results/manuscript/source_data/figure4_dmn_flame_bar_summary.tsv"
         with path.open(encoding="utf-8", newline="") as stream:
             rows = list(csv.DictReader(stream, delimiter="\t"))
         estimates = {

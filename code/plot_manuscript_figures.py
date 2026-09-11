@@ -20,13 +20,13 @@ FIGURE_ROOT = Path("results/manuscript/figures")
 PARTNER_COLORS = {"similar": "#28666E", "dissimilar": "#B55239"}
 
 
-def build_figure3(repository: Path, source_root: Path, figure_root: Path) -> None:
-    bar_path = source_root / "figure3_dmn_flame_bar_summary.tsv"
-    zstat_path = source_root / "figure3_dmn_corrected_cluster_zstat.nii.gz"
+def build_figure4(repository: Path, source_root: Path, figure_root: Path) -> None:
+    bar_path = source_root / "figure4_dmn_flame_bar_summary.tsv"
+    zstat_path = source_root / "figure4_dmn_corrected_cluster_zstat.nii.gz"
     network_path = repository / "masks/nan_rPNAS_2mm_net0003.nii.gz"
     for required in (bar_path, zstat_path, network_path):
         if not required.is_file():
-            raise FileNotFoundError(f"missing Figure 3 source: {required}")
+            raise FileNotFoundError(f"missing Figure 4 source: {required}")
 
     bars = pd.read_csv(bar_path, sep="\t")
     expected_cells = {
@@ -37,7 +37,7 @@ def build_figure3(repository: Path, source_root: Path, figure_root: Path) -> Non
     }
     observed_cells = set(zip(bars["age_group"], bars["condition"]))
     if len(bars) != 4 or observed_cells != expected_cells:
-        raise ValueError("Figure 3 bar table must contain the four age-by-partner cells")
+        raise ValueError("Figure 4 bar table must contain the four age-by-partner cells")
     numeric_columns = [
         "flame_cluster_mean_estimate",
         "mean_voxelwise_standard_error",
@@ -45,12 +45,12 @@ def build_figure3(repository: Path, source_root: Path, figure_root: Path) -> Non
         "display_conf_high",
     ]
     if not np.isfinite(bars[numeric_columns].to_numpy(dtype=float)).all():
-        raise ValueError("Figure 3 bar estimates and intervals must be finite")
+        raise ValueError("Figure 4 bar estimates and intervals must be finite")
     if not (bars["mean_voxelwise_standard_error"] > 0).all():
-        raise ValueError("Figure 3 bar standard errors must be positive")
+        raise ValueError("Figure 4 bar standard errors must be positive")
     zstat = nib.load(zstat_path)
     if int(np.count_nonzero(np.asanyarray(zstat.dataobj))) != 29:
-        raise ValueError("Figure 3 corrected Z-stat image must contain 29 nonzero voxels")
+        raise ValueError("Figure 4 corrected Z-stat image must contain 29 nonzero voxels")
 
     figure = plt.figure(figsize=(10.0, 7.2), constrained_layout=True)
     grid = figure.add_gridspec(2, 2, height_ratios=(1.1, 1.0))
@@ -153,25 +153,25 @@ def build_figure3(repository: Path, source_root: Path, figure_root: Path) -> Non
         fontweight="bold",
         va="top",
     )
-    output = figure_root / "figure3_corrected_dmn.png"
+    output = figure_root / "figure4_corrected_dmn.png"
     figure.savefig(output, dpi=300, bbox_inches="tight", facecolor="white")
     plt.close(figure)
 
 
-def build_figure4(source_root: Path, figure_root: Path) -> None:
-    zstat_path = source_root / "figure4_offer_size_positive_zstat.nii.gz"
+def build_figure3(source_root: Path, figure_root: Path) -> None:
+    zstat_path = source_root / "figure3_offer_size_positive_zstat.nii.gz"
     if not zstat_path.is_file():
-        raise FileNotFoundError(f"missing Figure 4 source: {zstat_path}")
+        raise FileNotFoundError(f"missing Figure 3 source: {zstat_path}")
     zstat = nib.load(zstat_path)
     data = np.asanyarray(zstat.dataobj)
     if int(np.count_nonzero(data)) != 348:
-        raise ValueError("Figure 4 thresholded Z-stat image must contain 348 nonzero voxels")
+        raise ValueError("Figure 3 thresholded Z-stat image must contain 348 nonzero voxels")
 
-    figure, axis = plt.subplots(figsize=(10.0, 3.7), constrained_layout=True)
+    figure, axis = plt.subplots(figsize=(14.0, 4.0), constrained_layout=True)
     plotting.plot_stat_map(
         zstat_path,
         display_mode="z",
-        cut_coords=(-14, -5, 5),
+        cut_coords=(-20, -14, -8, -2, 5, 11),
         threshold=3.1,
         cmap="YlOrRd",
         vmin=3.1,
@@ -186,7 +186,7 @@ def build_figure4(source_root: Path, figure_root: Path) -> None:
         fontsize=13,
         pad=12,
     )
-    output = figure_root / "figure4_offer_size_activation.png"
+    output = figure_root / "figure3_offer_size_activation.png"
     figure.savefig(output, dpi=300, bbox_inches="tight", facecolor="white")
     plt.close(figure)
 
@@ -207,8 +207,8 @@ def main() -> int:
             raise FileNotFoundError(f"missing manuscript figure source: {required}")
     shutil.copyfile(task_source, figure_root / "figure1_task_schematic.png")
     shutil.copyfile(behavior_source, figure_root / "figure2_corrected_acceptance.png")
-    build_figure3(repository, source_root, figure_root)
-    build_figure4(source_root, figure_root)
+    build_figure3(source_root, figure_root)
+    build_figure4(repository, source_root, figure_root)
     print(f"PASS: wrote four final manuscript figures to {figure_root}")
     return 0
 

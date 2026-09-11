@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Export the compact, corrected source data needed for manuscript Figure 3.
+"""Export the compact, corrected source data needed for manuscript Figure 4.
 
 This script is intended to run on the Linux analysis host after the corrected
 group model has completed.  It reads the exact participant inputs from the
@@ -144,10 +144,10 @@ def main() -> int:
         raise ValueError("corrected DMN design and participant table do not match")
 
     output_root.mkdir(parents=True, exist_ok=True)
-    mask_output = output_root / "figure3_dmn_corrected_cluster_mask.nii.gz"
-    zstat_output = output_root / "figure3_dmn_corrected_cluster_zstat.nii.gz"
-    roi_output = output_root / "figure3_dmn_corrected_roi.tsv"
-    provenance_output = output_root / "figure3_dmn_provenance.tsv"
+    mask_output = output_root / "figure4_dmn_corrected_cluster_mask.nii.gz"
+    zstat_output = output_root / "figure4_dmn_corrected_cluster_zstat.nii.gz"
+    roi_output = output_root / "figure4_dmn_corrected_roi.tsv"
+    provenance_output = output_root / "figure4_dmn_provenance.tsv"
 
     with tempfile.TemporaryDirectory(prefix="srndna-dmn-figure-") as temporary:
         temporary_root = Path(temporary)
@@ -233,7 +233,7 @@ def main() -> int:
     write_tsv(provenance_output, ["artifact", "value"], provenance_rows)
 
     print(
-        "PASS: exported corrected DMN Figure 3 source data: "
+        "PASS: exported corrected DMN Figure 4 source data: "
         f"{len(roi_rows)} participants, {args.expected_voxels} voxels"
     )
     print(f"PASS: output root={output_root}")

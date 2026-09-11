@@ -20,14 +20,26 @@ offer-size × age-group × partner-similarity interaction was not detected,
 β = 0.1136, SE = 0.0947, z = 1.20, p = .230, 95% CI [-0.0720,
 0.2991].
 
-## Figure 3. Age difference in task-dependent default mode network connectivity
+## Figure 3. Task-wide modulation by offer size
+
+The map shows regions with a positive parametric response to offer size,
+averaged with equal weights across computer, age-similar, and age-dissimilar
+partners. The revision analysis used all 47 participants and FLAME 1+2 with an
+intercept, centered age group and sex, tSNR, mean framewise displacement, and
+event-corrected task-wide mean response time. Five clusters survived the
+whole-brain threshold of Z > 3.1 and cluster-corrected p < .05 (348 voxels
+total). Peaks were located in bilateral occipital cortex, right insular/
+opercular cortex, right inferior temporal cortex, and right frontal pole/
+orbitofrontal cortex. This task-validation analysis was added during revision
+and was not part of the submitted workflow.
+
+## Figure 4. Age difference in task-dependent default mode network connectivity
 
 (A) The signed continuous default mode network map used to derive the network
 time series (display range clipped at -4 to 4 for visualization). (B) A
 29-voxel anterior cingulate cluster, shown at its sagittal peak, exhibited a
-larger
-similar-minus-dissimilar offer-modulation effect in younger than older adults,
-cluster-corrected p = .0138, Zmax = 4.07, peak MNI [-13.3, 34.0,
+larger similar-minus-dissimilar offer-modulation effect in younger than older
+adults, cluster-corrected p = .0138, Zmax = 4.07, peak MNI [-13.3, 34.0,
 27.8]. The whole-brain analysis used FLAME 1+2 with Z > 3.1 and
 cluster-corrected p < .05 and included sex, tSNR, mean framewise displacement,
 and event-corrected task-wide mean response time as covariates (N = 47).
@@ -46,16 +58,3 @@ whole-brain similar-minus-dissimilar FLAME 1+2 model reported in panel B.
 The submitted ECN/fairness-sensitivity figure is not part of the revision. No
 significant clusters remained in any of the eight contrasts in the fully
 corrected model.
-
-## Figure 4. Task-wide modulation by offer size
-
-The map shows regions with a positive parametric response to offer size,
-averaged with equal weights across computer, age-similar, and age-dissimilar
-partners. The revision analysis used all 47 participants and FLAME 1+2 with an
-intercept, centered age group and sex, tSNR, mean framewise displacement, and
-event-corrected task-wide mean response time. Five clusters survived the
-whole-brain threshold of Z > 3.1 and cluster-corrected p < .05 (348 voxels
-total). Peaks were located in bilateral occipital cortex, right insular/
-opercular cortex, right inferior temporal cortex, and right frontal pole/
-orbitofrontal cortex. This task-validation analysis was added during revision
-and was not part of the submitted workflow.

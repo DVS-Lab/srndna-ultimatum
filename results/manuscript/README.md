@@ -12,12 +12,12 @@ the group model uses them.
    the manuscript working repository.
 2. `figure2_corrected_acceptance.png` is generated from the converged,
    event-corrected behavioral model and its tracked source tables.
-3. `figure3_corrected_dmn.png` shows the corrected DMN result and the four
-   descriptive age-group-by-partner FLAME estimates from its significant
-   cluster.
-4. `figure4_offer_size_activation.png` shows the positive task-wide offer-size
+3. `figure3_offer_size_activation.png` shows the positive task-wide offer-size
    modulation from the revision analysis that averages the three
    partner-specific parametric slopes.
+4. `figure4_corrected_dmn.png` shows the corrected DMN result and the four
+   descriptive age-group-by-partner FLAME estimates from its significant
+   cluster.
 
 The submitted ECN figure is deliberately absent. Its focal cluster does not
 survive the fully corrected model. The image-only rerun is retained solely as
@@ -54,7 +54,7 @@ python3 code/export_activation_fairness_figure_data.py
 python3 code/plot_manuscript_figures.py
 ```
 
-The bars in Figure 3 are descriptive because the displayed cluster was
+The bars in Figure 4 are descriptive because the displayed cluster was
 selected by the group analysis. Inferential reporting must use the whole-brain
 similar-minus-dissimilar FLAME 1+2 result, not a test on the displayed bars.
 

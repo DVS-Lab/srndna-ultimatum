@@ -110,6 +110,35 @@ class ActivationFairnessMainPipelineTests(unittest.TestCase):
             self.assertTrue(all(evs[(row, 1)] == 1.0 for row in range(1, 48)))
             self.assertAlmostEqual(sum(evs[(row, 2)] for row in range(1, 48)), 0.0)
 
+    def test_l3_render_can_reuse_completed_social_computer_copes(self) -> None:
+        source = (
+            ROOT
+            / "results/reviewer/l3_repair_designs/dmn-age/"
+            "reported-covariates-corrected/design.fsf"
+        )
+        participants = [
+            subject
+            for _, subject, _ in parse_inputs(source.read_text(encoding="utf-8").splitlines())
+        ]
+        l2_outputs = {subject: Path("/scratch") / subject / "new.gfeat" for subject in participants}
+        with tempfile.TemporaryDirectory() as directory:
+            destination = Path(directory) / "design.fsf"
+            for cope in (8, 10):
+                inputs = render_l3(
+                    source,
+                    destination,
+                    Path(f"/scratch/group-cope{cope}"),
+                    l2_outputs,
+                    cope=cope,
+                )
+                self.assertEqual(len(inputs), 47)
+                self.assertTrue(
+                    all(
+                        path.endswith(f"/cope{cope}.feat/stats/cope1.nii.gz")
+                        for path in inputs
+                    )
+                )
+
     def test_runner_expected_copes_supports_new_11_cope_model(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
             base = Path(directory)

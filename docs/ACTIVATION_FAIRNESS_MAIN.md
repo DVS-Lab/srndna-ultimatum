@@ -141,3 +141,31 @@ git push origin main
 
 All outputs are isolated in scratch; historical production FEAT directories
 are not modified.
+
+## Social versus computer follow-up
+
+The completed L1/L2 workflow also regenerated the two historical contrasts
+that directly compare human and computer partners. Cope 10 tests the task
+response `(similar + dissimilar) - 2 * computer`; cope 8 applies the same
+comparison to the offer-size slopes. The latter is the neural social-context
+by offer-size interaction. No further L1 or L2 fitting is needed.
+
+Prepare and run the two L3-only models with the same corrected group design:
+
+```bash
+SOCIAL_COMPUTER_ROOT=/ZPOOL/data/scratch/srndna-ultimatum-social-computer-l3-v1
+
+python3 code/prepare_activation_social_computer_l3.py \
+  --repository "$REPOSITORY" \
+  --fairness-work-root "$FAIRNESS_ROOT" \
+  --work-root "$SOCIAL_COMPUTER_ROOT"
+
+python3 code/run_ultimatum_repair_jobs.py \
+  --manifest "$SOCIAL_COMPUTER_ROOT/activation_social_computer_l3_jobs.tsv" \
+  --stage l3 --jobs 2 --dry-run
+```
+
+Remove `--dry-run` only after both jobs report 47 existing cope-image inputs.
+The adjusted mean and age contrasts have the same four-contrast definition as
+the task-wide model. A participant-level behavioral moderator is a distinct,
+exploratory analysis and is not included here.

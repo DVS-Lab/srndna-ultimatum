@@ -10,7 +10,7 @@ models—not the image-only provenance reruns—define the revision endpoint.
 - The DMN age-group result is confirmed after correcting sub-144 and the
   reported group covariates: 29 voxels, cluster-corrected p = .0138,
   Zmax = 4.07, peak MNI [-13.3, 34.0, 27.8]. It replaces the submitted
-  26-voxel result and remains Figure 3.
+  26-voxel result and is now Figure 4, following the task-wide activation map.
 - The corrected ECN sensitivity model contains no significant clusters in any
   of its eight contrasts. The ECN claim and submitted Figure 4 must be removed.
   The spatially overlapping image-only result is a provenance diagnostic, not

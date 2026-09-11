@@ -356,7 +356,15 @@ def source_l2(root: Path, subject: str) -> Path:
     )
 
 
-def render_l3(source: Path, destination: Path, output_base: Path, l2_outputs: dict[str, Path]) -> list[str]:
+def render_l3(
+    source: Path,
+    destination: Path,
+    output_base: Path,
+    l2_outputs: dict[str, Path],
+    cope: int = 11,
+) -> list[str]:
+    if cope not in range(1, 12):
+        raise ValueError(f"L2 cope must be between 1 and 11, received {cope}")
     lines = source.read_text(encoding="utf-8", errors="replace").splitlines()
     inputs = parse_inputs(lines)
     original_evs = parse_evs(lines)
@@ -368,7 +376,9 @@ def render_l3(source: Path, destination: Path, output_base: Path, l2_outputs: di
     for index, subject, _ in inputs:
         # Higher-level FEAT consumes each participant's fixed-effects cope
         # image, not the enclosing cope*.feat directory.
-        rendered = str(l2_outputs[subject] / "cope11.feat" / "stats" / "cope1.nii.gz")
+        rendered = str(
+            l2_outputs[subject] / f"cope{cope}.feat" / "stats" / "cope1.nii.gz"
+        )
         replace_unique(lines, f"set feat_files({index}) ", f'set feat_files({index}) "{rendered}"')
         rendered_inputs.append(rendered)
 

@@ -89,7 +89,7 @@ FEAT outputs.
 See `docs/ACTIVATION_FAIRNESS_MAIN.md` for the exact Linux1 preparation,
 preflight, execution, resume, and completion commands.
 
-The revised Figure 3 decomposes the retained default-mode-network contrast
+The revised Figure 4 decomposes the retained default-mode-network contrast
 into four age-group-by-partner bars. Bar heights are cluster-mean group COPE
 estimates from corrected condition-specific FLAME 1+2 models, so the display
 retains FLAME's within- and between-participant variance modeling. The

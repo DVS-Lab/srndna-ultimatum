@@ -16,7 +16,7 @@ from typing import Sequence
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 MASK_RELATIVE = Path(
-    "results/manuscript/source_data/figure3_dmn_corrected_cluster_mask.nii.gz"
+    "results/manuscript/source_data/figure4_dmn_corrected_cluster_mask.nii.gz"
 )
 OUTPUT_RELATIVE = Path("results/manuscript/source_data")
 INPUT_RE = re.compile(r'^set feat_files\((\d+)\) "([^"]+)"$')
@@ -183,7 +183,7 @@ def export(repository: Path, work_root: Path) -> None:
     if len(bar_rows) != 4 or len(input_rows) != 94:
         raise ValueError("expected four group bars and 94 participant-condition inputs")
     write_tsv(
-        output_root / "figure3_dmn_flame_bar_summary.tsv",
+        output_root / "figure4_dmn_flame_bar_summary.tsv",
         [
             "age_group",
             "condition",
@@ -195,7 +195,7 @@ def export(repository: Path, work_root: Path) -> None:
         bar_rows,
     )
     write_tsv(
-        output_root / "figure3_dmn_condition_input_roi.tsv",
+        output_root / "figure4_dmn_condition_input_roi.tsv",
         [
             "condition",
             "design_index",
@@ -208,7 +208,7 @@ def export(repository: Path, work_root: Path) -> None:
         input_rows,
     )
     write_tsv(
-        output_root / "figure3_dmn_flame_bar_provenance.tsv",
+        output_root / "figure4_dmn_flame_bar_provenance.tsv",
         ["artifact", "value"],
         provenance_rows,
     )

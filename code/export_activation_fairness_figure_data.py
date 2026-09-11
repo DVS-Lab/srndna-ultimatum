@@ -37,8 +37,8 @@ def main() -> int:
             raise FileNotFoundError(path)
 
     outputs = {
-        "thresholded_zstat": source_root / "figure4_offer_size_positive_zstat.nii.gz",
-        "cluster_table": source_root / "figure4_offer_size_positive_clusters.tsv",
+        "thresholded_zstat": source_root / "figure3_offer_size_positive_zstat.nii.gz",
+        "cluster_table": source_root / "figure3_offer_size_positive_clusters.tsv",
     }
     shutil.copy2(inputs["thresholded_zstat"], outputs["thresholded_zstat"])
     shutil.copy2(inputs["cluster_table"], outputs["cluster_table"])
@@ -59,12 +59,12 @@ def main() -> int:
     for name, path in outputs.items():
         rows.append((f"output_{name}_sha256", sha256(path)))
 
-    provenance = source_root / "figure4_offer_size_positive_provenance.tsv"
+    provenance = source_root / "figure3_offer_size_positive_provenance.tsv"
     with provenance.open("w", newline="", encoding="utf-8") as stream:
         writer = csv.writer(stream, delimiter="\t", lineterminator="\n")
         writer.writerow(("field", "value"))
         writer.writerows(rows)
-    print(f"PASS: exported Figure 4 source data to {source_root}")
+    print(f"PASS: exported Figure 3 source data to {source_root}")
     return 0
 
 
