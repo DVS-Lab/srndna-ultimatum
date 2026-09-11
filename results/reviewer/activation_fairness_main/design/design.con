@@ -1,0 +1,14 @@
+/ContrastName1	adjusted-mean-positive 
+/ContrastName2	adjusted-mean-negative 
+/ContrastName3	older-greater-than-younger 
+/ContrastName4	younger-greater-than-older 
+/NumWaves	6
+/NumContrasts	4
+/PPheights		1.001944e+00	1.001944e+00	1.355566e+00	1.355566e+00
+/RequiredEffect		0.618	0.618	2.467	2.467
+
+/Matrix
+1.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 
+-1.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 
+0.000000e+00 1.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 
+0.000000e+00 -1.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 
