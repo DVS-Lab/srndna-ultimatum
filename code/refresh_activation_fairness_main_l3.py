@@ -66,6 +66,19 @@ def refresh(
             raise FileExistsError(archived)
         output.rename(archived)
         print(f"ARCHIVED: {output} -> {archived}")
+        log = (
+            manifest.parent
+            / "logs"
+            / "l3_all-47_activation-fairness-main_run-all-participants.log"
+        )
+        if log.is_file():
+            archived_log = log.with_name(
+                f"{log.stem}.failed-{stamp}{log.suffix}"
+            )
+            if archived_log.exists():
+                raise FileExistsError(archived_log)
+            log.rename(archived_log)
+            print(f"ARCHIVED: {log} -> {archived_log}")
 
     l2_outputs = {row["subject"]: Path(row["output"]) for row in l2_rows}
     output_text = str(output)

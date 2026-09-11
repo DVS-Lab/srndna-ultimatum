@@ -90,7 +90,8 @@ output directories are rejected rather than silently overwritten.
 
 If the L3 job from commit `80cd174` failed because its inputs were rendered as
 `cope11.feat` directories rather than cope images, preserve the failed output
-and refresh only L3. The completed L1 and L2 outputs are reused unchanged:
+and log, then refresh only L3. The completed L1 and L2 outputs are reused
+unchanged:
 
 ```bash
 git pull --ff-only
