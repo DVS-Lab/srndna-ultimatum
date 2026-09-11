@@ -12,8 +12,9 @@ templates <- c(
   submitted_dmn_age = file.path(root, "templates", "L3_template_n47_ultimatum_twogroup_wCovs.fsf"),
   later_ecn_sensitivity_reconstruction = file.path(
     root,
+    "legacy",
+    "jen_working_tree",
     "templates",
-    "later_working_tree",
     "L3_template_n47_ug_twogroup_wCovs_in-out_sensitivity2_logit.fsf"
   )
 )

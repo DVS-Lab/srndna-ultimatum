@@ -27,10 +27,12 @@ The relevant storage boundaries are:
   repository. Neither is the revision target for this paper.
 
 Original templates remain in `templates/`. Files recovered from the later
-working repository are kept under `templates/later_working_tree/` until the
+working repository are kept under `legacy/jen_working_tree/templates/` until the
 read-only audit compares them with rendered production `design.fsf`,
 `design.mat`, `design.con`, and `design.grp` files. Their presence does not
-establish that they generated a submitted result.
+establish that they generated a submitted result. The quarantine has its own
+SHA-256 inventory and is excluded from active execution entry points. Large or
+unrelated material remains in read-only lab storage rather than Git.
 
 Hard-coded paths in historical FSFs are preserved as provenance. New audit and
 analysis entry points must accept roots as arguments or derive paths from the

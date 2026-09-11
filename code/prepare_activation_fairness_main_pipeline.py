@@ -33,11 +33,11 @@ L2_TEMPLATE_RELATIVE = Path(
     "templates/revision/"
     "L2_task-ultimatum_model-02_type-act_fairness-main.fsf"
 )
-HISTORICAL_L1_RELATIVE = Path("templates/L1_task-ultimatum_model-02_type-act.fsf")
-L3_SOURCE_RELATIVE = Path(
-    "results/reviewer/l3_repair_designs/dmn-age/"
-    "reported-covariates-corrected/design.fsf"
+L3_TEMPLATE_RELATIVE = Path(
+    "templates/revision/"
+    "L3_task-ultimatum_model-02_type-act-fairness-main.fsf"
 )
+HISTORICAL_L1_RELATIVE = Path("templates/L1_task-ultimatum_model-02_type-act.fsf")
 FAIRNESS_VECTOR = (0.0, 1 / 3, 0.0, 1 / 3, 0.0, 1 / 3, 0.0, 0.0, 0.0)
 CONTRAST_RE = re.compile(r"^set fmri\(con_(real|orig)(\d+)\.(\d+)\) (.*)$")
 
@@ -120,6 +120,33 @@ def validate_revision_templates(repository: Path) -> None:
     for cope in range(1, 12):
         if setting_value(l2, f"set fmri(copeinput.{cope}) ") != "1":
             raise ValueError(f"revision L2 does not enable cope {cope}")
+
+    l3_path = repository / L3_TEMPLATE_RELATIVE
+    l3 = l3_path.read_text(encoding="utf-8", errors="replace").splitlines()
+    l3_inputs = parse_inputs(l3)
+    if len(l3_inputs) != 47 or any(
+        not path.endswith("/cope11.feat/stats/cope1.nii.gz")
+        for _, _, path in l3_inputs
+    ):
+        raise ValueError("revision L3 does not reference 47 L2 cope-11 images")
+    l3_evs = parse_evs(l3)
+    if len(l3_evs) != 47 * 6:
+        raise ValueError("revision L3 does not contain a 47 by 6 design")
+    if any(l3_evs[(row, 1)] != 1.0 for row in range(1, 48)):
+        raise ValueError("revision L3 first EV is not an intercept")
+    if matrix_rank(
+        [[l3_evs[(row, column)] for column in range(1, 7)] for row in range(1, 48)]
+    ) != 6:
+        raise ValueError("revision L3 design is not full rank")
+    l3_contrasts = contrast_vectors(l3, "real")
+    expected_l3_contrasts = {
+        1: (1.0, 0.0, 0.0, 0.0, 0.0, 0.0),
+        2: (-1.0, 0.0, 0.0, 0.0, 0.0, 0.0),
+        3: (0.0, 1.0, 0.0, 0.0, 0.0, 0.0),
+        4: (0.0, -1.0, 0.0, 0.0, 0.0, 0.0),
+    }
+    if l3_contrasts != expected_l3_contrasts:
+        raise ValueError("revision L3 contrasts do not match the declared model")
 
 
 def validate_historical_l1_source(source_text: str, historical_text: str) -> None:
@@ -339,7 +366,9 @@ def render_l3(source: Path, destination: Path, output_base: Path, l2_outputs: di
 
     rendered_inputs: list[str] = []
     for index, subject, _ in inputs:
-        rendered = str(l2_outputs[subject] / "cope11.feat")
+        # Higher-level FEAT consumes each participant's fixed-effects cope
+        # image, not the enclosing cope*.feat directory.
+        rendered = str(l2_outputs[subject] / "cope11.feat" / "stats" / "cope1.nii.gz")
         replace_unique(lines, f"set feat_files({index}) ", f'set feat_files({index}) "{rendered}"')
         rendered_inputs.append(rendered)
 
@@ -407,7 +436,7 @@ def prepare(
     historical_l1_text = (repository / HISTORICAL_L1_RELATIVE).read_text(
         encoding="utf-8", errors="replace"
     )
-    l3_source = repository / L3_SOURCE_RELATIVE
+    l3_source = repository / L3_TEMPLATE_RELATIVE
     if not l3_source.is_file():
         raise FileNotFoundError(l3_source)
     ensure_empty_safe_work_root(

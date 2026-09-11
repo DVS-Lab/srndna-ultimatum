@@ -31,9 +31,11 @@ part of that audit.
 ## Repository map
 
 - `code/`: original preprocessing/FEAT scripts and active revision audits.
-- `templates/`: original production templates. Later files recovered from the
-  separate working repository are isolated under `templates/later_working_tree/`
-  until compared with rendered production designs.
+- `templates/`: historical production templates plus canonical, documented
+  resubmission templates under `templates/revision/`.
+- `legacy/jen_working_tree/`: checksummed quarantine for compact files
+  recovered from Jen's separate working repository; nothing there is an
+  active execution entry point.
 - `derivatives/`: compact historical text derivatives retained by the original
   repository; large local FSL/fMRIPrep outputs remain ignored.
 - `masks/`: original network, ROI, and seed masks.

@@ -34,6 +34,18 @@ class RepositoryBoundaryTests(unittest.TestCase):
         )
         self.assertFalse(any(path.startswith(excluded) for path in paths))
 
+    def test_jen_working_tree_is_quarantined_outside_active_templates(self) -> None:
+        paths = tracked_paths()
+        self.assertFalse(
+            any(path.startswith("templates/later_working_tree/") for path in paths)
+        )
+        self.assertTrue(
+            any(
+                path.startswith("legacy/jen_working_tree/templates/")
+                for path in paths
+            )
+        )
+
     def test_curated_source_inputs_are_present(self) -> None:
         paths = tracked_paths()
         event_files = [

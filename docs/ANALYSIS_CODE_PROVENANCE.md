@@ -59,7 +59,7 @@ The later group-analysis history lives primarily in `srndna-ug`: its
 paper-specific L3/SANS scripts and templates were edited from 2024-08 through
 2025-08, including the final age-by-sensitivity templates in commit `2a60e18`
 (2025-08-12). The 15 current top-level L3 templates from that working tree are
-already preserved under `templates/later_working_tree/` for comparison.
+already preserved under `legacy/jen_working_tree/templates/` for comparison.
 
 The three submitted focal masks are binary derivatives rather than untouched
 FSL `cluster_mask_zstat` files: their values are 0/1, while their copied image

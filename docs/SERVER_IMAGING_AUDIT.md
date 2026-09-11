@@ -314,7 +314,7 @@ The returned bundles must establish:
 2. production `design.fsf`, `design.mat`, `design.con`, and `design.grp`;
 3. participant order, cope mapping, rank, conditioning, covariates, and
    contrasts relative to both the original templates and
-   `templates/later_working_tree/` candidates;
+   `legacy/jen_working_tree/templates/` candidates;
 4. voxel threshold, corrected cluster threshold, search mask, any threshold
    mask, FLAME mode, and post-statistics setting;
 5. DLH, search volume, residual degrees of freedom, resel/smoothness records,

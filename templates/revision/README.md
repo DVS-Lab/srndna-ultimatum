@@ -17,6 +17,17 @@ resubmission:
   its Z statistic.
 - `L2_task-ultimatum_model-02_type-act_fairness-main.fsf` carries all eleven
   L1 contrasts through the two-run fixed-effects model.
+- `L3_task-ultimatum_model-02_type-act-fairness-main.fsf` is the portable
+  47-participant template for the new task-wide offer-size effect. Its first
+  EV is an intercept (all ones); the remaining EVs are centered age group,
+  centered sex, tSNR, mean FD, and corrected task-wide mean RT. Its four
+  contrasts test positive and negative adjusted means and both directions of
+  the age-group effect. `OUTPUTDIR` and `L2_ROOT` are renderer placeholders.
+- The three `L3_task-ultimatum_type-*_reported-covariates-corrected.fsf`
+  files are exact reference copies of the corrected manuscript models stored
+  with their compiled design bundles under `results/reviewer/l3_repair_designs/`.
+  They intentionally retain the rendered paths and covariate rows used by the
+  repair; they are provenance templates, not portable execution entry points.
 
 `code/prepare_activation_fairness_main_pipeline.py` applies these declared
 changes to each participant's rendered historical FSFs, preserving all other

@@ -2,37 +2,37 @@ template	npts_declared	multiple_declared	input_rows_found	unique_participants	su
 templates/L3_template_n47_ultimatum_onegroup.fsf	47	47	47	47	1	34	COPENUM	COPENUM,REPLACEME	1
 templates/L3_template_n47_ultimatum_twogroup.fsf	47	47	47	47	1	34	COPENUM	COPENUM,REPLACEME	1
 templates/L3_template_n47_ultimatum_twogroup_wCovs.fsf	47	47	47	47	1	34	COPENUM	COPENUM,REPLACEME	1
-templates/later_working_tree/L3_task-ultimatum_type-act_InOut_age_main.fsf	94	94	94	47	2	34,81	4,6		1
-templates/later_working_tree/L3_task-ultimatum_type-act_InOut_age_sens.fsf	94	94	94	47	2	34,81	4,6		1
-templates/later_working_tree/L3_task-ultimatum_type-nppi-dmn_InOut_age_main.fsf	94	94	94	47	2	34,81	4,6		1
-templates/later_working_tree/L3_task-ultimatum_type-nppi-dmn_InOut_age_sens.fsf	94	94	94	47	2	34,81	4,6		1
-templates/later_working_tree/L3_task-ultimatum_type-nppi-ecn_InOut_age_main.fsf	94	94	94	47	2	34,81	4,6		1
-templates/later_working_tree/L3_task-ultimatum_type-nppi-ecn_InOut_age_sens.fsf	94	94	94	47	2	34,81	4,6		1
-templates/later_working_tree/L3_template_n47_ug_twogroup_wCovs_in-out_norm2_logit.fsf	47	47	47	47	1	34	COPENUM	COPENUM,REPLACEME	1
-templates/later_working_tree/L3_template_n47_ug_twogroup_wCovs_in-out_norm2full_logit.fsf	47	47	47	47	1	34	COPENUM	COPENUM,REPLACEME	1
-templates/later_working_tree/L3_template_n47_ug_twogroup_wCovs_in-out_sensitivity2_logit.fsf	47	47	47	47	1	34	COPENUM	COPENUM,REPLACEME	1
-templates/later_working_tree/L3_template_n47_ug_twogroup_wCovs_in-out_sensitivity2_logit_yoke.fsf	47	47	47	47	1	34	COPENUM	COPENUM,REPLACEME	1
-templates/later_working_tree/L3_template_n47_ug_twogroup_wCovs_in-out_sensitivity2_prob.fsf	47	47	47	47	1	34	COPENUM	COPENUM,REPLACEME	1
-templates/later_working_tree/L3_template_n47_ug_twogroup_wCovs_yoke.fsf	47	47	47	47	1	34	COPENUM	COPENUM,REPLACEME	1
-templates/later_working_tree/L3_template_n47_ultimatum_onegroup.fsf	47	47	47	47	1	34	COPENUM	COPENUM,REPLACEME	1
-templates/later_working_tree/L3_template_n47_ultimatum_twogroup.fsf	47	47	47	47	1	34	COPENUM	COPENUM,REPLACEME	1
-templates/later_working_tree/L3_template_n47_ultimatum_twogroup_wCovs.fsf	47	47	47	47	1	34	COPENUM	COPENUM,REPLACEME	1
-templates/later_working_tree/archive/L3_template_n47_ug_twogroup_wCovs_hum-com_alpha.fsf	47	47	47	47	1	34	COPENUM	COPENUM,REPLACEME	1
-templates/later_working_tree/archive/L3_template_n47_ug_twogroup_wCovs_hum-com_epsilon.fsf	47	47	47	47	1	34	COPENUM	COPENUM,REPLACEME	1
-templates/later_working_tree/archive/L3_template_n47_ug_twogroup_wCovs_in-computer_rej.fsf	47	47	47	47	1	34	COPENUM	COPENUM,REPLACEME	1
-templates/later_working_tree/archive/L3_template_n47_ug_twogroup_wCovs_in-out_alpha.fsf	47	47	47	47	1	34	COPENUM	COPENUM,REPLACEME	1
-templates/later_working_tree/archive/L3_template_n47_ug_twogroup_wCovs_in-out_epsilon.fsf	47	47	47	47	1	34	COPENUM	COPENUM,REPLACEME	1
-templates/later_working_tree/archive/L3_template_n47_ug_twogroup_wCovs_in-out_norm.fsf	47	47	47	47	1	34	COPENUM	COPENUM,REPLACEME	1
-templates/later_working_tree/archive/L3_template_n47_ug_twogroup_wCovs_in-out_rej.fsf	47	47	47	47	1	34	COPENUM	COPENUM,REPLACEME	1
-templates/later_working_tree/archive/L3_template_n47_ug_twogroup_wCovs_in-out_sensitivity.fsf	47	47	47	47	1	34	COPENUM	COPENUM,REPLACEME	1
-templates/later_working_tree/archive/L3_template_n47_ug_twogroup_wCovs_out-computer_rej.fsf	47	47	47	47	1	34	COPENUM	COPENUM,REPLACEME	1
-templates/later_working_tree/archive/L3_template_n47_ug_twogroup_wCovs_soc-nonsoc_norm2_logit.fsf	47	47	47	47	1	34	COPENUM	COPENUM,REPLACEME	1
-templates/later_working_tree/archive/L3_template_n47_ug_twogroup_wCovs_soc-nonsoc_rej.fsf	47	47	47	47	1	34	COPENUM	COPENUM,REPLACEME	1
-templates/later_working_tree/archive/L3_template_n47_ug_twogroup_wCovs_soc-nonsoc_sensitivity2_logit.fsf	47	47	47	47	1	34	COPENUM	COPENUM,REPLACEME	1
-templates/later_working_tree/archive/L3_template_n47_ug_twogroup_wCovs_soc-nonsoc_sensitivity2_prob.fsf	47	47	47	47	1	34	COPENUM	COPENUM,REPLACEME	1
-templates/later_working_tree/yoke_3/L3_task-ug_type-act_copenum-7_twogroup_wCovs_in-out_sensitivity2_yoke.fsf	47	47	47	47	1	34	7		1
-templates/later_working_tree/yoke_3/L3_task-ug_type-nppi-dmn_copenum-7_twogroup_wCovs_in-out_sensitivity2_yoke.fsf	47	47	47	47	1	34	7		1
-templates/later_working_tree/yoke_3/L3_task-ug_type-nppi-ecn_copenum-7_twogroup_wCovs_in-out_sensitivity2_yoke.fsf	47	47	47	47	1	34	7		1
-templates/later_working_tree/yoke_3/L3_task-ultimatum_type-act_copenum-7_twogroup_wCovs_yoke.fsf	47	47	47	47	1	34	7		1
-templates/later_working_tree/yoke_3/L3_task-ultimatum_type-nppi-dmn_copenum-7_twogroup_wCovs_yoke.fsf	47	47	47	47	1	34	7		1
-templates/later_working_tree/yoke_3/L3_task-ultimatum_type-nppi-ecn_copenum-7_twogroup_wCovs_yoke.fsf	47	47	47	47	1	34	7		1
+legacy/jen_working_tree/templates/L3_task-ultimatum_type-act_InOut_age_main.fsf	94	94	94	47	2	34,81	4,6		1
+legacy/jen_working_tree/templates/L3_task-ultimatum_type-act_InOut_age_sens.fsf	94	94	94	47	2	34,81	4,6		1
+legacy/jen_working_tree/templates/L3_task-ultimatum_type-nppi-dmn_InOut_age_main.fsf	94	94	94	47	2	34,81	4,6		1
+legacy/jen_working_tree/templates/L3_task-ultimatum_type-nppi-dmn_InOut_age_sens.fsf	94	94	94	47	2	34,81	4,6		1
+legacy/jen_working_tree/templates/L3_task-ultimatum_type-nppi-ecn_InOut_age_main.fsf	94	94	94	47	2	34,81	4,6		1
+legacy/jen_working_tree/templates/L3_task-ultimatum_type-nppi-ecn_InOut_age_sens.fsf	94	94	94	47	2	34,81	4,6		1
+legacy/jen_working_tree/templates/L3_template_n47_ug_twogroup_wCovs_in-out_norm2_logit.fsf	47	47	47	47	1	34	COPENUM	COPENUM,REPLACEME	1
+legacy/jen_working_tree/templates/L3_template_n47_ug_twogroup_wCovs_in-out_norm2full_logit.fsf	47	47	47	47	1	34	COPENUM	COPENUM,REPLACEME	1
+legacy/jen_working_tree/templates/L3_template_n47_ug_twogroup_wCovs_in-out_sensitivity2_logit.fsf	47	47	47	47	1	34	COPENUM	COPENUM,REPLACEME	1
+legacy/jen_working_tree/templates/L3_template_n47_ug_twogroup_wCovs_in-out_sensitivity2_logit_yoke.fsf	47	47	47	47	1	34	COPENUM	COPENUM,REPLACEME	1
+legacy/jen_working_tree/templates/L3_template_n47_ug_twogroup_wCovs_in-out_sensitivity2_prob.fsf	47	47	47	47	1	34	COPENUM	COPENUM,REPLACEME	1
+legacy/jen_working_tree/templates/L3_template_n47_ug_twogroup_wCovs_yoke.fsf	47	47	47	47	1	34	COPENUM	COPENUM,REPLACEME	1
+legacy/jen_working_tree/templates/L3_template_n47_ultimatum_onegroup.fsf	47	47	47	47	1	34	COPENUM	COPENUM,REPLACEME	1
+legacy/jen_working_tree/templates/L3_template_n47_ultimatum_twogroup.fsf	47	47	47	47	1	34	COPENUM	COPENUM,REPLACEME	1
+legacy/jen_working_tree/templates/L3_template_n47_ultimatum_twogroup_wCovs.fsf	47	47	47	47	1	34	COPENUM	COPENUM,REPLACEME	1
+legacy/jen_working_tree/templates/archive/L3_template_n47_ug_twogroup_wCovs_hum-com_alpha.fsf	47	47	47	47	1	34	COPENUM	COPENUM,REPLACEME	1
+legacy/jen_working_tree/templates/archive/L3_template_n47_ug_twogroup_wCovs_hum-com_epsilon.fsf	47	47	47	47	1	34	COPENUM	COPENUM,REPLACEME	1
+legacy/jen_working_tree/templates/archive/L3_template_n47_ug_twogroup_wCovs_in-computer_rej.fsf	47	47	47	47	1	34	COPENUM	COPENUM,REPLACEME	1
+legacy/jen_working_tree/templates/archive/L3_template_n47_ug_twogroup_wCovs_in-out_alpha.fsf	47	47	47	47	1	34	COPENUM	COPENUM,REPLACEME	1
+legacy/jen_working_tree/templates/archive/L3_template_n47_ug_twogroup_wCovs_in-out_epsilon.fsf	47	47	47	47	1	34	COPENUM	COPENUM,REPLACEME	1
+legacy/jen_working_tree/templates/archive/L3_template_n47_ug_twogroup_wCovs_in-out_norm.fsf	47	47	47	47	1	34	COPENUM	COPENUM,REPLACEME	1
+legacy/jen_working_tree/templates/archive/L3_template_n47_ug_twogroup_wCovs_in-out_rej.fsf	47	47	47	47	1	34	COPENUM	COPENUM,REPLACEME	1
+legacy/jen_working_tree/templates/archive/L3_template_n47_ug_twogroup_wCovs_in-out_sensitivity.fsf	47	47	47	47	1	34	COPENUM	COPENUM,REPLACEME	1
+legacy/jen_working_tree/templates/archive/L3_template_n47_ug_twogroup_wCovs_out-computer_rej.fsf	47	47	47	47	1	34	COPENUM	COPENUM,REPLACEME	1
+legacy/jen_working_tree/templates/archive/L3_template_n47_ug_twogroup_wCovs_soc-nonsoc_norm2_logit.fsf	47	47	47	47	1	34	COPENUM	COPENUM,REPLACEME	1
+legacy/jen_working_tree/templates/archive/L3_template_n47_ug_twogroup_wCovs_soc-nonsoc_rej.fsf	47	47	47	47	1	34	COPENUM	COPENUM,REPLACEME	1
+legacy/jen_working_tree/templates/archive/L3_template_n47_ug_twogroup_wCovs_soc-nonsoc_sensitivity2_logit.fsf	47	47	47	47	1	34	COPENUM	COPENUM,REPLACEME	1
+legacy/jen_working_tree/templates/archive/L3_template_n47_ug_twogroup_wCovs_soc-nonsoc_sensitivity2_prob.fsf	47	47	47	47	1	34	COPENUM	COPENUM,REPLACEME	1
+legacy/jen_working_tree/templates/yoke_3/L3_task-ug_type-act_copenum-7_twogroup_wCovs_in-out_sensitivity2_yoke.fsf	47	47	47	47	1	34	7		1
+legacy/jen_working_tree/templates/yoke_3/L3_task-ug_type-nppi-dmn_copenum-7_twogroup_wCovs_in-out_sensitivity2_yoke.fsf	47	47	47	47	1	34	7		1
+legacy/jen_working_tree/templates/yoke_3/L3_task-ug_type-nppi-ecn_copenum-7_twogroup_wCovs_in-out_sensitivity2_yoke.fsf	47	47	47	47	1	34	7		1
+legacy/jen_working_tree/templates/yoke_3/L3_task-ultimatum_type-act_copenum-7_twogroup_wCovs_yoke.fsf	47	47	47	47	1	34	7		1
+legacy/jen_working_tree/templates/yoke_3/L3_task-ultimatum_type-nppi-dmn_copenum-7_twogroup_wCovs_yoke.fsf	47	47	47	47	1	34	7		1
+legacy/jen_working_tree/templates/yoke_3/L3_task-ultimatum_type-nppi-ecn_copenum-7_twogroup_wCovs_yoke.fsf	47	47	47	47	1	34	7		1

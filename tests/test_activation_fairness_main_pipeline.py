@@ -28,6 +28,25 @@ class ActivationFairnessMainPipelineTests(unittest.TestCase):
     def test_revision_templates_are_internally_consistent(self) -> None:
         validate_revision_templates(ROOT)
 
+    def test_corrected_manuscript_l3_templates_match_tracked_design_bundles(self) -> None:
+        pairs = {
+            "L3_task-ultimatum_type-nppi-dmn_age_reported-covariates-corrected.fsf":
+                "dmn-age",
+            "L3_task-ultimatum_type-nppi-ecn_sensitivity_reported-covariates-corrected.fsf":
+                "ecn-sensitivity",
+            "L3_task-ultimatum_type-act_norm_reported-covariates-corrected.fsf":
+                "activation-norm",
+        }
+        for template_name, design_name in pairs.items():
+            template = ROOT / "templates/revision" / template_name
+            design = (
+                ROOT
+                / "results/reviewer/l3_repair_designs"
+                / design_name
+                / "reported-covariates-corrected/design.fsf"
+            )
+            self.assertEqual(template.read_bytes(), design.read_bytes())
+
     def test_l1_augmentation_only_adds_declared_contrast(self) -> None:
         source = (ROOT / "templates/L1_task-ultimatum_model-02_type-act.fsf").read_text(
             encoding="utf-8"
@@ -81,7 +100,12 @@ class ActivationFairnessMainPipelineTests(unittest.TestCase):
             inputs = render_l3(source, destination, Path("/scratch/group"), l2_outputs)
             lines = destination.read_text(encoding="utf-8").splitlines()
             self.assertEqual(len(inputs), 47)
-            self.assertTrue(all(path.endswith("/cope11.feat") for path in inputs))
+            self.assertTrue(
+                all(
+                    path.endswith("/cope11.feat/stats/cope1.nii.gz")
+                    for path in inputs
+                )
+            )
             evs = parse_evs(lines)
             self.assertTrue(all(evs[(row, 1)] == 1.0 for row in range(1, 48)))
             self.assertAlmostEqual(sum(evs[(row, 2)] for row in range(1, 48)), 0.0)

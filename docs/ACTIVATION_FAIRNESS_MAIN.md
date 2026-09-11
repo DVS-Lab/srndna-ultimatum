@@ -88,6 +88,26 @@ python3 code/run_ultimatum_repair_jobs.py \
 Re-running any line with `--resume` skips complete jobs. Existing incomplete
 output directories are rejected rather than silently overwritten.
 
+If the L3 job from commit `80cd174` failed because its inputs were rendered as
+`cope11.feat` directories rather than cope images, preserve the failed output
+and refresh only L3. The completed L1 and L2 outputs are reused unchanged:
+
+```bash
+git pull --ff-only
+
+python3 code/refresh_activation_fairness_main_l3.py \
+  --repository "$REPOSITORY" \
+  --work-root "$FAIRNESS_ROOT" \
+  --archive-incomplete-output
+
+python3 code/run_ultimatum_repair_jobs.py \
+  --manifest "$FAIRNESS_ROOT/activation_fairness_main_jobs.tsv" \
+  --stage l3 --jobs 1 --resume
+```
+
+The refreshed L3 FSF must contain 47 paths ending in
+`cope11.feat/stats/cope1.nii.gz`.
+
 Final completion check:
 
 ```bash

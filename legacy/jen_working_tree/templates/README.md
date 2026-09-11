@@ -6,7 +6,8 @@ later age, sensitivity, yoke, and follow-up models not present in the original
 repository snapshot.
 
 They are not automatically authoritative. Original production templates remain
-one directory above. Use `code/audit_l3_template_inputs.py` and compare both
+under the repository's top-level `templates/` directory. Use
+`code/audit_l3_template_inputs.py` and compare both
 sets against rendered production `design.fsf`, `design.mat`, `design.con`, and
 `design.grp` files before identifying any file as the submitted design.
 
