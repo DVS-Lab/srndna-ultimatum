@@ -158,6 +158,39 @@ def build_figure3(repository: Path, source_root: Path, figure_root: Path) -> Non
     plt.close(figure)
 
 
+def build_figure4(source_root: Path, figure_root: Path) -> None:
+    zstat_path = source_root / "figure4_offer_size_positive_zstat.nii.gz"
+    if not zstat_path.is_file():
+        raise FileNotFoundError(f"missing Figure 4 source: {zstat_path}")
+    zstat = nib.load(zstat_path)
+    data = np.asanyarray(zstat.dataobj)
+    if int(np.count_nonzero(data)) != 348:
+        raise ValueError("Figure 4 thresholded Z-stat image must contain 348 nonzero voxels")
+
+    figure, axis = plt.subplots(figsize=(10.0, 3.7), constrained_layout=True)
+    plotting.plot_stat_map(
+        zstat_path,
+        display_mode="z",
+        cut_coords=(-14, -5, 5),
+        threshold=3.1,
+        cmap="YlOrRd",
+        vmin=3.1,
+        vmax=4.8,
+        colorbar=True,
+        annotate=True,
+        draw_cross=False,
+        axes=axis,
+    )
+    axis.set_title(
+        "Positive task-wide offer-size modulation",
+        fontsize=13,
+        pad=12,
+    )
+    output = figure_root / "figure4_offer_size_activation.png"
+    figure.savefig(output, dpi=300, bbox_inches="tight", facecolor="white")
+    plt.close(figure)
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--repository", type=Path, default=REPO_ROOT)
@@ -175,7 +208,8 @@ def main() -> int:
     shutil.copyfile(task_source, figure_root / "figure1_task_schematic.png")
     shutil.copyfile(behavior_source, figure_root / "figure2_corrected_acceptance.png")
     build_figure3(repository, source_root, figure_root)
-    print(f"PASS: wrote three final manuscript figures to {figure_root}")
+    build_figure4(source_root, figure_root)
+    print(f"PASS: wrote four final manuscript figures to {figure_root}")
     return 0
 
 

@@ -1,0 +1,17 @@
+field	value
+analysis_status	revision analysis; not part of submitted workflow
+sample_size	47
+first_level_contrast	equal-weighted mean offer-size slope across computer, age-similar, and age-dissimilar partners
+group_model	FLAME 1+2; intercept, centered age group, centered sex, tSNR, mean FD, event-corrected task-wide mean RT
+voxel_threshold	Z > 3.1
+cluster_threshold	family-wise corrected p < .05
+minimum_cluster_extent_voxels	30
+dlh	0.207865
+search_volume_voxels	59297
+input_thresholded_zstat_sha256	da17fb63a9486bbc5b26a66fb18ca6ba8b6e4076eae42ae83fa249c498eac490
+input_cluster_table_sha256	d28cc3b097d86df8f64a0cac17b5efce05912a75edfb2c2a31240b031867782e
+input_smoothness_sha256	d05c11380fee72bf44aa7d80f313636bad03e8808c3690a43c4f4ecb94ef682b
+input_mask_sha256	12777cdd6c1a4a34e1c86b5f0e1f0664601b2b735b7578826db61d77084d71e6
+input_design_sha256	b629c1bb84e5dc1f0ee0fecce62a98082770357cbeb9c83da0f7ba789723b6b0
+output_thresholded_zstat_sha256	da17fb63a9486bbc5b26a66fb18ca6ba8b6e4076eae42ae83fa249c498eac490
+output_cluster_table_sha256	d28cc3b097d86df8f64a0cac17b5efce05912a75edfb2c2a31240b031867782e

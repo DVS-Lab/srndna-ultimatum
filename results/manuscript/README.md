@@ -15,6 +15,9 @@ the group model uses them.
 3. `figure3_corrected_dmn.png` shows the corrected DMN result and the four
    descriptive age-group-by-partner FLAME estimates from its significant
    cluster.
+4. `figure4_offer_size_activation.png` shows the positive task-wide offer-size
+   modulation from the revision analysis that averages the three
+   partner-specific parametric slopes.
 
 The submitted ECN figure is deliberately absent. Its focal cluster does not
 survive the fully corrected model. The image-only rerun is retained solely as
@@ -42,11 +45,12 @@ retain that numerical identity because FSL combines them using their own
 run-level variance estimates. The figure therefore uses the actual L2 cope 7
 group inputs rather than subtracting independently combined L2 copes 4 and 6.
 
-Then build all three figures with a Python environment containing NumPy,
+Then build all four figures with a Python environment containing NumPy,
 pandas, matplotlib, nibabel, and nilearn:
 
 ```bash
 python3 -m pip install -r requirements-figures.txt
+python3 code/export_activation_fairness_figure_data.py
 python3 code/plot_manuscript_figures.py
 ```
 
@@ -81,28 +85,20 @@ error bars use the cluster mean of the voxelwise FLAME standard-error map and
 show one model standard error. They are descriptive rather than an independent
 cluster-average inferential test.
 
-### Candidate activation validation analysis
+### Task-wide offer-size activation analysis
 
-The first-level activation model does not contain one contrast averaging the
-human-partner offer-size slopes. Cope 4 is the age-similar offer-size slope,
-cope 6 is the age-dissimilar slope, and cope 7 is their difference. Therefore,
-an all-participant cope-7 model must not be described as a basic fairness main
-effect. `code/prepare_activation_fairness_l3.py` prepares corrected,
-intercept-based L3 models for copes 4 and 6 separately. Each model includes
-centered age group, sex, tSNR, mean FD, and event-corrected task-wide mean RT.
-These are paired revision diagnostics: inspect both complete thresholded maps
-before deciding whether a validation figure is scientifically useful.
+The completed revision pipeline adds first-level contrast 11, the
+equal-weighted mean of the computer, age-similar, and age-dissimilar offer-size
+slopes, and carries it through L2 and a 47-participant FLAME 1+2 model. The
+group design includes an intercept, centered age group and sex, tSNR, mean FD,
+and event-corrected task-wide mean RT. At Z > 3.1 and cluster-corrected p < .05,
+the positive adjusted mean contains five clusters (348 voxels total); the
+negative adjusted mean contains none. The younger > older contrast contains
+three clusters (125 voxels total); older > younger contains none. The age
+result remains an exploratory revision finding rather than a headline claim.
 
-```bash
-ACTIVATION_FAIRNESS_ROOT=/ZPOOL/data/scratch/srndna-ultimatum-activation-fairness-v1
-python3 code/prepare_activation_fairness_l3.py \
-  --work-root "$ACTIVATION_FAIRNESS_ROOT"
-python3 code/run_ultimatum_repair_jobs.py \
-  --manifest "$ACTIVATION_FAIRNESS_ROOT/activation_fairness_l3_jobs.tsv" \
-  --stage l3 --jobs 1 --dry-run
-```
-
-Remove `--dry-run` only after the manifest confirms 47 corrected activation
-inputs for each condition. A single combined human-partner fairness map would
-require a new first-level contrast and is not inferred by averaging these two
-group maps after the fact.
+The exact compiled design, four contrast maps, smoothness estimate, search
+mask, cluster tables, hashes, and 142-job provenance inventory are stored under
+`results/reviewer/activation_fairness_main/`. The main-effect figure is a
+descriptive task-validation result added during revision and must not be
+described as part of the submitted analysis.

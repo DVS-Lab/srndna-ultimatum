@@ -46,3 +46,16 @@ whole-brain similar-minus-dissimilar FLAME 1+2 model reported in panel B.
 The submitted ECN/fairness-sensitivity figure is not part of the revision. No
 significant clusters remained in any of the eight contrasts in the fully
 corrected model.
+
+## Figure 4. Task-wide modulation by offer size
+
+The map shows regions with a positive parametric response to offer size,
+averaged with equal weights across computer, age-similar, and age-dissimilar
+partners. The revision analysis used all 47 participants and FLAME 1+2 with an
+intercept, centered age group and sex, tSNR, mean framewise displacement, and
+event-corrected task-wide mean response time. Five clusters survived the
+whole-brain threshold of Z > 3.1 and cluster-corrected p < .05 (348 voxels
+total). Peaks were located in bilateral occipital cortex, right insular/
+opercular cortex, right inferior temporal cortex, and right frontal pole/
+orbitofrontal cortex. This task-validation analysis was added during revision
+and was not part of the submitted workflow.
