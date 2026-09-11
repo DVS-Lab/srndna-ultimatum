@@ -1,0 +1,77 @@
+test_family	dimension	timepoint	comparison	age_test	n	estimate	estimate_definition	statistic	df	p_uncorrected	p_fdr_bh_within_age_test
+partner_contrasts	anger	post	human_mean_minus_computer	pearson_exact_age	42	0.031498016	Pearson r	0.031498016	40	0.8430301	0.94221012
+partner_contrasts	anger	post	human_mean_minus_computer	older_minus_younger_welch	42	0.30952381	older mean minus younger mean	0.47447151	n/a	0.63796631	0.89787851
+partner_contrasts	anger	post	similar_minus_computer	pearson_exact_age	42	-0.033871363	Pearson r	-0.033871363	40	0.83136755	0.94221012
+partner_contrasts	anger	post	similar_minus_computer	older_minus_younger_welch	42	0.047619048	older mean minus younger mean	0.064242627	n/a	0.9491192	1
+partner_contrasts	anger	post	dissimilar_minus_computer	pearson_exact_age	42	0.10189916	Pearson r	0.10189916	40	0.52079045	0.94221012
+partner_contrasts	anger	post	dissimilar_minus_computer	older_minus_younger_welch	42	0.57142857	older mean minus younger mean	0.88658119	n/a	0.38102173	0.78904185
+partner_contrasts	anger	post	similar_minus_dissimilar	pearson_exact_age	42	-0.18888282	Pearson r	-0.18888282	40	0.2309253	0.77399066
+partner_contrasts	anger	post	similar_minus_dissimilar	older_minus_younger_welch	42	-0.52380952	older mean minus younger mean	-1.0983537	n/a	0.27868375	0.75642733
+partner_contrasts	fairness	post	human_mean_minus_computer	pearson_exact_age	42	0.23677602	Pearson r	0.23677602	40	0.13111083	0.77399066
+partner_contrasts	fairness	post	human_mean_minus_computer	older_minus_younger_welch	42	0.73809524	older mean minus younger mean	1.4644489	n/a	0.15181041	0.73248372
+partner_contrasts	fairness	post	similar_minus_computer	pearson_exact_age	42	0.30406626	Pearson r	0.30406626	40	0.050260883	0.77399066
+partner_contrasts	fairness	post	similar_minus_computer	older_minus_younger_welch	42	1.2380952	older mean minus younger mean	2.0119404	n/a	0.05222669	0.73248372
+partner_contrasts	fairness	post	dissimilar_minus_computer	pearson_exact_age	42	0.097237265	Pearson r	0.097237265	40	0.54013666	0.94221012
+partner_contrasts	fairness	post	dissimilar_minus_computer	older_minus_younger_welch	42	0.23809524	older mean minus younger mean	0.47738272	n/a	0.63574221	0.89787851
+partner_contrasts	fairness	post	similar_minus_dissimilar	pearson_exact_age	42	0.28761975	Pearson r	0.28761975	40	0.064750111	0.77399066
+partner_contrasts	fairness	post	similar_minus_dissimilar	older_minus_younger_welch	42	1	older mean minus younger mean	2.0464687	n/a	0.04753709	0.73248372
+partner_contrasts	likeability	post	human_mean_minus_computer	pearson_exact_age	42	0.10035706	Pearson r	0.10035706	40	0.52715173	0.94221012
+partner_contrasts	likeability	post	human_mean_minus_computer	older_minus_younger_welch	42	0.57142857	older mean minus younger mean	0.8737388	n/a	0.38789974	0.78904185
+partner_contrasts	likeability	post	similar_minus_computer	pearson_exact_age	42	0.097039698	Pearson r	0.097039698	40	0.54096411	0.94221012
+partner_contrasts	likeability	post	similar_minus_computer	older_minus_younger_welch	42	0.57142857	older mean minus younger mean	0.84473534	n/a	0.40361715	0.78904185
+partner_contrasts	likeability	post	dissimilar_minus_computer	pearson_exact_age	42	0.094805086	Pearson r	0.094805086	40	0.55036525	0.94221012
+partner_contrasts	likeability	post	dissimilar_minus_computer	older_minus_younger_welch	42	0.57142857	older mean minus younger mean	0.82416338	n/a	0.41528519	0.78904185
+partner_contrasts	likeability	post	similar_minus_dissimilar	pearson_exact_age	42	-0.0001522713	Pearson r	-0.0001522713	40	0.99923639	0.99923639
+partner_contrasts	likeability	post	similar_minus_dissimilar	older_minus_younger_welch	42	0	older mean minus younger mean	0	n/a	1	1
+partner_contrasts	satisfaction	post	human_mean_minus_computer	pearson_exact_age	42	0.12763843	Pearson r	0.12763843	40	0.42051347	0.94221012
+partner_contrasts	satisfaction	post	human_mean_minus_computer	older_minus_younger_welch	42	0.57142857	older mean minus younger mean	0.94617335	n/a	0.3498546	0.78904185
+partner_contrasts	satisfaction	post	similar_minus_computer	pearson_exact_age	42	0.19403674	Pearson r	0.19403674	40	0.21821252	0.77399066
+partner_contrasts	satisfaction	post	similar_minus_computer	older_minus_younger_welch	42	0.85714286	older mean minus younger mean	1.4038529	n/a	0.16812016	0.73248372
+partner_contrasts	satisfaction	post	dissimilar_minus_computer	pearson_exact_age	42	0.050560901	Pearson r	0.050560901	40	0.7504949	0.94221012
+partner_contrasts	satisfaction	post	dissimilar_minus_computer	older_minus_younger_welch	42	0.28571429	older mean minus younger mean	0.41926275	n/a	0.67736392	0.91343309
+partner_contrasts	satisfaction	post	similar_minus_dissimilar	pearson_exact_age	42	0.1836206	Pearson r	0.1836206	40	0.2444181	0.77399066
+partner_contrasts	satisfaction	post	similar_minus_dissimilar	older_minus_younger_welch	42	0.57142857	older mean minus younger mean	1.231174	n/a	0.22570413	0.75642733
+partner_contrasts	fairness	pre	human_mean_minus_computer	pearson_exact_age	42	-0.036068561	Pearson r	-0.036068561	40	0.82060228	0.94221012
+partner_contrasts	fairness	pre	human_mean_minus_computer	older_minus_younger_welch	42	-0.071428571	older mean minus younger mean	-0.11481703	n/a	0.90922299	0.98715639
+partner_contrasts	fairness	pre	similar_minus_computer	pearson_exact_age	42	0.045319478	Pearson r	0.045319478	40	0.77565438	0.94221012
+partner_contrasts	fairness	pre	similar_minus_computer	older_minus_younger_welch	42	0.23809524	older mean minus younger mean	0.35759927	n/a	0.72274646	0.91343309
+partner_contrasts	fairness	pre	dissimilar_minus_computer	pearson_exact_age	42	-0.12022914	Pearson r	-0.12022914	40	0.44820147	0.94221012
+partner_contrasts	fairness	pre	dissimilar_minus_computer	older_minus_younger_welch	42	-0.38095238	older mean minus younger mean	-0.61267166	n/a	0.54389841	0.89787851
+partner_contrasts	fairness	pre	similar_minus_dissimilar	pearson_exact_age	42	0.30233735	Pearson r	0.30233735	40	0.051648569	0.77399066
+partner_contrasts	fairness	pre	similar_minus_dissimilar	older_minus_younger_welch	42	0.61904762	older mean minus younger mean	1.8514837	n/a	0.073178237	0.73248372
+partner_contrasts	likeability	pre	human_mean_minus_computer	pearson_exact_age	42	0.051157538	Pearson r	0.051157538	40	0.74764654	0.94221012
+partner_contrasts	likeability	pre	human_mean_minus_computer	older_minus_younger_welch	42	0.35714286	older mean minus younger mean	0.56425279	n/a	0.57616318	0.89787851
+partner_contrasts	likeability	pre	similar_minus_computer	pearson_exact_age	42	0.051179298	Pearson r	0.051179298	40	0.74754272	0.94221012
+partner_contrasts	likeability	pre	similar_minus_computer	older_minus_younger_welch	42	0.33333333	older mean minus younger mean	0.53703347	n/a	0.5946175	0.89787851
+partner_contrasts	likeability	pre	dissimilar_minus_computer	pearson_exact_age	42	0.049316112	Pearson r	0.049316112	40	0.75644805	0.94221012
+partner_contrasts	likeability	pre	dissimilar_minus_computer	older_minus_younger_welch	42	0.38095238	older mean minus younger mean	0.56925445	n/a	0.5727542	0.89787851
+partner_contrasts	likeability	pre	similar_minus_dissimilar	pearson_exact_age	42	-0.0049711345	Pearson r	-0.0049711345	40	0.97507452	0.99923639
+partner_contrasts	likeability	pre	similar_minus_dissimilar	older_minus_younger_welch	42	-0.047619048	older mean minus younger mean	-0.18864567	n/a	0.85132538	0.98031408
+pre_post_changes	fairness	post-minus-pre	post_minus_pre_similar	pearson_exact_age	41	0.20524927	Pearson r	0.20524927	39	0.19797227	0.77399066
+pre_post_changes	fairness	post-minus-pre	post_minus_pre_similar	older_minus_younger_welch	41	1.1166667	older mean minus younger mean	1.3915598	n/a	0.17348299	0.73248372
+pre_post_changes	fairness	post-minus-pre	post_minus_pre_dissimilar	pearson_exact_age	41	0.16032337	Pearson r	0.16032337	39	0.31667233	0.80223657
+pre_post_changes	fairness	post-minus-pre	post_minus_pre_dissimilar	older_minus_younger_welch	41	0.72857143	older mean minus younger mean	0.93610402	n/a	0.35527131	0.78904185
+pre_post_changes	fairness	post-minus-pre	post_minus_pre_computer	pearson_exact_age	41	-0.0065635175	Pearson r	-0.0065635175	39	0.96751297	0.99923639
+pre_post_changes	fairness	post-minus-pre	post_minus_pre_computer	older_minus_younger_welch	41	0.080952381	older mean minus younger mean	0.12983432	n/a	0.89743643	0.98715639
+change_in_partner_contrast	fairness	post-minus-pre	post_minus_pre_of_human_mean_minus_computer	pearson_exact_age	41	0.26650579	Pearson r	0.26650579	39	0.092121384	0.77399066
+change_in_partner_contrast	fairness	post-minus-pre	post_minus_pre_of_human_mean_minus_computer	older_minus_younger_welch	41	0.84166667	older mean minus younger mean	1.5236572	n/a	0.13660435	0.73248372
+change_in_partner_contrast	fairness	post-minus-pre	post_minus_pre_of_similar_minus_computer	pearson_exact_age	41	0.25683112	Pearson r	0.25683112	39	0.10502077	0.77399066
+change_in_partner_contrast	fairness	post-minus-pre	post_minus_pre_of_similar_minus_computer	older_minus_younger_welch	41	1.0357143	older mean minus younger mean	1.5890228	n/a	0.1218106	0.73248372
+change_in_partner_contrast	fairness	post-minus-pre	post_minus_pre_of_dissimilar_minus_computer	pearson_exact_age	41	0.2246343	Pearson r	0.2246343	39	0.15795025	0.77399066
+change_in_partner_contrast	fairness	post-minus-pre	post_minus_pre_of_dissimilar_minus_computer	older_minus_younger_welch	41	0.64761905	older mean minus younger mean	1.1335115	n/a	0.2640854	0.75642733
+change_in_partner_contrast	fairness	post-minus-pre	post_minus_pre_of_similar_minus_dissimilar	pearson_exact_age	41	0.081125215	Pearson r	0.081125215	39	0.61410472	0.94221012
+change_in_partner_contrast	fairness	post-minus-pre	post_minus_pre_of_similar_minus_dissimilar	older_minus_younger_welch	41	0.38809524	older mean minus younger mean	0.73089529	n/a	0.4694938	0.84956021
+pre_post_changes	likeability	post-minus-pre	post_minus_pre_similar	pearson_exact_age	41	0.16511947	Pearson r	0.16511947	39	0.30221889	0.80223657
+pre_post_changes	likeability	post-minus-pre	post_minus_pre_similar	older_minus_younger_welch	41	0.85	older mean minus younger mean	1.2112923	n/a	0.23320377	0.75642733
+pre_post_changes	likeability	post-minus-pre	post_minus_pre_dissimilar	pearson_exact_age	41	0.16950572	Pearson r	0.16950572	39	0.28937606	0.80223657
+pre_post_changes	likeability	post-minus-pre	post_minus_pre_dissimilar	older_minus_younger_welch	41	0.84285714	older mean minus younger mean	1.1708861	n/a	0.24884944	0.75642733
+pre_post_changes	likeability	post-minus-pre	post_minus_pre_computer	pearson_exact_age	41	0.19506456	Pearson r	0.19506456	39	0.22164034	0.77399066
+pre_post_changes	likeability	post-minus-pre	post_minus_pre_computer	older_minus_younger_welch	41	0.67619048	older mean minus younger mean	1.4187461	n/a	0.164028	0.73248372
+change_in_partner_contrast	likeability	post-minus-pre	post_minus_pre_of_human_mean_minus_computer	pearson_exact_age	41	0.050994194	Pearson r	0.050994194	39	0.75152404	0.94221012
+change_in_partner_contrast	likeability	post-minus-pre	post_minus_pre_of_human_mean_minus_computer	older_minus_younger_welch	41	0.1702381	older mean minus younger mean	0.33270634	n/a	0.74141999	0.91343309
+change_in_partner_contrast	likeability	post-minus-pre	post_minus_pre_of_similar_minus_computer	pearson_exact_age	41	0.040956888	Pearson r	0.040956888	39	0.79930364	0.94221012
+change_in_partner_contrast	likeability	post-minus-pre	post_minus_pre_of_similar_minus_computer	older_minus_younger_welch	41	0.17380952	older mean minus younger mean	0.30837539	n/a	0.75970208	0.91343309
+change_in_partner_contrast	likeability	post-minus-pre	post_minus_pre_of_dissimilar_minus_computer	pearson_exact_age	41	0.051670363	Pearson r	0.051670363	39	0.74833585	0.94221012
+change_in_partner_contrast	likeability	post-minus-pre	post_minus_pre_of_dissimilar_minus_computer	older_minus_younger_welch	41	0.16666667	older mean minus younger mean	0.29578453	n/a	0.76920681	0.91343309
+change_in_partner_contrast	likeability	post-minus-pre	post_minus_pre_of_similar_minus_dissimilar	pearson_exact_age	41	-0.012766547	Pearson r	-0.012766547	39	0.93685691	0.99923639
+change_in_partner_contrast	likeability	post-minus-pre	post_minus_pre_of_similar_minus_dissimilar	older_minus_younger_welch	41	0.0071428571	older mean minus younger mean	0.015122157	n/a	0.98802382	1

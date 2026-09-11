@@ -51,11 +51,14 @@ make reviewer-behavior
   runs, which contain no `event_RT` rows. Production 3-column EV and FEAT
   verification is required before interpreting the modeled consequence.
 - Explicit ratings offer no evidence that similar and dissimilar human
-  partners were rated differently on the recorded traits (all paired p > .38).
-  Forty-one pre-task and 39 post-task records are complete and unique. Four
-  participant-session files contain appended duplicate administrations and are
-  flagged rather than resolved post hoc; five files are missing at each time.
-  These ratings do not directly measure belief in the cover story.
+  partners were rated differently on the recorded traits. Human partners were,
+  however, rated as fairer and more likeable than the computer both before and
+  after the task; these exploratory contrasts survive within-family FDR
+  adjustment and are unchanged in direction or inference under first-block,
+  last-block, and ambiguous-session-exclusion policies. Forty-one pre-task and
+  39 post-task records are complete and unambiguous; the block-resolution rule
+  for four participant-session files remains a data-curation decision. These
+  ratings do not directly measure belief in the cover story.
 
 ## Output map
 
@@ -96,6 +99,9 @@ make reviewer-behavior
 - `tables/response_time_*.tsv`: exact response-time model and group summaries.
 - `tables/partner_ratings_human_contrasts.tsv`: aggregate human-partner rating
   contrasts.
+- `ultimatum_ratings/`: expanded exploratory ratings analysis for the
+  47-participant paper sample, including full partner descriptives, pre/post
+  comparisons, age checks, and explicit sensitivity to repeated-block handling.
 - `tables/acceptance_*_source_data.tsv`: observed and model-implied data behind
   the acceptance figure.
 - `figures/acceptance_curves.png` and
