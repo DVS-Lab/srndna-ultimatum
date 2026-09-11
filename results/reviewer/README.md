@@ -106,8 +106,8 @@ make reviewer-behavior
 - `tables/l3_design_*.tsv` and `l3_contrasts.tsv`: parsed group-design rank,
   conditioning, per-EV diagnostics, input counts, group membership, and exact
   contrasts for the original DMN template and later ECN reconstruction. Both
-  are full rank with 47 unique inputs; production identity remains server
-  pending.
+  are full rank with 47 unique inputs. The retained production bundles now
+  establish exact design identity.
 - `tables/dmn_roi_influence_summary.tsv`: descriptive selected-ROI diagnostics
   and leave-one-out coefficient range. Participant rows remain in `private/`.
 - `production_audits/`: compact Linux production-design, cluster-table,

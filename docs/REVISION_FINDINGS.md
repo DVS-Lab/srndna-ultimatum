@@ -164,10 +164,10 @@ threshold. Across descriptive leave-one-participant-out fits, the older-group
 coefficient ranges from -16.55 to -13.66 and remains small-p in every fit. This
 does not answer the inferential concern because the ROI was selected from the
 group result. It must not be used to exclude sub-138 or any other participant.
-After production provenance is established, the audit should explain whether
-the installed FSL version supports robust FLAME outlier deweighting for this
-FLAME 1+2 model. Such a complete-sample sensitivity analysis remains
-author-pending and must not redefine the primary result.
+The production environment is now established as FSL 6.0.7.17. Robust FLAME
+outlier deweighting was not part of the submitted or corrected endpoint. Any
+future complete-sample sensitivity analysis would require a separate author
+decision and must not redefine the primary result.
 
 ## Established task and model details
 
@@ -187,8 +187,8 @@ author-pending and must not redefine the primary result.
   thickness and 3.22-mm spacing between slices, an exact 15% spacing increment.
   Manuscript-facing language should distinguish approximately 2.97 × 2.97 mm
   in-plane resolution, 2.80-mm slice thickness, and 3.22-mm through-plane
-  spacing/analyzed grid. Production headers must still confirm whether
-  normalization changed any other dimension.
+  spacing/analyzed grid. Retained production-output headers confirm the stated
+  analyzed grid.
 - All three focal files are 0/1 binary masks whose copied headers retain FSL's
   Z-score intent and `2203.12` build description. Although none is
   byte-identical to a labeled `cluster_mask_zstat` image, voxel-support tracing
@@ -219,7 +219,7 @@ author-pending and must not redefine the primary result.
   numerical rounding. The activation production design files likewise exactly
   match the committed `norm2_logit` companions.
 
-## Remaining optional server audits
+## Optional provenance strengthening
 
 1. Retain the exact fMRIPrep 21.0.2 preprocessing boilerplate. The two affected
    sub-144 OpenNeuro BOLD files are byte-identical to their surviving
@@ -230,14 +230,17 @@ author-pending and must not redefine the primary result.
    with historical participant median RT than with task-wide mean RT and is not
    an affine rescaling of the reported mean quantity. Preserve it only in the
    explicitly labeled image-only provenance reruns.
-3. Exact behavior of robust FLAME outlier deweighting in the production FSL
-   version, including compatibility, settings, and diagnostic outputs; do not
-   run it without author approval.
-4. An inventory classifying main/simple/computer-effect requests as existing,
-   descriptive, genuinely new, or not scientifically recommended.
+3. Robust FLAME outlier deweighting and other alternative inferential models
+   are outside the corrected endpoint; do not run them without a new author
+   decision.
+4. The main and social/computer activation follow-ups are now classified in
+   `results/manuscript/tables/final_result_set.tsv`; no additional contrast is
+   required for the current revision.
 
-Use `docs/SERVER_IMAGING_AUDIT.md` to collect the evidence. Do not run the
-tracked `L3stats_SANS.sh`; its current FSF redirection is defective.
+`docs/SERVER_IMAGING_AUDIT.md` preserves the procedure used to collect the
+evidence. The unsafe later `L3stats_SANS.sh` wrapper is not retained as an
+active repository entry point; corrected jobs use the guarded preparers and
+manifest runner documented here.
 
 ## Interpretation changes supported now
 

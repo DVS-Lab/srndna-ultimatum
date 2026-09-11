@@ -1,21 +1,20 @@
 # SRNDNA Ultimatum Game workflow and result audit
 
-Last updated: 2026-09-07
+Last updated: 2026-09-11
 
-This document records what can be established from the submitted manuscript,
-tracked repository, and reviewer materials before any inferential result is
-changed. It separates the submitted analysis from revision analyses and from
-proposed server-side checks. The original `srndna-ultimatum` Git history remains
-the production provenance record. Later revision artifacts were imported
+This document records the completed scientific audit of the submitted
+manuscript, tracked repository, retained production outputs, and revision
+analyses. It separates submitted analyses from corrected and newly added
+revision analyses. The original `srndna-ultimatum` Git history remains the
+production provenance record. Later revision artifacts were imported
 selectively from a separate working repository without merging histories.
 
 ## Status vocabulary
 
 - **Established**: directly supported by a tracked input, script, template, or
   submitted result and independently checked where feasible.
-- **Provisional**: the best reconstruction from available evidence, but a
-  production output or software record is still needed.
-- **Unresolved**: the available sources disagree or do not identify the fact.
+- **Optional provenance strengthening**: an additional check that could add
+  detail but is not required to identify or reproduce a reported result.
 - **Revision analysis**: added in response to peer review; it is not presented
   as part of the originally submitted workflow.
 
@@ -59,21 +58,20 @@ not a substitute for those outputs.
 | First-level activation model | Established | `templates/L1_task-ultimatum_model-02_type-act.fsf` specifies nine EVs: computer/similar/dissimilar constants and offer parametric modulators, RT constant and RT parametric modulator, and missed trials. Contrasts 7-10 encode similar-minus-dissimilar offer modulation, social-minus-computer offer modulation, similar-minus-dissimilar constant, and social-minus-computer constant. |
 | Task-wide offer-size activation | Completed revision analysis | A new first-level contrast averages the computer, similar, and dissimilar offer-size slopes with equal weights and is carried through 94 L1 runs, 47 L2 models, and a full-rank FLAME 1+2 group model. With an intercept, centered age group and sex, tSNR, mean FD, and event-corrected task-wide mean RT, the positive adjusted mean has five corrected clusters (348 voxels total; cluster p 2.56e-06 to .0453; Zmax 4.75); the negative mean has none. Younger > older has three corrected clusters (125 voxels total); older > younger has none. This is explicitly a revision analysis, not a submitted result. |
 | Social versus computer activation | Completed revision audit | Corrected L3-only models reuse the completed L2 cope 10 task-response and cope 8 offer-slope contrasts. Cope 10 produces large bidirectional posterior visual/ventral-temporal effects that are inseparable from partner-image differences and is not a specific social-cognition assay. Cope 8 produces one positive 32-voxel periventricular thalamic/caudate-edge cluster (cluster p .023; Zmax 3.86); the reverse and both age directions are null. Both are retained as audit results and are not promoted to the main manuscript. |
-| Network PPI model | Established | The tracked nPPI template has 28 EVs and 11 contrasts. The manuscript uses ten-network simultaneous regression and targets network 3 (DMN) or 7 (ECN). Network-map origin and exact production template checksum remain unresolved. |
+| Network PPI model | Established | The tracked nPPI template has 28 EVs and 11 contrasts. The production script extracts ten signed continuous network maps tracked as `masks/nan_rPNAS_2mm_net0000.nii.gz` through `net0009.nii.gz`, and targets network 3 (DMN) or 7 (ECN). The model-02 L1/L2 templates are byte-identical across the production and later working repositories, and retained rendered designs take precedence over generic template defaults. The exact inputs used by this repository are therefore fixed; the historical filenames are not used to infer a more specific upstream atlas version than the record supports. |
 | Group structure for submitted contrasts | Established | Each focal model uses one participant-level similar-minus-dissimilar cope per participant and includes RT. DMN tests age groups with sex, tSNR, mean FD, and RT. ECN additionally includes age-specific fairness-sensitivity EVs; activation instead includes age-specific `norm2_logit` EVs. Thus no submitted design duplicates a participant as two independent rows. |
-| Inference | Established/production pending | The manuscript reports FLAME 1+2 with voxel Z > 3.1 and cluster-corrected p < .05. The two focal network clusters contain 26 and 23 nonzero voxels in the tracked masks. The required server audit must recover the exact production threshold command, search mask, smoothness/GRF quantities, corrected probabilities, and minimum significant cluster extent. Small extent alone does not motivate alternative inference. |
-| Acquisition versus output grid | Partly established | The cited OpenNeuro 2.0.2 `task-ultimatum_bold.json` records 2.80-mm slice thickness and 3.22-mm spacing between slices; the ratio is exactly 1.15, consistent with a 15% interslice gap. The tracked focal masks report 2.973 x 2.973 x 3.220 mm voxels. Thus 2.80 mm is thickness, not through-plane center spacing. Production BOLD/normalized headers must still confirm whether normalization changed any other dimension. |
+| Inference | Established | The retained designs specify FLAME 1+2 without automatic outlier deweighting, voxel Z > 3.1, and cluster-corrected p < .05. Production cluster tables, search masks, and smoothness records are tracked. They report a 56,872-voxel search volume and, respectively, DMN DLH 0.300799/15.5111 resels, ECN DLH 0.331876/14.0378 resels, and activation DLH 0.205028/22.7228 resels. The submitted focal clusters are exactly traced to the retained outputs: DMN 26 voxels (p=.0233, Zmax=4.15), ECN 23 voxels (p=.0287, Zmax=4.25), and activation 161 voxels (p=1.79e-7, Zmax=4.33). |
+| Acquisition versus output grid | Established | The cited OpenNeuro 2.0.2 `task-ultimatum_bold.json` records 2.80-mm slice thickness and 3.22-mm spacing between slices; the ratio is exactly 1.15, consistent with a 15% interslice gap. The retained production outputs and focal masks report an analyzed 2.973 x 2.973 x 3.220 mm grid. Thus 2.80 mm is the acquired slice thickness, while 3.22 mm is the through-plane center spacing and analyzed grid spacing. |
 | fMRIPrep version | Established as 21.0.2 for the sub-144 repair | The OpenNeuro/data-paper derivative `dataset_description.json` records fMRIPrep 21.0.2, and that repository's wrapper requests `MNI152NLin2009cAsym`. The production L1 `DATA` variable requests the same external derivative and space. Both affected sub-144 OpenNeuro BOLD files are byte-identical to the surviving copies in `srndna-ug` (run-1 SHA-256 `2055f273...`; run-2 `73139354...`). The inherited 20.1.0 wrapper does not control that external input, while Jen's later 23.2.1 wrapper requests only `MNI152NLin6Asym` and cannot produce the filename consumed by L1. A whole-sample checksum inventory is optional provenance strengthening, not a prerequisite to this repair. |
-| OpenNeuro version | Partly established | The manuscript cites ds003745 version 2.0.2 (Git tag commit `88d8d458`). Both tracked sub-143 Ultimatum event TSVs are byte-identical to that snapshot. The BIDS changelog formerly committed to this repository reached 2.1.1, so the remaining production inputs still require snapshot-level provenance; public availability can point to the current dataset separately. |
-| Current L3 shell script | Historical/defective | `code/L3stats_SANS.sh` has a split redirection that truncates the rendered FSF. It cannot be treated as a safe reproduction path. Submitted outputs predate the current defect; revision checks must use the audited, render-first server command instead. |
-| DMN influence diagnostic | Revision analysis | A descriptive ROI diagnostic identifies sub-138 above a 4/n Cook's-distance screen and sub-154 near that screen. Because the ROI is selected from the same group result, it cannot justify deleting either participant or rerunning the model after participant exclusion. The only possible image-level sensitivity analysis currently under consideration is FLAME robust outlier deweighting with all 47 participants, pending production-version audit and author approval. |
-| Tracked L3 matrix diagnostics | Revision audit | The original DMN template and later ECN reconstruction each have 47 unique input paths, a single group-membership value, and full column rank. Their aggregate diagnostics are regenerated by `code/audit_l3_designs.R`. Production `design.mat` files must still be compared directly; the later template's presence does not establish production identity. |
+| OpenNeuro version | Public update pending | The manuscript cites ds003745 version 2.0.2 (Git tag commit `88d8d458`). Both tracked sub-143 Ultimatum event TSVs are byte-identical to that snapshot. The corrected snapshot identifier will be added after the sub-144 OpenNeuro repair is released; this is a data-release task, not an unresolved analysis input. |
+| Historical L3 wrappers | Quarantined | The later working repository contained an unsafe SANS wrapper with a broken FSF redirection and destructive output handling. It is not an active entry point in this repository. Submitted model identity comes from retained rendered designs; corrected jobs use guarded render-first preparers and a runner that refuses to overwrite outputs. |
+| DMN influence diagnostic | Revision analysis complete | A descriptive ROI diagnostic identifies sub-138 above a 4/n Cook's-distance screen and sub-154 near that screen. Because the ROI is selected from the same group result, it cannot justify deleting either participant or rerunning the model after participant exclusion. Robust FLAME deweighting is not part of the corrected endpoint and no participant is excluded post hoc. |
+| L3 matrix diagnostics | Established | The original production design bundles were recovered directly. Each has 47 unique input paths, one group-membership value, and full column rank. The DMN design survives identically in both analysis repositories; the ECN and activation designs match their committed historical companions and covariate vectors to numerical rounding. Corrected templates and compiled design bundles are tracked under `templates/revision/` and `results/reviewer/l3_repair_designs/`. |
 
-## Required read-only server audit
+## Completed read-only server audit
 
-Local work must not fabricate or rerun FEAT outputs. On the Linux analysis
-server, run the repository's read-only imaging audit against the production
-derivative tree. It must capture:
+The repository's read-only imaging audit was run on Linux against the
+production derivative tree. The tracked bundles capture:
 
 1. the fMRIPrep dataset description, HTML boilerplate, container/image record,
    BOLD and group-output NIfTI headers, and FSL version;
@@ -89,11 +87,11 @@ derivative tree. It must capture:
 6. actual first-level activation/nPPI design estimability and the complete RT
    event-construction chain, including the possible first-trial RT omission.
 
-The audit is non-mutating. It does not prepare or run permutation/TFCE,
-tSNR-removal, participant-deletion, or unified-sensitivity ECN analyses. After
-the production audit, robust FLAME deweighting or genuinely missing L3
-contrasts may be proposed in versioned directories, but only after a separate
-scientific decision.
+The audit was non-mutating and did not run permutation/TFCE, tSNR-removal,
+participant-deletion, or unified-sensitivity ECN analyses. Those are not part
+of the corrected manuscript endpoint. Compact audit records are under
+`results/reviewer/production_audits/`; the exact corrected result disposition
+is under `results/manuscript/tables/final_result_set.tsv`.
 
 ## Repository-size and cleanup boundary
 

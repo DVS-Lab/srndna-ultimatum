@@ -1,0 +1,55 @@
+cff-version: 1.2.0
+message: >-
+  If you use this repository, please cite the associated article and the
+  archived software release.
+title: SRNDNA Ultimatum Game analysis repository
+type: software
+authors:
+  - family-names: Fareri
+    given-names: Dominic S.
+  - family-names: Yang
+    given-names: Yi
+  - family-names: Ludwig
+    given-names: Rita M.
+  - family-names: Wyngaarden
+    given-names: James B.
+  - family-names: Dwamena
+    given-names: Derrick
+  - family-names: Hackett
+    given-names: Katherine
+  - family-names: Giovannetti
+    given-names: Tania
+  - family-names: Smith
+    given-names: David V.
+repository-code: https://github.com/DVS-Lab/srndna-ultimatum
+license: MIT
+keywords:
+  - aging
+  - fairness
+  - fMRI
+  - network connectivity
+  - ultimatum game
+preferred-citation:
+  type: article
+  title: >-
+    Older Adults Show Altered Default Mode and Executive Control Network
+    Connectivity during Fairness Decisions
+  authors:
+    - family-names: Fareri
+      given-names: Dominic S.
+    - family-names: Yang
+      given-names: Yi
+    - family-names: Ludwig
+      given-names: Rita M.
+    - family-names: Wyngaarden
+      given-names: James B.
+    - family-names: Dwamena
+      given-names: Derrick
+    - family-names: Hackett
+      given-names: Katherine
+    - family-names: Giovannetti
+      given-names: Tania
+    - family-names: Smith
+      given-names: David V.
+  doi: 10.1101/2025.08.13.670194
+  year: 2026

@@ -22,6 +22,20 @@ def tracked_paths() -> list[str]:
 
 
 class RepositoryBoundaryTests(unittest.TestCase):
+    def test_active_environment_is_portable(self) -> None:
+        text = (ROOT / "code/environment.yml").read_text(encoding="utf-8")
+        self.assertIn("name: srndna-ultimatum", text)
+        self.assertIn("dependencies:", text)
+        self.assertNotIn("prefix:", text)
+        self.assertNotIn("/home/", text)
+        self.assertNotIn("/Users/", text)
+
+    def test_citation_metadata_identifies_repository_and_article(self) -> None:
+        text = (ROOT / "CITATION.cff").read_text(encoding="utf-8")
+        self.assertIn("cff-version: 1.2.0", text)
+        self.assertIn("https://github.com/DVS-Lab/srndna-ultimatum", text)
+        self.assertIn("10.1101/2025.08.13.670194", text)
+
     def test_full_bids_tree_is_not_tracked(self) -> None:
         paths = tracked_paths()
         self.assertFalse(any(path.startswith("bids/") for path in paths))

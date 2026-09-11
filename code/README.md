@@ -82,6 +82,7 @@ The original sequence was:
 2. generate confounds and FSL 3-column EV files;
 3. run FSL L1, L2, and L3 analyses.
 
-The production audit must remain non-mutating. The event-provenance matcher may
-run `feat_model` in scratch space; do not run FEAT, FLAME, `randomise`, or a
-replacement image model as part of validation.
+The completed production audit was non-mutating. Its collectors remain
+non-mutating if repeated. The event-provenance matcher may run `feat_model` in
+scratch space; do not run FEAT, FLAME, `randomise`, or a replacement image
+model as part of validation.

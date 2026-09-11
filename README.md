@@ -14,19 +14,27 @@ are not duplicated in Git.
 Run from the repository root:
 
 ```bash
+conda env create -f code/environment.yml
+conda activate srndna-ultimatum
 make test
 make reviewer-behavior
 make reviewer-imaging-audit
 ```
 
-The behavioral workflow requires R with `lme4`, `lmerTest`, `ggplot2`, and
-`scales`. Image-header checks require FSL's `fslhd` and `fslstats`; validation
-skips them cleanly when FSL is unavailable.
+The portable Conda environment supplies the Python dependencies used by the
+audits and manuscript figures. The behavioral workflow additionally requires
+R with `lme4`, `lmerTest`, `ggplot2`, and `scales`; the exact versions used for
+the revision are recorded in
+`results/reviewer/tables/behavior_software_versions.tsv`. Image-header checks
+require FSL's `fslhd` and `fslstats`; validation skips them cleanly when FSL is
+unavailable. Production and revision imaging provenance records FSL 6.0.7.17
+and fMRIPrep 21.0.2.
 
-The production imaging audit is read-only and must run on Linux against
-`/ZPOOL/data/projects/srndna-ultimatum`. Follow
-`docs/SERVER_IMAGING_AUDIT.md`; do not launch FEAT, FLAME, or `randomise` as
-part of that audit.
+The production imaging audit was completed read-only on Linux against
+`/ZPOOL/data/projects/srndna-ultimatum`; its compact records are tracked under
+`results/reviewer/production_audits/`. `docs/SERVER_IMAGING_AUDIT.md` preserves
+the collection procedure. FEAT, FLAME, and `randomise` are not part of that
+read-only audit.
 
 ## Repository map
 
@@ -55,9 +63,16 @@ Start with `code/WORKFLOW_AUDIT.md`. The machine-readable result index is
 ## Data and provenance boundaries
 
 OpenNeuro `ds003745` is the source for the public BIDS dataset. The manuscript
-cites snapshot 2.0.2. The local root-level `bids/` directory is intentionally
-ignored; only small analysis-support TSV/JSON files belong under
-`source_data/`.
+cites snapshot 2.0.2. The corrected public snapshot identifier will be added
+after the corresponding OpenNeuro update is released. The local root-level
+`bids/` directory is intentionally ignored; only small analysis-support
+TSV/JSON files belong under `source_data/`.
+
+`derivatives/imaging_plots/participants.tsv` is intentionally retained in its
+historical location because `code/plotROIdata.m` reads it alongside the compact
+ROI extracts. It contains pseudonymous study IDs, age, and sex, but no direct
+identifiers. The broader `participants.tsv` ignore rule prevents accidental
+addition of other participant tables.
 
 The Linux checkout at `/ZPOOL/data/projects/srndna-ultimatum` is both a clean
 checkout of this repository and the location of the production derivative
@@ -96,6 +111,12 @@ retains FLAME's within- and between-participant variance modeling. The
 participant-level condition COPE and VARCOPE extracts and all image hashes are
 tracked under `results/manuscript/source_data/` for auditability. Figure error
 bars show one model standard error rather than 95% confidence intervals.
+
+## Citation
+
+Citation metadata and the preferred article citation are provided in
+`CITATION.cff`. A versioned archival DOI should be added there when the final
+software release is deposited.
 
 ## Acknowledgments
 
