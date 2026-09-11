@@ -27,6 +27,13 @@ The corrected activation/norm-proxy result also remains in the audit record.
 It was not a headline result or figure in the submitted manuscript and is not
 promoted into the revision as a new post hoc claim.
 
+Corrected human-versus-computer follow-ups are also retained only in the audit
+record. The unmodulated task-response contrast is dominated by posterior
+visual and ventral-temporal effects that cannot be separated from differences
+in partner images. The human-versus-computer offer-slope contrast contains one
+small periventricular thalamic/caudate-edge cluster and is not promoted as a
+mechanistic fairness-sensitivity result.
+
 ## Reproduction
 
 On Linux, after the corrected group model has completed:
