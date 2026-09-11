@@ -69,6 +69,17 @@ make reviewer-behavior
   and neither association shows a corrected age-group interaction. Both remain
   stable under the three repeated-block policies and should be treated as
   hypothesis-generating.
+- Direct trial-level choice models do not support the idea that pre-task
+  fairness or likeability ratings moderate the offer-by-human-similarity
+  effect. In the primary last-complete-block, random-offer-slope models, the
+  three-way coefficients are 0.010 (SE = 0.058, p = .868) for fairness and
+  -0.010 (SE = 0.048, p = .834) for likeability. Joint-rating models and both
+  alternative repeated-block policies agree. The corresponding four-way age
+  differences are also not detectable (fairness p = .203; likeability
+  p = .622). These models use 42 participants with complete pre-task ratings
+  (41 when ambiguous sessions are excluded) and 3,969 human-partner trials.
+  Accordingly, the participant-score scatterplots should not be interpreted
+  as evidence that the ratings explain the choice interaction.
 
 ## Output map
 
@@ -112,12 +123,17 @@ make reviewer-behavior
 - `ultimatum_ratings/`: expanded exploratory ratings analysis for the
   47-participant paper sample, including full partner descriptives, pre/post
   comparisons, age checks, behavioral fairness-sensitivity associations, and
-  explicit sensitivity to repeated-block handling.
+  explicit sensitivity to repeated-block handling. The tracked choice-model
+  tables report focal rating-moderation tests and model diagnostics; full
+  coefficient tables remain ignored under `private/`.
 - `tables/acceptance_*_source_data.tsv`: observed and model-implied data behind
   the acceptance figure.
 - `figures/acceptance_curves.png` and
   `figures/fairness_sensitivity_distribution.png`: reviewer-ready plots with
   their source data in `tables/`.
+- `figures/ratings_fairness_sensitivity_associations.png` and
+  `figures/ratings_choice_moderation.png`: exploratory participant-score
+  associations and the corresponding direct trial-level moderation tests.
 - `tables/focal_cluster_inventory.tsv`: checksums, grids, voxel counts, and
   physical volumes for the three tracked focal masks.
 - `tables/l3_design_*.tsv` and `l3_contrasts.tsv`: parsed group-design rank,

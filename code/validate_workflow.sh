@@ -22,7 +22,7 @@ PYTHONPYCACHEPREFIX="${TMPDIR:-/tmp}/srndna-ug-pycache" \
 echo "PASS: active Python syntax"
 
 if command -v Rscript >/dev/null 2>&1; then
-    Rscript -e "parse(file='$script_dir/analyze_reviewer_behavior.R'); parse(file='$script_dir/audit_l3_designs.R'); parse(file='$script_dir/audit_roi_influence.R')" >/dev/null
+    Rscript -e "parse(file='$script_dir/analyze_reviewer_behavior.R'); parse(file='$script_dir/analyze_rating_choice_moderation.R'); parse(file='$script_dir/audit_l3_designs.R'); parse(file='$script_dir/audit_roi_influence.R')" >/dev/null
     echo "PASS: active R syntax"
 else
     echo "SKIP: Rscript is not installed"

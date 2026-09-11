@@ -9,6 +9,10 @@
   nonbehavioral column is required to remain unchanged.
 - `analyze_reviewer_behavior.R`: reviewer-requested mixed models, aggregate
   tables, and figures.
+- `analyze_rating_choice_moderation.R`: exploratory associations between
+  explicit ratings, the event-corrected behavioral fairness-sensitivity score,
+  and trial-level choices; includes repeated-block sensitivity analyses and
+  figure generation.
 - `audit_image_headers.py`: focal mask checksums, grids, and volumes.
 - `audit_l3_designs.R`: diagnostics for the focal original/candidate L3
   templates.
