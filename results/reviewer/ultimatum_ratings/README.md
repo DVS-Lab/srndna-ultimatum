@@ -20,6 +20,7 @@ python3 code/analyze_ultimatum_ratings.py \
   --ratings ../srndna-datapaper/results/ratings_audit/ratings_normalized_rows.tsv \
   --sample behavioral_analyses/data/participant_L3_47.csv \
   --participants ../srndna-datapaper/bids/participants.tsv \
+  --sensitivity results/reviewer/private/fairness_sensitivity_by_participant.tsv \
   --output-dir results/reviewer/ultimatum_ratings
 ```
 
@@ -33,6 +34,13 @@ Outputs:
   pre/post changes, effect sizes, and within-family FDR adjustments.
 - `ultimatum_ratings_age_tests.tsv`: exploratory exact-age correlations and
   younger/older comparisons for the provisional primary policy.
+- `ultimatum_ratings_fairness_sensitivity.tsv`: associations between the
+  event-corrected behavioral sensitivity score and the directly corresponding
+  similar-minus-dissimilar rating contrasts, including block-policy,
+  rank-correlation, age-adjustment, and age-group sensitivity checks. The
+  behavioral score is the similar-partner offer slope minus the
+  dissimilar-partner offer slope; larger values indicate a steeper acceptance
+  response to offer size for the similar partner.
 
 Sub-143 has no ratings source file. Sub-144's ratings files are unique to that
 participant and were committed with that participant's raw task logs; neither

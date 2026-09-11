@@ -39,6 +39,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--ratings", type=Path, required=True)
     parser.add_argument("--sample", type=Path, required=True)
     parser.add_argument("--participants", type=Path, required=True)
+    parser.add_argument("--sensitivity", type=Path, required=True)
     parser.add_argument("--output-dir", type=Path, required=True)
     return parser.parse_args()
 
@@ -371,6 +372,131 @@ def build_age_tests(
     return table
 
 
+def ols_term(
+    outcome: pd.Series, predictors: list[pd.Series], term_index: int
+) -> tuple[float, float, float, int]:
+    """Return coefficient, t statistic, p value, and residual df for one OLS term."""
+    matrix = np.column_stack(
+        [np.ones(len(outcome)), *[predictor.to_numpy() for predictor in predictors]]
+    )
+    response = outcome.to_numpy()
+    coefficient = np.linalg.lstsq(matrix, response, rcond=None)[0]
+    residual = response - matrix @ coefficient
+    degrees_freedom = len(response) - matrix.shape[1]
+    variance = residual @ residual / degrees_freedom
+    covariance = variance * np.linalg.inv(matrix.T @ matrix)
+    standard_error = np.sqrt(covariance[term_index, term_index])
+    statistic = coefficient[term_index] / standard_error
+    p_value = 2 * stats.t.sf(abs(statistic), degrees_freedom)
+    return coefficient[term_index], statistic, p_value, degrees_freedom
+
+
+def build_sensitivity_associations(
+    values_by_test: dict[tuple[str, str, str, str, str], pd.Series],
+    sensitivity_path: Path,
+    sample: pd.DataFrame,
+) -> pd.DataFrame:
+    sensitivity_table = pd.read_csv(sensitivity_path, sep="\t")
+    required = {"subjID", "corrected_separate_model_metric"}
+    if not required.issubset(sensitivity_table.columns):
+        raise ValueError(
+            "sensitivity table lacks subjID or corrected_separate_model_metric"
+        )
+    if sensitivity_table["subjID"].duplicated().any():
+        raise ValueError("sensitivity table contains duplicate participants")
+
+    sensitivity = sensitivity_table.set_index("subjID")[
+        "corrected_separate_model_metric"
+    ].rename("fairness_sensitivity")
+    metadata = sample.set_index("subjID")[["age_group"]]
+    rows: list[dict[str, object]] = []
+    for key, rating_values in values_by_test.items():
+        policy, family, dimension, timepoint, comparison = key
+        if "similar_minus_dissimilar" not in comparison:
+            continue
+        frame = pd.concat(
+            [rating_values.rename("rating_contrast"), sensitivity, metadata],
+            axis=1,
+        ).dropna()
+        if len(frame) < 4:
+            continue
+
+        pearson_r, pearson_p = stats.pearsonr(
+            frame["rating_contrast"], frame["fairness_sensitivity"]
+        )
+        spearman_rho, spearman_p = stats.spearmanr(
+            frame["rating_contrast"], frame["fairness_sensitivity"]
+        )
+        rating_z = (
+            frame["rating_contrast"] - frame["rating_contrast"].mean()
+        ) / frame["rating_contrast"].std(ddof=1)
+        sensitivity_z = (
+            frame["fairness_sensitivity"] - frame["fairness_sensitivity"].mean()
+        ) / frame["fairness_sensitivity"].std(ddof=1)
+        older = (frame["age_group"] == "older").astype(float)
+        adjusted_beta, adjusted_t, adjusted_p, adjusted_df = ols_term(
+            sensitivity_z, [rating_z, older], 1
+        )
+        interaction_beta, interaction_t, interaction_p, interaction_df = ols_term(
+            sensitivity_z, [rating_z, older, rating_z * older], 3
+        )
+
+        group_results: dict[str, object] = {}
+        for age_group in ("younger", "older"):
+            group = frame[frame["age_group"] == age_group]
+            group_r, group_p = stats.pearsonr(
+                group["rating_contrast"], group["fairness_sensitivity"]
+            )
+            group_rho, group_spearman_p = stats.spearmanr(
+                group["rating_contrast"], group["fairness_sensitivity"]
+            )
+            group_results.update(
+                {
+                    f"{age_group}_n": len(group),
+                    f"{age_group}_pearson_r": group_r,
+                    f"{age_group}_pearson_p": group_p,
+                    f"{age_group}_spearman_rho": group_rho,
+                    f"{age_group}_spearman_p": group_spearman_p,
+                }
+            )
+
+        rows.append(
+            {
+                "policy": policy,
+                "rating_test_family": family,
+                "rating_dimension": dimension,
+                "rating_timepoint": timepoint,
+                "rating_contrast": comparison,
+                "n": len(frame),
+                "pearson_r": pearson_r,
+                "pearson_p": pearson_p,
+                "spearman_rho": spearman_rho,
+                "spearman_p": spearman_p,
+                "age_group_adjusted_standardized_beta": adjusted_beta,
+                "age_group_adjusted_t": adjusted_t,
+                "age_group_adjusted_df": adjusted_df,
+                "age_group_adjusted_p": adjusted_p,
+                "rating_by_age_group_interaction_beta": interaction_beta,
+                "rating_by_age_group_interaction_t": interaction_t,
+                "rating_by_age_group_interaction_df": interaction_df,
+                "rating_by_age_group_interaction_p": interaction_p,
+                **group_results,
+            }
+        )
+
+    table = pd.DataFrame(rows)
+    for p_column in (
+        "pearson_p",
+        "spearman_p",
+        "age_group_adjusted_p",
+        "rating_by_age_group_interaction_p",
+    ):
+        table[f"{p_column}_fdr_bh"] = table.groupby(
+            "policy", group_keys=False
+        )[p_column].apply(fdr_bh)
+    return table
+
+
 def write_table(table: pd.DataFrame, path: Path) -> None:
     table.to_csv(path, sep="\t", index=False, float_format="%.8g", na_rep="n/a")
 
@@ -397,6 +523,10 @@ def main() -> int:
     write_table(
         build_age_tests(values_by_test, sample),
         args.output_dir / "ultimatum_ratings_age_tests.tsv",
+    )
+    write_table(
+        build_sensitivity_associations(values_by_test, args.sensitivity, sample),
+        args.output_dir / "ultimatum_ratings_fairness_sensitivity.tsv",
     )
     print(f"PASS: analyzed {len(sample)} paper participants under {len(POLICIES)} policies")
     print(f"Participants with any Ultimatum ratings: {ratings['participant_id'].nunique()}")

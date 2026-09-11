@@ -59,6 +59,16 @@ make reviewer-behavior
   39 post-task records are complete and unambiguous; the block-resolution rule
   for four participant-session files remains a data-curation decision. These
   ratings do not directly measure belief in the cover story.
+- The event-corrected behavioral fairness-sensitivity score is not associated
+  with the directly corresponding similar-minus-dissimilar fairness rating
+  difference (pre Pearson r = .093, p = .559; post r = .032, p = .840).
+  Exploratory rank correlations identify an inverse association with the
+  pre-task likeability difference (Spearman rho = -.405, FDR q = .037) and a
+  positive association with the post-task anger difference (rho = .397,
+  q = .037). Their Pearson tests do not survive correction (both q = .098),
+  and neither association shows a corrected age-group interaction. Both remain
+  stable under the three repeated-block policies and should be treated as
+  hypothesis-generating.
 
 ## Output map
 
@@ -101,7 +111,8 @@ make reviewer-behavior
   contrasts.
 - `ultimatum_ratings/`: expanded exploratory ratings analysis for the
   47-participant paper sample, including full partner descriptives, pre/post
-  comparisons, age checks, and explicit sensitivity to repeated-block handling.
+  comparisons, age checks, behavioral fairness-sensitivity associations, and
+  explicit sensitivity to repeated-block handling.
 - `tables/acceptance_*_source_data.tsv`: observed and model-implied data behind
   the acceptance figure.
 - `figures/acceptance_curves.png` and

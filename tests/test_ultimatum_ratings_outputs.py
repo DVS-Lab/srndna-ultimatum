@@ -40,3 +40,19 @@ def test_ultimatum_ratings_sensitivity_contract():
     assert len(key) == 12
     assert (key["mean_difference"] > 0).all()
     assert (key["p_fdr_bh_within_family"] < 0.05).all()
+
+
+def test_fairness_sensitivity_rating_association_contract():
+    associations = pd.read_csv(
+        RESULTS / "ultimatum_ratings_fairness_sensitivity.tsv", sep="\t"
+    )
+    assert len(associations) == 24
+    assert associations.groupby("policy").size().eq(8).all()
+
+    primary = associations[
+        associations["policy"] == "last_complete_block"
+    ].set_index(["rating_dimension", "rating_timepoint"])
+    assert primary.loc[("fairness", "pre"), "pearson_p"] > 0.5
+    assert primary.loc[("fairness", "post"), "pearson_p"] > 0.5
+    assert primary.loc[("likeability", "pre"), "pearson_r"] < 0
+    assert primary.loc[("anger", "post"), "pearson_r"] > 0
