@@ -113,6 +113,12 @@ inference comes from the whole-brain model, not an independent test of the bars.
 - No new FSL fits or trial-level GLMM fits were run during this final audit.
   Completed imaging/GLMM outputs were inspected and tested; the descriptive
   ratings analyses were rerun locally.
+- During response drafting, the retained first-level summary was found to
+  flag 50/94 runs per model family as rank deficient. This needs attribution
+  to specific columns and a focal-contrast estimability check; an empty
+  nuisance column and a nonestimable task contrast are not the same problem.
+  The current aggregate table does not distinguish them. This is an open
+  diagnostic question, not evidence that a wholesale rerun is required.
 
 ## Parallel data-paper/OpenNeuro work
 

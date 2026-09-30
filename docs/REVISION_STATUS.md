@@ -70,6 +70,11 @@ a separate blocker; it does not prevent the writing pass. See
   image-level leave-one-out robustness result is established in this audit.
   A new robustness analysis, if requested, must retain the full-sample primary
   endpoint rather than use post hoc participant exclusion.
+- Resolve the first-level rank flags before claiming complete estimability.
+  The retained production summary flags 50/94 runs in each model family;
+  empty nuisance columns may explain these, but aggregate counts alone do
+  not establish that explanation or focal-contrast estimability. See
+  `revision/analysis_response_author_notes.md` for the bounded follow-up.
 - Finalize the scope of exploratory supplementary ratings/age analyses and
   check citations, acquisition wording, captions, tables, and figure numbering.
   Do not erase the submitted ECN question because its corrected result is null.
@@ -78,3 +83,8 @@ a separate blocker; it does not prevent the writing pass. See
   publicly released. Freeze the code commit used for the submission.
 
 No new Linux launch is required for the writing and reconciliation above.
+
+The first analysis-focused response draft is now in
+`revision/analysis_responses.md`. It is proposed prose, not a completed
+manuscript revision. Its author notes identify the responses that still need
+evidence or an author decision.
