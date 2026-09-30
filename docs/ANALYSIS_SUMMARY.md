@@ -1,8 +1,9 @@
 # Ultimatum Game revision: work completed and findings
 
 **Status: 30 September 2026.** The core reanalyses are complete and organized.
-The manuscript has **not** been revised, and the response to reviewers still
-needs to be drafted. Existing response/checklist material is preparatory only.
+The manuscript has **not** been revised. An eight-page first pass covering 18
+analytical reviewer concerns is now in `revision/analytical_review_responses.docx`;
+it contains proposed manuscript text, not completed manuscript edits.
 OpenNeuro publication is separately awaiting resolution of its server-side
 checkout failure.
 

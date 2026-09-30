@@ -1,0 +1,226 @@
+SRNDNA ULTIMATUM GAME — SCIENTIFIC WRITING HANDOFF
+Prepared 30 September 2026. This is a dated state summary, not a new analysis.
+
+START HERE
+
+Please help David Smith revise the Ultimatum Game paper and its response to
+reviewers. The earlier ChatGPT conversation, “Jen paper -- SRNDNA-ug,” reached
+its length limit. The repository audit and computational work are continuing
+in Codex. Use this handoff and the attached files as the starting evidence;
+do not assume access to the old conversation or silently supply missing facts.
+Ask for the current manuscript and original review letter before doing a
+line-by-line manuscript revision. The manuscript has NOT yet been edited.
+
+The immediate writing task is a response to concerns about analyses and
+results. An eight-page first draft covering 18 concerns is attached. It
+contains proposed manuscript passages, not assertions that edits are already
+in the manuscript. Review its scientific precision and voice before extending
+it to framing, literature, and other reviewer concerns.
+
+WORKING ARRANGEMENT
+
+Use DVS-Lab/srndna-ultimatum as the paper's repository of record. This supersedes
+the fragmented working history across srndna-ug, srndna_ug_public, and
+srndna-ultimatum. Do not confuse the separate Scientific Data/OpenNeuro repair
+project, maintained in DVS-Lab/srndna-datapaper, with the paper analyses.
+
+Local paper checkout: /Users/tug87422/github/srndna-ultimatum
+Linux1 paper checkout: /ZPOOL/data/projects/srndna-ultimatum
+Linux1 data-paper code: /ZPOOL/data/projects/srndna-datapaper-code
+Linux1 dataset: /ZPOOL/data/datasets/ds003745-work
+
+Code, compact outputs, figures, and writing drafts should be reconciled into
+the paper repository. Large imaging derivatives stay outside Git. ChatGPT can
+serve as an editorial/scientific reader; approved writing should come back to
+the repository so there are not two competing versions of the manuscript.
+Do not claim to have checked a file or run an analysis that was not available.
+
+Author-approved local commits before this handoff:
+  a8f8310 — revision audit, results summary, and final ratings policy
+  9f1b4e6 — analytical reviewer-response draft and Word document
+These were committed locally, not pushed at the time the writing draft was
+delivered. Verify the current Git state before assuming remote availability.
+
+WRITING VOICE AND RESPONSE STRUCTURE
+
+Use precise, human scientific prose matching David's voice and George Gopen's
+reader-expectation principles: clear subjects, familiar context before new
+information, and the consequential point in the sentence's stress position.
+Avoid inflated, generic, or excessively deferential language.
+
+Usually begin with specific thanks to the reviewer, then 2–3 sentences that
+explain the answer. Follow with the exact proposed manuscript addition or
+revision. For a long multipart response, close with 2–3 sentences showing how
+the changes address the concern. David's “infinite wisdom” phrasing was a
+humorous description of the gracious opening, not language to reproduce.
+
+Do not invent page/line references. Add those after the manuscript is actually
+edited. Concern headings in the draft are paraphrases, not original review
+numbering. Distinguish a null finding from evidence of equivalence; do not
+claim causation, compensation, or preserved function from these associations.
+
+WHAT WAS REPAIRED
+
+The paper sample remains 47 participants: 25 younger and 22 older adults.
+Sub-144 had incorrect Ultimatum task-event information in both runs. Correct
+source information was recovered, event files repaired, and affected
+activation/DMN/ECN L1 and L2 outputs regenerated. Group behavioral covariates,
+including RT and the relevant fairness quantities, were corrected and focal
+L3 models rerun. Original signed continuous network maps were retained; they
+were not replaced with binary masks or different networks.
+
+Sub-143's lack of duplicate event_RT rows was not absence of its substantive
+task/RT information. Its retained production task design matched its own
+trials. It did not need the same event-identity repair. Do not say both subjects
+were repaired or that all their tasks/ratings were duplicates.
+
+Use only the fully corrected endpoint for manuscript claims. Intermediate
+“image-only” runs with old covariates are provenance diagnostics, not alternate
+scientific outcomes. Retained preprocessing metadata identify fMRIPrep 21.0.2;
+the audited FSL environment is 6.0.7.17. Sub-144's surviving preprocessed BOLD
+files matched the OpenNeuro copies exactly. No new fMRIPrep run was needed.
+
+PRINCIPAL CORRECTED FINDINGS
+
+1. Behavior: the converged, nonsingular primary human-partner choice model has
+   participant intercepts and offer-size slopes. N=47, 4,438 responded trials.
+   Offer × Age × Similarity: beta=.11358, SE=.09468, p=.230, 95% CI
+   [-.07198,.29915]. Offer size strongly predicts acceptance (beta=1.8013,
+   SE=.2373, p=3.17e-14). Do not use superseded historical model p-values.
+
+2. DMN: the corrected younger>older similar-minus-dissimilar offer-modulated
+   connectivity effect survives in an ACC cluster: 29 voxels, cluster p=.0138,
+   Zmax=4.07. Retain it with corrected numbers, provisionally subject to the
+   open design audit below. Do not infer an interaction merely from a
+   significant younger simple effect and nonsignificant older simple effect;
+   the actual between-group contrast supplies that test.
+
+3. ECN: no surviving clusters in any of the eight fully corrected contrasts.
+   Withdraw the positive claim and figure, but transparently report the tested
+   question and corrected null. Do not erase the analysis or change its score
+   definition to try to recover significance.
+
+4. Revision-added task-wide offer-size activation: five positive clusters,
+   348 voxels total, maximum Z=4.75; no negative clusters. This is the proposed
+   new Figure 3, after behavior and before DMN. A younger>older contrast has
+   three clusters (125 voxels); no reverse-direction clusters. These additions
+   are exploratory, not retrospective original hypotheses.
+
+5. Human>computer task response has effects but is confounded with partner
+   image differences. The human>computer offer-slope contrast has a 32-voxel
+   cluster (p=.023, Zmax=3.86) at a periventricular thalamic/caudate–white-matter
+   boundary. Keep the audit; do not present this as a clean mechanistic
+   replacement for the ECN claim.
+
+RATINGS: COVERAGE, FINDINGS, AND LIMITS
+
+The approved selection rule across tasks is the final complete attempt when
+ratings were repeated. The earlier provisional repeat-selection dispute is
+resolved. The paper subsample has 42 pre-task and 42 post-task administrations,
+41 paired participants, and 43 with either timepoint. Sub-143 has no ratings
+source. Sub-144's ratings have distinct participant-consistent provenance.
+Missing ratings were not imputed. The 84 selected administrations (756 item
+responses) matched the prepared BIDS behavior exports exactly.
+
+Humans were rated fairer and more likeable than the computer before and after
+the task (FDR q<.0062). Similar versus dissimilar humans did NOT differ
+detectably on the six trait/timepoint contrasts (unadjusted p>=.243). These
+ratings are not a direct test that participants believed the similarity
+manipulation. Do not conflate human/computer and similar/dissimilar effects.
+
+Direct choice moderation by pre-task ratings was not detected: fairness
+p=.868 and likeability p=.834; age-interaction p=.203 and .622. These analyses
+used 42 participants and 3,969 trials. Behavioral fairness sensitivity was
+not detectably correlated with fairness ratings. Exploratory rank associations
+with pre-task likeability and post-task anger survived FDR (q=.037 each), but
+the Pearson versions did not (q=.098 each). This is qualified subsample
+evidence, not proof of a choice mechanism or absence of an age interaction.
+
+FIGURES AND METHODS CAUTIONS
+
+The four-figure plan is task schematic, corrected choice predictions, new
+offer-size activation, and corrected DMN–ACC. Aesthetics remain open.
+Figure 4 bars are covariate-adjusted, variance-aware FLAME estimates. Error
+bars currently represent the cluster mean of voxelwise FLAME standard errors,
+NOT empirical participant SEM and NOT the SE of a spatial ROI mean. Do not
+rename them to satisfy a caption preference. They describe a selected cluster;
+whole-brain inference is not independently validated by the bars.
+
+Focal group inference retains FLAME1+2, Z>3.1, whole-brain cluster p<.05.
+For the corrected DMN record, FWHM=7.72104 × 7.7501 × 7.40201 mm. FSL's RESELS
+value 15.5628 is voxels per resel, NOT the total number of search-space resels;
+the search volume contains 56,907 voxels. Keep acquisition and output-grid
+geometry distinct. Do not recommend new smoothing or permutation inference as
+if these had already been agreed or completed.
+
+The minimal focal repair preserved the submitted companion-RT construction.
+The new activation workflow uses substantive decision rows. An all-participant
+alternative focal RT model was not run; Methods must acknowledge this rather
+than assert every model was reconstructed identically.
+
+OPEN ISSUES — DO NOT WRITE THESE AS RESOLVED
+
+The retained L1 summary flags 50/94 runs as rank-deficient in each model family.
+The initial audit compared raw rank to every column, including empty columns.
+A local source check found 49 corrected runs with no missed trials; replacing
+sub-144 run-01 with its historical file gives 50, matching the rank flags.
+The original script selects an empty EV when the missed-trial file is absent.
+This supports an empty-regressor explanation, but does not prove it.
+
+A new tested read-only audit, code/audit_l1_estimability.py, is ready for Linux1.
+It checks production matrices and the six corrected sub-144 replacements,
+labels exact-zero columns, measures remaining rank deficiency, and tests all
+saved contrasts against the design row space. Focal contrasts 4, 6, 7 get
+explicit summaries. The actual Linux result is PENDING at this handoff date.
+Do not say all models were full rank or every focal contrast was estimable
+until the returned tables support it. No automatic imaging rerun is warranted
+solely by the current aggregate flags.
+
+Historical Cook's-distance/leave-one-out ROI diagnostics concern the submitted
+ROI plot, not the corrected image-level model. Corrected whole-brain
+leave-one-out robustness has not been established. Do not exclude a participant
+based on a selected-ROI plot. Full-sample FLAME outlier deweighting was discussed
+but is not an authorized or completed analysis in this handoff.
+
+The reviewer-requested separate age-specific brain renderings still need
+confirmation/preparation. Simple-effect tables and four bars are not the same
+as providing those images. Do not fabricate a positive older-group map.
+
+OPENNEURO / SCIENTIFIC DATA — SEPARATE TRACK
+
+Prepared update for ds003745 includes four sub-144 event repairs (two Ultimatum,
+two Shared Reward); 218 unsmoothed Trust single-trial run images; four rebuilt
+sub-144 single-trial images; 220 ratings acquisitions with JSON dictionaries;
+historical ratings code, metadata, and acknowledgment changes. Trust event
+rows are not part of the four-file repair. All 222 replacement annex objects
+were reported verified remotely, but pushing main failed because OpenNeuro
+could not update its server working tree. Support has been contacted and the
+retry also failed. A published 2.2.0 snapshot has NOT been verified. Do not
+say the update is publicly released or conflate uploaded objects with a
+published dataset version. Manuscript writing can proceed while this is pending.
+
+ATTACHMENTS AND EVIDENCE MAP
+
+The handoff bundle contains this file, analytical_review_responses.docx,
+analysis_responses.md (editable source text), analysis_response_author_notes.md,
+ANALYSIS_SUMMARY.md, REVISION_STATUS.md, and final_result_set.tsv. The original
+manuscript and full reviewer letter must be supplied separately for complete
+editorial work; these are not reconstructed from the summaries.
+
+Repository evidence:
+  results/manuscript/tables/final_result_set.tsv
+  results/reviewer/tables/primary_acceptance_models.tsv
+  results/reviewer/l3_repair_results/*/reported-covariates-corrected/
+  results/reviewer/l3_repair_designs/
+  results/reviewer/activation_fairness_main/
+  results/reviewer/activation_social_computer/
+  results/reviewer/ultimatum_ratings/
+  results/manuscript/source_data/figure4_dmn_flame_bar_summary.tsv
+  docs/SERVER_IMAGING_AUDIT.md
+
+Suggested first editorial assignment: read the response draft and identify
+overclaims, unclear contrasts, missing caveats, or sentences that do not sound
+like a scientist addressing a colleague. Offer concrete revisions without
+inventing new results. Preserve the boundary between completed computations,
+proposed manuscript text, and unresolved checks. Return approved text for
+integration into the repository's single manuscript/response version.

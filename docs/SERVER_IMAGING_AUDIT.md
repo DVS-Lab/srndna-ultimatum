@@ -47,6 +47,46 @@ This writes participant/run rows only under ignored `logs/audits/` and an
 aggregate model-level summary suitable for Git. Correlation thresholds are
 descriptive flags, not automatic failure criteria.
 
+## Attribute L1 rank flags and test saved contrasts
+
+The earlier aggregate rank audit is not a contrast-estimability test. Run this
+bounded follow-up before finalizing the responses about design separability.
+It reads matrices, contrasts, and rendered FSFs only: no NIfTI reads, FSL
+invocations, image refits, or changes to the retained models.
+
+```bash
+cd /ZPOOL/data/projects/srndna-ultimatum
+OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 \
+python3 code/audit_l1_estimability.py \
+  --l1-root /ZPOOL/data/projects/srndna-ultimatum/derivatives/fsl \
+  --repair-l1-root /ZPOOL/data/scratch/srndna-ultimatum-sub144-repair-v2/derivatives/fsl \
+  --output-dir results/reviewer/l1_estimability
+```
+
+Expected coverage: 282 production designs plus six repaired sub-144 designs.
+The `corrected` summary uses the same 94 runs/model, substituting only the six
+repaired designs. The audit writes `runs.tsv`, `contrasts.tsv`, `summary.tsv`,
+and `audit.json`; these small files can all be committed. It records input
+hashes and a script hash. Missing or invalid inputs return exit 2 and must not
+be interpreted as zero problems. Exit 1 flags a focal contrast at one of the
+two numerical cutoffs. Exit 0 means focal contrasts passed this algebraic
+check, not that every scientific modeling question is resolved.
+
+Inspect exact-zero column labels (especially `miss` and its PPI interaction),
+remaining rank deficiencies after omitting zero columns for diagnostics,
+and projection errors for all contrasts. Contrasts 4, 6, and 7 are highlighted
+because they index the two offer slopes and their difference; the full table
+also records names and actual weights. FSF labels are used directly only when
+original and real EV counts match with no derivative expansion. Unmapped
+columns are not assigned invented scientific labels.
+
+The row-space test uses unit-norm design columns and correspondingly scaled
+contrast vectors. It reports the standard machine-precision SVD rank and a
+separate rcond=1e-8 sensitivity screen. The latter is not a claim that a
+near-dependent contrast is exactly nonestimable. This audits saved design
+algebra, not voxelwise FILM covariance estimates, power, or robustness of group
+inference. No columns are removed from the actual fitted model.
+
 ## Match sub-143 and sub-144 to their actual event source
 
 Run this while image-fitting jobs are active; `feat_model` is brief and does

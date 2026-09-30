@@ -2,7 +2,7 @@
 
 The corrected primary analyses and revision-added activation analyses have
 completed. The author confirms that no manuscript edits have yet been made
-and the response to reviewers still needs to be drafted. Existing draft text
+and the analytical response now has a first draft covering 18 concerns. Its text
 is preparation, not completed revision work. OpenNeuro release publication is
 a separate blocker; it does not prevent the writing pass. See
 `ANALYSIS_SUMMARY.md` for the consolidated handoff.
@@ -58,11 +58,11 @@ a separate blocker; it does not prevent the writing pass. See
 
 ## Remaining work before submission
 
-- Obtain the current editable manuscript and original reviewer letter, apply
-  the revision text and checklist, and cross-check every response against
-  the actual comment. The old attachments are no longer at their supplied
-  Downloads paths. The local response uses comment summaries, not verified
-  verbatim quotations.
+- Obtain the current editable manuscript, apply the revision text and checklist,
+  and cross-check every response against the actual comment. The original
+  reviewer letter was recovered from the old ChatGPT task attachment during
+  response drafting. The local response uses paraphrased concern summaries,
+  not verbatim quotations or original comment numbering.
 - Add manuscript page/line references only after editing and typesetting.
   Proposed rebuttal language saying edits were made is not evidence that
   they have been made in an editable manuscript.

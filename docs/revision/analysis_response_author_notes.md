@@ -41,6 +41,22 @@ activation main effect proves the focal PPI contrasts were unaffected.
 Responses on short ITIs and regressor count are provisional on this point.
 No new imaging fit has been launched or implied by the draft.
 
+Follow-up prepared on 30 September: `code/audit_l1_estimability.py` reads the
+282 production designs and the six repaired sub-144 designs, identifies exact
+zero columns, and tests every saved contrast against the design row space.
+Its corrected summary substitutes repaired sub-144 runs, not the old runs.
+The full matrices are not available in the local clone; the Linux1 run is
+still pending. Instructions are in `docs/SERVER_IMAGING_AUDIT.md`.
+
+A local source-event check found 49/94 corrected runs with no `missed_trial`
+rows. At historical revision `02ba301`, sub-144 run-01 had no missed rows,
+whereas its corrected file has one; run-02 has none in either version. Thus
+the historical event set predicts 50 empty missed-trial EVs. `L1stats.sh`
+selects shape 10 when that EV file is absent. This numerical match supports
+the empty-column explanation, but does not yet prove the actual matrix
+columns or contrast estimability. Do not convert it into a conclusive
+reviewer-response claim before the Linux audit returns.
+
 ### Participant influence
 
 `code/audit_roi_influence.R` reads historical figure inputs and original
