@@ -20,7 +20,8 @@ models—not the image-only provenance reruns—define the revision endpoint.
   manuscript. It remains documented in the audit and is not promoted into the
   revision as a new post hoc claim.
 - The revised main figure set therefore contains the task schematic, corrected
-  behavioral predictions, and corrected DMN result. See
+  behavioral predictions, revision-added task-wide offer-size activation, and
+  corrected DMN result. See
   `results/manuscript/README.md`.
 
 ## Highest priority correction to the current draft
@@ -138,17 +139,24 @@ separate sensitivity analysis, not part of this repair.
 
 ### Partner ratings
 
-There are 41 complete unique pre-task administrations and 39 complete unique
-post-task administrations. Four participant-session files contain appended
-duplicate administrations and five are missing at each session. Rather than
-choosing among duplicates post hoc, the primary rating summary excludes those
-sessions and records them in the local completeness audit.
+The author-approved curation rule retains the final complete attempt for each
+administration, consistently across the three tasks. In the paper sample this
+gives 42 pre-task and 42 post-task administrations, with 41 paired participants.
+Four files from three participants contain changed repeated blocks; their
+first-block and session-exclusion analyses remain sensitivity checks. The
+older exclusion-only reviewer summary is superseded, not the primary endpoint.
 
 No similar-versus-dissimilar human-partner contrast is detected for pre-task
 fairness or likeability or post-task fairness, likeability, anger, or
-satisfaction (all paired p > .38). These ratings do not directly measure
-perceived similarity or belief that partners were real, so the design
-limitation remains.
+satisfaction (all six unadjusted paired p >= .243). Human partners were rated
+fairer and more likeable than the computer at both timepoints (all four
+within-family FDR q <= .0062). These are different contrasts: the human versus
+computer result does not validate the similar versus dissimilar manipulation.
+These ratings do not directly measure perceived similarity or belief that
+partners were real, so the design limitation remains. Direct choice moderation
+by pre-task fairness or likeability was not detected (p = .868 and .834), nor
+were the corresponding age interactions (p = .203 and .622). See
+`results/reviewer/ultimatum_ratings/` for estimates, intervals, and all checks.
 
 ### Tracked group-design and influence checks
 
@@ -159,11 +167,13 @@ are correlated (r = -0.796); this is a descriptive design fact, not a
 methodological defect or a reason to remove either prespecified nuisance
 covariate. No reduced-nuisance model is planned.
 
-The selected DMN ROI diagnostic has one participant above Cook's 4/n screening
+The historical submitted-figure DMN ROI diagnostic has one participant above Cook's 4/n screening
 threshold. Across descriptive leave-one-participant-out fits, the older-group
 coefficient ranges from -16.55 to -13.66 and remains small-p in every fit. This
 does not answer the inferential concern because the ROI was selected from the
-group result. It must not be used to exclude sub-138 or any other participant.
+group result. It also uses the historical ROI values and covariates, not the
+corrected 29-voxel result. Do not present these numbers as corrected-model
+leave-one-out robustness. It must not be used to exclude sub-138 or any other participant.
 The production environment is now established as FSL 6.0.7.17. Robust FLAME
 outlier deweighting was not part of the submitted or corrected endpoint. Any
 future complete-sample sensitivity analysis would require a separate author
@@ -202,9 +212,13 @@ decision and must not redefine the primary result.
 - Every traced design uses FLAME 1+2 (`mixed_yn=1` in these FSFs), no automatic
   outlier deweighting, Z > 3.1, and cluster-corrected p = .05. Each contains 47
   unique participants and places sub-144 at input 35. Retained smoothness
-  records report DLH 0.300799 and 15.5111 resels for DMN, DLH 0.331876 and
-  14.0378 resels for ECN, and DLH 0.205028 and 22.7228 resels for activation,
-  each over a 56,872-voxel search volume.
+  records report DLH 0.300799 and resel size 15.5111 voxels for DMN, DLH
+  0.331876 and resel size 14.0378 voxels for ECN, and DLH 0.205028 and
+  resel size 22.7228 voxels for activation, each over a 56,872-voxel search
+  volume. FSL's `RESELS` field is resel size, not total search-volume resel
+  count. The corrected DMN record instead has DLH 0.299801, volume 56,907
+  voxels, resel size 15.5628 voxels, and FWHM 7.72104 x 7.7501 x 7.40201 mm.
+  See [FMRIB's technical explanation, footnote 1](https://www.fmrib.ox.ac.uk/datasets/techrep/tr08tn1/tr08tn1.pdf).
 - The retained standard-space cluster tables confirm the focal cluster-level
   results: DMN zstat 3 contains 26 voxels (corrected p = .0233, Zmax = 4.15),
   ECN zstat 1 contains 23 voxels (corrected p = .0287, Zmax = 4.25), and the

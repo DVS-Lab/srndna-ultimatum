@@ -6,11 +6,14 @@ The analysis is limited to the 47-participant imaging sample in
 `behavioral_analyses/data/participant_L3_47.csv`.
 
 The source audit found changed repeated Ultimatum blocks for sub-105, sub-134,
-and sub-144. The `last_complete_block` policy is the provisional primary
-scenario, not yet a final curation decision. Every test is repeated using the
-first complete block and after excluding the four ambiguous participant-session
-files. This last scenario matches the conservative session-level handling used
-by the earlier reviewer ratings table.
+and sub-144. The author-approved version-of-record rule is
+`last_complete_block`: retain the final complete attempt, consistently with
+the other two tasks and the data-paper BIDS export. This yields 42 pre-task
+and 42 post-task administrations, with 41 paired participants. Every test is
+also repeated using the first complete block and after excluding the four
+changed-repeat participant-session files. These are sensitivity analyses, not
+unresolved curation decisions. Historical column/policy names containing
+`ambiguous` remain unchanged for compatibility.
 
 Run from the `srndna-ultimatum` repository root after cloning
 `srndna-datapaper` beside it:
@@ -33,7 +36,7 @@ Outputs:
 - `ultimatum_ratings_within_subject_tests.tsv`: paired partner contrasts,
   pre/post changes, effect sizes, and within-family FDR adjustments.
 - `ultimatum_ratings_age_tests.tsv`: exploratory exact-age correlations and
-  younger/older comparisons for the provisional primary policy.
+  younger/older comparisons for the final primary policy.
 - `ultimatum_ratings_fairness_sensitivity.tsv`: associations between the
   event-corrected behavioral sensitivity score and the directly corresponding
   similar-minus-dissimilar rating contrasts, including block-policy,

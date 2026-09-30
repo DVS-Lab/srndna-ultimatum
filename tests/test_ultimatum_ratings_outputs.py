@@ -36,6 +36,11 @@ class UltimatumRatingsOutputTests(unittest.TestCase):
         self.assertTrue(as_bool(sub144["ambiguous_changed_repeat"]))
         self.assertEqual(int(sub144["pre_complete_blocks"]), 2)
         self.assertEqual(int(sub144["post_complete_blocks"]), 2)
+        self.assertTrue(all(row["primary_rule"] == "last_complete_block" for row in sample))
+        self.assertEqual(sum(as_bool(row["pre_present"]) for row in sample), 42)
+        self.assertEqual(sum(as_bool(row["post_present"]) for row in sample), 42)
+        self.assertEqual(sum(as_bool(row["pre_present"]) and as_bool(row["post_present"])
+                             for row in sample), 41)
 
     def test_ultimatum_ratings_sensitivity_contract(self):
         tests = read_tsv("ultimatum_ratings_within_subject_tests.tsv")

@@ -55,10 +55,11 @@ make reviewer-behavior
   however, rated as fairer and more likeable than the computer both before and
   after the task; these exploratory contrasts survive within-family FDR
   adjustment and are unchanged in direction or inference under first-block,
-  last-block, and ambiguous-session-exclusion policies. Forty-one pre-task and
-  39 post-task records are complete and unambiguous; the block-resolution rule
-  for four participant-session files remains a data-curation decision. These
-  ratings do not directly measure belief in the cover story.
+  last-block, and ambiguous-session-exclusion policies. The author-approved
+  rule retains the last complete attempt: 42 pre-task and 42 post-task
+  administrations, with 41 paired participants. The other policies are
+  sensitivity checks, not unresolved curation decisions. These ratings do not
+  directly measure belief in the cover story or perceived similarity.
 - The event-corrected behavioral fairness-sensitivity score is not associated
   with the directly corresponding similar-minus-dissimilar fairness rating
   difference (pre Pearson r = .093, p = .559; post r = .032, p = .840).
