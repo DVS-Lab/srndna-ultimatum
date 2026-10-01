@@ -8,7 +8,7 @@ estimability and runs six-contrast DMN simple-effect/deweighting models. The
 separate RT phase prepares 188 L1, 94 L2, and two L3 sensitivity fits. These
 server fits are **pending**, not completed by local script validation.
 
-All 106 repository tests pass. The 94 source events files also pass the new
+All 116 repository tests pass. The 94 source events files also pass the new
 RT-construction checks: 6,654 responded trials, unique substantive onsets, and
 finite positive RTs within their recorded display epochs. This does not replace
 the Linux comparison against the retained three-column EVs and compiled designs.
@@ -28,6 +28,16 @@ The original `srndna-data` location is unavailable. Network time-series paths
 resolve, but task-EV/confound relocations still need the mapped preflight check.
 The standard-image resolver now accepts the extensionless basename used in all
 94 saved L1 FSFs, while requiring the same template name and resolution.
+
+The proposed EV/confound relocation to the production FSL tree failed on
+Linux1: 688 small-input references remain missing, and the RT fits have not
+started. The runner now offers `--use-feat-input-copies`, which checks each run's
+own saved EV/confound copies. Recovery requires recompilation of the original
+design and cellwise numerical agreement with the retained design.mat for all
+94 runs before any sensitivity fitting. These recovery checks have not yet run
+on Linux1. If copies are unavailable, `code/locate_dmn_rt_text_inputs.py` performs
+a bounded search of known input directories without choosing replacements.
+Do not repeat the failed directory mapping as a launch recipe.
 
 The new corrected selected-ROI influence diagnostic retains all 47 participants.
 Three observations exceed Cook's 4/N screen; the diagnostic age contrast stays

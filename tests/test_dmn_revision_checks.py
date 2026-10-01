@@ -12,15 +12,85 @@ sys.path.insert(0, str(ROOT / 'code'))
 from audit_corrected_dmn_influence import align_rows, fit_diagnostics
 from prepare_dmn_revision_checks import render_group, group_design, CONTRASTS, safe_empty, REFERENCE_NAMES, digest
 from prepare_dmn_condition_bar_models import SOURCE_FSF_RELATIVE, parse_inputs
-from prepare_dmn_rt_sensitivity import decisions, replace_durations, render_l1, parse_input_maps, resolve_recorded, retained_inputs
+from prepare_dmn_rt_sensitivity import decisions, replace_durations, render_l1, parse_input_maps, resolve_recorded, retained_inputs, resolve_input, baseline_copy
 from audit_dmn_rt_inputs import bold_candidates
 from prepare_activation_fairness_main_pipeline import contrast_vectors
 from summarize_dmn_participant_bars import weighted_summary
 from collect_dmn_revision_checks import collect
-from run_dmn_revision_stage import verify_inputs, verify_stage_outputs
+from run_dmn_revision_stage import verify_inputs, verify_stage_outputs, baseline_agreement, validate_baselines
+from unittest.mock import patch
 
 
 class RevisionTests(unittest.TestCase):
+    def test_feat_recovery_uses_exact_run_ev_and_confounds(self):
+        with tempfile.TemporaryDirectory() as d:
+            root=Path(d)
+            (root/'custom_timing_files').mkdir()
+            fsf=root/'design.fsf'
+            fsf.write_text('set fmri(motionevs) 0\n')
+            ev=root/'custom_timing_files/ev3.txt'
+            ev.write_text('1 2 3\n')
+            conf=root/'confoundevs.txt'
+            conf.write_text('1 2\n')
+            self.assertEqual(resolve_input('/missing/ev.txt',root/'std',(),fsf,'custom3'),ev.resolve())
+            self.assertEqual(resolve_input('/missing/conf.txt',root/'std',(),fsf,'confoundev_files(1)'),conf.resolve())
+            rt=root/'custom_timing_files/ev8.txt'
+            rt.write_text('8 0 1\n')
+            standard=root/'standard.nii.gz'
+            standard.write_bytes(b'fixture')
+            fsf.with_suffix('.mat').write_text('retained matrix fixture')
+            original = ('set fmri(outputdir) "original"\nset fmri(motionevs) 0\n'
+                        f'set feat_files(1) "{standard}"\nset fmri(regstandard) "{standard}"\n'
+                        'set confoundev_files(1) "/missing/conf.txt"\n'
+                        'set fmri(shape3) 3\nset fmri(custom3) "/missing/ev.txt"\n'
+                        'set fmri(shape8) 3\nset fmri(custom8) "/missing/old_rt.txt"\n')
+            fsf.write_text(original)
+            destination=root/'scratch/baseline.fsf'
+            resolutions={}
+            required=baseline_copy(fsf,destination,standard,(),resolutions)
+            self.assertEqual(fsf.read_text(),original)
+            self.assertIn(rt.resolve(),required)
+            self.assertIn(f'set fmri(custom8) "{rt.resolve()}"',destination.read_text())
+            self.assertEqual(resolutions['/missing/conf.txt'],str(conf.resolve()))
+            with self.assertRaises(FileNotFoundError):
+                resolve_input('/missing/bold.nii.gz',root/'std',(),fsf,'feat_files(1)')
+            fsf.write_text('set fmri(motionevs) 1\n')
+            with self.assertRaises(ValueError):
+                resolve_input('/missing/conf.txt',root/'std',(),fsf,'confoundev_files(1)')
+
+    def test_retained_copies_do_not_override_existing_input(self):
+        with tempfile.TemporaryDirectory() as d:
+            root=Path(d)
+            original=root/'original.txt'
+            original.write_text('1 2 3\n')
+            self.assertEqual(resolve_input(str(original),root/'std',(),root/'absent.fsf','custom1'),original.resolve())
+
+    def test_baseline_requires_entire_design_agreement(self):
+        x=np.arange(40,dtype=float).reshape(10,4)
+        self.assertTrue(baseline_agreement(x,x.copy())[0])
+        changed=x.copy()
+        changed[3,3] += .01
+        self.assertFalse(baseline_agreement(x,changed)[0])
+        self.assertFalse(baseline_agreement(x,changed[:8])[0])
+        changed[0,0]=np.nan
+        self.assertFalse(baseline_agreement(x,changed)[0])
+
+    def test_baseline_gate_stops_before_sensitivity_fit(self):
+        with tempfile.TemporaryDirectory() as d:
+            root=Path(d)
+            source=root/'source.mat'
+            baseline=root/'baseline.fsf'
+            source.write_text('/NumWaves 2\n/NumPoints 2\n/Matrix\n1 0\n0 1\n')
+            baseline.write_text('set confoundev_files(1) "confounds.txt"\n')
+            baseline.with_suffix('.mat').write_text('/NumWaves 2\n/NumPoints 2\n/Matrix\n1 0\n0 2\n')
+            row=dict(baseline_fsf=str(baseline),source_design=str(source),baseline_sha256=digest(baseline),source_design_sha256=digest(source),subject='sub-104',run='01')
+            with patch('run_dmn_revision_stage.subprocess.run') as mocked:
+                mocked.return_value.returncode=0
+                with self.assertRaises(ValueError):
+                    validate_baselines([row],root/'revision_jobs.tsv')
+                self.assertEqual(mocked.call_args[0][0][0],'feat_model')
+            self.assertTrue((root/'baseline_preflight.tsv').is_file())
+
     def test_extensionless_standard_resolves_only_matching_template(self):
         with tempfile.TemporaryDirectory() as d:
             standard = Path(d)/'MNI152_T1_2mm_brain.nii.gz'

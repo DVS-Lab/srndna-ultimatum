@@ -8,7 +8,7 @@ Completed locally:
 - Descriptive precision-weighted participant means and conditional SEMs.
 - Software tests and compilation of the two new six-contrast L3 designs with
   local FSL feat_model. Compilation is not an imaging fit.
-- All 106 repository tests pass. All 94 source event files pass the RT input
+- All 116 repository tests pass. All 94 source event files pass the RT input
   checks (6,654 responded trials); matching these to retained imaging EVs still
   requires the Linux dry run.
 - Corrected the audit table's erroneous description of a submitted significant
@@ -110,19 +110,64 @@ still require a location check; this audit did not search for their surviving
 copies. A proposed narrow mapping to the production FSL tree must pass the dry
 run, not be treated as already verified.
 
-On Linux1, test the mapped inputs without rehashing the verified BOLD copies:
+The proposed task-EV/confound mapping to the production srndna-ultimatum FSL
+directory subsequently FAILED: 688 required references remain missing. No RT
+models were prepared or launched in that attempt. Do not repeat --execute or
+treat the proposed mapping as an established location.
 
-python3 code/audit_dmn_rt_inputs.py \
+RECOVERY OPTION ON LINUX1 — use FEAT's own retained input copies:
+
+FEAT saves custom_timing_files/evN.txt and confoundevs.txt inside each original
+run's .feat directory. The new --use-feat-input-copies option uses those copies
+only when the recorded/mapped input is unavailable. Combined confounds are
+rejected when automatic motion-EV settings could duplicate nuisance terms.
+No task EV is regenerated, no network signal is re-extracted, and no timing,
+amplitude, or nuisance specification is silently changed to bypass a missing file.
+
+The runner first audits recovery availability. It then recompiles the ORIGINAL
+model for every run, including its original RT EVs, using the recovered inputs.
+Every cell in each compiled baseline design must agree with the retained
+design.mat (atol 1e-5, rtol 1e-6, matching dimensions and finite values) before
+the new sensitivity models can run. This is numerical agreement, not a claim
+of bitwise equality. baseline_preflight.tsv records all 94 checks; failing this
+check is a blocker, not a reason to loosen tolerances automatically.
+
+Dry run (new scratch v3; do not reuse the failed FSL directory mapping):
+
+python3 code/run_revision_completion.py --phase rt --jobs 40 \
+  --work-root /ZPOOL/data/scratch/srndna-ultimatum-final-review-v3 \
   --input-map /data/projects/srndna-data/derivatives/fmriprep=/ZPOOL/data/projects/srndna-ug/derivatives/fmriprep \
-  --input-map /data/projects/srndna-data/derivatives/fsl=/ZPOOL/data/projects/srndna-ultimatum/derivatives/fsl \
-  --output-dir results/reviewer/dmn_rt_input_audit_mapped
+  --use-feat-input-copies
 
-Keep the original checksum audit directory unchanged. Only if the mapped audit
-reports zero missing references, run the RT dry run with these SAME two maps
-and --work-root /ZPOOL/data/scratch/srndna-ultimatum-final-review-v2. If all 188
-designs pass, repeat that exact command with --execute. If the mapped EV/confound
-files are absent, share the mapped inventory; do not substitute/regenerate them
-or create broad symlinks just to bypass the check.
+Only after it reports DRY RUN COMPLETE, repeat that exact command with --execute.
+No older scratch root or completed quick-phase fit is removed or overwritten.
+Recovery availability is written under results/reviewer/dmn_rt_input_audit_recovered.
+If that fails, the runner automatically performs the bounded text-input search
+below and stops; commit the two report directories instead of retrying --execute.
+
+FALLBACK — locate retained small files in one bounded search:
+
+python3 code/locate_dmn_rt_text_inputs.py
+
+The search reads the existing audit inventory; no shell arrays or new BOLD
+hashing are required. It searches named EVfiles/confounds directories in the
+known project/dataset trees and the earlier LSS scratch confounds directory.
+It matches participant and filename, tolerates run-number zero padding, and
+records hashes of small candidate files. It does not search MRI contents,
+descend into FEAT/GFEAT outputs, alter inputs, or launch models. Copies with
+different hashes remain explicit ambiguities, never automatically selected.
+
+Commit the compact results/reviewer/dmn_rt_text_input_search directory and
+review the candidate paths. If nothing survives in those input directories,
+add the known archived input directory with --search-root /absolute/path.
+If reconstruction is necessary, it must be validated against retained design
+columns before fitting; do not copy design.mat columns into raw EV/confound
+files or silently regenerate the baseline.
+
+Keep the original checksum audit and failed scratch directories unchanged.
+The successful BOLD relocation is still valid; this search concerns only the
+missing small inputs. Resume only after their paths or a validated reconstruction
+are established and the full dry-run preflight passes.
 
 PHASE 1 — ESTIMABILITY, INFLUENCE, SIMPLE EFFECTS, AND DEWEIGHTING
 

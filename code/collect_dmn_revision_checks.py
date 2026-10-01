@@ -50,7 +50,7 @@ def collect(manifest, destination):
                          f'cluster_mask_zstat{i}.nii.gz', f'cluster_zstat{i}_std.txt'):
                 sources.append((feat/file, Path(name)/f'contrast{i}'/Path(file).name))
     sources.extend((p, Path(p.name)) for p in [manifest, manifest.parent/'analysis_plan.json', manifest.parent/'l3_preflight.tsv'])
-    for optional in ('l1_preflight.tsv', 'l2_preflight.tsv', 'rt_construction.tsv', 'input_provenance.json', 'input_path_resolution.json', 'software.json', 'preparation_config.json'):
+    for optional in ('l1_preflight.tsv', 'l2_preflight.tsv', 'baseline_preflight.tsv', 'rt_construction.tsv', 'input_provenance.json', 'input_path_resolution.json', 'software.json', 'preparation_config.json'):
         if (manifest.parent/optional).is_file():
             sources.append((manifest.parent/optional, Path(optional)))
     for source, _ in sources:

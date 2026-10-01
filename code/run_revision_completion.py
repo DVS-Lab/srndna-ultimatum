@@ -63,10 +63,12 @@ def main():
     p.add_argument('--execute', action='store_true')
     p.add_argument('--input-map', action='append', default=[], metavar='OLD=NEW',
                    help='RT phase only: explicitly relocate a missing recorded input directory')
+    p.add_argument('--use-feat-input-copies', action='store_true',
+                   help='recover missing run inputs from its FEAT copies; requires baseline design replication')
     a = p.parse_args()
     input_maps = parse_input_maps(a.input_map)
-    if input_maps and a.phase != 'rt':
-        p.error('--input-map applies only to the RT phase')
+    if (input_maps or a.use_feat_input_copies) and a.phase != 'rt':
+        p.error('input recovery options apply only to the RT phase')
     if a.jobs < 1 or a.jobs > 45:
         p.error('--jobs must be between 1 and 45')
     if a.execute and a.phase=='quick':
@@ -88,6 +90,7 @@ def main():
                   group_renderer_sha256=digest(repo/'code/prepare_dmn_revision_checks.py'))
     if a.phase == 'rt':
         config['input_maps'] = [[str(old), str(new)] for old, new in input_maps]
+        config['use_feat_input_copies'] = a.use_feat_input_copies
     version_file = Path(os.environ.get('FSLDIR','/usr/local/fsl'))/'etc/fslversion'
     software = dict(python=sys.version, platform=platform.platform(),
                     fsl_version=version_file.read_text().strip() if version_file.is_file() else 'unavailable',
@@ -100,7 +103,21 @@ def main():
         if a.phase=='quick':
             prepare_group(repo, work, standard.resolve())
         else:
-            prepare_rt(repo, a.production_fsl_root.resolve(), a.repaired_fsl_root.resolve(), work, standard.resolve(), input_maps)
+            if a.use_feat_input_copies:
+                audit_command = [sys.executable, repo/'code/audit_dmn_rt_inputs.py',
+                                 '--production-fsl-root', a.production_fsl_root,
+                                 '--repaired-fsl-root', a.repaired_fsl_root,
+                                 '--standard-image', standard, '--use-feat-input-copies',
+                                 '--output-dir', repo/'results/reviewer/dmn_rt_input_audit_recovered']
+                for old,new in input_maps:
+                    audit_command += ['--input-map',f'{old}={new}']
+                try:
+                    run(audit_command,logs/'rt-input-recovery.log')
+                except RuntimeError:
+                    run([sys.executable,repo/'code/locate_dmn_rt_text_inputs.py',
+                         '--inventory',repo/'results/reviewer/dmn_rt_input_audit_recovered/inputs.tsv'],logs/'rt-text-input-search.log')
+                    raise RuntimeError('retained input recovery is incomplete; inspect/push dmn_rt_input_audit_recovered and dmn_rt_text_input_search; NO models launched') from None
+            prepare_rt(repo, a.production_fsl_root.resolve(), a.repaired_fsl_root.resolve(), work, standard.resolve(), input_maps, a.use_feat_input_copies)
         (work/'preparation_config.json').write_text(json.dumps(config, indent=2)+'\n')
     if (work/'software.json').exists() and json.loads((work/'software.json').read_text()) != software:
         raise ValueError('execution software/environment changed; use a new --work-root')

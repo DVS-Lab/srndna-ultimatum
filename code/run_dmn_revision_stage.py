@@ -36,12 +36,57 @@ def verify_inputs(manifest):
                 raise ValueError(f'prepared input changed; use a new scratch root: {source}')
 
 
+def baseline_agreement(reference, candidate):
+    if reference.shape != candidate.shape or not np.isfinite(reference).all() or not np.isfinite(candidate).all():
+        return False, None
+    difference = float(np.max(np.abs(reference-candidate)))
+    return bool(np.allclose(reference, candidate, atol=1e-5, rtol=1e-6)), difference
+
+
+def validate_baselines(rows, manifest):
+    recovering = [row for row in rows if row.get('baseline_fsf')]
+    if not recovering:
+        return
+    if len(recovering) != len(rows):
+        raise ValueError('mixed baseline-recovery policy within the L1 batch')
+    results, seen = [], {}
+    for row in recovering:
+        fsf, source = Path(row['baseline_fsf']), Path(row['source_design'])
+        if digest(fsf) != row['baseline_sha256'] or digest(source) != row['source_design_sha256']:
+            raise ValueError(f'baseline/reference design changed: {fsf}')
+        identity = (str(source),row['baseline_sha256'],row['source_design_sha256'])
+        if fsf in seen:
+            if seen[fsf] != identity:
+                raise ValueError('conflicting baseline manifest entries')
+            continue
+        seen[fsf] = identity
+        result = subprocess.run(['feat_model',str(fsf.with_suffix('')),fsf_value(fsf.read_text(),'confoundev_files(1)')],
+                                capture_output=True,text=True)
+        if result.returncode:
+            raise RuntimeError(f'baseline feat_model failed: {fsf}\n{result.stdout}\n{result.stderr}')
+        reference = read_vest_matrix(source)
+        compiled = read_vest_matrix(fsf.with_suffix('.mat'))
+        passed, maximum = baseline_agreement(reference, compiled)
+        results.append(dict(subject=row['subject'],run=row['run'],baseline_fsf=str(fsf),
+                            source_design=str(source),source_design_sha256=digest(source),
+                            compiled_sha256=digest(fsf.with_suffix('.mat')),reference_rows=reference.shape[0],
+                            reference_columns=reference.shape[1],compiled_rows=compiled.shape[0],
+                            compiled_columns=compiled.shape[1],maximum_abs_difference=maximum,
+                            atol=1e-5,rtol=1e-6,passed=int(passed)))
+        print(f"{'PASS' if passed else 'REVIEW'}: retained-input baseline {row['subject']} run-{row['run']}",flush=True)
+    write_tsv(manifest.parent/'baseline_preflight.tsv',results)
+    if not all(row['passed'] for row in results):
+        raise ValueError('recovered inputs do not reproduce every retained design within tolerance; NO sensitivity fits launched; inspect baseline_preflight.tsv')
+
+
 def compile_designs(manifest, stage):
     verify_inputs(manifest)
     with manifest.open() as stream:
         rows = [r for r in csv.DictReader(stream, delimiter='\t') if r['stage'] == stage]
     if not rows:
         raise ValueError(f'no {stage} jobs')
+    if stage == 'l1':
+        validate_baselines(rows, manifest)
     results = []
     for row in rows:
         fsf = Path(row['fsf'])

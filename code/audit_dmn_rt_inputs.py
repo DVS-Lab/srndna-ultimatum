@@ -66,13 +66,14 @@ def main():
     p.add_argument('--standard-image', type=Path,
                    default=Path(os.environ.get('FSLDIR', '/usr/local/fsl'))/'data/standard/MNI152_T1_2mm_brain.nii.gz')
     p.add_argument('--input-map', action='append', default=[], metavar='OLD=NEW')
+    p.add_argument('--use-feat-input-copies', action='store_true')
     p.add_argument('--candidate-fmriprep-root', type=Path, action='append', help='repeat to replace the three default candidate locations')
     p.add_argument('--compare-bold-copies', action='store_true', help='stream SHA256 over surviving candidate BOLD files; may take time')
     p.add_argument('--output-dir', type=Path)
     a = p.parse_args()
     roots = a.candidate_fmriprep_root or DEFAULT_CANDIDATES
     inventory = input_inventory(a.repository.resolve(), a.production_fsl_root.resolve(),
-                                a.repaired_fsl_root.resolve(), a.standard_image.resolve(), parse_input_maps(a.input_map))
+                                a.repaired_fsl_root.resolve(), a.standard_image.resolve(), parse_input_maps(a.input_map), a.use_feat_input_copies)
     candidates = bold_candidates(inventory, roots, a.compare_bold_copies)
     output = a.output_dir or a.repository/'results/reviewer/dmn_rt_input_audit'
     output.mkdir(parents=True, exist_ok=True)
