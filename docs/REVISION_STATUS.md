@@ -8,7 +8,7 @@ estimability and runs six-contrast DMN simple-effect/deweighting models. The
 separate RT phase prepares 188 L1, 94 L2, and two L3 sensitivity fits. These
 server fits are **pending**, not completed by local script validation.
 
-All 105 repository tests pass. The 94 source events files also pass the new
+All 106 repository tests pass. The 94 source events files also pass the new
 RT-construction checks: 6,654 responded trials, unique substantive onsets, and
 finite positive RTs within their recorded display epochs. This does not replace
 the Linux comparison against the retained three-column EVs and compiled designs.
@@ -19,7 +19,15 @@ by zero columns, and all tested contrasts were estimable. The new RT fits have
 not started: preparation stopped on a missing historical `srndna-data` BOLD path.
 `code/audit_dmn_rt_inputs.py` inventories all required inputs and surviving BOLD
 copies before any explicit relocation. Neither substitute preprocessing nor
-whole-sample checksum equivalence has been assumed from the sub-144 comparison.
+whole-sample checksum equivalence was assumed from the sub-144 comparison.
+
+The subsequently returned input audit (9f8d8c6) establishes byte equality for
+all 94 BOLD pairs between the surviving `srndna-ug` tree and the downloaded
+OpenNeuro derivative. Both report fMRIPrep 21.0.2; no copy differences were found.
+The original `srndna-data` location is unavailable. Network time-series paths
+resolve, but task-EV/confound relocations still need the mapped preflight check.
+The standard-image resolver now accepts the extensionless basename used in all
+94 saved L1 FSFs, while requiring the same template name and resolution.
 
 The new corrected selected-ROI influence diagnostic retains all 47 participants.
 Three observations exceed Cook's 4/N screen; the diagnostic age contrast stays

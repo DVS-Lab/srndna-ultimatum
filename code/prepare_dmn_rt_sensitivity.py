@@ -77,6 +77,16 @@ def resolve_recorded(value, standard, input_maps=()):
     path = Path(value)
     if path.is_file():
         return path.resolve()
+    # FEAT commonly records an image basename without the NIfTI extension.
+    # Restrict normalization to the named standard image, not arbitrary inputs.
+    def image_basename(name):
+        for suffix in ('.nii.gz', '.nii'):
+            if name.endswith(suffix):
+                return name[:-len(suffix)]
+        return name
+    if ('/data/standard/' in value and standard.is_file()
+            and image_basename(path.name) == image_basename(standard.name)):
+        return standard.resolve()
     # An explicit mapping never overrides an existing recorded file. Match path
     # components, not string prefixes; the longest requested prefix wins.
     for old, new in input_maps:
@@ -89,8 +99,6 @@ def resolve_recorded(value, standard, input_maps=()):
         remapped = Path('/ZPOOL/data/projects') / path.relative_to('/data/projects')
         if remapped.is_file():
             return remapped.resolve()
-    if path.name == standard.name and '/data/standard/' in value and standard.is_file():
-        return standard
     raise FileNotFoundError(f'retained input not found (no replacement BOLD/network signal guessed): {value}')
 
 

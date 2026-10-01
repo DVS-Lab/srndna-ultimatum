@@ -21,6 +21,21 @@ from run_dmn_revision_stage import verify_inputs, verify_stage_outputs
 
 
 class RevisionTests(unittest.TestCase):
+    def test_extensionless_standard_resolves_only_matching_template(self):
+        with tempfile.TemporaryDirectory() as d:
+            standard = Path(d)/'MNI152_T1_2mm_brain.nii.gz'
+            standard.write_bytes(b'fixture')
+            for suffix in ('', '.nii', '.nii.gz'):
+                value = '/missing/fsl/data/standard/MNI152_T1_2mm_brain'+suffix
+                self.assertEqual(resolve_recorded(value, standard), standard.resolve())
+            for value in ('/missing/fsl/data/standard/MNI152_T1_1mm_brain',
+                          '/missing/subject/MNI152_T1_2mm_brain'):
+                with self.assertRaises(FileNotFoundError):
+                    resolve_recorded(value, standard)
+            standard.unlink()
+            with self.assertRaises(FileNotFoundError):
+                resolve_recorded('/missing/fsl/data/standard/MNI152_T1_2mm_brain', standard)
+
     def test_explicit_input_mapping_is_component_based_and_opt_in(self):
         with tempfile.TemporaryDirectory() as d:
             root = Path(d)

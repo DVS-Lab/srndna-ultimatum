@@ -8,7 +8,7 @@ Completed locally:
 - Descriptive precision-weighted participant means and conditional SEMs.
 - Software tests and compilation of the two new six-contrast L3 designs with
   local FSL feat_model. Compilation is not an imaging fit.
-- All 105 repository tests pass. All 94 source event files pass the RT input
+- All 106 repository tests pass. All 94 source event files pass the RT input
   checks (6,654 responded trials); matching these to retained imaging EVs still
   requires the Linux dry run.
 - Corrected the audit table's erroneous description of a submitted significant
@@ -100,6 +100,29 @@ retry: the first failed preparation may have left a partial v1/rt directory.
 Leave that directory and any completed v1/quick models in place. The updated
 preparer checks all input locations before creating a new RT model directory.
 Do not restart the quick fits just because the RT path needs correction.
+
+Returned input audit (9f8d8c6): all 94 BOLD pairs in srndna-ug and ds003745-work
+are byte-identical; both derivative descriptions report fMRIPrep 21.0.2. All
+retained network time series resolve. Standard-image references are extensionless
+FSL basenames; the resolver now recognizes the matching installed NIfTI template.
+The original srndna-data tree remains unavailable. Historical EV/confound paths
+still require a location check; this audit did not search for their surviving
+copies. A proposed narrow mapping to the production FSL tree must pass the dry
+run, not be treated as already verified.
+
+On Linux1, test the mapped inputs without rehashing the verified BOLD copies:
+
+python3 code/audit_dmn_rt_inputs.py \
+  --input-map /data/projects/srndna-data/derivatives/fmriprep=/ZPOOL/data/projects/srndna-ug/derivatives/fmriprep \
+  --input-map /data/projects/srndna-data/derivatives/fsl=/ZPOOL/data/projects/srndna-ultimatum/derivatives/fsl \
+  --output-dir results/reviewer/dmn_rt_input_audit_mapped
+
+Keep the original checksum audit directory unchanged. Only if the mapped audit
+reports zero missing references, run the RT dry run with these SAME two maps
+and --work-root /ZPOOL/data/scratch/srndna-ultimatum-final-review-v2. If all 188
+designs pass, repeat that exact command with --execute. If the mapped EV/confound
+files are absent, share the mapped inventory; do not substitute/regenerate them
+or create broad symlinks just to bypass the check.
 
 PHASE 1 — ESTIMABILITY, INFLUENCE, SIMPLE EFFECTS, AND DEWEIGHTING
 
