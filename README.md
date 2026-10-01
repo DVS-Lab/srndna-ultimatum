@@ -11,6 +11,15 @@ are not duplicated in Git.
 
 ## Reproducible entry points
 
+The remaining DMN reviewer checks now have one guarded Linux1 entry point:
+`python3 code/run_revision_completion.py --phase quick` (dry run), followed
+by the same command with `--execute`. The separate `--phase rt` batch prepares
+the all-trial RT and response-duration sensitivities. See
+[`docs/FINAL_REVIEW_RUNBOOK.txt`](docs/FINAL_REVIEW_RUNBOOK.txt) for exact commands,
+resource limits, output collection, and the remaining publication gates.
+The new models have not yet been fitted on Linux1; software validation and
+local selected-ROI diagnostics must not be mistaken for those results.
+
 Run from the repository root:
 
 ```bash

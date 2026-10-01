@@ -1,0 +1,2 @@
+n	design_rank	diagnostic	younger_minus_older	cooks_threshold	n_cooks_flags	max_cooks	max_abs_studentized	loo_estimate_min	loo_estimate_max	loo_sign_changes	excluded_participants
+47	6	OLS_corrected_selected_ROI_not_FLAME	16.07810806410747	0.0851063829787234	3	0.5564571872489523	3.2532573594694916	14.552331850862718	18.046016808439198	0	0

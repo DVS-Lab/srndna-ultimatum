@@ -1,0 +1,10 @@
+{
+  "sources": {
+    "results/reviewer/l3_repair_designs/dmn-age/reported-covariates-corrected/design.fsf": "24ca411b641832b72490539ff79baff2e80d961103b94844f62180822ade1141",
+    "results/reviewer/l3_repair_designs/dmn-age/reported-covariates-corrected/design.mat": "4e038a2844f7d5e0003355481a611d7a341728de3b7ebacfdb6d6244bd2b17be",
+    "results/manuscript/source_data/figure4_dmn_corrected_roi.tsv": "05fd9d9d8e04303a42ff2cfbd0f80a44a5b323a05079ef2a9e0980a1e303b674",
+    "code/audit_corrected_dmn_influence.py": "e458ae55768646cb429afa45ae3de0dcdc5c43620e493f8b5154c8aa80a224c7"
+  },
+  "numpy_version": "2.3.5",
+  "interpretation": "Selected-cluster descriptive diagnostics. No independent ROI inference, no exclusions, no proof of whole-brain robustness."
+}

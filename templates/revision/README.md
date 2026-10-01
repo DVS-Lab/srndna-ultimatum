@@ -43,3 +43,22 @@ event-corrected task-wide mean RT.
 
 All generated FEAT outputs are written to a user-specified scratch directory.
 Historical production results are never overwritten.
+
+## Final reviewer sensitivity models
+
+`L3_task-ultimatum_type-nppi-dmn_age_simple-effects.fsf` and
+`L3_task-ultimatum_type-nppi-dmn_age_outlier-deweighted.fsf` retain all 47
+corrected inputs and the exact six-column corrected DMN design. They preserve
+contrasts 1–4 and add younger-negative and older-negative simple contrasts
+as contrasts 5–6. The second template enables full-sample FLAME outlier
+deweighting; neither excludes participants. Both request poststatistics.
+`OUTPUTDIR` and `STANDARD_IMAGE` are placeholders; use the preparer, not
+`feat` directly on these reference files. The preparer verifies they match
+its renderer, preventing a disconnected template copy.
+
+The RT preparer applies two explicitly separate changes to retained run-specific
+DMN FSFs: all responded trials contribute to RT EVs; the second sensitivity
+also changes task/offer EV durations to offer-onset-to-response intervals.
+It preserves task amplitudes, contrasts, interaction structure, network signals,
+confounds, and smoothing. See `docs/FINAL_REVIEW_RUNBOOK.txt`. Generated run-level
+FSFs stay in scratch; compact compiled diagnostics and L3 designs return to Git.

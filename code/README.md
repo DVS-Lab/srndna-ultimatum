@@ -90,3 +90,12 @@ The completed production audit was non-mutating. Its collectors remain
 non-mutating if repeated. The event-provenance matcher may run `feat_model` in
 scratch space; do not run FEAT, FLAME, `randomise`, or a replacement image
 model as part of validation.
+# Final reviewer checks
+
+`run_revision_completion.py --phase quick` performs a guarded dry run of the
+remaining saved-design and DMN group checks; add `--execute` to fit. The separate
+`--phase rt --jobs 40` prepares the two DMN RT sensitivities. The exact Linux1
+commands, timing convention, safeguards, output locations, and remaining release
+gates are in `../docs/FINAL_REVIEW_RUNBOOK.txt`. Main corrected results are not
+overwritten. `audit_corrected_dmn_influence.py` supersedes the historical
+`audit_roi_influence.R` for descriptive corrected-input diagnostics only.

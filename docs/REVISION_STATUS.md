@@ -1,5 +1,30 @@
 # Revision readiness — 30 September 2026
 
+## Final reviewer checks now prepared
+
+`code/run_revision_completion.py` is the Linux1 entry point for the remaining
+work; see `FINAL_REVIEW_RUNBOOK.txt`. The quick phase checks saved L1 contrast
+estimability and runs six-contrast DMN simple-effect/deweighting models. The
+separate RT phase prepares 188 L1, 94 L2, and two L3 sensitivity fits. These
+server fits are **pending**, not completed by local script validation.
+
+All 100 repository tests pass. The 94 source events files also pass the new
+RT-construction checks: 6,654 responded trials, unique substantive onsets, and
+finite positive RTs within their recorded display epochs. This does not replace
+the Linux comparison against the retained three-column EVs and compiled designs.
+
+The new corrected selected-ROI influence diagnostic retains all 47 participants.
+Three observations exceed Cook's 4/N screen; the diagnostic age contrast stays
+positive in all leave-one-out fits (range 14.55–18.05). These are descriptive
+OLS estimates in a selected cluster, not whole-brain FLAME robustness results.
+See `results/reviewer/dmn_corrected_influence/`. The new participant-SEM plot is
+an explicitly labeled candidate, not a silent replacement of the FLAME display.
+
+The supplied task script measures raw RT from offer onset and uses a three-second
+response timer plus 0.5-s additional display/feedback; check the manuscript's
+"2.5-s response window" wording against acquisition versions. The new duration
+sensitivity uses actual recorded RT and does not add a second.
+
 The corrected primary analyses and revision-added activation analyses have
 completed. The author confirms that no manuscript edits have yet been made
 and the analytical response now has a first draft covering 18 concerns. Its text
@@ -7,7 +32,7 @@ is preparation, not completed revision work. OpenNeuro release publication is
 a separate blocker; it does not prevent the writing pass. See
 `ANALYSIS_SUMMARY.md` for the consolidated handoff.
 
-## Verified in this pass
+## Verified in the preceding audit
 
 - The 78 repository tests pass (including strengthened ratings-availability
   assertions). These are software/result-contract tests, not fresh FSL fits.
@@ -82,7 +107,8 @@ a separate blocker; it does not prevent the writing pass. See
   revision and cite its actual snapshot/version. Do not yet claim 2.2.0 is
   publicly released. Freeze the code commit used for the submission.
 
-No new Linux launch is required for the writing and reconciliation above.
+Writing can proceed independently, but the new sensitivity checks above require
+Linux execution before the analytical response can be finalized.
 
 The first analysis-focused response draft is now in
 `revision/analysis_responses.md`. It is proposed prose, not a completed

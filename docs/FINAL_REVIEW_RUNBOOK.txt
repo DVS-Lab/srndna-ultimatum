@@ -1,0 +1,232 @@
+FINAL REVIEWER ANALYSES — SRNDNA ULTIMATUM GAME
+Prepared 30 September 2026. Run on Linux1, not the Mac.
+
+STATUS
+
+Completed locally:
+- Corrected selected-cluster influence diagnostics, all 47 participants.
+- Descriptive precision-weighted participant means and conditional SEMs.
+- Software tests and compilation of the two new six-contrast L3 designs with
+  local FSL feat_model. Compilation is not an imaging fit.
+- All 100 repository tests pass. All 94 source event files pass the RT input
+  checks (6,654 responded trials); matching these to retained imaging EVs still
+  requires the Linux dry run.
+- Corrected the audit table's erroneous description of a submitted significant
+  behavioral interaction; the submitted full interaction failed to converge.
+
+Not yet completed:
+- Saved production/repaired L1 estimability audit on Linux1.
+- New L3 simple-effect/outlier-deweighting fits and their figures.
+- DMN RT coverage/response-duration sensitivity fits.
+- Final interpretation after those outputs return; manuscript/response edits;
+  verification of the corrected public OpenNeuro snapshot.
+
+Do not tag this as a final publication release merely because the scripts pass.
+
+ENVIRONMENT
+
+Use the srndna-ultimatum Conda environment (code/environment.yml) and working FSL.
+The runner uses the invoking Python for every subprocess. NumPy is required for
+all checks; quick-phase figure generation also requires nibabel, matplotlib,
+and nilearn. It checks these before executing the quick phase.
+
+Recommended persistent SSH session:
+
+tmux new-session -A -s ug-final-review
+
+Within that session:
+
+cd /ZPOOL/data/projects/srndna-ultimatum
+git pull --ff-only
+conda activate srndna-ultimatum
+command -v feat
+command -v feat_model
+
+If the environment has not been created, use:
+conda env create -f code/environment.yml
+
+All instructions below avoid changing your interactive shell's errexit/pipefail
+settings. The Python runner preserves each command's exit status, writes a log,
+and stops on error. Do not continue to a subsequent phase after an error.
+
+DEFAULT PATHS
+
+Repository: /ZPOOL/data/projects/srndna-ultimatum
+Production: /ZPOOL/data/projects/srndna-ultimatum/derivatives/fsl
+Sub-144: /ZPOOL/data/scratch/srndna-ultimatum-sub144-repair-v2/derivatives/fsl
+New scratch: /ZPOOL/data/scratch/srndna-ultimatum-final-review-v1
+Standard image: $FSLDIR/data/standard/MNI152_T1_2mm_brain.nii.gz
+
+Explicit root overrides are available in --help. The RT workflow deliberately
+reuses the exact retained BOLD, confounds, and network signals. It does not
+substitute newly downloaded preprocessing when an old path is missing. Only
+the known /data/projects -> /ZPOOL/data/projects mount prefix is remapped.
+
+PHASE 1 — ESTIMABILITY, INFLUENCE, SIMPLE EFFECTS, AND DEWEIGHTING
+
+Start with the dry run:
+
+python3 code/run_revision_completion.py --phase quick
+
+If that completes without an error, execute:
+
+python3 code/run_revision_completion.py --phase quick --execute
+
+This first checks all 282 original and six repaired L1 design bundles. It stops
+on incomplete coverage, residual rank problems, or focal estimability flags.
+Empty nuisance columns are reported separately. All saved contrasts are audited;
+the focal checks concern copes 4, 6, and 7 at both numerical cutoffs.
+
+It then runs two L3 models, with at most two concurrent FEAT processes:
+  simple-effects: original four contrasts plus both negative simple effects;
+  outlier-deweighted: same six contrasts, full sample, robust_yn=1.
+
+Contrast order is fixed:
+  1 younger similar-minus-dissimilar positive
+  2 older similar-minus-dissimilar positive
+  3 younger-minus-older interaction
+  4 older-minus-younger interaction
+  5 younger similar-minus-dissimilar negative
+  6 older similar-minus-dissimilar negative
+
+All inputs, group covariates, and FLAME 1+2 settings are retained. No participant
+is removed. The inference remains Z>3.1, cluster p<.05 within each contrast;
+these extra tests are not corrected as one family across every new contrast.
+Because FLAME 1+2 includes stochastic estimation and added contrasts can alter
+which voxels receive stage-2 evaluation, do not demand bitwise identity with the
+four-contrast primary fit. Report the original primary result and clearly label
+these new sensitivity fits. The paired new six-contrast models share the same
+contrast specification, isolating the outlier-deweighting setting.
+
+The runner collects every planned contrast, including nulls, under:
+  results/reviewer/dmn_revision_checks/
+and renders:
+  results/reviewer/figures/dmn_simple_effects.png
+
+No image/model failure or missing table is interpreted as zero clusters.
+
+PHASE 2 — DMN RT SENSITIVITIES
+
+Run only after the first phase's estimability checks pass. Dry run:
+
+python3 code/run_revision_completion.py --phase rt --jobs 40
+
+If that completes without an error, execute:
+
+python3 code/run_revision_completion.py --phase rt --jobs 40 --execute
+
+The two variants are deliberately separate from the corrected primary analysis:
+
+all-trial-rt
+  Keep the retained task EVs unchanged. Build both RT impulse EVs from every
+  responded substantive decision row, not the incomplete event_RT companion
+  rows. Their amplitudes are 1 and the recorded raw response_time.
+
+response-duration
+  Use the same all-trial RT EVs. In addition, change the six partner task/offer
+  EV durations to the recorded offer-onset-to-response intervals. Keep their
+  original onsets and amplitudes. Match every event to its retained EV by onset
+  and require original duration/count agreement. All remaining regressors and
+  interaction definitions remain unchanged. This is not a separate postresponse
+  model and does not prove a pure deliberation mechanism.
+
+Each variant includes all 47 participants and two runs: together, 188 L1 fits,
+94 two-run L2 fits, and two six-contrast L3 fits. First-level concurrency is 40;
+L2/L3 concurrency is capped at two. Thread limits prevent BLAS/OpenMP from
+expanding each job into another large thread pool.
+
+All 188 L1 designs are compiled and checked before any L1 fit starts. A failed
+onset match, missing original input, or nonestimable focal contrast stops the
+batch. A preparation failure may leave an incomplete scratch directory. Preserve
+it for diagnosis and use a new --work-root after fixing the cause; do not delete
+historical derivatives or force an overwrite.
+
+Compiled checks, all group contrasts, compact maps, and provenance return to:
+  results/reviewer/dmn_rt_sensitivity/
+
+TIMING PROVENANCE
+
+The task script defines rt = resp_onset - decision_onset, with decision_onset
+recorded before the one-second offer-only display. Therefore BIDS raw RT already
+includes that second. Do not add one second in the duration variant. The existing
+behavioral trial builder subtracts response_delay for choice-window RT, consistent
+with this distinction; the imaging variant uses the raw BIDS value directly.
+
+Inspected source:
+https://github.com/DVS-Lab/srndna-datapaper/blob/be25871ba5ac1983116183bf91aaff937f9f8f16/stimuli/psychopy/Ultimatum.py
+SHA256: 18572b2985c188d50cba10096e29255651bf898651e40d0010cab37f678b1b74
+
+That script has decision_dur=3, a one-second offer-only period, responses until
+the three-second timer limit, and an additional 0.5-s display/feedback period.
+The manuscript's shorthand "1 s + 2.5-s response window" therefore needs checking
+against actual acquisition script versions; the entire remaining 2.5 s should
+not automatically be called an active response window. The sensitivity code
+uses recorded onsets/durations rather than hardcoding 3.5 s.
+
+RESUME, LOGS, AND RETURNING RESULTS
+
+Detach tmux with Ctrl-b then d. Reconnect with:
+tmux attach -t ug-final-review
+
+Completed outputs are checked and skipped on repeat runs. Changed FSFs, source
+text inputs, BOLD size/mtime, or recorded execution environment trigger an error.
+Text inputs have SHA256 hashes; large retained BOLD inputs use path/size/mtime
+guards rather than being represented as content-verified by those metadata alone.
+An incomplete existing FEAT tree is never overwritten automatically.
+
+Logs are under:
+/ZPOOL/data/scratch/srndna-ultimatum-final-review-v1/logs/
+
+After Phase 1 succeeds:
+
+git status --short
+git add results/reviewer/l1_estimability results/reviewer/dmn_corrected_influence \
+  results/reviewer/dmn_revision_checks results/reviewer/figures/dmn_simple_effects.png
+git commit -m "analysis: collect final DMN design and robustness checks"
+git push origin main
+
+After Phase 2 succeeds:
+
+git status --short
+git add results/reviewer/dmn_rt_sensitivity
+git commit -m "analysis: collect DMN RT coverage and duration sensitivities"
+git push origin main
+
+Do not commit if either command reports a failure; share the named log instead.
+The compact collector does not copy full FEAT trees or four-dimensional MRI data.
+The two newly generated participant-level diagnostic tables named participants.tsv
+remain local and ignored pending explicit publication approval. Aggregate summaries,
+provenance, and the scripts that regenerate those diagnostics are tracked.
+
+FIGURE 4 PARTICIPANT-SEM CANDIDATE
+
+code/summarize_dmn_participant_bars.py uses corrected participant COPE/VARCOPE
+extracts and the exact corrected group design. It fits nuisance slopes per
+condition, uses inverse mean VARCOPE as a precision proxy, and computes weighted
+participant dispersion divided by sqrt(effective N). This reduces to ordinary
+SEM for equal weights, conditional on the fitted nuisance adjustment. It is not
+the voxelwise FLAME estimator, and mean voxel VARCOPE is not the variance of an
+ROI average without voxel covariance. These limits are recorded in provenance.
+
+Reproduce the candidate with:
+python3 code/summarize_dmn_participant_bars.py --plot
+
+Outputs: results/reviewer/dmn_participant_bars/ and
+results/reviewer/figures/dmn_weighted_participant_sem.png
+
+The existing manuscript Figure 4 has not been silently replaced. Choose the
+descriptive participant-SEM display or the correctly labeled FLAME display when
+assembling the final figure; do not combine one estimator's means with another's
+errors or treat the selected ROI as an independent inferential test.
+
+PUBLICATION GATES
+
+The code can be exercised now, but publication readiness requires inspecting the
+returned results, deciding whether the RT findings change the primary account,
+completing figure/caption integration and manuscript/reviewer-response edits,
+and verifying the actual corrected OpenNeuro snapshot. Preserve null results and
+the loss of the ECN finding. Do not substitute a favorable sensitivity model to
+rescue a claim. The original full-sample corrected analysis remains the reference.
+
+FSL outlier-deweighting reference:
+https://fsl.fmrib.ox.ac.uk/fsl/docs/task_fmri/feat/user_guide.html

@@ -1,0 +1,12 @@
+{
+  "sources": {
+    "results/manuscript/source_data/figure4_dmn_condition_input_roi.tsv": "9fcec4b3f4d1dc18aefde9730c059d1578fb4a12743d2ae1c1aa2605af3a0c84",
+    "results/reviewer/l3_repair_designs/dmn-age/reported-covariates-corrected/design.fsf": "24ca411b641832b72490539ff79baff2e80d961103b94844f62180822ade1141",
+    "results/reviewer/l3_repair_designs/dmn-age/reported-covariates-corrected/design.mat": "4e038a2844f7d5e0003355481a611d7a341728de3b7ebacfdb6d6244bd2b17be",
+    "code/summarize_dmn_participant_bars.py": "d46e1a57bf78fc903ec5655930bc5642d1322d5d20fb7ff8c428c4540fce1880"
+  },
+  "adjustment": "Separate condition-specific WLS, corrected six-column group design, inverse mean VARCOPE weights.",
+  "sem_formula": "w normalized to sum 1; n_eff=1/sum(w^2); s2=sum(w*(adjusted_y-weighted_mean)^2)/(1-sum(w^2)); SEM=sqrt(s2/n_eff)",
+  "limits": "Descriptive weighted participant means/SEMs in the selected DMN cluster.\n\nThis is not voxelwise FLAME. Inverse cluster-mean VARCOPE is a precision proxy,\nnot the inverse variance of a spatial ROI mean (voxel covariance is unavailable).\nNuisance slopes are fitted per condition. SEM describes adjusted participant\ndispersion conditional on those slopes, not uncertainty of a new independent\nROI test. The primary FLAME display is preserved for author comparison.\n",
+  "primary_flame_figure_replaced": false
+}

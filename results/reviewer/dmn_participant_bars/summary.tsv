@@ -1,0 +1,5 @@
+age_group	condition	n	weighted_adjusted_mean	conditional_weighted_participant_sem	effective_n	reference_covariates
+younger	similar	25	4.179746705287141	0.6372290983710751	19.846463345278522	all_zero_in_corrected_design
+older	similar	22	-2.0495086880693405	1.0632256466661467	14.490662965343416	all_zero_in_corrected_design
+younger	dissimilar	25	-3.47790971126902	0.7725086665730876	18.791012151453746	all_zero_in_corrected_design
+older	dissimilar	22	3.4430198479251857	0.8440039132662357	16.31834200665564	all_zero_in_corrected_design
