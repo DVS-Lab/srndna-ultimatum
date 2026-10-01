@@ -1,0 +1,14 @@
+{
+  "purpose": "Primary RT-coverage correction; not a response-duration sensitivity",
+  "expected_jobs": {
+    "l1": 282,
+    "l2": 141,
+    "l3": 5
+  },
+  "subjects": 47,
+  "rt_policy": "all responded substantive rows; zero-duration impulses, heights 1 and raw RT",
+  "preserved": "task durations/amplitudes; contrasts; network signals; confounds; smoothing; corrected group covariates",
+  "historical_outputs": "preserved, not overwritten",
+  "unaffected": "Behavioral analyses and the already all-trial-RT fairness-main/social-computer activation pipeline",
+  "publication_status": "pending result inspection and new figure/source-data integration"
+}
