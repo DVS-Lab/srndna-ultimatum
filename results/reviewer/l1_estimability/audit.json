@@ -1,0 +1,9 @@
+{
+  "numpy_version": "2.1.3",
+  "sample": "/ZPOOL/data/projects/srndna-ultimatum/behavioral_analyses/data/participant_L3_47.csv",
+  "sample_sha256": "4667fe6df9147019eedf2f520c77ebf0c69287b453d0f67e1cf4badfbdbc0ce0",
+  "script_sha256": "9e1e08a905b500900f35010150354ad8fd1d880ede4205a01756d75cb3a5dd25",
+  "projection_tolerance": 1e-07,
+  "sensitivity_rcond": 1e-08,
+  "note": "Saved unwhitened design algebra only; no images fitted; no columns removed from actual models."
+}
