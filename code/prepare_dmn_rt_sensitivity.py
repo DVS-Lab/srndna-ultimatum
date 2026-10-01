@@ -57,20 +57,77 @@ def replace_durations(original, rows, partner):
     return result
 
 
-def resolve_recorded(value, standard):
+def parse_input_maps(values):
+    """Explicit relocation only; no dataset search or preprocessing substitution."""
+    result = []
+    for value in values:
+        old, separator, new = value.partition('=')
+        if not separator or not old or not new:
+            raise ValueError('input map must be an absolute OLD=NEW directory pair')
+        old, new = Path(old), Path(new)
+        if not old.is_absolute() or not new.is_absolute() or '..' in old.parts or '..' in new.parts:
+            raise ValueError('input map directories must be absolute without ..')
+        if old == Path('/') or new == Path('/') or any(old == x for x, _ in result):
+            raise ValueError('root/duplicate input maps are not allowed')
+        result.append((old, new))
+    return tuple(sorted(result, key=lambda pair: len(pair[0].parts), reverse=True))
+
+
+def resolve_recorded(value, standard, input_maps=()):
     path = Path(value)
     if path.is_file():
         return path.resolve()
+    # An explicit mapping never overrides an existing recorded file. Match path
+    # components, not string prefixes; the longest requested prefix wins.
+    for old, new in input_maps:
+        if path.is_relative_to(old):
+            remapped = new / path.relative_to(old)
+            if remapped.is_file():
+                return remapped.resolve()
+            raise FileNotFoundError(f'explicitly mapped input missing: {value} -> {remapped}')
     if value.startswith('/data/projects/'):
         remapped = Path('/ZPOOL/data/projects') / path.relative_to('/data/projects')
         if remapped.is_file():
             return remapped.resolve()
-    if path.name == standard.name and '/data/standard/' in value:
+    if path.name == standard.name and '/data/standard/' in value and standard.is_file():
         return standard
     raise FileNotFoundError(f'retained input not found (no replacement BOLD/network signal guessed): {value}')
 
 
-def render_l1(text, output, evdir, events, variant, standard):
+def retained_inputs(text):
+    yield from ('feat_files(1)', 'confoundev_files(1)', 'regstandard')
+    for ev in range(1, 29):
+        if ev not in (8, 9) and fsf_value(text, f'shape{ev}') in ('2', '3'):
+            yield f'custom{ev}'
+
+
+def input_inventory(repo, production, repaired, standard, input_maps=()):
+    """Check all runs without creating a model directory or launching FSL."""
+    rows = []
+    for _, subject, l2_cope in parse_inputs((repo / SOURCE_FSF_RELATIVE).read_text().splitlines()):
+        root = repaired if subject == 'sub-144' else production
+        for run in ('01', '02'):
+            source = root / subject / f'L1_task-ultimatum_model-02_type-nppi-dmn_run-{run}_sm-6.feat/design.fsf'
+            paths = [('source_fsf', str(source)), ('events', str(repo/'source_data/bids'/subject/'func'/f'{subject}_task-ultimatum_run-{run}_events.tsv'))]
+            if source.is_file():
+                text = source.read_text()
+                paths += [(key, fsf_value(text, key) or '') for key in retained_inputs(text)]
+            for role, value in paths:
+                try:
+                    resolved = resolve_recorded(value, standard, input_maps)
+                    error = ''
+                except FileNotFoundError as exc:
+                    resolved, error = '', str(exc)
+                rows.append(dict(subject=subject, run=run, role=role, recorded=value,
+                                 resolved=str(resolved), status='missing' if error else 'found', error=error))
+        source = Path(l2_cope).parents[2] / 'design.fsf'
+        rows.append(dict(subject=subject, run='combined', role='source_l2_fsf', recorded=str(source),
+                         resolved=str(source) if source.is_file() else '',
+                         status='found' if source.is_file() else 'missing', error='' if source.is_file() else 'missing retained L2 FSF'))
+    return rows
+
+
+def render_l1(text, output, evdir, events, variant, standard, input_maps=(), resolutions=None):
     if variant not in VARIANTS:
         raise ValueError(variant)
     if (fsf_value(text, 'evs_orig'), fsf_value(text, 'evs_real')) != ('28', '28'):
@@ -82,7 +139,10 @@ def render_l1(text, output, evdir, events, variant, standard):
     text = replace_fsf_value(text, 'outputdir', str(output), fmri=True)
     required = []
     for key, fmri in [('feat_files(1)', False), ('confoundev_files(1)', False), ('regstandard', True)]:
-        path = resolve_recorded(fsf_value(text, key) or '', standard)
+        recorded = fsf_value(text, key) or ''
+        path = resolve_recorded(recorded, standard, input_maps)
+        if resolutions is not None:
+            resolutions[recorded] = str(path)
         text = replace_fsf_value(text, key, str(path), fmri=fmri)
         required.append(path)
     # Resolve only file-based EVs, not generated interactions or empty EVs.
@@ -91,7 +151,10 @@ def render_l1(text, output, evdir, events, variant, standard):
             continue
         if ev in (8, 9):
             continue
-        source = resolve_recorded(fsf_value(text, f'custom{ev}') or '', standard)
+        recorded = fsf_value(text, f'custom{ev}') or ''
+        source = resolve_recorded(recorded, standard, input_maps)
+        if resolutions is not None:
+            resolutions[recorded] = str(source)
         required.append(source)
         path = source
         if variant == 'response-duration' and ev <= 6:
@@ -113,13 +176,18 @@ def render_l1(text, output, evdir, events, variant, standard):
     return text, required, len(rows)
 
 
-def prepare(repo, production, repaired, work, standard):
+def prepare(repo, production, repaired, work, standard, input_maps=()):
     source_group = repo / SOURCE_FSF_RELATIVE
     group_inputs = parse_inputs(source_group.read_text().splitlines())
-    safe_empty(work, [repo, production, repaired])
     if not standard.is_file():
         raise FileNotFoundError(standard)
+    inventory = input_inventory(repo, production, repaired, standard, input_maps)
+    missing = [r for r in inventory if r['status'] == 'missing']
+    if missing:
+        raise FileNotFoundError(f'{len(missing)} required input references are missing; run code/audit_dmn_rt_inputs.py before preparing models. First: {missing[0]["recorded"]}')
+    safe_empty(work, [repo, production, repaired, *[new for _, new in input_maps]])
     jobs, counts, provenance = [], [], {}
+    resolutions = {}
     for variant in VARIANTS:
         group_replacements = {}
         for _, subject, l2_cope in group_inputs:
@@ -131,7 +199,7 @@ def prepare(repo, production, repaired, work, standard):
                 evdir = work / 'EVfiles' / variant / subject / run
                 output = work / 'derivatives' / variant / subject / f'L1_run-{run}'
                 fsf = work / 'fsf' / f'{variant}_{subject}_run-{run}.fsf'
-                text, required, n = render_l1(source.read_text(), output, evdir, read_events(events), variant, standard)
+                text, required, n = render_l1(source.read_text(), output, evdir, read_events(events), variant, standard, input_maps, resolutions)
                 fsf.parent.mkdir(parents=True, exist_ok=True)
                 fsf.write_text(text)
                 required.extend([source, events])
@@ -163,6 +231,11 @@ def prepare(repo, production, repaired, work, standard):
     write_tsv(work / 'revision_jobs.tsv', [{k: row.get(k, '') for k in fields} for row in jobs])
     write_tsv(work / 'rt_construction.tsv', counts)
     (work / 'input_provenance.json').write_text(json.dumps(provenance, indent=2) + '\n')
+    (work / 'input_path_resolution.json').write_text(json.dumps({
+        'requested_maps': [[str(old), str(new)] for old, new in input_maps],
+        'recorded_to_resolved': resolutions,
+        'limitation': 'Explicit relocation is not proof of identity to an unavailable original BOLD; compare surviving copies before choosing a root.'
+    }, indent=2) + '\n')
     (work / 'analysis_plan.json').write_text(json.dumps({
         'variants': VARIANTS, 'primary_unchanged': True, 'subjects': 47,
         'expected_jobs': {'l1': 188, 'l2': 94, 'l3': 2},
@@ -181,8 +254,9 @@ def main():
     p.add_argument('--repaired-fsl-root', type=Path, required=True)
     p.add_argument('--work-root', type=Path, required=True)
     p.add_argument('--standard-image', type=Path, required=True)
+    p.add_argument('--input-map', action='append', default=[], metavar='OLD=NEW')
     a = p.parse_args()
-    prepare(a.repository.resolve(), a.production_fsl_root.resolve(), a.repaired_fsl_root.resolve(), a.work_root.resolve(), a.standard_image.resolve())
+    prepare(a.repository.resolve(), a.production_fsl_root.resolve(), a.repaired_fsl_root.resolve(), a.work_root.resolve(), a.standard_image.resolve(), parse_input_maps(a.input_map))
 
 
 if __name__ == '__main__':

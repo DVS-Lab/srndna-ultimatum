@@ -8,14 +8,19 @@ Completed locally:
 - Descriptive precision-weighted participant means and conditional SEMs.
 - Software tests and compilation of the two new six-contrast L3 designs with
   local FSL feat_model. Compilation is not an imaging fit.
-- All 100 repository tests pass. All 94 source event files pass the RT input
+- All 105 repository tests pass. All 94 source event files pass the RT input
   checks (6,654 responded trials); matching these to retained imaging EVs still
   requires the Linux dry run.
 - Corrected the audit table's erroneous description of a submitted significant
   behavioral interaction; the submitted full interaction failed to converge.
 
+Subsequently returned from Linux1 (commits bda7bea / b380f6a):
+- Complete saved-L1 estimability audit: all 94 runs in each family, production
+  and corrected; no nonestimable tested contrasts, including focal contrasts at
+  both cutoffs. All raw rank deficiencies were accounted for by zero columns.
+- Corrected descriptive influence estimates reproduced.
+
 Not yet completed:
-- Saved production/repaired L1 estimability audit on Linux1.
 - New L3 simple-effect/outlier-deweighting fits and their figures.
 - DMN RT coverage/response-duration sensitivity fits.
 - Final interpretation after those outputs return; manuscript/response edits;
@@ -60,7 +65,41 @@ Standard image: $FSLDIR/data/standard/MNI152_T1_2mm_brain.nii.gz
 Explicit root overrides are available in --help. The RT workflow deliberately
 reuses the exact retained BOLD, confounds, and network signals. It does not
 substitute newly downloaded preprocessing when an old path is missing. Only
-the known /data/projects -> /ZPOOL/data/projects mount prefix is remapped.
+the known /data/projects -> /ZPOOL/data/projects mount prefix is remapped by
+default. Other relocations require an explicit --input-map OLD=NEW argument.
+
+MISSING HISTORICAL INPUTS
+
+The initial RT attempt stopped before fitting because the retained sub-104 FSF
+references /data/projects/srndna-data/derivatives/fmriprep/... . The original
+and corresponding /ZPOOL path were not found. This is not a contrast failure.
+The earlier OpenNeuro-versus-srndna-ug checksum check covered sub-144 only.
+
+Inventory every required input and compare surviving BOLD copies before choosing
+a root. This command writes only compact reports; it does not modify imaging
+files, prepare model directories, or run FEAT. Hashing may take time:
+
+python3 code/audit_dmn_rt_inputs.py --compare-bold-copies
+
+An exit status of 1 means required recorded references remain missing, not that
+the inventory failed. Review results/reviewer/dmn_rt_input_audit/summary.json and
+inputs.tsv; bold_candidates.tsv records candidate sizes/checksums. Availability
+or matching fMRIPrep versions alone do not establish historical image identity.
+Even equal candidate hashes prove equality between those surviving copies, not
+identity to an unavailable original.
+
+After confirming a relocation, supply a narrowly scoped map to both the audit
+and the RT runner. Syntax: --input-map /absolute/old/directory=/absolute/new/directory
+Do not choose a different preprocessing version or infer a source from filenames
+alone. Multiple explicit maps are allowed. They never override a recorded file
+that still exists. Mappings are locked in the preparation configuration and
+recorded alongside the resolved paths in input_path_resolution.json.
+
+Use --work-root /ZPOOL/data/scratch/srndna-ultimatum-final-review-v2 for the RT
+retry: the first failed preparation may have left a partial v1/rt directory.
+Leave that directory and any completed v1/quick models in place. The updated
+preparer checks all input locations before creating a new RT model directory.
+Do not restart the quick fits just because the RT path needs correction.
 
 PHASE 1 — ESTIMABILITY, INFLUENCE, SIMPLE EFFECTS, AND DEWEIGHTING
 

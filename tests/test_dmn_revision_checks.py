@@ -12,7 +12,8 @@ sys.path.insert(0, str(ROOT / 'code'))
 from audit_corrected_dmn_influence import align_rows, fit_diagnostics
 from prepare_dmn_revision_checks import render_group, group_design, CONTRASTS, safe_empty, REFERENCE_NAMES, digest
 from prepare_dmn_condition_bar_models import SOURCE_FSF_RELATIVE, parse_inputs
-from prepare_dmn_rt_sensitivity import decisions, replace_durations, render_l1
+from prepare_dmn_rt_sensitivity import decisions, replace_durations, render_l1, parse_input_maps, resolve_recorded, retained_inputs
+from audit_dmn_rt_inputs import bold_candidates
 from prepare_activation_fairness_main_pipeline import contrast_vectors
 from summarize_dmn_participant_bars import weighted_summary
 from collect_dmn_revision_checks import collect
@@ -20,6 +21,58 @@ from run_dmn_revision_stage import verify_inputs, verify_stage_outputs
 
 
 class RevisionTests(unittest.TestCase):
+    def test_explicit_input_mapping_is_component_based_and_opt_in(self):
+        with tempfile.TemporaryDirectory() as d:
+            root = Path(d)
+            target = root/'bold.nii.gz'
+            target.write_bytes(b'fixture')
+            maps = parse_input_maps([f'/missing/preproc={root}'])
+            with self.assertRaises(FileNotFoundError):
+                resolve_recorded('/missing/preproc/bold.nii.gz', root/'std.nii.gz')
+            self.assertEqual(resolve_recorded('/missing/preproc/bold.nii.gz', root/'std.nii.gz', maps), target.resolve())
+            with self.assertRaises(FileNotFoundError):
+                resolve_recorded('/missing/preproc-other/bold.nii.gz', root/'std.nii.gz', maps)
+            with self.assertRaises(FileNotFoundError):
+                resolve_recorded('/missing/preproc/absent.nii.gz', root/'std.nii.gz', maps)
+
+    def test_mapping_never_overrides_existing_recorded_input(self):
+        with tempfile.TemporaryDirectory() as d:
+            root = Path(d)
+            original = root/'original'
+            original.mkdir()
+            (original/'x').write_text('retained')
+            maps = parse_input_maps([f'{original}={root}/nonexistent'])
+            self.assertEqual(resolve_recorded(str(original/'x'), root/'std', maps), (original/'x').resolve())
+
+    def test_invalid_maps_and_longest_prefix(self):
+        for text in ('x=y', '/x=', '/=/x', '/x=/', '/x/../y=/z'):
+            with self.assertRaises(ValueError):
+                parse_input_maps([text])
+        with self.assertRaises(ValueError):
+            parse_input_maps(['/x=/y','/x=/z'])
+        self.assertEqual(parse_input_maps(['/old=/a','/old/deep=/b'])[0][0], Path('/old/deep'))
+
+    def test_candidate_hashes_do_not_select_replacements(self):
+        with tempfile.TemporaryDirectory() as d:
+            root = Path(d)
+            roots = [root/'one', root/'two']
+            for candidate in roots:
+                (candidate/'sub-104/func').mkdir(parents=True)
+                (candidate/'sub-104/func/bold.nii.gz').write_bytes(b'same')
+            inventory = [dict(role='feat_files(1)',subject='sub-104',run='01',recorded='/old/derivatives/fmriprep/sub-104/func/bold.nii.gz')]
+            rows = bold_candidates(inventory, roots, compare=True)
+            self.assertEqual(len(rows),2)
+            self.assertEqual(rows[0]['sha256'],rows[1]['sha256'])
+            self.assertNotIn('resolved',inventory[0])
+
+    def test_inventory_excludes_rebuilt_rt_and_inactive_evs(self):
+        keys = list(retained_inputs('set fmri(shape1) 3\nset fmri(shape7) 10\nset fmri(shape8) 3\nset fmri(shape9) 3\nset fmri(shape10) 2\n'))
+        self.assertIn('custom1',keys)
+        self.assertIn('custom10',keys)
+        self.assertNotIn('custom7',keys)
+        self.assertNotIn('custom8',keys)
+        self.assertNotIn('custom9',keys)
+
     def test_reference_templates_match_executable_renderer(self):
         source = (ROOT / SOURCE_FSF_RELATIVE).read_text()
         for robust,name in REFERENCE_NAMES.items():

@@ -8,10 +8,18 @@ estimability and runs six-contrast DMN simple-effect/deweighting models. The
 separate RT phase prepares 188 L1, 94 L2, and two L3 sensitivity fits. These
 server fits are **pending**, not completed by local script validation.
 
-All 100 repository tests pass. The 94 source events files also pass the new
+All 105 repository tests pass. The 94 source events files also pass the new
 RT-construction checks: 6,654 responded trials, unique substantive onsets, and
 finite positive RTs within their recorded display epochs. This does not replace
 the Linux comparison against the retained three-column EVs and compiled designs.
+
+The returned Linux audit (b380f6a) now resolves the saved-design rank concern:
+all production/corrected runs were audited, raw deficiencies were accounted for
+by zero columns, and all tested contrasts were estimable. The new RT fits have
+not started: preparation stopped on a missing historical `srndna-data` BOLD path.
+`code/audit_dmn_rt_inputs.py` inventories all required inputs and surviving BOLD
+copies before any explicit relocation. Neither substitute preprocessing nor
+whole-sample checksum equivalence has been assumed from the sub-144 comparison.
 
 The new corrected selected-ROI influence diagnostic retains all 47 participants.
 Three observations exceed Cook's 4/N screen; the diagnostic age contrast stays
@@ -95,11 +103,10 @@ a separate blocker; it does not prevent the writing pass. See
   image-level leave-one-out robustness result is established in this audit.
   A new robustness analysis, if requested, must retain the full-sample primary
   endpoint rather than use post hoc participant exclusion.
-- Resolve the first-level rank flags before claiming complete estimability.
-  The retained production summary flags 50/94 runs in each model family;
-  empty nuisance columns may explain these, but aggregate counts alone do
-  not establish that explanation or focal-contrast estimability. See
-  `revision/analysis_response_author_notes.md` for the bounded follow-up.
+- Incorporate the completed first-level estimability audit into the analytical
+  response. All 94 runs per family were checked; zero columns account for the
+  raw deficiencies and no tested contrast was nonestimable. These are saved,
+  unwhitened-design checks, not proof of new RT-model validity or imaging robustness.
 - Finalize the scope of exploratory supplementary ratings/age analyses and
   check citations, acquisition wording, captions, tables, and figure numbering.
   Do not erase the submitted ECN question because its corrected result is null.

@@ -17,7 +17,7 @@ import platform
 from pathlib import Path
 
 from prepare_dmn_revision_checks import prepare as prepare_group, digest
-from prepare_dmn_rt_sensitivity import prepare as prepare_rt
+from prepare_dmn_rt_sensitivity import prepare as prepare_rt, parse_input_maps
 from collect_dmn_revision_checks import collect
 
 
@@ -61,7 +61,12 @@ def main():
     p.add_argument('--standard-image', type=Path)
     p.add_argument('--jobs', type=int, default=40, help='L1 concurrency; L2/L3 capped at two')
     p.add_argument('--execute', action='store_true')
+    p.add_argument('--input-map', action='append', default=[], metavar='OLD=NEW',
+                   help='RT phase only: explicitly relocate a missing recorded input directory')
     a = p.parse_args()
+    input_maps = parse_input_maps(a.input_map)
+    if input_maps and a.phase != 'rt':
+        p.error('--input-map applies only to the RT phase')
     if a.jobs < 1 or a.jobs > 45:
         p.error('--jobs must be between 1 and 45')
     if a.execute and a.phase=='quick':
@@ -81,6 +86,8 @@ def main():
                   standard=str(standard.resolve()), phase=a.phase,
                   preparer_sha256=digest(repo/('code/prepare_dmn_revision_checks.py' if a.phase=='quick' else 'code/prepare_dmn_rt_sensitivity.py')),
                   group_renderer_sha256=digest(repo/'code/prepare_dmn_revision_checks.py'))
+    if a.phase == 'rt':
+        config['input_maps'] = [[str(old), str(new)] for old, new in input_maps]
     version_file = Path(os.environ.get('FSLDIR','/usr/local/fsl'))/'etc/fslversion'
     software = dict(python=sys.version, platform=platform.platform(),
                     fsl_version=version_file.read_text().strip() if version_file.is_file() else 'unavailable',
@@ -93,7 +100,7 @@ def main():
         if a.phase=='quick':
             prepare_group(repo, work, standard.resolve())
         else:
-            prepare_rt(repo, a.production_fsl_root.resolve(), a.repaired_fsl_root.resolve(), work, standard.resolve())
+            prepare_rt(repo, a.production_fsl_root.resolve(), a.repaired_fsl_root.resolve(), work, standard.resolve(), input_maps)
         (work/'preparation_config.json').write_text(json.dumps(config, indent=2)+'\n')
     if (work/'software.json').exists() and json.loads((work/'software.json').read_text()) != software:
         raise ValueError('execution software/environment changed; use a new --work-root')
