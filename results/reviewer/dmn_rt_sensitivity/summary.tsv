@@ -1,0 +1,13 @@
+model	contrast	contrast_name	clusters	voxels	minimum_cluster_p	maximum_z	status
+all-trial-rt	1	younger-positive	3	162	6.62e-06	4.64	complete
+all-trial-rt	2	older-positive	0	0			complete
+all-trial-rt	3	younger-minus-older	0	0			complete
+all-trial-rt	4	older-minus-younger	0	0			complete
+all-trial-rt	5	younger-negative	0	0			complete
+all-trial-rt	6	older-negative	0	0			complete
+response-duration	1	younger-positive	4	122	0.00434	4.53	complete
+response-duration	2	older-positive	0	0			complete
+response-duration	3	younger-minus-older	1	25	0.0292	4.33	complete
+response-duration	4	older-minus-younger	0	0			complete
+response-duration	5	younger-negative	0	0			complete
+response-duration	6	older-negative	1	32	0.00848	4.47	complete

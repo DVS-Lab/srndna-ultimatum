@@ -1,0 +1,15 @@
+{
+  "production": "/ZPOOL/data/projects/srndna-ultimatum/derivatives/fsl",
+  "repaired": "/ZPOOL/data/scratch/srndna-ultimatum-sub144-repair-v2/derivatives/fsl",
+  "standard": "/usr/local/fsl/data/standard/MNI152_T1_2mm_brain.nii.gz",
+  "phase": "rt",
+  "preparer_sha256": "8a1e91b10f92cabca69a92eaa6e4cba94619952fa088686d1618da854ac5c58f",
+  "group_renderer_sha256": "ac1619117d607bec7a9507777cc13004f8259aa4345c22cc7c07224b0fae909a",
+  "input_maps": [
+    [
+      "/data/projects/srndna-data/derivatives/fmriprep",
+      "/ZPOOL/data/projects/srndna-ug/derivatives/fmriprep"
+    ]
+  ],
+  "use_feat_input_copies": true
+}

@@ -1,0 +1,3 @@
+stage	model	subject	run	compiled_design_sha256	ncolumns	rank	zero_columns	residual_deficiency	condition_nonzero_columns	focal_checked	passed
+l3	dmn		all-trial-rt	4e038a2844f7d5e0003355481a611d7a341728de3b7ebacfdb6d6244bd2b17be	6	6		0	4.418592157287464	6	1
+l3	dmn		response-duration	4e038a2844f7d5e0003355481a611d7a341728de3b7ebacfdb6d6244bd2b17be	6	6		0	4.418592157287464	6	1

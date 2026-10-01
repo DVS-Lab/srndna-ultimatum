@@ -1,0 +1,17 @@
+{
+  "variants": [
+    "all-trial-rt",
+    "response-duration"
+  ],
+  "primary_unchanged": true,
+  "subjects": 47,
+  "expected_jobs": {
+    "l1": 188,
+    "l2": 94,
+    "l3": 2
+  },
+  "response_time_reference": "BIDS onset/response_time are offer-onset referenced; no +1 second",
+  "duration_interpretation": "Offer-onset to response; does not independently isolate postresponse activity.",
+  "rt_policy": "all substantive responded rows, zero-duration RT impulses; amplitudes 1 and raw response_time",
+  "task_policy": "retained task amplitudes, interaction structure, network signals, confounds, smoothing; only durations change in second variant"
+}

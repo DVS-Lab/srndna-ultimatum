@@ -1,0 +1,45 @@
+{
+  "required_references": 2066,
+  "missing_references": 688,
+  "missing_by_role": {
+    "confoundev_files(1)": 92,
+    "custom1": 92,
+    "custom2": 92,
+    "custom3": 92,
+    "custom4": 92,
+    "custom5": 92,
+    "custom6": 92,
+    "custom7": 44
+  },
+  "candidate_bold_counts": {
+    "/ZPOOL/data/projects/srndna-data/derivatives/fmriprep": 0,
+    "/ZPOOL/data/projects/srndna-ug/derivatives/fmriprep": 94,
+    "/ZPOOL/data/datasets/ds003745-work/derivatives/fmriprep": 94
+  },
+  "derivative_metadata": {
+    "/ZPOOL/data/projects/srndna-ug/derivatives/fmriprep": {
+      "GeneratedBy": [
+        {
+          "Name": "fMRIPrep",
+          "Version": "21.0.2",
+          "CodeURL": "https://github.com/nipreps/fmriprep/archive/21.0.2.tar.gz"
+        }
+      ],
+      "Name": "fMRIPrep - fMRI PREProcessing workflow",
+      "BIDSVersion": "1.4.0"
+    },
+    "/ZPOOL/data/datasets/ds003745-work/derivatives/fmriprep": {
+      "GeneratedBy": [
+        {
+          "Name": "fMRIPrep",
+          "Version": "21.0.2",
+          "CodeURL": "https://github.com/nipreps/fmriprep/archive/21.0.2.tar.gz"
+        }
+      ],
+      "Name": "fMRIPrep - fMRI PREProcessing workflow",
+      "BIDSVersion": "1.4.0"
+    }
+  },
+  "hashes_computed": false,
+  "warning": "Candidate availability/version agreement alone does not prove equality to the historical input. No candidate is automatically selected."
+}
