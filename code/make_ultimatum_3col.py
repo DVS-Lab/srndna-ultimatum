@@ -133,8 +133,8 @@ def parse_args(argv: Sequence[str] | None = None) -> argparse.Namespace:
     parser.add_argument(
         "--rt-source",
         choices=("companion", "substantive"),
-        default="companion",
-        help="use explicit event_RT rows or derive RT EVs from responded decision rows",
+        default="substantive",
+        help="default: all responded decision rows; companion is historical reproduction ONLY",
     )
     return parser.parse_args(argv)
 

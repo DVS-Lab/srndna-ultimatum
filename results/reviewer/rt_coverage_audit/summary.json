@@ -1,0 +1,24 @@
+{
+  "method": "Exact SHA-256 reconstruction of exported baseline RT input fingerprints",
+  "participants": 47,
+  "runs": 94,
+  "rt_files": 188,
+  "exact_matches": 188,
+  "unknown_files": 0,
+  "byte_identical_baseline_designs": 94,
+  "source_scope": "92 retained production runs plus 2 repaired sub-144 runs; not original sub-144",
+  "responded_trials": 6654,
+  "matched_rt_rows": 5868,
+  "responded_block_first": 804,
+  "block_first_included": 18,
+  "block_first_excluded": 786,
+  "inclusion_by_subject": {
+    "sub-143": 18
+  },
+  "evidence_sha256": {
+    "results/reviewer/dmn_rt_sensitivity/input_provenance.json": "8627e8e21c27ebeaeb1c37f6f70761feb4f4adef1b4bd90f7802dc271e009982",
+    "results/reviewer/dmn_rt_sensitivity/baseline_preflight.tsv": "133d39db593c49c3a01596a2cdbd2f0207a154097dac15393625414866701c2d",
+    "results/reviewer/dmn_rt_sensitivity/rt_construction.tsv": "3de063d077fd7b35f454299ed4ce664b74c5a1b44cebb0f65191ee16e25a861d",
+    "results/reviewer/dmn_rt_input_audit_recovered/inputs.tsv": "edc103bb506d8c304dce088b360ef6e4ef841f2a298d3a79b04803138bc5f542"
+  }
+}

@@ -163,8 +163,8 @@ def input_inventory(repo, production, repaired, standard, input_maps=(), use_fea
 def render_l1(text, output, evdir, events, variant, standard, input_maps=(), resolutions=None, source_fsf=None):
     if variant not in VARIANTS:
         raise ValueError(variant)
-    if (fsf_value(text, 'evs_orig'), fsf_value(text, 'evs_real')) != ('28', '28'):
-        raise ValueError('expected original 28-EV DMN design without expanded derivatives')
+    if (fsf_value(text, 'evs_orig'), fsf_value(text, 'evs_real')) not in (('28', '28'), ('9', '9')):
+        raise ValueError('expected retained 28-EV nPPI or 9-EV activation design without expanded derivatives')
     if fsf_value(text, 'evtitle8') != 'rt' or fsf_value(text, 'evtitle9') != 'rt_p':
         raise ValueError('unexpected RT EV ordering')
     rows = decisions(events)

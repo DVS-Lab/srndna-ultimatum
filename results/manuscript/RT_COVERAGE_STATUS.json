@@ -1,0 +1,19 @@
+{
+  "date": "2026-10-01",
+  "publication_ready": false,
+  "reason": "Dedicated RT inputs omitted 786 responded block-first trials in the prior corrected baseline.",
+  "superseded_as_primary": [
+    "Historical corrected ACC age-difference claim and Figure 4",
+    "Figure 4 cluster extracts, bar estimates and selected-ROI influence diagnostics",
+    "Earlier imaging entries in final_result_set.tsv pending replacement after complete rerun"
+  ],
+  "completed_all_trial_dmn_result": "No significant age-difference clusters; see results/reviewer/dmn_rt_sensitivity/all-trial-rt.",
+  "new_batch": "code/run_full_rt_correction.py",
+  "new_results_destination": "results/reviewer/rt_coverage_corrected",
+  "new_batch_status": "prepared_and_locally_tested_not_executed_on_Linux1",
+  "unaffected_by_this_omission": [
+    "Behavioral analyses",
+    "Task-wide fairness-main activation pipeline and its social/computer follow-ups already using all responded RTs"
+  ],
+  "next_gate": "Inspect complete corrected outputs; revise figures, result contracts, manuscript and responses before publication."
+}

@@ -1,0 +1,96 @@
+RT COVERAGE CORRECTION — 1 October 2026
+
+REPOSITORY OF RECORD: DVS-Lab/srndna-ultimatum, main.
+This supersedes earlier recommendations to retain the incomplete-RT result as
+primary. Do not describe the coverage repair as an optional duration experiment.
+
+EVIDENCE
+Exact SHA-256 reconstructions matched all 188 baseline RT inputs. Ninety retained
+production runs omit block-first responses; sub-143's two runs include all
+responses. The two repaired sub-144 runs also omit block-first responses.
+Across that baseline: 6,654 responded trials, 5,868 RT rows, 786 omitted
+block-first RT events. Raw RT values and substantive task trials were not lost.
+See results/reviewer/rt_coverage_audit. Original pre-repair sub-144 inputs are
+not characterized by that audit. The old source-row count of 930 omissions is
+NOT a count of omissions in the fitted baseline.
+
+SCOPE
+Fresh scratch-only rerun: 282 L1 models (activation/DMN/ECN x 94 runs), 141 L2
+models, and five L3 models. Main L3 models preserve their original contrasts
+and corrected behavioral covariates: DMN age (4), ECN sensitivity (8), activation
+norm (8). Two additional DMN models use six simple/age contrasts each, without
+and with FLAME outlier deweighting. Total: 32 contrasts, all collected, nulls
+included. Additional contrasts are not one multiplicity-corrected family.
+
+Preserve task epoch durations, offer amplitudes, network signals, confounds,
+smoothing, and corrected group covariates. Replace only both dedicated RT EVs
+with all responded substantive trials: zero-duration at offer onset, height 1
+or raw response_time. Their RT-network interactions change accordingly.
+No added second, response-duration substitution, or participant exclusion.
+
+Already-correct task-wide fairness-main and social/computer activation models
+use all-trial RT and are not rerun. Behavioral analyses and Scientific Data LSS
+outputs are not affected by this dedicated-regressor omission. This workflow
+does not edit OpenNeuro or the separate data-paper repository.
+
+LINUX1 COMMANDS
+Use a persistent tmux session. Do not change interactive shell pipefail/errexit.
+
+tmux new-session -A -s ug-rt-correction
+cd /ZPOOL/data/projects/srndna-ultimatum
+git pull --ff-only
+conda activate srndna-ultimatum
+
+Dry run:
+
+python3 code/run_full_rt_correction.py --jobs 40 \
+  --input-map /data/projects/srndna-data/derivatives/fmriprep=/ZPOOL/data/projects/srndna-ug/derivatives/fmriprep
+
+Only after DRY RUN COMPLETE, execute:
+
+python3 code/run_full_rt_correction.py --jobs 40 \
+  --input-map /data/projects/srndna-data/derivatives/fmriprep=/ZPOOL/data/projects/srndna-ug/derivatives/fmriprep \
+  --execute
+
+Defaults:
+  production: /ZPOOL/data/projects/srndna-ultimatum/derivatives/fsl
+  sub-144 baseline: /ZPOOL/data/scratch/srndna-ultimatum-sub144-repair-v2/derivatives/fsl
+  NEW scratch: /ZPOOL/data/scratch/srndna-ultimatum-rt-correction-v1
+  standard: $FSLDIR/data/standard/MNI152_T1_2mm_brain.nii.gz
+
+The existing sub144-repair-v2 tree is INPUT ONLY. Do not regenerate it using
+the newly updated sub144 preparer. New preparations use complete RT coverage.
+Existing source/network copies are recovered from the exact run's FEAT tree
+only if recorded/mapped paths are unavailable. Original baseline design matrices
+must be reproduced before new L1 jobs launch. No alternate preprocessing guessed.
+
+L1 concurrency: 40; L2/L3 concurrency: 2; numerical-library threads: 1/job.
+The runner performs all stages and collects compact outputs automatically.
+No full FEAT tree is committed. Incomplete existing outputs are never overwritten.
+After interruption, repeat the same --execute command. Changed code/configuration
+or input provenance requires investigation and a new work root, not forced reuse.
+L2/L3 checks run after upstream inputs exist. A dry run does not certify fits.
+
+Progress (separate terminal):
+tail -n 30 /ZPOOL/data/scratch/srndna-ultimatum-rt-correction-v1/logs/l1.log
+
+After COMPLETE:
+git status --short
+git add results/reviewer/rt_coverage_corrected
+git commit -m "analysis: collect full RT-coverage-corrected imaging results"
+git push origin main
+
+PUBLICATION STATUS
+The previous all-trial DMN run already yielded no significant age-difference
+clusters. The fresh main DMN fit uses the original four-contrast definition;
+the six-contrast simple-effect fit is collected separately. Inspect results
+rather than assume exact identity across stochastic FLAME 1+2 runs/masks.
+Do not promote younger-significant/older-nonsignificant into an age difference.
+
+Historical ACC Figure 4, cluster extracts, ROI influence diagnostics, and
+manuscript tables remain as audit evidence only. The figure builder refuses to
+relabel these as current by default. After server results return: verify every
+contrast, replace result/figure source contracts, rebuild appropriate figures,
+rewrite the imaging Results and analytical reviewer responses, and update the
+response DOCX. No manuscript changes or new FSL fits have occurred on the Mac.
+No publication tag until this integration and the separate OpenNeuro verification.

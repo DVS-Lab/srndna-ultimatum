@@ -194,7 +194,11 @@ def build_figure3(source_root: Path, figure_root: Path) -> None:
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--repository", type=Path, default=REPO_ROOT)
+    parser.add_argument("--historical-incomplete-rt", action="store_true",
+                        help="explicitly reproduce historical figures; NOT publication results")
     args = parser.parse_args()
+    if not args.historical_incomplete_rt:
+        parser.error("Publication figures blocked: historical Figure 4 uses incomplete RT coverage. See docs/RT_COVERAGE_CORRECTION.txt; integrate new results first.")
     repository = args.repository.resolve()
     source_root = repository / SOURCE_ROOT
     figure_root = repository / FIGURE_ROOT
@@ -209,7 +213,7 @@ def main() -> int:
     shutil.copyfile(behavior_source, figure_root / "figure2_corrected_acceptance.png")
     build_figure3(source_root, figure_root)
     build_figure4(repository, source_root, figure_root)
-    print(f"PASS: wrote four final manuscript figures to {figure_root}")
+    print(f"HISTORICAL ONLY: reproduced four figures with superseded incomplete-RT Figure 4 in {figure_root}")
     return 0
 
 

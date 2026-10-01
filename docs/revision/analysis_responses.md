@@ -1,5 +1,13 @@
 # Responses to analytical and results concerns
 
+UPDATE 1 OCTOBER 2026 — SUPERSEDED PRIMARY RT COVERAGE: the historical ACC
+age result/figure below is not current publication evidence. Exact input hashes
+confirm 786 omitted block-first RT events in the corrected baseline. The
+completed all-trial RT DMN analysis has no significant age-difference clusters.
+See docs/RT_COVERAGE_CORRECTION.txt (repository root) for the new complete-RT
+activation/DMN/ECN batch and publication gates. Content below records earlier
+work; do not submit its unupdated imaging claims or associated response DOCX.
+
 First author review pass — 30 September 2026
 
 These responses address the analytical and results concerns in the original reviews. The concern summaries below are paraphrases, not quotations or original comment numbers. Each response is followed by specific proposed manuscript text; none of these passages has yet been inserted into the manuscript. Broader framing, literature, acquisition-description, and editorial comments are reserved for a later pass.

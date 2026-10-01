@@ -11,14 +11,18 @@ are not duplicated in Git.
 
 ## Reproducible entry points
 
-The remaining DMN reviewer checks now have one guarded Linux1 entry point:
-`python3 code/run_revision_completion.py --phase quick` (dry run), followed
-by the same command with `--execute`. The separate `--phase rt` batch prepares
-the all-trial RT and response-duration sensitivities. See
-[`docs/FINAL_REVIEW_RUNBOOK.txt`](docs/FINAL_REVIEW_RUNBOOK.txt) for exact commands,
-resource limits, output collection, and the remaining publication gates.
-The new models have not yet been fitted on Linux1; software validation and
-local selected-ROI diagnostics must not be mistaken for those results.
+**1 October 2026: publication hold for confirmed incomplete RT coverage.**
+The earlier ACC age-difference figure/result is superseded as primary evidence.
+The completed all-trial-RT DMN analysis has no cluster-corrected age differences.
+The original full-display duration/RT-height strategy is retained; omitted
+block-first RT events must be included for all model families.
+
+Use `python3 code/run_full_rt_correction.py` (dry run) and then `--execute`
+on Linux1. See [the current runbook](docs/RT_COVERAGE_CORRECTION.txt) for exact
+paths and commands. This fresh batch includes activation, DMN, ECN, and DMN
+simple-effect/outlier-deweighting follow-ups. It preserves historical outputs.
+The older `FINAL_REVIEW_RUNBOOK.txt` records the historical workflow, not the
+current publication endpoint. Full correction remains pending server execution.
 
 Run from the repository root:
 

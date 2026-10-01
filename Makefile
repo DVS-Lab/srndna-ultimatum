@@ -1,4 +1,9 @@
-.PHONY: test reviewer-behavior reviewer-ratings-choice reviewer-imaging-audit manuscript-figures
+.PHONY: test reviewer-behavior reviewer-ratings-choice reviewer-imaging-audit manuscript-figures reviewer-full-rt-correction
+
+# Dry run only; execute explicitly using docs/RT_COVERAGE_CORRECTION.txt.
+reviewer-full-rt-correction:
+	python3 code/run_full_rt_correction.py --jobs 40 \
+		--input-map /data/projects/srndna-data/derivatives/fmriprep=/ZPOOL/data/projects/srndna-ug/derivatives/fmriprep
 
 test:
 	bash code/validate_workflow.sh

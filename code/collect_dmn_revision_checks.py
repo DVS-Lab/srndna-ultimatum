@@ -15,13 +15,16 @@ from pathlib import Path
 
 from audit_l1_designs import write_tsv
 from prepare_dmn_revision_checks import CONTRASTS, digest
+from prepare_sub144_imaging_repair import fsf_value
 
 
-def collect(manifest, destination):
+def collect(manifest, destination, expected_jobs=2):
     with manifest.open() as stream:
         jobs = [r for r in csv.DictReader(stream, delimiter='\t') if r['stage']=='l3']
-    if len(jobs) != 2:
-        raise ValueError('expected two L3 jobs in this sensitivity batch')
+    if len(jobs) != expected_jobs:
+        raise ValueError(f'expected {expected_jobs} L3 jobs in this batch')
+    if len({r['run'] for r in jobs}) != len(jobs):
+        raise ValueError('collection names must be unique')
     sources, summary = [], []
     for row in jobs:
         name, output = row['run'], Path(row['output'])
@@ -32,7 +35,11 @@ def collect(manifest, destination):
             sources.append((output/file, Path(name)/'design'/file))
         for file in ('mask.nii.gz', 'stats/smoothness'):
             sources.append((feat/file, Path(name)/'poststats'/Path(file).name))
-        for i, (contrast, _) in enumerate(CONTRASTS, 1):
+        contrasts = ([fsf_value(Path(row['fsf']).read_text(), f'conname_real.{i}')
+                      for i in range(1,int(row['expected_zstats'])+1)]
+                     if row.get('group_contract') == 'locked-source'
+                     else [name for name, _ in CONTRASTS])
+        for i, contrast in enumerate(contrasts, 1):
             table = feat / f'cluster_zstat{i}_std.txt'
             if not table.is_file():
                 raise FileNotFoundError(f'missing cluster table; not a null result: {table}')
@@ -76,7 +83,7 @@ def collect(manifest, destination):
                 raise FileExistsError(f'collection differs; inspect and use a new output root: {destination}')
         else:
             shutil.copytree(staging, destination)
-    print(f'PASS: collected all 12 planned contrasts, including nulls: {destination}')
+    print(f'PASS: collected all {len(summary)} planned contrasts, including nulls: {destination}')
 
 
 def main():

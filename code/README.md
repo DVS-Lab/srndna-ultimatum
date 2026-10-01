@@ -1,5 +1,12 @@
 # Analysis code
 
+Current imaging entry point (1 October 2026): `run_full_rt_correction.py`.
+See `docs/RT_COVERAGE_CORRECTION.txt` for the Linux1 full-coverage RT repair.
+Earlier incomplete-RT ACC results and figures are historical, not publication
+evidence. `make_ultimatum_3col.py` now defaults to substantive responded rows;
+`--rt-source companion` is reserved for explicit historical reproduction.
+The full batch changes RT coverage, not task duration or the scientific contrasts.
+
 ## Active revision entry points
 
 - `validate_workflow.sh`: syntax, unit, contract, and path-portability checks.

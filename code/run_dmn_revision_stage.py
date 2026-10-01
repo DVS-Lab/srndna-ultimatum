@@ -20,6 +20,7 @@ from audit_l1_designs import read_vest_matrix, write_tsv
 from audit_l1_estimability import diagnostics
 from prepare_dmn_revision_checks import CONTRASTS, digest, group_design
 from prepare_sub144_imaging_repair import fsf_value
+from prepare_ultimatum_l3_repair import parse_evs
 from run_ultimatum_repair_jobs import run_jobs
 
 
@@ -67,13 +68,13 @@ def validate_baselines(rows, manifest):
         reference = read_vest_matrix(source)
         compiled = read_vest_matrix(fsf.with_suffix('.mat'))
         passed, maximum = baseline_agreement(reference, compiled)
-        results.append(dict(subject=row['subject'],run=row['run'],baseline_fsf=str(fsf),
+        results.append(dict(model=row.get('model',''),subject=row['subject'],run=row['run'],baseline_fsf=str(fsf),
                             source_design=str(source),source_design_sha256=digest(source),
                             compiled_sha256=digest(fsf.with_suffix('.mat')),reference_rows=reference.shape[0],
                             reference_columns=reference.shape[1],compiled_rows=compiled.shape[0],
                             compiled_columns=compiled.shape[1],maximum_abs_difference=maximum,
                             atol=1e-5,rtol=1e-6,passed=int(passed)))
-        print(f"{'PASS' if passed else 'REVIEW'}: retained-input baseline {row['subject']} run-{row['run']}",flush=True)
+        print(f"{'PASS' if passed else 'REVIEW'}: retained-input baseline {row.get('model','')} {row['subject']} run-{row['run']}",flush=True)
     write_tsv(manifest.parent/'baseline_preflight.tsv',results)
     if not all(row['passed'] for row in results):
         raise ValueError('recovered inputs do not reproduce every retained design within tolerance; NO sensitivity fits launched; inspect baseline_preflight.tsv')
@@ -109,14 +110,25 @@ def compile_designs(manifest, stage):
             raise RuntimeError(f'feat_model failed for {fsf}: {result.stdout}\n{result.stderr}')
         matrix = read_vest_matrix(fsf.with_suffix('.mat'))
         con = read_vest_matrix(fsf.with_suffix('.con'))
-        if stage == 'l1' and con.shape[1] == 28 and matrix.shape[1] > 28:
-            con = np.pad(con, ((0, 0), (0, matrix.shape[1]-28)))
+        task_columns = int(row.get('n_evs') or 28)
+        if stage == 'l1' and con.shape[1] == task_columns and matrix.shape[1] > task_columns:
+            con = np.pad(con, ((0, 0), (0, matrix.shape[1]-task_columns)))
         metrics, checks = diagnostics(matrix, con)
         relevant = checks if stage != 'l1' else [r for r in checks if r['contrast'] in (4, 6, 7)]
         if stage == 'l3':
-            if not np.allclose(matrix, group_design(text), atol=1e-5, rtol=0):
+            if row.get('group_contract') == 'locked-source':
+                n = int(fsf_value(text, 'evs_real'))
+                evs = parse_evs(text.splitlines())
+                expected_matrix = np.array([[evs[(r,c)] for c in range(1,n+1)] for r in range(1,48)])
+                expected_con = np.array([[float(fsf_value(text, f'con_real{i}.{j}'))
+                                         for j in range(1,n+1)]
+                                        for i in range(1,int(row['expected_zstats'])+1)])
+            else:
+                expected_matrix = group_design(text)
+                expected_con = np.array([v for _, v in CONTRASTS])
+            if matrix.shape != expected_matrix.shape or not np.allclose(matrix, expected_matrix, atol=1e-5, rtol=0):
                 raise ValueError('compiled group matrix differs from corrected FSF')
-            if not np.array_equal(con, np.array([v for _, v in CONTRASTS])):
+            if not np.array_equal(con, expected_con):
                 raise ValueError('compiled group contrasts differ from the locked plan')
         expected = 3 if stage == 'l1' else int(row['expected_zstats']) if stage == 'l3' else len(checks)
         passed = len(relevant) == expected and all(r['estimable'] and r['sensitivity_estimable'] for r in relevant)

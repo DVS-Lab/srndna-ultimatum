@@ -302,10 +302,10 @@ def prepare(
         if not events.is_file():
             raise FileNotFoundError(events)
         ev_prefix = ev_dir / f"run-{run}"
-        counts = generate(events, ev_prefix, "companion")
-        if counts["event_RT"] != 63:
+        counts = generate(events, ev_prefix, "substantive")
+        if counts["event_RT"] != 72:
             raise ValueError(
-                f"expected 63 companion RT rows for corrected {subject} run-{run}, "
+                f"expected 72 all-responded RT rows for corrected {subject} run-{run}, "
                 f"found {counts['event_RT']}"
             )
 
@@ -365,7 +365,7 @@ def prepare(
                     "candidate_bold_sha256": sha256(bold),
                     "confound_sha256": sha256(confound),
                     "fmriprep_version": preprocessing_version,
-                    "rt_policy": "companion_event_RT",
+                    "rt_policy": "all_responded_trials",
                 }
             )
 
@@ -398,7 +398,7 @@ def prepare(
                 "candidate_bold_sha256": "",
                 "confound_sha256": "",
                 "fmriprep_version": preprocessing_version,
-                "rt_policy": "companion_event_RT",
+                "rt_policy": "all_responded_trials",
             }
         )
 
