@@ -140,7 +140,7 @@ def main():
     args.output.mkdir(parents=True)
     for name, rows in [('retained_rt_matches.tsv', evidence), ('block_first_trials.tsv', trials)]:
         with (args.output/name).open('w', newline='') as stream:
-            writer = csv.DictWriter(stream, fieldnames=list(rows[0]), delimiter='\t')
+            writer = csv.DictWriter(stream, fieldnames=list(rows[0]), delimiter='\t', lineterminator='\n')
             writer.writeheader()
             writer.writerows(rows)
     (args.output/'summary.json').write_text(json.dumps(summary, indent=2)+'\n')
@@ -150,4 +150,3 @@ def main():
 
 if __name__ == '__main__':
     raise SystemExit(main())
-
