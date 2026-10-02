@@ -1,0 +1,4 @@
+# Regenerable trial-level predictions and interruption-recovery checkpoints.
+*/checkpoints/
+*/trial_predictions.tsv
+*/trial_history.tsv
