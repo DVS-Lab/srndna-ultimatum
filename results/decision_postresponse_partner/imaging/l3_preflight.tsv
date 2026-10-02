@@ -1,0 +1,6 @@
+stage	model	subject	run	compiled_design_sha256	ncolumns	rank	zero_columns	residual_deficiency	condition_nonzero_columns	focal_checked	passed
+l3	act		activation-norm	0ca4e94048ae5f38d3124363bc7d51d8208fe5b8522b0f8ea87a80b16af5bfca	8	8		0	4.510604471766942	8	1
+l3	nppi-dmn		dmn-age	4e038a2844f7d5e0003355481a611d7a341728de3b7ebacfdb6d6244bd2b17be	6	6		0	4.418592157287464	4	1
+l3	nppi-ecn		ecn-sensitivity	db35e3cce6a54a4e6e0769521fab780ae3eba0d7d8b034a22710d5634ad60b1f	8	8		0	4.488242093674356	8	1
+l3	dmn		dmn-simple-effects	4e038a2844f7d5e0003355481a611d7a341728de3b7ebacfdb6d6244bd2b17be	6	6		0	4.418592157287464	6	1
+l3	dmn		dmn-outlier-deweighted	4e038a2844f7d5e0003355481a611d7a341728de3b7ebacfdb6d6244bd2b17be	6	6		0	4.418592157287464	6	1

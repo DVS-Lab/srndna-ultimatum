@@ -1,0 +1,33 @@
+model	contrast	contrast_name	clusters	voxels	minimum_cluster_p	maximum_z	status
+activation-norm	1	O-Y_InOut	3	205	4.77e-07	4.58	complete
+activation-norm	2	Y-O_InOut	0	0			complete
+activation-norm	3	Y-O	0	0			complete
+activation-norm	4	O-Y	0	0			complete
+activation-norm	5	Y_InOut_pos	0	0			complete
+activation-norm	6	Y_InOut_neg	1	46	0.00384	4.02	complete
+activation-norm	7	O_inOut_pos	0	0			complete
+activation-norm	8	O_inOut_neg	0	0			complete
+dmn-age	1	younger	5	249	7.51e-06	4.56	complete
+dmn-age	2	older	0	0			complete
+dmn-age	3	younger-older	2	97	0.000456	4.04	complete
+dmn-age	4	older-younger	0	0			complete
+ecn-sensitivity	1	O-Y_InOut	1	24	0.0216	3.92	complete
+ecn-sensitivity	2	Y-O_InOut	0	0			complete
+ecn-sensitivity	3	Y-O	0	0			complete
+ecn-sensitivity	4	O-Y	0	0			complete
+ecn-sensitivity	5	Y_InOut_pos	0	0			complete
+ecn-sensitivity	6	Y_InOut_neg	0	0			complete
+ecn-sensitivity	7	O_inOut_pos	1	21	0.0402	3.69	complete
+ecn-sensitivity	8	O_inOut_neg	0	0			complete
+dmn-simple-effects	1	younger-positive	5	249	7.51e-06	4.56	complete
+dmn-simple-effects	2	older-positive	0	0			complete
+dmn-simple-effects	3	younger-minus-older	2	97	0.000456	4.04	complete
+dmn-simple-effects	4	older-minus-younger	0	0			complete
+dmn-simple-effects	5	younger-negative	0	0			complete
+dmn-simple-effects	6	older-negative	0	0			complete
+dmn-outlier-deweighted	1	younger-positive	5	242	1.06e-05	4.64	complete
+dmn-outlier-deweighted	2	older-positive	0	0			complete
+dmn-outlier-deweighted	3	younger-minus-older	2	80	0.000516	4.04	complete
+dmn-outlier-deweighted	4	older-minus-younger	0	0			complete
+dmn-outlier-deweighted	5	younger-negative	0	0			complete
+dmn-outlier-deweighted	6	older-negative	0	0			complete
