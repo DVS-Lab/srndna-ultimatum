@@ -52,6 +52,23 @@ event-corrected task-wide mean RT.
 All generated FEAT outputs are written to a user-specified scratch directory.
 Historical production results are never overwritten.
 
+## Decision/post-response model
+
+`L1_task-ultimatum_model-decision-postresponse_type-act.fsf` and the corresponding
+`type-nppi.fsf` are explicit reference templates for a separate temporal model.
+The activation template has eight EVs: three decision/offer pairs, missed trials,
+and one pooled post-response epoch. The nPPI template has 26 EVs, including the
+main network, all eight psychological interactions, and the nine original
+network nuisance series. There are no post-response partner, offer, or choice
+subdivisions. Contrast numbers remain unchanged.
+
+`code/decision_postresponse_model.py` generates these reference templates and
+applies the same structural transformation to retained run-specific FSFs.
+`PHASE_EVDIR` identifies the newly generated three-column files; it is not a
+replacement for the runner's input checks. Use `code/run_decision_postresponse.py`
+to preserve each run's original processing settings and inputs, not `feat`
+directly on these placeholder templates. See [the model runbook](../../docs/decision_postresponse.md).
+
 ## Final reviewer sensitivity models
 
 `L3_task-ultimatum_type-nppi-dmn_age_simple-effects.fsf` and

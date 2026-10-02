@@ -24,6 +24,12 @@ simple-effect/outlier-deweighting follow-ups. It preserves historical outputs.
 The older `FINAL_REVIEW_RUNBOOK.txt` records the historical workflow, not the
 current publication endpoint. Full correction remains pending server execution.
 
+The separate [decision/post-response model](docs/decision_postresponse.md)
+uses pre-response decision epochs and one pooled post-response nuisance epoch.
+`python3 code/run_decision_postresponse.py` prepares and audits its designs
+without fitting images. The visible L1 templates are under `templates/revision/`;
+historical models and results are not replaced.
+
 Run from the repository root:
 
 ```bash
