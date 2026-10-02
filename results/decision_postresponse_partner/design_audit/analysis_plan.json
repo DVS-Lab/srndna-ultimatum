@@ -1,0 +1,17 @@
+{
+  "model": "decision-postresponse-partner",
+  "post_model": "partner",
+  "expected_jobs": {
+    "l1": 282,
+    "l2": 141,
+    "l3": 5
+  },
+  "subjects": 47,
+  "decision": "offer onset to response; original offer amplitudes and orthogonalization",
+  "post_response": "response to recorded display offset; three partner-specific unit-height EVs",
+  "nppi": "all ten psychological EVs interacted with the retained main network signal",
+  "removed": "dedicated RT onset/height pair and their two PPI interactions",
+  "preserved": "sample, contrasts, miss EV, network signals, confounds, smoothing, corrected group covariates",
+  "interpretation": "changed estimand; post partner means separated, but post offer and choice effects are not separately modeled",
+  "historical_outputs": "preserved; all new derivatives are scratch-only"
+}

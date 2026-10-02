@@ -1,0 +1,12 @@
+{
+  "post_model": "partner",
+  "basis": "compiled FEAT, including original orthogonalization and all confounds",
+  "interpretation": "IID conditional-basis variance ratios; not original-stimulus cVIF or FILM precision",
+  "decision": "review correlations, contrast variance and rank checks before explicitly authorizing fitting",
+  "limitations": [
+    "Adjacent phases may be difficult to separate after HRF convolution.",
+    "Partner-specific post means do not separately model offer or choice post effects.",
+    "Statistical estimability does not establish physiological specificity.",
+    "Decision and full-display contrasts have different temporal definitions."
+  ]
+}
