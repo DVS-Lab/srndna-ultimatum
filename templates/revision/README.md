@@ -62,12 +62,26 @@ main network, all eight psychological interactions, and the nine original
 network nuisance series. There are no post-response partner, offer, or choice
 subdivisions. Contrast numbers remain unchanged.
 
+The separate `L1_task-ultimatum_model-decision-postresponse-partner_type-act.fsf`
+and `type-nppi.fsf` templates add three partner-specific post-response means
+instead of the pooled mean. They contain 10 activation and 30 nPPI EVs before
+confounds. Psychological EVs 1–6 remain decision/offer pairs; EV 7 is missed
+trials and EVs 8–10 are computer, similar and dissimilar post-response epochs.
+nPPI EV 11 is the main network, EVs 12–21 its ten psychological interactions,
+and EVs 22–30 the nine retained nuisance network series. Existing contrast
+numbers are preserved; COPE 7 is EV 4 minus EV 6 for activation and EV 15 minus
+EV 17 for nPPI. No post-response offer or choice regressors are added. These
+templates do not modify or replace the pooled templates or completed outputs.
+
 `code/decision_postresponse_model.py` generates these reference templates and
 applies the same structural transformation to retained run-specific FSFs.
 `PHASE_EVDIR` identifies the newly generated three-column files; it is not a
 replacement for the runner's input checks. Use `code/run_decision_postresponse.py`
 to preserve each run's original processing settings and inputs, not `feat`
 directly on these placeholder templates. See [the model runbook](../../docs/decision_postresponse.md).
+Select `--post-model partner` to prepare the new specification. Its default
+scratch and report roots are separate from the pooled model; fitting still
+requires a completed design audit and explicit opt-in.
 
 ## Final reviewer sensitivity models
 

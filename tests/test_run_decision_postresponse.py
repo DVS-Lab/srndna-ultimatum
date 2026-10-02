@@ -68,7 +68,7 @@ class DecisionPostresponseRunnerTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as temp:
             base = Path(temp).resolve()
             work, output = base/'work', base/'reports'
-            def prepare(*args):
+            def prepare(*args, **kwargs):
                 work.mkdir()
                 (work/'revision_jobs.tsv').write_text('stage\tl1\n')
             flags = ['--work-root', str(work), '--output-root', str(output), '--jobs', '40']
@@ -82,7 +82,7 @@ class DecisionPostresponseRunnerTests(unittest.TestCase):
                 self.assertEqual(runner.main(flags), 0)
                 prep.assert_called_once()
                 compile_designs.assert_called_once_with(work/'revision_jobs.tsv', 'l1')
-                audit.assert_called_once_with(work/'revision_jobs.tsv', output/'design_audit')
+                audit.assert_called_once_with(work/'revision_jobs.tsv', output/'design_audit', post_model='pooled')
                 jobs.assert_called_once_with(work/'revision_jobs.tsv', 'l1', 40,
                                              resume=True, dry_run=True)
                 verify.assert_not_called()
@@ -96,6 +96,71 @@ class DecisionPostresponseRunnerTests(unittest.TestCase):
                 self.assertEqual(verify.call_count, 3)
                 collect.assert_called_once_with(work/'revision_jobs.tsv', output/'imaging', expected_jobs=5)
                 self.assertEqual(prep.call_count, 1)
+
+    def test_partner_defaults_route_to_separate_roots_and_record_mode(self):
+        with tempfile.TemporaryDirectory() as temp:
+            base = Path(temp).resolve()
+            work = base/'partner-work'
+            def prepare(*args, **kwargs):
+                self.assertEqual(args[3], work)
+                self.assertEqual(kwargs, {'post_model': 'partner'})
+                work.mkdir()
+                (work/'revision_jobs.tsv').write_text('stage\tl1\n')
+            with patch.dict(runner.WORK_ROOTS, {'partner':work}), \
+                    patch.object(runner, 'prepare', side_effect=prepare) as prep, \
+                    patch.object(runner, 'compile_designs'), \
+                    patch.object(runner, 'audit_compiled') as audit, \
+                    patch.object(runner, 'run_jobs', return_value=0) as jobs, \
+                    patch.object(runner, 'collect') as collect, \
+                    contextlib.redirect_stdout(io.StringIO()):
+                self.assertEqual(runner.main(['--post-model', 'partner']), 0)
+                prep.assert_called_once()
+                audit.assert_called_once_with(work/'revision_jobs.tsv',
+                                              ROOT/'results/decision_postresponse_partner/design_audit',
+                                              post_model='partner')
+                jobs.assert_called_once_with(work/'revision_jobs.tsv', 'l1', 40,
+                                             resume=True, dry_run=True)
+                collect.assert_not_called()
+                config = json.loads((work/'preparation_config.json').read_text())
+                self.assertEqual(config['post_model'], 'partner')
+
+    def test_mode_collisions_and_plan_drift_fail_without_writing(self):
+        with tempfile.TemporaryDirectory() as temp:
+            base = Path(temp).resolve()
+            work, output = base/'work', base/'reports'
+            work.mkdir()
+            config = work/'preparation_config.json'
+            config.write_text('{}\n')  # Legacy configurations are pooled.
+            original = config.read_bytes()
+            with self.assertRaisesRegex(ValueError, 'model mismatch'):
+                runner.validate_mode_roots(ROOT, work, output, 'partner')
+            self.assertEqual(config.read_bytes(), original)
+            config.write_text('{"post_model": "partner"}\n')
+            plan = work/'analysis_plan.json'
+            plan.write_text('{"post_model": "pooled"}\n')
+            with self.assertRaisesRegex(ValueError, 'model mismatch'):
+                runner.validate_mode_roots(ROOT, work, output, 'partner')
+            plan.write_text('{"post_model": "partner"}\n')
+            audit = output/'design_audit'
+            audit.mkdir(parents=True)
+            (audit/'analysis_plan.json').write_text('{"model": "decision-postresponse"}\n')
+            with self.assertRaisesRegex(ValueError, 'model mismatch'):
+                runner.validate_mode_roots(ROOT, work, output, 'partner')
+            with self.assertRaisesRegex(ValueError, 'default roots'):
+                runner.validate_mode_roots(ROOT, runner.WORK_ROOTS['pooled'], base/'fresh', 'partner')
+            with self.assertRaisesRegex(ValueError, 'default roots'):
+                runner.validate_mode_roots(ROOT, base/'fresh', ROOT/'results/decision_postresponse', 'partner')
+            with self.assertRaisesRegex(ValueError, 'default roots'):
+                runner.validate_mode_roots(ROOT, runner.WORK_ROOTS['pooled']/'nested', base/'fresh', 'partner')
+            with self.assertRaisesRegex(ValueError, 'default roots'):
+                runner.validate_mode_roots(ROOT, base/'fresh', ROOT/'results', 'partner')
+            unknown = base/'unidentified-reports'
+            unknown.mkdir()
+            sentinel = unknown/'keep.txt'
+            sentinel.write_text('retained output\n')
+            with self.assertRaisesRegex(ValueError, 'lacks a model identity'):
+                runner.validate_mode_roots(ROOT, work, unknown, 'partner')
+            self.assertEqual(sentinel.read_text(), 'retained output\n')
 
     def test_resume_rejects_configuration_drift_and_output_work_overlap(self):
         with tempfile.TemporaryDirectory() as temp:
@@ -140,6 +205,31 @@ class DecisionPostresponseRunnerTests(unittest.TestCase):
                              {('1','8'), ('3','8'), ('5','8'), ('10','17'), ('12','17'), ('14','17')})
             scope = json.loads((base/'reports/diagnostic_scope.json').read_text())
             self.assertIn('not original-stimulus cVIF', scope['interpretation'])
+
+    def test_partner_audit_uses_remapped_activity_and_ppi_pairs(self):
+        with tempfile.TemporaryDirectory() as temp:
+            base = Path(temp).resolve()
+            manifest = base/'revision_jobs.tsv'
+            manifest.write_text('stage\tmodel\tsubject\trun\tfsf\n'
+                                f'l1\tnppi-dmn\tsub-104\t01\t{base}/input.fsf\n')
+            for name in ('phase_construction.tsv', 'baseline_preflight.tsv', 'l1_preflight.tsv', 'analysis_plan.json'):
+                (base/name).write_text('test fixture\n')
+            matrix = np.random.default_rng(42).normal(size=(100, 30))
+            contrasts = np.zeros((11, 30))
+            contrasts[:, 10] = 1
+            contrasts[6] = 0
+            contrasts[6, [14,16]] = [1,-1]
+            def read(path):
+                return matrix if path.suffix == '.mat' else contrasts
+            with patch.object(runner, 'read_vest_matrix', side_effect=read), \
+                    contextlib.redirect_stdout(io.StringIO()):
+                runner.audit_compiled(manifest, base/'reports', post_model='partner')
+            pairs = read_table(base/'reports/phase_correlations.tsv')
+            self.assertEqual({(r['decision_ev'],r['post_ev']) for r in pairs},
+                             {('1','8'),('3','9'),('5','10'),('12','19'),('14','20'),('16','21')})
+            scope = json.loads((base/'reports/diagnostic_scope.json').read_text())
+            self.assertEqual(scope['post_model'], 'partner')
+            self.assertTrue(any('Partner-specific post means' in note for note in scope['limitations']))
 
     def test_real_templates_prepare_all_jobs_and_leave_source_tree_unchanged(self):
         with tempfile.TemporaryDirectory() as temp:
@@ -215,6 +305,33 @@ class DecisionPostresponseRunnerTests(unittest.TestCase):
                                                                  for p in ('computer','ingroup','outgroup')))
             with self.assertRaises(FileExistsError):
                 runner.prepare(repo, production, repaired, work, standard, ())
+            pooled_before = {p:digest(p) for p in work.rglob('*') if p.is_file()}
+            partner_work = base/'work-partner'
+            runner.prepare(repo, production, repaired, partner_work, standard, (), post_model='partner')
+            partner_jobs = read_table(partner_work/'revision_jobs.tsv')
+            self.assertEqual([sum(r['stage']==stage for r in partner_jobs) for stage in ('l1','l2','l3')],
+                             [282,141,5])
+            self.assertEqual(sum(int(r['expected_zstats']) for r in partner_jobs if r['stage']=='l3'), 32)
+            for row in partner_jobs:
+                text = Path(row['fsf']).read_text()
+                if row['stage']=='l1':
+                    self.assertEqual(int(row['n_evs']), 10 if row['model']=='act' else 30)
+                    for ev in (8,9,10):
+                        self.assertIn('post', fsf_value(text, f'evtitle{ev}'))
+                    self.assertEqual(int(row['expected_copes']), 10 if row['model']=='act' else 11)
+                    self.assertTrue(Path(row['baseline_fsf']).is_file())
+                elif row['stage']=='l3':
+                    source = Path(row['source_fsf']).read_text()
+                    self.assertEqual(parse_evs(text.splitlines()), parse_evs(source.splitlines()))
+                    self.assertEqual(len(parse_inputs(text.splitlines())), 47)
+            plan = json.loads((partner_work/'analysis_plan.json').read_text())
+            self.assertEqual(plan['post_model'], 'partner')
+            self.assertIn('three partner-specific', plan['post_response'])
+            self.assertIn('ten psychological', plan['nppi'])
+            self.assertTrue(all(digest(p)==value for p,value in before.items()))
+            self.assertTrue(all(digest(p)==value for p,value in pooled_before.items()))
+            with self.assertRaises(FileExistsError):
+                runner.prepare(repo, production, repaired, partner_work, standard, (), post_model='partner')
 
 
 if __name__ == '__main__':

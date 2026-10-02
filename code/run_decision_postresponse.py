@@ -26,7 +26,17 @@ from run_full_rt_correction import MODELS, NAMES, group_replacement
 from run_dmn_revision_stage import compile_designs, verify_stage_outputs
 from run_ultimatum_repair_jobs import run_jobs
 
-def prepare(repo, production, repaired, work, standard, maps):
+POST_MODELS = ('pooled', 'partner')
+WORK_ROOTS = {
+    'pooled': Path('/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-v1'),
+    'partner': Path('/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-partner-v1'),
+}
+REPORT_DIRS = {'pooled': 'decision_postresponse', 'partner': 'decision_postresponse_partner'}
+
+
+def prepare(repo, production, repaired, work, standard, maps, post_model='pooled'):
+    if post_model not in POST_MODELS:
+        raise ValueError(f'unknown post-response model: {post_model}')
     if not standard.is_file():
         raise FileNotFoundError(standard)
     records, groups = [], {}
@@ -72,7 +82,7 @@ def prepare(repo, production, repaired, work, standard, maps):
         output = work/'derivatives'/family/subject/f'L1_run-{run_id}'
         fsf = work/'fsf'/f'{name}.fsf'
         text, required, stats = render_l1(source.read_text(),output,work/'EVfiles'/family/subject/run_id,
-                                     read_events(events),standard,maps,resolutions,source)
+                                     read_events(events),standard,maps,resolutions,source,post_model=post_model)
         fsf.parent.mkdir(parents=True,exist_ok=True)
         fsf.write_text(text)
         required += baseline_inputs+[source,events,fsf]
@@ -122,17 +132,26 @@ def prepare(repo, production, repaired, work, standard, maps):
     (work/'input_provenance.json').write_text(json.dumps(provenance,indent=2)+'\n')
     (work/'input_path_resolution.json').write_text(json.dumps(resolutions,indent=2)+'\n')
     (work/'analysis_plan.json').write_text(json.dumps(dict(
-        model='decision-postresponse',expected_jobs=dict(l1=282,l2=141,l3=5),subjects=47,
+        model='decision-postresponse' + ('-partner' if post_model == 'partner' else ''),
+        post_model=post_model,expected_jobs=dict(l1=282,l2=141,l3=5),subjects=47,
         decision='offer onset to response; original offer amplitudes and orthogonalization',
-        post_response='response to recorded display offset; one pooled unit-height EV',
-        nppi='all eight psychological EVs interacted with the retained main network signal',
+        post_response=('response to recorded display offset; three partner-specific unit-height EVs'
+                       if post_model == 'partner' else
+                       'response to recorded display offset; one pooled unit-height EV'),
+        nppi=('all ten psychological EVs interacted with the retained main network signal'
+              if post_model == 'partner' else
+              'all eight psychological EVs interacted with the retained main network signal'),
         removed='dedicated RT onset/height pair and their two PPI interactions',
         preserved='sample, contrasts, miss EV, network signals, confounds, smoothing, corrected group covariates',
-        interpretation='changed estimand; post partner, offer and choice effects are not separately modeled',
+        interpretation=('changed estimand; post partner means separated, but post offer and choice effects are not separately modeled'
+                        if post_model == 'partner' else
+                        'changed estimand; post partner, offer and choice effects are not separately modeled'),
         historical_outputs='preserved; all new derivatives are scratch-only'),indent=2)+'\n')
 
-def audit_compiled(manifest, destination):
+def audit_compiled(manifest, destination, post_model='pooled'):
     """Supplementary IID diagnostics in the actual orthogonalized FEAT basis."""
+    if post_model not in POST_MODELS:
+        raise ValueError(f'unknown post-response model: {post_model}')
     with manifest.open() as stream:
         jobs = [r for r in csv.DictReader(stream, delimiter='\t') if r['stage']=='l1']
     contrasts, pairs = [], []
@@ -146,10 +165,12 @@ def audit_compiled(manifest, destination):
             contrasts.append(dict(**identity,contrast=result['contrast'],estimable=int(result['estimable']),
                                   status=result['status'],iid_contrast_variance=result['iid_contrast_variance'],
                                   compiled_basis_variance_ratio=result['actual_basis_variance_ratio']))
-        for a,b,name in [(1,8,'computer'),(3,8,'ingroup'),(5,8,'outgroup')]:
+        post_evs = (8,9,10) if post_model == 'partner' else (8,8,8)
+        for a,b,name in zip((1,3,5),post_evs,('computer','ingroup','outgroup')):
             indices=[(a,b,'activity')]
             if row['model']!='act':
-                indices.append((a+9,b+9,'ppi'))
+                offset = 11 if post_model == 'partner' else 9
+                indices.append((a+offset,b+offset,'ppi'))
             for left,right,kind in indices:
                 x,y=matrix[:,left-1],matrix[:,right-1]
                 correlation=float(np.corrcoef(x,y)[0,1]) if np.std(x)>0 and np.std(y)>0 else None
@@ -161,14 +182,39 @@ def audit_compiled(manifest, destination):
     for filename in ('phase_construction.tsv','baseline_preflight.tsv','l1_preflight.tsv','analysis_plan.json'):
         shutil.copyfile(manifest.parent/filename,destination/filename)
     (destination/'diagnostic_scope.json').write_text(json.dumps(dict(
+        post_model=post_model,
         basis='compiled FEAT, including original orthogonalization and all confounds',
         interpretation='IID conditional-basis variance ratios; not original-stimulus cVIF or FILM precision',
         decision='review correlations, contrast variance and rank checks before explicitly authorizing fitting',
         limitations=['Adjacent phases may be difficult to separate after HRF convolution.',
-                     'One pooled post mean does not separately model partner, offer or choice post effects.',
+                     ('Partner-specific post means do not separately model offer or choice post effects.'
+                      if post_model == 'partner' else
+                      'One pooled post mean does not separately model partner, offer or choice post effects.'),
                      'Statistical estimability does not establish physiological specificity.',
                      'Decision and full-display contrasts have different temporal definitions.']),indent=2)+'\n')
     print(f'DESIGN AUDIT: {destination}',flush=True)
+
+
+def validate_mode_roots(repo, work, destination, post_model):
+    """Never reuse another specification's scratch or compact report tree."""
+    if post_model not in POST_MODELS:
+        raise ValueError(f'unknown post-response model: {post_model}')
+    other = 'partner' if post_model == 'pooled' else 'pooled'
+    for proposed, reserved in ((work, WORK_ROOTS[other].resolve()),
+                               (destination, (repo/'results'/REPORT_DIRS[other]).resolve())):
+        if proposed == reserved or proposed in reserved.parents or reserved in proposed.parents:
+            raise ValueError(f'{post_model} model cannot overlap the {other} model default roots')
+    for path in (work/'preparation_config.json', work/'analysis_plan.json',
+                 destination/'design_audit/analysis_plan.json'):
+        if path.exists():
+            recorded = json.loads(path.read_text())
+            # Existing pooled runs predate the explicit post_model field.
+            mode = recorded.get('post_model',
+                                'partner' if recorded.get('model') == 'decision-postresponse-partner' else 'pooled')
+            if mode != post_model:
+                raise ValueError(f'post-response model mismatch in {path}; preserve it and use separate roots')
+    if destination.exists() and any(destination.iterdir()) and not (destination/'design_audit/analysis_plan.json').is_file():
+        raise ValueError('nonempty report root lacks a model identity; preserve it and use a separate --output-root')
 
 
 def resolve_config(args):
@@ -196,8 +242,10 @@ def main(argv=None):
     parser.add_argument('--standard-image',type=Path)
     parser.add_argument('--input-map',action='append',default=[])
     parser.add_argument('--reuse-input-config',type=Path,help='Reuse exact roots and maps from a completed preparation_config.json')
-    parser.add_argument('--work-root',type=Path,default=Path('/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-v1'))
-    parser.add_argument('--output-root',type=Path,default=repo/'results/decision_postresponse')
+    parser.add_argument('--post-model',choices=POST_MODELS,default='pooled',
+                        help='One pooled post mean (legacy default), or three partner-specific post means')
+    parser.add_argument('--work-root',type=Path,help='Scratch tree; default is separate for each --post-model')
+    parser.add_argument('--output-root',type=Path,help='Small report tree; default is separate for each --post-model')
     parser.add_argument('--jobs',type=int,default=40)
     parser.add_argument('--execute',action='store_true')
     parser.add_argument('--accept-design-diagnostics',action='store_true',
@@ -208,14 +256,15 @@ def main(argv=None):
     if args.execute and not args.accept_design_diagnostics:
         parser.error('run the default design audit first, inspect it, then use --execute --accept-design-diagnostics')
     production,repaired,standard,maps=resolve_config(args)
-    work=args.work_root.resolve()
-    destination=args.output_root.resolve()
+    work=(args.work_root or WORK_ROOTS[args.post_model]).resolve()
+    destination=(args.output_root or repo/'results'/REPORT_DIRS[args.post_model]).resolve()
     # A run's report tree must not contain (or be inside) its scratch derivatives.
     if work==destination or work in destination.parents or destination in work.parents:
         raise ValueError('report and work roots must be separate')
+    validate_mode_roots(repo,work,destination,args.post_model)
     for key in ('OMP_NUM_THREADS','OPENBLAS_NUM_THREADS','MKL_NUM_THREADS'):
         os.environ[key]='1'
-    config=dict(production=str(production),repaired=str(repaired),standard=str(standard),
+    config=dict(post_model=args.post_model,production=str(production),repaired=str(repaired),standard=str(standard),
                 input_maps=[[str(x),str(y)] for x,y in maps],
                 code={str(p.relative_to(repo)):digest(p) for p in sorted((repo/'code').glob('*.py'))},
                 templates={str(p.relative_to(repo)):digest(p) for p in sorted((repo/'templates/revision').glob('*.fsf'))})
@@ -226,7 +275,7 @@ def main(argv=None):
     else:
         if args.execute:
             raise ValueError('prepare and inspect a dry-run model tree before execution')
-        prepare(repo,production,repaired,work,standard,maps)
+        prepare(repo,production,repaired,work,standard,maps,post_model=args.post_model)
         (work/'preparation_config.json').write_text(json.dumps(config,indent=2)+'\n')
     version=Path(os.environ.get('FSLDIR','/usr/local/fsl'))/'etc/fslversion'
     software=dict(python=sys.version,platform=platform.platform(),fsl_dir=os.environ.get('FSLDIR',''),
@@ -235,7 +284,7 @@ def main(argv=None):
         raise ValueError('execution environment changed; use a new work root')
     (work/'software.json').write_text(json.dumps(software,indent=2)+'\n')
     compile_designs(manifest,'l1')
-    audit_compiled(manifest,destination/'design_audit')
+    audit_compiled(manifest,destination/'design_audit',post_model=args.post_model)
     stages=('l1','l2','l3') if args.execute else ('l1',)
     for stage in stages:
         if stage!='l1':
