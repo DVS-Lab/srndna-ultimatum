@@ -169,3 +169,43 @@ review. Neither is a reason to delete output or suppress a flag.
 
 References: [CmdStanPy sampling](https://mc-stan.org/cmdstanpy/users-guide/examples/MCMC%20Sampling.html),
 [Stan likelihood parallelization](https://mc-stan.org/docs/stan-users-guide/parallelization.html).
+
+## Export diagnostic tables and figures from existing fits
+
+`code/export_gu_stan_diagnostics.py` is separate from the fitting runner. Adding
+or updating this exporter does not change the recorded fitting-code hashes or
+invalidate completed fits. It reads the original scratch outputs without
+sampling, recompiling, or modifying them. Run in the repository on Linux1:
+
+```bash
+python -u code/export_gu_stan_diagnostics.py \
+  --work-root /ZPOOL/data/scratch/srndna-gu-stan-v1 \
+  --output-dir results/norm_learning/stan-v1/diagnostics-v1
+```
+
+The default expects all eight completed fits, including the one passing all
+diagnostics. It verifies recorded input and posterior-chain hashes, draw counts,
+and chain IDs. It saves:
+
+- All monitored parameter diagnostics, a flagged-only table, and the parameters
+  selected for plotting. Labels map parameter indices to the recorded model,
+  participant, partner, and contrast; e.g. parameter 4 is epsilon in RW fits.
+- Per-chain means, intervals, first-/second-half means, and selected within-chain
+  pair correlations. These are sampling checks, not population-effect estimates.
+- One overview PNG and one trace/rank-histogram PNG per fit. Each fit displays
+  four variables, covering the worst R-hat, bulk ESS, and tail ESS before filling
+  by R-hat. Traces display at most 750 points per chain, while rank histograms
+  and summaries use every retained draw.
+- A manifest with source and export checksums, options, and exporter version.
+
+The output is small enough for Git. Raw draws stay in scratch. An identical
+repeat verifies and reuses the export; changed inputs/options or an edited
+export require a new output directory. For other batches, set `--phase` and
+`--expected-jobs` explicitly. Diagnostic flags do not block export or count as
+execution failure. The exporter never upgrades the fit's inference eligibility.
+
+```bash
+git add results/norm_learning/stan-v1/diagnostics-v1
+git commit -m "Add parameter-level Stan diagnostics and chain plots"
+git push origin main
+```
