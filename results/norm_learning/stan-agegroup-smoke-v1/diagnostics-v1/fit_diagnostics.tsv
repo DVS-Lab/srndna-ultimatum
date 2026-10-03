@@ -1,0 +1,9 @@
+job	phase	model	stage	parameters	flagged_parameters	divergences	max_depth_hits	max_rhat	min_bulk_ess	min_tail_ess	min_ebfmi	finite_diagnostics	passed	inference_eligible
+smoke-fs_free-full-prior1-age-group	smoke	fs_free	full	93	93	0	0	1.08982	38.6754	200.0	0.8768723257630849	True	False	False
+smoke-fs_free-run1-prior1-age-group	smoke	fs_free	run1	93	93	0	0	1.07718	64.2057	200.0	0.7354770622662999	True	False	False
+smoke-logistic-full-prior1-age-group	smoke	logistic	full	62	59	0	0	1.04178	137.663	156.169	0.863760633343149	True	False	False
+smoke-logistic-run1-prior1-age-group	smoke	logistic	run1	62	57	0	0	1.02808	141.722	200.0	0.7820415571069114	True	False	False
+smoke-rw_free-full-prior1-age-group	smoke	rw_free	full	124	122	0	0	1.42852	8.54755	200.0	0.8525962438753515	True	False	False
+smoke-rw_free-run1-prior1-age-group	smoke	rw_free	run1	124	123	0	0	1.33477	10.2403	177.616	0.8775431734323256	True	False	False
+smoke-rw_free_prior-full-prior1-age-group	smoke	rw_free_prior	full	124	123	0	0	1.04821	78.8006	200.0	0.672487384406617	True	False	False
+smoke-rw_free_prior-run1-prior1-age-group	smoke	rw_free_prior	run1	124	123	0	0	1.23016	13.6178	179.251	0.8359329174049702	True	False	False
