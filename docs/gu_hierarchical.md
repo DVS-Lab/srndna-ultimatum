@@ -199,6 +199,121 @@ behavior–imaging modeling or a justified uncertainty-propagation analysis woul
 be separate work. See [Katahira and Toyama (2021)](https://doi.org/10.1371/journal.pcbi.1008738)
 on parameter estimation for model-based fMRI.
 
+### Validation before model-based imaging
+
+`code/run_gu_validation.sh` adds logged, resumable launches without changing
+the fitting code, Stan model, or completed baseline/age fits. It defaults to a
+dry run and uses the matched longer-chain settings: four chains, 3,000 warmup,
+6,000 retained draws, two threads per chain, and a 40-CPU ceiling.
+
+Run each batch separately inside tmux; do not overlap the CPU budgets:
+
+```bash
+bash code/run_gu_validation.sh priors &&
+bash code/run_gu_validation.sh priors --execute
+```
+
+This fits the age-blind primary `rw_free` model at prior scales 0.5, 1, and 2,
+each on full data and run 1 (six fits). Scaling changes all hierarchical prior
+scales, not parameter support. It is not an isolated sensitivity test of the
+age coefficient's prior.
+
+```bash
+bash code/run_gu_validation.sh recovery &&
+bash code/run_gu_validation.sh recovery --execute
+```
+
+This refits ten independent prior-generated full-sample datasets under the
+same age-blind primary model. It reports individual-parameter and paired-partner
+contrast recovery and interval coverage. This is an initial audit, not age-effect
+recovery, model-selection recovery, or proof of empirical identifiability. If
+the observed posterior occupies a difficult region poorly represented in these
+simulations, targeted recovery in that region is also required. In particular,
+inspect high alpha and low learning-rate values rather than judging recovery
+only by a single correlation across the entire prior range.
+
+| Batch | Scratch directory under `/ZPOOL/data/scratch` | Output under `results/norm_learning` |
+| --- | --- | --- |
+| priors | `srndna-gu-stan-priors-long-v1` | `stan-priors-long-v1` |
+| recovery | `srndna-gu-stan-recovery-long-v1` | `stan-recovery-long-v1` |
+
+Both batches export diagnostic figures after completed sampling, including
+flagged fits. `preflight.txt`, `run.txt`, and `export.txt` are intentionally
+trackable logs; raw chains remain in scratch. Exit 2 means diagnostic review is
+needed, not that outputs should be deleted. Execution/export failures stop the
+wrapper. No imaging jobs or covariate files are produced.
+
+### Proposed imaging extensions (not implemented or run)
+
+These extensions remain exploratory. Successful behavioral convergence alone
+does not establish that a norm-learning account outperforms the offer-based
+comparator, that a null age contrast is equivalence, or that individual parameters
+are suitable imaging covariates.
+
+**Trial-level signals.** For a particular participant/partner, define the
+pre-offer expectation as `E_t = norm_before_t`, the signed norm prediction error
+as `PE_t = offer_t - E_t`, and the updated norm as
+`norm_after_t = E_t + epsilon * PE_t`. Positive PE denotes a more generous offer
+than expected, not a received reward. Preserve the fitted model's separate
+partner histories and carryover across runs. The primary behavioral model uses
+the updated norm in choice utility; that must not silently redefine the pre-offer
+expectation or PE. Its one-sided choice shortfall is
+`max(norm_after_t - offer_t, 0)`, a different signal from signed PE.
+
+Use the age-blind full-data posterior as the primary behavioral estimator. Draw-
+wise trajectories are needed for posterior mean signals and uncertainty; the
+trajectory evaluated at mean parameter values is generally not the posterior
+mean trajectory. Fitting behavior from both runs does not use imaging data, but
+these full-fit trajectories must not be called held-out behavioral predictions.
+
+Prepare separate offer-replacement models for expectation and signed PE, retaining
+the same onsets, durations, missed-trial exclusion, post-response nuisance terms,
+and run/partner amplitude-centering policy as the chosen comparison design.
+Missed offers continue to update the behavioral state under the fitted observation
+assumption, but contribute only to the missed-trial imaging nuisance regressor.
+Do not change timing and the computational modulator simultaneously.
+
+The identity `PE = offer - expectation` means all three same-timing columns
+cannot be estimated together. A PE-only result also does not establish PE
+encoding over offer encoding. Before any imaging launch, audit posterior signal
+uncertainty, offer/expectation/PE correlations, variance remaining after HRF
+convolution and high-pass filtering, design rank, and focal contrast variance.
+A joint offer-plus-expectation diagnostic is possible if estimable, but its
+question differs from either replacement model. Do not apply automatic serial
+orthogonalization to manufacture separability. Start with activation; network-PPI
+extensions require rebuilding and auditing the matching interaction regressors,
+not just swapping the psychological EV files.
+
+**Group-level norm sensitivity.** Alpha measures the penalty for offers below
+the fitted norm. It is distinct from the learning rate epsilon, the initial norm
+f0, the logistic offer slope, and the legacy acceptance-intercept proxy. Retain
+those labels and estimands rather than replacing an old column under its name.
+
+Two scientifically distinct covariates are possible: mean alpha across partners
+for a general sensitivity association, and alpha(similar)-alpha(dissimilar) for
+a differential-sensitivity association with the matching partner contrast.
+Human-minus-computer is secondary. Posterior contrasts must be computed within
+draws before summarizing; differences of marginal interval limits are invalid.
+Review recovery and between-participant spread for the exact chosen covariate,
+particularly because current alpha estimates cluster near their upper bound.
+
+First group-level tests can reuse existing corrected L2 maps; they do not require
+the computational-modulator L1 reruns. Retain age and the established nuisance
+covariates, add a centered norm covariate, and audit rank/collinearity. A pooled
+association adjusted for age and an age-by-norm interaction are different tests;
+do not introduce the interaction merely to search for an age effect. With age-
+informed behavioral parameters, the brain association is not independent evidence
+for age. Use age-blind estimates primarily and age-informed estimates as a
+sensitivity check. Posterior-mean plug-in FSL covariates do not propagate behavioral
+uncertainty and must be described accordingly.
+
+Define the limited contrast family before looking at maps. Retain the planned
+FLAME and permutation checks (TFCE and cluster thresholds 2.6/3.1), use the same
+predefined group design and appropriate exchangeability assumptions, and report
+all planned results, not only the thresholding method that produces clusters.
+Whole-brain correction within a map does not address multiplicity across models,
+covariates, networks, and inference methods.
+
 ### Original workflow (retained for provenance)
 
 Run in the existing tmux session. No new branch is required. Dependencies are
