@@ -29,6 +29,15 @@ class ExportDiagnosticsTests(unittest.TestCase):
                          'similar_minus_dissimilar')
         self.assertEqual(variable_label('effect[1,1]',self.config,self.data)['contrast'],
                          'human_minus_computer')
+        label = variable_label('age_beta[1,4]',self.config,self.data)
+        self.assertEqual((label['parameter'],label['contrast'],label['scale']),
+                         ('epsilon','older_minus_younger','latent'))
+
+    def test_age_effects_enter_convergence_flags(self):
+        frame = pd.DataFrame(dict(R_hat=[1.02], ESS_bulk=[350], ESS_tail=[800]),
+                             index=['age_beta[1,1]'])
+        table = parameter_table(frame,self.config,self.data)
+        self.assertTrue(table.loc['age_beta[1,1]','flagged'])
 
     def test_flags_and_selection_include_nan_and_all_diagnostics(self):
         frame = pd.DataFrame(dict(R_hat=[1.,1.1,1.002,np.nan,1.],

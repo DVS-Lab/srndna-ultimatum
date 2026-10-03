@@ -57,7 +57,24 @@ def prior_scales(model, scale):
             zip(('mu_sd', 'effect_sd', 'subject_sd', 'contrast_sd'), values)}
 
 
-def build_data(units, model, stage='full', scale=1.):
+def age_design(units, mode):
+    """One row per participant; repeated partner rows never set the centering."""
+    if mode not in ('none', 'group'):
+        raise ValueError('age mode must be none or group')
+    subjects = list(dict.fromkeys(u['subject'] for u in units))
+    groups = {}
+    for unit in units:
+        group = unit['age_group']
+        if group not in ('younger', 'older') or groups.get(unit['subject'], group) != group:
+            raise ValueError('missing or inconsistent participant age group')
+        groups[unit['subject']] = group
+    indicator = np.array([groups[s] == 'older' for s in subjects], float)
+    if mode == 'group' and len(set(indicator)) != 2:
+        raise ValueError('age-group model requires both age groups')
+    return (indicator-indicator.mean())[:, None] if mode == 'group' else np.empty((len(subjects), 0))
+
+
+def build_data(units, model, stage='full', scale=1., age_mode='none', age_prior_sd=.5):
     subjects = list(dict.fromkeys(u['subject'] for u in units))
     if len(units) != len(subjects)*3:
         raise ValueError('each subject must have all three partners')
@@ -80,7 +97,8 @@ def build_data(units, model, stage='full', scale=1.):
         unit_ids=list(range(1, len(units)+1)), offers=offers.tolist(),
         choice=np.where(observed, y, 0).astype(int).tolist(), observed=observed.astype(int).tolist(),
         use_choice=use.astype(int).tolist(), run=runs.tolist(), contrast=CONTRAST.tolist(),
-        **prior_scales(model, scale))
+        A=int(age_mode != 'none'), age_design=age_design(units, age_mode).tolist(),
+        age_sd=[age_prior_sd*scale]*len(MODELS[model][1]), **prior_scales(model, scale))
 
 
 def latent_to_theta(latent, model):
@@ -99,9 +117,11 @@ def draw_prior(data, model, rng):
     sd_s = np.abs(rng.normal(0, data['subject_sd']))
     sd_c = np.abs(rng.normal(0, data['contrast_sd'], (2, k)))
     z_s, z_c = rng.normal(size=(s, k)), rng.normal(size=(2, s, k))
+    beta = rng.normal(0, data['age_sd'], (data.get('A', 0), k))
     latent = []
     for subject, partner in zip(data['subject'], data['partner']):
-        latent.append(mu + sd_s*z_s[subject-1] +
+        age = np.array(data['age_design'])[subject-1] @ beta if data.get('A', 0) else 0
+        latent.append(mu + age + sd_s*z_s[subject-1] +
                       (CONTRAST[partner-1, :, None]*(effect + sd_c*z_c[:,subject-1])).sum(0))
     return latent_to_theta(np.array(latent), model)
 
@@ -166,7 +186,7 @@ def summarize_fit(fit, data, model, units, directory, max_depth, truth=None):
     summary.to_csv(directory/'stan_summary.tsv', sep='\t', index_label='variable')
     # Exclude generated quantities (including constant held-out likelihoods).
     core = summary.loc[[i for i in summary.index if i.startswith(
-        ('mu[', 'effect[', 'sigma_', 'z_subject[', 'z_contrast[', 'theta['))]]
+        ('mu[', 'effect[', 'age_beta[', 'sigma_', 'z_subject[', 'z_contrast[', 'theta['))]]
     methods = fit.method_variables()
     energy = methods['energy__']
     bfmi = np.mean(np.diff(energy, axis=0)**2, axis=0)/np.var(energy, axis=0)
@@ -185,6 +205,16 @@ def summarize_fit(fit, data, model, units, directory, max_depth, truth=None):
     atomic_json(directory/'diagnostics.json', diagnostics)
     theta = fit.stan_variable('theta')
     parameters = MODELS[model][1]
+    if data.get('A', 0):
+        beta = fit.stan_variable('age_beta')[:, 0, :]
+        age_rows = []
+        for k, parameter in enumerate(parameters):
+            stats = summary.loc[f'age_beta[1,{k+1}]']
+            age_rows.append(dict(parameter=parameter, contrast='older_minus_younger',
+                scale='latent_before_parameter_transform', **describe(beta[:,k]),
+                R_hat=float(stats.R_hat), ESS_bulk=float(stats.ESS_bulk),
+                ESS_tail=float(stats.ESS_tail), MCSE=float(stats.MCSE)))
+        write_table(directory/'age_effects.tsv', age_rows)
     rows = []
     for u, unit in enumerate(units):
         for k, parameter in enumerate(parameters):
@@ -326,15 +356,17 @@ def collect(records, work, export):
         directory = work/'fits'/record['job']
         config = json.loads((directory/'configuration.json').read_text())
         rows.append(dict(job=record['job'], model=config['model'], stage=config['stage'],
+            age_mode=config.get('age_mode', 'none'),
             prior_scale=config['prior_scale'], **record['diagnostics'],
             inference_eligible=record['inference_eligible']))
-        for name in ('parameters', 'partner_contrasts', 'posterior_predictive', 'heldout_prediction', 'recovery_summary'):
+        for name in ('parameters', 'partner_contrasts', 'posterior_predictive', 'heldout_prediction', 'recovery_summary', 'age_effects'):
             path = directory/record['attempt']/f'{name}.tsv'
             if path.exists():
                 with path.open() as stream:
                     for row in csv.DictReader(stream, delimiter='\t'):
                         aggregate.setdefault(name, []).append(dict(job=record['job'],
                             model=config['model'], stage=config['stage'], prior_scale=config['prior_scale'],
+                            age_mode=config.get('age_mode', 'none'),
                             inference_eligible=record['inference_eligible'], **row))
     write_table(export/'fit_status.tsv', rows)
     for name, values in aggregate.items():
@@ -362,10 +394,18 @@ def main():
     p.add_argument('--max-treedepth', type=int, default=12)
     p.add_argument('--recovery-reps', type=int, default=10)
     p.add_argument('--seed', type=int, default=20261002)
+    p.add_argument('--age-mode', choices=['none', 'group'], default='none',
+                   help='Optional centered older-group effect on every latent parameter; no age interactions')
+    p.add_argument('--age-prior-sd', type=float, default=.5,
+                   help='Normal prior SD for older-minus-younger latent effects (also multiplied by prior-scales)')
     p.add_argument('--cmdstan', type=Path)
     p.add_argument('--execute', action='store_true')
     p.add_argument('--collect-to', type=Path)
     a = p.parse_args()
+    if not np.isfinite(a.age_prior_sd) or a.age_prior_sd <= 0:
+        p.error('age-prior-sd must be finite and positive')
+    if a.age_mode != 'none' and a.phase == 'recovery':
+        p.error('age-effect recovery is not implemented; do not label baseline recovery as age validation')
     if a.chains < 4 or a.threads_per_chain < 1 or not 1 <= a.jobs <= 40:
         p.error('use >=4 chains, positive threads, and a total CPU budget of 1..40')
     if min(a.warmup, a.samples) < 20 or not .8 <= a.adapt_delta < 1 or a.max_treedepth < 8:
@@ -416,8 +456,10 @@ def main():
                 for stage in stages:
                     for rep in reps:
                         name = f'{a.phase}-{model}-{stage}-prior{scale:g}' + (f'-rep{rep:03d}' if rep else '')
+                        if a.age_mode != 'none':
+                            name += f'-age-{a.age_mode}'
                         directory = work/'fits'/name
-                        data = build_data(units, model, stage, scale)
+                        data = build_data(units, model, stage, scale, a.age_mode, a.age_prior_sd)
                         seed = (a.seed + int(hashlib.sha256(name.encode()).hexdigest()[:7], 16)) % 2147483647
                         truth = None
                         if rep:
@@ -432,7 +474,12 @@ def main():
                             subjects=list(dict.fromkeys(u['subject'] for u in units)),
                             parameters=MODELS[model][1],
                             learning='separate partner history; carry across runs; missed offers update',
-                            age_in_parameter_hierarchy=False, imaging_covariates_released=False)
+                            age_mode=a.age_mode, age_prior_sd=a.age_prior_sd,
+                            age_in_parameter_hierarchy=a.age_mode != 'none',
+                            age_coding='older indicator centered across unique participants; no interactions',
+                            age_groups={u['subject']: u['age_group'] for u in units},
+                            parameter_estimand='age-conditional, not age-residualized' if a.age_mode != 'none' else 'age-blind',
+                            imaging_covariates_released=False)
                         # JSON roundtrip makes tuples/lists consistent on resume.
                         config = json.loads(json.dumps(config))
                         if a.execute:
@@ -441,6 +488,7 @@ def main():
                                 atomic_json(directory/'simulation_truth.json', truth.tolist())
                         jobs.append((directory, data, config, truth))
         print(f'Participant-partners: {len(units)}; planned fits: {len(jobs)}', flush=True)
+        print(f'Age mode: {a.age_mode}; no imaging covariates or trial EVs will be released', flush=True)
         print(f'CPU budget: {a.jobs}; up to {workers} fits x {a.chains} chains x {a.threads_per_chain} threads = {workers*a.chains*a.threads_per_chain}', flush=True)
         for directory, data, _, _ in jobs:
             print(f'PLAN: {directory.name}; likelihood choices={int(np.sum(data["use_choice"]))}', flush=True)
@@ -457,7 +505,7 @@ def main():
         priors.mkdir(exist_ok=True)
         for model in a.models:
             for scale in a.prior_scales:
-                prior_data = build_data(units, model, 'full', scale)
+                prior_data = build_data(units, model, 'full', scale, a.age_mode, a.age_prior_sd)
                 path = priors/f'{model}-prior{scale:g}-{digest(prior_data)[:12]}.tsv'
                 if not path.exists():
                     prior_predictive(prior_data, model, path, a.seed)

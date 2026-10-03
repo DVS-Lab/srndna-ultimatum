@@ -10,7 +10,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT/'code'))
 from gu_norm_model import predictions
 from run_gu_hierarchical import (MODELS, CONTRAST, build_data, logits, draw_prior,
-    difference_draws, config_guard, completed, digest, sha, atomic_json, cpu_plan)
+    difference_draws, config_guard, completed, digest, sha, atomic_json, cpu_plan, age_design)
 from run_gu_norm_learning import load_trials
 
 
@@ -80,6 +80,40 @@ class HierarchicalTests(unittest.TestCase):
         self.assertEqual(cpu_plan(40, 4, 1), 10)
         with self.assertRaises(ValueError):
             cpu_plan(4, 4, 2)
+
+    def test_age_design_unique_subjects_and_alignment(self):
+        x = age_design(self.units, 'group')
+        subjects = list(dict.fromkeys(u['subject'] for u in self.units))
+        groups = {u['subject']: u['age_group'] for u in self.units}
+        self.assertEqual(x.shape, (47, 1))
+        self.assertAlmostEqual(x.mean(), 0)
+        self.assertEqual(sum(v == 'older' for v in groups.values()), 22)
+        by_subject = dict(zip(subjects, x[:,0]))
+        self.assertAlmostEqual(by_subject['sub-104'], -22/47)
+        self.assertAlmostEqual(max(x[:,0])-min(x[:,0]), 1)
+        rev = list(reversed(self.units))
+        for subject, value in zip(dict.fromkeys(u['subject'] for u in rev), age_design(rev, 'group')[:,0]):
+            self.assertEqual(value, by_subject[subject])
+        broken = [dict(u) for u in self.units]
+        broken[0]['age_group'] = 'older'
+        with self.assertRaises(ValueError):
+            age_design(broken, 'group')
+        with self.assertRaises(ValueError):
+            age_design(self.units[:3], 'group')
+
+    def test_age_changes_only_hierarchy_inputs(self):
+        base = build_data(self.units, 'rw_free', 'run1')
+        age = build_data(self.units, 'rw_free', 'run1', age_mode='group')
+        for key in base:
+            if key not in ('A', 'age_design'):
+                self.assertEqual(base[key], age[key])
+        self.assertEqual(base['A'], 0)
+        self.assertEqual(age['A'], 1)
+        self.assertEqual(age['age_sd'], [.5]*4)
+        a = draw_prior(age, 'rw_free', np.random.default_rng(3))
+        b = draw_prior(age, 'rw_free', np.random.default_rng(3))
+        np.testing.assert_array_equal(a,b)
+        self.assertEqual(a.shape, (141,4))
 
     def test_configuration_and_completed_integrity(self):
         with tempfile.TemporaryDirectory() as tmp:

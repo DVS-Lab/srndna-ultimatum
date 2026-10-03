@@ -24,7 +24,7 @@ from scipy.stats import rankdata
 
 PARTNERS = ('computer', 'similar', 'dissimilar')
 CONTRASTS = ('human_minus_computer', 'similar_minus_dissimilar')
-CORE = re.compile(r'^(mu|effect|sigma_subject|sigma_contrast|z_subject|z_contrast|theta)\[([0-9,]+)\]$')
+CORE = re.compile(r'^(mu|effect|age_beta|sigma_subject|sigma_contrast|z_subject|z_contrast|theta)\[([0-9,]+)\]$')
 
 
 def sha(path):
@@ -73,6 +73,8 @@ def variable_label(variable, config, data):
                    scale='standard_normal_deviation')
     elif family in ('effect', 'sigma_contrast'):
         row['contrast'] = CONTRASTS[index[0]]
+    elif family == 'age_beta':
+        row['contrast'] = 'older_minus_younger'
     if family.startswith('sigma'):
         row['scale'] = 'latent_standard_deviation'
     return row

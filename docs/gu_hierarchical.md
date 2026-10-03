@@ -56,8 +56,8 @@ participant SDs half-Normal(0,.75), and participant-contrast SDs
 half-Normal(0,.5). For the logistic intercept/slope respectively, these scales are
 (2,1), (1,.5), (1,.5), and (1,.5). `--prior-scales` multiplies all these scales;
 it does not alter support. Prior predictive summaries must be inspected, not
-treated as automatically plausible. No age or brain measurements enter this
-parameter hierarchy.
+treated as automatically plausible. The default hierarchy is age-blind. The
+optional age-group extension below adds age to the hierarchy, never brain data.
 
 Posterior partner contrasts are calculated after transformation to the natural
 parameter scale, paired within participant. `sample_mean` is the average of
@@ -92,6 +92,114 @@ Prior sensitivity and recovery must be reviewed before using individual
 parameters in imaging; shrinkage alone does not establish identifiability.
 
 ## Linux1 setup and execution
+
+### Longer fits and optional age-group extension
+
+`bash code/run_gu_followup.sh baseline` runs the same four scientific models,
+each on full data and run 1, with 3,000 warmup and 6,000 retained iterations per
+chain. Four chains and two threads per chain allow five simultaneous fits within
+the 40-CPU budget. All eight models are refitted with matched settings, including
+the previously passing full-data logistic comparator. Existing results under
+`stan-v1` and scratch `srndna-gu-stan-v1` remain unchanged. Longer chains are a
+diagnostic experiment, not proof that the learning-rate regions mix adequately.
+Do not drop inconvenient chains or retrospectively trim draws to obtain a pass.
+
+The optional `--age-mode group` adds **one older-minus-younger coefficient per
+latent parameter**, common to the three partners. The centered indicator is
+computed once per unique participant, not once per trial or partner:
+
+```
+age_x[s] = I(older[s]) - mean(I(older))
+latent[s,p,k] = baseline_latent[s,p,k] + age_x[s] * age_beta[k]
+age_beta[k] ~ Normal(0, 0.5 * prior_scale)
+```
+
+In the full 47-person sample the indicator is -22/47 for the 25 younger adults
+and 25/47 for the 22 older adults. Recorded ages are 20–34 and 63–80, respectively
+(`derivatives/imaging_plots/participants.tsv`, joined by ID to the fixed sample).
+The actual fitted indicator uses the existing, source-hashed sample group
+assignment. It does not fit a continuous lifespan slope across the unsampled
+middle ages. The age prior is configurable with `--age-prior-sd`; 0.5 is an
+explicit exploratory regularization choice, not a prior learned from imaging.
+No age-by-partner interactions are fitted. Transformations can nevertheless make
+natural-scale older-minus-younger differences differ across partner baselines.
+
+The age model preserves offers, choices, likelihood masks, partner histories,
+and parameter bounds. All age coefficients enter the convergence screen.
+`age_effects.tsv` reports older-minus-younger effects on the **latent** scale,
+with posterior intervals, MCSE, R-hat, and ESS. `parameters.tsv` contains
+age-conditional individual estimates, **not age-residualized parameters**.
+Age effects are incorporated into prior prediction. Age-effect recovery is not
+implemented; `--phase recovery --age-mode group` therefore fails explicitly.
+Baseline parameter recovery must not be presented as validation of age effects.
+
+Use a tmux session and run these as separate steps:
+
+```bash
+cd /ZPOOL/data/projects/srndna-ultimatum
+git pull --ff-only
+conda activate srndna-ultimatum
+bash code/run_gu_followup.sh smoke-age
+bash code/run_gu_followup.sh baseline
+```
+
+The smoke run checks all eight model/stage combinations on four participants,
+not scientific convergence. Inspect the longer baseline diagnostics before
+launching the age extension:
+
+```bash
+bash code/run_gu_followup.sh age
+```
+
+The wrapper automatically exports tables, nine diagnostic PNGs, and persistent
+logs even when sampling finishes with diagnostic flags (exit 2). Execution or
+export errors stop it. It never commits automatically. Run only one wrapper at
+a time to respect the shared 40-CPU budget. Each command can be repeated to skip
+verified completed fits. Changes to code or settings require a new work root.
+Updated source hashes mean the old runner must not be used to resume `stan-v1`;
+its completed outputs remain valid historical records and are still readable by
+the standalone diagnostic exporter.
+
+| Command | Scratch directory under `/ZPOOL/data/scratch` | Tracked output under `results/norm_learning` |
+| --- | --- | --- |
+| `smoke-age` | `srndna-gu-stan-agegroup-smoke-v1` | `stan-agegroup-smoke-v1` |
+| `baseline` | `srndna-gu-stan-long-v2` | `stan-long-v2` |
+| `age` | `srndna-gu-stan-agegroup-v1` | `stan-agegroup-v1` |
+
+After each completed command, add only its output directory, commit, and push:
+
+```bash
+git add results/norm_learning/stan-long-v2 &&
+git commit -m "Add longer baseline norm-model fits and diagnostics" &&
+git push origin main
+```
+
+For the age run, use `results/norm_learning/stan-agegroup-v1` instead. Raw chains,
+compiler products, and interrupted attempts remain in scratch.
+
+#### Implications for imaging
+
+Neither extension exports imaging covariates or modifies any FEAT model.
+At the trial level, participant/partner parameters may generate expected norms
+or prediction errors. Using behavior and age without brain data is not selection
+on an imaging outcome, but age-informed shrinkage can change regressor shape and
+scale differently across groups. Compare age-blind and age-informed trajectories,
+check their relationship to existing offer/task regressors, and assess parameter
+and regressor uncertainty before fitting imaging models. Plug-in posterior means
+do not propagate behavioral uncertainty through FSL.
+
+At the group level, a parameter estimated using age still contains age-related
+information. Its association with an age-related imaging outcome is not evidence
+of a link independent of age. A model containing age and that parameter asks for
+a conditional association; the age coefficient then differs in meaning from a
+model without the parameter. Check collinearity and retain an age-blind behavioral
+estimator as a sensitivity comparison. Do not automatically residualize parameter
+means, describe them as independent age evidence, or infer mediation. Joint
+behavior–imaging modeling or a justified uncertainty-propagation analysis would
+be separate work. See [Katahira and Toyama (2021)](https://doi.org/10.1371/journal.pcbi.1008738)
+on parameter estimation for model-based fMRI.
+
+### Original workflow (retained for provenance)
 
 Run in the existing tmux session. No new branch is required. Dependencies are
 pinned to CmdStanPy 1.3.0 and CmdStan 2.40.0. The toolchain, compiler products,

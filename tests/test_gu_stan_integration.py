@@ -18,6 +18,36 @@ from run_gu_norm_learning import load_trials
 
 @unittest.skipUnless(os.environ.get('SRNDNA_GU_STAN_EXE'), 'compiled Stan executable not supplied')
 class StanIntegrationTests(unittest.TestCase):
+    def test_age_parameterization_and_likelihood(self):
+        import cmdstanpy
+        model = cmdstanpy.CmdStanModel(exe_file=os.environ['SRNDNA_GU_STAN_EXE'])
+        all_units = load_trials(ROOT)[0]
+        subjects = {all_units[0]['subject'], next(u['subject'] for u in all_units if u['age_group']=='older')}
+        units = [u for u in all_units if u['subject'] in subjects]
+        from run_gu_hierarchical import latent_to_theta
+        for name in MODELS:
+            with self.subTest(model=name), tempfile.TemporaryDirectory() as tmp:
+                data = build_data(units, name, 'run1', age_mode='group')
+                k, s = data['K'], data['S']
+                beta = np.linspace(.2,.8,k)
+                init = dict(mu=[0.]*k, effect=np.zeros((2,k)).tolist(),
+                    sigma_subject=[.4]*k, sigma_contrast=np.full((2,k),.3).tolist(),
+                    z_subject=np.zeros((s,k)).tolist(), z_contrast=np.zeros((2,s,k)).tolist(),
+                    age_beta=[beta.tolist()])
+                fit = model.sample(data=data, inits=init, chains=1, iter_warmup=0,
+                    iter_sampling=2, fixed_param=True, adapt_engaged=False, seed=2, output_dir=tmp,
+                    show_progress=False, sig_figs=16)
+                expected = latent_to_theta(np.array([data['age_design'][u-1][0]*beta for u in data['subject']]), name)
+                np.testing.assert_allclose(fit.stan_variable('theta')[0],expected,rtol=1e-12)
+                z = logits(expected,data['offers'],name)
+                ll = np.array(data['choice'])*z-np.logaddexp(0,z)
+                mask = np.array(data['use_choice'],bool)
+                no_choice = copy.deepcopy(data)
+                no_choice['use_choice'] = np.zeros_like(mask,dtype=int).tolist()
+                lp = model.log_prob(params=init,data=data,sig_figs=16)['lp__'].iloc[0]
+                lp0 = model.log_prob(params=init,data=no_choice,sig_figs=16)['lp__'].iloc[0]
+                self.assertAlmostEqual(lp-lp0,np.where(mask,ll,0).sum(),places=8)
+
     def test_all_models_against_python_and_holdout(self):
         import cmdstanpy
         model = cmdstanpy.CmdStanModel(exe_file=os.environ['SRNDNA_GU_STAN_EXE'])
