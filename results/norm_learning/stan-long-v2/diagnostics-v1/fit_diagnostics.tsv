@@ -1,0 +1,9 @@
+job	phase	model	stage	parameters	flagged_parameters	divergences	max_depth_hits	max_rhat	min_bulk_ess	min_tail_ess	min_ebfmi	finite_diagnostics	passed	inference_eligible
+fit-fs_free-full-prior1	fit	fs_free	full	864	0	0	0	1.00527	1339.07	941.115	0.8588465129859251	True	True	True
+fit-fs_free-run1-prior1	fit	fs_free	run1	864	0	0	0	1.00618	1232.6	3637.03	0.874552751297537	True	True	True
+fit-logistic-full-prior1	fit	logistic	full	576	0	0	0	1.00332	2079.47	4536.1	0.7653125005878394	True	True	True
+fit-logistic-run1-prior1	fit	logistic	run1	576	0	0	0	1.00183	2216.31	4256.98	0.7229694422680101	True	True	True
+fit-rw_free-full-prior1	fit	rw_free	full	1152	0	0	0	1.00304	1319.96	478.151	0.861936109183123	True	True	True
+fit-rw_free-run1-prior1	fit	rw_free	run1	1152	0	0	0	1.00312	1400.88	1103.2	0.9002015534158324	True	True	True
+fit-rw_free_prior-full-prior1	fit	rw_free_prior	full	1152	0	0	0	1.00221	1033.84	1527.6	0.858640405619336	True	True	True
+fit-rw_free_prior-run1-prior1	fit	rw_free_prior	run1	1152	0	0	0	1.00462	1838.88	1306.68	0.8853977488327419	True	True	True
