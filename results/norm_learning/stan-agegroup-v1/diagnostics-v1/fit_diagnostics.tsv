@@ -1,0 +1,9 @@
+job	phase	model	stage	parameters	flagged_parameters	divergences	max_depth_hits	max_rhat	min_bulk_ess	min_tail_ess	min_ebfmi	finite_diagnostics	passed	inference_eligible
+fit-fs_free-full-prior1-age-group	fit	fs_free	full	867	0	0	0	1.00583	1508.68	760.79	0.8592969268568244	True	True	True
+fit-fs_free-run1-prior1-age-group	fit	fs_free	run1	867	0	0	0	1.00234	1276.14	4679.1	0.8552439053224327	True	True	True
+fit-logistic-full-prior1-age-group	fit	logistic	full	578	0	0	0	1.003	1823.78	3394.04	0.7467906377037788	True	True	True
+fit-logistic-run1-prior1-age-group	fit	logistic	run1	578	0	0	0	1.001	2329.22	4252.97	0.7061843625919083	True	True	True
+fit-rw_free-full-prior1-age-group	fit	rw_free	full	1156	0	0	0	1.00532	1440.99	631.848	0.8449995539103066	True	True	True
+fit-rw_free-run1-prior1-age-group	fit	rw_free	run1	1156	0	0	0	1.00388	1829.54	1213.17	0.8829167491354278	True	True	True
+fit-rw_free_prior-full-prior1-age-group	fit	rw_free_prior	full	1156	0	0	0	1.00206	1085.29	1425.88	0.8846326952213454	True	True	True
+fit-rw_free_prior-run1-prior1-age-group	fit	rw_free_prior	run1	1156	0	0	0	1.0033	2111.64	1877.58	0.8619304318306382	True	True	True
