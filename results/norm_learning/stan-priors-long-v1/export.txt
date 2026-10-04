@@ -1,0 +1,7 @@
+CHECKED: fit-rw_free-full-prior0.5; 1152 parameters; 0 flagged
+CHECKED: fit-rw_free-full-prior1; 1152 parameters; 4 flagged
+CHECKED: fit-rw_free-full-prior2; 1152 parameters; 34 flagged
+CHECKED: fit-rw_free-run1-prior0.5; 1152 parameters; 0 flagged
+CHECKED: fit-rw_free-run1-prior1; 1152 parameters; 0 flagged
+CHECKED: fit-rw_free-run1-prior2; 1152 parameters; 5 flagged
+EXPORTED: 6 fits, 7 figures, six diagnostic tables -> /ZPOOL/data/projects/srndna-ultimatum/results/norm_learning/stan-priors-long-v1/diagnostics-v1

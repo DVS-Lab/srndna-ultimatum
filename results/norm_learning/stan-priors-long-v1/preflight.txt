@@ -1,0 +1,10 @@
+Participant-partners: 141; planned fits: 6
+Age mode: none; no imaging covariates or trial EVs will be released
+CPU budget: 40; up to 5 fits x 4 chains x 2 threads = 40
+PLAN: fit-rw_free-full-prior0.5; likelihood choices=6654
+PLAN: fit-rw_free-run1-prior0.5; likelihood choices=3323
+PLAN: fit-rw_free-full-prior1; likelihood choices=6654
+PLAN: fit-rw_free-run1-prior1; likelihood choices=3323
+PLAN: fit-rw_free-full-prior2; likelihood choices=6654
+PLAN: fit-rw_free-run1-prior2; likelihood choices=3323
+DRY RUN: no compilation or sampling. Add --execute to run.

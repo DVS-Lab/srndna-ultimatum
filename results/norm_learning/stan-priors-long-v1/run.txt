@@ -1,0 +1,78 @@
+Participant-partners: 141; planned fits: 6
+Age mode: none; no imaging covariates or trial EVs will be released
+CPU budget: 40; up to 5 fits x 4 chains x 2 threads = 40
+PLAN: fit-rw_free-full-prior0.5; likelihood choices=6654
+PLAN: fit-rw_free-run1-prior0.5; likelihood choices=3323
+PLAN: fit-rw_free-full-prior1; likelihood choices=6654
+PLAN: fit-rw_free-run1-prior1; likelihood choices=3323
+PLAN: fit-rw_free-full-prior2; likelihood choices=6654
+PLAN: fit-rw_free-run1-prior2; likelihood choices=3323
+14:03:23 - cmdstanpy - INFO - compiling stan file /ZPOOL/data/scratch/srndna-gu-stan-priors-long-v1/build/2ceb924be1c658f0/gu_hierarchical.stan to exe file /ZPOOL/data/scratch/srndna-gu-stan-priors-long-v1/build/2ceb924be1c658f0/gu_hierarchical
+14:03:51 - cmdstanpy - INFO - compiled model executable: /ZPOOL/data/scratch/srndna-gu-stan-priors-long-v1/build/2ceb924be1c658f0/gu_hierarchical
+RUN: fit-rw_free-full-prior0.5 -> /ZPOOL/data/scratch/srndna-gu-stan-priors-long-v1/fits/fit-rw_free-full-prior0.5/attempt-7mxf4usj
+RUN: fit-rw_free-full-prior1 -> /ZPOOL/data/scratch/srndna-gu-stan-priors-long-v1/fits/fit-rw_free-full-prior1/attempt-a3na7tq0
+RUN: fit-rw_free-run1-prior0.5 -> /ZPOOL/data/scratch/srndna-gu-stan-priors-long-v1/fits/fit-rw_free-run1-prior0.5/attempt-tgrv__b4
+RUN: fit-rw_free-run1-prior1 -> /ZPOOL/data/scratch/srndna-gu-stan-priors-long-v1/fits/fit-rw_free-run1-prior1/attempt-aljwiwav
+RUN: fit-rw_free-full-prior2 -> /ZPOOL/data/scratch/srndna-gu-stan-priors-long-v1/fits/fit-rw_free-full-prior2/attempt-_palkhe7
+14:04:01 - cmdstanpy - INFO - CmdStan start processing
+14:04:01 - cmdstanpy - INFO - Chain [1] start processing
+14:04:01 - cmdstanpy - INFO - Chain [2] start processing
+14:04:01 - cmdstanpy - INFO - Chain [3] start processing
+14:04:01 - cmdstanpy - INFO - Chain [4] start processing
+14:04:01 - cmdstanpy - INFO - CmdStan start processing
+14:04:01 - cmdstanpy - INFO - Chain [1] start processing
+14:04:01 - cmdstanpy - INFO - Chain [2] start processing
+14:04:01 - cmdstanpy - INFO - Chain [3] start processing
+14:04:01 - cmdstanpy - INFO - Chain [4] start processing
+14:04:01 - cmdstanpy - INFO - CmdStan start processing
+14:04:01 - cmdstanpy - INFO - Chain [1] start processing
+14:04:01 - cmdstanpy - INFO - Chain [2] start processing
+14:04:01 - cmdstanpy - INFO - Chain [3] start processing
+14:04:01 - cmdstanpy - INFO - Chain [4] start processing
+14:04:01 - cmdstanpy - INFO - CmdStan start processing
+14:04:01 - cmdstanpy - INFO - Chain [1] start processing
+14:04:01 - cmdstanpy - INFO - Chain [2] start processing
+14:04:01 - cmdstanpy - INFO - Chain [3] start processing
+14:04:01 - cmdstanpy - INFO - Chain [4] start processing
+14:04:01 - cmdstanpy - INFO - CmdStan start processing
+14:04:01 - cmdstanpy - INFO - Chain [1] start processing
+14:04:01 - cmdstanpy - INFO - Chain [2] start processing
+14:04:01 - cmdstanpy - INFO - Chain [3] start processing
+14:04:01 - cmdstanpy - INFO - Chain [4] start processing
+15:11:06 - cmdstanpy - INFO - Chain [3] done processing
+15:11:24 - cmdstanpy - INFO - Chain [1] done processing
+15:12:51 - cmdstanpy - INFO - Chain [4] done processing
+15:13:22 - cmdstanpy - INFO - Chain [2] done processing
+COMPLETED: fit-rw_free-run1-prior0.5; diagnostics=PASS
+RUN: fit-rw_free-run1-prior2 -> /ZPOOL/data/scratch/srndna-gu-stan-priors-long-v1/fits/fit-rw_free-run1-prior2/attempt-bhckifjy
+15:15:04 - cmdstanpy - INFO - CmdStan start processing
+15:15:04 - cmdstanpy - INFO - Chain [1] start processing
+15:15:04 - cmdstanpy - INFO - Chain [2] start processing
+15:15:04 - cmdstanpy - INFO - Chain [3] start processing
+15:15:04 - cmdstanpy - INFO - Chain [4] start processing
+15:27:15 - cmdstanpy - INFO - Chain [4] done processing
+15:29:15 - cmdstanpy - INFO - Chain [4] done processing
+15:30:44 - cmdstanpy - INFO - Chain [3] done processing
+15:34:38 - cmdstanpy - INFO - Chain [3] done processing
+15:45:52 - cmdstanpy - INFO - Chain [2] done processing
+15:49:15 - cmdstanpy - INFO - Chain [1] done processing
+16:03:07 - cmdstanpy - INFO - Chain [1] done processing
+16:07:33 - cmdstanpy - INFO - Chain [2] done processing
+COMPLETED: fit-rw_free-run1-prior1; diagnostics=PASS
+16:22:49 - cmdstanpy - INFO - Chain [1] done processing
+16:25:10 - cmdstanpy - INFO - Chain [3] done processing
+16:30:50 - cmdstanpy - INFO - Chain [3] done processing
+16:35:38 - cmdstanpy - INFO - Chain [2] done processing
+COMPLETED: fit-rw_free-full-prior0.5; diagnostics=PASS
+16:38:12 - cmdstanpy - INFO - Chain [1] done processing
+16:39:17 - cmdstanpy - INFO - Chain [2] done processing
+16:47:48 - cmdstanpy - INFO - Chain [4] done processing
+COMPLETED: fit-rw_free-full-prior2; diagnostics=NEEDS_REVIEW
+16:52:24 - cmdstanpy - INFO - Chain [2] done processing
+16:53:02 - cmdstanpy - INFO - Chain [1] done processing
+16:54:19 - cmdstanpy - INFO - Chain [3] done processing
+16:55:56 - cmdstanpy - INFO - Chain [4] done processing
+COMPLETED: fit-rw_free-run1-prior2; diagnostics=NEEDS_REVIEW
+17:19:29 - cmdstanpy - INFO - Chain [4] done processing
+COMPLETED: fit-rw_free-full-prior1; diagnostics=NEEDS_REVIEW
+COMPLETED 6 fits; 3 need diagnostic review. No imaging covariates released.

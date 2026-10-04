@@ -1,0 +1,7 @@
+job	phase	model	stage	parameters	flagged_parameters	divergences	max_depth_hits	max_rhat	min_bulk_ess	min_tail_ess	min_ebfmi	finite_diagnostics	passed	inference_eligible
+fit-rw_free-full-prior0.5	fit	rw_free	full	1152	0	0	0	1.00185	2208.69	1587.14	0.851641447283904	True	True	True
+fit-rw_free-full-prior1	fit	rw_free	full	1152	4	0	0	1.00708	591.123	166.92	0.8809397193037591	True	False	False
+fit-rw_free-full-prior2	fit	rw_free	full	1152	34	0	0	1.02942	145.858	57.6422	0.8506401615777658	True	False	False
+fit-rw_free-run1-prior0.5	fit	rw_free	run1	1152	0	0	0	1.00206	2923.39	2195.66	0.8946327848263247	True	True	True
+fit-rw_free-run1-prior1	fit	rw_free	run1	1152	0	0	0	1.00281	1723.92	1048.29	0.9050922749895061	True	True	True
+fit-rw_free-run1-prior2	fit	rw_free	run1	1152	5	0	0	1.00765	655.765	207.114	0.871772212794188	True	False	False
