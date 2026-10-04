@@ -1,0 +1,126 @@
+Participant-partners: 141; planned fits: 10
+Age mode: none; no imaging covariates or trial EVs will be released
+CPU budget: 40; up to 5 fits x 4 chains x 2 threads = 40
+PLAN: recovery-rw_free-full-prior1-rep001; likelihood choices=6654
+PLAN: recovery-rw_free-full-prior1-rep002; likelihood choices=6654
+PLAN: recovery-rw_free-full-prior1-rep003; likelihood choices=6654
+PLAN: recovery-rw_free-full-prior1-rep004; likelihood choices=6654
+PLAN: recovery-rw_free-full-prior1-rep005; likelihood choices=6654
+PLAN: recovery-rw_free-full-prior1-rep006; likelihood choices=6654
+PLAN: recovery-rw_free-full-prior1-rep007; likelihood choices=6654
+PLAN: recovery-rw_free-full-prior1-rep008; likelihood choices=6654
+PLAN: recovery-rw_free-full-prior1-rep009; likelihood choices=6654
+PLAN: recovery-rw_free-full-prior1-rep010; likelihood choices=6654
+23:46:30 - cmdstanpy - INFO - compiling stan file /ZPOOL/data/scratch/srndna-gu-stan-recovery-long-v1/build/2ceb924be1c658f0/gu_hierarchical.stan to exe file /ZPOOL/data/scratch/srndna-gu-stan-recovery-long-v1/build/2ceb924be1c658f0/gu_hierarchical
+23:46:53 - cmdstanpy - INFO - compiled model executable: /ZPOOL/data/scratch/srndna-gu-stan-recovery-long-v1/build/2ceb924be1c658f0/gu_hierarchical
+RUN: recovery-rw_free-full-prior1-rep002 -> /ZPOOL/data/scratch/srndna-gu-stan-recovery-long-v1/fits/recovery-rw_free-full-prior1-rep002/attempt-zfgos47yRUN: recovery-rw_free-full-prior1-rep004 -> /ZPOOL/data/scratch/srndna-gu-stan-recovery-long-v1/fits/recovery-rw_free-full-prior1-rep004/attempt-scx2pjtl
+
+RUN: recovery-rw_free-full-prior1-rep005 -> /ZPOOL/data/scratch/srndna-gu-stan-recovery-long-v1/fits/recovery-rw_free-full-prior1-rep005/attempt-x9wbiuv0
+RUN: recovery-rw_free-full-prior1-rep003 -> /ZPOOL/data/scratch/srndna-gu-stan-recovery-long-v1/fits/recovery-rw_free-full-prior1-rep003/attempt-e0pc_nn8
+RUN: recovery-rw_free-full-prior1-rep001 -> /ZPOOL/data/scratch/srndna-gu-stan-recovery-long-v1/fits/recovery-rw_free-full-prior1-rep001/attempt-1qds6_v7
+23:46:56 - cmdstanpy - INFO - CmdStan start processing
+23:46:56 - cmdstanpy - INFO - Chain [1] start processing
+23:46:56 - cmdstanpy - INFO - Chain [2] start processing
+23:46:56 - cmdstanpy - INFO - Chain [3] start processing
+23:46:56 - cmdstanpy - INFO - Chain [4] start processing
+23:46:56 - cmdstanpy - INFO - CmdStan start processing
+23:46:56 - cmdstanpy - INFO - Chain [1] start processing
+23:46:56 - cmdstanpy - INFO - Chain [2] start processing
+23:46:56 - cmdstanpy - INFO - Chain [3] start processing
+23:46:56 - cmdstanpy - INFO - Chain [4] start processing
+23:46:56 - cmdstanpy - INFO - CmdStan start processing
+23:46:56 - cmdstanpy - INFO - Chain [1] start processing
+23:46:56 - cmdstanpy - INFO - Chain [2] start processing
+23:46:56 - cmdstanpy - INFO - Chain [3] start processing
+23:46:56 - cmdstanpy - INFO - CmdStan start processing
+23:46:56 - cmdstanpy - INFO - Chain [4] start processing
+23:46:56 - cmdstanpy - INFO - Chain [1] start processing
+23:46:56 - cmdstanpy - INFO - Chain [2] start processing
+23:46:56 - cmdstanpy - INFO - Chain [3] start processing
+23:46:56 - cmdstanpy - INFO - Chain [4] start processing
+23:46:56 - cmdstanpy - INFO - CmdStan start processing
+23:46:56 - cmdstanpy - INFO - Chain [1] start processing
+23:46:56 - cmdstanpy - INFO - Chain [2] start processing
+23:46:56 - cmdstanpy - INFO - Chain [3] start processing
+23:46:56 - cmdstanpy - INFO - Chain [4] start processing
+00:07:42 - cmdstanpy - INFO - Chain [4] done processing
+00:09:37 - cmdstanpy - INFO - Chain [4] done processing
+00:12:54 - cmdstanpy - INFO - Chain [4] done processing
+00:13:40 - cmdstanpy - INFO - Chain [3] done processing
+00:19:59 - cmdstanpy - INFO - Chain [2] done processing
+00:20:36 - cmdstanpy - INFO - Chain [3] done processing
+00:21:06 - cmdstanpy - INFO - Chain [1] done processing
+00:21:12 - cmdstanpy - INFO - Chain [1] done processing
+00:22:01 - cmdstanpy - INFO - Chain [3] done processing
+COMPLETED: recovery-rw_free-full-prior1-rep005; diagnostics=PASS
+RUN: recovery-rw_free-full-prior1-rep006 -> /ZPOOL/data/scratch/srndna-gu-stan-recovery-long-v1/fits/recovery-rw_free-full-prior1-rep006/attempt-g8t9jh9_
+00:22:17 - cmdstanpy - INFO - CmdStan start processing
+00:22:17 - cmdstanpy - INFO - Chain [1] start processing
+00:22:17 - cmdstanpy - INFO - Chain [2] start processing
+00:22:17 - cmdstanpy - INFO - Chain [3] start processing
+00:22:17 - cmdstanpy - INFO - Chain [4] start processing
+00:22:28 - cmdstanpy - INFO - Chain [2] done processing
+COMPLETED: recovery-rw_free-full-prior1-rep001; diagnostics=PASS
+RUN: recovery-rw_free-full-prior1-rep007 -> /ZPOOL/data/scratch/srndna-gu-stan-recovery-long-v1/fits/recovery-rw_free-full-prior1-rep007/attempt-gwb5r3sy
+00:23:52 - cmdstanpy - INFO - CmdStan start processing
+00:23:52 - cmdstanpy - INFO - Chain [1] start processing
+00:23:52 - cmdstanpy - INFO - Chain [2] start processing
+00:23:52 - cmdstanpy - INFO - Chain [3] start processing
+00:23:52 - cmdstanpy - INFO - Chain [4] start processing
+00:24:51 - cmdstanpy - INFO - Chain [2] done processing
+00:25:21 - cmdstanpy - INFO - Chain [1] done processing
+00:25:26 - cmdstanpy - INFO - Chain [2] done processing
+00:25:40 - cmdstanpy - INFO - Chain [1] done processing
+00:25:53 - cmdstanpy - INFO - Chain [4] done processing
+00:26:18 - cmdstanpy - INFO - Chain [3] done processing
+00:26:38 - cmdstanpy - INFO - Chain [3] done processing
+COMPLETED: recovery-rw_free-full-prior1-rep004; diagnostics=PASS
+RUN: recovery-rw_free-full-prior1-rep008 -> /ZPOOL/data/scratch/srndna-gu-stan-recovery-long-v1/fits/recovery-rw_free-full-prior1-rep008/attempt-hjm7ks2e
+00:26:39 - cmdstanpy - INFO - CmdStan start processing
+00:26:39 - cmdstanpy - INFO - Chain [1] start processing
+00:26:39 - cmdstanpy - INFO - Chain [2] start processing
+00:26:39 - cmdstanpy - INFO - Chain [3] start processing
+00:26:39 - cmdstanpy - INFO - Chain [4] start processing
+00:43:30 - cmdstanpy - INFO - Chain [2] done processing
+00:47:13 - cmdstanpy - INFO - Chain [4] done processing
+00:47:44 - cmdstanpy - INFO - Chain [1] done processing
+COMPLETED: recovery-rw_free-full-prior1-rep002; diagnostics=PASS
+RUN: recovery-rw_free-full-prior1-rep009 -> /ZPOOL/data/scratch/srndna-gu-stan-recovery-long-v1/fits/recovery-rw_free-full-prior1-rep009/attempt-45f4pxq8
+00:48:29 - cmdstanpy - INFO - CmdStan start processing
+00:48:29 - cmdstanpy - INFO - Chain [1] start processing
+00:48:29 - cmdstanpy - INFO - Chain [2] start processing
+00:48:29 - cmdstanpy - INFO - Chain [3] start processing
+00:48:29 - cmdstanpy - INFO - Chain [4] start processing
+COMPLETED: recovery-rw_free-full-prior1-rep003; diagnostics=PASS
+RUN: recovery-rw_free-full-prior1-rep010 -> /ZPOOL/data/scratch/srndna-gu-stan-recovery-long-v1/fits/recovery-rw_free-full-prior1-rep010/attempt-5guz88_h
+00:49:06 - cmdstanpy - INFO - CmdStan start processing
+00:49:06 - cmdstanpy - INFO - Chain [1] start processing
+00:49:06 - cmdstanpy - INFO - Chain [2] start processing
+00:49:06 - cmdstanpy - INFO - Chain [3] start processing
+00:49:06 - cmdstanpy - INFO - Chain [4] start processing
+00:57:03 - cmdstanpy - INFO - Chain [3] done processing
+00:58:02 - cmdstanpy - INFO - Chain [1] done processing
+00:59:04 - cmdstanpy - INFO - Chain [4] done processing
+00:59:17 - cmdstanpy - INFO - Chain [3] done processing
+01:00:37 - cmdstanpy - INFO - Chain [2] done processing
+01:01:03 - cmdstanpy - INFO - Chain [4] done processing
+01:01:42 - cmdstanpy - INFO - Chain [4] done processing
+01:01:43 - cmdstanpy - INFO - Chain [1] done processing
+01:17:48 - cmdstanpy - INFO - Chain [1] done processing
+01:17:52 - cmdstanpy - INFO - Chain [2] done processing
+01:17:56 - cmdstanpy - INFO - Chain [3] done processing
+01:18:51 - cmdstanpy - INFO - Chain [2] done processing
+01:18:54 - cmdstanpy - INFO - Chain [2] done processing
+COMPLETED: recovery-rw_free-full-prior1-rep007; diagnostics=PASS
+01:19:13 - cmdstanpy - INFO - Chain [1] done processing
+01:19:22 - cmdstanpy - INFO - Chain [1] done processing
+01:19:48 - cmdstanpy - INFO - Chain [4] done processing
+01:19:53 - cmdstanpy - INFO - Chain [4] done processing
+COMPLETED: recovery-rw_free-full-prior1-rep006; diagnostics=PASS
+01:20:08 - cmdstanpy - INFO - Chain [2] done processing
+01:20:12 - cmdstanpy - INFO - Chain [3] done processing
+COMPLETED: recovery-rw_free-full-prior1-rep010; diagnostics=PASS
+COMPLETED: recovery-rw_free-full-prior1-rep009; diagnostics=PASS
+01:21:29 - cmdstanpy - INFO - Chain [3] done processing
+COMPLETED: recovery-rw_free-full-prior1-rep008; diagnostics=PASS
+COMPLETED 10 fits; 0 need diagnostic review. No imaging covariates released.

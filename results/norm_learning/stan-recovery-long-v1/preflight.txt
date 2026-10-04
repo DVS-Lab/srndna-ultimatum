@@ -1,0 +1,14 @@
+Participant-partners: 141; planned fits: 10
+Age mode: none; no imaging covariates or trial EVs will be released
+CPU budget: 40; up to 5 fits x 4 chains x 2 threads = 40
+PLAN: recovery-rw_free-full-prior1-rep001; likelihood choices=6654
+PLAN: recovery-rw_free-full-prior1-rep002; likelihood choices=6654
+PLAN: recovery-rw_free-full-prior1-rep003; likelihood choices=6654
+PLAN: recovery-rw_free-full-prior1-rep004; likelihood choices=6654
+PLAN: recovery-rw_free-full-prior1-rep005; likelihood choices=6654
+PLAN: recovery-rw_free-full-prior1-rep006; likelihood choices=6654
+PLAN: recovery-rw_free-full-prior1-rep007; likelihood choices=6654
+PLAN: recovery-rw_free-full-prior1-rep008; likelihood choices=6654
+PLAN: recovery-rw_free-full-prior1-rep009; likelihood choices=6654
+PLAN: recovery-rw_free-full-prior1-rep010; likelihood choices=6654
+DRY RUN: no compilation or sampling. Add --execute to run.

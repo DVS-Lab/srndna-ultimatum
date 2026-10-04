@@ -1,0 +1,11 @@
+job	phase	model	stage	parameters	flagged_parameters	divergences	max_depth_hits	max_rhat	min_bulk_ess	min_tail_ess	min_ebfmi	finite_diagnostics	passed	inference_eligible
+recovery-rw_free-full-prior1-rep001	recovery	rw_free	full	1152	0	0	0	1.00145	6415.55	10625.9	0.8520147078142497	True	True	True
+recovery-rw_free-full-prior1-rep002	recovery	rw_free	full	1152	0	0	0	1.00127	3836.33	4463.14	0.8921013216185746	True	True	True
+recovery-rw_free-full-prior1-rep003	recovery	rw_free	full	1152	0	0	0	1.00146	2677.59	5035.02	0.8518679603223582	True	True	True
+recovery-rw_free-full-prior1-rep004	recovery	rw_free	full	1152	0	0	0	1.00195	4750.42	4225.36	0.8143067705504355	True	True	True
+recovery-rw_free-full-prior1-rep005	recovery	rw_free	full	1152	0	0	0	1.00128	16389.0	10855.6	0.9544344308698605	True	True	True
+recovery-rw_free-full-prior1-rep006	recovery	rw_free	full	1152	0	0	0	1.00112	3719.11	5952.55	0.8134909088955493	True	True	True
+recovery-rw_free-full-prior1-rep007	recovery	rw_free	full	1152	0	0	0	1.00384	2203.5	3803.63	0.8627685410954341	True	True	True
+recovery-rw_free-full-prior1-rep008	recovery	rw_free	full	1152	0	0	0	1.0018	2989.0	3103.86	0.8686038264158563	True	True	True
+recovery-rw_free-full-prior1-rep009	recovery	rw_free	full	1152	0	0	0	1.00117	5417.44	5133.91	0.8878064079213551	True	True	True
+recovery-rw_free-full-prior1-rep010	recovery	rw_free	full	1152	0	0	0	1.00195	2959.27	4193.13	0.8687984965386539	True	True	True

@@ -1,0 +1,11 @@
+CHECKED: recovery-rw_free-full-prior1-rep001; 1152 parameters; 0 flagged
+CHECKED: recovery-rw_free-full-prior1-rep002; 1152 parameters; 0 flagged
+CHECKED: recovery-rw_free-full-prior1-rep003; 1152 parameters; 0 flagged
+CHECKED: recovery-rw_free-full-prior1-rep004; 1152 parameters; 0 flagged
+CHECKED: recovery-rw_free-full-prior1-rep005; 1152 parameters; 0 flagged
+CHECKED: recovery-rw_free-full-prior1-rep006; 1152 parameters; 0 flagged
+CHECKED: recovery-rw_free-full-prior1-rep007; 1152 parameters; 0 flagged
+CHECKED: recovery-rw_free-full-prior1-rep008; 1152 parameters; 0 flagged
+CHECKED: recovery-rw_free-full-prior1-rep009; 1152 parameters; 0 flagged
+CHECKED: recovery-rw_free-full-prior1-rep010; 1152 parameters; 0 flagged
+EXPORTED: 10 fits, 11 figures, six diagnostic tables -> /ZPOOL/data/projects/srndna-ultimatum/results/norm_learning/stan-recovery-long-v1/diagnostics-v1
