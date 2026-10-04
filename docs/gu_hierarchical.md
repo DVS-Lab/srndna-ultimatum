@@ -174,6 +174,55 @@ git commit -m "Add longer baseline norm-model fits and diagnostics" &&
 git push origin main
 ```
 
+### Conditional recovery and posterior trial-signal audit
+
+The broad prior-generated recovery experiment does not establish reliable
+participant-average alpha or partner-difference estimates. Its generating
+parameters also span a much wider region than the empirical fits. The next
+checks keep those questions separate from imaging inference:
+
+```bash
+# Existing srndna-ultimatum environment; run inside tmux on Linux1.
+bash code/run_gu_signal_validation.sh signals --execute
+bash code/run_gu_signal_validation.sh targeted
+bash code/run_gu_signal_validation.sh targeted --execute
+```
+
+The signal audit reads all saved posterior draws from the original age-blind
+full-data RW fit and all three full-data prior-sensitivity fits, including the
+flagged default-prior repeat and wider-prior fit. It derives expected norm
+before the offer, signed offer prediction error, and updated norm separately
+for every draw. Missed offers update the latent state; missed responses are
+excluded from candidate signal correlations. Partner histories carry across
+runs. Results include posterior intervals, correlations with offer amount,
+uncertainty relative to within-run temporal variation, and aligned cross-fit
+signal comparisons. These are **pre-convolution** checks, not a demonstration
+of estimability after HRF convolution, filtering, or nuisance adjustment.
+
+Targeted recovery generates 16 datasets from joint posterior draws: both
+default-prior empirical fits, all four chains, and one reproducibly sampled
+draw from each half-chain. No draw is selected for its parameter value or fit
+diagnostics. This probes the empirical parameter region without substituting
+posterior means for uncertain truths or choosing only the passing source fit.
+It is conditional simulation, **not independent validation or SBC**, and does
+not establish model validity. Refits use the unchanged RW model and default
+prior, actual offer sequences and response-missingness pattern. Each has four
+chains, two threads per chain, 3,000 warmup and 6,000 sampling iterations;
+the 40-CPU budget permits five simultaneous fits. Source chain/draw identities,
+hashes and diagnostic status are retained. Completed fits resume unchanged;
+an interrupted fit is retried in a new attempt directory, not overwritten.
+
+New fits stay in `/ZPOOL/data/scratch/srndna-gu-stan-targeted-v1`. Compact outputs
+and logs are written to `results/norm_learning/stan-signals-v1` and
+`results/norm_learning/stan-targeted-v1`. Targeted exports include recovery
+correlations, RMSE, interval coverage and interval width for participant means
+and both partner contrasts, plus trial-signal recovery. Flagged refits are
+retained and labeled, not silently discarded. Exit code 2 means sampling
+finished with diagnostic flags; exports still run. An execution failure is
+different and stops subsequent export. Neither command releases imaging
+covariates/EVs or changes the existing empirical fits. Inspect the diagnostics
+before deciding whether any parameter or trial signal can support imaging.
+
 For the age run, use `results/norm_learning/stan-agegroup-v1` instead. Raw chains,
 compiler products, and interrupted attempts remain in scratch.
 
