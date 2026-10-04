@@ -1,0 +1,5 @@
+SOURCE: baseline; diagnostics=True; /ZPOOL/data/scratch/srndna-gu-stan-long-v2/fits/fit-rw_free-full-prior1
+SOURCE: repeat_prior1; diagnostics=False; /ZPOOL/data/scratch/srndna-gu-stan-priors-long-v1/fits/fit-rw_free-full-prior1
+PLAN: 16 posterior-conditioned recovery fits; 5 concurrent fits x 4 chains x 2 threads
+New scratch: /ZPOOL/data/scratch/srndna-gu-stan-targeted-v1; exports: /ZPOOL/data/projects/srndna-ultimatum/results/norm_learning/stan-targeted-v1
+DRY RUN: no compilation or sampling; add --execute. No imaging inputs released.

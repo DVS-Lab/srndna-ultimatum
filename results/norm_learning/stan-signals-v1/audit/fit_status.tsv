@@ -1,0 +1,5 @@
+fit	divergences	max_depth_hits	max_rhat	min_bulk_ess	min_tail_ess	min_ebfmi	finite_diagnostics	passed
+baseline	0	0	1.00304	1319.96	478.151	0.861936109183123	True	True
+repeat_prior0.5	0	0	1.00185	2208.69	1587.14	0.851641447283904	True	True
+repeat_prior1	0	0	1.00708	591.123	166.92	0.8809397193037591	True	False
+repeat_prior2	0	0	1.02942	145.858	57.6422	0.8506401615777658	True	False

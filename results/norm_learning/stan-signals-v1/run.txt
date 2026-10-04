@@ -1,0 +1,5 @@
+AUDITED: baseline; diagnostics=PASS
+AUDITED: repeat_prior0.5; diagnostics=PASS
+AUDITED: repeat_prior1; diagnostics=FLAGGED (retained)
+AUDITED: repeat_prior2; diagnostics=FLAGGED (retained)
+Saved signals audit: /ZPOOL/data/projects/srndna-ultimatum/results/norm_learning/stan-signals-v1/audit; no imaging inputs released
