@@ -63,8 +63,8 @@ four chains, 3,000 warmup and 6,000 retained samples per chain, adapt_delta .99,
 and two likelihood threads per chain. The CPU ceiling is 40; four simultaneous
 fits use up to 32 threads. No existing baseline or age model is rerun.
 
-Full scratch: `/ZPOOL/data/scratch/srndna-gu-stan-positive-bias-v1`.
-Smoke scratch: `/ZPOOL/data/scratch/srndna-gu-stan-positive-bias-smoke-v1`.
+Full scratch: `/ZPOOL/data/scratch/srndna-gu-stan-positive-bias-v2`.
+Smoke scratch: `/ZPOOL/data/scratch/srndna-gu-stan-positive-bias-smoke-v2`.
 Override the scratch parent with `SRNDNA_STAN_SCRATCH_BASE`, and the existing
 CmdStan 2.40.0 location with `SRNDNA_CMDSTAN_ROOT` if needed.
 
@@ -77,8 +77,8 @@ batch separate from other CPU-heavy launches.
 
 ## Outputs and interpretation
 
-Small results go to `results/norm_learning/stan-positive-bias-v1` (and the
-corresponding `stan-positive-bias-smoke-v1` for smoke). Raw chains stay in scratch.
+Small results go to `results/norm_learning/stan-positive-bias-v2` (and the
+corresponding `stan-positive-bias-smoke-v2` for smoke). Raw chains stay in scratch.
 Trackable `preflight.txt`, `run.txt`, and `export.txt` preserve terminal output.
 Exit 2 means sampling completed with diagnostic flags, not execution failure.
 All flags and ineligibility labels are preserved in summaries and trace plots.
@@ -102,7 +102,7 @@ The Stan theta array repeats the same bias across partners for likelihood
 evaluation; those copies are not separate estimates.
 
 ```
-git add results/norm_learning/stan-positive-bias-smoke-v1 results/norm_learning/stan-positive-bias-v1
+git add results/norm_learning/stan-positive-bias-smoke-v2 results/norm_learning/stan-positive-bias-v2
 git commit -m "Add positive-support norm-model fits and diagnostics"
 git push origin main
 ```
@@ -110,3 +110,11 @@ git push origin main
 Recovery is available explicitly through the Python runner's `--phase recovery`
 but is not part of this overnight launch. These fits alone do not validate
 individual parameters. Archive all comparisons, including unfavorable results.
+
+### Initialization repair (v2)
+
+The v1 smoke launch stopped before HMC: the equation-check initializer wrote
+`age_beta=[]`, which JSON represents as a vector rather than the declared
+zero-row matrix. The strictly age-blind extension no longer declares this
+unused parameter. Likelihoods, priors, and sampling settings are unchanged.
+New v2 roots preserve the failed v1 attempt and its code fingerprints.

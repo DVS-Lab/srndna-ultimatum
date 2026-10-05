@@ -156,18 +156,24 @@ def describe(draws):
                 q975=float(np.quantile(draws, .975)))
 
 
+def validation_initialization(data):
+    """No dormant age matrix: JSON [] cannot encode a (0,K) matrix."""
+    k, s, b = data['K'], data['S'], data['B']
+    return dict(mu=[.3, .5, -.4, -.7], effect=np.full((2,k), .2).tolist(),
+                sigma_subject=[.4]*k, sigma_contrast=np.full((2,k), .3).tolist(),
+                z_subject=np.full((s,k), .1).tolist(),
+                z_contrast=np.full((2,s,k), -.1).tolist(),
+                bias_mu=[-.6]*b, bias_sigma=[.8]*b,
+                bias_z=np.arange(s*b).reshape(s,b).tolist())
+
+
 def validate_compiled(model, units, work):
     """Gate HMC on Stan/Python parity, including the actual reduce_sum target."""
     subset = units[:6]
     for name in MODELS:
         data = build_data(subset, name, 'run1')
         k, s, b = data['K'], data['S'], data['B']
-        init = dict(mu=[.3, .5, -.4, -.7], effect=np.full((2,k), .2).tolist(),
-                    sigma_subject=[.4]*k, sigma_contrast=np.full((2,k), .3).tolist(),
-                    z_subject=np.full((s,k), .1).tolist(),
-                    z_contrast=np.full((2,s,k), -.1).tolist(), age_beta=[],
-                    bias_mu=[-.6]*b, bias_sigma=[.8]*b,
-                    bias_z=np.arange(s*b).reshape(s,b).tolist())
+        init = validation_initialization(data)
         expected = latent_to_theta(np.array([
             np.array(init['mu']) + .04 + np.sum(CONTRAST[p-1, :, None]*.17, axis=0)
             for p in data['partner']]), name)

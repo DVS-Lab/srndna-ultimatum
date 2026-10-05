@@ -48,9 +48,7 @@ data {
   vector<lower=0>[K] effect_sd;
   vector<lower=0>[K] subject_sd;
   vector<lower=0>[K] contrast_sd;
-  int<lower=0,upper=1> A; // 0: age-blind; 1: centered older-group indicator
-  matrix[S,A] age_design;
-  vector<lower=0>[K] age_sd;
+  int<lower=0,upper=0> A; // extension is strictly age-blind
 }
 transformed data {
   if (B != model_id - 1 || A != 0) reject("extension mode/bias/age mismatch");
@@ -65,14 +63,12 @@ parameters {
   matrix<lower=0>[2,K] sigma_contrast;
   matrix[S,K] z_subject;
   array[2] matrix[S,K] z_contrast;
-  matrix[A,K] age_beta;
 }
 transformed parameters {
   matrix[U,K+B] theta;
   for (u in 1:U) {
     for (k in 1:K) {
       real latent = mu[k] + sigma_subject[k] * z_subject[subject[u],k];
-      if (A == 1) latent += age_design[subject[u],1] * age_beta[1,k];
       for (c in 1:2)
         latent += contrast[partner[u],c] *
                   (effect[c,k] + sigma_contrast[c,k] * z_contrast[c][subject[u],k]);
@@ -90,7 +86,6 @@ model {
   mu ~ normal(0, mu_sd);
   sigma_subject ~ normal(0, subject_sd);
   to_vector(z_subject) ~ std_normal();
-  if (A == 1) age_beta[1]' ~ normal(0, age_sd);
   for (c in 1:2) {
     effect[c]' ~ normal(0, effect_sd);
     sigma_contrast[c]' ~ normal(0, contrast_sd);
@@ -119,4 +114,3 @@ generated quantities {
     }
   }
 }
-

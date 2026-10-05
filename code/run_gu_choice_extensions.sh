@@ -13,9 +13,9 @@ cd "$CODE_ROOT" || exit 1
 SCRATCH_BASE=${SRNDNA_STAN_SCRATCH_BASE:-/ZPOOL/data/scratch}
 CMDSTAN_ROOT=${SRNDNA_CMDSTAN_ROOT:-/ZPOOL/data/scratch/srndna-stan-toolchain/cmdstan-2.40.0}
 PHASE=fit; WARMUP=3000; SAMPLES=6000
-SUFFIX=positive-bias-v1
+SUFFIX=positive-bias-v2
 if test "$MODE" = smoke; then
-  PHASE=smoke; WARMUP=100; SAMPLES=100; SUFFIX=positive-bias-smoke-v1
+  PHASE=smoke; WARMUP=100; SAMPLES=100; SUFFIX=positive-bias-smoke-v2
 fi
 WORK_ROOT="$SCRATCH_BASE/srndna-gu-stan-$SUFFIX"
 OUTPUT_ROOT="$CODE_ROOT/results/norm_learning/stan-$SUFFIX"

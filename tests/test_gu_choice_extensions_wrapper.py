@@ -33,6 +33,7 @@ class WrapperTests(unittest.TestCase):
         status,calls,logs=self.launch()
         self.assertEqual(status,0)
         self.assertEqual(len(calls),2)
+        self.assertIn('positive-bias-v2',calls[0])
         for value in ('--models rw_positive rw_positive_bias','--stages full run1',
                       '--jobs 40 --chains 4 --threads-per-chain 2',
                       '--warmup 3000 --samples 6000','--execute'):
@@ -43,6 +44,7 @@ class WrapperTests(unittest.TestCase):
     def test_smoke_plan(self):
         status,calls,_=self.launch('smoke')
         self.assertEqual(status,0)
+        self.assertIn('positive-bias-smoke-v2',calls[0])
         self.assertIn('--phase smoke',calls[0]); self.assertIn('--samples 100',calls[0])
         self.assertIn('--phase smoke --expected-jobs 4',calls[1])
 

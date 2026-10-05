@@ -7,6 +7,7 @@ import sys
 import tempfile
 import unittest
 from unittest.mock import patch
+from types import SimpleNamespace
 
 import numpy as np
 from scipy.special import expit
@@ -46,6 +47,16 @@ class ChoiceExtensionTests(unittest.TestCase):
                                            'rw_positive_bias'), [z]*3)
         # Removal of the $1 offer ceiling; not a change of dollar units.
         self.assertGreater(expit(ext.logits(np.array([1.,4.,.1,.01]), [1.], 'rw_positive')[0]), .98)
+
+    def test_initialization_has_no_zero_row_age_matrix(self):
+        for name in ext.MODELS:
+            data=ext.build_data(self.units[:6],name)
+            init=json.loads(json.dumps(ext.validation_initialization(data)))
+            self.assertNotIn('age_beta',init)
+            self.assertEqual(np.array(init['effect']).shape,(2,4))
+            self.assertEqual(np.array(init['bias_z']).shape,(data['S'],data['B']))
+        stan=(ROOT/'code/stan/gu_choice_extensions.stan').read_text()
+        self.assertNotIn('age_beta',stan)
 
     def test_support_shared_bias_prior_and_order(self):
         for name in ext.MODELS:
@@ -157,6 +168,32 @@ class CompiledTests(unittest.TestCase):
         model=cmdstanpy.CmdStanModel(exe_file=os.environ['SRNDNA_GU_EXTENSION_EXE'])
         with tempfile.TemporaryDirectory() as tmp:
             ext.validate_compiled(model,ext.load_trials(ROOT)[0],Path(tmp))
+
+    def test_sampling_export_and_verified_resume(self):
+        from export_gu_stan_diagnostics import export
+        units=ext.load_trials(ROOT)[0][:6]
+        options=SimpleNamespace(chains=4,threads_per_chain=1,warmup=50,samples=50,
+                                adapt_delta=.9,max_treedepth=8)
+        with tempfile.TemporaryDirectory() as tmp:
+            work=Path(tmp)/'work'; records=[]
+            for name in ext.MODELS:
+                data=ext.build_data(units,name,'run1')
+                config=dict(model=name,stage='run1',phase='smoke',prior_scale=1.,seed=123,
+                            data_hash=ext.digest(data),samples=50,chains=4,
+                            parameters=list(ext.MODELS[name][1]),
+                            subjects=list(dict.fromkeys(u['subject'] for u in units)))
+                directory=work/'fits'/f'smoke-{name}'
+                ext.config_guard(directory,config)
+                job=(directory,data,config,None)
+                record=ext.fit_job(job,os.environ['SRNDNA_GU_EXTENSION_EXE'],options,units)
+                self.assertFalse(record['inference_eligible'])
+                self.assertEqual(ext.fit_job(job,None,options,units),record)
+                records.append(record)
+            output=Path(tmp)/'export'
+            ext.collect(records,work,output)
+            export(work,output/'diagnostics',phase='smoke',expected_jobs=2)
+            self.assertTrue((output/'diagnostics/convergence_overview.png').is_file())
+            self.assertEqual(len(pd.read_csv(output/'fit_status.tsv',sep='\t')),2)
 
 
 if __name__ == '__main__':
