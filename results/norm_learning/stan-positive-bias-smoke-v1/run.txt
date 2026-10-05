@@ -1,0 +1,37 @@
+Participant-partners: 12; planned fits: 4
+Age mode: none; no imaging covariates or trial EVs will be released
+CPU budget: 40; up to 4 fits x 4 chains x 2 threads = 32
+PLAN: smoke-rw_positive-full-prior1; likelihood choices=574
+PLAN: smoke-rw_positive-run1-prior1; likelihood choices=286
+PLAN: smoke-rw_positive_bias-full-prior1; likelihood choices=574
+PLAN: smoke-rw_positive_bias-run1-prior1; likelihood choices=286
+22:59:44 - cmdstanpy - INFO - compiling stan file /ZPOOL/data/scratch/srndna-gu-stan-positive-bias-smoke-v1/build/8474d220a167ff34/gu_choice_extensions.stan to exe file /ZPOOL/data/scratch/srndna-gu-stan-positive-bias-smoke-v1/build/8474d220a167ff34/gu_choice_extensions
+23:00:11 - cmdstanpy - INFO - compiled model executable: /ZPOOL/data/scratch/srndna-gu-stan-positive-bias-smoke-v1/build/8474d220a167ff34/gu_choice_extensions
+23:00:11 - cmdstanpy - INFO - CmdStan start processing
+23:00:11 - cmdstanpy - INFO - Chain [1] start processing
+23:00:11 - cmdstanpy - INFO - Chain [1] done processing
+23:00:11 - cmdstanpy - ERROR - Chain [1] error: code '1' Operation not permitted
+Traceback (most recent call last):
+  File "/ZPOOL/data/projects/srndna-ultimatum/code/run_gu_choice_extensions.py", line 616, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/ZPOOL/data/projects/srndna-ultimatum/code/run_gu_choice_extensions.py", line 581, in main
+    validate_compiled(compiled, units, work)
+  File "/ZPOOL/data/projects/srndna-ultimatum/code/run_gu_choice_extensions.py", line 177, in validate_compiled
+    fit = model.sample(data=data, inits=init, chains=1, iter_warmup=0,
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/ZPOOL/data/tools/anaconda/tug87422/anaconda3/envs/srndna-ultimatum/lib/python3.11/site-packages/cmdstanpy/model.py", line 1180, in sample
+    raise RuntimeError(msg)
+RuntimeError: Error during sampling:
+Exception: mismatch in number dimensions declared and found in context; processing stage=parameter initialization; variable name=age_beta; dims declared=(0,4); dims found=(0) (in 'gu_choice_extensions.stan', line 68, column 2 to column 23)
+Command and output files:
+RunSet: chains=1, chain_ids=[1], num_processes=1
+ cmd (chain 1):
+	['/ZPOOL/data/scratch/srndna-gu-stan-positive-bias-smoke-v1/build/8474d220a167ff34/gu_choice_extensions', 'id=1', 'random', 'seed=42', 'data', 'file=/tmp/tmpx2xoexxl/owc603iu.json', 'init=/tmp/tmpx2xoexxl/fx_mg9ti.json', 'output', 'file=/ZPOOL/data/scratch/srndna-gu-stan-positive-bias-smoke-v1/equation-check-5wrcqbgi/gu_choice_extensions-20261004230011.csv', 'sig_figs=16', 'method=sample', 'num_samples=2', 'num_warmup=0', 'algorithm=fixed_param']
+ retcodes=[1]
+ per-chain output files (showing chain 1 only):
+ csv_file:
+	/ZPOOL/data/scratch/srndna-gu-stan-positive-bias-smoke-v1/equation-check-5wrcqbgi/gu_choice_extensions-20261004230011.csv
+ console_msgs (if any):
+	/ZPOOL/data/scratch/srndna-gu-stan-positive-bias-smoke-v1/equation-check-5wrcqbgi/gu_choice_extensions-20261004230011_0-stdout.txt
+Consider re-running with show_console=True if the above output is unclear!
