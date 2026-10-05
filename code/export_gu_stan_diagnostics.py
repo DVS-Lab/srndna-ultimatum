@@ -24,7 +24,7 @@ from scipy.stats import rankdata
 
 PARTNERS = ('computer', 'similar', 'dissimilar')
 CONTRASTS = ('human_minus_computer', 'similar_minus_dissimilar')
-CORE = re.compile(r'^(mu|effect|age_beta|sigma_subject|sigma_contrast|z_subject|z_contrast|theta)\[([0-9,]+)\]$')
+CORE = re.compile(r'^(mu|effect|age_beta|sigma_subject|sigma_contrast|z_subject|z_contrast|theta|bias_mu|bias_sigma|bias_z)\[([0-9,]+)\]$')
 
 
 def sha(path):
@@ -59,6 +59,12 @@ def variable_label(variable, config, data):
         raise ValueError(f'unknown core parameter: {variable}')
     family, indices = match.groups()
     index = [int(i)-1 for i in indices.split(',')]
+    if family.startswith('bias_'):
+        return dict(variable=variable, family=family, parameter='acceptance_bias',
+                    subject=config['subjects'][index[0]] if family == 'bias_z' else '',
+                    partner='all', contrast='',
+                    scale={'bias_mu': 'log_odds', 'bias_sigma': 'log_odds_standard_deviation',
+                           'bias_z': 'standard_normal_deviation'}[family])
     parameter = config['parameters'][index[-1]]
     row = dict(variable=variable, family=family, parameter=parameter,
                subject='', partner='', contrast='', scale='latent')
@@ -77,6 +83,8 @@ def variable_label(variable, config, data):
         row['contrast'] = 'older_minus_younger'
     if family.startswith('sigma'):
         row['scale'] = 'latent_standard_deviation'
+    if family == 'theta' and parameter == 'acceptance_bias':
+        row.update(partner='all', scale='log_odds')
     return row
 
 

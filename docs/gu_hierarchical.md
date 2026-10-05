@@ -1,5 +1,9 @@
 # Hierarchical norm-learning analysis
 
+For the separate positive-support and shared acceptance-bias models, see
+[choice extensions](gu_choice_extensions.md). Their runner and Stan source are
+separate so the baseline fitting fingerprints and saved results remain intact.
+
 This exploratory behavioral analysis uses the corrected 47-participant sample
 and the 48 observed offers per partner. It does not change any imaging model or
 release imaging covariates. Independent bounded-MLE screening is implemented in
