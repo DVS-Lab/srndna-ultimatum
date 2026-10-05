@@ -1,0 +1,5 @@
+job	phase	model	stage	parameters	flagged_parameters	divergences	max_depth_hits	max_rhat	min_bulk_ess	min_tail_ess	min_ebfmi	finite_diagnostics	passed	inference_eligible
+smoke-rw_positive-full-prior1	smoke	rw_positive	full	120	119	0	0	1.14033	22.363	186.326	0.7126858236966954	True	False	False
+smoke-rw_positive-run1-prior1	smoke	rw_positive	run1	120	120	0	15	1.67211	6.87137	200.0	0.006459609578851379	True	False	False
+smoke-rw_positive_bias-full-prior1	smoke	rw_positive_bias	full	138	135	0	0	1.04479	71.2636	200.0	0.8983038497753882	True	False	False
+smoke-rw_positive_bias-run1-prior1	smoke	rw_positive_bias	run1	138	133	0	0	1.10873	27.7026	200.0	0.9469848007379986	True	False	False

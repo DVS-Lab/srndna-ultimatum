@@ -1,0 +1,5 @@
+CHECKED: smoke-rw_positive-full-prior1; 120 parameters; 119 flagged
+CHECKED: smoke-rw_positive-run1-prior1; 120 parameters; 120 flagged
+CHECKED: smoke-rw_positive_bias-full-prior1; 138 parameters; 135 flagged
+CHECKED: smoke-rw_positive_bias-run1-prior1; 138 parameters; 133 flagged
+EXPORTED: 4 fits, 5 figures, six diagnostic tables -> /ZPOOL/data/projects/srndna-ultimatum/results/norm_learning/stan-positive-bias-smoke-v2/diagnostics-v1

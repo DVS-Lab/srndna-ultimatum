@@ -1,0 +1,249 @@
+Participant-partners: 141; planned fits: 4
+Age mode: none; no imaging covariates or trial EVs will be released
+CPU budget: 40; up to 4 fits x 4 chains x 2 threads = 32
+PLAN: fit-rw_positive-full-prior1; likelihood choices=6654
+PLAN: fit-rw_positive-run1-prior1; likelihood choices=3323
+PLAN: fit-rw_positive_bias-full-prior1; likelihood choices=6654
+PLAN: fit-rw_positive_bias-run1-prior1; likelihood choices=3323
+23:14:05 - cmdstanpy - INFO - compiling stan file /ZPOOL/data/scratch/srndna-gu-stan-positive-bias-v2/build/5a45f98e4d566dab/gu_choice_extensions.stan to exe file /ZPOOL/data/scratch/srndna-gu-stan-positive-bias-v2/build/5a45f98e4d566dab/gu_choice_extensions
+23:14:30 - cmdstanpy - INFO - compiled model executable: /ZPOOL/data/scratch/srndna-gu-stan-positive-bias-v2/build/5a45f98e4d566dab/gu_choice_extensions
+23:14:30 - cmdstanpy - INFO - CmdStan start processing
+23:14:30 - cmdstanpy - INFO - Chain [1] start processing
+23:14:30 - cmdstanpy - INFO - Chain [1] done processing
+PASS: compiled equations, shared bias, train/held-out masks and target: rw_positive
+23:14:30 - cmdstanpy - INFO - CmdStan start processing
+23:14:30 - cmdstanpy - INFO - Chain [1] start processing
+23:14:30 - cmdstanpy - INFO - Chain [1] done processing
+PASS: compiled equations, shared bias, train/held-out masks and target: rw_positive_bias
+RUN: fit-rw_positive-full-prior1 -> /ZPOOL/data/scratch/srndna-gu-stan-positive-bias-v2/fits/fit-rw_positive-full-prior1/attempt-flfm2tnt
+RUN: fit-rw_positive-run1-prior1 -> /ZPOOL/data/scratch/srndna-gu-stan-positive-bias-v2/fits/fit-rw_positive-run1-prior1/attempt-gd8xpabg
+RUN: fit-rw_positive_bias-run1-prior1 -> /ZPOOL/data/scratch/srndna-gu-stan-positive-bias-v2/fits/fit-rw_positive_bias-run1-prior1/attempt-bsx1n09z
+RUN: fit-rw_positive_bias-full-prior1 -> /ZPOOL/data/scratch/srndna-gu-stan-positive-bias-v2/fits/fit-rw_positive_bias-full-prior1/attempt-j5w0mjez
+23:14:37 - cmdstanpy - INFO - CmdStan start processing
+23:14:37 - cmdstanpy - INFO - Chain [1] start processing
+23:14:37 - cmdstanpy - INFO - Chain [2] start processing
+23:14:37 - cmdstanpy - INFO - CmdStan start processing
+23:14:37 - cmdstanpy - INFO - Chain [3] start processing
+23:14:37 - cmdstanpy - INFO - Chain [1] start processing
+23:14:37 - cmdstanpy - INFO - Chain [2] start processing
+23:14:37 - cmdstanpy - INFO - Chain [3] start processing
+23:14:37 - cmdstanpy - INFO - Chain [4] start processing
+23:14:37 - cmdstanpy - INFO - Chain [4] start processing
+23:14:37 - cmdstanpy - INFO - CmdStan start processing
+23:14:37 - cmdstanpy - INFO - Chain [1] start processing
+23:14:37 - cmdstanpy - INFO - Chain [2] start processing
+23:14:37 - cmdstanpy - INFO - Chain [3] start processing
+23:14:37 - cmdstanpy - INFO - Chain [4] start processing
+23:14:37 - cmdstanpy - INFO - CmdStan start processing
+23:14:37 - cmdstanpy - INFO - Chain [1] start processing
+23:14:37 - cmdstanpy - INFO - Chain [2] start processing
+23:14:37 - cmdstanpy - INFO - Chain [3] start processing
+23:14:37 - cmdstanpy - INFO - Chain [4] start processing
+03:22:13 - cmdstanpy - INFO - Chain [2] done processing
+03:31:56 - cmdstanpy - INFO - Chain [3] done processing
+03:48:06 - cmdstanpy - INFO - Chain [4] done processing
+03:54:05 - cmdstanpy - INFO - Chain [3] done processing
+04:00:25 - cmdstanpy - INFO - Chain [1] done processing
+04:00:25 - cmdstanpy - WARNING - Non-fatal error during sampling:
+Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in 'gu_choice_extensions.stan', line 24, column 29 to column 78) (in 'gu_choice_extensions.stan', line 94, column 2 to line 95, column 53)
+	Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in 'gu_choice_extensions.stan', line 24, column 29 to column 78) (in 'gu_choice_extensions.stan', line 94, column 2 to line 95, column 53)
+	Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in 'gu_choice_extensions.stan', line 24, column 29 to column 78) (in 'gu_choice_extensions.stan', line 94, column 2 to line 95, column 53)
+	Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in 'gu_choice_extensions.stan', line 24, column 29 to column 78) (in 'gu_choice_extensions.stan', line 94, column 2 to line 95, column 53)
+	Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in 'gu_choice_extensions.stan', line 24, column 29 to column 78) (in 'gu_choice_extensions.stan', line 94, column 2 to line 95, column 53)
+	Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in 'gu_choice_extensions.stan', line 24, column 29 to column 78) (in 'gu_choice_extensions.stan', line 94, column 2 to line 95, column 53)
+	Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in 'gu_choice_extensions.stan', line 24, column 29 to column 78) (in 'gu_choice_extensions.stan', line 94, column 2 to line 95, column 53)
+	Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in 'gu_choice_extensions.stan', line 24, column 29 to column 78) (in 'gu_choice_extensions.stan', line 94, column 2 to line 95, column 53)
+	Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in 'gu_choice_extensions.stan', line 24, column 29 to column 78) (in 'gu_choice_extensions.stan', line 94, column 2 to line 95, column 53)
+	Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in 'gu_choice_extensions.stan', line 24, column 29 to column 78) (in 'gu_choice_extensions.stan', line 94, column 2 to line 95, column 53)
+Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in 'gu_choice_extensions.stan', line 24, column 29 to column 78) (in 'gu_choice_extensions.stan', line 94, column 2 to line 95, column 53)
+	Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in 'gu_choice_extensions.stan', line 24, column 29 to column 78) (in 'gu_choice_extensions.stan', line 94, column 2 to line 95, column 53)
+	Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in 'gu_choice_extensions.stan', line 24, column 29 to column 78) (in 'gu_choice_extensions.stan', line 94, column 2 to line 95, column 53)
+	Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in 'gu_choice_extensions.stan', line 24, column 29 to column 78) (in 'gu_choice_extensions.stan', line 94, column 2 to line 95, column 53)
+	Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in 'gu_choice_extensions.stan', line 24, column 29 to column 78) (in 'gu_choice_extensions.stan', line 94, column 2 to line 95, column 53)
+	Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in 'gu_choice_extensions.stan', line 24, column 29 to column 78) (in 'gu_choice_extensions.stan', line 94, column 2 to line 95, column 53)
+	Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in 'gu_choice_extensions.stan', line 24, column 29 to column 78) (in 'gu_choice_extensions.stan', line 94, column 2 to line 95, column 53)
+	Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in 'gu_choice_extensions.stan', line 24, column 29 to column 78) (in 'gu_choice_extensions.stan', line 94, column 2 to line 95, column 53)
+	Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in 'gu_choice_extensions.stan', line 24, column 29 to column 78) (in 'gu_choice_extensions.stan', line 94, column 2 to line 95, column 53)
+	Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in 'gu_choice_extensions.stan', line 24, column 29 to column 78) (in 'gu_choice_extensions.stan', line 94, column 2 to line 95, column 53)
+	Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in 'gu_choice_extensions.stan', line 24, column 29 to column 78) (in 'gu_choice_extensions.stan', line 94, column 2 to line 95, column 53)
+	Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in 'gu_choice_extensions.stan', line 24, column 29 to column 78) (in 'gu_choice_extensions.stan', line 94, column 2 to line 95, column 53)
+	Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in 'gu_choice_extensions.stan', line 24, column 29 to column 78) (in 'gu_choice_extensions.stan', line 94, column 2 to line 95, column 53)
+	Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in 'gu_choice_extensions.stan', line 24, column 29 to column 78) (in 'gu_choice_extensions.stan', line 94, column 2 to line 95, column 53)
+	Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in 'gu_choice_extensions.stan', line 24, column 29 to column 78) (in 'gu_choice_extensions.stan', line 94, column 2 to line 95, column 53)
+	Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in 'gu_choice_extensions.stan', line 24, column 29 to column 78) (in 'gu_choice_extensions.stan', line 94, column 2 to line 95, column 53)
+	Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in 'gu_choice_extensions.stan', line 24, column 29 to column 78) (in 'gu_choice_extensions.stan', line 94, column 2 to line 95, column 53)
+	Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in 'gu_choice_extensions.stan', line 24, column 29 to column 78) (in 'gu_choice_extensions.stan', line 94, column 2 to line 95, column 53)
+	Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in 'gu_choice_extensions.stan', line 24, column 29 to column 78) (in 'gu_choice_extensions.stan', line 94, column 2 to line 95, column 53)
+	Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in 'gu_choice_extensions.stan', line 24, column 29 to column 78) (in 'gu_choice_extensions.stan', line 94, column 2 to line 95, column 53)
+	Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in 'gu_choice_extensions.stan', line 24, column 29 to column 78) (in 'gu_choice_extensions.stan', line 94, column 2 to line 95, column 53)
+	Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in 'gu_choice_extensions.stan', line 24, column 29 to column 78) (in 'gu_choice_extensions.stan', line 94, column 2 to line 95, column 53)
+	Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in 'gu_choice_extensions.stan', line 24, column 29 to column 78) (in 'gu_choice_extensions.stan', line 94, column 2 to line 95, column 53)
+	Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in 'gu_choice_extensions.stan', line 24, column 29 to column 78) (in 'gu_choice_extensions.stan', line 94, column 2 to line 95, column 53)
+Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in 'gu_choice_extensions.stan', line 24, column 29 to column 78) (in 'gu_choice_extensions.stan', line 94, column 2 to line 95, column 53)
+	Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in 'gu_choice_extensions.stan', line 24, column 29 to column 78) (in 'gu_choice_extensions.stan', line 94, column 2 to line 95, column 53)
+	Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in 'gu_choice_extensions.stan', line 24, column 29 to column 78) (in 'gu_choice_extensions.stan', line 94, column 2 to line 95, column 53)
+	Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in 'gu_choice_extensions.stan', line 24, column 29 to column 78) (in 'gu_choice_extensions.stan', line 94, column 2 to line 95, column 53)
+	Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in 'gu_choice_extensions.stan', line 24, column 29 to column 78) (in 'gu_choice_extensions.stan', line 94, column 2 to line 95, column 53)
+	Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in 'gu_choice_extensions.stan', line 24, column 29 to column 78) (in 'gu_choice_extensions.stan', line 94, column 2 to line 95, column 53)
+	Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in 'gu_choice_extensions.stan', line 24, column 29 to column 78) (in 'gu_choice_extensions.stan', line 94, column 2 to line 95, column 53)
+	Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in 'gu_choice_extensions.stan', line 24, column 29 to column 78) (in 'gu_choice_extensions.stan', line 94, column 2 to line 95, column 53)
+	Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in 'gu_choice_extensions.stan', line 24, column 29 to column 78) (in 'gu_choice_extensions.stan', line 94, column 2 to line 95, column 53)
+	Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in 'gu_choice_extensions.stan', line 24, column 29 to column 78) (in 'gu_choice_extensions.stan', line 94, column 2 to line 95, column 53)
+	Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in 'gu_choice_extensions.stan', line 24, column 29 to column 78) (in 'gu_choice_extensions.stan', line 94, column 2 to line 95, column 53)
+	Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in 'gu_choice_extensions.stan', line 24, column 29 to column 78) (in 'gu_choice_extensions.stan', line 94, column 2 to line 95, column 53)
+	Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in 'gu_choice_extensions.stan', line 24, column 29 to column 78) (in 'gu_choice_extensions.stan', line 94, column 2 to line 95, column 53)
+	Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in 'gu_choice_extensions.stan', line 24, column 29 to column 78) (in 'gu_choice_extensions.stan', line 94, column 2 to line 95, column 53)
+	Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in 'gu_choice_extensions.stan', line 24, column 29 to column 78) (in 'gu_choice_extensions.stan', line 94, column 2 to line 95, column 53)
+	Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in 'gu_choice_extensions.stan', line 24, column 29 to column 78) (in 'gu_choice_extensions.stan', line 94, column 2 to line 95, column 53)
+Consider re-running with show_console=True if the above output is unclear!
+04:00:29 - cmdstanpy - WARNING - Some chains may have failed to converge.
+	Chain 1 had 3 divergent transitions (0.1%)
+	Chain 2 had 6 divergent transitions (0.1%)
+	Chain 3 had 1 divergent transitions (0.0%)
+	Chain 4 had 1 divergent transitions (0.0%)
+	Use the "diagnose()" method on the CmdStanMCMC object to see further information.
+COMPLETED: fit-rw_positive_bias-run1-prior1; diagnostics=NEEDS_REVIEW
+04:59:16 - cmdstanpy - INFO - Chain [4] done processing
+05:02:13 - cmdstanpy - INFO - Chain [4] done processing
+05:05:33 - cmdstanpy - INFO - Chain [1] done processing
+05:41:25 - cmdstanpy - INFO - Chain [1] done processing
+06:04:01 - cmdstanpy - INFO - Chain [2] done processing
+06:04:01 - cmdstanpy - WARNING - Non-fatal error during sampling:
+Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in 'gu_choice_extensions.stan', line 24, column 29 to column 78) (in 'gu_choice_extensions.stan', line 94, column 2 to line 95, column 53)
+	Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in 'gu_choice_extensions.stan', line 24, column 29 to column 78) (in 'gu_choice_extensions.stan', line 94, column 2 to line 95, column 53)
+	Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in 'gu_choice_extensions.stan', line 24, column 29 to column 78) (in 'gu_choice_extensions.stan', line 94, column 2 to line 95, column 53)
+	Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in 'gu_choice_extensions.stan', line 24, column 29 to column 78) (in 'gu_choice_extensions.stan', line 94, column 2 to line 95, column 53)
+	Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in 'gu_choice_extensions.stan', line 24, column 29 to column 78) (in 'gu_choice_extensions.stan', line 94, column 2 to line 95, column 53)
+	Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in 'gu_choice_extensions.stan', line 24, column 29 to column 78) (in 'gu_choice_extensions.stan', line 94, column 2 to line 95, column 53)
+	Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in 'gu_choice_extensions.stan', line 24, column 29 to column 78) (in 'gu_choice_extensions.stan', line 94, column 2 to line 95, column 53)
+	Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in 'gu_choice_extensions.stan', line 24, column 29 to column 78) (in 'gu_choice_extensions.stan', line 94, column 2 to line 95, column 53)
+	Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in 'gu_choice_extensions.stan', line 24, column 29 to column 78) (in 'gu_choice_extensions.stan', line 94, column 2 to line 95, column 53)
+	Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in 'gu_choice_extensions.stan', line 24, column 29 to column 78) (in 'gu_choice_extensions.stan', line 94, column 2 to line 95, column 53)
+	Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in 'gu_choice_extensions.stan', line 24, column 29 to column 78) (in 'gu_choice_extensions.stan', line 94, column 2 to line 95, column 53)
+	Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in 'gu_choice_extensions.stan', line 24, column 29 to column 78) (in 'gu_choice_extensions.stan', line 94, column 2 to line 95, column 53)
+	Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in 'gu_choice_extensions.stan', line 24, column 29 to column 78) (in 'gu_choice_extensions.stan', line 94, column 2 to line 95, column 53)
+	Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in 'gu_choice_extensions.stan', line 24, column 29 to column 78) (in 'gu_choice_extensions.stan', line 94, column 2 to line 95, column 53)
+	Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in 'gu_choice_extensions.stan', line 24, column 29 to column 78) (in 'gu_choice_extensions.stan', line 94, column 2 to line 95, column 53)
+	Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in 'gu_choice_extensions.stan', line 24, column 29 to column 78) (in 'gu_choice_extensions.stan', line 94, column 2 to line 95, column 53)
+Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in 'gu_choice_extensions.stan', line 24, column 29 to column 78) (in 'gu_choice_extensions.stan', line 94, column 2 to line 95, column 53)
+	Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in 'gu_choice_extensions.stan', line 24, column 29 to column 78) (in 'gu_choice_extensions.stan', line 94, column 2 to line 95, column 53)
+	Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in 'gu_choice_extensions.stan', line 24, column 29 to column 78) (in 'gu_choice_extensions.stan', line 94, column 2 to line 95, column 53)
+	Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in 'gu_choice_extensions.stan', line 24, column 29 to column 78) (in 'gu_choice_extensions.stan', line 94, column 2 to line 95, column 53)
+	Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in 'gu_choice_extensions.stan', line 24, column 29 to column 78) (in 'gu_choice_extensions.stan', line 94, column 2 to line 95, column 53)
+	Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in 'gu_choice_extensions.stan', line 24, column 29 to column 78) (in 'gu_choice_extensions.stan', line 94, column 2 to line 95, column 53)
+	Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in 'gu_choice_extensions.stan', line 24, column 29 to column 78) (in 'gu_choice_extensions.stan', line 94, column 2 to line 95, column 53)
+Consider re-running with show_console=True if the above output is unclear!
+06:04:05 - cmdstanpy - WARNING - Some chains may have failed to converge.
+	Chain 1 had 2 divergent transitions (0.0%)
+	Chain 2 had 21 divergent transitions (0.4%)
+	Chain 3 had 30 divergent transitions (0.5%)
+	Chain 4 had 11 divergent transitions (0.2%)
+	Use the "diagnose()" method on the CmdStanMCMC object to see further information.
+COMPLETED: fit-rw_positive-run1-prior1; diagnostics=NEEDS_REVIEW
+07:01:00 - cmdstanpy - INFO - Chain [2] done processing
+07:30:36 - cmdstanpy - INFO - Chain [1] done processing
+07:36:07 - cmdstanpy - INFO - Chain [3] done processing
+07:36:07 - cmdstanpy - WARNING - Non-fatal error during sampling:
+Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in 'gu_choice_extensions.stan', line 24, column 29 to column 78) (in 'gu_choice_extensions.stan', line 94, column 2 to line 95, column 53)
+Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in 'gu_choice_extensions.stan', line 24, column 29 to column 78) (in 'gu_choice_extensions.stan', line 94, column 2 to line 95, column 53)
+	Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in 'gu_choice_extensions.stan', line 24, column 29 to column 78) (in 'gu_choice_extensions.stan', line 94, column 2 to line 95, column 53)
+	Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in 'gu_choice_extensions.stan', line 24, column 29 to column 78) (in 'gu_choice_extensions.stan', line 94, column 2 to line 95, column 53)
+	Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in 'gu_choice_extensions.stan', line 24, column 29 to column 78) (in 'gu_choice_extensions.stan', line 94, column 2 to line 95, column 53)
+	Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in 'gu_choice_extensions.stan', line 24, column 29 to column 78) (in 'gu_choice_extensions.stan', line 94, column 2 to line 95, column 53)
+	Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in 'gu_choice_extensions.stan', line 24, column 29 to column 78) (in 'gu_choice_extensions.stan', line 94, column 2 to line 95, column 53)
+	Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in 'gu_choice_extensions.stan', line 24, column 29 to column 78) (in 'gu_choice_extensions.stan', line 94, column 2 to line 95, column 53)
+	Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in 'gu_choice_extensions.stan', line 24, column 29 to column 78) (in 'gu_choice_extensions.stan', line 94, column 2 to line 95, column 53)
+	Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in 'gu_choice_extensions.stan', line 24, column 29 to column 78) (in 'gu_choice_extensions.stan', line 94, column 2 to line 95, column 53)
+	Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in 'gu_choice_extensions.stan', line 24, column 29 to column 78) (in 'gu_choice_extensions.stan', line 94, column 2 to line 95, column 53)
+	Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in 'gu_choice_extensions.stan', line 24, column 29 to column 78) (in 'gu_choice_extensions.stan', line 94, column 2 to line 95, column 53)
+Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in 'gu_choice_extensions.stan', line 24, column 29 to column 78) (in 'gu_choice_extensions.stan', line 94, column 2 to line 95, column 53)
+	Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in 'gu_choice_extensions.stan', line 24, column 29 to column 78) (in 'gu_choice_extensions.stan', line 94, column 2 to line 95, column 53)
+	Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in 'gu_choice_extensions.stan', line 24, column 29 to column 78) (in 'gu_choice_extensions.stan', line 94, column 2 to line 95, column 53)
+	Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in 'gu_choice_extensions.stan', line 24, column 29 to column 78) (in 'gu_choice_extensions.stan', line 94, column 2 to line 95, column 53)
+	Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in 'gu_choice_extensions.stan', line 24, column 29 to column 78) (in 'gu_choice_extensions.stan', line 94, column 2 to line 95, column 53)
+	Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in 'gu_choice_extensions.stan', line 24, column 29 to column 78) (in 'gu_choice_extensions.stan', line 94, column 2 to line 95, column 53)
+	Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in 'gu_choice_extensions.stan', line 24, column 29 to column 78) (in 'gu_choice_extensions.stan', line 94, column 2 to line 95, column 53)
+	Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in 'gu_choice_extensions.stan', line 24, column 29 to column 78) (in 'gu_choice_extensions.stan', line 94, column 2 to line 95, column 53)
+	Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in 'gu_choice_extensions.stan', line 24, column 29 to column 78) (in 'gu_choice_extensions.stan', line 94, column 2 to line 95, column 53)
+	Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in 'gu_choice_extensions.stan', line 24, column 29 to column 78) (in 'gu_choice_extensions.stan', line 94, column 2 to line 95, column 53)
+	Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in 'gu_choice_extensions.stan', line 24, column 29 to column 78) (in 'gu_choice_extensions.stan', line 94, column 2 to line 95, column 53)
+	Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in 'gu_choice_extensions.stan', line 24, column 29 to column 78) (in 'gu_choice_extensions.stan', line 94, column 2 to line 95, column 53)
+	Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in 'gu_choice_extensions.stan', line 24, column 29 to column 78) (in 'gu_choice_extensions.stan', line 94, column 2 to line 95, column 53)
+	Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in 'gu_choice_extensions.stan', line 24, column 29 to column 78) (in 'gu_choice_extensions.stan', line 94, column 2 to line 95, column 53)
+	Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in 'gu_choice_extensions.stan', line 24, column 29 to column 78) (in 'gu_choice_extensions.stan', line 94, column 2 to line 95, column 53)
+	Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in 'gu_choice_extensions.stan', line 24, column 29 to column 78) (in 'gu_choice_extensions.stan', line 94, column 2 to line 95, column 53)
+Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in 'gu_choice_extensions.stan', line 24, column 29 to column 78) (in 'gu_choice_extensions.stan', line 94, column 2 to line 95, column 53)
+	Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in 'gu_choice_extensions.stan', line 24, column 29 to column 78) (in 'gu_choice_extensions.stan', line 94, column 2 to line 95, column 53)
+	Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in 'gu_choice_extensions.stan', line 24, column 29 to column 78) (in 'gu_choice_extensions.stan', line 94, column 2 to line 95, column 53)
+	Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in 'gu_choice_extensions.stan', line 24, column 29 to column 78) (in 'gu_choice_extensions.stan', line 94, column 2 to line 95, column 53)
+	Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in 'gu_choice_extensions.stan', line 24, column 29 to column 78) (in 'gu_choice_extensions.stan', line 94, column 2 to line 95, column 53)
+	Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in 'gu_choice_extensions.stan', line 24, column 29 to column 78) (in 'gu_choice_extensions.stan', line 94, column 2 to line 95, column 53)
+	Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in 'gu_choice_extensions.stan', line 24, column 29 to column 78) (in 'gu_choice_extensions.stan', line 94, column 2 to line 95, column 53)
+	Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in 'gu_choice_extensions.stan', line 24, column 29 to column 78) (in 'gu_choice_extensions.stan', line 94, column 2 to line 95, column 53)
+	Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in 'gu_choice_extensions.stan', line 24, column 29 to column 78) (in 'gu_choice_extensions.stan', line 94, column 2 to line 95, column 53)
+	Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in 'gu_choice_extensions.stan', line 24, column 29 to column 78) (in 'gu_choice_extensions.stan', line 94, column 2 to line 95, column 53)
+	Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in 'gu_choice_extensions.stan', line 24, column 29 to column 78) (in 'gu_choice_extensions.stan', line 94, column 2 to line 95, column 53)
+	Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in 'gu_choice_extensions.stan', line 24, column 29 to column 78) (in 'gu_choice_extensions.stan', line 94, column 2 to line 95, column 53)
+	Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in 'gu_choice_extensions.stan', line 24, column 29 to column 78) (in 'gu_choice_extensions.stan', line 94, column 2 to line 95, column 53)
+	Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in 'gu_choice_extensions.stan', line 24, column 29 to column 78) (in 'gu_choice_extensions.stan', line 94, column 2 to line 95, column 53)
+	Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in 'gu_choice_extensions.stan', line 24, column 29 to column 78) (in 'gu_choice_extensions.stan', line 94, column 2 to line 95, column 53)
+	Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in 'gu_choice_extensions.stan', line 24, column 29 to column 78) (in 'gu_choice_extensions.stan', line 94, column 2 to line 95, column 53)
+Consider re-running with show_console=True if the above output is unclear!
+07:36:11 - cmdstanpy - WARNING - Some chains may have failed to converge.
+	Chain 2 had 2 divergent transitions (0.0%)
+	Chain 3 had 1 divergent transitions (0.0%)
+	Chain 4 had 4 divergent transitions (0.1%)
+	Use the "diagnose()" method on the CmdStanMCMC object to see further information.
+COMPLETED: fit-rw_positive_bias-full-prior1; diagnostics=NEEDS_REVIEW
+07:53:25 - cmdstanpy - INFO - Chain [4] done processing
+12:12:46 - cmdstanpy - INFO - Chain [2] done processing
+12:58:04 - cmdstanpy - INFO - Chain [3] done processing
+12:58:04 - cmdstanpy - WARNING - Non-fatal error during sampling:
+Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in 'gu_choice_extensions.stan', line 24, column 29 to column 78) (in 'gu_choice_extensions.stan', line 94, column 2 to line 95, column 53)
+	Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in 'gu_choice_extensions.stan', line 24, column 29 to column 78) (in 'gu_choice_extensions.stan', line 94, column 2 to line 95, column 53)
+	Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in 'gu_choice_extensions.stan', line 24, column 29 to column 78) (in 'gu_choice_extensions.stan', line 94, column 2 to line 95, column 53)
+	Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in 'gu_choice_extensions.stan', line 24, column 29 to column 78) (in 'gu_choice_extensions.stan', line 94, column 2 to line 95, column 53)
+	Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in 'gu_choice_extensions.stan', line 24, column 29 to column 78) (in 'gu_choice_extensions.stan', line 94, column 2 to line 95, column 53)
+	Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in 'gu_choice_extensions.stan', line 24, column 29 to column 78) (in 'gu_choice_extensions.stan', line 94, column 2 to line 95, column 53)
+	Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in 'gu_choice_extensions.stan', line 24, column 29 to column 78) (in 'gu_choice_extensions.stan', line 94, column 2 to line 95, column 53)
+	Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in 'gu_choice_extensions.stan', line 24, column 29 to column 78) (in 'gu_choice_extensions.stan', line 94, column 2 to line 95, column 53)
+	Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in 'gu_choice_extensions.stan', line 24, column 29 to column 78) (in 'gu_choice_extensions.stan', line 94, column 2 to line 95, column 53)
+	Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in 'gu_choice_extensions.stan', line 24, column 29 to column 78) (in 'gu_choice_extensions.stan', line 94, column 2 to line 95, column 53)
+	Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in 'gu_choice_extensions.stan', line 24, column 29 to column 78) (in 'gu_choice_extensions.stan', line 94, column 2 to line 95, column 53)
+	Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in 'gu_choice_extensions.stan', line 24, column 29 to column 78) (in 'gu_choice_extensions.stan', line 94, column 2 to line 95, column 53)
+	Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in 'gu_choice_extensions.stan', line 24, column 29 to column 78) (in 'gu_choice_extensions.stan', line 94, column 2 to line 95, column 53)
+	Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in 'gu_choice_extensions.stan', line 24, column 29 to column 78) (in 'gu_choice_extensions.stan', line 94, column 2 to line 95, column 53)
+	Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in 'gu_choice_extensions.stan', line 24, column 29 to column 78) (in 'gu_choice_extensions.stan', line 94, column 2 to line 95, column 53)
+	Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in 'gu_choice_extensions.stan', line 24, column 29 to column 78) (in 'gu_choice_extensions.stan', line 94, column 2 to line 95, column 53)
+Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in 'gu_choice_extensions.stan', line 24, column 29 to column 78) (in 'gu_choice_extensions.stan', line 94, column 2 to line 95, column 53)
+	Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in 'gu_choice_extensions.stan', line 24, column 29 to column 78) (in 'gu_choice_extensions.stan', line 94, column 2 to line 95, column 53)
+	Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in 'gu_choice_extensions.stan', line 24, column 29 to column 78) (in 'gu_choice_extensions.stan', line 94, column 2 to line 95, column 53)
+	Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in 'gu_choice_extensions.stan', line 24, column 29 to column 78) (in 'gu_choice_extensions.stan', line 94, column 2 to line 95, column 53)
+	Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in 'gu_choice_extensions.stan', line 24, column 29 to column 78) (in 'gu_choice_extensions.stan', line 94, column 2 to line 95, column 53)
+	Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in 'gu_choice_extensions.stan', line 24, column 29 to column 78) (in 'gu_choice_extensions.stan', line 94, column 2 to line 95, column 53)
+	Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in 'gu_choice_extensions.stan', line 24, column 29 to column 78) (in 'gu_choice_extensions.stan', line 94, column 2 to line 95, column 53)
+	Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in 'gu_choice_extensions.stan', line 24, column 29 to column 78) (in 'gu_choice_extensions.stan', line 94, column 2 to line 95, column 53)
+Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in 'gu_choice_extensions.stan', line 24, column 29 to column 78) (in 'gu_choice_extensions.stan', line 94, column 2 to line 95, column 53)
+	Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in 'gu_choice_extensions.stan', line 24, column 29 to column 78) (in 'gu_choice_extensions.stan', line 94, column 2 to line 95, column 53)
+	Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in 'gu_choice_extensions.stan', line 24, column 29 to column 78) (in 'gu_choice_extensions.stan', line 94, column 2 to line 95, column 53)
+	Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in 'gu_choice_extensions.stan', line 24, column 29 to column 78) (in 'gu_choice_extensions.stan', line 94, column 2 to line 95, column 53)
+	Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in 'gu_choice_extensions.stan', line 24, column 29 to column 78) (in 'gu_choice_extensions.stan', line 94, column 2 to line 95, column 53)
+	Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in 'gu_choice_extensions.stan', line 24, column 29 to column 78) (in 'gu_choice_extensions.stan', line 94, column 2 to line 95, column 53)
+	Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in 'gu_choice_extensions.stan', line 24, column 29 to column 78) (in 'gu_choice_extensions.stan', line 94, column 2 to line 95, column 53)
+	Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in 'gu_choice_extensions.stan', line 24, column 29 to column 78) (in 'gu_choice_extensions.stan', line 94, column 2 to line 95, column 53)
+	Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in 'gu_choice_extensions.stan', line 24, column 29 to column 78) (in 'gu_choice_extensions.stan', line 94, column 2 to line 95, column 53)
+	Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in 'gu_choice_extensions.stan', line 24, column 29 to column 78) (in 'gu_choice_extensions.stan', line 94, column 2 to line 95, column 53)
+	Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in 'gu_choice_extensions.stan', line 24, column 29 to column 78) (in 'gu_choice_extensions.stan', line 94, column 2 to line 95, column 53)
+	Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in 'gu_choice_extensions.stan', line 24, column 29 to column 78) (in 'gu_choice_extensions.stan', line 94, column 2 to line 95, column 53)
+	Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in 'gu_choice_extensions.stan', line 24, column 29 to column 78) (in 'gu_choice_extensions.stan', line 94, column 2 to line 95, column 53)
+Consider re-running with show_console=True if the above output is unclear!
+12:58:22 - cmdstanpy - WARNING - Some chains may have failed to converge.
+	Chain 1 had 30 divergent transitions (0.5%)
+	Chain 2 had 1 divergent transitions (0.0%)
+	Chain 2 had 5998 iterations at max treedepth (100.0%)
+	Chain 3 had 3 divergent transitions (0.1%)
+	Chain 3 had 5996 iterations at max treedepth (99.9%)
+	Chain 4 had 13 divergent transitions (0.2%)
+	Use the "diagnose()" method on the CmdStanMCMC object to see further information.
+COMPLETED: fit-rw_positive-full-prior1; diagnostics=NEEDS_REVIEW
+COMPLETED 4 fits; 4 need diagnostic review. No imaging covariates released.

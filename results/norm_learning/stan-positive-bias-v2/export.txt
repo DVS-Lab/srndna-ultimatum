@@ -1,0 +1,5 @@
+CHECKED: fit-rw_positive-full-prior1; 1152 parameters; 11 flagged
+CHECKED: fit-rw_positive-run1-prior1; 1152 parameters; 0 flagged
+CHECKED: fit-rw_positive_bias-full-prior1; 1342 parameters; 0 flagged
+CHECKED: fit-rw_positive_bias-run1-prior1; 1342 parameters; 0 flagged
+EXPORTED: 4 fits, 5 figures, six diagnostic tables -> /ZPOOL/data/projects/srndna-ultimatum/results/norm_learning/stan-positive-bias-v2/diagnostics-v1
