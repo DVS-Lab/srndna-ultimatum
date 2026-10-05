@@ -1,0 +1,17 @@
+job	model	stage	age_mode	prior_scale	divergences	max_depth_hits	max_rhat	min_bulk_ess	min_tail_ess	min_ebfmi	finite_diagnostics	passed	inference_eligible
+recovery-rw_free-full-prior1-targeted-rep001	rw_free	full	none	1.0	0	0	1.00126	2529.78	3245.82	0.8889791590701837	True	True	True
+recovery-rw_free-full-prior1-targeted-rep002	rw_free	full	none	1.0	0	0	1.00241	1401.76	863.205	0.8571110483500355	True	True	True
+recovery-rw_free-full-prior1-targeted-rep003	rw_free	full	none	1.0	0	0	1.00531	1042.35	353.291	0.8476544043839628	True	False	False
+recovery-rw_free-full-prior1-targeted-rep004	rw_free	full	none	1.0	0	0	1.02059	173.291	39.3968	0.8904907485730389	True	False	False
+recovery-rw_free-full-prior1-targeted-rep005	rw_free	full	none	1.0	0	0	1.01212	232.198	194.407	0.8894578850213697	True	False	False
+recovery-rw_free-full-prior1-targeted-rep006	rw_free	full	none	1.0	0	0	1.00585	1548.24	1620.68	0.8780746519657454	True	True	True
+recovery-rw_free-full-prior1-targeted-rep007	rw_free	full	none	1.0	0	0	1.00708	605.983	159.758	0.8845285707921546	True	False	False
+recovery-rw_free-full-prior1-targeted-rep008	rw_free	full	none	1.0	0	0	1.00323	1486.62	721.992	0.9026366801736353	True	True	True
+recovery-rw_free-full-prior1-targeted-rep009	rw_free	full	none	1.0	0	0	1.04224	65.9076	147.121	0.8675601158029876	True	False	False
+recovery-rw_free-full-prior1-targeted-rep010	rw_free	full	none	1.0	0	0	1.00385	1467.68	522.808	0.8679872534311531	True	True	True
+recovery-rw_free-full-prior1-targeted-rep011	rw_free	full	none	1.0	0	0	1.00168	2935.19	828.264	0.8734471990634322	True	True	True
+recovery-rw_free-full-prior1-targeted-rep012	rw_free	full	none	1.0	0	0	1.009	354.616	128.761	0.8829639496520425	True	False	False
+recovery-rw_free-full-prior1-targeted-rep013	rw_free	full	none	1.0	0	0	1.00378	1403.53	1006.53	0.8732948065120172	True	True	True
+recovery-rw_free-full-prior1-targeted-rep014	rw_free	full	none	1.0	0	0	1.0062	1164.4	467.082	0.9032819921141674	True	True	True
+recovery-rw_free-full-prior1-targeted-rep015	rw_free	full	none	1.0	0	0	1.00593	834.503	265.698	0.8525930465950394	True	False	False
+recovery-rw_free-full-prior1-targeted-rep016	rw_free	full	none	1.0	0	0	1.05146	49.9298	20.9024	0.8766624887659162	True	False	False

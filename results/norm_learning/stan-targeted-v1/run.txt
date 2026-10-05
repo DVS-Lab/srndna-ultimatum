@@ -80,3 +80,143 @@ RUN: recovery-rw_free-full-prior1-targeted-rep009 -> /ZPOOL/data/scratch/srndna-
 13:27:51 - cmdstanpy - INFO - Chain [2] start processing
 13:27:51 - cmdstanpy - INFO - Chain [3] start processing
 13:27:51 - cmdstanpy - INFO - Chain [4] start processing
+RUN: recovery-rw_free-full-prior1-targeted-rep005 -> /ZPOOL/data/scratch/srndna-gu-stan-targeted-v1/fits/recovery-rw_free-full-prior1-targeted-rep005/attempt-f6uw0wwe
+14:27:08 - cmdstanpy - INFO - CmdStan start processing
+14:27:08 - cmdstanpy - INFO - Chain [1] start processing
+14:27:08 - cmdstanpy - INFO - Chain [2] start processing
+14:27:08 - cmdstanpy - INFO - Chain [3] start processing
+14:27:08 - cmdstanpy - INFO - Chain [4] start processing
+SKIP_COMPLETE: recovery-rw_free-full-prior1-targeted-rep002
+RUN: recovery-rw_free-full-prior1-targeted-rep006 -> /ZPOOL/data/scratch/srndna-gu-stan-targeted-v1/fits/recovery-rw_free-full-prior1-targeted-rep006/attempt-l1czlbcc
+14:27:11 - cmdstanpy - INFO - CmdStan start processing
+14:27:11 - cmdstanpy - INFO - Chain [1] start processing
+14:27:11 - cmdstanpy - INFO - Chain [2] start processing
+14:27:11 - cmdstanpy - INFO - Chain [3] start processing
+14:27:11 - cmdstanpy - INFO - Chain [4] start processing
+SKIP_COMPLETE: recovery-rw_free-full-prior1-targeted-rep004
+RUN: recovery-rw_free-full-prior1-targeted-rep007 -> /ZPOOL/data/scratch/srndna-gu-stan-targeted-v1/fits/recovery-rw_free-full-prior1-targeted-rep007/attempt-vxbislcu
+SKIP_COMPLETE: recovery-rw_free-full-prior1-targeted-rep003
+SKIP_COMPLETE: recovery-rw_free-full-prior1-targeted-rep001
+RUN: recovery-rw_free-full-prior1-targeted-rep008 -> /ZPOOL/data/scratch/srndna-gu-stan-targeted-v1/fits/recovery-rw_free-full-prior1-targeted-rep008/attempt-vwok6g3c
+14:27:11 - cmdstanpy - INFO - CmdStan start processing
+RUN: recovery-rw_free-full-prior1-targeted-rep009 -> /ZPOOL/data/scratch/srndna-gu-stan-targeted-v1/fits/recovery-rw_free-full-prior1-targeted-rep009/attempt-k0rn4tz5
+14:27:11 - cmdstanpy - INFO - Chain [1] start processing
+14:27:11 - cmdstanpy - INFO - Chain [2] start processing
+14:27:11 - cmdstanpy - INFO - Chain [3] start processing
+14:27:11 - cmdstanpy - INFO - Chain [4] start processing
+14:27:11 - cmdstanpy - INFO - CmdStan start processing
+14:27:11 - cmdstanpy - INFO - Chain [1] start processing
+14:27:11 - cmdstanpy - INFO - Chain [2] start processing
+14:27:11 - cmdstanpy - INFO - Chain [3] start processing
+14:27:11 - cmdstanpy - INFO - Chain [4] start processing
+14:27:11 - cmdstanpy - INFO - CmdStan start processing
+14:27:11 - cmdstanpy - INFO - Chain [1] start processing
+14:27:11 - cmdstanpy - INFO - Chain [2] start processing
+14:27:11 - cmdstanpy - INFO - Chain [3] start processing
+14:27:11 - cmdstanpy - INFO - Chain [4] start processing
+16:49:47 - cmdstanpy - INFO - Chain [4] done processing
+17:03:06 - cmdstanpy - INFO - Chain [4] done processing
+17:06:02 - cmdstanpy - INFO - Chain [1] done processing
+17:06:39 - cmdstanpy - INFO - Chain [1] done processing
+17:06:57 - cmdstanpy - INFO - Chain [2] done processing
+17:07:28 - cmdstanpy - INFO - Chain [2] done processing
+17:07:43 - cmdstanpy - INFO - Chain [1] done processing
+17:07:50 - cmdstanpy - INFO - Chain [4] done processing
+17:07:54 - cmdstanpy - INFO - Chain [2] done processing
+17:08:24 - cmdstanpy - INFO - Chain [4] done processing
+17:08:48 - cmdstanpy - INFO - Chain [3] done processing
+17:09:31 - cmdstanpy - INFO - Chain [1] done processing
+COMPLETED: recovery-rw_free-full-prior1-targeted-rep006; diagnostics=PASS
+RUN: recovery-rw_free-full-prior1-targeted-rep010 -> /ZPOOL/data/scratch/srndna-gu-stan-targeted-v1/fits/recovery-rw_free-full-prior1-targeted-rep010/attempt-jegf7ep7
+17:09:59 - cmdstanpy - INFO - CmdStan start processing
+17:09:59 - cmdstanpy - INFO - Chain [1] start processing
+17:09:59 - cmdstanpy - INFO - Chain [2] start processing
+17:09:59 - cmdstanpy - INFO - Chain [3] start processing
+17:09:59 - cmdstanpy - INFO - Chain [4] start processing
+17:11:13 - cmdstanpy - INFO - Chain [3] done processing
+17:14:09 - cmdstanpy - INFO - Chain [1] done processing
+17:14:13 - cmdstanpy - INFO - Chain [3] done processing
+COMPLETED: recovery-rw_free-full-prior1-targeted-rep008; diagnostics=PASS
+RUN: recovery-rw_free-full-prior1-targeted-rep011 -> /ZPOOL/data/scratch/srndna-gu-stan-targeted-v1/fits/recovery-rw_free-full-prior1-targeted-rep011/attempt-56t6c_6t
+17:15:20 - cmdstanpy - INFO - CmdStan start processing
+17:15:20 - cmdstanpy - INFO - Chain [1] start processing
+17:15:20 - cmdstanpy - INFO - Chain [2] start processing
+17:15:20 - cmdstanpy - INFO - Chain [3] start processing
+17:15:20 - cmdstanpy - INFO - Chain [4] start processing
+17:16:21 - cmdstanpy - INFO - Chain [4] done processing
+17:18:53 - cmdstanpy - INFO - Chain [3] done processing
+17:24:54 - cmdstanpy - INFO - Chain [2] done processing
+COMPLETED: recovery-rw_free-full-prior1-targeted-rep007; diagnostics=NEEDS_REVIEW
+RUN: recovery-rw_free-full-prior1-targeted-rep012 -> /ZPOOL/data/scratch/srndna-gu-stan-targeted-v1/fits/recovery-rw_free-full-prior1-targeted-rep012/attempt-48_pbsky
+17:26:05 - cmdstanpy - INFO - CmdStan start processing
+17:26:05 - cmdstanpy - INFO - Chain [1] start processing
+17:26:05 - cmdstanpy - INFO - Chain [2] start processing
+17:26:05 - cmdstanpy - INFO - Chain [3] start processing
+17:26:05 - cmdstanpy - INFO - Chain [4] start processing
+18:22:16 - cmdstanpy - INFO - Chain [2] done processing
+COMPLETED: recovery-rw_free-full-prior1-targeted-rep005; diagnostics=NEEDS_REVIEW
+RUN: recovery-rw_free-full-prior1-targeted-rep013 -> /ZPOOL/data/scratch/srndna-gu-stan-targeted-v1/fits/recovery-rw_free-full-prior1-targeted-rep013/attempt-dao_1hh4
+18:23:38 - cmdstanpy - INFO - CmdStan start processing
+18:23:38 - cmdstanpy - INFO - Chain [1] start processing
+18:23:38 - cmdstanpy - INFO - Chain [2] start processing
+18:23:38 - cmdstanpy - INFO - Chain [3] start processing
+18:23:38 - cmdstanpy - INFO - Chain [4] start processing
+18:27:14 - cmdstanpy - INFO - Chain [3] done processing
+COMPLETED: recovery-rw_free-full-prior1-targeted-rep009; diagnostics=NEEDS_REVIEW
+RUN: recovery-rw_free-full-prior1-targeted-rep014 -> /ZPOOL/data/scratch/srndna-gu-stan-targeted-v1/fits/recovery-rw_free-full-prior1-targeted-rep014/attempt-kf5e4rl5
+18:28:45 - cmdstanpy - INFO - CmdStan start processing
+18:28:45 - cmdstanpy - INFO - Chain [1] start processing
+18:28:45 - cmdstanpy - INFO - Chain [2] start processing
+18:28:45 - cmdstanpy - INFO - Chain [3] start processing
+18:28:45 - cmdstanpy - INFO - Chain [4] start processing
+19:15:37 - cmdstanpy - INFO - Chain [3] done processing
+19:17:59 - cmdstanpy - INFO - Chain [4] done processing
+19:21:43 - cmdstanpy - INFO - Chain [2] done processing
+19:24:52 - cmdstanpy - INFO - Chain [3] done processing
+19:26:35 - cmdstanpy - INFO - Chain [2] done processing
+19:27:13 - cmdstanpy - INFO - Chain [4] done processing
+19:40:20 - cmdstanpy - INFO - Chain [4] done processing
+19:40:43 - cmdstanpy - INFO - Chain [1] done processing
+19:41:43 - cmdstanpy - INFO - Chain [1] done processing
+COMPLETED: recovery-rw_free-full-prior1-targeted-rep011; diagnostics=PASS
+RUN: recovery-rw_free-full-prior1-targeted-rep015 -> /ZPOOL/data/scratch/srndna-gu-stan-targeted-v1/fits/recovery-rw_free-full-prior1-targeted-rep015/attempt-oapoum4n
+19:41:55 - cmdstanpy - INFO - CmdStan start processing
+19:41:55 - cmdstanpy - INFO - Chain [1] start processing
+19:41:55 - cmdstanpy - INFO - Chain [2] start processing
+19:41:55 - cmdstanpy - INFO - Chain [3] start processing
+19:41:55 - cmdstanpy - INFO - Chain [4] start processing
+19:42:13 - cmdstanpy - INFO - Chain [3] done processing
+19:45:02 - cmdstanpy - INFO - Chain [2] done processing
+COMPLETED: recovery-rw_free-full-prior1-targeted-rep012; diagnostics=NEEDS_REVIEW
+RUN: recovery-rw_free-full-prior1-targeted-rep016 -> /ZPOOL/data/scratch/srndna-gu-stan-targeted-v1/fits/recovery-rw_free-full-prior1-targeted-rep016/attempt-lrzoqh9h
+19:46:19 - cmdstanpy - INFO - CmdStan start processing
+19:46:19 - cmdstanpy - INFO - Chain [1] start processing
+19:46:19 - cmdstanpy - INFO - Chain [2] start processing
+19:46:19 - cmdstanpy - INFO - Chain [3] start processing
+19:46:19 - cmdstanpy - INFO - Chain [4] start processing
+19:50:17 - cmdstanpy - INFO - Chain [1] done processing
+COMPLETED: recovery-rw_free-full-prior1-targeted-rep010; diagnostics=PASS
+20:05:31 - cmdstanpy - INFO - Chain [1] done processing
+20:40:41 - cmdstanpy - INFO - Chain [3] done processing
+20:41:44 - cmdstanpy - INFO - Chain [1] done processing
+20:43:03 - cmdstanpy - INFO - Chain [2] done processing
+20:44:50 - cmdstanpy - INFO - Chain [2] done processing
+20:46:11 - cmdstanpy - INFO - Chain [4] done processing
+20:48:17 - cmdstanpy - INFO - Chain [3] done processing
+COMPLETED: recovery-rw_free-full-prior1-targeted-rep014; diagnostics=PASS
+20:52:31 - cmdstanpy - INFO - Chain [4] done processing
+COMPLETED: recovery-rw_free-full-prior1-targeted-rep013; diagnostics=PASS
+20:56:02 - cmdstanpy - INFO - Chain [1] done processing
+20:59:46 - cmdstanpy - INFO - Chain [1] done processing
+21:01:28 - cmdstanpy - INFO - Chain [2] done processing
+21:05:45 - cmdstanpy - INFO - Chain [2] done processing
+21:27:41 - cmdstanpy - INFO - Chain [4] done processing
+21:30:40 - cmdstanpy - INFO - Chain [4] done processing
+21:31:23 - cmdstanpy - INFO - Chain [3] done processing
+21:31:23 - cmdstanpy - WARNING - Non-fatal error during sampling:
+Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is nan, but must be not nan! (in 'gu_hierarchical.stan', line 28, column 29 to column 78) (in 'gu_hierarchical.stan', line 95, column 2 to line 96, column 53)
+Consider re-running with show_console=True if the above output is unclear!
+COMPLETED: recovery-rw_free-full-prior1-targeted-rep015; diagnostics=NEEDS_REVIEW
+21:33:57 - cmdstanpy - INFO - Chain [3] done processing
+COMPLETED: recovery-rw_free-full-prior1-targeted-rep016; diagnostics=NEEDS_REVIEW
+COMPLETED: 16 targeted fits; 8 diagnostic flags; no imaging release

@@ -1,0 +1,34 @@
+CHECKED: recovery-rw_free-full-prior1-targeted-rep001; 1152 parameters; 0 flagged
+CHECKED: recovery-rw_free-full-prior1-targeted-rep002; 1152 parameters; 0 flagged
+CHECKED: recovery-rw_free-full-prior1-targeted-rep003; 1152 parameters; 4 flagged
+CHECKED: recovery-rw_free-full-prior1-targeted-rep004; 1152 parameters; 8 flagged
+CHECKED: recovery-rw_free-full-prior1-targeted-rep005; 1152 parameters; 58 flagged
+CHECKED: recovery-rw_free-full-prior1-targeted-rep006; 1152 parameters; 0 flagged
+CHECKED: recovery-rw_free-full-prior1-targeted-rep007; 1152 parameters; 8 flagged
+CHECKED: recovery-rw_free-full-prior1-targeted-rep008; 1152 parameters; 0 flagged
+CHECKED: recovery-rw_free-full-prior1-targeted-rep009; 1152 parameters; 21 flagged
+CHECKED: recovery-rw_free-full-prior1-targeted-rep010; 1152 parameters; 0 flagged
+CHECKED: recovery-rw_free-full-prior1-targeted-rep011; 1152 parameters; 0 flagged
+CHECKED: recovery-rw_free-full-prior1-targeted-rep012; 1152 parameters; 16 flagged
+CHECKED: recovery-rw_free-full-prior1-targeted-rep013; 1152 parameters; 0 flagged
+CHECKED: recovery-rw_free-full-prior1-targeted-rep014; 1152 parameters; 0 flagged
+CHECKED: recovery-rw_free-full-prior1-targeted-rep015; 1152 parameters; 4 flagged
+CHECKED: recovery-rw_free-full-prior1-targeted-rep016; 1152 parameters; 170 flagged
+EXPORTED: 16 fits, 17 figures, six diagnostic tables -> /ZPOOL/data/projects/srndna-ultimatum/results/norm_learning/stan-targeted-v1/diagnostics-v1
+AUDITED: recovery-rw_free-full-prior1-targeted-rep001; diagnostics=PASS
+AUDITED: recovery-rw_free-full-prior1-targeted-rep002; diagnostics=PASS
+AUDITED: recovery-rw_free-full-prior1-targeted-rep003; diagnostics=FLAGGED (retained)
+AUDITED: recovery-rw_free-full-prior1-targeted-rep004; diagnostics=FLAGGED (retained)
+AUDITED: recovery-rw_free-full-prior1-targeted-rep005; diagnostics=FLAGGED (retained)
+AUDITED: recovery-rw_free-full-prior1-targeted-rep006; diagnostics=PASS
+AUDITED: recovery-rw_free-full-prior1-targeted-rep007; diagnostics=FLAGGED (retained)
+AUDITED: recovery-rw_free-full-prior1-targeted-rep008; diagnostics=PASS
+AUDITED: recovery-rw_free-full-prior1-targeted-rep009; diagnostics=FLAGGED (retained)
+AUDITED: recovery-rw_free-full-prior1-targeted-rep010; diagnostics=PASS
+AUDITED: recovery-rw_free-full-prior1-targeted-rep011; diagnostics=PASS
+AUDITED: recovery-rw_free-full-prior1-targeted-rep012; diagnostics=FLAGGED (retained)
+AUDITED: recovery-rw_free-full-prior1-targeted-rep013; diagnostics=PASS
+AUDITED: recovery-rw_free-full-prior1-targeted-rep014; diagnostics=PASS
+AUDITED: recovery-rw_free-full-prior1-targeted-rep015; diagnostics=FLAGGED (retained)
+AUDITED: recovery-rw_free-full-prior1-targeted-rep016; diagnostics=FLAGGED (retained)
+Saved targeted audit: /ZPOOL/data/projects/srndna-ultimatum/results/norm_learning/stan-targeted-v1/audit; no imaging inputs released
