@@ -118,3 +118,32 @@ The v1 smoke launch stopped before HMC: the equation-check initializer wrote
 zero-row matrix. The strictly age-blind extension no longer declares this
 unused parameter. Likelihoods, priors, and sampling settings are unchanged.
 New v2 roots preserve the failed v1 attempt and its code fingerprints.
+
+## Diagnostic-only divergence audit
+
+Before extending sampling, inspect retained divergent transitions in the
+existing fits. This command reads and verifies completed chains; it does not
+compile, sample, change priors, exclude participants, or upgrade eligibility:
+
+```bash
+python3 -u code/audit_gu_divergences.py \
+  --work-root /ZPOOL/data/scratch/srndna-gu-stan-positive-bias-v2 \
+  --output-dir results/norm_learning/stan-positive-bias-v2/divergence-audit-v1
+```
+
+Four completed extension fits are required. Processing is sequential, so no
+`--jobs` flag is needed. All posterior-only draws contribute to the numerical
+summaries. The output contains sampler diagnostics by chain, descriptive
+divergent/nondivergent parameter comparisons (within chain and pooled), console
+warning counts, and paired-parameter plots for sub-104, sub-107, sub-126,
+sub-128, sub-155, and sub-156. These illustrate always/near-always acceptors,
+strong rejectors, and the participant flagged in the no-bias full fit.
+Use `--subjects` to request another set in a new output directory.
+
+Plots retain every divergent endpoint and subsample other points for display.
+An endpoint association is not evidence that a participant caused divergence.
+No independent-draw significance tests are performed. Console warnings may
+include warmup and cannot be interpreted as counts of retained divergences.
+Unchanged exports are verified and skipped; altered inputs or outputs require
+a new output directory. Raw chains remain in scratch; only small audit files
+and figures should be committed.
