@@ -1,0 +1,109 @@
+{
+  "passed": true,
+  "hierarchy_likelihood_gradient_comparisons": 24,
+  "max_absolute_target_or_gradient_difference": 2.1827872842550278e-11,
+  "kernel_checks": [
+    {
+      "case": "ordinary",
+      "choice": 0,
+      "passed": true
+    },
+    {
+      "case": "ordinary",
+      "choice": 1,
+      "passed": true
+    },
+    {
+      "case": "zero_bias_cancellation",
+      "choice": 0,
+      "passed": true
+    },
+    {
+      "case": "zero_bias_cancellation",
+      "choice": 1,
+      "passed": true
+    },
+    {
+      "case": "zero_offer",
+      "choice": 0,
+      "passed": true
+    },
+    {
+      "case": "zero_offer",
+      "choice": 1,
+      "passed": true
+    },
+    {
+      "case": "no_deficit_overflow_alpha",
+      "choice": 0,
+      "passed": true
+    },
+    {
+      "case": "no_deficit_overflow_alpha",
+      "choice": 1,
+      "passed": true
+    },
+    {
+      "case": "compensating_log_scales",
+      "choice": 0,
+      "passed": true
+    },
+    {
+      "case": "compensating_log_scales",
+      "choice": 1,
+      "passed": true
+    },
+    {
+      "case": "zero_offer_large_gamma",
+      "choice": 0,
+      "passed": true
+    },
+    {
+      "case": "zero_offer_large_gamma",
+      "choice": 1,
+      "passed": true
+    },
+    {
+      "case": "large_finite",
+      "choice": 0,
+      "passed": true
+    },
+    {
+      "case": "large_finite",
+      "choice": 1,
+      "passed": true
+    },
+    {
+      "case": "huge_cancellation",
+      "choice": 0,
+      "passed": true
+    },
+    {
+      "case": "huge_cancellation",
+      "choice": 1,
+      "passed": true
+    },
+    {
+      "case": "huge_cancellation_positive_bias",
+      "choice": 0,
+      "passed": true
+    },
+    {
+      "case": "huge_cancellation_positive_bias",
+      "choice": 1,
+      "passed": true
+    },
+    {
+      "case": "huge_cancellation_negative_bias",
+      "choice": 0,
+      "passed": true
+    },
+    {
+      "case": "huge_cancellation_negative_bias",
+      "choice": 1,
+      "passed": true
+    }
+  ],
+  "equations_priors_and_hinge_unchanged": true,
+  "caveat": "Arithmetic equivalence is not evidence of convergence or parameter recovery."
+}

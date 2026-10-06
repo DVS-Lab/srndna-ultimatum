@@ -1,0 +1,9 @@
+{
+  "workflow_complete": true,
+  "diagnostic_review_required": [
+    "full",
+    "run1"
+  ],
+  "imaging_covariates_released": false,
+  "parameter_recovery_validated": false
+}

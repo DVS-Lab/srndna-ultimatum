@@ -1,0 +1,20 @@
+{
+  "baseline": "/ZPOOL/data/scratch/srndna-gu-bias-pilot-v1",
+  "output": "/ZPOOL/data/projects/srndna-ultimatum/results/norm_learning/stan-bias-stable-v1",
+  "sources": {
+    "code/run_gu_bias_stable.py": "aeb6a48a4849d9c39c189d839fdb9f2473ec05ae3d604504ee5e7fa5dbe3f758",
+    "code/run_gu_bias_stable.sh": "56cd7103f72ed28eaf0f94d0d8b9cbf9851ac2c4d360bdcf56f1d9eed3397981",
+    "code/validate_gu_stable.py": "9ad511b5b68efae7175ebb20da44d793f597924039f1b8b15929bc39bbc2997b",
+    "code/stan/gu_choice_stable.stan": "45c601287a68a93fe027b5dfffbc2dffcf10667553037dabd53a670464758e20",
+    "code/stan/gu_stable_functions.stan": "19edc0f0217e9fd73e92c06434f69b96c83c168946a18b98e4f8a48bd220f6b4",
+    "code/stan/gu_stable_kernel_check.stan": "f6423c68edf60e39ef3e568bc67c46c91bf4c48183f1bd0b8dcaa94ee800d1e4",
+    "code/run_gu_choice_extensions.py": "1bf0de1288b98fa4ae8794ba509313b7a58e2fd8a603e21bd8073e6071e612bb",
+    "code/run_gu_bias_pilot.py": "8329fa9fbfa89e2a6068dc49bbe0cd019df0593cc2ddaec077f43fc53156698a",
+    "code/export_gu_stan_diagnostics.py": "157c5c2e7c0674797ecd0db372228fc3166f474e3ba08bd6a32669609a56b9ca",
+    "code/audit_gu_divergences.py": "f1e1f7ecda434167ed9ac7dc29b06668d94270e446b388fcf744cb33cab128e7"
+  },
+  "configs": [
+    "0785547d43f7566c9fb8452c6b20df19ceedb22a20d22dcc9b64cf6589b7a1b3",
+    "99b46f62a31deace0f18a2e194152c84f14f11e3bc1b010ce6d00b91191ac733"
+  ]
+}

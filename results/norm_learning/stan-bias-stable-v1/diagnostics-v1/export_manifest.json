@@ -1,0 +1,45 @@
+{
+  "fingerprint": "e5aa81d70c5c7f6ec63378052d026380b4b448b1321f9c0960b9cf7b9e88ba2e",
+  "configuration": {
+    "work_root": "/ZPOOL/data/scratch/srndna-gu-bias-stable-v1",
+    "phase": "fit",
+    "expected_jobs": 2,
+    "trace_count": 4,
+    "source_hashes": {
+      "fits/fit-rw_positive_bias-full-prior1/configuration.json": "e76336d75bb5a96f2406a501d023479ca08a7e004953ed54055b6bf390e724a2",
+      "fits/fit-rw_positive_bias-full-prior1/completed.json": "00522efc84d8c293cb6c8c07b4e4f06387dbcc5e5ff42b1df047bd8366a1ea04",
+      "fits/fit-rw_positive_bias-full-prior1/attempt-bch2i418/data.json": "164a31eb5730d96378642982b2a1b029228113496c5794d39e0987355dab9be9",
+      "fits/fit-rw_positive_bias-full-prior1/attempt-bch2i418/stan_summary.tsv": "0e2ac03b5934aeb00cec5754ea9e15ebdf6a2fc6420f02766847d8a88128f7d3",
+      "fits/fit-rw_positive_bias-full-prior1/attempt-bch2i418/diagnostics.json": "12ed4d7132adbdc799b539229d4e9529067815e4b84196fb8ba1380e1b7832cd",
+      "fits/fit-rw_positive_bias-full-prior1/attempt-bch2i418/gu_choice_stable-20261006002612_1.csv": "f8e611740464b0e4baf228b597b3a4e6cf22bf4892e9e997a2569d2aa032bc74",
+      "fits/fit-rw_positive_bias-full-prior1/attempt-bch2i418/gu_choice_stable-20261006002612_2.csv": "c03b18a599c194fa7cb1840337f3e21fe55613f18ab640a29155af4f6e3a8521",
+      "fits/fit-rw_positive_bias-full-prior1/attempt-bch2i418/gu_choice_stable-20261006002612_3.csv": "cc94bee860b77a8991e1f36f4cbee79039092ae79c8949682194f30bac95cb32",
+      "fits/fit-rw_positive_bias-full-prior1/attempt-bch2i418/gu_choice_stable-20261006002612_4.csv": "3c6302711bf07812cfb4f604bc5ba61336abf225546c3461a37c2ce172986754",
+      "fits/fit-rw_positive_bias-run1-prior1/configuration.json": "43f1a7b45256e3a0cd3798e0a8c34c9e9f09660e84d9a9e3b8da7af923de7042",
+      "fits/fit-rw_positive_bias-run1-prior1/completed.json": "dc9e3d87aecc38c04e34a6b24af6e784eb5af1958052bdfbe214b5d162ea74bb",
+      "fits/fit-rw_positive_bias-run1-prior1/attempt-naxcw3j7/data.json": "477634ba95584666ab488186237e603ca092792ffe3ede8828d4128930c6e0ca",
+      "fits/fit-rw_positive_bias-run1-prior1/attempt-naxcw3j7/stan_summary.tsv": "261ea6c66ab15d3388ee98ce64eeadf0bb36f226df8799175dbd34176e4ea3c9",
+      "fits/fit-rw_positive_bias-run1-prior1/attempt-naxcw3j7/diagnostics.json": "27959d7b77c6bb86ec03ceb0b9bbd712481abfdd554f2972d8b9bbb1573b0deb",
+      "fits/fit-rw_positive_bias-run1-prior1/attempt-naxcw3j7/gu_choice_stable-20261006002612_1.csv": "93662f035e559336e144c1f6a55d10773f1dce5c10716e13e156fb73ce904802",
+      "fits/fit-rw_positive_bias-run1-prior1/attempt-naxcw3j7/gu_choice_stable-20261006002612_2.csv": "068ed2a163a3d5f1f92a4dd706c9e581a56430f00b085467722992da94b9e2f2",
+      "fits/fit-rw_positive_bias-run1-prior1/attempt-naxcw3j7/gu_choice_stable-20261006002612_3.csv": "def11ce651293728fbaaf801e7d782a6327962437e9bbc7db49a91d212864e1d",
+      "fits/fit-rw_positive_bias-run1-prior1/attempt-naxcw3j7/gu_choice_stable-20261006002612_4.csv": "dbd18b2dd2577bbfc6d6dffb7519aaebd4aedad5dcabe43d07b331df550008ca"
+    },
+    "exporter_sha256": "157c5c2e7c0674797ecd0db372228fc3166f474e3ba08bd6a32669609a56b9ca",
+    "numpy": "2.1.3",
+    "pandas": "2.2.3",
+    "matplotlib": "3.10.0"
+  },
+  "outputs": {
+    "fit-rw_positive_bias-run1-prior1_traces.png": "30f92635cc7ff6526fcb4af63f3cd73770b1d5087bbe6858248d95aba5b598e9",
+    "flagged_parameters.tsv": "437b722ef9cedca23a587274cd601b8864e27326ccf7223aa875d565a11788a1",
+    "parameter_diagnostics.tsv": "12c9fc34a4e8ebf0770f9aa828372c045c25e3e4b01c16f38516cce7760256ad",
+    "fit_diagnostics.tsv": "003af0811d1a98d2ce8165de2a6a8bdb7efc6add7683b3169121ed3a44a07f6f",
+    "README.txt": "5b20175ac7526a41117a46d1049f4e2ca12d5c0fe745e2951d11790451cc50d3",
+    "plotted_parameters.tsv": "a4434b79e1c00d0484f1a8f09c6a50720d4dbd5e4698c8a25bfb28c0666a9779",
+    "convergence_overview.png": "5ebb961bc23fc2e34b07ed643eb2878919b9ebcb180234a04e1a7c5015ffcca8",
+    "fit-rw_positive_bias-full-prior1_traces.png": "79e75b08dadd94900d518bd8056823cd5ad33aa3d1da1550b999118f783631f5",
+    "selected_pair_correlations.tsv": "a6b6e57e9752fc570b157c585a66b215aa1f47dc0991e004846cc1ec5d838c65",
+    "chain_summaries.tsv": "56ccae92e109ae233f80eb54595e68c020e4061b97d3bed1b6c8101a67d8bb06"
+  }
+}

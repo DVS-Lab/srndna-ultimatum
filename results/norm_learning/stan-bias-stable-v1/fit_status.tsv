@@ -1,0 +1,3 @@
+job	model	stage	age_mode	prior_scale	divergences	max_depth_hits	max_rhat	min_bulk_ess	min_tail_ess	min_ebfmi	finite_diagnostics	passed	inference_eligible
+fit-rw_positive_bias-full-prior1	rw_positive_bias	full	none	1.0	2	0	1.00199	1156.8	1086.56	0.7391915125970314	True	False	False
+fit-rw_positive_bias-run1-prior1	rw_positive_bias	run1	none	1.0	7	2	1.00416	1125.81	826.705	0.7302020544409346	True	False	False

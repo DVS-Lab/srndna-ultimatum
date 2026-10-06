@@ -1,0 +1,9 @@
+job	model	stage	chain	draws	divergences	max_depth_hits	max_treedepth	ebfmi	median_stepsize	median_leapfrogs	mean_accept_stat	inference_eligible
+fit-rw_positive_bias-full-prior1	rw_positive_bias	full	1	6000	0	0	12	0.7988651938236263	0.00166992084306	2047.0	0.9941311072779238	False
+fit-rw_positive_bias-full-prior1	rw_positive_bias	full	2	6000	0	0	12	0.8039395836652703	0.00194760827859	2047.0	0.9917699628857906	False
+fit-rw_positive_bias-full-prior1	rw_positive_bias	full	3	6000	2	0	12	0.7391915125970314	0.00245336746373	2047.0	0.9877259543780001	False
+fit-rw_positive_bias-full-prior1	rw_positive_bias	full	4	6000	0	0	12	0.7772409767859263	0.00182759120605	2047.0	0.9926800116190994	False
+fit-rw_positive_bias-run1-prior1	rw_positive_bias	run1	1	6000	3	0	12	0.7302020544409346	0.00323999761965	1023.0	0.989473640505936	False
+fit-rw_positive_bias-run1-prior1	rw_positive_bias	run1	2	6000	3	0	12	0.7624614343638374	0.00456438913508	1023.0	0.9759514991442754	False
+fit-rw_positive_bias-run1-prior1	rw_positive_bias	run1	3	6000	0	2	12	0.7843221842768162	0.00322020303067	1023.0	0.9893570043145246	False
+fit-rw_positive_bias-run1-prior1	rw_positive_bias	run1	4	6000	1	0	12	0.7632411113799686	0.00255163628567	2047.0	0.9916028014228829	False

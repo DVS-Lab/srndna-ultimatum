@@ -1,0 +1,113 @@
+PLAN: fit-rw_positive_bias-full-prior1; 4000 warmup + 6000 retained per chain
+PLAN: fit-rw_positive_bias-run1-prior1; 4000 warmup + 6000 retained per chain
+CPU budget: 2 fits x 4 chains x 5 threads = 40 maximum; no changes to data or priors.
+PASS: baseline hashes, data/priors, software and paths. Add --execute for compiled validation and fitting.
+PLAN: fit-rw_positive_bias-full-prior1; 4000 warmup + 6000 retained per chain
+PLAN: fit-rw_positive_bias-run1-prior1; 4000 warmup + 6000 retained per chain
+CPU budget: 2 fits x 4 chains x 5 threads = 40 maximum; no changes to data or priors.
+00:25:13 - cmdstanpy - INFO - compiling stan file /ZPOOL/data/scratch/srndna-gu-bias-stable-v1/build/8db7a8a5ff8bdc08/gu_choice_stable.stan to exe file /ZPOOL/data/scratch/srndna-gu-bias-stable-v1/build/8db7a8a5ff8bdc08/gu_choice_stable
+00:25:38 - cmdstanpy - INFO - compiled model executable: /ZPOOL/data/scratch/srndna-gu-bias-stable-v1/build/8db7a8a5ff8bdc08/gu_choice_stable
+00:25:38 - cmdstanpy - INFO - compiling stan file /ZPOOL/data/scratch/srndna-gu-bias-stable-v1/build/f0bb320d46aa2d93/gu_choice_extensions.stan to exe file /ZPOOL/data/scratch/srndna-gu-bias-stable-v1/build/f0bb320d46aa2d93/gu_choice_extensions
+00:26:02 - cmdstanpy - INFO - compiled model executable: /ZPOOL/data/scratch/srndna-gu-bias-stable-v1/build/f0bb320d46aa2d93/gu_choice_extensions
+00:26:02 - cmdstanpy - INFO - compiling stan file /ZPOOL/data/scratch/srndna-gu-bias-stable-v1/build/3063d06cc4cfb754/gu_stable_kernel_check.stan to exe file /ZPOOL/data/scratch/srndna-gu-bias-stable-v1/build/3063d06cc4cfb754/gu_stable_kernel_check
+00:26:11 - cmdstanpy - INFO - compiled model executable: /ZPOOL/data/scratch/srndna-gu-bias-stable-v1/build/3063d06cc4cfb754/gu_stable_kernel_check
+00:26:11 - cmdstanpy - INFO - CmdStan start processing
+00:26:11 - cmdstanpy - INFO - Chain [1] start processing
+00:26:11 - cmdstanpy - INFO - Chain [1] done processing
+PASS: compiled equations, shared bias, train/held-out masks and target: rw_positive
+00:26:11 - cmdstanpy - INFO - CmdStan start processing
+00:26:11 - cmdstanpy - INFO - Chain [1] start processing
+00:26:11 - cmdstanpy - INFO - Chain [1] done processing
+PASS: compiled equations, shared bias, train/held-out masks and target: rw_positive_bias
+RUN: fit-rw_positive_bias-run1-prior1 -> /ZPOOL/data/scratch/srndna-gu-bias-stable-v1/fits/fit-rw_positive_bias-run1-prior1/attempt-naxcw3j7
+RUN: fit-rw_positive_bias-full-prior1 -> /ZPOOL/data/scratch/srndna-gu-bias-stable-v1/fits/fit-rw_positive_bias-full-prior1/attempt-bch2i418
+00:26:12 - cmdstanpy - INFO - CmdStan start processing
+00:26:12 - cmdstanpy - INFO - Chain [1] start processing
+00:26:12 - cmdstanpy - INFO - Chain [2] start processing
+00:26:12 - cmdstanpy - INFO - Chain [3] start processing
+00:26:12 - cmdstanpy - INFO - Chain [4] start processing
+00:26:12 - cmdstanpy - INFO - CmdStan start processing
+00:26:12 - cmdstanpy - INFO - Chain [1] start processing
+00:26:12 - cmdstanpy - INFO - Chain [2] start processing
+00:26:12 - cmdstanpy - INFO - Chain [3] start processing
+00:26:12 - cmdstanpy - INFO - Chain [4] start processing
+04:46:00 - cmdstanpy - INFO - Chain [1] done processing
+04:52:27 - cmdstanpy - INFO - Chain [2] done processing
+04:56:39 - cmdstanpy - INFO - Chain [3] done processing
+06:23:31 - cmdstanpy - INFO - Chain [4] done processing
+06:23:31 - cmdstanpy - WARNING - Non-fatal error during sampling:
+Exception: Exception: Exception: exact cancellation has unrepresentable derivatives (in '/ZPOOL/data/scratch/srndna-gu-bias-stable-v1/build/8db7a8a5ff8bdc08/gu_stable_functions.stan', line 13, column 6, included from
+	Exception: Exception: Exception: exact cancellation has unrepresentable derivatives (in '/ZPOOL/data/scratch/srndna-gu-bias-stable-v1/build/8db7a8a5ff8bdc08/gu_stable_functions.stan', line 13, column 6, included from
+	Exception: Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in '/ZPOOL/data/scratch/srndna-gu-bias-stable-v1/build/8db7a8a5ff8bdc08/gu_stable_functions.stan', line 23, column 4, included from
+Exception: Exception: Exception: exact cancellation has unrepresentable derivatives (in '/ZPOOL/data/scratch/srndna-gu-bias-stable-v1/build/8db7a8a5ff8bdc08/gu_stable_functions.stan', line 13, column 6, included from
+	Exception: Exception: Exception: exact cancellation has unrepresentable derivatives (in '/ZPOOL/data/scratch/srndna-gu-bias-stable-v1/build/8db7a8a5ff8bdc08/gu_stable_functions.stan', line 13, column 6, included from
+	Exception: Exception: Exception: exact cancellation has unrepresentable derivatives (in '/ZPOOL/data/scratch/srndna-gu-bias-stable-v1/build/8db7a8a5ff8bdc08/gu_stable_functions.stan', line 13, column 6, included from
+	Exception: Exception: Exception: exact cancellation has unrepresentable derivatives (in '/ZPOOL/data/scratch/srndna-gu-bias-stable-v1/build/8db7a8a5ff8bdc08/gu_stable_functions.stan', line 13, column 6, included from
+	Exception: Exception: Exception: exact cancellation has unrepresentable derivatives (in '/ZPOOL/data/scratch/srndna-gu-bias-stable-v1/build/8db7a8a5ff8bdc08/gu_stable_functions.stan', line 13, column 6, included from
+	Exception: Exception: Exception: exact cancellation has unrepresentable derivatives (in '/ZPOOL/data/scratch/srndna-gu-bias-stable-v1/build/8db7a8a5ff8bdc08/gu_stable_functions.stan', line 13, column 6, included from
+	Exception: Exception: Exception: exact cancellation has unrepresentable derivatives (in '/ZPOOL/data/scratch/srndna-gu-bias-stable-v1/build/8db7a8a5ff8bdc08/gu_stable_functions.stan', line 13, column 6, included from
+	Exception: Exception: Exception: exact cancellation has unrepresentable derivatives (in '/ZPOOL/data/scratch/srndna-gu-bias-stable-v1/build/8db7a8a5ff8bdc08/gu_stable_functions.stan', line 13, column 6, included from
+Consider re-running with show_console=True if the above output is unclear!
+06:23:39 - cmdstanpy - WARNING - Some chains may have failed to converge.
+	Chain 1 had 3 divergent transitions (0.1%)
+	Chain 2 had 3 divergent transitions (0.1%)
+	Chain 3 had 2 iterations at max treedepth (0.0%)
+	Chain 4 had 1 divergent transitions (0.0%)
+	Use the "diagnose()" method on the CmdStanMCMC object to see further information.
+COMPLETED: fit-rw_positive_bias-run1-prior1; diagnostics=NEEDS_REVIEW
+08:47:26 - cmdstanpy - INFO - Chain [3] done processing
+08:54:43 - cmdstanpy - INFO - Chain [2] done processing
+08:55:51 - cmdstanpy - INFO - Chain [4] done processing
+09:02:45 - cmdstanpy - INFO - Chain [1] done processing
+09:02:45 - cmdstanpy - WARNING - Non-fatal error during sampling:
+Exception: Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in '/ZPOOL/data/scratch/srndna-gu-bias-stable-v1/build/8db7a8a5ff8bdc08/gu_stable_functions.stan', line 23, column 4, included from
+	Exception: Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in '/ZPOOL/data/scratch/srndna-gu-bias-stable-v1/build/8db7a8a5ff8bdc08/gu_stable_functions.stan', line 23, column 4, included from
+	Exception: Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in '/ZPOOL/data/scratch/srndna-gu-bias-stable-v1/build/8db7a8a5ff8bdc08/gu_stable_functions.stan', line 23, column 4, included from
+	Exception: Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in '/ZPOOL/data/scratch/srndna-gu-bias-stable-v1/build/8db7a8a5ff8bdc08/gu_stable_functions.stan', line 23, column 4, included from
+	Exception: Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in '/ZPOOL/data/scratch/srndna-gu-bias-stable-v1/build/8db7a8a5ff8bdc08/gu_stable_functions.stan', line 23, column 4, included from
+	Exception: Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in '/ZPOOL/data/scratch/srndna-gu-bias-stable-v1/build/8db7a8a5ff8bdc08/gu_stable_functions.stan', line 23, column 4, included from
+	Exception: Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in '/ZPOOL/data/scratch/srndna-gu-bias-stable-v1/build/8db7a8a5ff8bdc08/gu_stable_functions.stan', line 23, column 4, included from
+	Exception: Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in '/ZPOOL/data/scratch/srndna-gu-bias-stable-v1/build/8db7a8a5ff8bdc08/gu_stable_functions.stan', line 23, column 4, included from
+	Exception: Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in '/ZPOOL/data/scratch/srndna-gu-bias-stable-v1/build/8db7a8a5ff8bdc08/gu_stable_functions.stan', line 23, column 4, included from
+	Exception: Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in '/ZPOOL/data/scratch/srndna-gu-bias-stable-v1/build/8db7a8a5ff8bdc08/gu_stable_functions.stan', line 23, column 4, included from
+	Exception: Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in '/ZPOOL/data/scratch/srndna-gu-bias-stable-v1/build/8db7a8a5ff8bdc08/gu_stable_functions.stan', line 23, column 4, included from
+	Exception: Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in '/ZPOOL/data/scratch/srndna-gu-bias-stable-v1/build/8db7a8a5ff8bdc08/gu_stable_functions.stan', line 23, column 4, included from
+	Exception: Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in '/ZPOOL/data/scratch/srndna-gu-bias-stable-v1/build/8db7a8a5ff8bdc08/gu_stable_functions.stan', line 23, column 4, included from
+	Exception: Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in '/ZPOOL/data/scratch/srndna-gu-bias-stable-v1/build/8db7a8a5ff8bdc08/gu_stable_functions.stan', line 23, column 4, included from
+	Exception: Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in '/ZPOOL/data/scratch/srndna-gu-bias-stable-v1/build/8db7a8a5ff8bdc08/gu_stable_functions.stan', line 23, column 4, included from
+	Exception: Exception: Exception: exact cancellation has unrepresentable derivatives (in '/ZPOOL/data/scratch/srndna-gu-bias-stable-v1/build/8db7a8a5ff8bdc08/gu_stable_functions.stan', line 13, column 6, included from
+	Exception: Exception: Exception: exact cancellation has unrepresentable derivatives (in '/ZPOOL/data/scratch/srndna-gu-bias-stable-v1/build/8db7a8a5ff8bdc08/gu_stable_functions.stan', line 13, column 6, included from
+	Exception: Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in '/ZPOOL/data/scratch/srndna-gu-bias-stable-v1/build/8db7a8a5ff8bdc08/gu_stable_functions.stan', line 23, column 4, included from
+	Exception: Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in '/ZPOOL/data/scratch/srndna-gu-bias-stable-v1/build/8db7a8a5ff8bdc08/gu_stable_functions.stan', line 23, column 4, included from
+	Exception: Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in '/ZPOOL/data/scratch/srndna-gu-bias-stable-v1/build/8db7a8a5ff8bdc08/gu_stable_functions.stan', line 23, column 4, included from
+	Exception: Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in '/ZPOOL/data/scratch/srndna-gu-bias-stable-v1/build/8db7a8a5ff8bdc08/gu_stable_functions.stan', line 23, column 4, included from
+	Exception: Exception: Exception: exact cancellation has unrepresentable derivatives (in '/ZPOOL/data/scratch/srndna-gu-bias-stable-v1/build/8db7a8a5ff8bdc08/gu_stable_functions.stan', line 13, column 6, included from
+Exception: Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in '/ZPOOL/data/scratch/srndna-gu-bias-stable-v1/build/8db7a8a5ff8bdc08/gu_stable_functions.stan', line 23, column 4, included from
+	Exception: Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in '/ZPOOL/data/scratch/srndna-gu-bias-stable-v1/build/8db7a8a5ff8bdc08/gu_stable_functions.stan', line 23, column 4, included from
+	Exception: Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in '/ZPOOL/data/scratch/srndna-gu-bias-stable-v1/build/8db7a8a5ff8bdc08/gu_stable_functions.stan', line 23, column 4, included from
+	Exception: Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in '/ZPOOL/data/scratch/srndna-gu-bias-stable-v1/build/8db7a8a5ff8bdc08/gu_stable_functions.stan', line 23, column 4, included from
+	Exception: Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in '/ZPOOL/data/scratch/srndna-gu-bias-stable-v1/build/8db7a8a5ff8bdc08/gu_stable_functions.stan', line 23, column 4, included from
+	Exception: Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in '/ZPOOL/data/scratch/srndna-gu-bias-stable-v1/build/8db7a8a5ff8bdc08/gu_stable_functions.stan', line 23, column 4, included from
+	Exception: Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in '/ZPOOL/data/scratch/srndna-gu-bias-stable-v1/build/8db7a8a5ff8bdc08/gu_stable_functions.stan', line 23, column 4, included from
+	Exception: Exception: Exception: exact cancellation has unrepresentable derivatives (in '/ZPOOL/data/scratch/srndna-gu-bias-stable-v1/build/8db7a8a5ff8bdc08/gu_stable_functions.stan', line 13, column 6, included from
+	Exception: Exception: Exception: exact cancellation has unrepresentable derivatives (in '/ZPOOL/data/scratch/srndna-gu-bias-stable-v1/build/8db7a8a5ff8bdc08/gu_stable_functions.stan', line 13, column 6, included from
+	Exception: Exception: Exception: exact cancellation has unrepresentable derivatives (in '/ZPOOL/data/scratch/srndna-gu-bias-stable-v1/build/8db7a8a5ff8bdc08/gu_stable_functions.stan', line 13, column 6, included from
+	Exception: Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in '/ZPOOL/data/scratch/srndna-gu-bias-stable-v1/build/8db7a8a5ff8bdc08/gu_stable_functions.stan', line 23, column 4, included from
+	Exception: Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in '/ZPOOL/data/scratch/srndna-gu-bias-stable-v1/build/8db7a8a5ff8bdc08/gu_stable_functions.stan', line 23, column 4, included from
+	Exception: Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in '/ZPOOL/data/scratch/srndna-gu-bias-stable-v1/build/8db7a8a5ff8bdc08/gu_stable_functions.stan', line 23, column 4, included from
+Consider re-running with show_console=True if the above output is unclear!
+09:02:50 - cmdstanpy - WARNING - Some chains may have failed to converge.
+	Chain 3 had 2 divergent transitions (0.0%)
+	Use the "diagnose()" method on the CmdStanMCMC object to see further information.
+COMPLETED: fit-rw_positive_bias-full-prior1; diagnostics=NEEDS_REVIEW
+RUN: /ZPOOL/data/tools/anaconda/tug87422/anaconda3/envs/srndna-ultimatum/bin/python3 -u /ZPOOL/data/projects/srndna-ultimatum/code/export_gu_stan_diagnostics.py --work-root /ZPOOL/data/scratch/srndna-gu-bias-stable-v1 --output-dir /ZPOOL/data/projects/srndna-ultimatum/results/norm_learning/stan-bias-stable-v1/diagnostics-v1 --expected-jobs 2
+CHECKED: fit-rw_positive_bias-full-prior1; 1342 parameters; 0 flagged
+CHECKED: fit-rw_positive_bias-run1-prior1; 1342 parameters; 0 flagged
+EXPORTED: 2 fits, 3 figures, six diagnostic tables -> /ZPOOL/data/projects/srndna-ultimatum/results/norm_learning/stan-bias-stable-v1/diagnostics-v1
+RUN: /ZPOOL/data/tools/anaconda/tug87422/anaconda3/envs/srndna-ultimatum/bin/python3 -u /ZPOOL/data/projects/srndna-ultimatum/code/audit_gu_divergences.py --work-root /ZPOOL/data/scratch/srndna-gu-bias-stable-v1 --output-dir /ZPOOL/data/projects/srndna-ultimatum/results/norm_learning/stan-bias-stable-v1/divergence-audit-v1 --expected-jobs 2
+VERIFIED: fit-rw_positive_bias-full-prior1
+VERIFIED: fit-rw_positive_bias-run1-prior1
+AUDITED: fit-rw_positive_bias-full-prior1; divergences=2; depth_hits=0
+AUDITED: fit-rw_positive_bias-run1-prior1; divergences=7; depth_hits=2
+EXPORTED: 2 fits -> /ZPOOL/data/projects/srndna-ultimatum/results/norm_learning/stan-bias-stable-v1/divergence-audit-v1; no models rerun
+WORKFLOW_COMPLETE: /ZPOOL/data/projects/srndna-ultimatum/results/norm_learning/stan-bias-stable-v1; diagnostic review required: ['full', 'run1']
