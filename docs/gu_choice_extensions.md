@@ -147,3 +147,38 @@ include warmup and cannot be interpreted as counts of retained divergences.
 Unchanged exports are verified and skipped; altered inputs or outputs require
 a new output directory. Raw chains remain in scratch; only small audit files
 and figures should be committed.
+
+## Bounded bias-model pilot
+
+`code/run_gu_bias_pilot.py` verifies the two existing bias fits against the
+current data, priors and Stan source; checks 1,000 random offer histories against
+an independent extended-precision equation implementation; and records deliberate
+floating-point stress cases. Stress failures do not establish the source of
+earlier console warnings. The likelihood and its parameter-dependent hinge
+remain unchanged. No parameter, prior, or participant selection is changed.
+
+```bash
+bash code/run_gu_bias_pilot.sh
+bash code/run_gu_bias_pilot.sh --execute
+```
+
+Defaults use the existing Linux1 CmdStan installation and baseline scratch root.
+New fits go to `/ZPOOL/data/scratch/srndna-gu-bias-pilot-v1`; small exports go to
+`results/norm_learning/stan-bias-pilot-v1`. Options permit overriding those roots
+and `--cmdstan`. The full and run-1 bias fits run concurrently with four chains
+and five threads each (40 CPU threads maximum), 4,000 warmup and 2,000 retained
+iterations per chain, adapt_delta .995 and maximum depth 12. This is a bounded
+adaptation experiment, not a claim that additional draws solve identifiability.
+The seed and thread count also change, precluding attribution to one setting.
+
+The runner checks compiled Stan/Python likelihood parity before sampling.
+Both diagnostic exporters then run automatically, including flagged fits.
+`baseline_pilot_comparison.tsv` reports divergence rates as well as counts because
+the sample counts differ. `workflow_status.json` distinguishes workflow completion
+from inference eligibility. Exit zero means successful export, not a clean fit.
+Completed fits are hash-verified and skipped on repeat; interrupted fits restart
+in separate retained attempts. Old results are not overwritten. No recovery fits
+or imaging covariates are launched automatically. Even a diagnostically clean
+pilot needs recovery and prior-sensitivity review before parameter interpretation.
+The shell wrapper also saves early preflight failures in `launch.txt`. To override
+paths, invoke the Python entry point directly with the documented options.
