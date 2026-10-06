@@ -182,3 +182,44 @@ or imaging covariates are launched automatically. Even a diagnostically clean
 pilot needs recovery and prior-sensitivity review before parameter interpretation.
 The shell wrapper also saves early preflight failures in `launch.txt`. To override
 paths, invoke the Python entry point directly with the documented options.
+
+## Stable-arithmetic bias rerun
+
+`code/run_gu_bias_stable.py` retains the bias model's data, hierarchical priors,
+partner-specific histories, norm-before-choice update and piecewise deficit.
+It evaluates the same choice equation using log alpha and log gamma, combining
+their contributions before exponentiation. This avoids intermediate overflow
+when their combined effect is finite, or when a zero deficit should have no
+penalty. Natural-scale reporting parameters are computed in generated quantities
+rather than on the HMC autodifferentiation graph. There is no logit clipping,
+hinge smoothing, prior tightening, participant exclusion or new parameter.
+An extreme exact cancellation whose derivatives exceed floating-point range
+is explicitly rejected rather than assigned a fabricated finite gradient.
+
+Before sampling, compiled checks compare the original and new target densities
+and gradients at 24 configurations, plus both choice outcomes in 10 scalar
+boundary/overflow cases. The existing train/held-out mask and parameter checks
+also run. These tests establish arithmetic agreement, not convergence or recovery.
+
+```bash
+bash code/run_gu_bias_stable.sh
+bash code/run_gu_bias_stable.sh --execute
+```
+
+Linux1 defaults read the completed `/ZPOOL/data/scratch/srndna-gu-bias-pilot-v1`
+baseline and write new attempts to `/ZPOOL/data/scratch/srndna-gu-bias-stable-v1`.
+Exports go to `results/norm_learning/stan-bias-stable-v1`. The full-data and
+run-1 fits each use four chains, five threads per chain, 4,000 warmup and 6,000
+retained iterations, adapt_delta .995 and maximum depth 12: at most 40 CPU threads.
+The baseline seeds, data and priors are retained. More retained draws and changed
+floating-point evaluation mean this is not a controlled estimate of the numerical
+change's effect on divergence counts; compare rates and mixing diagnostics.
+
+The shell wrapper captures early errors in `launch.txt`; both diagnostic exporters
+run automatically after both fits finish, including diagnostically flagged fits.
+`compiled_equivalence.json`, `baseline_stable_comparison.tsv`, and
+`workflow_status.json` separate successful execution from inferential eligibility.
+Completed fits are hash-verified and skipped; interrupted fits restart as new
+attempts. Original source models and fits remain untouched. No individual-level
+imaging covariates or recovery-validation claims are released automatically.
+Numerical stability cannot remove structural parameter trade-offs.
