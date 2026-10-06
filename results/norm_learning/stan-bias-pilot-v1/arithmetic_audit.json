@@ -1,0 +1,25 @@
+{
+  "random_histories_checked": 1000,
+  "trials_per_history": 48,
+  "max_absolute_logit_difference": 2.2351741790771484e-08,
+  "equivalence_passed": true,
+  "both_bias_signs_checked": true,
+  "boundary_stress": [
+    {
+      "case": "very_large_finite",
+      "nan_logits": 0,
+      "infinite_logits": 0
+    },
+    {
+      "case": "overflow_product",
+      "nan_logits": 0,
+      "infinite_logits": 3
+    },
+    {
+      "case": "overflow_transform_zero_penalty",
+      "nan_logits": 2,
+      "infinite_logits": 1
+    }
+  ],
+  "note": "Stress failures are hypothetical numerical risks, not attribution of observed warnings. The parameter-dependent max() kink is unchanged. No likelihood modification is made."
+}

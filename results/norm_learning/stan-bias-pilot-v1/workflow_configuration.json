@@ -1,0 +1,50 @@
+{
+  "command": [
+    "/ZPOOL/data/tools/anaconda/tug87422/anaconda3/envs/srndna-ultimatum/bin/python3",
+    "-u",
+    "/ZPOOL/data/projects/srndna-ultimatum/code/run_gu_choice_extensions.py",
+    "--work-root",
+    "/ZPOOL/data/scratch/srndna-gu-bias-pilot-v1",
+    "--collect-to",
+    "/ZPOOL/data/projects/srndna-ultimatum/results/norm_learning/stan-bias-pilot-v1",
+    "--cmdstan",
+    "/ZPOOL/data/scratch/srndna-stan-toolchain/cmdstan-2.40.0",
+    "--phase",
+    "fit",
+    "--models",
+    "rw_positive_bias",
+    "--stages",
+    "full",
+    "run1",
+    "--jobs",
+    "40",
+    "--chains",
+    "4",
+    "--threads-per-chain",
+    "5",
+    "--warmup",
+    "4000",
+    "--samples",
+    "2000",
+    "--adapt-delta",
+    ".995",
+    "--max-treedepth",
+    "12",
+    "--seed",
+    "20261006",
+    "--execute"
+  ],
+  "baseline": "/ZPOOL/data/scratch/srndna-gu-stan-positive-bias-v2",
+  "sources": {
+    "code/run_gu_bias_pilot.py": "8329fa9fbfa89e2a6068dc49bbe0cd019df0593cc2ddaec077f43fc53156698a",
+    "code/run_gu_bias_pilot.sh": "9620e80fe0a4d144e3802afbf882c7b96cf4106ba0fc480b17d96b0891e5ba6f",
+    "code/run_gu_choice_extensions.py": "1bf0de1288b98fa4ae8794ba509313b7a58e2fd8a603e21bd8073e6071e612bb",
+    "code/stan/gu_choice_extensions.stan": "5a45f98e4d566dabab98afde5aeeb65a1cefa0efaf1fdc26848b5e512202b606",
+    "code/export_gu_stan_diagnostics.py": "157c5c2e7c0674797ecd0db372228fc3166f474e3ba08bd6a32669609a56b9ca",
+    "code/audit_gu_divergences.py": "f1e1f7ecda434167ed9ac7dc29b06668d94270e446b388fcf744cb33cab128e7"
+  },
+  "baseline_configs": [
+    "d9ad83d63a2deaeea30f7c9376eb3655d8cd471454f58a56140310219a339d54",
+    "9715e795a349648bdea13385667c8419a1ff400b4829a622bd7b8ddbc5937196"
+  ]
+}

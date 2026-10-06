@@ -1,0 +1,14 @@
+
+COMMAND: /ZPOOL/data/tools/anaconda/tug87422/anaconda3/envs/srndna-ultimatum/bin/python3 -u /ZPOOL/data/projects/srndna-ultimatum/code/export_gu_stan_diagnostics.py --work-root /ZPOOL/data/scratch/srndna-gu-bias-pilot-v1 --output-dir /ZPOOL/data/projects/srndna-ultimatum/results/norm_learning/stan-bias-pilot-v1/diagnostics-v1 --expected-jobs 2
+CHECKED: fit-rw_positive_bias-full-prior1; 1342 parameters; 0 flagged
+CHECKED: fit-rw_positive_bias-run1-prior1; 1342 parameters; 134 flagged
+EXPORTED: 2 fits, 3 figures, six diagnostic tables -> /ZPOOL/data/projects/srndna-ultimatum/results/norm_learning/stan-bias-pilot-v1/diagnostics-v1
+EXIT_STATUS: 0
+
+COMMAND: /ZPOOL/data/tools/anaconda/tug87422/anaconda3/envs/srndna-ultimatum/bin/python3 -u /ZPOOL/data/projects/srndna-ultimatum/code/audit_gu_divergences.py --work-root /ZPOOL/data/scratch/srndna-gu-bias-pilot-v1 --output-dir /ZPOOL/data/projects/srndna-ultimatum/results/norm_learning/stan-bias-pilot-v1/divergence-audit-v1 --expected-jobs 2
+VERIFIED: fit-rw_positive_bias-full-prior1
+VERIFIED: fit-rw_positive_bias-run1-prior1
+AUDITED: fit-rw_positive_bias-full-prior1; divergences=6; depth_hits=0
+AUDITED: fit-rw_positive_bias-run1-prior1; divergences=1; depth_hits=1
+EXPORTED: 2 fits -> /ZPOOL/data/projects/srndna-ultimatum/results/norm_learning/stan-bias-pilot-v1/divergence-audit-v1; no models rerun
+EXIT_STATUS: 0
