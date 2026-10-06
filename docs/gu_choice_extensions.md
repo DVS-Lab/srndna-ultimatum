@@ -223,3 +223,38 @@ Completed fits are hash-verified and skipped; interrupted fits restart as new
 attempts. Original source models and fits remain untouched. No individual-level
 imaging covariates or recovery-validation claims are released automatically.
 Numerical stability cannot remove structural parameter trade-offs.
+
+## Conditional recovery and empirical warning audit
+
+`bash code/run_gu_bias_validation.sh` verifies the two completed stable fits and
+exports exception contexts bracketed by their console progress lines. Warnings
+at the warmup/sampling boundary or outside interpretable progress markers remain
+explicitly unknown. Counts describe exception lines, not divergent transitions.
+No observed-data fit is modified or repeated.
+
+`bash code/run_gu_bias_validation.sh --execute` also runs eight synthetic-data
+fits using the unchanged stable model, priors and participant/partner histories.
+One seeded joint posterior draw is selected from each half of each of the four
+full-data chains. Selection does not filter parameter values or diagnostic flags.
+The source posterior remains diagnostically flagged. This is a bounded,
+posterior-conditioned recovery screen, not independent validation or SBC.
+Missed-choice masks are retained; offers on those trials still update norms.
+
+Each synthetic fit uses four chains, 4,000 warmup and 4,000 retained iterations
+per chain, adapt_delta .995 and maximum depth 12. Up to five fits run concurrently
+with two threads per chain (40 CPU threads total). New fits live in
+`/ZPOOL/data/scratch/srndna-gu-bias-validation-v1`; compact outputs live in
+`results/norm_learning/stan-bias-validation-v1`. Original fits remain in their
+existing roots. Completed synthetic fits are verified/skipped; interrupted fits
+restart in new attempts, without deletion. The workflow has an exclusive lock.
+
+Outputs include warning contexts, generating-draw provenance, per-partner and
+partner-difference recovery (rank correlation, RMSE, bias and interval coverage),
+sample-mean contrast coverage, and a recovery overview figure. Shared acceptance
+bias is counted once per participant. Aggregates distinguish all completed fits
+from diagnostic-pass-only fits; partial-fit summaries are retained if a fit fails.
+Complete diagnostic trace exports run only when all eight fits complete.
+`workflow_status.json` does not automatically certify recovery or release imaging
+covariates. Eight datasets can reveal failures but do not precisely calibrate
+nominal interval coverage or establish general identifiability. Review each
+parameter and intended contrast separately before deciding its scientific use.
