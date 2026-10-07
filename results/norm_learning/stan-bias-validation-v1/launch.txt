@@ -1,0 +1,217 @@
+VERIFIED: fit-rw_positive_bias-full-prior1
+VERIFIED: fit-rw_positive_bias-run1-prior1
+AUDITED: empirical console warnings; observed-data fits are not changed.
+PLAN: 8 conditional recovery fits, all participants/partners and missed-trial masks retained.
+CPU: up to 5 concurrent fits x 4 chains x 2 threads = 40.
+PASS: audit and preparation checks; add --execute to run recovery.
+VERIFIED: fit-rw_positive_bias-full-prior1
+VERIFIED: fit-rw_positive_bias-run1-prior1
+AUDITED: empirical console warnings; observed-data fits are not changed.
+PLAN: 8 conditional recovery fits, all participants/partners and missed-trial masks retained.
+CPU: up to 5 concurrent fits x 4 chains x 2 threads = 40.
+14:39:39 - cmdstanpy - INFO - compiling stan file /ZPOOL/data/scratch/srndna-gu-bias-validation-v1/build/8db7a8a5ff8bdc08/gu_choice_stable.stan to exe file /ZPOOL/data/scratch/srndna-gu-bias-validation-v1/build/8db7a8a5ff8bdc08/gu_choice_stable
+14:40:03 - cmdstanpy - INFO - compiled model executable: /ZPOOL/data/scratch/srndna-gu-bias-validation-v1/build/8db7a8a5ff8bdc08/gu_choice_stable
+14:40:03 - cmdstanpy - INFO - compiling stan file /ZPOOL/data/scratch/srndna-gu-bias-validation-v1/build/f0bb320d46aa2d93/gu_choice_extensions.stan to exe file /ZPOOL/data/scratch/srndna-gu-bias-validation-v1/build/f0bb320d46aa2d93/gu_choice_extensions
+14:40:27 - cmdstanpy - INFO - compiled model executable: /ZPOOL/data/scratch/srndna-gu-bias-validation-v1/build/f0bb320d46aa2d93/gu_choice_extensions
+14:40:27 - cmdstanpy - INFO - compiling stan file /ZPOOL/data/scratch/srndna-gu-bias-validation-v1/build/3063d06cc4cfb754/gu_stable_kernel_check.stan to exe file /ZPOOL/data/scratch/srndna-gu-bias-validation-v1/build/3063d06cc4cfb754/gu_stable_kernel_check
+14:40:35 - cmdstanpy - INFO - compiled model executable: /ZPOOL/data/scratch/srndna-gu-bias-validation-v1/build/3063d06cc4cfb754/gu_stable_kernel_check
+14:40:35 - cmdstanpy - INFO - CmdStan start processing
+14:40:35 - cmdstanpy - INFO - Chain [1] start processing
+14:40:36 - cmdstanpy - INFO - Chain [1] done processing
+PASS: compiled equations, shared bias, train/held-out masks and target: rw_positive
+14:40:36 - cmdstanpy - INFO - CmdStan start processing
+14:40:36 - cmdstanpy - INFO - Chain [1] start processing
+14:40:36 - cmdstanpy - INFO - Chain [1] done processing
+PASS: compiled equations, shared bias, train/held-out masks and target: rw_positive_bias
+RUN: recovery-rw_positive_bias-full-conditional-rep001 -> /ZPOOL/data/scratch/srndna-gu-bias-validation-v1/fits/recovery-rw_positive_bias-full-conditional-rep001/attempt-ymv9a7b1
+RUN: recovery-rw_positive_bias-full-conditional-rep002 -> /ZPOOL/data/scratch/srndna-gu-bias-validation-v1/fits/recovery-rw_positive_bias-full-conditional-rep002/attempt-8s5s6did
+RUN: recovery-rw_positive_bias-full-conditional-rep003 -> /ZPOOL/data/scratch/srndna-gu-bias-validation-v1/fits/recovery-rw_positive_bias-full-conditional-rep003/attempt-n1fz0bzr
+RUN: recovery-rw_positive_bias-full-conditional-rep004 -> /ZPOOL/data/scratch/srndna-gu-bias-validation-v1/fits/recovery-rw_positive_bias-full-conditional-rep004/attempt-zgz3gpnq
+RUN: recovery-rw_positive_bias-full-conditional-rep005 -> /ZPOOL/data/scratch/srndna-gu-bias-validation-v1/fits/recovery-rw_positive_bias-full-conditional-rep005/attempt-ynv5bvrf
+14:40:37 - cmdstanpy - INFO - CmdStan start processing
+14:40:37 - cmdstanpy - INFO - Chain [1] start processing
+14:40:37 - cmdstanpy - INFO - Chain [2] start processing
+14:40:37 - cmdstanpy - INFO - CmdStan start processing
+14:40:37 - cmdstanpy - INFO - Chain [3] start processing
+14:40:37 - cmdstanpy - INFO - Chain [1] start processing
+14:40:37 - cmdstanpy - INFO - Chain [2] start processing
+14:40:37 - cmdstanpy - INFO - Chain [3] start processing
+14:40:37 - cmdstanpy - INFO - Chain [4] start processing
+14:40:37 - cmdstanpy - INFO - Chain [4] start processing
+14:40:37 - cmdstanpy - INFO - CmdStan start processing
+14:40:37 - cmdstanpy - INFO - Chain [1] start processing
+14:40:37 - cmdstanpy - INFO - Chain [2] start processing
+14:40:37 - cmdstanpy - INFO - Chain [3] start processing
+14:40:37 - cmdstanpy - INFO - Chain [4] start processing
+14:40:37 - cmdstanpy - INFO - CmdStan start processing
+14:40:37 - cmdstanpy - INFO - Chain [1] start processing
+14:40:37 - cmdstanpy - INFO - CmdStan start processing
+14:40:37 - cmdstanpy - INFO - Chain [2] start processing
+14:40:37 - cmdstanpy - INFO - Chain [3] start processing
+14:40:37 - cmdstanpy - INFO - Chain [4] start processing
+14:40:37 - cmdstanpy - INFO - Chain [1] start processing
+14:40:37 - cmdstanpy - INFO - Chain [2] start processing
+14:40:37 - cmdstanpy - INFO - Chain [3] start processing
+14:40:37 - cmdstanpy - INFO - Chain [4] start processing
+00:28:43 - cmdstanpy - INFO - Chain [3] done processing
+01:02:52 - cmdstanpy - INFO - Chain [2] done processing
+01:08:49 - cmdstanpy - INFO - Chain [2] done processing
+01:36:32 - cmdstanpy - INFO - Chain [4] done processing
+01:52:11 - cmdstanpy - INFO - Chain [1] done processing
+01:54:00 - cmdstanpy - INFO - Chain [4] done processing
+01:56:27 - cmdstanpy - INFO - Chain [1] done processing
+02:00:40 - cmdstanpy - INFO - Chain [2] done processing
+02:02:11 - cmdstanpy - INFO - Chain [3] done processing
+02:13:50 - cmdstanpy - INFO - Chain [3] done processing
+02:38:15 - cmdstanpy - INFO - Chain [2] done processing
+02:46:12 - cmdstanpy - INFO - Chain [1] done processing
+03:17:41 - cmdstanpy - INFO - Chain [1] done processing
+03:25:59 - cmdstanpy - INFO - Chain [4] done processing
+COMPLETED: recovery-rw_positive_bias-full-conditional-rep003; diagnostics=PASS
+RUN: recovery-rw_positive_bias-full-conditional-rep006 -> /ZPOOL/data/scratch/srndna-gu-bias-validation-v1/fits/recovery-rw_positive_bias-full-conditional-rep006/attempt-uf55zx8w
+03:27:14 - cmdstanpy - INFO - CmdStan start processing
+03:27:14 - cmdstanpy - INFO - Chain [1] start processing
+03:27:14 - cmdstanpy - INFO - Chain [2] start processing
+03:27:14 - cmdstanpy - INFO - Chain [3] start processing
+03:27:14 - cmdstanpy - INFO - Chain [4] start processing
+04:22:05 - cmdstanpy - INFO - Chain [4] done processing
+04:38:16 - cmdstanpy - INFO - Chain [1] done processing
+04:38:16 - cmdstanpy - WARNING - Non-fatal error during sampling:
+Exception: Exception: Exception: exact cancellation has unrepresentable derivatives (in '/ZPOOL/data/scratch/srndna-gu-bias-validation-v1/build/8db7a8a5ff8bdc08/gu_stable_functions.stan', line 13, column 6, included from
+	Exception: Exception: Exception: exact cancellation has unrepresentable derivatives (in '/ZPOOL/data/scratch/srndna-gu-bias-validation-v1/build/8db7a8a5ff8bdc08/gu_stable_functions.stan', line 13, column 6, included from
+	Exception: Exception: Exception: exact cancellation has unrepresentable derivatives (in '/ZPOOL/data/scratch/srndna-gu-bias-validation-v1/build/8db7a8a5ff8bdc08/gu_stable_functions.stan', line 13, column 6, included from
+	Exception: Exception: Exception: exact cancellation has unrepresentable derivatives (in '/ZPOOL/data/scratch/srndna-gu-bias-validation-v1/build/8db7a8a5ff8bdc08/gu_stable_functions.stan', line 13, column 6, included from
+Exception: Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in '/ZPOOL/data/scratch/srndna-gu-bias-validation-v1/build/8db7a8a5ff8bdc08/gu_stable_functions.stan', line 23, column 4, included from
+	Exception: Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in '/ZPOOL/data/scratch/srndna-gu-bias-validation-v1/build/8db7a8a5ff8bdc08/gu_stable_functions.stan', line 23, column 4, included from
+	Exception: Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in '/ZPOOL/data/scratch/srndna-gu-bias-validation-v1/build/8db7a8a5ff8bdc08/gu_stable_functions.stan', line 23, column 4, included from
+	Exception: Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in '/ZPOOL/data/scratch/srndna-gu-bias-validation-v1/build/8db7a8a5ff8bdc08/gu_stable_functions.stan', line 23, column 4, included from
+	Exception: Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in '/ZPOOL/data/scratch/srndna-gu-bias-validation-v1/build/8db7a8a5ff8bdc08/gu_stable_functions.stan', line 23, column 4, included from
+	Exception: Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in '/ZPOOL/data/scratch/srndna-gu-bias-validation-v1/build/8db7a8a5ff8bdc08/gu_stable_functions.stan', line 23, column 4, included from
+	Exception: Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in '/ZPOOL/data/scratch/srndna-gu-bias-validation-v1/build/8db7a8a5ff8bdc08/gu_stable_functions.stan', line 23, column 4, included from
+	Exception: Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in '/ZPOOL/data/scratch/srndna-gu-bias-validation-v1/build/8db7a8a5ff8bdc08/gu_stable_functions.stan', line 23, column 4, included from
+	Exception: Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in '/ZPOOL/data/scratch/srndna-gu-bias-validation-v1/build/8db7a8a5ff8bdc08/gu_stable_functions.stan', line 23, column 4, included from
+	Exception: Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in '/ZPOOL/data/scratch/srndna-gu-bias-validation-v1/build/8db7a8a5ff8bdc08/gu_stable_functions.stan', line 23, column 4, included from
+Exception: Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in '/ZPOOL/data/scratch/srndna-gu-bias-validation-v1/build/8db7a8a5ff8bdc08/gu_stable_functions.stan', line 23, column 4, included from
+	Exception: Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in '/ZPOOL/data/scratch/srndna-gu-bias-validation-v1/build/8db7a8a5ff8bdc08/gu_stable_functions.stan', line 23, column 4, included from
+	Exception: Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in '/ZPOOL/data/scratch/srndna-gu-bias-validation-v1/build/8db7a8a5ff8bdc08/gu_stable_functions.stan', line 23, column 4, included from
+	Exception: Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in '/ZPOOL/data/scratch/srndna-gu-bias-validation-v1/build/8db7a8a5ff8bdc08/gu_stable_functions.stan', line 23, column 4, included from
+	Exception: Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in '/ZPOOL/data/scratch/srndna-gu-bias-validation-v1/build/8db7a8a5ff8bdc08/gu_stable_functions.stan', line 23, column 4, included from
+	Exception: Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in '/ZPOOL/data/scratch/srndna-gu-bias-validation-v1/build/8db7a8a5ff8bdc08/gu_stable_functions.stan', line 23, column 4, included from
+Consider re-running with show_console=True if the above output is unclear!
+04:38:20 - cmdstanpy - WARNING - Some chains may have failed to converge.
+	Chain 1 had 1 divergent transitions (0.0%)
+	Chain 3 had 5 iterations at max treedepth (0.1%)
+	Chain 4 had 1 divergent transitions (0.0%)
+	Use the "diagnose()" method on the CmdStanMCMC object to see further information.
+COMPLETED: recovery-rw_positive_bias-full-conditional-rep004; diagnostics=NEEDS_REVIEW
+RUN: recovery-rw_positive_bias-full-conditional-rep007 -> /ZPOOL/data/scratch/srndna-gu-bias-validation-v1/fits/recovery-rw_positive_bias-full-conditional-rep007/attempt-e53wmebe
+04:39:33 - cmdstanpy - INFO - CmdStan start processing
+04:39:33 - cmdstanpy - INFO - Chain [1] start processing
+04:39:33 - cmdstanpy - INFO - Chain [2] start processing
+04:39:33 - cmdstanpy - INFO - Chain [3] start processing
+04:39:33 - cmdstanpy - INFO - Chain [4] start processing
+04:48:04 - cmdstanpy - INFO - Chain [2] done processing
+04:48:04 - cmdstanpy - WARNING - Non-fatal error during sampling:
+Exception: Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in '/ZPOOL/data/scratch/srndna-gu-bias-validation-v1/build/8db7a8a5ff8bdc08/gu_stable_functions.stan', line 23, column 4, included from
+	Exception: Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in '/ZPOOL/data/scratch/srndna-gu-bias-validation-v1/build/8db7a8a5ff8bdc08/gu_stable_functions.stan', line 23, column 4, included from
+	Exception: Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in '/ZPOOL/data/scratch/srndna-gu-bias-validation-v1/build/8db7a8a5ff8bdc08/gu_stable_functions.stan', line 23, column 4, included from
+	Exception: Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in '/ZPOOL/data/scratch/srndna-gu-bias-validation-v1/build/8db7a8a5ff8bdc08/gu_stable_functions.stan', line 23, column 4, included from
+	Exception: Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in '/ZPOOL/data/scratch/srndna-gu-bias-validation-v1/build/8db7a8a5ff8bdc08/gu_stable_functions.stan', line 23, column 4, included from
+	Exception: Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in '/ZPOOL/data/scratch/srndna-gu-bias-validation-v1/build/8db7a8a5ff8bdc08/gu_stable_functions.stan', line 23, column 4, included from
+	Exception: Exception: Exception: exact cancellation has unrepresentable derivatives (in '/ZPOOL/data/scratch/srndna-gu-bias-validation-v1/build/8db7a8a5ff8bdc08/gu_stable_functions.stan', line 13, column 6, included from
+	Exception: Exception: Exception: exact cancellation has unrepresentable derivatives (in '/ZPOOL/data/scratch/srndna-gu-bias-validation-v1/build/8db7a8a5ff8bdc08/gu_stable_functions.stan', line 13, column 6, included from
+	Exception: Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in '/ZPOOL/data/scratch/srndna-gu-bias-validation-v1/build/8db7a8a5ff8bdc08/gu_stable_functions.stan', line 23, column 4, included from
+	Exception: Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in '/ZPOOL/data/scratch/srndna-gu-bias-validation-v1/build/8db7a8a5ff8bdc08/gu_stable_functions.stan', line 23, column 4, included from
+	Exception: Exception: Exception: exact cancellation has unrepresentable derivatives (in '/ZPOOL/data/scratch/srndna-gu-bias-validation-v1/build/8db7a8a5ff8bdc08/gu_stable_functions.stan', line 13, column 6, included from
+Consider re-running with show_console=True if the above output is unclear!
+COMPLETED: recovery-rw_positive_bias-full-conditional-rep005; diagnostics=PASS
+RUN: recovery-rw_positive_bias-full-conditional-rep008 -> /ZPOOL/data/scratch/srndna-gu-bias-validation-v1/fits/recovery-rw_positive_bias-full-conditional-rep008/attempt-9gobebvu
+04:49:27 - cmdstanpy - INFO - CmdStan start processing
+04:49:27 - cmdstanpy - INFO - Chain [1] start processing
+04:49:27 - cmdstanpy - INFO - Chain [2] start processing
+04:49:27 - cmdstanpy - INFO - Chain [3] start processing
+04:49:27 - cmdstanpy - INFO - Chain [4] start processing
+04:50:41 - cmdstanpy - INFO - Chain [4] done processing
+05:01:23 - cmdstanpy - INFO - Chain [3] done processing
+05:01:23 - cmdstanpy - WARNING - Non-fatal error during sampling:
+Exception: Exception: Exception: exact cancellation has unrepresentable derivatives (in '/ZPOOL/data/scratch/srndna-gu-bias-validation-v1/build/8db7a8a5ff8bdc08/gu_stable_functions.stan', line 30, column 6, included from
+Consider re-running with show_console=True if the above output is unclear!
+05:01:27 - cmdstanpy - WARNING - Some chains may have failed to converge.
+	Chain 1 had 4 divergent transitions (0.1%)
+	Use the "diagnose()" method on the CmdStanMCMC object to see further information.
+COMPLETED: recovery-rw_positive_bias-full-conditional-rep001; diagnostics=NEEDS_REVIEW
+05:12:35 - cmdstanpy - INFO - Chain [3] done processing
+05:12:35 - cmdstanpy - WARNING - Non-fatal error during sampling:
+Exception: Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in '/ZPOOL/data/scratch/srndna-gu-bias-validation-v1/build/8db7a8a5ff8bdc08/gu_stable_functions.stan', line 23, column 4, included from
+	Exception: Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in '/ZPOOL/data/scratch/srndna-gu-bias-validation-v1/build/8db7a8a5ff8bdc08/gu_stable_functions.stan', line 23, column 4, included from
+	Exception: Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in '/ZPOOL/data/scratch/srndna-gu-bias-validation-v1/build/8db7a8a5ff8bdc08/gu_stable_functions.stan', line 23, column 4, included from
+Consider re-running with show_console=True if the above output is unclear!
+05:12:40 - cmdstanpy - WARNING - Some chains may have failed to converge.
+	Chain 1 had 2 divergent transitions (0.1%)
+	Chain 3 had 114 iterations at max treedepth (2.9%)
+	Use the "diagnose()" method on the CmdStanMCMC object to see further information.
+COMPLETED: recovery-rw_positive_bias-full-conditional-rep002; diagnostics=NEEDS_REVIEW
+09:51:17 - cmdstanpy - INFO - Chain [3] done processing
+09:56:35 - cmdstanpy - INFO - Chain [1] done processing
+10:46:13 - cmdstanpy - INFO - Chain [3] done processing
+11:00:25 - cmdstanpy - INFO - Chain [1] done processing
+11:07:18 - cmdstanpy - INFO - Chain [4] done processing
+11:18:17 - cmdstanpy - INFO - Chain [2] done processing
+11:22:33 - cmdstanpy - INFO - Chain [4] done processing
+11:22:33 - cmdstanpy - WARNING - Non-fatal error during sampling:
+Exception: Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in '/ZPOOL/data/scratch/srndna-gu-bias-validation-v1/build/8db7a8a5ff8bdc08/gu_stable_functions.stan', line 23, column 4, included from
+	Exception: Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in '/ZPOOL/data/scratch/srndna-gu-bias-validation-v1/build/8db7a8a5ff8bdc08/gu_stable_functions.stan', line 23, column 4, included from
+	Exception: Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in '/ZPOOL/data/scratch/srndna-gu-bias-validation-v1/build/8db7a8a5ff8bdc08/gu_stable_functions.stan', line 23, column 4, included from
+	Exception: Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in '/ZPOOL/data/scratch/srndna-gu-bias-validation-v1/build/8db7a8a5ff8bdc08/gu_stable_functions.stan', line 23, column 4, included from
+	Exception: Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in '/ZPOOL/data/scratch/srndna-gu-bias-validation-v1/build/8db7a8a5ff8bdc08/gu_stable_functions.stan', line 23, column 4, included from
+	Exception: Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in '/ZPOOL/data/scratch/srndna-gu-bias-validation-v1/build/8db7a8a5ff8bdc08/gu_stable_functions.stan', line 23, column 4, included from
+	Exception: Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in '/ZPOOL/data/scratch/srndna-gu-bias-validation-v1/build/8db7a8a5ff8bdc08/gu_stable_functions.stan', line 23, column 4, included from
+	Exception: Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in '/ZPOOL/data/scratch/srndna-gu-bias-validation-v1/build/8db7a8a5ff8bdc08/gu_stable_functions.stan', line 23, column 4, included from
+	Exception: Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in '/ZPOOL/data/scratch/srndna-gu-bias-validation-v1/build/8db7a8a5ff8bdc08/gu_stable_functions.stan', line 23, column 4, included from
+	Exception: Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in '/ZPOOL/data/scratch/srndna-gu-bias-validation-v1/build/8db7a8a5ff8bdc08/gu_stable_functions.stan', line 23, column 4, included from
+	Exception: Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in '/ZPOOL/data/scratch/srndna-gu-bias-validation-v1/build/8db7a8a5ff8bdc08/gu_stable_functions.stan', line 23, column 4, included from
+Exception: Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in '/ZPOOL/data/scratch/srndna-gu-bias-validation-v1/build/8db7a8a5ff8bdc08/gu_stable_functions.stan', line 23, column 4, included from
+	Exception: Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in '/ZPOOL/data/scratch/srndna-gu-bias-validation-v1/build/8db7a8a5ff8bdc08/gu_stable_functions.stan', line 23, column 4, included from
+	Exception: Exception: Exception: exact cancellation has unrepresentable derivatives (in '/ZPOOL/data/scratch/srndna-gu-bias-validation-v1/build/8db7a8a5ff8bdc08/gu_stable_functions.stan', line 13, column 6, included from
+	Exception: Exception: Exception: exact cancellation has unrepresentable derivatives (in '/ZPOOL/data/scratch/srndna-gu-bias-validation-v1/build/8db7a8a5ff8bdc08/gu_stable_functions.stan', line 13, column 6, included from
+	Exception: Exception: Exception: exact cancellation has unrepresentable derivatives (in '/ZPOOL/data/scratch/srndna-gu-bias-validation-v1/build/8db7a8a5ff8bdc08/gu_stable_functions.stan', line 13, column 6, included from
+Exception: Exception: Exception: exact cancellation has unrepresentable derivatives (in '/ZPOOL/data/scratch/srndna-gu-bias-validation-v1/build/8db7a8a5ff8bdc08/gu_stable_functions.stan', line 30, column 6, included from
+Consider re-running with show_console=True if the above output is unclear!
+11:22:36 - cmdstanpy - WARNING - Some chains may have failed to converge.
+	Chain 1 had 3 divergent transitions (0.1%)
+	Chain 3 had 1 divergent transitions (0.0%)
+	Chain 4 had 1 iterations at max treedepth (0.0%)
+	Use the "diagnose()" method on the CmdStanMCMC object to see further information.
+COMPLETED: recovery-rw_positive_bias-full-conditional-rep007; diagnostics=NEEDS_REVIEW
+13:01:56 - cmdstanpy - INFO - Chain [2] done processing
+13:01:56 - cmdstanpy - WARNING - Non-fatal error during sampling:
+Exception: Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in '/ZPOOL/data/scratch/srndna-gu-bias-validation-v1/build/8db7a8a5ff8bdc08/gu_stable_functions.stan', line 23, column 4, included from
+	Exception: Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in '/ZPOOL/data/scratch/srndna-gu-bias-validation-v1/build/8db7a8a5ff8bdc08/gu_stable_functions.stan', line 23, column 4, included from
+Consider re-running with show_console=True if the above output is unclear!
+COMPLETED: recovery-rw_positive_bias-full-conditional-rep006; diagnostics=NEEDS_REVIEW
+13:53:50 - cmdstanpy - INFO - Chain [3] done processing
+13:57:32 - cmdstanpy - INFO - Chain [1] done processing
+15:19:04 - cmdstanpy - INFO - Chain [2] done processing
+15:25:17 - cmdstanpy - INFO - Chain [4] done processing
+15:25:17 - cmdstanpy - WARNING - Non-fatal error during sampling:
+Exception: Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in '/ZPOOL/data/scratch/srndna-gu-bias-validation-v1/build/8db7a8a5ff8bdc08/gu_stable_functions.stan', line 23, column 4, included from
+	Exception: Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in '/ZPOOL/data/scratch/srndna-gu-bias-validation-v1/build/8db7a8a5ff8bdc08/gu_stable_functions.stan', line 23, column 4, included from
+	Exception: Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in '/ZPOOL/data/scratch/srndna-gu-bias-validation-v1/build/8db7a8a5ff8bdc08/gu_stable_functions.stan', line 23, column 4, included from
+	Exception: Exception: Exception: bernoulli_logit_lpmf: Logit transformed probability parameter is -nan, but must be not nan! (in '/ZPOOL/data/scratch/srndna-gu-bias-validation-v1/build/8db7a8a5ff8bdc08/gu_stable_functions.stan', line 23, column 4, included from
+Consider re-running with show_console=True if the above output is unclear!
+15:25:21 - cmdstanpy - WARNING - Some chains may have failed to converge.
+	Chain 3 had 1 iterations at max treedepth (0.0%)
+	Chain 4 had 1 divergent transitions (0.0%)
+	Use the "diagnose()" method on the CmdStanMCMC object to see further information.
+COMPLETED: recovery-rw_positive_bias-full-conditional-rep008; diagnostics=NEEDS_REVIEW
+RUN: /ZPOOL/data/tools/anaconda/tug87422/anaconda3/envs/srndna-ultimatum/bin/python3 -u /ZPOOL/data/projects/srndna-ultimatum/code/export_gu_stan_diagnostics.py --work-root /ZPOOL/data/scratch/srndna-gu-bias-validation-v1 --phase recovery --expected-jobs 8 --output-dir /ZPOOL/data/projects/srndna-ultimatum/results/norm_learning/stan-bias-validation-v1/diagnostics-completed-8
+CHECKED: recovery-rw_positive_bias-full-conditional-rep001; 1342 parameters; 10 flagged
+CHECKED: recovery-rw_positive_bias-full-conditional-rep002; 1342 parameters; 0 flagged
+CHECKED: recovery-rw_positive_bias-full-conditional-rep003; 1342 parameters; 0 flagged
+CHECKED: recovery-rw_positive_bias-full-conditional-rep004; 1342 parameters; 0 flagged
+CHECKED: recovery-rw_positive_bias-full-conditional-rep005; 1342 parameters; 0 flagged
+CHECKED: recovery-rw_positive_bias-full-conditional-rep006; 1342 parameters; 4 flagged
+CHECKED: recovery-rw_positive_bias-full-conditional-rep007; 1342 parameters; 0 flagged
+CHECKED: recovery-rw_positive_bias-full-conditional-rep008; 1342 parameters; 0 flagged
+EXPORTED: 8 fits, 9 figures, six diagnostic tables -> /ZPOOL/data/projects/srndna-ultimatum/results/norm_learning/stan-bias-validation-v1/diagnostics-completed-8
+EXPORTED: 8/8 recovery fits, 6 flagged; no observed-data rerun or imaging release.

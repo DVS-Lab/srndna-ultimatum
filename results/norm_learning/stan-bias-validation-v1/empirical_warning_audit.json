@@ -1,0 +1,11 @@
+{
+  "exception_lines": 46,
+  "phase_counts": {
+    "initialization_or_warmup": 36,
+    "warmup": 10,
+    "sampling": 0,
+    "warmup_sampling_boundary_unknown": 0,
+    "unknown": 0
+  },
+  "interpretation": "Progress-line bracketing, not exact iterations. Buffered output can limit precision. Exception counts are not retained divergence counts."
+}

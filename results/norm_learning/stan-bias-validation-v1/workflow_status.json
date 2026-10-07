@@ -1,0 +1,18 @@
+{
+  "workflow_complete": true,
+  "completed_fits": 8,
+  "planned_fits": 8,
+  "failed": [],
+  "diagnostic_review_required": [
+    "recovery-rw_positive_bias-full-conditional-rep001",
+    "recovery-rw_positive_bias-full-conditional-rep002",
+    "recovery-rw_positive_bias-full-conditional-rep004",
+    "recovery-rw_positive_bias-full-conditional-rep006",
+    "recovery-rw_positive_bias-full-conditional-rep007",
+    "recovery-rw_positive_bias-full-conditional-rep008"
+  ],
+  "empirical_fits_refitted": false,
+  "parameter_recovery_validated": false,
+  "imaging_covariates_released": false,
+  "interpretation": "Bounded conditional screen; review recovery by parameter, partner and contrast before scientific use."
+}

@@ -1,0 +1,9 @@
+job	chain	half	draw_zero_based	source_file	source_divergent	source_treedepth	source_diagnostics_passed
+recovery-rw_positive_bias-full-conditional-rep001	1	1	2167	gu_choice_stable-20261006002612_1.csv	0	11	False
+recovery-rw_positive_bias-full-conditional-rep002	1	2	5314	gu_choice_stable-20261006002612_1.csv	0	11	False
+recovery-rw_positive_bias-full-conditional-rep003	2	1	1283	gu_choice_stable-20261006002612_2.csv	0	11	False
+recovery-rw_positive_bias-full-conditional-rep004	2	2	3352	gu_choice_stable-20261006002612_2.csv	0	11	False
+recovery-rw_positive_bias-full-conditional-rep005	3	1	2099	gu_choice_stable-20261006002612_3.csv	0	11	False
+recovery-rw_positive_bias-full-conditional-rep006	3	2	3140	gu_choice_stable-20261006002612_3.csv	0	11	False
+recovery-rw_positive_bias-full-conditional-rep007	4	1	1385	gu_choice_stable-20261006002612_4.csv	0	11	False
+recovery-rw_positive_bias-full-conditional-rep008	4	2	3723	gu_choice_stable-20261006002612_4.csv	0	11	False

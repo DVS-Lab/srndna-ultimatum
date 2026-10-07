@@ -1,0 +1,12 @@
+
+COMMAND: /ZPOOL/data/tools/anaconda/tug87422/anaconda3/envs/srndna-ultimatum/bin/python3 -u /ZPOOL/data/projects/srndna-ultimatum/code/export_gu_stan_diagnostics.py --work-root /ZPOOL/data/scratch/srndna-gu-bias-validation-v1 --phase recovery --expected-jobs 8 --output-dir /ZPOOL/data/projects/srndna-ultimatum/results/norm_learning/stan-bias-validation-v1/diagnostics-completed-8
+CHECKED: recovery-rw_positive_bias-full-conditional-rep001; 1342 parameters; 10 flagged
+CHECKED: recovery-rw_positive_bias-full-conditional-rep002; 1342 parameters; 0 flagged
+CHECKED: recovery-rw_positive_bias-full-conditional-rep003; 1342 parameters; 0 flagged
+CHECKED: recovery-rw_positive_bias-full-conditional-rep004; 1342 parameters; 0 flagged
+CHECKED: recovery-rw_positive_bias-full-conditional-rep005; 1342 parameters; 0 flagged
+CHECKED: recovery-rw_positive_bias-full-conditional-rep006; 1342 parameters; 4 flagged
+CHECKED: recovery-rw_positive_bias-full-conditional-rep007; 1342 parameters; 0 flagged
+CHECKED: recovery-rw_positive_bias-full-conditional-rep008; 1342 parameters; 0 flagged
+EXPORTED: 8 fits, 9 figures, six diagnostic tables -> /ZPOOL/data/projects/srndna-ultimatum/results/norm_learning/stan-bias-validation-v1/diagnostics-completed-8
+EXIT_STATUS: 0

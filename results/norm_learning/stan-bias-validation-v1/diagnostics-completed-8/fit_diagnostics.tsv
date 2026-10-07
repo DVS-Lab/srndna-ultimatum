@@ -1,0 +1,9 @@
+job	phase	model	stage	parameters	flagged_parameters	divergences	max_depth_hits	max_rhat	min_bulk_ess	min_tail_ess	min_ebfmi	finite_diagnostics	passed	inference_eligible
+recovery-rw_positive_bias-full-conditional-rep001	recovery	rw_positive_bias	full	1342	10	4	0	1.01838	336.291	1113.47	0.8232950459192694	True	False	False
+recovery-rw_positive_bias-full-conditional-rep002	recovery	rw_positive_bias	full	1342	0	2	114	1.00863	889.569	683.961	0.7641051595629151	True	False	False
+recovery-rw_positive_bias-full-conditional-rep003	recovery	rw_positive_bias	full	1342	0	0	0	1.00232	2812.63	2206.1	0.7850179039116149	True	True	True
+recovery-rw_positive_bias-full-conditional-rep004	recovery	rw_positive_bias	full	1342	0	2	5	1.00179	1673.88	2181.41	0.8189776780370517	True	False	False
+recovery-rw_positive_bias-full-conditional-rep005	recovery	rw_positive_bias	full	1342	0	0	0	1.00348	1150.48	1513.62	0.7391691591199238	True	True	True
+recovery-rw_positive_bias-full-conditional-rep006	recovery	rw_positive_bias	full	1342	4	0	0	1.00656	891.365	355.465	0.7726644942239965	True	False	False
+recovery-rw_positive_bias-full-conditional-rep007	recovery	rw_positive_bias	full	1342	0	4	1	1.00341	1273.97	906.449	0.8342596973410891	True	False	False
+recovery-rw_positive_bias-full-conditional-rep008	recovery	rw_positive_bias	full	1342	0	1	1	1.00329	1922.36	1700.5	0.7514455009934589	True	False	False
