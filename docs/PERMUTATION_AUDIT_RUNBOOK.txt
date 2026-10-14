@@ -1,0 +1,118 @@
+Retained-model permutation audit
+===============================
+
+Run inside tmux on Linux1, in the srndna-ultimatum conda environment with FSL
+available. Repository of record: DVS-Lab/srndna-ultimatum, main.
+
+  bash code/run_permutation_audit_batch.sh
+
+Optional positional arguments: WORK_ROOT REPORT_ROOT JOBS.
+Defaults:
+  /ZPOOL/data/scratch/srndna-ultimatum-permutation-audit-v1
+  results/permutation_audit/v1
+  40 independent single-threaded randomise jobs concurrently
+
+The wrapper first runs synthetic-data tests against the installed FSL build.
+It then validates all inputs and prepares the complete plan before launching
+the research-data permutations. No L1, L2, FLAME or Stan fits are launched.
+
+Coverage
+--------
+All 36 retained model specifications and 252 signed contrasts are catalogued:
+  * corrected full-display RT, pooled-postresponse and partner-postresponse
+    activation/nPPI models, DMN age/simple effects and robust sensitivity;
+  * all 18 crossed behavioral models;
+  * task-wide offer slope and human-minus-computer response/offer slope models.
+The last three keep their original supplemental fixed-display provenance;
+they are not relabelled as decision-duration/postresponse models.
+Historical erroneous production fits are not current inference targets.
+The earlier duration-only RT experiment is superseded for this audit by the
+retained full-display/pooled-post/partner-post set, not silently pooled with it.
+
+Exact duplicate tests are mapped to one result. Canonicalization only reorders
+EV columns and positively rescales contrasts; negative directions stay
+separate. The present catalogue contains 174 unique signed tests and 522 jobs:
+TFCE (-T), cluster extent at t=2.6 (-c 2.6), cluster extent at t=3.1 (-c 3.1).
+Every unique test uses 10,000 permutations (or fewer if exhaustively enumerated
+by randomise), with a deterministic recorded seed shared across the three
+methods. Each job retains its actual null distribution and draw count.
+
+Scientific interpretation
+-------------------------
+Input is one unthresholded L2 COPE per participant, N=47, in verified order.
+Covariates and signed contrasts are retained. This is an UNWEIGHTED group GLM
+audit, not a new threshold on a variance-weighted FLAME Z image. VARCOPE files
+are validated and hashed but do not supply randomise weights. Identical inputs
+and designs from FLAME's outlier-deweighted analysis map to the same ordinary
+randomise test, explicitly NOT a reproduction of its robust weighting.
+
+These are independent participants. No repeated-measures exchangeability
+blocks are fabricated, and FEAT variance groups are NOT passed as -e blocks.
+Modeled group means are retained: no -D demeaning, no blind -1 shortcut.
+Randomise handles effective nuisance regressors per contrast and automatically
+uses sign-flipping for appropriate design/contrast combinations.
+Interpretation assumes the relevant residual exchangeability or symmetry.
+Age-group residual-variance diagnostics are saved for review, not used to
+select a favorable inference method. Diagnostics cannot prove exchangeability.
+If material heteroscedasticity is found, qualify these results and discuss an
+appropriate heteroscedasticity-robust analysis before making final claims.
+
+FWE control here is spatial for each signed test/method, NOT across the model
+search, both directions together, or the three inference methods. Thresholds
+2.6 and 3.1 are t values, not FEAT Z values. No automatic choice of the most
+significant model, threshold, region, or subset of participants is made.
+Corrp images contain 1-p. Summary significance uses p<.05 (corrp>.95), with a
+positive t value for the explicitly signed contrast. TFCE is voxelwise
+inference; connected significant regions are not assigned a new cluster p.
+
+Whole-brain masks are the retained group masks, never significant-cluster ROIs.
+Voxel geometry, finite values, nonnegative VARCOPEs, sample/order, matrix rank,
+mean modeling, FSF-versus-compiled contrasts and available source inventories
+are checked. Constant-across-participant voxels are explicitly removed to
+match randomise's default behavior; retained and tested masks and counts are
+both saved. Zero VARCOPE coverage is reported, not silently interpreted as
+missing data or used to drop participants/voxels.
+
+Nuisance audit
+--------------
+nuisance_source_comparison.tsv and nuisance_participant_comparison.tsv compare
+retained tSNR/FD against the participant table and the ECN family where present.
+An affine-rescaling residual distinguishes a scaling difference from a change
+in relative values. No nuisance column is replaced. This identifies matches
+to the retained table, not necessarily the original raw acquisition source.
+residual_variance_by_age.tsv summarizes leverage-adjusted OLS residual squared
+values by age group over the whole mask, and participant_residual_diagnostics.tsv
+preserves participant summaries. Ratios outside 0.5..2 are descriptive flags,
+not a formal variance test or an automatic inferential gate.
+
+Restart and collection
+----------------------
+Repeat the identical command to resume. Successful jobs have hashed completion
+receipts and are skipped. Incomplete jobs restart in new attempt directories;
+partial files are preserved. This resumes jobs, NOT iterations within a job.
+A process lock prevents two copies of the same batch running simultaneously.
+Do not change code, retained designs, source images or FSL during a batch.
+Configuration/source/software changes require new versioned scratch/report
+roots. Old partial scratch attempts may be reviewed and archived later.
+
+The report stores every source-to-unique-test mapping; masks, matrices,
+contrasts, source/merged-image hashes, settings, commands, seeds, null
+distributions, t and corrected 1-p maps, logs and explicit null summaries.
+Source COPE/VARCOPE payloads and merged 4D images remain outside Git.
+model_contrast_summary.tsv expands unique results back to all retained model
+names; repeated rows there are aliases, NOT independent discoveries.
+status.json reports complete=true only after all outputs have been collected.
+On failure, timestamped failure tables and per-job logs are saved as well.
+
+  git add results/permutation_audit/v1
+  git commit -m "Add retained-model permutation audit results"
+  git push origin main
+
+After results return: review residual variance, nuisance provenance, anatomy,
+influence, and agreement with FLAME; then prepare descriptive brain-behavior
+plots. No inferential p-values should be estimated again from selected clusters
+as if those ROIs had been independently specified.
+
+Method reference:
+https://fsl.fmrib.ox.ac.uk/fsl/docs/statistics/randomise.html
+Winkler et al. (2014), NeuroImage 92:381-397.
