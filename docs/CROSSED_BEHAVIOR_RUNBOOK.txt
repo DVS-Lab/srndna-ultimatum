@@ -1,0 +1,58 @@
+Crossed behavioral group analyses
+================================
+
+Repository of record: DVS-Lab/srndna-ultimatum, main.
+Run on Linux1 in the srndna-ultimatum conda environment with FSL available.
+
+  bash code/run_crossed_behavior_batch.sh
+
+Defaults:
+  work: /ZPOOL/data/scratch/srndna-ultimatum-crossed-behavior-v1
+  report: results/crossed_behavior_l3/v1
+  concurrent FEAT jobs: 2 (each is a whole-brain FLAME 1+2 group analysis)
+
+The optional positional arguments are WORK_ROOT REPORT_ROOT JOBS.
+Use tmux. The wrapper validates first, executes only incomplete new jobs, and
+exports compact results. Completed jobs are skipped on another invocation.
+Partially populated FEAT directories are NOT overwritten: inspect any such
+failure before moving an incomplete directory or changing the scratch root.
+Do not change inputs or update code while a batch is running.
+
+Plan: 3 temporal specifications x 3 image families x 2 behavioral predictors
+= 18 L3 jobs, each with 8 signed contrasts, N=47. Six jobs reproduce retained
+group specifications as calibration checks; twelve are newly crossed models.
+L1/L2 images and Stan fits are reused, not regenerated.
+
+Temporal specifications: corrected full-display RT, decision duration with
+pooled postresponse, decision duration with partner-specific postresponse.
+Image families: activation, DMN nPPI, ECN nPPI. Input is L2 COPE7 (similar minus
+dissimilar offer slope), with its matching VARCOPE.
+Predictors: corrected similar-minus-dissimilar choice-slope and acceptance-
+intercept measures. The latter is a legacy norm proxy, NOT a Gu parameter.
+
+EV order: sex, retained family tSNR, retained family mean FD, corrected mean
+RT, younger mean, older mean, younger x behavior, older x behavior. Behavioral
+differences are centered across all 47 participants before age splitting.
+Contrasts: both directions of the age difference in behavioral association;
+both directions of age difference at the sample-mean behavioral value;
+positive/negative behavioral association within each age group.
+
+DMN retained tSNR/FD values differ from activation/ECN. The runner records the
+differences and preserves those values; it does not resolve their provenance.
+These exploratory results cannot be called fully harmonized until that audit
+is resolved. Do not choose a timing model based on which is significant.
+Inference is FLAME 1+2, Z>3.1, cluster FWE .05, without correction across the
+model/contrast search. All contrasts, including nulls, are exported.
+
+The report contains imaging/summary.tsv, inventory.tsv, designs, cluster maps,
+unthresholded Z maps, cluster tables, source hashes, preparation settings, and
+attempt-specific terminal/FEAT logs. Each attempt has exit_status.txt (0 means
+the wrapper completed). A missing cluster table is an error, not a null result.
+
+Only push results/crossed_behavior_l3/v1, not scratch FEAT trees. Logs use .txt
+so they are not silently omitted by the repository's *.log ignore rule.
+
+Still separate: randomise TFCE and cluster-extent t=2.6/3.1 audit, nuisance
+provenance resolution, final figure selection and manuscript revisions. This
+batch does not release Gu-model parameters as imaging covariates and does not
+run permutations. The published data update is OpenNeuro ds003745 2.2.0.

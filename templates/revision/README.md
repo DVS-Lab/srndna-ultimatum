@@ -15,6 +15,14 @@ can be reconstructed.
 This directory is the canonical template source for analyses added during the
 resubmission:
 
+- `L3_task-ultimatum_behavioral-association.fsf` is the shared eight-EV,
+  eight-contrast reference for the crossed activation/DMN/ECN behavioral L3
+  analyses. Render with `code/run_crossed_behavior_l3.py`; its `EV_*` entries
+  and input/output paths are placeholders, not a directly executable design.
+  Both metrics use the same contrast definitions. `acceptance-intercept` is
+  explicitly the retained norm proxy, not a Gu-style norm-learning parameter.
+  See `docs/CROSSED_BEHAVIOR_RUNBOOK.txt` for definitions, the retained DMN nuisance
+  discrepancy, calibration jobs, and execution instructions.
 - `L1_task-ultimatum_model-02_type-act_fairness-main.fsf` preserves all nine
   historical EVs and contrasts 1–10, then adds contrast 11,
   `all_partner_offer_pmod`. Contrast 11 is the equal-weighted mean of the
