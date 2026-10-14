@@ -1,0 +1,19 @@
+stage	model	subject	run	compiled_design_sha256	ncolumns	rank	zero_columns	residual_deficiency	condition_nonzero_columns	focal_checked	passed
+l3	act		partner-post_act_choice-slope	db35e3cce6a54a4e6e0769521fab780ae3eba0d7d8b034a22710d5634ad60b1f	8	8		0	4.488242093674356	8	1
+l3	nppi-dmn		partner-post_nppi-dmn_choice-slope	4d06efaa10720b0e5b919803715de3d344c73ee651bedf5e06725a2bb53e492b	8	8		0	4.4567511273184035	8	1
+l3	nppi-ecn		partner-post_nppi-ecn_choice-slope	db35e3cce6a54a4e6e0769521fab780ae3eba0d7d8b034a22710d5634ad60b1f	8	8		0	4.488242093674356	8	1
+l3	act		partner-post_act_acceptance-intercept	0ca4e94048ae5f38d3124363bc7d51d8208fe5b8522b0f8ea87a80b16af5bfca	8	8		0	4.510604471766942	8	1
+l3	nppi-dmn		partner-post_nppi-dmn_acceptance-intercept	ce07edcb018e52beb22d21dcb7060fd6756f9dd01f8280b81a751fc8a7de2095	8	8		0	4.479895782084581	8	1
+l3	nppi-ecn		partner-post_nppi-ecn_acceptance-intercept	0ca4e94048ae5f38d3124363bc7d51d8208fe5b8522b0f8ea87a80b16af5bfca	8	8		0	4.510604471766942	8	1
+l3	act		pooled-post_act_choice-slope	db35e3cce6a54a4e6e0769521fab780ae3eba0d7d8b034a22710d5634ad60b1f	8	8		0	4.488242093674356	8	1
+l3	nppi-dmn		pooled-post_nppi-dmn_choice-slope	4d06efaa10720b0e5b919803715de3d344c73ee651bedf5e06725a2bb53e492b	8	8		0	4.4567511273184035	8	1
+l3	nppi-ecn		pooled-post_nppi-ecn_choice-slope	db35e3cce6a54a4e6e0769521fab780ae3eba0d7d8b034a22710d5634ad60b1f	8	8		0	4.488242093674356	8	1
+l3	act		pooled-post_act_acceptance-intercept	0ca4e94048ae5f38d3124363bc7d51d8208fe5b8522b0f8ea87a80b16af5bfca	8	8		0	4.510604471766942	8	1
+l3	nppi-dmn		pooled-post_nppi-dmn_acceptance-intercept	ce07edcb018e52beb22d21dcb7060fd6756f9dd01f8280b81a751fc8a7de2095	8	8		0	4.479895782084581	8	1
+l3	nppi-ecn		pooled-post_nppi-ecn_acceptance-intercept	0ca4e94048ae5f38d3124363bc7d51d8208fe5b8522b0f8ea87a80b16af5bfca	8	8		0	4.510604471766942	8	1
+l3	act		full-rt_act_choice-slope	db35e3cce6a54a4e6e0769521fab780ae3eba0d7d8b034a22710d5634ad60b1f	8	8		0	4.488242093674356	8	1
+l3	nppi-dmn		full-rt_nppi-dmn_choice-slope	4d06efaa10720b0e5b919803715de3d344c73ee651bedf5e06725a2bb53e492b	8	8		0	4.4567511273184035	8	1
+l3	nppi-ecn		full-rt_nppi-ecn_choice-slope	db35e3cce6a54a4e6e0769521fab780ae3eba0d7d8b034a22710d5634ad60b1f	8	8		0	4.488242093674356	8	1
+l3	act		full-rt_act_acceptance-intercept	0ca4e94048ae5f38d3124363bc7d51d8208fe5b8522b0f8ea87a80b16af5bfca	8	8		0	4.510604471766942	8	1
+l3	nppi-dmn		full-rt_nppi-dmn_acceptance-intercept	ce07edcb018e52beb22d21dcb7060fd6756f9dd01f8280b81a751fc8a7de2095	8	8		0	4.479895782084581	8	1
+l3	nppi-ecn		full-rt_nppi-ecn_acceptance-intercept	0ca4e94048ae5f38d3124363bc7d51d8208fe5b8522b0f8ea87a80b16af5bfca	8	8		0	4.510604471766942	8	1

@@ -1,0 +1,125 @@
+{
+  "estimand": "similar minus dissimilar offer-slope COPE7",
+  "metrics": {
+    "choice-slope": "corrected_sensitivity",
+    "acceptance-intercept": "corrected_norm"
+  },
+  "contrasts": [
+    [
+      "older-minus-younger_behavior",
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        -1,
+        1
+      ]
+    ],
+    [
+      "younger-minus-older_behavior",
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        -1
+      ]
+    ],
+    [
+      "younger-minus-older_at-mean-behavior",
+      [
+        0,
+        0,
+        0,
+        0,
+        1,
+        -1,
+        0,
+        0
+      ]
+    ],
+    [
+      "older-minus-younger_at-mean-behavior",
+      [
+        0,
+        0,
+        0,
+        0,
+        -1,
+        1,
+        0,
+        0
+      ]
+    ],
+    [
+      "younger_behavior-positive",
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0
+      ]
+    ],
+    [
+      "younger_behavior-negative",
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        -1,
+        0
+      ]
+    ],
+    [
+      "older_behavior-positive",
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1
+      ]
+    ],
+    [
+      "older_behavior-negative",
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        -1
+      ]
+    ]
+  ],
+  "timing_models": [
+    "partner-post",
+    "pooled-post",
+    "full-rt"
+  ],
+  "exclusions": 0,
+  "participants": 47,
+  "inference": "FLAME 1+2, Z>3.1, cluster FWE .05",
+  "calibration_jobs": 6,
+  "interpretation": "Separate exploratory models; acceptance-intercept is not a Gu parameter.",
+  "multiplicity": "Spatial FWE only; not corrected across these model/contrast searches.",
+  "permutation_audit": "Pending: TFCE, cluster t=2.6 and t=3.1; not run by this script."
+}

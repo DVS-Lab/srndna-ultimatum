@@ -1,0 +1,106 @@
+Started UTC: 2026-10-14T05:21:55Z
+6225b23bfff46267bfc6720f5248cbb2310fa8fb
+?? results/crossed_behavior_l3/
+Python 3.11.16
+/usr/local/fsl/share/fsl/bin/feat
+/usr/local/fsl/share/fsl/bin/feat_model
+FSL: 6.0.7.17
+Work: /ZPOOL/data/scratch/srndna-ultimatum-crossed-behavior-v1
+Report: /ZPOOL/data/projects/srndna-ultimatum/results/crossed_behavior_l3/v1
+Concurrent group jobs: 2
+PASS: prepared 18 L3 jobs; no L1/L2 jobs or images changed
+PASS: l3 act  partner-post_act_choice-slope
+PASS: l3 nppi-dmn  partner-post_nppi-dmn_choice-slope
+PASS: l3 nppi-ecn  partner-post_nppi-ecn_choice-slope
+PASS: l3 act  partner-post_act_acceptance-intercept
+PASS: l3 nppi-dmn  partner-post_nppi-dmn_acceptance-intercept
+PASS: l3 nppi-ecn  partner-post_nppi-ecn_acceptance-intercept
+PASS: l3 act  pooled-post_act_choice-slope
+PASS: l3 nppi-dmn  pooled-post_nppi-dmn_choice-slope
+PASS: l3 nppi-ecn  pooled-post_nppi-ecn_choice-slope
+PASS: l3 act  pooled-post_act_acceptance-intercept
+PASS: l3 nppi-dmn  pooled-post_nppi-dmn_acceptance-intercept
+PASS: l3 nppi-ecn  pooled-post_nppi-ecn_acceptance-intercept
+PASS: l3 act  full-rt_act_choice-slope
+PASS: l3 nppi-dmn  full-rt_nppi-dmn_choice-slope
+PASS: l3 nppi-ecn  full-rt_nppi-ecn_choice-slope
+PASS: l3 act  full-rt_act_acceptance-intercept
+PASS: l3 nppi-dmn  full-rt_nppi-dmn_acceptance-intercept
+PASS: l3 nppi-ecn  full-rt_nppi-ecn_acceptance-intercept
+RUN: act run-partner-post_act_choice-slope -> /ZPOOL/data/scratch/srndna-ultimatum-crossed-behavior-v1/outputs/partner-post_act_choice-slope.gfeat
+RUN: nppi-dmn run-partner-post_nppi-dmn_choice-slope -> /ZPOOL/data/scratch/srndna-ultimatum-crossed-behavior-v1/outputs/partner-post_nppi-dmn_choice-slope.gfeat
+RUN: nppi-ecn run-partner-post_nppi-ecn_choice-slope -> /ZPOOL/data/scratch/srndna-ultimatum-crossed-behavior-v1/outputs/partner-post_nppi-ecn_choice-slope.gfeat
+RUN: act run-partner-post_act_acceptance-intercept -> /ZPOOL/data/scratch/srndna-ultimatum-crossed-behavior-v1/outputs/partner-post_act_acceptance-intercept.gfeat
+RUN: nppi-dmn run-partner-post_nppi-dmn_acceptance-intercept -> /ZPOOL/data/scratch/srndna-ultimatum-crossed-behavior-v1/outputs/partner-post_nppi-dmn_acceptance-intercept.gfeat
+RUN: nppi-ecn run-partner-post_nppi-ecn_acceptance-intercept -> /ZPOOL/data/scratch/srndna-ultimatum-crossed-behavior-v1/outputs/partner-post_nppi-ecn_acceptance-intercept.gfeat
+RUN: act run-pooled-post_act_choice-slope -> /ZPOOL/data/scratch/srndna-ultimatum-crossed-behavior-v1/outputs/pooled-post_act_choice-slope.gfeat
+RUN: nppi-dmn run-pooled-post_nppi-dmn_choice-slope -> /ZPOOL/data/scratch/srndna-ultimatum-crossed-behavior-v1/outputs/pooled-post_nppi-dmn_choice-slope.gfeat
+RUN: nppi-ecn run-pooled-post_nppi-ecn_choice-slope -> /ZPOOL/data/scratch/srndna-ultimatum-crossed-behavior-v1/outputs/pooled-post_nppi-ecn_choice-slope.gfeat
+RUN: act run-pooled-post_act_acceptance-intercept -> /ZPOOL/data/scratch/srndna-ultimatum-crossed-behavior-v1/outputs/pooled-post_act_acceptance-intercept.gfeat
+RUN: nppi-dmn run-pooled-post_nppi-dmn_acceptance-intercept -> /ZPOOL/data/scratch/srndna-ultimatum-crossed-behavior-v1/outputs/pooled-post_nppi-dmn_acceptance-intercept.gfeat
+RUN: nppi-ecn run-pooled-post_nppi-ecn_acceptance-intercept -> /ZPOOL/data/scratch/srndna-ultimatum-crossed-behavior-v1/outputs/pooled-post_nppi-ecn_acceptance-intercept.gfeat
+RUN: act run-full-rt_act_choice-slope -> /ZPOOL/data/scratch/srndna-ultimatum-crossed-behavior-v1/outputs/full-rt_act_choice-slope.gfeat
+RUN: nppi-dmn run-full-rt_nppi-dmn_choice-slope -> /ZPOOL/data/scratch/srndna-ultimatum-crossed-behavior-v1/outputs/full-rt_nppi-dmn_choice-slope.gfeat
+RUN: nppi-ecn run-full-rt_nppi-ecn_choice-slope -> /ZPOOL/data/scratch/srndna-ultimatum-crossed-behavior-v1/outputs/full-rt_nppi-ecn_choice-slope.gfeat
+RUN: act run-full-rt_act_acceptance-intercept -> /ZPOOL/data/scratch/srndna-ultimatum-crossed-behavior-v1/outputs/full-rt_act_acceptance-intercept.gfeat
+RUN: nppi-dmn run-full-rt_nppi-dmn_acceptance-intercept -> /ZPOOL/data/scratch/srndna-ultimatum-crossed-behavior-v1/outputs/full-rt_nppi-dmn_acceptance-intercept.gfeat
+RUN: nppi-ecn run-full-rt_nppi-ecn_acceptance-intercept -> /ZPOOL/data/scratch/srndna-ultimatum-crossed-behavior-v1/outputs/full-rt_nppi-ecn_acceptance-intercept.gfeat
+PASS: dry run; 18 L3 jobs ready
+PASS: resume 18 unchanged L3 specifications
+PASS: l3 act  partner-post_act_choice-slope
+PASS: l3 nppi-dmn  partner-post_nppi-dmn_choice-slope
+PASS: l3 nppi-ecn  partner-post_nppi-ecn_choice-slope
+PASS: l3 act  partner-post_act_acceptance-intercept
+PASS: l3 nppi-dmn  partner-post_nppi-dmn_acceptance-intercept
+PASS: l3 nppi-ecn  partner-post_nppi-ecn_acceptance-intercept
+PASS: l3 act  pooled-post_act_choice-slope
+PASS: l3 nppi-dmn  pooled-post_nppi-dmn_choice-slope
+PASS: l3 nppi-ecn  pooled-post_nppi-ecn_choice-slope
+PASS: l3 act  pooled-post_act_acceptance-intercept
+PASS: l3 nppi-dmn  pooled-post_nppi-dmn_acceptance-intercept
+PASS: l3 nppi-ecn  pooled-post_nppi-ecn_acceptance-intercept
+PASS: l3 act  full-rt_act_choice-slope
+PASS: l3 nppi-dmn  full-rt_nppi-dmn_choice-slope
+PASS: l3 nppi-ecn  full-rt_nppi-ecn_choice-slope
+PASS: l3 act  full-rt_act_acceptance-intercept
+PASS: l3 nppi-dmn  full-rt_nppi-dmn_acceptance-intercept
+PASS: l3 nppi-ecn  full-rt_nppi-ecn_acceptance-intercept
+RUN: act run-partner-post_act_choice-slope -> /ZPOOL/data/scratch/srndna-ultimatum-crossed-behavior-v1/outputs/partner-post_act_choice-slope.gfeat
+RUN: nppi-dmn run-partner-post_nppi-dmn_choice-slope -> /ZPOOL/data/scratch/srndna-ultimatum-crossed-behavior-v1/outputs/partner-post_nppi-dmn_choice-slope.gfeat
+RUN: nppi-ecn run-partner-post_nppi-ecn_choice-slope -> /ZPOOL/data/scratch/srndna-ultimatum-crossed-behavior-v1/outputs/partner-post_nppi-ecn_choice-slope.gfeat
+RUN: act run-partner-post_act_acceptance-intercept -> /ZPOOL/data/scratch/srndna-ultimatum-crossed-behavior-v1/outputs/partner-post_act_acceptance-intercept.gfeat
+RUN: nppi-dmn run-partner-post_nppi-dmn_acceptance-intercept -> /ZPOOL/data/scratch/srndna-ultimatum-crossed-behavior-v1/outputs/partner-post_nppi-dmn_acceptance-intercept.gfeat
+RUN: nppi-ecn run-partner-post_nppi-ecn_acceptance-intercept -> /ZPOOL/data/scratch/srndna-ultimatum-crossed-behavior-v1/outputs/partner-post_nppi-ecn_acceptance-intercept.gfeat
+RUN: act run-pooled-post_act_choice-slope -> /ZPOOL/data/scratch/srndna-ultimatum-crossed-behavior-v1/outputs/pooled-post_act_choice-slope.gfeat
+RUN: nppi-dmn run-pooled-post_nppi-dmn_choice-slope -> /ZPOOL/data/scratch/srndna-ultimatum-crossed-behavior-v1/outputs/pooled-post_nppi-dmn_choice-slope.gfeat
+RUN: nppi-ecn run-pooled-post_nppi-ecn_choice-slope -> /ZPOOL/data/scratch/srndna-ultimatum-crossed-behavior-v1/outputs/pooled-post_nppi-ecn_choice-slope.gfeat
+RUN: act run-pooled-post_act_acceptance-intercept -> /ZPOOL/data/scratch/srndna-ultimatum-crossed-behavior-v1/outputs/pooled-post_act_acceptance-intercept.gfeat
+RUN: nppi-dmn run-pooled-post_nppi-dmn_acceptance-intercept -> /ZPOOL/data/scratch/srndna-ultimatum-crossed-behavior-v1/outputs/pooled-post_nppi-dmn_acceptance-intercept.gfeat
+RUN: nppi-ecn run-pooled-post_nppi-ecn_acceptance-intercept -> /ZPOOL/data/scratch/srndna-ultimatum-crossed-behavior-v1/outputs/pooled-post_nppi-ecn_acceptance-intercept.gfeat
+RUN: act run-full-rt_act_choice-slope -> /ZPOOL/data/scratch/srndna-ultimatum-crossed-behavior-v1/outputs/full-rt_act_choice-slope.gfeat
+RUN: nppi-dmn run-full-rt_nppi-dmn_choice-slope -> /ZPOOL/data/scratch/srndna-ultimatum-crossed-behavior-v1/outputs/full-rt_nppi-dmn_choice-slope.gfeat
+RUN: nppi-ecn run-full-rt_nppi-ecn_choice-slope -> /ZPOOL/data/scratch/srndna-ultimatum-crossed-behavior-v1/outputs/full-rt_nppi-ecn_choice-slope.gfeat
+RUN: act run-full-rt_act_acceptance-intercept -> /ZPOOL/data/scratch/srndna-ultimatum-crossed-behavior-v1/outputs/full-rt_act_acceptance-intercept.gfeat
+RUN: nppi-dmn run-full-rt_nppi-dmn_acceptance-intercept -> /ZPOOL/data/scratch/srndna-ultimatum-crossed-behavior-v1/outputs/full-rt_nppi-dmn_acceptance-intercept.gfeat
+RUN: nppi-ecn run-full-rt_nppi-ecn_acceptance-intercept -> /ZPOOL/data/scratch/srndna-ultimatum-crossed-behavior-v1/outputs/full-rt_nppi-ecn_acceptance-intercept.gfeat
+DONE: l3_act_run-partner-post_act_choice-slope, exit=0
+DONE: l3_nppi-dmn_run-partner-post_nppi-dmn_choice-slope, exit=0
+DONE: l3_nppi-ecn_run-partner-post_nppi-ecn_choice-slope, exit=0
+DONE: l3_act_run-partner-post_act_acceptance-intercept, exit=0
+DONE: l3_nppi-ecn_run-partner-post_nppi-ecn_acceptance-intercept, exit=0
+DONE: l3_nppi-dmn_run-partner-post_nppi-dmn_acceptance-intercept, exit=0
+DONE: l3_act_run-pooled-post_act_choice-slope, exit=0
+DONE: l3_nppi-dmn_run-pooled-post_nppi-dmn_choice-slope, exit=0
+DONE: l3_nppi-ecn_run-pooled-post_nppi-ecn_choice-slope, exit=0
+DONE: l3_act_run-pooled-post_act_acceptance-intercept, exit=0
+DONE: l3_nppi-ecn_run-pooled-post_nppi-ecn_acceptance-intercept, exit=0
+DONE: l3_nppi-dmn_run-pooled-post_nppi-dmn_acceptance-intercept, exit=0
+DONE: l3_act_run-full-rt_act_choice-slope, exit=0
+DONE: l3_nppi-dmn_run-full-rt_nppi-dmn_choice-slope, exit=0
+DONE: l3_nppi-ecn_run-full-rt_nppi-ecn_choice-slope, exit=0
+DONE: l3_act_run-full-rt_act_acceptance-intercept, exit=0
+DONE: l3_nppi-dmn_run-full-rt_nppi-dmn_acceptance-intercept, exit=0
+DONE: l3_nppi-ecn_run-full-rt_nppi-ecn_acceptance-intercept, exit=0
+PASS: completed 18 L3 jobs
+PASS: collected all 144 planned contrasts, including nulls: /ZPOOL/data/projects/srndna-ultimatum/results/crossed_behavior_l3/v1/imaging
+PASS: all 18 group jobs and all 144 contrast exports completed

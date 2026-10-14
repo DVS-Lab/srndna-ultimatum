@@ -1,0 +1,27 @@
+{
+  "timings": [
+    "partner-post",
+    "pooled-post",
+    "full-rt"
+  ],
+  "standard": "/usr/local/fsl/data/standard/MNI152_T1_2mm_brain.nii.gz",
+  "sources": {
+    "/ZPOOL/data/projects/srndna-ultimatum/templates/revision/L3_task-ultimatum_behavioral-association.fsf": "5e45951dfdb663c4b13bc44238a2db4c9f65f47a7cbf6332d0b3b51d3a340a61",
+    "/ZPOOL/data/projects/srndna-ultimatum/results/reviewer/tables/l3_event_corrected_covariates.tsv": "a4e08e732a26712e039ebc03defb7366502efce2f5934e302a6fad6299399c84",
+    "/ZPOOL/data/projects/srndna-ultimatum/code/run_crossed_behavior_l3.py": "c2047ae28890f7dfd97e65b2930211e32ce13a4af8c779e28764290760da527a",
+    "/ZPOOL/data/projects/srndna-ultimatum/results/decision_postresponse_partner/imaging/revision_jobs.tsv": "6ed4c748fb283a08c44092ca2bb99a7cf986ce01882415f86b18eca2ef078478",
+    "/ZPOOL/data/projects/srndna-ultimatum/results/decision_postresponse_partner/imaging/activation-norm/design/design.fsf": "ed13dadb95943349029026e7b79fb542245951f83d2e6e4e46c5e7fec2403905",
+    "/ZPOOL/data/projects/srndna-ultimatum/results/decision_postresponse_partner/imaging/dmn-age/design/design.fsf": "7533b01ab031d2295817a1bcc10e34953447d4a2c193cc94e6bdb93256f3bbbe",
+    "/ZPOOL/data/projects/srndna-ultimatum/results/decision_postresponse_partner/imaging/ecn-sensitivity/design/design.fsf": "50e26d4ab017f44755c77ec1efbb8057b6892f3538f010ac28a171eaf502656a",
+    "/ZPOOL/data/projects/srndna-ultimatum/results/decision_postresponse/imaging/revision_jobs.tsv": "f81a7f5ba9da9d7ea335f799a191ec0ab4dffb4d1eef4be0441d13331dc964c6",
+    "/ZPOOL/data/projects/srndna-ultimatum/results/decision_postresponse/imaging/activation-norm/design/design.fsf": "dc1a1d4ec82f4758f396985e5e1ce9cd8fe4114a7b0118eec7b8eb03977fc553",
+    "/ZPOOL/data/projects/srndna-ultimatum/results/decision_postresponse/imaging/dmn-age/design/design.fsf": "529796e8a87f779035a354fe87f71d3ca0f707765c8c1713415978caa3efc7e4",
+    "/ZPOOL/data/projects/srndna-ultimatum/results/decision_postresponse/imaging/ecn-sensitivity/design/design.fsf": "78995f508d5f31842104c226b418f8fea5118eb971f9d567dc6c408dd46f9e62",
+    "/ZPOOL/data/projects/srndna-ultimatum/results/reviewer/rt_coverage_corrected/revision_jobs.tsv": "b793e2aec7a023c98e8fae4898c48927371b87ee6aa43e7da38dadf18cc4dd1f",
+    "/ZPOOL/data/projects/srndna-ultimatum/results/reviewer/rt_coverage_corrected/activation-norm/design/design.fsf": "914d7174305a9b16e69daefd51e70ddb60b74cea7eba032b49c33bd3cbd3d1ee",
+    "/ZPOOL/data/projects/srndna-ultimatum/results/reviewer/rt_coverage_corrected/dmn-age/design/design.fsf": "14b011f158d3464f103720cce7fee765de0ddd5c905bae0f8d3925f3cccd505f",
+    "/ZPOOL/data/projects/srndna-ultimatum/results/reviewer/rt_coverage_corrected/ecn-sensitivity/design/design.fsf": "8d21154db1857d944f7d4503131b514c9da90c1f3336a5daabf3bc8d79416b2c"
+  },
+  "work_root": "/ZPOOL/data/scratch/srndna-ultimatum-crossed-behavior-v1",
+  "jobs": 18
+}
