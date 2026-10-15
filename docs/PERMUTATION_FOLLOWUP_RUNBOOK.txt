@@ -1,0 +1,94 @@
+Permutation follow-up: descriptive visualization and covariate provenance
+=======================================================================
+
+Run on Linux1, with the srndna-ultimatum conda environment and FSL configured:
+
+  bash code/run_permutation_followup_batch.sh
+
+Default output: results/permutation_followup/v1
+This batch does not run FEAT, randomise or Stan, change covariates, or exclude
+participants. It can run inside the existing tmux session. It is a small,
+single-process extraction/plotting task; 40 concurrent models are not needed.
+
+Visual targets and selection
+----------------------------
+Two explicitly exploratory activation targets are displayed across the three
+retained timing models: the older-minus-younger association with the behavioral
+acceptance-intercept difference, and the negative older-adult association with
+the behavioral choice-slope difference. Both use similar-minus-dissimilar
+neural offer-slope COPE7. Neither behavioral predictor is a Gu-model parameter.
+
+For each target, overlays display TFCE, cluster t=2.6 and cluster t=3.1 spatial
+FWE p<.05 maps. Cyan contours display corresponding significant FLAME regions.
+Permutation colors encode t, not Z. Nearest-neighbor resampling is for display
+only; all selections, counts and extraction use native matching grids. Cuts
+are fixed across timings within each inference method at the centroid of the
+largest connected component of that method's common mask. If that method has
+no common mask, cuts fall back to the common t=3.1 extraction mask. Each cut
+and its rule are saved in display_cuts.tsv. These are inspection views, not an exhaustive
+atlas or a claim that all significant findings occur in those slices.
+
+The descriptive ROI is the intersection of positive-significant, cluster
+t=3.1 maps across all three timings, including every component of that
+intersection. This is an explicitly data-selected ROI, not independent
+confirmation. Failure to find an intersection stops rather than selecting a
+different threshold or region. Masks and their selection rule are exported.
+
+Brain-behavior and influence plots
+---------------------------------
+The script verifies the committed map hashes and the original participant L2
+COPE hashes from the completed permutation input inventory. It extracts all
+47 participants in each timing and aligns the original eight-column group
+design by participant ID, not file order. Missing/changed inputs stop plotting;
+the script never guesses replacement files or reconstructs original data.
+
+Raw plots show ROI means. Adjusted plots subtract the contribution of sex,
+tSNR, FD and corrected RT from an unweighted OLS fit of the full retained
+design. Lines use the corresponding younger/older intercept and behavioral
+slope. Nuisance values are set to zero in that retained parameterization.
+This is descriptive OLS, not FLAME's voxelwise variance weighting. There are
+no new inferential p values, confidence bands, or claims of unbiased selected
+ROI effect magnitude. The same participant values are exported as TSV.
+
+Cook's distance, leverage, internally studentized residuals, and the target
+contrast after each leave-one-out refit are exported. Cook's 4/N flags are
+diagnostic only. The ROI remains fixed from the full sample; these checks are
+not cross-validation or repeated whole-brain inference. No one is excluded.
+
+Covariate audit
+---------------
+Targets are the collected original production DMN, activation and ECN tSNR/FD
+columns. The search inspects bounded small metadata tables and L3 FSFs in the
+repository and available srndna-ug/srndna-data/MRIQC roots, skipping large
+images, raw behavioral logs and scratch FEAT trees. MRIQC group tables and
+individual Ultimatum bold.json quality records are supported. Participant
+IDs are mandatory; ambiguous duplicates are reported, never position-matched.
+
+Candidate policies are existing participant values; mean of all recorded
+Ultimatum runs; run 1 alone; run 2 alone; and, where historical outlier flags
+exist, retained-run means for participants with at least two retained runs.
+Raw or standardized candidates are compared by identity and by a fitted
+positive affine transformation, which tests whether centering/scaling alone
+could explain a discrepancy. These are provenance hypotheses, not selection
+of a favorable nuisance model. A numerical match does not prove generation.
+
+The search records targeted Git histories of covariate tables, original L3
+templates and the quality-export script. Commit dates are not scan dates.
+Unavailable roots, rejected/duplicate tables and historical paths that cannot
+be read are explicit in search_issues.tsv. The batch can complete its search
+without resolving the scientific provenance question; no values are replaced.
+
+Restart and handoff
+------------------
+Repeat the batch to regenerate the same descriptive outputs. Plotting refuses
+a changed code/source contract in the same output folder; use a new versioned
+report argument for revised settings. Each attempt saves its log and exit
+status even on failure. No raw imaging payloads are added to Git.
+
+  git add results/permutation_followup/v1
+  git commit -m "Add permutation overlays, brain-behavior diagnostics and covariate audit"
+  git push origin main
+
+Review the provenance findings before changing any group models. Residual
+variance differences identified by the permutation audit remain a separate
+inferential concern; this plotting batch neither resolves nor conceals them.
