@@ -1,0 +1,8 @@
+{
+  "code_sha256": "f4ed32e9ef1de8f0a1a716be4a0022bf1073cdc7ea88032e0cc9cb922a11fc67",
+  "config_sha256": "656807a1ebc1196a86e271927f27e97271df2aa3958786fe3b70f1ac2f42afc6",
+  "summary_sha256": "52c386731e904af516d0403363619e7209e3aaabdbbcfb61920d90646d3edec3",
+  "standard_sha256": "09c925ad165dfbe6b41b572876d67e9bbf8c5e26517e7817f9b43a8256227f53",
+  "roi_rule": "intersection all three timings at cluster-t3.1, p<.05, positive signed t",
+  "overlays_only": false
+}

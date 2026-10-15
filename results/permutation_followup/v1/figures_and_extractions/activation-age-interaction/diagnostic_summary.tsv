@@ -1,0 +1,4 @@
+timing	n	rank	contrast	estimate	younger_behavior_slope	older_behavior_slope	cooks_flags	max_cooks	loo_min	loo_max	loo_sign_changes	excluded_participants	interpretation
+full-rt	47	8	Older − younger behavioral slope	3.3784624161014642	-2.4715523409039366	0.9069100751975278	5	0.3259099788768705	2.5988336841455935	3.9218626451737233	0	0	Selected-ROI unweighted OLS diagnostic, not independent inference or FLAME weighting
+pooled-post	47	8	Older − younger behavioral slope	7.48294726771449	-5.582665064338297	1.9002822033761928	6	0.2085453944410763	6.158218037006934	8.464452810675231	0	0	Selected-ROI unweighted OLS diagnostic, not independent inference or FLAME weighting
+partner-post	47	8	Older − younger behavioral slope	7.682997316229632	-5.760084821695741	1.9229124945338913	6	0.21238380908162374	6.494022534197311	8.700778278699222	0	0	Selected-ROI unweighted OLS diagnostic, not independent inference or FLAME weighting

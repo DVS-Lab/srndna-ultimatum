@@ -1,0 +1,16 @@
+{
+  "search_complete": true,
+  "script_sha256": "5d61963e74003fc7350812c3b6162479a44e0c2def532913dd630577c386a16f",
+  "roots": [
+    "/ZPOOL/data/projects/srndna-ultimatum",
+    "/ZPOOL/data/projects/srndna-ug",
+    "/ZPOOL/data/projects/srndna-data",
+    "/ZPOOL/data/projects/srndna-datapaper-code/derivatives/mriqc",
+    "/ZPOOL/data/datasets/ds003745-work/derivatives/mriqc"
+  ],
+  "candidate_files": 602,
+  "comparisons": 2748,
+  "dmn_matching_records": 231,
+  "covariates_changed": false,
+  "interpretation": "Full-sample affine matches identify numerically compatible sources, not proof of generation. Historical timestamps are commit dates, not acquisition dates. Missing roots and rejected tables are reported. No nuisance values replaced."
+}

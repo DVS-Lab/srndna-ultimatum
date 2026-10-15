@@ -1,0 +1,4 @@
+method	cut_x	cut_y	cut_z	selection
+tfce	-47.69523118591309	-48.471126598358154	48.41952112770079	t=3.1 shared extraction ROI (no shared mask for this method)
+cluster-t2.6	-46.8101403001816	-48.632627633310136	47.57338821695697	shared cluster-t2.6 mask, largest-component centroid
+cluster-t3.1	-47.69523118591309	-48.471126598358154	48.41952112770079	shared cluster-t3.1 mask, largest-component centroid

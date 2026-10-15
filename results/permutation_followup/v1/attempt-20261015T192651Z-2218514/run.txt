@@ -1,0 +1,40 @@
+Started UTC: 2026-10-15T19:26:51Z
+4c0ed99d814a9f372a131f07a53d1868773767f2
+Python 3.11.16
+Matplotlib is building the font cache; this may take a moment.
+test_affine_requires_full_positive_match (test_permutation_followup.CovariateTests.test_affine_requires_full_positive_match) ... ok
+test_alignment_is_by_id (test_permutation_followup.CovariateTests.test_alignment_is_by_id) ... ok
+test_duplicates_are_rejected (test_permutation_followup.CovariateTests.test_duplicates_are_rejected) ... ok
+test_mriqc_task_filter_and_run_means (test_permutation_followup.CovariateTests.test_mriqc_task_filter_and_run_means) ... ok
+test_nonfinite_rejected (test_permutation_followup.CovariateTests.test_nonfinite_rejected) ... ok
+test_subjects (test_permutation_followup.CovariateTests.test_subjects) ... ok
+test_adjustment_and_leave_one_out (test_permutation_followup.PlotTests.test_adjustment_and_leave_one_out) ... ok
+test_end_to_end_synthetic_extract_export_and_resume (test_permutation_followup.PlotTests.test_end_to_end_synthetic_extract_export_and_resume) ... PASS: activation-age-interaction: 27 selected ROI voxels; overlays, 141 participant extractions, and diagnostics
+PASS: activation-age-interaction: 27 selected ROI voxels; overlays, 141 participant extractions, and diagnostics
+ok
+test_extraction_hash_guard (test_permutation_followup.PlotTests.test_extraction_hash_guard) ... ok
+test_rank_and_grid_guards (test_permutation_followup.PlotTests.test_rank_and_grid_guards) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 4.026s
+
+OK
+{
+  "search_complete": true,
+  "script_sha256": "5d61963e74003fc7350812c3b6162479a44e0c2def532913dd630577c386a16f",
+  "roots": [
+    "/ZPOOL/data/projects/srndna-ultimatum",
+    "/ZPOOL/data/projects/srndna-ug",
+    "/ZPOOL/data/projects/srndna-data",
+    "/ZPOOL/data/projects/srndna-datapaper-code/derivatives/mriqc",
+    "/ZPOOL/data/datasets/ds003745-work/derivatives/mriqc"
+  ],
+  "candidate_files": 602,
+  "comparisons": 2748,
+  "dmn_matching_records": 231,
+  "covariates_changed": false,
+  "interpretation": "Full-sample affine matches identify numerically compatible sources, not proof of generation. Historical timestamps are commit dates, not acquisition dates. Missing roots and rejected tables are reported. No nuisance values replaced."
+}
+PASS: activation-age-interaction: 125 selected ROI voxels; overlays, 141 participant extractions, and diagnostics
+PASS: activation-fairness-older: 111 selected ROI voxels; overlays, 141 participant extractions, and diagnostics
+PASS: overlays, brain-behavior plots, influence diagnostics and covariate search completed

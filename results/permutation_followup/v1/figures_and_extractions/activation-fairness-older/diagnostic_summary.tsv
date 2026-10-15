@@ -1,0 +1,4 @@
+timing	n	rank	contrast	estimate	younger_behavior_slope	older_behavior_slope	cooks_flags	max_cooks	loo_min	loo_max	loo_sign_changes	excluded_participants	interpretation
+full-rt	47	8	Negative older-adult behavioral slope	9.477922245240253	1.2098838498881328	-9.477922245240253	6	0.5131949551196181	7.568731051067412	12.067722165175319	0	0	Selected-ROI unweighted OLS diagnostic, not independent inference or FLAME weighting
+pooled-post	47	8	Negative older-adult behavioral slope	20.755341116093614	1.3118405324669824	-20.755341116093614	5	0.5313220453222718	17.888584131069106	26.671130970463977	0	0	Selected-ROI unweighted OLS diagnostic, not independent inference or FLAME weighting
+partner-post	47	8	Negative older-adult behavioral slope	22.87805381907187	1.1336852015661876	-22.87805381907187	5	0.529211155605787	19.02346777325883	29.465676520529534	0	0	Selected-ROI unweighted OLS diagnostic, not independent inference or FLAME weighting

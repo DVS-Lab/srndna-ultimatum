@@ -1,0 +1,3 @@
+target	voxels	components	largest_component	cut_x	cut_y	cut_z	selection
+activation-age-interaction	125	1	125	-47.69523118591309	-48.471126598358154	48.41952112770079	intersection all three timings at cluster-t3.1, p<.05, positive signed t
+activation-fairness-older	111	1	111	29.11594804128012	-0.08097076416015625	70.08414546433869	intersection all three timings at cluster-t3.1, p<.05, positive signed t
