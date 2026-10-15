@@ -1,0 +1,6 @@
+{
+  "constant_voxels_removed": 0,
+  "retained_voxels": 64444,
+  "tested_voxels": 64444,
+  "zero_varcope_policy": "reported; not used for weighting or automatic exclusion"
+}

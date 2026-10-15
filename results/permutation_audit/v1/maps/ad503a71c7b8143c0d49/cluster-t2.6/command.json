@@ -1,0 +1,20 @@
+[
+  "/usr/local/fsl/share/fsl/bin/randomise",
+  "-i",
+  "/ZPOOL/data/scratch/srndna-ultimatum-permutation-audit-v1/blocks/0a04c2953ea0c4ff82f3/copes.nii.gz",
+  "-o",
+  "/ZPOOL/data/scratch/srndna-ultimatum-permutation-audit-v1/jobs/ad503a71c7b8143c0d49/cluster-t2.6/attempt-jz1efsdc/randomise",
+  "-d",
+  "/ZPOOL/data/scratch/srndna-ultimatum-permutation-audit-v1/groups/82b6a0a5f567eb11edc0/design.mat",
+  "-t",
+  "/ZPOOL/data/scratch/srndna-ultimatum-permutation-audit-v1/tests/ad503a71c7b8143c0d49/design.con",
+  "-m",
+  "/ZPOOL/data/scratch/srndna-ultimatum-permutation-audit-v1/blocks/0a04c2953ea0c4ff82f3/mask.nii.gz",
+  "-n",
+  "10000",
+  "--seed=201993278",
+  "-R",
+  "-N",
+  "-c",
+  "2.6"
+]
