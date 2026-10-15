@@ -159,6 +159,47 @@ def catalog(repo):
     return models,sample,table
 
 
+def standardized_dmn_catalog(repo, report):
+    """Read only the isolated, validated DMN L3 rerun; never edit old reports."""
+    table=repo/'behavioral_analyses/data/participant_L3_47.csv'
+    people=read_rows(table, ','); sample={r['subjID']:r for r in people}
+    if len(people)!=47 or len(sample)!=47 or sum(int(float(r['older'])) for r in people)!=22:
+        raise ValueError('unexpected participant sample')
+    plan=json.loads((report/'analysis_plan.json').read_text())
+    if plan.get('covariate_policy')!='verified-participant-table-tsnr-fd-only':
+        raise ValueError('not a standardized DMN report')
+    jobs=read_rows(report/'revision_jobs.tsv')
+    if len(jobs)!=15 or any(r['stage']!='l3' or r['model']!='nppi-dmn' for r in jobs):
+        raise ValueError('expected exactly 15 DMN group jobs')
+    indexed={r['artifact']:r['sha256'] for r in read_rows(report/'inventory.tsv')}
+    models=[]
+    for row in jobs:
+        m=inspect_model(repo,report/row['run'],row['run'],row['historical_scope'],sample)
+        for path,h in m['source_hashes'].items():
+            if indexed.get(str(Path(path).relative_to(report)))!=h:
+                raise ValueError(f'standardized source inventory mismatch: {path}')
+        for metric in ('tsnr','fd_mean'):
+            if not np.allclose(m['nuisance'][metric],[float(sample[s][metric]) for s in m['subjects']],atol=1e-5,rtol=0):
+                raise ValueError(f'standardized covariate mismatch: {row["run"]} {metric}')
+        oldmask=nib.load(row['historical_mask']); newmask=nib.load(m['mask'])
+        if not compatible(oldmask,newmask) or not np.array_equal(oldmask.get_fdata(),newmask.get_fdata()):
+            raise ValueError('group mask changed; stop rather than confound the covariate comparison')
+        models.append(m)
+    return models,sample,table
+
+
+def retain_reference_seeds(tests, mapping, reference):
+    rows=read_rows(reference/'model_contrast_summary.tsv')
+    lookup={(r['model'],int(r['contrast'])):int(r['seed']) for r in rows}
+    seeds={}
+    for row in mapping:
+        seed=lookup[row['model'],row['contrast']]
+        if row['test'] in seeds and seeds[row['test']]!=seed:
+            raise ValueError('historical seed disagreement between equivalent tests')
+        seeds[row['test']]=seed
+    for test in tests: test['seed']=seeds[test['test']]
+
+
 def plan_tests(models, seed):
     tests={}; mapping=[]
     for model in models:
@@ -400,6 +441,8 @@ def main():
     p.add_argument('--permutations',type=int,default=10000)
     p.add_argument('--seed',type=int,default=20261014)
     p.add_argument('--execute',action='store_true')
+    p.add_argument('--dmn-standardized-report',type=Path,
+                   help='isolated standardized DMN L3 collection; otherwise audit the historical catalog')
     a=p.parse_args()
     if not 1<=a.jobs<=45 or a.permutations<100 or a.seed<1: p.error('jobs 1..45, permutations >=100, positive seed required')
     work,report=a.work_root.resolve(),a.report_root.resolve()
@@ -408,11 +451,20 @@ def main():
     binary=shutil.which('randomise')
     if not binary: p.error('randomise not found; activate FSL')
     binary=Path(binary).resolve()
-    models,sample,table=catalog(ROOT); tests,mapping=plan_tests(models,a.seed)
+    models,sample,table=(standardized_dmn_catalog(ROOT,a.dmn_standardized_report.resolve())
+                        if a.dmn_standardized_report else catalog(ROOT))
+    tests,mapping=plan_tests(models,a.seed)
+    if a.dmn_standardized_report:
+        retain_reference_seeds(tests,mapping,ROOT/'results/permutation_audit/v1')
     sources={str(table):digest(table),str(Path(__file__).resolve()):digest(__file__)}
     for module in ('audit_l1_designs.py','prepare_sub144_imaging_repair.py','prepare_ultimatum_l3_repair.py'):
         sources[str(ROOT/'code'/module)]=digest(ROOT/'code'/module)
     for m in models: sources.update(m['source_hashes'])
+    if a.dmn_standardized_report:
+        for path in (a.dmn_standardized_report/'analysis_plan.json',
+                     a.dmn_standardized_report/'revision_jobs.tsv',
+                     ROOT/'results/permutation_audit/v1/model_contrast_summary.tsv'):
+            sources[str(path.resolve())]=digest(path)
     config=dict(models=models,permutations=a.permutations,seed=a.seed,methods=METHODS,
                 sources=sources,software=software(binary),work=str(work),report=str(report),
                 exchangeability='independent participants; unrestricted nuisance-adjusted permutations; randomise automatic sign-flips when applicable',

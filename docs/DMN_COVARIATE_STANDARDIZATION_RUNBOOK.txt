@@ -1,0 +1,64 @@
+DMN quality-covariate standardization (v1)
+========================================
+
+Purpose
+Replace only DMN tSNR and mean framewise-displacement columns with the
+participant_L3_47.csv values already used for activation and ECN. The previous
+source audit reconstructs these reference values from MRIQC 22.0.6 measurements
+after scaling. Retained DMN values match a 2021 template associated with MRIQC
+0.16.1; the original raw measurements have not been recovered.
+
+Scope
+15 group models: DMN age, simple effects, outlier-deweighted simple effects,
+and both crossed behavioral models, for each of three timing specifications.
+All 96 signed source contrasts are retained, including nulls. No participants,
+L1/L2 outputs, behavioral covariates, RT values, age coding, contrasts or FEAT
+inference settings change. Subject IDs determine covariate alignment.
+
+Randomise runs 66 unique signed tests using 10,000 permutations each with TFCE,
+cluster-forming t=2.6 and t=3.1 (198 jobs). Equivalent ordinary/deweighted FLAME
+designs share randomise tests because randomise does not reproduce FLAME's
+variance weighting or outlier deweighting. Historical per-test seeds are kept.
+Whole-brain masks must equal the historical masks. Spatial FWE is per signed
+test, not across models, directions or methods. The residual age-variance audit
+is retained; standardizing nuisance columns does not establish exchangeability.
+
+Linux1, inside tmux
+cd /ZPOOL/data/projects/srndna-ultimatum
+git pull --ff-only
+conda activate srndna-ultimatum
+bash code/run_dmn_covariate_standardization_batch.sh
+
+Defaults
+Scratch: /ZPOOL/data/scratch/srndna-ultimatum-dmn-covariates-v1
+Report: results/dmn_covariate_standardized/v1
+Concurrency: 4 FEAT group jobs, then 40 independent randomise jobs.
+Optional positional arguments: WORK_ROOT REPORT_ROOT RANDOMISE_JOBS GROUP_JOBS.
+
+Validation and preservation
+Tests and the FSL synthetic permutation smoke check run first. All group designs
+are compiled and checked for rank/estimability before fitting. The renderer
+proves that only the two authorized columns and output/standard-image paths
+changed. Input hashes and compiled contrasts are checked. Full FEAT trees stay
+in scratch; compact designs, maps, tables and logs go into the report.
+
+Rerunning the identical command skips completed fits and verified permutation
+jobs. Interrupted permutation attempts remain intact and retry into fresh
+directories. Incomplete FEAT output folders cause a stop instead of an overwrite;
+push the diagnostic logs if this occurs. Source or software changes require a
+new versioned scratch/report pair. No historical output folder is overwritten.
+
+Outputs to inspect
+covariate_changes.tsv: old/new values for every model and participant.
+l3_preflight.tsv: compiled design checks.
+imaging/summary.tsv: all FLAME contrasts.
+randomise/model_contrast_summary.tsv: every contrast/method, including nulls.
+flame_historical_comparison.tsv and randomise_historical_comparison.tsv:
+paired historical/standardized results (not significance-based selection).
+attempt-*/run.txt and exit_status.txt: execution record even on failure.
+status.json: complete=true only after both stages and comparisons finish.
+
+Commit only results/dmn_covariate_standardized/v1, including diagnostics if a
+stage fails. The historical directories remain the reference, not final
+standardized results. Changing the authoritative analysis interpretation must
+follow review of these outputs, rather than selecting the smallest p-value.
