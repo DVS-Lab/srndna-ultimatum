@@ -1,0 +1,20 @@
+[
+  "/usr/local/fsl/share/fsl/bin/randomise",
+  "-i",
+  "/ZPOOL/data/scratch/srndna-ultimatum-dmn-covariates-v1/randomise/blocks/433e0e2622050fcee565/copes.nii.gz",
+  "-o",
+  "/ZPOOL/data/scratch/srndna-ultimatum-dmn-covariates-v1/randomise/jobs/3226c72e5bfbd276b8fb/cluster-t3.1/attempt-tgs2vtjq/randomise",
+  "-d",
+  "/ZPOOL/data/scratch/srndna-ultimatum-dmn-covariates-v1/randomise/groups/c1848dc2e870063935c2/design.mat",
+  "-t",
+  "/ZPOOL/data/scratch/srndna-ultimatum-dmn-covariates-v1/randomise/tests/3226c72e5bfbd276b8fb/design.con",
+  "-m",
+  "/ZPOOL/data/scratch/srndna-ultimatum-dmn-covariates-v1/randomise/blocks/433e0e2622050fcee565/mask.nii.gz",
+  "-n",
+  "10000",
+  "--seed=274550887",
+  "-R",
+  "-N",
+  "-c",
+  "3.1"
+]

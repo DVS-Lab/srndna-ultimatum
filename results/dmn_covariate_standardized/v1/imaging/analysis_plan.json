@@ -1,0 +1,13 @@
+{
+  "changes": [
+    "tsnr",
+    "fd_mean"
+  ],
+  "covariate_policy": "verified-participant-table-tsnr-fd-only",
+  "limitations": "Spatial FWE per signed test; no multiplicity correction across model/method search. Randomise is unweighted, not FLAME robust deweighting.",
+  "models": 15,
+  "participants": 47,
+  "permutation": "10000 permutations; TFCE, cluster t=2.6 and t=3.1; historical seeds retained",
+  "preserved": "L2 COPE/VARCOPE, sample, RT, behavior, contrasts, age coding and FEAT settings",
+  "source_contrasts": 96
+}

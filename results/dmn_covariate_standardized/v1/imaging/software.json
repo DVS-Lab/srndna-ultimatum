@@ -1,0 +1,8 @@
+{
+  "binaries": {
+    "feat": "42ab283d6a8b2b7fad2eb38cd5777ef6e6c26ab5d7d51c231d5b3c0eb718f6e4",
+    "feat_model": "22f19b2eb90dcb19e7173a6f723d08bb112fe38dd2b31d8efc80f48961be12f0",
+    "randomise": "253e949575ba7848b5ff120689c1017646550243a263dfa046f3e7b7bb39f0a5"
+  },
+  "fsl_version": "6.0.7.17"
+}

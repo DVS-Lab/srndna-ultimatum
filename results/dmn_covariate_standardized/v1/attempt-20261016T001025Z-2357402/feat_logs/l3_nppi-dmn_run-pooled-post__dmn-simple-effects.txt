@@ -1,0 +1,1 @@
+To view the FEAT progress and final report, point your web browser at /ZPOOL/data/scratch/srndna-ultimatum-dmn-covariates-v1/outputs/pooled-post__dmn-simple-effects.gfeat/report_log.html

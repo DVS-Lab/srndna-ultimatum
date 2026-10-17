@@ -1,0 +1,4 @@
+Cluster Index	Voxels	P	-log10(P)	Z-MAX	Z-MAX X (mm)	Z-MAX Y (mm)	Z-MAX Z (mm)	Z-COG X (mm)	Z-COG Y (mm)	Z-COG Z (mm)	COPE-MAX	COPE-MAX X (mm)	COPE-MAX Y (mm)	COPE-MAX Z (mm)	COPE-MEAN
+3	36	0.00417	2.38	4.23	-54.9	-13.6	-1.22	-54.6	-14.3	-1.23	8.69	-54.9	-4.66	2	6.61
+2	29	0.0138	1.86	4.11	1.61	-4.66	53.5	-0.179	-2.57	51.5	9.9	-1.36	1.29	53.5	7.16
+1	24	0.0342	1.47	4.33	-7.31	1.29	14.9	-12.7	4.23	9.86	13.6	-7.31	1.29	11.7	8.97

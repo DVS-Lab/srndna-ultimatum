@@ -1,0 +1,540 @@
+Started UTC: 2026-10-16T00:10:25Z
+c67f8cb12b0ac0303cbcc625784f91f9838d2d50
+Python 3.11.16
+test_wrapper_success_and_failure_gating (test_dmn_covariate_standardization.BatchTests.test_wrapper_success_and_failure_gating) ... ok
+test_all_fifteen_models_and_ninety_six_contrasts (test_dmn_covariate_standardization.StandardizationTests.test_all_fifteen_models_and_ninety_six_contrasts) ... ok
+test_comparison_covers_all_results_including_nulls (test_dmn_covariate_standardization.StandardizationTests.test_comparison_covers_all_results_including_nulls) ... ok
+test_id_alignment_and_missing_nonfinite_rejection (test_dmn_covariate_standardization.StandardizationTests.test_id_alignment_and_missing_nonfinite_rejection) ... ok
+test_installed_fsl_compiles_all_fifteen_designs (test_dmn_covariate_standardization.StandardizationTests.test_installed_fsl_compiles_all_fifteen_designs) ... ok
+test_only_quality_columns_and_output_paths_change (test_dmn_covariate_standardization.StandardizationTests.test_only_quality_columns_and_output_paths_change) ... ok
+test_prepare_resume_and_changed_fsf_guard (test_dmn_covariate_standardization.StandardizationTests.test_prepare_resume_and_changed_fsf_guard) ... PASS: prepared 15 DMN L3 models; only tSNR/FD changed; historical outputs untouched
+ok
+test_reject_unrelated_fsf_mutation (test_dmn_covariate_standardization.StandardizationTests.test_reject_unrelated_fsf_mutation) ... ok
+test_standardized_catalog_and_seed_preservation (test_dmn_covariate_standardization.StandardizationTests.test_standardized_catalog_and_seed_preservation) ... ok
+
+----------------------------------------------------------------------
+Ran 9 tests in 11.810s
+
+OK
+test_catalog_covers_every_retained_model_and_contrast (test_permutation_audit.PermutationTests.test_catalog_covers_every_retained_model_and_contrast) ... ok
+test_column_permutation_preserves_estimand (test_permutation_audit.PermutationTests.test_column_permutation_preserves_estimand) ... ok
+test_commands_keep_means_and_do_not_misuse_variance_groups (test_permutation_audit.PermutationTests.test_commands_keep_means_and_do_not_misuse_variance_groups) ... ok
+test_dedup_keeps_both_directions_and_robust_aliases (test_permutation_audit.PermutationTests.test_dedup_keeps_both_directions_and_robust_aliases) ... ok
+test_end_to_end_preparation_execution_collection_and_resume (test_permutation_audit.PermutationTests.test_end_to_end_preparation_execution_collection_and_resume) ... CHECK INPUTS: fixture
+PASS: 1 models, 1 source contrasts, 1 unique tests, 3 permutation jobs
+RUN: 8b75e61c5a6b6ea6b42c tfce
+RUN: 8b75e61c5a6b6ea6b42c cluster-t2.6
+COMPLETED: 8b75e61c5a6b6ea6b42c tfce
+RUN: 8b75e61c5a6b6ea6b42c cluster-t3.1
+COMPLETED: 8b75e61c5a6b6ea6b42c cluster-t2.6
+COMPLETED: 8b75e61c5a6b6ea6b42c cluster-t3.1
+PASS: collected 3 unique permutation results, including nulls
+CHECK INPUTS: fixture
+PASS: 1 models, 1 source contrasts, 1 unique tests, 3 permutation jobs
+SKIP_COMPLETE: 8b75e61c5a6b6ea6b42c cluster-t2.6
+SKIP_COMPLETE: 8b75e61c5a6b6ea6b42c tfce
+SKIP_COMPLETE: 8b75e61c5a6b6ea6b42c cluster-t3.1
+PASS: collected 3 unique permutation results, including nulls
+ok
+test_geometry_error_never_marks_block_complete (test_permutation_audit.PermutationTests.test_geometry_error_never_marks_block_complete) ... ok
+test_input_hash_changes_are_rejected (test_permutation_audit.PermutationTests.test_input_hash_changes_are_rejected) ... ok
+test_merge_order_mask_and_source_hash_resume (test_permutation_audit.PermutationTests.test_merge_order_mask_and_source_hash_resume) ... ok
+test_nuisance_audit_does_not_modify_models (test_permutation_audit.PermutationTests.test_nuisance_audit_does_not_modify_models) ... ok
+test_real_randomise_three_methods_resume_and_collection (test_permutation_audit.PermutationTests.test_real_randomise_three_methods_resume_and_collection) ... RUN: t tfce
+RUN: t tfce
+COMPLETED: t tfce
+SKIP_COMPLETE: t tfce
+RUN: t cluster-t2.6
+COMPLETED: t cluster-t2.6
+SKIP_COMPLETE: t cluster-t2.6
+RUN: t cluster-t3.1
+COMPLETED: t cluster-t3.1
+SKIP_COMPLETE: t cluster-t3.1
+ok
+test_residual_variance_audit_is_descriptive (test_permutation_audit.PermutationTests.test_residual_variance_audit_is_descriptive) ... ok
+
+----------------------------------------------------------------------
+Ran 11 tests in 1.526s
+
+OK
+PASS: prepared 15 DMN L3 models; only tSNR/FD changed; historical outputs untouched
+PASS: l3 nppi-dmn  full-rt__dmn-age
+PASS: l3 nppi-dmn  full-rt__dmn-simple-effects
+PASS: l3 nppi-dmn  full-rt__dmn-outlier-deweighted
+PASS: l3 nppi-dmn  pooled-post__dmn-age
+PASS: l3 nppi-dmn  pooled-post__dmn-simple-effects
+PASS: l3 nppi-dmn  pooled-post__dmn-outlier-deweighted
+PASS: l3 nppi-dmn  partner-post__dmn-age
+PASS: l3 nppi-dmn  partner-post__dmn-simple-effects
+PASS: l3 nppi-dmn  partner-post__dmn-outlier-deweighted
+PASS: l3 nppi-dmn  crossed__partner-post_nppi-dmn_choice-slope
+PASS: l3 nppi-dmn  crossed__partner-post_nppi-dmn_acceptance-intercept
+PASS: l3 nppi-dmn  crossed__pooled-post_nppi-dmn_choice-slope
+PASS: l3 nppi-dmn  crossed__pooled-post_nppi-dmn_acceptance-intercept
+PASS: l3 nppi-dmn  crossed__full-rt_nppi-dmn_choice-slope
+PASS: l3 nppi-dmn  crossed__full-rt_nppi-dmn_acceptance-intercept
+RUN: nppi-dmn run-full-rt__dmn-age -> /ZPOOL/data/scratch/srndna-ultimatum-dmn-covariates-v1/outputs/full-rt__dmn-age.gfeat
+RUN: nppi-dmn run-full-rt__dmn-simple-effects -> /ZPOOL/data/scratch/srndna-ultimatum-dmn-covariates-v1/outputs/full-rt__dmn-simple-effects.gfeat
+RUN: nppi-dmn run-full-rt__dmn-outlier-deweighted -> /ZPOOL/data/scratch/srndna-ultimatum-dmn-covariates-v1/outputs/full-rt__dmn-outlier-deweighted.gfeat
+RUN: nppi-dmn run-pooled-post__dmn-age -> /ZPOOL/data/scratch/srndna-ultimatum-dmn-covariates-v1/outputs/pooled-post__dmn-age.gfeat
+RUN: nppi-dmn run-pooled-post__dmn-simple-effects -> /ZPOOL/data/scratch/srndna-ultimatum-dmn-covariates-v1/outputs/pooled-post__dmn-simple-effects.gfeat
+RUN: nppi-dmn run-pooled-post__dmn-outlier-deweighted -> /ZPOOL/data/scratch/srndna-ultimatum-dmn-covariates-v1/outputs/pooled-post__dmn-outlier-deweighted.gfeat
+RUN: nppi-dmn run-partner-post__dmn-age -> /ZPOOL/data/scratch/srndna-ultimatum-dmn-covariates-v1/outputs/partner-post__dmn-age.gfeat
+RUN: nppi-dmn run-partner-post__dmn-simple-effects -> /ZPOOL/data/scratch/srndna-ultimatum-dmn-covariates-v1/outputs/partner-post__dmn-simple-effects.gfeat
+RUN: nppi-dmn run-partner-post__dmn-outlier-deweighted -> /ZPOOL/data/scratch/srndna-ultimatum-dmn-covariates-v1/outputs/partner-post__dmn-outlier-deweighted.gfeat
+RUN: nppi-dmn run-crossed__partner-post_nppi-dmn_choice-slope -> /ZPOOL/data/scratch/srndna-ultimatum-dmn-covariates-v1/outputs/crossed__partner-post_nppi-dmn_choice-slope.gfeat
+RUN: nppi-dmn run-crossed__partner-post_nppi-dmn_acceptance-intercept -> /ZPOOL/data/scratch/srndna-ultimatum-dmn-covariates-v1/outputs/crossed__partner-post_nppi-dmn_acceptance-intercept.gfeat
+RUN: nppi-dmn run-crossed__pooled-post_nppi-dmn_choice-slope -> /ZPOOL/data/scratch/srndna-ultimatum-dmn-covariates-v1/outputs/crossed__pooled-post_nppi-dmn_choice-slope.gfeat
+RUN: nppi-dmn run-crossed__pooled-post_nppi-dmn_acceptance-intercept -> /ZPOOL/data/scratch/srndna-ultimatum-dmn-covariates-v1/outputs/crossed__pooled-post_nppi-dmn_acceptance-intercept.gfeat
+RUN: nppi-dmn run-crossed__full-rt_nppi-dmn_choice-slope -> /ZPOOL/data/scratch/srndna-ultimatum-dmn-covariates-v1/outputs/crossed__full-rt_nppi-dmn_choice-slope.gfeat
+RUN: nppi-dmn run-crossed__full-rt_nppi-dmn_acceptance-intercept -> /ZPOOL/data/scratch/srndna-ultimatum-dmn-covariates-v1/outputs/crossed__full-rt_nppi-dmn_acceptance-intercept.gfeat
+PASS: dry run; 15 L3 jobs ready
+PASS: l3 nppi-dmn  full-rt__dmn-age
+PASS: l3 nppi-dmn  full-rt__dmn-simple-effects
+PASS: l3 nppi-dmn  full-rt__dmn-outlier-deweighted
+PASS: l3 nppi-dmn  pooled-post__dmn-age
+PASS: l3 nppi-dmn  pooled-post__dmn-simple-effects
+PASS: l3 nppi-dmn  pooled-post__dmn-outlier-deweighted
+PASS: l3 nppi-dmn  partner-post__dmn-age
+PASS: l3 nppi-dmn  partner-post__dmn-simple-effects
+PASS: l3 nppi-dmn  partner-post__dmn-outlier-deweighted
+PASS: l3 nppi-dmn  crossed__partner-post_nppi-dmn_choice-slope
+PASS: l3 nppi-dmn  crossed__partner-post_nppi-dmn_acceptance-intercept
+PASS: l3 nppi-dmn  crossed__pooled-post_nppi-dmn_choice-slope
+PASS: l3 nppi-dmn  crossed__pooled-post_nppi-dmn_acceptance-intercept
+PASS: l3 nppi-dmn  crossed__full-rt_nppi-dmn_choice-slope
+PASS: l3 nppi-dmn  crossed__full-rt_nppi-dmn_acceptance-intercept
+RUN: nppi-dmn run-full-rt__dmn-age -> /ZPOOL/data/scratch/srndna-ultimatum-dmn-covariates-v1/outputs/full-rt__dmn-age.gfeat
+RUN: nppi-dmn run-full-rt__dmn-simple-effects -> /ZPOOL/data/scratch/srndna-ultimatum-dmn-covariates-v1/outputs/full-rt__dmn-simple-effects.gfeat
+RUN: nppi-dmn run-full-rt__dmn-outlier-deweighted -> /ZPOOL/data/scratch/srndna-ultimatum-dmn-covariates-v1/outputs/full-rt__dmn-outlier-deweighted.gfeat
+RUN: nppi-dmn run-pooled-post__dmn-age -> /ZPOOL/data/scratch/srndna-ultimatum-dmn-covariates-v1/outputs/pooled-post__dmn-age.gfeat
+RUN: nppi-dmn run-pooled-post__dmn-simple-effects -> /ZPOOL/data/scratch/srndna-ultimatum-dmn-covariates-v1/outputs/pooled-post__dmn-simple-effects.gfeat
+RUN: nppi-dmn run-pooled-post__dmn-outlier-deweighted -> /ZPOOL/data/scratch/srndna-ultimatum-dmn-covariates-v1/outputs/pooled-post__dmn-outlier-deweighted.gfeat
+RUN: nppi-dmn run-partner-post__dmn-age -> /ZPOOL/data/scratch/srndna-ultimatum-dmn-covariates-v1/outputs/partner-post__dmn-age.gfeat
+RUN: nppi-dmn run-partner-post__dmn-simple-effects -> /ZPOOL/data/scratch/srndna-ultimatum-dmn-covariates-v1/outputs/partner-post__dmn-simple-effects.gfeat
+RUN: nppi-dmn run-partner-post__dmn-outlier-deweighted -> /ZPOOL/data/scratch/srndna-ultimatum-dmn-covariates-v1/outputs/partner-post__dmn-outlier-deweighted.gfeat
+RUN: nppi-dmn run-crossed__partner-post_nppi-dmn_choice-slope -> /ZPOOL/data/scratch/srndna-ultimatum-dmn-covariates-v1/outputs/crossed__partner-post_nppi-dmn_choice-slope.gfeat
+RUN: nppi-dmn run-crossed__partner-post_nppi-dmn_acceptance-intercept -> /ZPOOL/data/scratch/srndna-ultimatum-dmn-covariates-v1/outputs/crossed__partner-post_nppi-dmn_acceptance-intercept.gfeat
+RUN: nppi-dmn run-crossed__pooled-post_nppi-dmn_choice-slope -> /ZPOOL/data/scratch/srndna-ultimatum-dmn-covariates-v1/outputs/crossed__pooled-post_nppi-dmn_choice-slope.gfeat
+RUN: nppi-dmn run-crossed__pooled-post_nppi-dmn_acceptance-intercept -> /ZPOOL/data/scratch/srndna-ultimatum-dmn-covariates-v1/outputs/crossed__pooled-post_nppi-dmn_acceptance-intercept.gfeat
+RUN: nppi-dmn run-crossed__full-rt_nppi-dmn_choice-slope -> /ZPOOL/data/scratch/srndna-ultimatum-dmn-covariates-v1/outputs/crossed__full-rt_nppi-dmn_choice-slope.gfeat
+RUN: nppi-dmn run-crossed__full-rt_nppi-dmn_acceptance-intercept -> /ZPOOL/data/scratch/srndna-ultimatum-dmn-covariates-v1/outputs/crossed__full-rt_nppi-dmn_acceptance-intercept.gfeat
+DONE: l3_nppi-dmn_run-full-rt__dmn-age, exit=0
+DONE: l3_nppi-dmn_run-full-rt__dmn-simple-effects, exit=0
+DONE: l3_nppi-dmn_run-pooled-post__dmn-age, exit=0
+DONE: l3_nppi-dmn_run-pooled-post__dmn-simple-effects, exit=0
+DONE: l3_nppi-dmn_run-partner-post__dmn-age, exit=0
+DONE: l3_nppi-dmn_run-full-rt__dmn-outlier-deweighted, exit=0
+DONE: l3_nppi-dmn_run-partner-post__dmn-simple-effects, exit=0
+DONE: l3_nppi-dmn_run-pooled-post__dmn-outlier-deweighted, exit=0
+DONE: l3_nppi-dmn_run-crossed__partner-post_nppi-dmn_choice-slope, exit=0
+DONE: l3_nppi-dmn_run-crossed__partner-post_nppi-dmn_acceptance-intercept, exit=0
+DONE: l3_nppi-dmn_run-crossed__pooled-post_nppi-dmn_choice-slope, exit=0
+DONE: l3_nppi-dmn_run-partner-post__dmn-outlier-deweighted, exit=0
+DONE: l3_nppi-dmn_run-crossed__full-rt_nppi-dmn_choice-slope, exit=0
+DONE: l3_nppi-dmn_run-crossed__pooled-post_nppi-dmn_acceptance-intercept, exit=0
+DONE: l3_nppi-dmn_run-crossed__full-rt_nppi-dmn_acceptance-intercept, exit=0
+PASS: completed 15 L3 jobs
+PASS: collected all 96 planned contrasts, including nulls: /ZPOOL/data/projects/srndna-ultimatum/results/dmn_covariate_standardized/v1/imaging
+CHECK INPUTS: full-rt__dmn-age
+CHECK INPUTS: pooled-post__dmn-age
+CHECK INPUTS: partner-post__dmn-age
+PASS: 15 models, 96 source contrasts, 66 unique tests, 198 permutation jobs
+RUN: 3c1b4b29f91305540572 tfce
+RUN: 3c1b4b29f91305540572 cluster-t2.6
+RUN: cd04b4f5824e7c084fd0 tfce
+RUN: 3c1b4b29f91305540572 cluster-t3.1
+RUN: cd04b4f5824e7c084fd0 cluster-t2.6
+RUN: cd04b4f5824e7c084fd0 cluster-t3.1
+RUN: 72b0f0e900dce0283423 tfce
+RUN: 72b0f0e900dce0283423 cluster-t3.1
+RUN: 72b0f0e900dce0283423 cluster-t2.6
+RUN: 4e6c41ab04a86be8df20 cluster-t2.6
+RUN: 4e6c41ab04a86be8df20 cluster-t3.1
+RUN: 19bbab89aab8f6961a08 tfce
+RUN: 4e6c41ab04a86be8df20 tfce
+RUN: 19bbab89aab8f6961a08 cluster-t3.1
+RUN: 19bbab89aab8f6961a08 cluster-t2.6
+RUN: 68c03b1b9b83a91196ca tfce
+RUN: 68c03b1b9b83a91196ca cluster-t2.6
+RUN: 68c03b1b9b83a91196ca cluster-t3.1
+RUN: 922455b0a4ff479a1d54 cluster-t2.6
+RUN: 922455b0a4ff479a1d54 tfce
+RUN: 922455b0a4ff479a1d54 cluster-t3.1
+RUN: 48110e005220e5951a4d tfce
+RUN: 8d019568048cc8ab805e cluster-t3.1
+RUN: 8d019568048cc8ab805e tfce
+RUN: 8d019568048cc8ab805e cluster-t2.6
+RUN: 48110e005220e5951a4d cluster-t2.6
+RUN: 48110e005220e5951a4d cluster-t3.1
+RUN: cbfc72db9d6e32f9e280 cluster-t2.6
+RUN: cbfc72db9d6e32f9e280 cluster-t3.1
+RUN: cbfc72db9d6e32f9e280 tfce
+RUN: 0fee3d0478659f5661f8 tfce
+RUN: 0fee3d0478659f5661f8 cluster-t2.6
+RUN: 0fee3d0478659f5661f8 cluster-t3.1
+RUN: 7cd645574d706bca7b77 tfce
+RUN: 7cd645574d706bca7b77 cluster-t3.1
+RUN: 7cd645574d706bca7b77 cluster-t2.6
+RUN: 6a81fd31ba6279687647 cluster-t3.1
+RUN: 6a81fd31ba6279687647 tfce
+RUN: 6a81fd31ba6279687647 cluster-t2.6
+RUN: 73dda38c921a4b8f4513 tfce
+COMPLETED: 7cd645574d706bca7b77 cluster-t2.6
+RUN: 73dda38c921a4b8f4513 cluster-t2.6
+COMPLETED: 4e6c41ab04a86be8df20 cluster-t3.1
+RUN: 73dda38c921a4b8f4513 cluster-t3.1
+COMPLETED: 7cd645574d706bca7b77 cluster-t3.1
+RUN: d9225c105d740ddc28f6 tfce
+COMPLETED: 0fee3d0478659f5661f8 cluster-t3.1
+RUN: d9225c105d740ddc28f6 cluster-t2.6
+COMPLETED: 48110e005220e5951a4d cluster-t2.6
+RUN: d9225c105d740ddc28f6 cluster-t3.1
+COMPLETED: 72b0f0e900dce0283423 cluster-t3.1
+RUN: 3226c72e5bfbd276b8fb tfce
+COMPLETED: 68c03b1b9b83a91196ca cluster-t3.1
+RUN: 3226c72e5bfbd276b8fb cluster-t2.6
+COMPLETED: cbfc72db9d6e32f9e280 cluster-t3.1
+RUN: 3226c72e5bfbd276b8fb cluster-t3.1
+COMPLETED: cd04b4f5824e7c084fd0 cluster-t3.1
+RUN: 1fa19920c17bb4a6bdda tfce
+COMPLETED: 922455b0a4ff479a1d54 cluster-t2.6
+RUN: 1fa19920c17bb4a6bdda cluster-t2.6
+COMPLETED: 6a81fd31ba6279687647 cluster-t3.1
+RUN: 1fa19920c17bb4a6bdda cluster-t3.1
+COMPLETED: 922455b0a4ff479a1d54 cluster-t3.1
+RUN: e5e4a9466a1513c078e8 tfce
+COMPLETED: 8d019568048cc8ab805e cluster-t3.1
+RUN: e5e4a9466a1513c078e8 cluster-t2.6
+COMPLETED: 3c1b4b29f91305540572 cluster-t3.1
+RUN: e5e4a9466a1513c078e8 cluster-t3.1
+COMPLETED: 8d019568048cc8ab805e cluster-t2.6
+RUN: eeaaabf3e1e4b405a8e0 tfce
+COMPLETED: 68c03b1b9b83a91196ca cluster-t2.6
+RUN: eeaaabf3e1e4b405a8e0 cluster-t2.6
+COMPLETED: cbfc72db9d6e32f9e280 cluster-t2.6
+RUN: eeaaabf3e1e4b405a8e0 cluster-t3.1
+COMPLETED: 19bbab89aab8f6961a08 cluster-t3.1
+RUN: 14e12c6773e5779e52d4 tfce
+COMPLETED: 0fee3d0478659f5661f8 cluster-t2.6
+RUN: 14e12c6773e5779e52d4 cluster-t2.6
+COMPLETED: 72b0f0e900dce0283423 cluster-t2.6
+RUN: 14e12c6773e5779e52d4 cluster-t3.1
+COMPLETED: 4e6c41ab04a86be8df20 cluster-t2.6
+RUN: 26ba18d2f5c73283632d tfce
+COMPLETED: 3c1b4b29f91305540572 cluster-t2.6
+RUN: 26ba18d2f5c73283632d cluster-t2.6
+COMPLETED: cd04b4f5824e7c084fd0 cluster-t2.6
+RUN: 26ba18d2f5c73283632d cluster-t3.1
+COMPLETED: 19bbab89aab8f6961a08 cluster-t2.6
+RUN: e557e69b524ff0469551 tfce
+COMPLETED: 6a81fd31ba6279687647 cluster-t2.6
+RUN: e557e69b524ff0469551 cluster-t2.6
+COMPLETED: 48110e005220e5951a4d cluster-t3.1
+RUN: e557e69b524ff0469551 cluster-t3.1
+COMPLETED: 73dda38c921a4b8f4513 cluster-t3.1
+RUN: f36730db74ab186d70a6 tfce
+COMPLETED: 0fee3d0478659f5661f8 tfce
+RUN: f36730db74ab186d70a6 cluster-t2.6
+COMPLETED: 73dda38c921a4b8f4513 cluster-t2.6
+RUN: f36730db74ab186d70a6 cluster-t3.1
+COMPLETED: eeaaabf3e1e4b405a8e0 cluster-t2.6
+RUN: b71515feb7d9131c0929 tfce
+COMPLETED: 3226c72e5bfbd276b8fb cluster-t3.1
+RUN: b71515feb7d9131c0929 cluster-t2.6
+COMPLETED: 1fa19920c17bb4a6bdda cluster-t3.1
+RUN: b71515feb7d9131c0929 cluster-t3.1
+COMPLETED: eeaaabf3e1e4b405a8e0 cluster-t3.1
+RUN: f89edefe4a48ca155b59 tfce
+COMPLETED: 1fa19920c17bb4a6bdda cluster-t2.6
+RUN: f89edefe4a48ca155b59 cluster-t2.6
+COMPLETED: 3226c72e5bfbd276b8fb cluster-t2.6
+RUN: f89edefe4a48ca155b59 cluster-t3.1
+COMPLETED: 3c1b4b29f91305540572 tfce
+RUN: 8fe8fce1ff695abdf46c tfce
+COMPLETED: 14e12c6773e5779e52d4 cluster-t3.1
+RUN: 8fe8fce1ff695abdf46c cluster-t2.6
+COMPLETED: 26ba18d2f5c73283632d cluster-t3.1
+RUN: 8fe8fce1ff695abdf46c cluster-t3.1
+COMPLETED: e5e4a9466a1513c078e8 cluster-t3.1
+RUN: a7b3dd0611c932c6ecc4 tfce
+COMPLETED: e557e69b524ff0469551 cluster-t2.6
+RUN: a7b3dd0611c932c6ecc4 cluster-t2.6
+COMPLETED: d9225c105d740ddc28f6 cluster-t3.1
+RUN: a7b3dd0611c932c6ecc4 cluster-t3.1
+COMPLETED: 14e12c6773e5779e52d4 cluster-t2.6
+RUN: cc2fa75c9beaa8ceebef tfce
+COMPLETED: e557e69b524ff0469551 cluster-t3.1
+RUN: cc2fa75c9beaa8ceebef cluster-t2.6
+COMPLETED: 26ba18d2f5c73283632d cluster-t2.6
+RUN: cc2fa75c9beaa8ceebef cluster-t3.1
+COMPLETED: d9225c105d740ddc28f6 cluster-t2.6
+RUN: b629a7d31f2d55489a7a tfce
+COMPLETED: e5e4a9466a1513c078e8 cluster-t2.6
+RUN: b629a7d31f2d55489a7a cluster-t2.6
+COMPLETED: 19bbab89aab8f6961a08 tfce
+RUN: b629a7d31f2d55489a7a cluster-t3.1
+COMPLETED: 8d019568048cc8ab805e tfce
+RUN: cd43b4f534c447f4bfc5 tfce
+COMPLETED: 72b0f0e900dce0283423 tfce
+RUN: cd43b4f534c447f4bfc5 cluster-t2.6
+COMPLETED: f36730db74ab186d70a6 cluster-t2.6
+RUN: cd43b4f534c447f4bfc5 cluster-t3.1
+COMPLETED: d9225c105d740ddc28f6 tfce
+RUN: 86dcb1be4e03329b75c5 tfce
+COMPLETED: 7cd645574d706bca7b77 tfce
+RUN: 86dcb1be4e03329b75c5 cluster-t2.6
+COMPLETED: cd04b4f5824e7c084fd0 tfce
+RUN: 86dcb1be4e03329b75c5 cluster-t3.1
+COMPLETED: f36730db74ab186d70a6 cluster-t3.1
+RUN: dce69d0121505f7ed12c tfce
+COMPLETED: 73dda38c921a4b8f4513 tfce
+RUN: dce69d0121505f7ed12c cluster-t2.6
+COMPLETED: b71515feb7d9131c0929 cluster-t2.6
+RUN: dce69d0121505f7ed12c cluster-t3.1
+COMPLETED: 68c03b1b9b83a91196ca tfce
+RUN: bd2fe46b39e84cf1a6b0 tfce
+COMPLETED: cbfc72db9d6e32f9e280 tfce
+RUN: bd2fe46b39e84cf1a6b0 cluster-t2.6
+COMPLETED: 922455b0a4ff479a1d54 tfce
+RUN: bd2fe46b39e84cf1a6b0 cluster-t3.1
+COMPLETED: f89edefe4a48ca155b59 cluster-t3.1
+RUN: 5a24628e508697b07b53 tfce
+COMPLETED: 48110e005220e5951a4d tfce
+RUN: 5a24628e508697b07b53 cluster-t2.6
+COMPLETED: b71515feb7d9131c0929 cluster-t3.1
+RUN: 5a24628e508697b07b53 cluster-t3.1
+COMPLETED: 6a81fd31ba6279687647 tfce
+RUN: d7dc16cc514ccd560f18 tfce
+COMPLETED: cc2fa75c9beaa8ceebef cluster-t2.6
+RUN: d7dc16cc514ccd560f18 cluster-t2.6
+COMPLETED: 8fe8fce1ff695abdf46c cluster-t2.6
+RUN: d7dc16cc514ccd560f18 cluster-t3.1
+COMPLETED: a7b3dd0611c932c6ecc4 cluster-t2.6
+RUN: 4802a92e3da37f79d878 tfce
+COMPLETED: 8fe8fce1ff695abdf46c cluster-t3.1
+RUN: 4802a92e3da37f79d878 cluster-t2.6
+COMPLETED: f89edefe4a48ca155b59 cluster-t2.6
+RUN: 4802a92e3da37f79d878 cluster-t3.1
+COMPLETED: cc2fa75c9beaa8ceebef cluster-t3.1
+RUN: 237506d97cdb8ece62fb tfce
+COMPLETED: b629a7d31f2d55489a7a cluster-t2.6
+RUN: 237506d97cdb8ece62fb cluster-t2.6
+COMPLETED: a7b3dd0611c932c6ecc4 cluster-t3.1
+RUN: 237506d97cdb8ece62fb cluster-t3.1
+COMPLETED: 1fa19920c17bb4a6bdda tfce
+RUN: 092e430eb434b12cb5c2 tfce
+COMPLETED: b629a7d31f2d55489a7a cluster-t3.1
+RUN: 092e430eb434b12cb5c2 cluster-t2.6
+COMPLETED: 4e6c41ab04a86be8df20 tfce
+RUN: 092e430eb434b12cb5c2 cluster-t3.1
+COMPLETED: bd2fe46b39e84cf1a6b0 cluster-t3.1
+RUN: de8ce99c5caa6faa39b5 tfce
+COMPLETED: 86dcb1be4e03329b75c5 cluster-t2.6
+RUN: de8ce99c5caa6faa39b5 cluster-t2.6
+COMPLETED: e5e4a9466a1513c078e8 tfce
+RUN: de8ce99c5caa6faa39b5 cluster-t3.1
+COMPLETED: dce69d0121505f7ed12c cluster-t3.1
+RUN: 1c926e979b95f12179c7 tfce
+COMPLETED: dce69d0121505f7ed12c cluster-t2.6
+RUN: 1c926e979b95f12179c7 cluster-t2.6
+COMPLETED: cd43b4f534c447f4bfc5 cluster-t2.6
+RUN: 1c926e979b95f12179c7 cluster-t3.1
+COMPLETED: 86dcb1be4e03329b75c5 cluster-t3.1
+RUN: 9e9030accd5ee897113b tfce
+COMPLETED: cd43b4f534c447f4bfc5 cluster-t3.1
+RUN: 9e9030accd5ee897113b cluster-t2.6
+COMPLETED: 26ba18d2f5c73283632d tfce
+RUN: 9e9030accd5ee897113b cluster-t3.1
+COMPLETED: 3226c72e5bfbd276b8fb tfce
+RUN: 45bbe12b718b2bb2eff7 tfce
+COMPLETED: 5a24628e508697b07b53 cluster-t3.1
+RUN: 45bbe12b718b2bb2eff7 cluster-t2.6
+COMPLETED: eeaaabf3e1e4b405a8e0 tfce
+RUN: 45bbe12b718b2bb2eff7 cluster-t3.1
+COMPLETED: bd2fe46b39e84cf1a6b0 cluster-t2.6
+RUN: eeb0dbbfa548b604c242 tfce
+COMPLETED: 5a24628e508697b07b53 cluster-t2.6
+RUN: eeb0dbbfa548b604c242 cluster-t2.6
+COMPLETED: 4802a92e3da37f79d878 cluster-t2.6
+RUN: eeb0dbbfa548b604c242 cluster-t3.1
+COMPLETED: 14e12c6773e5779e52d4 tfce
+RUN: 3043dc4757ca56aa6f0d tfce
+COMPLETED: d7dc16cc514ccd560f18 cluster-t2.6
+RUN: 3043dc4757ca56aa6f0d cluster-t2.6
+COMPLETED: 4802a92e3da37f79d878 cluster-t3.1
+RUN: 3043dc4757ca56aa6f0d cluster-t3.1
+COMPLETED: 237506d97cdb8ece62fb cluster-t3.1
+RUN: 87c5a7b14315570899ac tfce
+COMPLETED: e557e69b524ff0469551 tfce
+RUN: 87c5a7b14315570899ac cluster-t2.6
+COMPLETED: d7dc16cc514ccd560f18 cluster-t3.1
+RUN: 87c5a7b14315570899ac cluster-t3.1
+COMPLETED: 237506d97cdb8ece62fb cluster-t2.6
+RUN: ec688ab426072789d8ec tfce
+COMPLETED: 092e430eb434b12cb5c2 cluster-t3.1
+RUN: ec688ab426072789d8ec cluster-t2.6
+COMPLETED: 092e430eb434b12cb5c2 cluster-t2.6
+RUN: ec688ab426072789d8ec cluster-t3.1
+COMPLETED: f89edefe4a48ca155b59 tfce
+RUN: 3fe85bb916e6e9903a8c tfce
+COMPLETED: de8ce99c5caa6faa39b5 cluster-t3.1
+RUN: 3fe85bb916e6e9903a8c cluster-t2.6
+COMPLETED: de8ce99c5caa6faa39b5 cluster-t2.6
+RUN: 3fe85bb916e6e9903a8c cluster-t3.1
+COMPLETED: 1c926e979b95f12179c7 cluster-t2.6
+RUN: 94452345e427ca27cf5e tfce
+COMPLETED: 1c926e979b95f12179c7 cluster-t3.1
+RUN: 94452345e427ca27cf5e cluster-t2.6
+COMPLETED: cd43b4f534c447f4bfc5 tfce
+RUN: 94452345e427ca27cf5e cluster-t3.1
+COMPLETED: b629a7d31f2d55489a7a tfce
+RUN: f071a7433ec6c799c520 tfce
+COMPLETED: 8fe8fce1ff695abdf46c tfce
+RUN: f071a7433ec6c799c520 cluster-t2.6
+COMPLETED: 9e9030accd5ee897113b cluster-t3.1
+RUN: f071a7433ec6c799c520 cluster-t3.1
+COMPLETED: 9e9030accd5ee897113b cluster-t2.6
+RUN: 9ec13dbfe1747663a10f tfce
+COMPLETED: cc2fa75c9beaa8ceebef tfce
+RUN: 9ec13dbfe1747663a10f cluster-t2.6
+COMPLETED: 45bbe12b718b2bb2eff7 cluster-t3.1
+RUN: 9ec13dbfe1747663a10f cluster-t3.1
+COMPLETED: 5a24628e508697b07b53 tfce
+RUN: 8f504dd047eadfaaec7a tfce
+COMPLETED: eeb0dbbfa548b604c242 cluster-t2.6
+RUN: 8f504dd047eadfaaec7a cluster-t2.6
+COMPLETED: 45bbe12b718b2bb2eff7 cluster-t2.6
+RUN: 8f504dd047eadfaaec7a cluster-t3.1
+COMPLETED: b71515feb7d9131c0929 tfce
+RUN: 6a503d7fd8e7b49f43f8 tfce
+COMPLETED: 3043dc4757ca56aa6f0d cluster-t2.6
+RUN: 6a503d7fd8e7b49f43f8 cluster-t2.6
+COMPLETED: eeb0dbbfa548b604c242 cluster-t3.1
+RUN: 6a503d7fd8e7b49f43f8 cluster-t3.1
+COMPLETED: a7b3dd0611c932c6ecc4 tfce
+RUN: 7381230a22143a6d89e6 tfce
+COMPLETED: f36730db74ab186d70a6 tfce
+RUN: 7381230a22143a6d89e6 cluster-t2.6
+COMPLETED: 87c5a7b14315570899ac cluster-t3.1
+RUN: 7381230a22143a6d89e6 cluster-t3.1
+COMPLETED: 87c5a7b14315570899ac cluster-t2.6
+RUN: 5e58343b5132e4962c1e tfce
+COMPLETED: 3043dc4757ca56aa6f0d cluster-t3.1
+RUN: 5e58343b5132e4962c1e cluster-t2.6
+COMPLETED: d7dc16cc514ccd560f18 tfce
+RUN: 5e58343b5132e4962c1e cluster-t3.1
+COMPLETED: ec688ab426072789d8ec cluster-t3.1
+RUN: c84e1af91403f275cf0d tfce
+COMPLETED: ec688ab426072789d8ec cluster-t2.6
+RUN: c84e1af91403f275cf0d cluster-t2.6
+COMPLETED: 3fe85bb916e6e9903a8c cluster-t3.1
+RUN: c84e1af91403f275cf0d cluster-t3.1
+COMPLETED: 3fe85bb916e6e9903a8c cluster-t2.6
+RUN: a8ac73d8fbfd90face23 tfce
+COMPLETED: 94452345e427ca27cf5e cluster-t3.1
+RUN: a8ac73d8fbfd90face23 cluster-t2.6
+COMPLETED: bd2fe46b39e84cf1a6b0 tfce
+RUN: a8ac73d8fbfd90face23 cluster-t3.1
+COMPLETED: 94452345e427ca27cf5e cluster-t2.6
+RUN: 1fc12901e8ed869831ff tfce
+COMPLETED: f071a7433ec6c799c520 cluster-t3.1
+RUN: 1fc12901e8ed869831ff cluster-t2.6
+COMPLETED: 9ec13dbfe1747663a10f cluster-t2.6
+RUN: 1fc12901e8ed869831ff cluster-t3.1
+COMPLETED: 237506d97cdb8ece62fb tfce
+RUN: 6dfd72be8de80bf49092 tfce
+COMPLETED: f071a7433ec6c799c520 cluster-t2.6
+RUN: 6dfd72be8de80bf49092 cluster-t2.6
+COMPLETED: 86dcb1be4e03329b75c5 tfce
+RUN: 6dfd72be8de80bf49092 cluster-t3.1
+COMPLETED: 8f504dd047eadfaaec7a cluster-t2.6
+RUN: a0fefce1ca95149a084d tfce
+COMPLETED: 6a503d7fd8e7b49f43f8 cluster-t2.6
+RUN: a0fefce1ca95149a084d cluster-t2.6
+COMPLETED: 9ec13dbfe1747663a10f cluster-t3.1
+RUN: a0fefce1ca95149a084d cluster-t3.1
+COMPLETED: 092e430eb434b12cb5c2 tfce
+RUN: 2cf588a2fe608b1f345a tfce
+COMPLETED: dce69d0121505f7ed12c tfce
+RUN: 2cf588a2fe608b1f345a cluster-t2.6
+COMPLETED: 9e9030accd5ee897113b tfce
+RUN: 2cf588a2fe608b1f345a cluster-t3.1
+COMPLETED: 8f504dd047eadfaaec7a cluster-t3.1
+RUN: 72559468cd75718b8762 tfce
+COMPLETED: 7381230a22143a6d89e6 cluster-t2.6
+RUN: 72559468cd75718b8762 cluster-t2.6
+COMPLETED: 6a503d7fd8e7b49f43f8 cluster-t3.1
+RUN: 72559468cd75718b8762 cluster-t3.1
+COMPLETED: 5e58343b5132e4962c1e cluster-t2.6
+RUN: 9903ad8103afa1ec2f4e tfce
+COMPLETED: 4802a92e3da37f79d878 tfce
+RUN: 9903ad8103afa1ec2f4e cluster-t2.6
+COMPLETED: 7381230a22143a6d89e6 cluster-t3.1
+RUN: 9903ad8103afa1ec2f4e cluster-t3.1
+COMPLETED: 45bbe12b718b2bb2eff7 tfce
+RUN: 8fd1406900838e1e39b2 tfce
+COMPLETED: 5e58343b5132e4962c1e cluster-t3.1
+RUN: 8fd1406900838e1e39b2 cluster-t2.6
+COMPLETED: c84e1af91403f275cf0d cluster-t2.6
+RUN: 8fd1406900838e1e39b2 cluster-t3.1
+COMPLETED: c84e1af91403f275cf0d cluster-t3.1
+RUN: 6fa55e5a0649bdf1fa0b tfce
+COMPLETED: 1fc12901e8ed869831ff cluster-t2.6
+RUN: 6fa55e5a0649bdf1fa0b cluster-t2.6
+COMPLETED: a8ac73d8fbfd90face23 cluster-t3.1
+RUN: 6fa55e5a0649bdf1fa0b cluster-t3.1
+COMPLETED: a8ac73d8fbfd90face23 cluster-t2.6
+RUN: 7bc8a8e996fa997798df tfce
+COMPLETED: 1fc12901e8ed869831ff cluster-t3.1
+RUN: 7bc8a8e996fa997798df cluster-t2.6
+COMPLETED: 6dfd72be8de80bf49092 cluster-t2.6
+RUN: 7bc8a8e996fa997798df cluster-t3.1
+COMPLETED: 3043dc4757ca56aa6f0d tfce
+RUN: 53130cef6a8b8d6e5097 tfce
+COMPLETED: 1c926e979b95f12179c7 tfce
+RUN: 53130cef6a8b8d6e5097 cluster-t2.6
+COMPLETED: 87c5a7b14315570899ac tfce
+RUN: 53130cef6a8b8d6e5097 cluster-t3.1
+COMPLETED: a0fefce1ca95149a084d cluster-t2.6
+COMPLETED: 6dfd72be8de80bf49092 cluster-t3.1
+COMPLETED: a0fefce1ca95149a084d cluster-t3.1
+COMPLETED: 72559468cd75718b8762 cluster-t3.1
+COMPLETED: 2cf588a2fe608b1f345a cluster-t3.1
+COMPLETED: f071a7433ec6c799c520 tfce
+COMPLETED: 2cf588a2fe608b1f345a cluster-t2.6
+COMPLETED: de8ce99c5caa6faa39b5 tfce
+COMPLETED: 72559468cd75718b8762 cluster-t2.6
+COMPLETED: 9903ad8103afa1ec2f4e cluster-t3.1
+COMPLETED: 9903ad8103afa1ec2f4e cluster-t2.6
+COMPLETED: 9ec13dbfe1747663a10f tfce
+COMPLETED: 8fd1406900838e1e39b2 cluster-t2.6
+COMPLETED: ec688ab426072789d8ec tfce
+COMPLETED: 8fd1406900838e1e39b2 cluster-t3.1
+COMPLETED: eeb0dbbfa548b604c242 tfce
+COMPLETED: 6fa55e5a0649bdf1fa0b cluster-t3.1
+COMPLETED: 6fa55e5a0649bdf1fa0b cluster-t2.6
+COMPLETED: 3fe85bb916e6e9903a8c tfce
+COMPLETED: 7bc8a8e996fa997798df cluster-t2.6
+COMPLETED: 8f504dd047eadfaaec7a tfce
+COMPLETED: 7381230a22143a6d89e6 tfce
+COMPLETED: 6a503d7fd8e7b49f43f8 tfce
+COMPLETED: 53130cef6a8b8d6e5097 cluster-t2.6
+COMPLETED: 7bc8a8e996fa997798df cluster-t3.1
+COMPLETED: 72559468cd75718b8762 tfce
+COMPLETED: 53130cef6a8b8d6e5097 cluster-t3.1
+COMPLETED: 1fc12901e8ed869831ff tfce
+COMPLETED: 6dfd72be8de80bf49092 tfce
+COMPLETED: a8ac73d8fbfd90face23 tfce
+COMPLETED: 94452345e427ca27cf5e tfce
+COMPLETED: 5e58343b5132e4962c1e tfce
+COMPLETED: 53130cef6a8b8d6e5097 tfce
+COMPLETED: 2cf588a2fe608b1f345a tfce
+COMPLETED: 7bc8a8e996fa997798df tfce
+COMPLETED: a0fefce1ca95149a084d tfce
+COMPLETED: c84e1af91403f275cf0d tfce
+COMPLETED: 9903ad8103afa1ec2f4e tfce
+COMPLETED: 8fd1406900838e1e39b2 tfce
+COMPLETED: 6fa55e5a0649bdf1fa0b tfce
+PASS: collected 198 unique permutation results, including nulls
+PASS: DMN standardization, group fits, randomise and historical comparisons complete

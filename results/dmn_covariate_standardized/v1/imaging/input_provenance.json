@@ -1,0 +1,1208 @@
+{
+  "/ZPOOL/data/projects/srndna-ultimatum/behavioral_analyses/data/participant_L3_47.csv": {
+    "sha256": "4667fe6df9147019eedf2f520c77ebf0c69287b453d0f67e1cf4badfbdbc0ce0"
+  },
+  "/ZPOOL/data/projects/srndna-ultimatum/code/audit_l1_designs.py": {
+    "sha256": "e20b784d7d7d92b3259c677a57146f5667319c07740b2790187fdee103909ee5"
+  },
+  "/ZPOOL/data/projects/srndna-ultimatum/code/audit_l1_estimability.py": {
+    "sha256": "9e1e08a905b500900f35010150354ad8fd1d880ede4205a01756d75cb3a5dd25"
+  },
+  "/ZPOOL/data/projects/srndna-ultimatum/code/collect_dmn_revision_checks.py": {
+    "sha256": "fc6dd0b09bdb8cda8b7fba67d0adf891fcc4e1663901229bf4d87dcb0ca9ff2b"
+  },
+  "/ZPOOL/data/projects/srndna-ultimatum/code/prepare_dmn_revision_checks.py": {
+    "sha256": "ac1619117d607bec7a9507777cc13004f8259aa4345c22cc7c07224b0fae909a"
+  },
+  "/ZPOOL/data/projects/srndna-ultimatum/code/prepare_sub144_imaging_repair.py": {
+    "sha256": "f2e935506c3560558c0add251014e80085d443171fdec597edc2bc74e8853627"
+  },
+  "/ZPOOL/data/projects/srndna-ultimatum/code/prepare_ultimatum_l3_repair.py": {
+    "sha256": "24656bd5f140464467a452e7b8668909ff5848441fddf3667c4a471a9b033af3"
+  },
+  "/ZPOOL/data/projects/srndna-ultimatum/code/run_crossed_behavior_l3.py": {
+    "sha256": "c2047ae28890f7dfd97e65b2930211e32ce13a4af8c779e28764290760da527a"
+  },
+  "/ZPOOL/data/projects/srndna-ultimatum/code/run_dmn_covariate_standardization.py": {
+    "sha256": "f64cc431421e51d114a1d43f04068b3dec0e97c90f88dd7f1991d6b136ab6b80"
+  },
+  "/ZPOOL/data/projects/srndna-ultimatum/code/run_dmn_revision_stage.py": {
+    "sha256": "ed03962e135ba364860bf515c0d8b8167fc6544ca8a68965ceddb0938d5b2ed2"
+  },
+  "/ZPOOL/data/projects/srndna-ultimatum/code/run_permutation_audit.py": {
+    "sha256": "47e820f83e2fa50617d4a13204a699165522fe221282013cc6f19c4265012033"
+  },
+  "/ZPOOL/data/projects/srndna-ultimatum/code/run_ultimatum_repair_jobs.py": {
+    "sha256": "cbd2e58bd603fd972ce4d671f2277fea85767f17c4dcc125c7525ab2c26d52a4"
+  },
+  "/ZPOOL/data/projects/srndna-ultimatum/results/crossed_behavior_l3/v1/imaging/full-rt_nppi-dmn_acceptance-intercept/design/design.con": {
+    "sha256": "b45fbd1c11b3b50f770a585831d5feff2b607fddf3346a7d3fe2d70c3bd613be"
+  },
+  "/ZPOOL/data/projects/srndna-ultimatum/results/crossed_behavior_l3/v1/imaging/full-rt_nppi-dmn_acceptance-intercept/design/design.fsf": {
+    "sha256": "a37650076b23e1175d05752a08ec6fa98fa33c30588a929ba47a5e5110674a8f"
+  },
+  "/ZPOOL/data/projects/srndna-ultimatum/results/crossed_behavior_l3/v1/imaging/full-rt_nppi-dmn_acceptance-intercept/design/design.grp": {
+    "sha256": "6692c23c4c2a7d456f75f60ea843637b4ce7cf40ee37750253b4c72bbb518dbf"
+  },
+  "/ZPOOL/data/projects/srndna-ultimatum/results/crossed_behavior_l3/v1/imaging/full-rt_nppi-dmn_acceptance-intercept/design/design.mat": {
+    "sha256": "ce07edcb018e52beb22d21dcb7060fd6756f9dd01f8280b81a751fc8a7de2095"
+  },
+  "/ZPOOL/data/projects/srndna-ultimatum/results/crossed_behavior_l3/v1/imaging/full-rt_nppi-dmn_acceptance-intercept/poststats/mask.nii.gz": {
+    "sha256": "12777cdd6c1a4a34e1c86b5f0e1f0664601b2b735b7578826db61d77084d71e6"
+  },
+  "/ZPOOL/data/projects/srndna-ultimatum/results/crossed_behavior_l3/v1/imaging/full-rt_nppi-dmn_choice-slope/design/design.con": {
+    "sha256": "901e9e2e5f96b264268d1fb343610932e91be815837af945ef3b4f8f6d4865bb"
+  },
+  "/ZPOOL/data/projects/srndna-ultimatum/results/crossed_behavior_l3/v1/imaging/full-rt_nppi-dmn_choice-slope/design/design.fsf": {
+    "sha256": "e70ae2ec7b2852b9dfc2b6ed964c2d30284ba805dcd449d6ee9470e0ee2ac40e"
+  },
+  "/ZPOOL/data/projects/srndna-ultimatum/results/crossed_behavior_l3/v1/imaging/full-rt_nppi-dmn_choice-slope/design/design.grp": {
+    "sha256": "6692c23c4c2a7d456f75f60ea843637b4ce7cf40ee37750253b4c72bbb518dbf"
+  },
+  "/ZPOOL/data/projects/srndna-ultimatum/results/crossed_behavior_l3/v1/imaging/full-rt_nppi-dmn_choice-slope/design/design.mat": {
+    "sha256": "4d06efaa10720b0e5b919803715de3d344c73ee651bedf5e06725a2bb53e492b"
+  },
+  "/ZPOOL/data/projects/srndna-ultimatum/results/crossed_behavior_l3/v1/imaging/full-rt_nppi-dmn_choice-slope/poststats/mask.nii.gz": {
+    "sha256": "12777cdd6c1a4a34e1c86b5f0e1f0664601b2b735b7578826db61d77084d71e6"
+  },
+  "/ZPOOL/data/projects/srndna-ultimatum/results/crossed_behavior_l3/v1/imaging/partner-post_nppi-dmn_acceptance-intercept/design/design.con": {
+    "sha256": "b45fbd1c11b3b50f770a585831d5feff2b607fddf3346a7d3fe2d70c3bd613be"
+  },
+  "/ZPOOL/data/projects/srndna-ultimatum/results/crossed_behavior_l3/v1/imaging/partner-post_nppi-dmn_acceptance-intercept/design/design.fsf": {
+    "sha256": "6b878df296eb9113de840d440dc352b88f8ee42a1c38118d4696fb40bee94696"
+  },
+  "/ZPOOL/data/projects/srndna-ultimatum/results/crossed_behavior_l3/v1/imaging/partner-post_nppi-dmn_acceptance-intercept/design/design.grp": {
+    "sha256": "6692c23c4c2a7d456f75f60ea843637b4ce7cf40ee37750253b4c72bbb518dbf"
+  },
+  "/ZPOOL/data/projects/srndna-ultimatum/results/crossed_behavior_l3/v1/imaging/partner-post_nppi-dmn_acceptance-intercept/design/design.mat": {
+    "sha256": "ce07edcb018e52beb22d21dcb7060fd6756f9dd01f8280b81a751fc8a7de2095"
+  },
+  "/ZPOOL/data/projects/srndna-ultimatum/results/crossed_behavior_l3/v1/imaging/partner-post_nppi-dmn_acceptance-intercept/poststats/mask.nii.gz": {
+    "sha256": "12777cdd6c1a4a34e1c86b5f0e1f0664601b2b735b7578826db61d77084d71e6"
+  },
+  "/ZPOOL/data/projects/srndna-ultimatum/results/crossed_behavior_l3/v1/imaging/partner-post_nppi-dmn_choice-slope/design/design.con": {
+    "sha256": "901e9e2e5f96b264268d1fb343610932e91be815837af945ef3b4f8f6d4865bb"
+  },
+  "/ZPOOL/data/projects/srndna-ultimatum/results/crossed_behavior_l3/v1/imaging/partner-post_nppi-dmn_choice-slope/design/design.fsf": {
+    "sha256": "cb3e8857c513a3354dbc3191c32bdc88016742fdea84ccf3e29d055e3829ff39"
+  },
+  "/ZPOOL/data/projects/srndna-ultimatum/results/crossed_behavior_l3/v1/imaging/partner-post_nppi-dmn_choice-slope/design/design.grp": {
+    "sha256": "6692c23c4c2a7d456f75f60ea843637b4ce7cf40ee37750253b4c72bbb518dbf"
+  },
+  "/ZPOOL/data/projects/srndna-ultimatum/results/crossed_behavior_l3/v1/imaging/partner-post_nppi-dmn_choice-slope/design/design.mat": {
+    "sha256": "4d06efaa10720b0e5b919803715de3d344c73ee651bedf5e06725a2bb53e492b"
+  },
+  "/ZPOOL/data/projects/srndna-ultimatum/results/crossed_behavior_l3/v1/imaging/partner-post_nppi-dmn_choice-slope/poststats/mask.nii.gz": {
+    "sha256": "12777cdd6c1a4a34e1c86b5f0e1f0664601b2b735b7578826db61d77084d71e6"
+  },
+  "/ZPOOL/data/projects/srndna-ultimatum/results/crossed_behavior_l3/v1/imaging/pooled-post_nppi-dmn_acceptance-intercept/design/design.con": {
+    "sha256": "b45fbd1c11b3b50f770a585831d5feff2b607fddf3346a7d3fe2d70c3bd613be"
+  },
+  "/ZPOOL/data/projects/srndna-ultimatum/results/crossed_behavior_l3/v1/imaging/pooled-post_nppi-dmn_acceptance-intercept/design/design.fsf": {
+    "sha256": "fdbee2d3d638dd6b079ee2a3ce23a16811baad6b383b29ea89dcc56c5be20d61"
+  },
+  "/ZPOOL/data/projects/srndna-ultimatum/results/crossed_behavior_l3/v1/imaging/pooled-post_nppi-dmn_acceptance-intercept/design/design.grp": {
+    "sha256": "6692c23c4c2a7d456f75f60ea843637b4ce7cf40ee37750253b4c72bbb518dbf"
+  },
+  "/ZPOOL/data/projects/srndna-ultimatum/results/crossed_behavior_l3/v1/imaging/pooled-post_nppi-dmn_acceptance-intercept/design/design.mat": {
+    "sha256": "ce07edcb018e52beb22d21dcb7060fd6756f9dd01f8280b81a751fc8a7de2095"
+  },
+  "/ZPOOL/data/projects/srndna-ultimatum/results/crossed_behavior_l3/v1/imaging/pooled-post_nppi-dmn_acceptance-intercept/poststats/mask.nii.gz": {
+    "sha256": "12777cdd6c1a4a34e1c86b5f0e1f0664601b2b735b7578826db61d77084d71e6"
+  },
+  "/ZPOOL/data/projects/srndna-ultimatum/results/crossed_behavior_l3/v1/imaging/pooled-post_nppi-dmn_choice-slope/design/design.con": {
+    "sha256": "901e9e2e5f96b264268d1fb343610932e91be815837af945ef3b4f8f6d4865bb"
+  },
+  "/ZPOOL/data/projects/srndna-ultimatum/results/crossed_behavior_l3/v1/imaging/pooled-post_nppi-dmn_choice-slope/design/design.fsf": {
+    "sha256": "812348234282461cf8753ca3490e109830ccc30c7fabc6a8b973b9f23ed97a2f"
+  },
+  "/ZPOOL/data/projects/srndna-ultimatum/results/crossed_behavior_l3/v1/imaging/pooled-post_nppi-dmn_choice-slope/design/design.grp": {
+    "sha256": "6692c23c4c2a7d456f75f60ea843637b4ce7cf40ee37750253b4c72bbb518dbf"
+  },
+  "/ZPOOL/data/projects/srndna-ultimatum/results/crossed_behavior_l3/v1/imaging/pooled-post_nppi-dmn_choice-slope/design/design.mat": {
+    "sha256": "4d06efaa10720b0e5b919803715de3d344c73ee651bedf5e06725a2bb53e492b"
+  },
+  "/ZPOOL/data/projects/srndna-ultimatum/results/crossed_behavior_l3/v1/imaging/pooled-post_nppi-dmn_choice-slope/poststats/mask.nii.gz": {
+    "sha256": "12777cdd6c1a4a34e1c86b5f0e1f0664601b2b735b7578826db61d77084d71e6"
+  },
+  "/ZPOOL/data/projects/srndna-ultimatum/results/decision_postresponse/imaging/activation-norm/design/design.con": {
+    "sha256": "f18dc158e96eb8f20c11bbf47622eef9a960070c3d8118fe9f37101248030843"
+  },
+  "/ZPOOL/data/projects/srndna-ultimatum/results/decision_postresponse/imaging/activation-norm/design/design.fsf": {
+    "sha256": "dc1a1d4ec82f4758f396985e5e1ce9cd8fe4114a7b0118eec7b8eb03977fc553"
+  },
+  "/ZPOOL/data/projects/srndna-ultimatum/results/decision_postresponse/imaging/activation-norm/design/design.grp": {
+    "sha256": "6692c23c4c2a7d456f75f60ea843637b4ce7cf40ee37750253b4c72bbb518dbf"
+  },
+  "/ZPOOL/data/projects/srndna-ultimatum/results/decision_postresponse/imaging/activation-norm/design/design.mat": {
+    "sha256": "0ca4e94048ae5f38d3124363bc7d51d8208fe5b8522b0f8ea87a80b16af5bfca"
+  },
+  "/ZPOOL/data/projects/srndna-ultimatum/results/decision_postresponse/imaging/activation-norm/poststats/mask.nii.gz": {
+    "sha256": "12777cdd6c1a4a34e1c86b5f0e1f0664601b2b735b7578826db61d77084d71e6"
+  },
+  "/ZPOOL/data/projects/srndna-ultimatum/results/decision_postresponse/imaging/dmn-age/design/design.con": {
+    "sha256": "53566418b2f7e99c0eac90d8e42567b75bb6f956fda6f377be35cf60bb345024"
+  },
+  "/ZPOOL/data/projects/srndna-ultimatum/results/decision_postresponse/imaging/dmn-age/design/design.fsf": {
+    "sha256": "529796e8a87f779035a354fe87f71d3ca0f707765c8c1713415978caa3efc7e4"
+  },
+  "/ZPOOL/data/projects/srndna-ultimatum/results/decision_postresponse/imaging/dmn-age/design/design.grp": {
+    "sha256": "6692c23c4c2a7d456f75f60ea843637b4ce7cf40ee37750253b4c72bbb518dbf"
+  },
+  "/ZPOOL/data/projects/srndna-ultimatum/results/decision_postresponse/imaging/dmn-age/design/design.mat": {
+    "sha256": "4e038a2844f7d5e0003355481a611d7a341728de3b7ebacfdb6d6244bd2b17be"
+  },
+  "/ZPOOL/data/projects/srndna-ultimatum/results/decision_postresponse/imaging/dmn-age/poststats/mask.nii.gz": {
+    "sha256": "12777cdd6c1a4a34e1c86b5f0e1f0664601b2b735b7578826db61d77084d71e6"
+  },
+  "/ZPOOL/data/projects/srndna-ultimatum/results/decision_postresponse/imaging/dmn-outlier-deweighted/design/design.con": {
+    "sha256": "9b160ed8e91a0fdcfd517b995f6b23b7199c8a260d34722c70a8ea439e3f43d8"
+  },
+  "/ZPOOL/data/projects/srndna-ultimatum/results/decision_postresponse/imaging/dmn-outlier-deweighted/design/design.fsf": {
+    "sha256": "00fbd08ca7bf3442f9de75cfd6de0038adc7851dc9b349273fdf3bac956371c4"
+  },
+  "/ZPOOL/data/projects/srndna-ultimatum/results/decision_postresponse/imaging/dmn-outlier-deweighted/design/design.grp": {
+    "sha256": "6692c23c4c2a7d456f75f60ea843637b4ce7cf40ee37750253b4c72bbb518dbf"
+  },
+  "/ZPOOL/data/projects/srndna-ultimatum/results/decision_postresponse/imaging/dmn-outlier-deweighted/design/design.mat": {
+    "sha256": "4e038a2844f7d5e0003355481a611d7a341728de3b7ebacfdb6d6244bd2b17be"
+  },
+  "/ZPOOL/data/projects/srndna-ultimatum/results/decision_postresponse/imaging/dmn-outlier-deweighted/poststats/mask.nii.gz": {
+    "sha256": "12777cdd6c1a4a34e1c86b5f0e1f0664601b2b735b7578826db61d77084d71e6"
+  },
+  "/ZPOOL/data/projects/srndna-ultimatum/results/decision_postresponse/imaging/dmn-simple-effects/design/design.con": {
+    "sha256": "9b160ed8e91a0fdcfd517b995f6b23b7199c8a260d34722c70a8ea439e3f43d8"
+  },
+  "/ZPOOL/data/projects/srndna-ultimatum/results/decision_postresponse/imaging/dmn-simple-effects/design/design.fsf": {
+    "sha256": "3d89730cd3733a8122f3cb126eb734cba3e906954632f5aa517dda4a667a2a9e"
+  },
+  "/ZPOOL/data/projects/srndna-ultimatum/results/decision_postresponse/imaging/dmn-simple-effects/design/design.grp": {
+    "sha256": "6692c23c4c2a7d456f75f60ea843637b4ce7cf40ee37750253b4c72bbb518dbf"
+  },
+  "/ZPOOL/data/projects/srndna-ultimatum/results/decision_postresponse/imaging/dmn-simple-effects/design/design.mat": {
+    "sha256": "4e038a2844f7d5e0003355481a611d7a341728de3b7ebacfdb6d6244bd2b17be"
+  },
+  "/ZPOOL/data/projects/srndna-ultimatum/results/decision_postresponse/imaging/dmn-simple-effects/poststats/mask.nii.gz": {
+    "sha256": "12777cdd6c1a4a34e1c86b5f0e1f0664601b2b735b7578826db61d77084d71e6"
+  },
+  "/ZPOOL/data/projects/srndna-ultimatum/results/decision_postresponse/imaging/ecn-sensitivity/design/design.con": {
+    "sha256": "3f5ecfca902fc6f4cdac538b468897367f90e655140efca3106660d0dc36cea7"
+  },
+  "/ZPOOL/data/projects/srndna-ultimatum/results/decision_postresponse/imaging/ecn-sensitivity/design/design.fsf": {
+    "sha256": "78995f508d5f31842104c226b418f8fea5118eb971f9d567dc6c408dd46f9e62"
+  },
+  "/ZPOOL/data/projects/srndna-ultimatum/results/decision_postresponse/imaging/ecn-sensitivity/design/design.grp": {
+    "sha256": "6692c23c4c2a7d456f75f60ea843637b4ce7cf40ee37750253b4c72bbb518dbf"
+  },
+  "/ZPOOL/data/projects/srndna-ultimatum/results/decision_postresponse/imaging/ecn-sensitivity/design/design.mat": {
+    "sha256": "db35e3cce6a54a4e6e0769521fab780ae3eba0d7d8b034a22710d5634ad60b1f"
+  },
+  "/ZPOOL/data/projects/srndna-ultimatum/results/decision_postresponse/imaging/ecn-sensitivity/poststats/mask.nii.gz": {
+    "sha256": "12777cdd6c1a4a34e1c86b5f0e1f0664601b2b735b7578826db61d77084d71e6"
+  },
+  "/ZPOOL/data/projects/srndna-ultimatum/results/decision_postresponse_partner/imaging/activation-norm/design/design.con": {
+    "sha256": "f18dc158e96eb8f20c11bbf47622eef9a960070c3d8118fe9f37101248030843"
+  },
+  "/ZPOOL/data/projects/srndna-ultimatum/results/decision_postresponse_partner/imaging/activation-norm/design/design.fsf": {
+    "sha256": "ed13dadb95943349029026e7b79fb542245951f83d2e6e4e46c5e7fec2403905"
+  },
+  "/ZPOOL/data/projects/srndna-ultimatum/results/decision_postresponse_partner/imaging/activation-norm/design/design.grp": {
+    "sha256": "6692c23c4c2a7d456f75f60ea843637b4ce7cf40ee37750253b4c72bbb518dbf"
+  },
+  "/ZPOOL/data/projects/srndna-ultimatum/results/decision_postresponse_partner/imaging/activation-norm/design/design.mat": {
+    "sha256": "0ca4e94048ae5f38d3124363bc7d51d8208fe5b8522b0f8ea87a80b16af5bfca"
+  },
+  "/ZPOOL/data/projects/srndna-ultimatum/results/decision_postresponse_partner/imaging/activation-norm/poststats/mask.nii.gz": {
+    "sha256": "12777cdd6c1a4a34e1c86b5f0e1f0664601b2b735b7578826db61d77084d71e6"
+  },
+  "/ZPOOL/data/projects/srndna-ultimatum/results/decision_postresponse_partner/imaging/dmn-age/design/design.con": {
+    "sha256": "53566418b2f7e99c0eac90d8e42567b75bb6f956fda6f377be35cf60bb345024"
+  },
+  "/ZPOOL/data/projects/srndna-ultimatum/results/decision_postresponse_partner/imaging/dmn-age/design/design.fsf": {
+    "sha256": "7533b01ab031d2295817a1bcc10e34953447d4a2c193cc94e6bdb93256f3bbbe"
+  },
+  "/ZPOOL/data/projects/srndna-ultimatum/results/decision_postresponse_partner/imaging/dmn-age/design/design.grp": {
+    "sha256": "6692c23c4c2a7d456f75f60ea843637b4ce7cf40ee37750253b4c72bbb518dbf"
+  },
+  "/ZPOOL/data/projects/srndna-ultimatum/results/decision_postresponse_partner/imaging/dmn-age/design/design.mat": {
+    "sha256": "4e038a2844f7d5e0003355481a611d7a341728de3b7ebacfdb6d6244bd2b17be"
+  },
+  "/ZPOOL/data/projects/srndna-ultimatum/results/decision_postresponse_partner/imaging/dmn-age/poststats/mask.nii.gz": {
+    "sha256": "12777cdd6c1a4a34e1c86b5f0e1f0664601b2b735b7578826db61d77084d71e6"
+  },
+  "/ZPOOL/data/projects/srndna-ultimatum/results/decision_postresponse_partner/imaging/dmn-outlier-deweighted/design/design.con": {
+    "sha256": "9b160ed8e91a0fdcfd517b995f6b23b7199c8a260d34722c70a8ea439e3f43d8"
+  },
+  "/ZPOOL/data/projects/srndna-ultimatum/results/decision_postresponse_partner/imaging/dmn-outlier-deweighted/design/design.fsf": {
+    "sha256": "b501839e2661449fbeb5f4bd1a44a77847eec74d74f4a6ec89eb85a20a89bc54"
+  },
+  "/ZPOOL/data/projects/srndna-ultimatum/results/decision_postresponse_partner/imaging/dmn-outlier-deweighted/design/design.grp": {
+    "sha256": "6692c23c4c2a7d456f75f60ea843637b4ce7cf40ee37750253b4c72bbb518dbf"
+  },
+  "/ZPOOL/data/projects/srndna-ultimatum/results/decision_postresponse_partner/imaging/dmn-outlier-deweighted/design/design.mat": {
+    "sha256": "4e038a2844f7d5e0003355481a611d7a341728de3b7ebacfdb6d6244bd2b17be"
+  },
+  "/ZPOOL/data/projects/srndna-ultimatum/results/decision_postresponse_partner/imaging/dmn-outlier-deweighted/poststats/mask.nii.gz": {
+    "sha256": "12777cdd6c1a4a34e1c86b5f0e1f0664601b2b735b7578826db61d77084d71e6"
+  },
+  "/ZPOOL/data/projects/srndna-ultimatum/results/decision_postresponse_partner/imaging/dmn-simple-effects/design/design.con": {
+    "sha256": "9b160ed8e91a0fdcfd517b995f6b23b7199c8a260d34722c70a8ea439e3f43d8"
+  },
+  "/ZPOOL/data/projects/srndna-ultimatum/results/decision_postresponse_partner/imaging/dmn-simple-effects/design/design.fsf": {
+    "sha256": "058a915a41761837a2137d10d1b04bcb57a07dbb41e18455ae2d53ec124e8981"
+  },
+  "/ZPOOL/data/projects/srndna-ultimatum/results/decision_postresponse_partner/imaging/dmn-simple-effects/design/design.grp": {
+    "sha256": "6692c23c4c2a7d456f75f60ea843637b4ce7cf40ee37750253b4c72bbb518dbf"
+  },
+  "/ZPOOL/data/projects/srndna-ultimatum/results/decision_postresponse_partner/imaging/dmn-simple-effects/design/design.mat": {
+    "sha256": "4e038a2844f7d5e0003355481a611d7a341728de3b7ebacfdb6d6244bd2b17be"
+  },
+  "/ZPOOL/data/projects/srndna-ultimatum/results/decision_postresponse_partner/imaging/dmn-simple-effects/poststats/mask.nii.gz": {
+    "sha256": "12777cdd6c1a4a34e1c86b5f0e1f0664601b2b735b7578826db61d77084d71e6"
+  },
+  "/ZPOOL/data/projects/srndna-ultimatum/results/decision_postresponse_partner/imaging/ecn-sensitivity/design/design.con": {
+    "sha256": "3f5ecfca902fc6f4cdac538b468897367f90e655140efca3106660d0dc36cea7"
+  },
+  "/ZPOOL/data/projects/srndna-ultimatum/results/decision_postresponse_partner/imaging/ecn-sensitivity/design/design.fsf": {
+    "sha256": "50e26d4ab017f44755c77ec1efbb8057b6892f3538f010ac28a171eaf502656a"
+  },
+  "/ZPOOL/data/projects/srndna-ultimatum/results/decision_postresponse_partner/imaging/ecn-sensitivity/design/design.grp": {
+    "sha256": "6692c23c4c2a7d456f75f60ea843637b4ce7cf40ee37750253b4c72bbb518dbf"
+  },
+  "/ZPOOL/data/projects/srndna-ultimatum/results/decision_postresponse_partner/imaging/ecn-sensitivity/design/design.mat": {
+    "sha256": "db35e3cce6a54a4e6e0769521fab780ae3eba0d7d8b034a22710d5634ad60b1f"
+  },
+  "/ZPOOL/data/projects/srndna-ultimatum/results/decision_postresponse_partner/imaging/ecn-sensitivity/poststats/mask.nii.gz": {
+    "sha256": "12777cdd6c1a4a34e1c86b5f0e1f0664601b2b735b7578826db61d77084d71e6"
+  },
+  "/ZPOOL/data/projects/srndna-ultimatum/results/permutation_followup/v1/covariate_audit/candidate_matches.tsv": {
+    "sha256": "1020d4e6a6c13d78efb81c8445cc2923a35d2061680f9545c1c58c267e8628d2"
+  },
+  "/ZPOOL/data/projects/srndna-ultimatum/results/permutation_followup/v1/covariate_audit/source_inventory.tsv": {
+    "sha256": "2ddf3c11d58f01debab55e3bc6a6698134134ea9c879c0884da5da9d4a9c2ddc"
+  },
+  "/ZPOOL/data/projects/srndna-ultimatum/results/reviewer/rt_coverage_corrected/activation-norm/design/design.con": {
+    "sha256": "f18dc158e96eb8f20c11bbf47622eef9a960070c3d8118fe9f37101248030843"
+  },
+  "/ZPOOL/data/projects/srndna-ultimatum/results/reviewer/rt_coverage_corrected/activation-norm/design/design.fsf": {
+    "sha256": "914d7174305a9b16e69daefd51e70ddb60b74cea7eba032b49c33bd3cbd3d1ee"
+  },
+  "/ZPOOL/data/projects/srndna-ultimatum/results/reviewer/rt_coverage_corrected/activation-norm/design/design.grp": {
+    "sha256": "6692c23c4c2a7d456f75f60ea843637b4ce7cf40ee37750253b4c72bbb518dbf"
+  },
+  "/ZPOOL/data/projects/srndna-ultimatum/results/reviewer/rt_coverage_corrected/activation-norm/design/design.mat": {
+    "sha256": "0ca4e94048ae5f38d3124363bc7d51d8208fe5b8522b0f8ea87a80b16af5bfca"
+  },
+  "/ZPOOL/data/projects/srndna-ultimatum/results/reviewer/rt_coverage_corrected/activation-norm/poststats/mask.nii.gz": {
+    "sha256": "12777cdd6c1a4a34e1c86b5f0e1f0664601b2b735b7578826db61d77084d71e6"
+  },
+  "/ZPOOL/data/projects/srndna-ultimatum/results/reviewer/rt_coverage_corrected/dmn-age/design/design.con": {
+    "sha256": "53566418b2f7e99c0eac90d8e42567b75bb6f956fda6f377be35cf60bb345024"
+  },
+  "/ZPOOL/data/projects/srndna-ultimatum/results/reviewer/rt_coverage_corrected/dmn-age/design/design.fsf": {
+    "sha256": "14b011f158d3464f103720cce7fee765de0ddd5c905bae0f8d3925f3cccd505f"
+  },
+  "/ZPOOL/data/projects/srndna-ultimatum/results/reviewer/rt_coverage_corrected/dmn-age/design/design.grp": {
+    "sha256": "6692c23c4c2a7d456f75f60ea843637b4ce7cf40ee37750253b4c72bbb518dbf"
+  },
+  "/ZPOOL/data/projects/srndna-ultimatum/results/reviewer/rt_coverage_corrected/dmn-age/design/design.mat": {
+    "sha256": "4e038a2844f7d5e0003355481a611d7a341728de3b7ebacfdb6d6244bd2b17be"
+  },
+  "/ZPOOL/data/projects/srndna-ultimatum/results/reviewer/rt_coverage_corrected/dmn-age/poststats/mask.nii.gz": {
+    "sha256": "12777cdd6c1a4a34e1c86b5f0e1f0664601b2b735b7578826db61d77084d71e6"
+  },
+  "/ZPOOL/data/projects/srndna-ultimatum/results/reviewer/rt_coverage_corrected/dmn-outlier-deweighted/design/design.con": {
+    "sha256": "9b160ed8e91a0fdcfd517b995f6b23b7199c8a260d34722c70a8ea439e3f43d8"
+  },
+  "/ZPOOL/data/projects/srndna-ultimatum/results/reviewer/rt_coverage_corrected/dmn-outlier-deweighted/design/design.fsf": {
+    "sha256": "91398a7ddb2b044b96ebbf003093f3ade3705d8b7b0708da7365320b0b661422"
+  },
+  "/ZPOOL/data/projects/srndna-ultimatum/results/reviewer/rt_coverage_corrected/dmn-outlier-deweighted/design/design.grp": {
+    "sha256": "6692c23c4c2a7d456f75f60ea843637b4ce7cf40ee37750253b4c72bbb518dbf"
+  },
+  "/ZPOOL/data/projects/srndna-ultimatum/results/reviewer/rt_coverage_corrected/dmn-outlier-deweighted/design/design.mat": {
+    "sha256": "4e038a2844f7d5e0003355481a611d7a341728de3b7ebacfdb6d6244bd2b17be"
+  },
+  "/ZPOOL/data/projects/srndna-ultimatum/results/reviewer/rt_coverage_corrected/dmn-outlier-deweighted/poststats/mask.nii.gz": {
+    "sha256": "12777cdd6c1a4a34e1c86b5f0e1f0664601b2b735b7578826db61d77084d71e6"
+  },
+  "/ZPOOL/data/projects/srndna-ultimatum/results/reviewer/rt_coverage_corrected/dmn-simple-effects/design/design.con": {
+    "sha256": "9b160ed8e91a0fdcfd517b995f6b23b7199c8a260d34722c70a8ea439e3f43d8"
+  },
+  "/ZPOOL/data/projects/srndna-ultimatum/results/reviewer/rt_coverage_corrected/dmn-simple-effects/design/design.fsf": {
+    "sha256": "ee5e28c1d16df240781f20c84c26b699b269fcc8609036cd17d8e54ba309a4c3"
+  },
+  "/ZPOOL/data/projects/srndna-ultimatum/results/reviewer/rt_coverage_corrected/dmn-simple-effects/design/design.grp": {
+    "sha256": "6692c23c4c2a7d456f75f60ea843637b4ce7cf40ee37750253b4c72bbb518dbf"
+  },
+  "/ZPOOL/data/projects/srndna-ultimatum/results/reviewer/rt_coverage_corrected/dmn-simple-effects/design/design.mat": {
+    "sha256": "4e038a2844f7d5e0003355481a611d7a341728de3b7ebacfdb6d6244bd2b17be"
+  },
+  "/ZPOOL/data/projects/srndna-ultimatum/results/reviewer/rt_coverage_corrected/dmn-simple-effects/poststats/mask.nii.gz": {
+    "sha256": "12777cdd6c1a4a34e1c86b5f0e1f0664601b2b735b7578826db61d77084d71e6"
+  },
+  "/ZPOOL/data/projects/srndna-ultimatum/results/reviewer/rt_coverage_corrected/ecn-sensitivity/design/design.con": {
+    "sha256": "3f5ecfca902fc6f4cdac538b468897367f90e655140efca3106660d0dc36cea7"
+  },
+  "/ZPOOL/data/projects/srndna-ultimatum/results/reviewer/rt_coverage_corrected/ecn-sensitivity/design/design.fsf": {
+    "sha256": "8d21154db1857d944f7d4503131b514c9da90c1f3336a5daabf3bc8d79416b2c"
+  },
+  "/ZPOOL/data/projects/srndna-ultimatum/results/reviewer/rt_coverage_corrected/ecn-sensitivity/design/design.grp": {
+    "sha256": "6692c23c4c2a7d456f75f60ea843637b4ce7cf40ee37750253b4c72bbb518dbf"
+  },
+  "/ZPOOL/data/projects/srndna-ultimatum/results/reviewer/rt_coverage_corrected/ecn-sensitivity/design/design.mat": {
+    "sha256": "db35e3cce6a54a4e6e0769521fab780ae3eba0d7d8b034a22710d5634ad60b1f"
+  },
+  "/ZPOOL/data/projects/srndna-ultimatum/results/reviewer/rt_coverage_corrected/ecn-sensitivity/poststats/mask.nii.gz": {
+    "sha256": "12777cdd6c1a4a34e1c86b5f0e1f0664601b2b735b7578826db61d77084d71e6"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-partner-v1/derivatives/nppi-dmn/sub-104/L2.gfeat/cope7.feat/stats/cope1.nii.gz": {
+    "sha256": "6e3480edc497267e554f201941aa437ddd3f0c0b28e9799321a0fc893b67a47a"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-partner-v1/derivatives/nppi-dmn/sub-104/L2.gfeat/cope7.feat/stats/varcope1.nii.gz": {
+    "sha256": "dd4c253744f94dde45a9026091ac4f30cf35b20a5399a56e4b06baceb6bc7cd5"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-partner-v1/derivatives/nppi-dmn/sub-105/L2.gfeat/cope7.feat/stats/cope1.nii.gz": {
+    "sha256": "70114a5702e29b8c2eea689f6ef0633ca823f211c955501b442a5a825d796287"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-partner-v1/derivatives/nppi-dmn/sub-105/L2.gfeat/cope7.feat/stats/varcope1.nii.gz": {
+    "sha256": "6ff1ca371896506e0ae366de60b4a3221a771fce139b9daa05bbead2fd335ae2"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-partner-v1/derivatives/nppi-dmn/sub-106/L2.gfeat/cope7.feat/stats/cope1.nii.gz": {
+    "sha256": "81faa784769c085225e80964b72f5082f40db36fe23396e972b91c5e5eebe101"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-partner-v1/derivatives/nppi-dmn/sub-106/L2.gfeat/cope7.feat/stats/varcope1.nii.gz": {
+    "sha256": "4ea429cae2a47d98ef12bf2445ec8cc658b7e8fcf2c8aa8fda73c3b3714d80c9"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-partner-v1/derivatives/nppi-dmn/sub-107/L2.gfeat/cope7.feat/stats/cope1.nii.gz": {
+    "sha256": "267d9e02232a49f434b1452d6ec3b4cdf536a9c0e443ab63b50a344f61e86ad1"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-partner-v1/derivatives/nppi-dmn/sub-107/L2.gfeat/cope7.feat/stats/varcope1.nii.gz": {
+    "sha256": "03ddf62159e02b86a0b87e1659d506f3c371df798493ef14b8156c434f882bfd"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-partner-v1/derivatives/nppi-dmn/sub-108/L2.gfeat/cope7.feat/stats/cope1.nii.gz": {
+    "sha256": "b4419d875cce0e390b252c077bdef7a48ad6865bfadfd37dc2224e8899a74412"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-partner-v1/derivatives/nppi-dmn/sub-108/L2.gfeat/cope7.feat/stats/varcope1.nii.gz": {
+    "sha256": "859d377cad13b5a940fb298ff5355ef14acfcfdf6eb707a155264b5194a3ef04"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-partner-v1/derivatives/nppi-dmn/sub-109/L2.gfeat/cope7.feat/stats/cope1.nii.gz": {
+    "sha256": "3d75e7ab80c8a572ecd791d08020aeac032ee92cc0f29e113d7fb9372d53cef3"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-partner-v1/derivatives/nppi-dmn/sub-109/L2.gfeat/cope7.feat/stats/varcope1.nii.gz": {
+    "sha256": "8ed569397c5cfc7ddb10629fddfa0203898aad0e450540aa3a7092dfc4d3d48e"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-partner-v1/derivatives/nppi-dmn/sub-110/L2.gfeat/cope7.feat/stats/cope1.nii.gz": {
+    "sha256": "dc01819ac3c501bc7c195765474df8a8656c0600ffd6df6ead121f21e80981d1"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-partner-v1/derivatives/nppi-dmn/sub-110/L2.gfeat/cope7.feat/stats/varcope1.nii.gz": {
+    "sha256": "1a50b90671c03aa658b3cab5f23b48814851c45e367c4b15c172f84a8b0aaab9"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-partner-v1/derivatives/nppi-dmn/sub-111/L2.gfeat/cope7.feat/stats/cope1.nii.gz": {
+    "sha256": "04fc1c621c0c410c61be8f563a594b72b1fc463b78140e88a450971da309aa5c"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-partner-v1/derivatives/nppi-dmn/sub-111/L2.gfeat/cope7.feat/stats/varcope1.nii.gz": {
+    "sha256": "b2ef77e6180ca5eec59b2fcd2b1c5bc2c3e7c9011b7add07f946c7a42c561da4"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-partner-v1/derivatives/nppi-dmn/sub-112/L2.gfeat/cope7.feat/stats/cope1.nii.gz": {
+    "sha256": "c2cb05bec055822e8cbdd5a76c00661f61cbea124584b179f064f65b0155d9a3"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-partner-v1/derivatives/nppi-dmn/sub-112/L2.gfeat/cope7.feat/stats/varcope1.nii.gz": {
+    "sha256": "7fcb69bb2fd0854e35250c8bbe0f8e35ab164ecb1434779b969be3bf4c30fc4f"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-partner-v1/derivatives/nppi-dmn/sub-113/L2.gfeat/cope7.feat/stats/cope1.nii.gz": {
+    "sha256": "3e1ae053c679f15c42f369ec3c573398b8d73f5c1992ff40eced270d577b64e6"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-partner-v1/derivatives/nppi-dmn/sub-113/L2.gfeat/cope7.feat/stats/varcope1.nii.gz": {
+    "sha256": "8fabeb410e84fc5cfbbed1e71c73fd5615a104449e6b79ff37fa70bcea53d4b2"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-partner-v1/derivatives/nppi-dmn/sub-115/L2.gfeat/cope7.feat/stats/cope1.nii.gz": {
+    "sha256": "52e916b5b8e8d70ff0865623050dc5c9ad1cd4e5ff21b7e0b2476415e43c328f"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-partner-v1/derivatives/nppi-dmn/sub-115/L2.gfeat/cope7.feat/stats/varcope1.nii.gz": {
+    "sha256": "412c343b1e380756ecde2db2cea721f73cb2e810e4a0bf7cf8d58639fd43ed62"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-partner-v1/derivatives/nppi-dmn/sub-116/L2.gfeat/cope7.feat/stats/cope1.nii.gz": {
+    "sha256": "0b6ec08b0026b4b8b77aed2a483237d742f7d09a4abd49529b3205fa32f40ff9"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-partner-v1/derivatives/nppi-dmn/sub-116/L2.gfeat/cope7.feat/stats/varcope1.nii.gz": {
+    "sha256": "8cc0fa80a9c85de1524beba21583935ad45e1f678ea594f3a59827be1166be91"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-partner-v1/derivatives/nppi-dmn/sub-117/L2.gfeat/cope7.feat/stats/cope1.nii.gz": {
+    "sha256": "418973e0aaf0e5cdb6bcc3352a25ee57534740ddad6e8a1aba92ca8628de39a5"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-partner-v1/derivatives/nppi-dmn/sub-117/L2.gfeat/cope7.feat/stats/varcope1.nii.gz": {
+    "sha256": "fa0b8c6f8b9ae4c7fbcda4310f292058573de21aa5edc14795b4188dab8c2085"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-partner-v1/derivatives/nppi-dmn/sub-118/L2.gfeat/cope7.feat/stats/cope1.nii.gz": {
+    "sha256": "03dc3710325157b23c39b652df8a34d9f46dd9d38334d26763ed7d486742ca33"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-partner-v1/derivatives/nppi-dmn/sub-118/L2.gfeat/cope7.feat/stats/varcope1.nii.gz": {
+    "sha256": "2c41167a7756a5c9957efff432c98c37259686b168a87d9c05b0d7e72ee7b9c6"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-partner-v1/derivatives/nppi-dmn/sub-121/L2.gfeat/cope7.feat/stats/cope1.nii.gz": {
+    "sha256": "a7fb600e83225ca20e9d2ea2bd868c4ebeb221ac479971b4af326e521cfc880b"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-partner-v1/derivatives/nppi-dmn/sub-121/L2.gfeat/cope7.feat/stats/varcope1.nii.gz": {
+    "sha256": "5cb7faf623c16ace28770406234744e8b7961d3ba7dbc7de36fb5ab1d30fb456"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-partner-v1/derivatives/nppi-dmn/sub-122/L2.gfeat/cope7.feat/stats/cope1.nii.gz": {
+    "sha256": "7ccafe7a742241b3aebf54c7962d4fc0f97a1d067ed8457860698d798e286852"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-partner-v1/derivatives/nppi-dmn/sub-122/L2.gfeat/cope7.feat/stats/varcope1.nii.gz": {
+    "sha256": "c7487acaac5c55c281e97755c431f868474b6e735e6aff190ad69ca3319c228c"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-partner-v1/derivatives/nppi-dmn/sub-124/L2.gfeat/cope7.feat/stats/cope1.nii.gz": {
+    "sha256": "e92ef5e9749a9f2b176efc6801898e6c2db653550a5e8fdf502662e896de97a3"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-partner-v1/derivatives/nppi-dmn/sub-124/L2.gfeat/cope7.feat/stats/varcope1.nii.gz": {
+    "sha256": "2f837f951a748117c917cf18167a676222d06a90ee3cf8b82e1ddcbe63c7b90c"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-partner-v1/derivatives/nppi-dmn/sub-125/L2.gfeat/cope7.feat/stats/cope1.nii.gz": {
+    "sha256": "b0d4009aa63869145ca059c1e56c9f477d6c93cf17d13ec1f4829edb05283172"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-partner-v1/derivatives/nppi-dmn/sub-125/L2.gfeat/cope7.feat/stats/varcope1.nii.gz": {
+    "sha256": "a809304936dfcab063f8bede3be151b8dca5531976022a9343d56bd6b4e91345"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-partner-v1/derivatives/nppi-dmn/sub-126/L2.gfeat/cope7.feat/stats/cope1.nii.gz": {
+    "sha256": "67fb31e684eb35fcffc4c4b3f25d6c5a5b37fda7559866df80213efc7e2dfc96"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-partner-v1/derivatives/nppi-dmn/sub-126/L2.gfeat/cope7.feat/stats/varcope1.nii.gz": {
+    "sha256": "ef7f230eb89335cc796312028cf63da551556e82f02e740fc3e8267b7d94a2ee"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-partner-v1/derivatives/nppi-dmn/sub-127/L2.gfeat/cope7.feat/stats/cope1.nii.gz": {
+    "sha256": "32d71e77c2258241300f8ab1166bd9186bc27a6a84cf44b59a03f8fdb45d0796"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-partner-v1/derivatives/nppi-dmn/sub-127/L2.gfeat/cope7.feat/stats/varcope1.nii.gz": {
+    "sha256": "cbb2db3944d7a855926f9693f55df82c2d66d3cc4f39c1c2fa323ca54940a09f"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-partner-v1/derivatives/nppi-dmn/sub-128/L2.gfeat/cope7.feat/stats/cope1.nii.gz": {
+    "sha256": "594a217eb6a7136802e95d50f0e120a39b91ff3f25936ffe60ec37bbd4eb7866"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-partner-v1/derivatives/nppi-dmn/sub-128/L2.gfeat/cope7.feat/stats/varcope1.nii.gz": {
+    "sha256": "410e5d126e82f6987b6b86ed473ff3e491b38cb176989411fd70355156978f99"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-partner-v1/derivatives/nppi-dmn/sub-129/L2.gfeat/cope7.feat/stats/cope1.nii.gz": {
+    "sha256": "a24358c95b705e8f9faad7ea7419e616cbd3962c8cdd6f4bd638b2e611d09ce9"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-partner-v1/derivatives/nppi-dmn/sub-129/L2.gfeat/cope7.feat/stats/varcope1.nii.gz": {
+    "sha256": "fae5a16a11b66169479cf684710bbe7ab7dcd5d6d7b3527b0416fc09c30b3c58"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-partner-v1/derivatives/nppi-dmn/sub-130/L2.gfeat/cope7.feat/stats/cope1.nii.gz": {
+    "sha256": "cb385b3161940b014667d76266a800e00fd86f1d581ae6a4566ea59691689659"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-partner-v1/derivatives/nppi-dmn/sub-130/L2.gfeat/cope7.feat/stats/varcope1.nii.gz": {
+    "sha256": "9cb4d9312346704561621e38ba8f46f6dbb41caf62313cb75554f3f71466f80c"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-partner-v1/derivatives/nppi-dmn/sub-132/L2.gfeat/cope7.feat/stats/cope1.nii.gz": {
+    "sha256": "e7550026e952b225c772b1dcb8328509aefb2122e5f5e5fe2d482571de065356"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-partner-v1/derivatives/nppi-dmn/sub-132/L2.gfeat/cope7.feat/stats/varcope1.nii.gz": {
+    "sha256": "6a17fd64b26e19b96509121bb6760819756040891b4294932bb656c10aeca313"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-partner-v1/derivatives/nppi-dmn/sub-133/L2.gfeat/cope7.feat/stats/cope1.nii.gz": {
+    "sha256": "fd3af826c1f07333608a810142372b80a520838f440ea288757077c7897e4a9b"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-partner-v1/derivatives/nppi-dmn/sub-133/L2.gfeat/cope7.feat/stats/varcope1.nii.gz": {
+    "sha256": "56d11738f36fa91cf798e45caafd3c2941f75725bfd48184bfa70e3849944a45"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-partner-v1/derivatives/nppi-dmn/sub-134/L2.gfeat/cope7.feat/stats/cope1.nii.gz": {
+    "sha256": "8f26134e3d1c4cd527a5247716f9ad1889cd87f09f5d01d75a20ab426baf07cd"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-partner-v1/derivatives/nppi-dmn/sub-134/L2.gfeat/cope7.feat/stats/varcope1.nii.gz": {
+    "sha256": "35ea8a9bfd5141312a5e247ebf0dbc22cfd5d7e72410c72f63106ed55a4dd818"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-partner-v1/derivatives/nppi-dmn/sub-135/L2.gfeat/cope7.feat/stats/cope1.nii.gz": {
+    "sha256": "794ca7ae26a1e77bfe2faf9a923f4049069676c5048572ddb431bb9108e32fbe"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-partner-v1/derivatives/nppi-dmn/sub-135/L2.gfeat/cope7.feat/stats/varcope1.nii.gz": {
+    "sha256": "f7dcac866e82456d684272fea50cd33c7faa89c0d830d9897ac1fa70fb120ca6"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-partner-v1/derivatives/nppi-dmn/sub-136/L2.gfeat/cope7.feat/stats/cope1.nii.gz": {
+    "sha256": "e75dd9e6b610c7368ec09134d080116c936c0f4a7283ed483045cd8cad8aa4c9"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-partner-v1/derivatives/nppi-dmn/sub-136/L2.gfeat/cope7.feat/stats/varcope1.nii.gz": {
+    "sha256": "b7b4000e481ba7ccd7aa36b8ed57568b96bbbc90cb7210b5ee9f7665696f1330"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-partner-v1/derivatives/nppi-dmn/sub-137/L2.gfeat/cope7.feat/stats/cope1.nii.gz": {
+    "sha256": "7119b98bd0a240fd1145a877753f93fe16c911e726800b639e84ad366b7ef25c"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-partner-v1/derivatives/nppi-dmn/sub-137/L2.gfeat/cope7.feat/stats/varcope1.nii.gz": {
+    "sha256": "06e48dcc3ece73d136cb13b01c4346afb76e5e844c0cb5236318bf6aba36ad30"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-partner-v1/derivatives/nppi-dmn/sub-138/L2.gfeat/cope7.feat/stats/cope1.nii.gz": {
+    "sha256": "3b59f7a87506494048d701531c7db6356c88101d158fe0be51100ef505a344c5"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-partner-v1/derivatives/nppi-dmn/sub-138/L2.gfeat/cope7.feat/stats/varcope1.nii.gz": {
+    "sha256": "c069ae4f6eaeb9a28991c51341887f69382b302a210a3f64ad3212d5b87c6b96"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-partner-v1/derivatives/nppi-dmn/sub-140/L2.gfeat/cope7.feat/stats/cope1.nii.gz": {
+    "sha256": "69ca77279a243c3a6eaee1b40db124f685590ea7ec0677031545dd0da4521662"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-partner-v1/derivatives/nppi-dmn/sub-140/L2.gfeat/cope7.feat/stats/varcope1.nii.gz": {
+    "sha256": "4df15b3d7f8b35682fa90e06fc3fcbf872b8606bc8d8d3c6d11a8a07895fe9ff"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-partner-v1/derivatives/nppi-dmn/sub-141/L2.gfeat/cope7.feat/stats/cope1.nii.gz": {
+    "sha256": "965878667290700e5301d6c80e12229cfbc768c70daa92c821938f7ae6c504c7"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-partner-v1/derivatives/nppi-dmn/sub-141/L2.gfeat/cope7.feat/stats/varcope1.nii.gz": {
+    "sha256": "95c0bcfc656b54064e7191155ed3d5af91df24d3b12cc52aca23535867853041"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-partner-v1/derivatives/nppi-dmn/sub-142/L2.gfeat/cope7.feat/stats/cope1.nii.gz": {
+    "sha256": "12c68178d8e4faeb6d233e526f436af4ac582c32df4746d6f953e6a6a7ec50e9"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-partner-v1/derivatives/nppi-dmn/sub-142/L2.gfeat/cope7.feat/stats/varcope1.nii.gz": {
+    "sha256": "145d69a01ee6fe0f695f6488391632872cd9c41cb003562b88d8fc17d6eb1acf"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-partner-v1/derivatives/nppi-dmn/sub-143/L2.gfeat/cope7.feat/stats/cope1.nii.gz": {
+    "sha256": "21d459d67bb8a890acb8231606173ee0e69d0e8058f0081de6e074f238006ba4"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-partner-v1/derivatives/nppi-dmn/sub-143/L2.gfeat/cope7.feat/stats/varcope1.nii.gz": {
+    "sha256": "af871bb44288210e7944b9270b84c14efc85ba6989f8342c29ce7a3ca9e8c122"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-partner-v1/derivatives/nppi-dmn/sub-144/L2.gfeat/cope7.feat/stats/cope1.nii.gz": {
+    "sha256": "5c9332a2d7f05d99308bd9850489d4bb5332c9b99ce1bbf0ef97dda3cd102d08"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-partner-v1/derivatives/nppi-dmn/sub-144/L2.gfeat/cope7.feat/stats/varcope1.nii.gz": {
+    "sha256": "3bf5cac6a6a98cc2cac3f7491122521d61ec1371b4f9d1f05196bd4a2cd79a7b"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-partner-v1/derivatives/nppi-dmn/sub-147/L2.gfeat/cope7.feat/stats/cope1.nii.gz": {
+    "sha256": "6af63c5d49fdb69b6112172206c08d55354247f73d0a681b960b6387e8e085a6"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-partner-v1/derivatives/nppi-dmn/sub-147/L2.gfeat/cope7.feat/stats/varcope1.nii.gz": {
+    "sha256": "2cb72fdd20a9beb1bed5d0d3b7ab7a4b294fa3a2c78a798ae714549ae4caa906"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-partner-v1/derivatives/nppi-dmn/sub-149/L2.gfeat/cope7.feat/stats/cope1.nii.gz": {
+    "sha256": "94b6e897c0a78f6221d135c3e34a2b7c6a407921f171285c086ef2d298b4a8ad"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-partner-v1/derivatives/nppi-dmn/sub-149/L2.gfeat/cope7.feat/stats/varcope1.nii.gz": {
+    "sha256": "edbb658cf0eef0c1e7c732e50b10be72fcbb6d52a0d20ecd2e1944ac67af92d4"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-partner-v1/derivatives/nppi-dmn/sub-150/L2.gfeat/cope7.feat/stats/cope1.nii.gz": {
+    "sha256": "e62a9bc4a8b82f0fb5a393bb0f092aa072c0d04899b74cc2f98edee31e995cd7"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-partner-v1/derivatives/nppi-dmn/sub-150/L2.gfeat/cope7.feat/stats/varcope1.nii.gz": {
+    "sha256": "7e3c1663bf76f8e660565b1a1498662fff97f053a21758389c6c1e1044db7fc2"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-partner-v1/derivatives/nppi-dmn/sub-151/L2.gfeat/cope7.feat/stats/cope1.nii.gz": {
+    "sha256": "582ab80c5aef5da0670b21812e5fcb399ad7e1133fe4ce93b87d82077fac6529"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-partner-v1/derivatives/nppi-dmn/sub-151/L2.gfeat/cope7.feat/stats/varcope1.nii.gz": {
+    "sha256": "fdfe9189dfd518306d5246db190445b3e8111b92f7d73e9f0282fbadfcff2c1b"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-partner-v1/derivatives/nppi-dmn/sub-152/L2.gfeat/cope7.feat/stats/cope1.nii.gz": {
+    "sha256": "9d6d5620668fc36f803218a101bbae618149ff53a37aa24731e814a47da3c82f"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-partner-v1/derivatives/nppi-dmn/sub-152/L2.gfeat/cope7.feat/stats/varcope1.nii.gz": {
+    "sha256": "97c987296bdb3727ecb74d79f9a3875f161f4f811eb3c3cbd3afbee385693ca3"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-partner-v1/derivatives/nppi-dmn/sub-153/L2.gfeat/cope7.feat/stats/cope1.nii.gz": {
+    "sha256": "c0a208bd85564324cb3cf92b9d04a37c13aa166ea78688661bebe5794c77adf5"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-partner-v1/derivatives/nppi-dmn/sub-153/L2.gfeat/cope7.feat/stats/varcope1.nii.gz": {
+    "sha256": "acafaf8f2d988228b8e9978ed54768707fc67f6589e276d2cf7d9dd61a09231d"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-partner-v1/derivatives/nppi-dmn/sub-154/L2.gfeat/cope7.feat/stats/cope1.nii.gz": {
+    "sha256": "de7c97a7095170d45beb515be845c8cf4146bb329b3bf0a6810c610e20fc2bee"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-partner-v1/derivatives/nppi-dmn/sub-154/L2.gfeat/cope7.feat/stats/varcope1.nii.gz": {
+    "sha256": "3dc45b6fe3fddb3b565cea9425412f5cfe3e91ca67b2ce60fb0d31a9f71efed0"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-partner-v1/derivatives/nppi-dmn/sub-155/L2.gfeat/cope7.feat/stats/cope1.nii.gz": {
+    "sha256": "073768546c39e94fa6560b78dbfa4a1aedd7c9c02a27fa44ee4e2a000430d00e"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-partner-v1/derivatives/nppi-dmn/sub-155/L2.gfeat/cope7.feat/stats/varcope1.nii.gz": {
+    "sha256": "01f3230b5e4da77db90352f48a729ca971906b25ee51b288a1293c4a0c073576"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-partner-v1/derivatives/nppi-dmn/sub-156/L2.gfeat/cope7.feat/stats/cope1.nii.gz": {
+    "sha256": "cc6fd04a3fed6e40bebbc051e70bfc78f8a749649b8e4a6e34888eda2df22728"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-partner-v1/derivatives/nppi-dmn/sub-156/L2.gfeat/cope7.feat/stats/varcope1.nii.gz": {
+    "sha256": "4c21307f1e66718892051aebc5aaff4501a45cc88de33d73e2f58db3e157ac46"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-partner-v1/derivatives/nppi-dmn/sub-157/L2.gfeat/cope7.feat/stats/cope1.nii.gz": {
+    "sha256": "559ad9fb038d65ceb39a29ba4f1c0223460ce3e256439259225c75b01cb2784f"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-partner-v1/derivatives/nppi-dmn/sub-157/L2.gfeat/cope7.feat/stats/varcope1.nii.gz": {
+    "sha256": "56731890793bf1cd6cb67226622fe2e7e3847bbc28ad22a8ea7d7214286d7401"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-partner-v1/derivatives/nppi-dmn/sub-158/L2.gfeat/cope7.feat/stats/cope1.nii.gz": {
+    "sha256": "8a69304ae64818f1f693a3625bdcb7c024ae875582b1b88efcdc35f5dcb4b09e"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-partner-v1/derivatives/nppi-dmn/sub-158/L2.gfeat/cope7.feat/stats/varcope1.nii.gz": {
+    "sha256": "3c647277993b420115c761e09ac2fb5e62576c3af2b34c37c2451a23ee11c0f3"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-partner-v1/derivatives/nppi-dmn/sub-159/L2.gfeat/cope7.feat/stats/cope1.nii.gz": {
+    "sha256": "27fd7a4286fe3fa3ec9373376e87ef48f928037f913a2d5b6f568145d5f351d8"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-partner-v1/derivatives/nppi-dmn/sub-159/L2.gfeat/cope7.feat/stats/varcope1.nii.gz": {
+    "sha256": "1af6c20eaa415a1b81563a694ea3eb7b0e68e0f8110684791d19fed266f7fd55"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-v1/derivatives/nppi-dmn/sub-104/L2.gfeat/cope7.feat/stats/cope1.nii.gz": {
+    "sha256": "1ef4efdbc43936067ba59a514c263a70c37d3880afeecbf9b73b0812549ef230"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-v1/derivatives/nppi-dmn/sub-104/L2.gfeat/cope7.feat/stats/varcope1.nii.gz": {
+    "sha256": "b257e3e9fd7f6507b1c6d4d3c3d78fc083467f4b4c0372257ea237229a1d515a"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-v1/derivatives/nppi-dmn/sub-105/L2.gfeat/cope7.feat/stats/cope1.nii.gz": {
+    "sha256": "40b851ce7a8cf0b03a3dcea82b7828918e1aeb929829dfc0e97fcc5c8db28f16"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-v1/derivatives/nppi-dmn/sub-105/L2.gfeat/cope7.feat/stats/varcope1.nii.gz": {
+    "sha256": "ea152f6bbde265dd8513a9e3f2b32761e7a8bc7df1cc6edd338029d3c2bcc82b"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-v1/derivatives/nppi-dmn/sub-106/L2.gfeat/cope7.feat/stats/cope1.nii.gz": {
+    "sha256": "2acec75be6bfa0fdba8a4ebf464a1dc25b4e5bac3044c031a9dbc1b1f7210098"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-v1/derivatives/nppi-dmn/sub-106/L2.gfeat/cope7.feat/stats/varcope1.nii.gz": {
+    "sha256": "4e74a3cc2ae21036116f5fd8bebb2aed80821d8a01934d9e2ee82085a24b58e5"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-v1/derivatives/nppi-dmn/sub-107/L2.gfeat/cope7.feat/stats/cope1.nii.gz": {
+    "sha256": "5e63d4585f16100bd13d5ee72d0aa13b08081fd772069e00df2da9b01375b6f4"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-v1/derivatives/nppi-dmn/sub-107/L2.gfeat/cope7.feat/stats/varcope1.nii.gz": {
+    "sha256": "2e592a904ae157479e946060a289583d11b49640f5d233aee7ac6c3922a86549"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-v1/derivatives/nppi-dmn/sub-108/L2.gfeat/cope7.feat/stats/cope1.nii.gz": {
+    "sha256": "3af9b5c67d9b5d2e4f1a29d5b268f30d21e7658456b132ad420a221692cd5fc7"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-v1/derivatives/nppi-dmn/sub-108/L2.gfeat/cope7.feat/stats/varcope1.nii.gz": {
+    "sha256": "e1c78e774d72ad0c900b0c650f7c995dcbe87fda02832c9e424661c13e15a4e2"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-v1/derivatives/nppi-dmn/sub-109/L2.gfeat/cope7.feat/stats/cope1.nii.gz": {
+    "sha256": "b4d1a705a54db88f9df79522c8858e35f5e73f9e55d67640281be81299de0537"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-v1/derivatives/nppi-dmn/sub-109/L2.gfeat/cope7.feat/stats/varcope1.nii.gz": {
+    "sha256": "2e2e7f85b87d1e01516fefde71391371a084df7cb245a5dface17267d835b9c2"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-v1/derivatives/nppi-dmn/sub-110/L2.gfeat/cope7.feat/stats/cope1.nii.gz": {
+    "sha256": "ceaba7a5fe39f9661b2b9188b73b4b0a7e2b0261ea288798b6219d3c7e405626"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-v1/derivatives/nppi-dmn/sub-110/L2.gfeat/cope7.feat/stats/varcope1.nii.gz": {
+    "sha256": "28605121907b5d00afc5b38aadc721c79fb8f08a919f354efbb425715396f7e3"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-v1/derivatives/nppi-dmn/sub-111/L2.gfeat/cope7.feat/stats/cope1.nii.gz": {
+    "sha256": "436772ebcdeb4145ebd8c7e109876d41cce2e517ee04b440b992096db47cf9d7"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-v1/derivatives/nppi-dmn/sub-111/L2.gfeat/cope7.feat/stats/varcope1.nii.gz": {
+    "sha256": "edab48fec595766ec1b6ace4f626bd2e5fb41ada41367fc82eedd01804c4f799"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-v1/derivatives/nppi-dmn/sub-112/L2.gfeat/cope7.feat/stats/cope1.nii.gz": {
+    "sha256": "f0e1c71e524d8493878e673c4071dbad48c8186dc747d188284a5dda948039aa"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-v1/derivatives/nppi-dmn/sub-112/L2.gfeat/cope7.feat/stats/varcope1.nii.gz": {
+    "sha256": "85633a9ca6e3481f57d8f026c295f9cb7e2210c9c3a54cef00a0c43b176ca863"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-v1/derivatives/nppi-dmn/sub-113/L2.gfeat/cope7.feat/stats/cope1.nii.gz": {
+    "sha256": "763dba921300178cc2c0693a07af77fc0f6c3b1033eaa26d6422a8a89b0b7ca8"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-v1/derivatives/nppi-dmn/sub-113/L2.gfeat/cope7.feat/stats/varcope1.nii.gz": {
+    "sha256": "f940fba6b10ee0380e75f9d6532f06bcb5b83a0ecb8d22e110d6fff98a798c4f"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-v1/derivatives/nppi-dmn/sub-115/L2.gfeat/cope7.feat/stats/cope1.nii.gz": {
+    "sha256": "d9233dcd9ee7224cdb553928f394c15df0962c0ccf3ee879ecfa35f800905e15"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-v1/derivatives/nppi-dmn/sub-115/L2.gfeat/cope7.feat/stats/varcope1.nii.gz": {
+    "sha256": "b945bd3435bf4c64af0861dfd17fff9d507ee9a204ad0f27111953e9abccf652"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-v1/derivatives/nppi-dmn/sub-116/L2.gfeat/cope7.feat/stats/cope1.nii.gz": {
+    "sha256": "256e0647f7384399f1b028621e2d108fce1b101f104aa9151dc2930f2ed98296"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-v1/derivatives/nppi-dmn/sub-116/L2.gfeat/cope7.feat/stats/varcope1.nii.gz": {
+    "sha256": "954c350923251304223b789f1042dad26de09f124e34b3bdafffd24b711b7588"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-v1/derivatives/nppi-dmn/sub-117/L2.gfeat/cope7.feat/stats/cope1.nii.gz": {
+    "sha256": "7dad7558db8bea9a15e8619e0ed37bedd22bae3c261d2a08c7e0659b03c2c358"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-v1/derivatives/nppi-dmn/sub-117/L2.gfeat/cope7.feat/stats/varcope1.nii.gz": {
+    "sha256": "594a15db086d529f9c4a4b89293469b05bae9aa799f0ffc6c28d9a99ef83bb53"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-v1/derivatives/nppi-dmn/sub-118/L2.gfeat/cope7.feat/stats/cope1.nii.gz": {
+    "sha256": "fcebf2258872cbcf5ccb1422de23b02b6dafee01510b12b9c15cea58a2dd2fa0"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-v1/derivatives/nppi-dmn/sub-118/L2.gfeat/cope7.feat/stats/varcope1.nii.gz": {
+    "sha256": "093e2c63c960c1301466eeca69d2f34c02f2fda56cb1b19b43973c3f4fa3da7c"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-v1/derivatives/nppi-dmn/sub-121/L2.gfeat/cope7.feat/stats/cope1.nii.gz": {
+    "sha256": "c7c937587d514736bba4dd9439f0593feaf4257528e1bb9f66f324c628204f8a"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-v1/derivatives/nppi-dmn/sub-121/L2.gfeat/cope7.feat/stats/varcope1.nii.gz": {
+    "sha256": "7dd0d1e6017b30e5ff1a07c9ee02841c4b4b6bfc836e22269d0ec0ce5a962546"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-v1/derivatives/nppi-dmn/sub-122/L2.gfeat/cope7.feat/stats/cope1.nii.gz": {
+    "sha256": "2f7fd42868ec43c5cc42db7c85878f28e5152cbb5e617dbd830f9a196b2a6078"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-v1/derivatives/nppi-dmn/sub-122/L2.gfeat/cope7.feat/stats/varcope1.nii.gz": {
+    "sha256": "2c273328234229bcc14ca7fb76f211d98dc9013fb701f1772da42a693b286247"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-v1/derivatives/nppi-dmn/sub-124/L2.gfeat/cope7.feat/stats/cope1.nii.gz": {
+    "sha256": "494e86089ba2033add0f77d4ba44256414ccada2c257f363d3ebd8bd714912cc"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-v1/derivatives/nppi-dmn/sub-124/L2.gfeat/cope7.feat/stats/varcope1.nii.gz": {
+    "sha256": "5f6efef6361a06a4a248828f467a242882a24e0025cd00631e854c18498e17bc"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-v1/derivatives/nppi-dmn/sub-125/L2.gfeat/cope7.feat/stats/cope1.nii.gz": {
+    "sha256": "0510bef72966ddb034a4375d3bf3f338d6ac23585f1e3adf0bfa17a2d98c4212"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-v1/derivatives/nppi-dmn/sub-125/L2.gfeat/cope7.feat/stats/varcope1.nii.gz": {
+    "sha256": "cf57e392c8d9460a22d777efe69313e14489fb8c8d5d45e70efbe8918a01ff4f"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-v1/derivatives/nppi-dmn/sub-126/L2.gfeat/cope7.feat/stats/cope1.nii.gz": {
+    "sha256": "477feef002425f40d7138462bfe57d59ec9c3bc299323448d430499731317038"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-v1/derivatives/nppi-dmn/sub-126/L2.gfeat/cope7.feat/stats/varcope1.nii.gz": {
+    "sha256": "aa5ada73b5777b602fbb0d36a97132eb1c0239014c0b6270fbfa6b875c9face5"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-v1/derivatives/nppi-dmn/sub-127/L2.gfeat/cope7.feat/stats/cope1.nii.gz": {
+    "sha256": "cf86282daedfde1ea02ca9aadf4190deef8b01d344198e108d26c52a41d4296a"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-v1/derivatives/nppi-dmn/sub-127/L2.gfeat/cope7.feat/stats/varcope1.nii.gz": {
+    "sha256": "c1537a1faf2e690fc80f82cbb285585cf44ccc28d1efbd1007c2c04e12785d99"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-v1/derivatives/nppi-dmn/sub-128/L2.gfeat/cope7.feat/stats/cope1.nii.gz": {
+    "sha256": "d62c202cfd541290ae9385d7c60ce6501fed580084da88eae91fd6e16a6b6ce1"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-v1/derivatives/nppi-dmn/sub-128/L2.gfeat/cope7.feat/stats/varcope1.nii.gz": {
+    "sha256": "a64e397e140eb0f3e74e29e27d34ce8d4fb8803df841fb6c64174c870407b95f"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-v1/derivatives/nppi-dmn/sub-129/L2.gfeat/cope7.feat/stats/cope1.nii.gz": {
+    "sha256": "a4f73ca1fc5c6b86484a1512d9d876cbe96d18514a5609121a7e422124db48c2"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-v1/derivatives/nppi-dmn/sub-129/L2.gfeat/cope7.feat/stats/varcope1.nii.gz": {
+    "sha256": "59edf876be8fba3acba41c02d26652c40c6b9822afe6c693531bca3d27a8a009"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-v1/derivatives/nppi-dmn/sub-130/L2.gfeat/cope7.feat/stats/cope1.nii.gz": {
+    "sha256": "a40e4498c41f5ca056af71deb583b5aa0aa933e37d8e6c45bc3bf3f13c67078a"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-v1/derivatives/nppi-dmn/sub-130/L2.gfeat/cope7.feat/stats/varcope1.nii.gz": {
+    "sha256": "2e2be025930c49c9558d13d3af9821e162d61260907f2fde721713fd9b5652d9"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-v1/derivatives/nppi-dmn/sub-132/L2.gfeat/cope7.feat/stats/cope1.nii.gz": {
+    "sha256": "b5470bd1c418e4246fb0b26a56dcb8e06261571722450ca240bd44285a82a978"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-v1/derivatives/nppi-dmn/sub-132/L2.gfeat/cope7.feat/stats/varcope1.nii.gz": {
+    "sha256": "0558eb4eea7029c7050233d1afd935c5c7f57b28d2801b9519f9acaaf89623fc"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-v1/derivatives/nppi-dmn/sub-133/L2.gfeat/cope7.feat/stats/cope1.nii.gz": {
+    "sha256": "5e030b73e807cc29f69b868f664c23c3d551d49f465be43825daac05306ee7be"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-v1/derivatives/nppi-dmn/sub-133/L2.gfeat/cope7.feat/stats/varcope1.nii.gz": {
+    "sha256": "9a087f04cb6760f3fd07456fc7ea4f352ee919c07f527e7fa378f03643486b54"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-v1/derivatives/nppi-dmn/sub-134/L2.gfeat/cope7.feat/stats/cope1.nii.gz": {
+    "sha256": "c7e731a6a37059eb1065daf55699cf2bc227725bb07f5d0b7cc60325e499eea8"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-v1/derivatives/nppi-dmn/sub-134/L2.gfeat/cope7.feat/stats/varcope1.nii.gz": {
+    "sha256": "243204c33cd088c884cbf43673d07b0f28adc6b54c38c56677785c369df87bde"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-v1/derivatives/nppi-dmn/sub-135/L2.gfeat/cope7.feat/stats/cope1.nii.gz": {
+    "sha256": "9ab628b003ef7e14c30ed8ec16c6bd380d497d6bc40db4471f6ae008f7f8977c"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-v1/derivatives/nppi-dmn/sub-135/L2.gfeat/cope7.feat/stats/varcope1.nii.gz": {
+    "sha256": "743c3b0e5bd09dea9cd205719626e194624c2917efb6b2a9a94768884c2fec3e"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-v1/derivatives/nppi-dmn/sub-136/L2.gfeat/cope7.feat/stats/cope1.nii.gz": {
+    "sha256": "84a2b529d8f8d1e2f9dff434f723c26f36a4cd8f20b824dc7a351fcd1bbc2a3d"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-v1/derivatives/nppi-dmn/sub-136/L2.gfeat/cope7.feat/stats/varcope1.nii.gz": {
+    "sha256": "5791ff91286de23107fd012b562f346d00a690e79f45f70fb71b465c5264537c"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-v1/derivatives/nppi-dmn/sub-137/L2.gfeat/cope7.feat/stats/cope1.nii.gz": {
+    "sha256": "d2a7832b5fa0313a6054e33db2ddefed99e4c07984305d8afa85d99120627d2c"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-v1/derivatives/nppi-dmn/sub-137/L2.gfeat/cope7.feat/stats/varcope1.nii.gz": {
+    "sha256": "82d1b584989efee5041d6cffd7ebf1e42721d81a0e3b65bb8df4a4e414bd9e23"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-v1/derivatives/nppi-dmn/sub-138/L2.gfeat/cope7.feat/stats/cope1.nii.gz": {
+    "sha256": "539472503bff3ac879080fdde572bf385881d3de9f29cc8f4e773b2e17d24d5d"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-v1/derivatives/nppi-dmn/sub-138/L2.gfeat/cope7.feat/stats/varcope1.nii.gz": {
+    "sha256": "7978e016304649b9e8e4c17970e06e0c78adb5b01eeb36e3104b06e52b1cb908"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-v1/derivatives/nppi-dmn/sub-140/L2.gfeat/cope7.feat/stats/cope1.nii.gz": {
+    "sha256": "9fa8f39e983bdead05e78c80d8304024f07ffb2e0f9004be746353eafa0e3c9e"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-v1/derivatives/nppi-dmn/sub-140/L2.gfeat/cope7.feat/stats/varcope1.nii.gz": {
+    "sha256": "e22eb4f0a608ab345274e4d2ce64e629732e7cd6fb1f901f12bde969f24e0cce"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-v1/derivatives/nppi-dmn/sub-141/L2.gfeat/cope7.feat/stats/cope1.nii.gz": {
+    "sha256": "56f5a447e46be01e71a4482bdd888972e93b18cb01d2c8e8c569ffd0c75110d6"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-v1/derivatives/nppi-dmn/sub-141/L2.gfeat/cope7.feat/stats/varcope1.nii.gz": {
+    "sha256": "d9e88fb8719c1498d99386f54d8247682218e0bde9921004757ac8aa9f364ddc"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-v1/derivatives/nppi-dmn/sub-142/L2.gfeat/cope7.feat/stats/cope1.nii.gz": {
+    "sha256": "2b980ad2bbe609df06654f9d2b318ab714f869ab3e43b53c405a370f2605dd9c"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-v1/derivatives/nppi-dmn/sub-142/L2.gfeat/cope7.feat/stats/varcope1.nii.gz": {
+    "sha256": "88adc5406a4e9ad8dfc32d533463acead915cc8b49264bbbd8fd81a4cde87919"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-v1/derivatives/nppi-dmn/sub-143/L2.gfeat/cope7.feat/stats/cope1.nii.gz": {
+    "sha256": "039186810f921216d188f337951d0219f6f7de0af3da938b165ed0aa13b59a34"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-v1/derivatives/nppi-dmn/sub-143/L2.gfeat/cope7.feat/stats/varcope1.nii.gz": {
+    "sha256": "edb1570d7cda90a3489f5269bedf0f84b25dbe2e52fb0acac6bd1e66ad1a4b71"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-v1/derivatives/nppi-dmn/sub-144/L2.gfeat/cope7.feat/stats/cope1.nii.gz": {
+    "sha256": "deb370dee783637586e0c0c491a1f08104315fa71ba97a43d8586b150cefc6e5"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-v1/derivatives/nppi-dmn/sub-144/L2.gfeat/cope7.feat/stats/varcope1.nii.gz": {
+    "sha256": "9992e11dd41bd50e6daec5f6a4a02446c013c1edb58a705fb7b715e9a3504a77"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-v1/derivatives/nppi-dmn/sub-147/L2.gfeat/cope7.feat/stats/cope1.nii.gz": {
+    "sha256": "52c75b7099d65f13b8cdbb636db778f3179a73fad041e746781697b43e840df9"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-v1/derivatives/nppi-dmn/sub-147/L2.gfeat/cope7.feat/stats/varcope1.nii.gz": {
+    "sha256": "e729307a76302c78beb656eead735e38c064f5edc7136a16ce42f0e79f811c3f"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-v1/derivatives/nppi-dmn/sub-149/L2.gfeat/cope7.feat/stats/cope1.nii.gz": {
+    "sha256": "37059659d7e68c8465d41c45b38621918c50771b5b6387041156722b2a8a00ba"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-v1/derivatives/nppi-dmn/sub-149/L2.gfeat/cope7.feat/stats/varcope1.nii.gz": {
+    "sha256": "8a0997f3b2acc29b3b94cc747ea6eec07a14950ddf6204a304c666dd022e6696"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-v1/derivatives/nppi-dmn/sub-150/L2.gfeat/cope7.feat/stats/cope1.nii.gz": {
+    "sha256": "33c951b0b2160671a0daea69b38bf56c746dd26f12aafff8e5fa293001bc03ee"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-v1/derivatives/nppi-dmn/sub-150/L2.gfeat/cope7.feat/stats/varcope1.nii.gz": {
+    "sha256": "70673f07ae14bf9600aa31518c702b779db4758a204d07979dfec1c8560de1c3"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-v1/derivatives/nppi-dmn/sub-151/L2.gfeat/cope7.feat/stats/cope1.nii.gz": {
+    "sha256": "6e5b02badaa753700117a7c12ab6add229028807716c4ec53c0c0307cf984d72"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-v1/derivatives/nppi-dmn/sub-151/L2.gfeat/cope7.feat/stats/varcope1.nii.gz": {
+    "sha256": "7e20af5acf2efe0c21c893db71018f57e7a2cd7a45465fa9831fc81a64cfd00d"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-v1/derivatives/nppi-dmn/sub-152/L2.gfeat/cope7.feat/stats/cope1.nii.gz": {
+    "sha256": "694308855836d8156a61e7bcccfe1cccff5de4ab888143410751b70efcebc95b"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-v1/derivatives/nppi-dmn/sub-152/L2.gfeat/cope7.feat/stats/varcope1.nii.gz": {
+    "sha256": "396a275349fbd54a1de711a2ef8d2f4f2c1f599c3efe9c1ae6fd625f35b4ca37"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-v1/derivatives/nppi-dmn/sub-153/L2.gfeat/cope7.feat/stats/cope1.nii.gz": {
+    "sha256": "9485470e548a4f57b2bd03d9661d18c4319e3a61431fe6639b09ba8bc780fe20"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-v1/derivatives/nppi-dmn/sub-153/L2.gfeat/cope7.feat/stats/varcope1.nii.gz": {
+    "sha256": "88d5ba1969dfb67908af76a452d2caeaa2216a66ac6eff9565037cd156837927"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-v1/derivatives/nppi-dmn/sub-154/L2.gfeat/cope7.feat/stats/cope1.nii.gz": {
+    "sha256": "47eeefb81c5616d7b0c0dc40ab97dea846eacfdba7e9453fa312bbd27a8425e6"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-v1/derivatives/nppi-dmn/sub-154/L2.gfeat/cope7.feat/stats/varcope1.nii.gz": {
+    "sha256": "2cd6d4a3a83460f0a401a2f73dac2c0ca6b2029a8275300e8844a3419d68154b"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-v1/derivatives/nppi-dmn/sub-155/L2.gfeat/cope7.feat/stats/cope1.nii.gz": {
+    "sha256": "c1651682d31923ec41351b489c7d61ba29f9f3fb99c7feba44e096bbb7ae622d"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-v1/derivatives/nppi-dmn/sub-155/L2.gfeat/cope7.feat/stats/varcope1.nii.gz": {
+    "sha256": "7712792ecaad33dd2f0048eb24315c564a1a7aa952ea1b3cbbd49447379499da"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-v1/derivatives/nppi-dmn/sub-156/L2.gfeat/cope7.feat/stats/cope1.nii.gz": {
+    "sha256": "68655a1dca225ad25bd93eac85d60067a39974b63fba6265b5ea2a64207b8ef1"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-v1/derivatives/nppi-dmn/sub-156/L2.gfeat/cope7.feat/stats/varcope1.nii.gz": {
+    "sha256": "e5c4b4062cdb9e1fceea59443613e772f095bf5d20b5757161fca8f7185ea1a0"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-v1/derivatives/nppi-dmn/sub-157/L2.gfeat/cope7.feat/stats/cope1.nii.gz": {
+    "sha256": "3340a3b9d073b0c33d32c18b1de1ec02a0459e31658d7b859a527b497b308ed4"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-v1/derivatives/nppi-dmn/sub-157/L2.gfeat/cope7.feat/stats/varcope1.nii.gz": {
+    "sha256": "ca68d36af717f1a9ae5fabee0b537cefbd91c5e61fbb51fea256bac9ded8f020"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-v1/derivatives/nppi-dmn/sub-158/L2.gfeat/cope7.feat/stats/cope1.nii.gz": {
+    "sha256": "9a2d1be1f86642db4b7c396355d410f7efc1ff11156f7f0a390c038dea79281f"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-v1/derivatives/nppi-dmn/sub-158/L2.gfeat/cope7.feat/stats/varcope1.nii.gz": {
+    "sha256": "3635b130a8130b00a1570925eb995e2befacc5aa4e33f2d71718cbb1ab5280ea"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-v1/derivatives/nppi-dmn/sub-159/L2.gfeat/cope7.feat/stats/cope1.nii.gz": {
+    "sha256": "ae3b087235e267cc2c39eedb04deba8ea87f7a9ebd413093e535c17e945f8c03"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-decision-postresponse-v1/derivatives/nppi-dmn/sub-159/L2.gfeat/cope7.feat/stats/varcope1.nii.gz": {
+    "sha256": "92f7012b9ffbea31283749654ce41383f3c66c3b99d7324ecf671b0398ab417e"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-rt-correction-v1/derivatives/nppi-dmn/sub-104/L2.gfeat/cope7.feat/stats/cope1.nii.gz": {
+    "sha256": "2817d3ff2568b705eb118202d0e1a890a81457fb1d663450b9dfd4440761b859"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-rt-correction-v1/derivatives/nppi-dmn/sub-104/L2.gfeat/cope7.feat/stats/varcope1.nii.gz": {
+    "sha256": "26fee25a15573dc78654009e46c873255620f443f0cb6c6d1f699bf081d4ed2c"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-rt-correction-v1/derivatives/nppi-dmn/sub-105/L2.gfeat/cope7.feat/stats/cope1.nii.gz": {
+    "sha256": "ff0bf8d53cd8b6bdb65c3d83018ed4d1d377156f5c461c7cb29cf57d49ba7944"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-rt-correction-v1/derivatives/nppi-dmn/sub-105/L2.gfeat/cope7.feat/stats/varcope1.nii.gz": {
+    "sha256": "137fc6ef39c0dec09b761ac2507dba61fad604ca13986f823bc3029b6439d213"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-rt-correction-v1/derivatives/nppi-dmn/sub-106/L2.gfeat/cope7.feat/stats/cope1.nii.gz": {
+    "sha256": "e8faff93ce61242c425d1737ff42347b68ab981f0fd3c5211b3c7fb4dea78f8e"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-rt-correction-v1/derivatives/nppi-dmn/sub-106/L2.gfeat/cope7.feat/stats/varcope1.nii.gz": {
+    "sha256": "47fece21fb09777d89a206c3d1354ead20e2010705739863ab2e3c5853d359ed"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-rt-correction-v1/derivatives/nppi-dmn/sub-107/L2.gfeat/cope7.feat/stats/cope1.nii.gz": {
+    "sha256": "82a25edbca22b8d202fd3ec90583f1151f8646c895e50cd3a593c108f1b8338a"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-rt-correction-v1/derivatives/nppi-dmn/sub-107/L2.gfeat/cope7.feat/stats/varcope1.nii.gz": {
+    "sha256": "61cf9401c77d2492d50f59494d421c883a146cadbcb5e3040cd56a7f7a1594bb"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-rt-correction-v1/derivatives/nppi-dmn/sub-108/L2.gfeat/cope7.feat/stats/cope1.nii.gz": {
+    "sha256": "8338035fee8c7c0d1ea0475b21535f360a91dbbef0ee08179bc138aa8890db71"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-rt-correction-v1/derivatives/nppi-dmn/sub-108/L2.gfeat/cope7.feat/stats/varcope1.nii.gz": {
+    "sha256": "d3f60b13b6d25b902f5a7183078aa40d7c300bb14752c02008f37f43e035bfed"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-rt-correction-v1/derivatives/nppi-dmn/sub-109/L2.gfeat/cope7.feat/stats/cope1.nii.gz": {
+    "sha256": "f978a9f7c91c7b19ac74214007eb7c812d98dc08ce686b2d328e0923bd29d578"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-rt-correction-v1/derivatives/nppi-dmn/sub-109/L2.gfeat/cope7.feat/stats/varcope1.nii.gz": {
+    "sha256": "b30c561a66eda0328bd7a5256284c38e83be0802fe38b57f0aa08cff9fc90667"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-rt-correction-v1/derivatives/nppi-dmn/sub-110/L2.gfeat/cope7.feat/stats/cope1.nii.gz": {
+    "sha256": "29f707b009663a837799ecb38b9005b311c3b18952ab42b374de1d64e124a7c4"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-rt-correction-v1/derivatives/nppi-dmn/sub-110/L2.gfeat/cope7.feat/stats/varcope1.nii.gz": {
+    "sha256": "867fa20f3064308497627f663975ea12ab2483e6be8f9b5ef9e23999de423e1d"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-rt-correction-v1/derivatives/nppi-dmn/sub-111/L2.gfeat/cope7.feat/stats/cope1.nii.gz": {
+    "sha256": "559fdc86b95690c92498ed9e8a673bf8bb037acbe78e5a7a9bc49d73528ed9c9"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-rt-correction-v1/derivatives/nppi-dmn/sub-111/L2.gfeat/cope7.feat/stats/varcope1.nii.gz": {
+    "sha256": "7912d397e9920f377ac36d73ca4c1160f385289144a2c7fddab364711f901c7c"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-rt-correction-v1/derivatives/nppi-dmn/sub-112/L2.gfeat/cope7.feat/stats/cope1.nii.gz": {
+    "sha256": "86c89bac67f4d35b57a592e0b4ef8abed3a598bfefc7c40b52b6377a47e5547d"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-rt-correction-v1/derivatives/nppi-dmn/sub-112/L2.gfeat/cope7.feat/stats/varcope1.nii.gz": {
+    "sha256": "806cda1b16d7b18e014bc8b8ba75bfdacd1a4b473211a97b477d1f0c3a0bc89f"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-rt-correction-v1/derivatives/nppi-dmn/sub-113/L2.gfeat/cope7.feat/stats/cope1.nii.gz": {
+    "sha256": "45bd81d9af2aec5e9d47bafe2618b75b77a55ca2005e1840a7894b5006bbf048"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-rt-correction-v1/derivatives/nppi-dmn/sub-113/L2.gfeat/cope7.feat/stats/varcope1.nii.gz": {
+    "sha256": "d261478f59a3c617dc2c6cc72b8c69797063a1aa1a94c9a0d738d5ff0444f091"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-rt-correction-v1/derivatives/nppi-dmn/sub-115/L2.gfeat/cope7.feat/stats/cope1.nii.gz": {
+    "sha256": "8f0eb3a76e20d6ab7e1ed197c02844aa4b2b84934e7ce9879dc5bee8889c75ec"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-rt-correction-v1/derivatives/nppi-dmn/sub-115/L2.gfeat/cope7.feat/stats/varcope1.nii.gz": {
+    "sha256": "aced2918d5e5502773d53687f65ae13ffa6f5c6153eb79b83ee5ef9ccadf6412"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-rt-correction-v1/derivatives/nppi-dmn/sub-116/L2.gfeat/cope7.feat/stats/cope1.nii.gz": {
+    "sha256": "68d8fbd90c15a376080f98586d165c2e14add1391262998274e4139683517b98"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-rt-correction-v1/derivatives/nppi-dmn/sub-116/L2.gfeat/cope7.feat/stats/varcope1.nii.gz": {
+    "sha256": "1a30cf9a17ed2ce099e5dde797f1a90be9383c204506952d79de2a15ce5c614d"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-rt-correction-v1/derivatives/nppi-dmn/sub-117/L2.gfeat/cope7.feat/stats/cope1.nii.gz": {
+    "sha256": "7305573a5251a4642c0055823dc093191554a8c4d7e35a968652c906a14afb71"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-rt-correction-v1/derivatives/nppi-dmn/sub-117/L2.gfeat/cope7.feat/stats/varcope1.nii.gz": {
+    "sha256": "fdce76e91e0135ee5092c4f9d8d350e22678b54bd291f1371a7deb99108ddefa"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-rt-correction-v1/derivatives/nppi-dmn/sub-118/L2.gfeat/cope7.feat/stats/cope1.nii.gz": {
+    "sha256": "f66db036108f07b7cd7168300b0c5aaacc3b50e9b05b857ca99398b8e24c5416"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-rt-correction-v1/derivatives/nppi-dmn/sub-118/L2.gfeat/cope7.feat/stats/varcope1.nii.gz": {
+    "sha256": "b288154935aa73727f314746792193cc5b71b19d00af81bd73950d71a0754641"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-rt-correction-v1/derivatives/nppi-dmn/sub-121/L2.gfeat/cope7.feat/stats/cope1.nii.gz": {
+    "sha256": "a12f0623b85e17dc0bad830ed00593d71b9ad110760404c99c1ec20c15090f9f"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-rt-correction-v1/derivatives/nppi-dmn/sub-121/L2.gfeat/cope7.feat/stats/varcope1.nii.gz": {
+    "sha256": "4b5750c6d7666bfcb99ba926c73103da04eddbd07234c5efac98599273fe424b"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-rt-correction-v1/derivatives/nppi-dmn/sub-122/L2.gfeat/cope7.feat/stats/cope1.nii.gz": {
+    "sha256": "0fd457ed38ac075064da9f34bd18b2698bf83e6854af990bd27f0e2c41d890de"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-rt-correction-v1/derivatives/nppi-dmn/sub-122/L2.gfeat/cope7.feat/stats/varcope1.nii.gz": {
+    "sha256": "54b337b38a90ee82b777763cac7986457b8d6edbf5645270ad99899914122f3c"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-rt-correction-v1/derivatives/nppi-dmn/sub-124/L2.gfeat/cope7.feat/stats/cope1.nii.gz": {
+    "sha256": "94119e0f80fbb84c73514fec4c6f937f65ab973799842c72aade793378eae24c"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-rt-correction-v1/derivatives/nppi-dmn/sub-124/L2.gfeat/cope7.feat/stats/varcope1.nii.gz": {
+    "sha256": "fad7ca9b9b365f730a82ad99924d012ec3d8268b9d0d9263b468b4789806b65b"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-rt-correction-v1/derivatives/nppi-dmn/sub-125/L2.gfeat/cope7.feat/stats/cope1.nii.gz": {
+    "sha256": "284d5afe4b9d86b1432f257d3b1fc4228fa30cee45e215a254d8356826d7d14a"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-rt-correction-v1/derivatives/nppi-dmn/sub-125/L2.gfeat/cope7.feat/stats/varcope1.nii.gz": {
+    "sha256": "d94e4907856359c07e04bffeb455dc24af43d84ec11a9e613c45d832626209a7"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-rt-correction-v1/derivatives/nppi-dmn/sub-126/L2.gfeat/cope7.feat/stats/cope1.nii.gz": {
+    "sha256": "2cc02540e24b5f5361f9dd2d5456becd92e304b775b54bd1b6d133e9a4299ede"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-rt-correction-v1/derivatives/nppi-dmn/sub-126/L2.gfeat/cope7.feat/stats/varcope1.nii.gz": {
+    "sha256": "bf2346d52f975672ef2643e559e9cbade0b39f88b948547fd8638804a13612cf"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-rt-correction-v1/derivatives/nppi-dmn/sub-127/L2.gfeat/cope7.feat/stats/cope1.nii.gz": {
+    "sha256": "a1c13c7d6fc45aaf090ebaec68377c70b98938d7a6b647bcc813673c126e81b0"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-rt-correction-v1/derivatives/nppi-dmn/sub-127/L2.gfeat/cope7.feat/stats/varcope1.nii.gz": {
+    "sha256": "31b9f97dc0646d584038116d041e639c0aeecf6164f103698c3d07869c26dceb"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-rt-correction-v1/derivatives/nppi-dmn/sub-128/L2.gfeat/cope7.feat/stats/cope1.nii.gz": {
+    "sha256": "7f5f4b017bd1701669f6c2470c576e24dbc904eccdd12ad64420ece3a37bb162"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-rt-correction-v1/derivatives/nppi-dmn/sub-128/L2.gfeat/cope7.feat/stats/varcope1.nii.gz": {
+    "sha256": "346d201724fad9d74996bc7d7298c4d81665c12fea397679546f8d3e55bb3678"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-rt-correction-v1/derivatives/nppi-dmn/sub-129/L2.gfeat/cope7.feat/stats/cope1.nii.gz": {
+    "sha256": "c566adef045fde4d8abcedfa6e07593a8a7112487918a96ead91fd069cd56c51"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-rt-correction-v1/derivatives/nppi-dmn/sub-129/L2.gfeat/cope7.feat/stats/varcope1.nii.gz": {
+    "sha256": "c0776fc08a1da180901310dfe484b54d44d2a68afba8987fbe4899de18a472c6"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-rt-correction-v1/derivatives/nppi-dmn/sub-130/L2.gfeat/cope7.feat/stats/cope1.nii.gz": {
+    "sha256": "4de3155805721c5f60324c46c7343a001e3a980e3cb6c3ed181423ab12b15f3a"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-rt-correction-v1/derivatives/nppi-dmn/sub-130/L2.gfeat/cope7.feat/stats/varcope1.nii.gz": {
+    "sha256": "4f28d9ab68f36665a59773eb2bbd6a9b25be9831af87f72db4a3538c102228ae"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-rt-correction-v1/derivatives/nppi-dmn/sub-132/L2.gfeat/cope7.feat/stats/cope1.nii.gz": {
+    "sha256": "160e0f9bd90950d2a1dee7734a634f498854a0117a6d9b45e2e9f90f7470012b"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-rt-correction-v1/derivatives/nppi-dmn/sub-132/L2.gfeat/cope7.feat/stats/varcope1.nii.gz": {
+    "sha256": "70f62be4b179af8be4a51697b79a2f520a6e9034a69e932bcf5709789a059adc"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-rt-correction-v1/derivatives/nppi-dmn/sub-133/L2.gfeat/cope7.feat/stats/cope1.nii.gz": {
+    "sha256": "903308c301b7e33cbd4731022b837a5d1edb020185bd526cf0cee43730561d85"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-rt-correction-v1/derivatives/nppi-dmn/sub-133/L2.gfeat/cope7.feat/stats/varcope1.nii.gz": {
+    "sha256": "c0c57406244d00cd82a5662d71f168a28a512d660e82e96a6448361d078ac595"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-rt-correction-v1/derivatives/nppi-dmn/sub-134/L2.gfeat/cope7.feat/stats/cope1.nii.gz": {
+    "sha256": "08e04e2367d5059230a657bee788d2e0cdb9604335742c9fa3e2f6bda4f42833"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-rt-correction-v1/derivatives/nppi-dmn/sub-134/L2.gfeat/cope7.feat/stats/varcope1.nii.gz": {
+    "sha256": "01ccec2306ea83421a3d184983618b9137b3d7a8376763230f4a468d5183b13d"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-rt-correction-v1/derivatives/nppi-dmn/sub-135/L2.gfeat/cope7.feat/stats/cope1.nii.gz": {
+    "sha256": "27ec575129c8fe5704573b523bd5ebd770f64bcaa7a8505f576a3fc086fcfe39"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-rt-correction-v1/derivatives/nppi-dmn/sub-135/L2.gfeat/cope7.feat/stats/varcope1.nii.gz": {
+    "sha256": "d80d9389b4936204549be9bdb0e2eab2051c6d13850288fc64d9fa650dad3d1d"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-rt-correction-v1/derivatives/nppi-dmn/sub-136/L2.gfeat/cope7.feat/stats/cope1.nii.gz": {
+    "sha256": "a62eebe597a19be76e61d079e9292fcb390af843867fe1aad96433723422f504"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-rt-correction-v1/derivatives/nppi-dmn/sub-136/L2.gfeat/cope7.feat/stats/varcope1.nii.gz": {
+    "sha256": "c5a5f6b4d1c62bd0038a53be1d3089a4bcbb0e424eef9642d6ac7356abef3337"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-rt-correction-v1/derivatives/nppi-dmn/sub-137/L2.gfeat/cope7.feat/stats/cope1.nii.gz": {
+    "sha256": "be82f7a94ed153658b8af7e61f1f65971791bbbd685b74c219416a0a674ed0d0"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-rt-correction-v1/derivatives/nppi-dmn/sub-137/L2.gfeat/cope7.feat/stats/varcope1.nii.gz": {
+    "sha256": "18090f260bd652320ae739d4687ab72d32b3947b542d11f23d6ee28aa708bea9"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-rt-correction-v1/derivatives/nppi-dmn/sub-138/L2.gfeat/cope7.feat/stats/cope1.nii.gz": {
+    "sha256": "de9868473c7894d8b71ed1bf1abd2d814b579ffbe6299f7f9910fe70a54e1beb"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-rt-correction-v1/derivatives/nppi-dmn/sub-138/L2.gfeat/cope7.feat/stats/varcope1.nii.gz": {
+    "sha256": "56101fe1d07f88b352d0752f4f23980008df0ebed5bfc71fcf9a3416535de5b5"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-rt-correction-v1/derivatives/nppi-dmn/sub-140/L2.gfeat/cope7.feat/stats/cope1.nii.gz": {
+    "sha256": "2ed23a582b3e8c172c245cea1b0af45b01dae72cdf1b5e9131e8976f6672ab3f"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-rt-correction-v1/derivatives/nppi-dmn/sub-140/L2.gfeat/cope7.feat/stats/varcope1.nii.gz": {
+    "sha256": "7634161b8a09b896caae4d5393118b985af6dc54182fc8b536c7ef8137af37d8"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-rt-correction-v1/derivatives/nppi-dmn/sub-141/L2.gfeat/cope7.feat/stats/cope1.nii.gz": {
+    "sha256": "6f2d1a747ade442a7e24c1a31dd3ee03e2d17a4633260d1bc9327980cad9ad8f"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-rt-correction-v1/derivatives/nppi-dmn/sub-141/L2.gfeat/cope7.feat/stats/varcope1.nii.gz": {
+    "sha256": "37618130e573d97acffd4e24c887207ab4f6497fb655be3742872f219ca3c1a3"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-rt-correction-v1/derivatives/nppi-dmn/sub-142/L2.gfeat/cope7.feat/stats/cope1.nii.gz": {
+    "sha256": "f0fb96f9406ed3c874a6cddf3b7b41155638dc6f4aff6a6c4be12c915b35886e"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-rt-correction-v1/derivatives/nppi-dmn/sub-142/L2.gfeat/cope7.feat/stats/varcope1.nii.gz": {
+    "sha256": "e65f5e2d9a88f878e057ba9c2e4cf18b4f5103af1d457cbd42fca08b9622f100"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-rt-correction-v1/derivatives/nppi-dmn/sub-143/L2.gfeat/cope7.feat/stats/cope1.nii.gz": {
+    "sha256": "24aa2fc59d1263e3263d6b5274a8679574ca460261181b5047f09d9a41edaf2d"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-rt-correction-v1/derivatives/nppi-dmn/sub-143/L2.gfeat/cope7.feat/stats/varcope1.nii.gz": {
+    "sha256": "00c270cf083c3cfd936bf72057a79f191efa65f3bf0b858e4a2d0158c4bdf3ee"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-rt-correction-v1/derivatives/nppi-dmn/sub-144/L2.gfeat/cope7.feat/stats/cope1.nii.gz": {
+    "sha256": "07fa969195442dcd6b012df5f765815f3f3e9f2872a4eac097e992ded9b8ffb3"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-rt-correction-v1/derivatives/nppi-dmn/sub-144/L2.gfeat/cope7.feat/stats/varcope1.nii.gz": {
+    "sha256": "9858f85d233c9692c3a99c02897bef08736e42174a6a82d8fa857aa87353aa4b"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-rt-correction-v1/derivatives/nppi-dmn/sub-147/L2.gfeat/cope7.feat/stats/cope1.nii.gz": {
+    "sha256": "103fa74851ee1e81697d14cc1cc589379dbb2a0981e050efb2141c2e108ce134"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-rt-correction-v1/derivatives/nppi-dmn/sub-147/L2.gfeat/cope7.feat/stats/varcope1.nii.gz": {
+    "sha256": "8842f97a786e5ed8c27120b3684af045f9e23a0ecae3dc923f188e5b16849802"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-rt-correction-v1/derivatives/nppi-dmn/sub-149/L2.gfeat/cope7.feat/stats/cope1.nii.gz": {
+    "sha256": "3bc8740c2e269a33f9df506f1b88c1b719e625683abe459394fe8711b3bda43e"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-rt-correction-v1/derivatives/nppi-dmn/sub-149/L2.gfeat/cope7.feat/stats/varcope1.nii.gz": {
+    "sha256": "d60046f8634abfcf3631f48a5a4094bdf2429325c74402def7665fe56d6c1552"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-rt-correction-v1/derivatives/nppi-dmn/sub-150/L2.gfeat/cope7.feat/stats/cope1.nii.gz": {
+    "sha256": "5fc26acdab594e68885dc7a77dd36886f5df8a6b46a306ac797d1bfc5fd281a1"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-rt-correction-v1/derivatives/nppi-dmn/sub-150/L2.gfeat/cope7.feat/stats/varcope1.nii.gz": {
+    "sha256": "3bebf70b2458725437654c5282fce4b605add8d77d5c38ec1ade3dd083718f7d"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-rt-correction-v1/derivatives/nppi-dmn/sub-151/L2.gfeat/cope7.feat/stats/cope1.nii.gz": {
+    "sha256": "63b4b66b1435a08e73d15186987bad843818de39ab86552350f2cdac6d7310d3"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-rt-correction-v1/derivatives/nppi-dmn/sub-151/L2.gfeat/cope7.feat/stats/varcope1.nii.gz": {
+    "sha256": "1b75c6b96f824a2a9972988efade94bdbed5c304e14f8a884456e03b05e73571"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-rt-correction-v1/derivatives/nppi-dmn/sub-152/L2.gfeat/cope7.feat/stats/cope1.nii.gz": {
+    "sha256": "41ce530b0abd2f762c9b70b7a65b13f17a73fbaaf34b4853a098064d9deb2b2f"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-rt-correction-v1/derivatives/nppi-dmn/sub-152/L2.gfeat/cope7.feat/stats/varcope1.nii.gz": {
+    "sha256": "0ef7dc8a468b7486b217a03cfe28543c1fdc1ba58b4dc9ff932e6cd82679b83b"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-rt-correction-v1/derivatives/nppi-dmn/sub-153/L2.gfeat/cope7.feat/stats/cope1.nii.gz": {
+    "sha256": "a9da0b9a6b44be2b785e6cc55345212d0564b6f3bcc183cade3c05bb876efa60"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-rt-correction-v1/derivatives/nppi-dmn/sub-153/L2.gfeat/cope7.feat/stats/varcope1.nii.gz": {
+    "sha256": "14ba3412f7ddb26f900c969fb12276096f082665fc69740b46da3180b1a6a3db"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-rt-correction-v1/derivatives/nppi-dmn/sub-154/L2.gfeat/cope7.feat/stats/cope1.nii.gz": {
+    "sha256": "dcbfb0bd45988397849e6a5a6c2cb937772d7eb8b014b67f272f33d2fbe6c449"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-rt-correction-v1/derivatives/nppi-dmn/sub-154/L2.gfeat/cope7.feat/stats/varcope1.nii.gz": {
+    "sha256": "49508301a966ada83de04d9857754a3098295aa271a73de39c0f11ab6153388d"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-rt-correction-v1/derivatives/nppi-dmn/sub-155/L2.gfeat/cope7.feat/stats/cope1.nii.gz": {
+    "sha256": "071429e9ef8bcee86da3badc4791241df401e8ae4b9051e8ef1c70879e17bfd9"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-rt-correction-v1/derivatives/nppi-dmn/sub-155/L2.gfeat/cope7.feat/stats/varcope1.nii.gz": {
+    "sha256": "fc35e23f2382c537294d96db4caf9b5cc6e600bdd1be3139d09df6a616d50087"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-rt-correction-v1/derivatives/nppi-dmn/sub-156/L2.gfeat/cope7.feat/stats/cope1.nii.gz": {
+    "sha256": "3ae0b8eb1a92c922f1505a260ea5acbfb16f33fb484ee028e6b9f701732057ba"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-rt-correction-v1/derivatives/nppi-dmn/sub-156/L2.gfeat/cope7.feat/stats/varcope1.nii.gz": {
+    "sha256": "63e61dda5785fcc91d4ee67ee0e8fb5a48e496729bb3cc6fc8eaffc37fc2db48"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-rt-correction-v1/derivatives/nppi-dmn/sub-157/L2.gfeat/cope7.feat/stats/cope1.nii.gz": {
+    "sha256": "e991a0b6f22f235f3f6adf54c242bb9088fcd254be8296f0cef5a9764bf57561"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-rt-correction-v1/derivatives/nppi-dmn/sub-157/L2.gfeat/cope7.feat/stats/varcope1.nii.gz": {
+    "sha256": "46f706b98a35776c896f8287c3b98dda8efef4bb2127ac59c92fded80eeb9031"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-rt-correction-v1/derivatives/nppi-dmn/sub-158/L2.gfeat/cope7.feat/stats/cope1.nii.gz": {
+    "sha256": "51ac1058b3c1aea78c36c5becfe0d1f9b799829f9a920cce90999ae4cc23f844"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-rt-correction-v1/derivatives/nppi-dmn/sub-158/L2.gfeat/cope7.feat/stats/varcope1.nii.gz": {
+    "sha256": "ce9dd72d3e5df7781919d84db85b09b7d6ff372b8b7744efefb8f25f1f000042"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-rt-correction-v1/derivatives/nppi-dmn/sub-159/L2.gfeat/cope7.feat/stats/cope1.nii.gz": {
+    "sha256": "a5f8206f2f325be4e51ee2fa11cfe7b8d4e0c87e52172e4f18a57c5019c29e28"
+  },
+  "/ZPOOL/data/scratch/srndna-ultimatum-rt-correction-v1/derivatives/nppi-dmn/sub-159/L2.gfeat/cope7.feat/stats/varcope1.nii.gz": {
+    "sha256": "22d3956a4a3769a954591f36666e917a1019c8db54a2d3605882f2f07f88be8b"
+  },
+  "/usr/local/fsl/data/standard/MNI152_T1_2mm_brain.nii.gz": {
+    "sha256": "09c925ad165dfbe6b41b572876d67e9bbf8c5e26517e7817f9b43a8256227f53"
+  }
+}

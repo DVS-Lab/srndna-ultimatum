@@ -1,0 +1,7 @@
+{
+  "complete": true,
+  "historical_outputs_preserved": true,
+  "interpretation": "Inspect all old/new results; no model selection performed",
+  "l3_models": 15,
+  "source_contrasts": 96
+}
