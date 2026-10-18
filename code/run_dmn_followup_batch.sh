@@ -14,6 +14,8 @@ run_batch() {
     python3 --version || return $?
     python3 -m unittest discover -s tests -p test_dmn_followup.py -v || return $?
     python3 -u code/finish_dmn_diagnostics.py || return $?
+    python3 code/prepare_palm_resume.py --palm-root "$palm" \
+        --work-root "$work/palm" --report-root "$report/palm" || return $?
     local args=(--work-root "$work/palm" --palm-root "$palm" --jobs "$jobs")
     python3 -u code/run_dmn_heteroscedasticity.py "${args[@]}" || return $?
     python3 -u code/run_dmn_heteroscedasticity.py "${args[@]}" --execute || return $?

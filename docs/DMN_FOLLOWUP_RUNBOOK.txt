@@ -58,6 +58,27 @@ Outputs: results/dmn_followup/v1 (commit this entire directory, including logs
 on failure). Large merged images and detailed attempt trees stay in scratch:
 /ZPOOL/data/scratch/srndna-ultimatum-dmn-followup-v1
 
+PALM startup recovery (18 October 2026)
+The pinned PALM version reader assumes HEAD names a readable loose branch ref.
+A detached checkout can fail in palm_help/showversion before any estimation.
+prepare_palm_resume.py attaches the clean checkout to a new local branch at
+the SAME pinned commit; it does not modify PALM source or statistical options.
+It also handles packed refs without moving existing branches. Wrong commits,
+dirty sources, and linked worktrees are rejected.
+
+After the completed overlay/influence stage, resume only PALM:
+
+  bash code/resume_dmn_palm.sh \
+    /ZPOOL/data/scratch/srndna-ultimatum-dmn-followup-v1/tools/PALM 40
+
+Incomplete smoke directories are moved intact to scratch palm/smoke-attempts,
+with their logs copied to results/dmn_followup/v1/palm/smoke-history. Completed
+smoke receipts and full PALM jobs remain in place and are hash-verified by the
+unchanged runner. The existing input/software contract is NOT reset or relaxed.
+This entry point does not regenerate completed overlays/influence diagnostics.
+Each resume has a separate committable log and exit status. If the smoke test
+passes, the same command proceeds directly to the 45 full 10,000-shuffle jobs.
+
 References:
 https://fsl.fmrib.ox.ac.uk/fsl/docs/task_fmri/feat/user_guide.html
 https://fsl.fmrib.ox.ac.uk/fsl/docs/statistics/palm/user_guide.html
