@@ -1,0 +1,7 @@
+target	timing	n	estimate	hc3_se	loo_min	loo_max	loo_sign_changes	cooks_flags	max_cooks	inference
+younger-positive	full-rt	47	11.960914427558768	3.1279255803110457	9.521437001420841	13.142523536949222	0	2	0.5031278567895567	selected-ROI OLS/HC3 diagnostic, not FLAME or independent inference
+younger-positive	pooled-post	47	27.117845374221105	8.07113997538741	20.841133448744568	30.31056360528351	0	2	0.5001770678537018	selected-ROI OLS/HC3 diagnostic, not FLAME or independent inference
+younger-positive	partner-post	47	27.813250483049966	7.972326511871636	21.534786910440243	30.803621692861334	0	2	0.49826392988547097	selected-ROI OLS/HC3 diagnostic, not FLAME or independent inference
+younger-minus-older	full-rt	47	23.174830160746804	5.6615474627166105	19.289368217371894	24.799925992834556	0	4	0.32740471626000756	selected-ROI OLS/HC3 diagnostic, not FLAME or independent inference
+younger-minus-older	pooled-post	47	57.492219807744405	15.56704768707009	45.62417300124118	61.50322654227111	0	3	0.42363706052390243	selected-ROI OLS/HC3 diagnostic, not FLAME or independent inference
+younger-minus-older	partner-post	47	63.906295811823014	16.078382210823772	51.74333365085928	68.25438819640725	0	3	0.4258767783357872	selected-ROI OLS/HC3 diagnostic, not FLAME or independent inference

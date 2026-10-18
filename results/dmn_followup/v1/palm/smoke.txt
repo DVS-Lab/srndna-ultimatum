@@ -1,0 +1,43 @@
+24.2.0.2712019 (R2024b)
+.......................................................................
+=======================================================================
+             ___         ___                         ___
+            /  /\       /  /\                       /__/\
+           /  /::\     /  /::\                     |  |::\
+          /  /:/\:\   /  /:/\:\    ___     ___     |  |:|:\
+         /  /:/~/:/  /  /:/~/::\  /__/\   /  /\  __|__|:|\:\
+        /__/:/ /:/  /__/:/ /:/\:\ \  \:\ /  /:/ /__/::::| \:\
+        \  \:\/:/   \  \:\/:/__\/  \  \:\  /:/  \  \:\~~\__\/
+         \  \::/     \  \::/        \  \:\/:/    \  \:\
+          \  \:\      \  \:\         \  \::/      \  \:\
+           \  \:\      \  \:\         \__\/        \  \:\
+            \__\/       \__\/                       \__\/
+
+=======================================================================
+                 Permutation Analysis of Linear Models
+=======================================================================
+{Error using fgets
+Invalid file identifier. Use fopen to generate a valid file identifier.
+
+Error in fgetl (line 4)
+[tline,lt] = fgets(fid);
+             ^^^^^^^^^^
+Error in palm_help>showversion (line 504)
+        hash = fgetl(fid);
+               ^^^^^^^^^^
+Error in palm_help (line 47)
+        varargout{1} = showversion;
+                       ^^^^^^^^^^^
+Error in palm_config (line 49)
+    [~,ver] = strtok(palm_help('version'),'(');
+                     ^^^^^^^^^^^^^^^^^^^^
+Error in palm_takeargs (line 54)
+    palm_config(vararginx,cfgname);
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Error in palm_core (line 33)
+[opts,plm] = palm_takeargs(varargin{:});
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+Error in palm (line 86)
+palm_core(varargin{:});
+^^^^^^^^^^^^^^^^^^^^^^
+} 

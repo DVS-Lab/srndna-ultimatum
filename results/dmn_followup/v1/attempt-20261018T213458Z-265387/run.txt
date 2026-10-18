@@ -1,0 +1,25 @@
+caa5eff4b0c71cd64997bb763ddaeeaafc5d9c09
+Python 3.11.16
+test_all_retained_models_have_288_summary_cells (test_dmn_followup.FollowupTests.test_all_retained_models_have_288_summary_cells) ... ok
+test_engine_escaping (test_dmn_followup.FollowupTests.test_engine_escaping) ... ok
+test_groups_follow_ids_not_positions (test_dmn_followup.FollowupTests.test_groups_follow_ids_not_positions) ... ok
+test_hc3_matches_sandwich_and_column_reordering (test_dmn_followup.FollowupTests.test_hc3_matches_sandwich_and_column_reordering) ... ok
+test_probability_semantics_and_missing_maps (test_dmn_followup.FollowupTests.test_probability_semantics_and_missing_maps) ... ok
+test_resume_requires_verified_outputs (test_dmn_followup.FollowupTests.test_resume_requires_verified_outputs) ... SKIP_COMPLETE: test tfce
+ok
+test_signflip_contract (test_dmn_followup.FollowupTests.test_signflip_contract) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.025s
+
+OK
+PASS: DMN overlays and fixed-ROI influence checks
+PASS: 15 locked DMN models, 45 PALM jobs, 288 signed contrast/method summaries planned; no fits run
+Traceback (most recent call last):
+  File "/ZPOOL/data/projects/srndna-ultimatum/code/run_dmn_heteroscedasticity.py", line 197, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/ZPOOL/data/projects/srndna-ultimatum/code/run_dmn_heteroscedasticity.py", line 174, in main
+    if result.returncode:raise RuntimeError(f'engine smoke failed; inspect {report}/smoke.txt')
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: engine smoke failed; inspect /ZPOOL/data/projects/srndna-ultimatum/results/dmn_followup/v1/palm/smoke.txt

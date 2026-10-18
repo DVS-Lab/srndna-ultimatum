@@ -1,0 +1,13 @@
+{
+  "sources": {
+    "/ZPOOL/data/projects/srndna-ultimatum/code/finish_dmn_diagnostics.py": "77a320bdf9fbc967107c1da59159ad67afb4285303a7dbf5db10c29553364ecc",
+    "/ZPOOL/data/projects/srndna-ultimatum/code/plot_permutation_followup.py": "f4ed32e9ef1de8f0a1a716be4a0022bf1073cdc7ea88032e0cc9cb922a11fc67",
+    "/usr/local/fsl/data/standard/MNI152_T1_2mm_brain.nii.gz": "09c925ad165dfbe6b41b572876d67e9bbf8c5e26517e7817f9b43a8256227f53",
+    "/ZPOOL/data/projects/srndna-ultimatum/results/dmn_covariate_standardized/v1/randomise/config.json": "22653cdf7dc3f33a68e2651de2250cb0d60f559cd9ead027e3f955de97f6902d",
+    "/ZPOOL/data/projects/srndna-ultimatum/results/dmn_covariate_standardized/v1/randomise/model_contrast_summary.tsv": "8a4f716a9dd0dede8343241d20f284e76131c3ef0412f265ee7e045f2809a003",
+    "/ZPOOL/data/projects/srndna-ultimatum/results/dmn_covariate_standardized/v1/randomise/map_inventory.tsv": "3353f5bb45e7bda4096624fce8f7997a4429b57e52ab02fdcea12be074d648b4",
+    "/ZPOOL/data/projects/srndna-ultimatum/results/dmn_covariate_standardized/v1/imaging/inventory.tsv": "476f306f28a18fe328bc9e6afa0672bdff93ea80c6ace29de8ae3025fb8e9142",
+    "/ZPOOL/data/projects/srndna-ultimatum/results/dmn_covariate_standardized/v1/randomise/input_provenance.json": "b3327018d8891f3e7343c7352fbda3470a415a5f186c7b3288e8d38592d78e36"
+  },
+  "roi_rule": "union of significant FLAME and three randomise masks across all three timings, separately per contrast; fixed before leave-one-out"
+}

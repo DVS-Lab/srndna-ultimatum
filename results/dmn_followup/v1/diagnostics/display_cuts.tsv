@@ -1,0 +1,19 @@
+target	timing	method	x	y	z	rule	flame_voxels	permutation_voxels	overlap_voxels
+younger-positive	full-rt	tfce	-1.873262310469599	43.1547529300054	36.43611213233736	largest component of this row FLAME/permutation union; global union fallback if empty	213	389	93
+younger-positive	pooled-post	tfce	-1.2246390357613564	39.88754975050688	34.60250100493431	largest component of this row FLAME/permutation union; global union fallback if empty	224	0	0
+younger-positive	partner-post	tfce	-21.47304041518106	-46.076540225081985	-7.123332699139908	largest component of this row FLAME/permutation union; global union fallback if empty	197	8	8
+younger-positive	full-rt	cluster-t2.6	-2.7050112014121197	43.52690506387265	36.7622988964649	largest component of this row FLAME/permutation union; global union fallback if empty	213	445	103
+younger-positive	pooled-post	cluster-t2.6	-2.2415707168808865	43.83830414622662	35.34445884285202	largest component of this row FLAME/permutation union; global union fallback if empty	224	159	57
+younger-positive	partner-post	cluster-t2.6	-3.5111651155683745	43.547023769882	36.36902879840798	largest component of this row FLAME/permutation union; global union fallback if empty	197	137	24
+younger-positive	full-rt	cluster-t3.1	-0.6816705328519248	42.322150457100804	36.628197744244446	largest component of this row FLAME/permutation union; global union fallback if empty	213	193	63
+younger-positive	pooled-post	cluster-t3.1	-1.2246390357613564	39.88754975050688	34.60250100493431	largest component of this row FLAME/permutation union; global union fallback if empty	224	44	0
+younger-positive	partner-post	cluster-t3.1	-21.47304041518106	-46.076540225081985	-7.123332699139908	largest component of this row FLAME/permutation union; global union fallback if empty	197	0	0
+younger-minus-older	full-rt	tfce	-7.309998512268066	16.150002479553223	8.440000772476196	largest component of this row FLAME/permutation union; global union fallback if empty	0	2	0
+younger-minus-older	pooled-post	tfce	-3.742398452758792	14.068902444839466	9.406000781059262	largest component of this row FLAME/permutation union; global union fallback if empty	0	16	0
+younger-minus-older	partner-post	tfce	23.022637128829956	-50.98355269432068	-8.878377759778829	largest component of this row FLAME/permutation union; global union fallback if empty	92	109	35
+younger-minus-older	full-rt	cluster-t2.6	23.022637128829956	-50.98355269432068	-8.878377759778829	largest component of this row FLAME/permutation union; global union fallback if empty	0	0	0
+younger-minus-older	pooled-post	cluster-t2.6	23.022637128829956	-50.98355269432068	-8.878377759778829	largest component of this row FLAME/permutation union; global union fallback if empty	0	0	0
+younger-minus-older	partner-post	cluster-t2.6	-22.36476472083558	-45.84021132043067	-7.180424898228736	largest component of this row FLAME/permutation union; global union fallback if empty	92	0	0
+younger-minus-older	full-rt	cluster-t3.1	31.933602142333996	43.50160293579103	-17.70639945983887	largest component of this row FLAME/permutation union; global union fallback if empty	0	50	0
+younger-minus-older	pooled-post	cluster-t3.1	23.022637128829956	-50.98355269432068	-8.878377759778829	largest component of this row FLAME/permutation union; global union fallback if empty	0	0	0
+younger-minus-older	partner-post	cluster-t3.1	-22.36476472083558	-45.84021132043067	-7.180424898228736	largest component of this row FLAME/permutation union; global union fallback if empty	92	0	0
