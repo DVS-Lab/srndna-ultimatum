@@ -1,0 +1,105 @@
+SRNDNA Ultimatum: current result/figure inventory (18 October 2026)
+Repository of record: DVS-Lab/srndna-ultimatum.
+This inventory supersedes older publication-readiness claims, not the retained
+historical outputs. A completed computation is not necessarily a robust result.
+The manuscript has not yet been brought into agreement with this inventory.
+
+SAMPLE AND BEHAVIOR
+- Revised imaging/primary behavioral sample: 47 (25 younger, 22 older), not 50.
+  Dataset-level enrollment and the paper's analyzed sample are distinct.
+- Corrected primary social-choice analysis: 4,438 responded human-partner
+  trials; participant random intercepts and offer slopes. The intended fit
+  converges without singularity (see primary_optimizer_diagnostics.tsv).
+  Offer coefficient 1.8013, SE .2373, p=3.17e-14 (reference age/partner).
+  Offer x age p=.616; offer x age x similarity beta=.11358, SE=.09468, p=.230.
+  This is no detected age moderation, not equivalence or proof that each
+  individual was offer-sensitive. Do not substitute a human/computer contrast
+  for the paper's similar/dissimilar contrast.
+  Evidence: results/reviewer/tables/primary_acceptance_models.tsv;
+  figures/acceptance_curves.png under results/reviewer.
+- Ratings: 42 pre, 42 post, 41 paired, last-complete-attempt rule. No sub-143
+  ratings; sub-144 ratings are not duplicates. Similar-minus-dissimilar ratings
+  associations are exploratory. Pre-likeability vs differential offer slope:
+  Spearman rho=-.405, p=.00772, BH q=.0366. Post-anger rho=.397, p=.00916,
+  q=.0366. Corresponding Pearson associations do not survive BH (q=.0977).
+  Trial-level moderation by pre fairness/likeability: p=.868/.834 in separate
+  random-offer-slope fits; age moderation p=.203/.622. Do not present these as
+  a demonstrated mechanism of the age effect.
+  Evidence/figures: results/reviewer/ultimatum_ratings; results/reviewer/figures/
+  ratings_choice_moderation.png and ratings_fairness_sensitivity_associations.png.
+- Norm models remain exploratory. The positive-bias extension permits both
+  accept- and reject-biased behavior. Its stable empirical fits still contain
+  divergences, and six of eight conditional recovery fits need diagnostic
+  review. workflow_status.json says parameter_recovery_validated=false and
+  imaging_covariates_released=false. No norm-sensitivity/learning-rate covariate
+  is presently cleared as an individual-difference imaging measure.
+  Evidence: results/norm_learning/stan-bias-stable-v1/baseline_stable_comparison.tsv;
+  results/norm_learning/stan-bias-validation-v1/workflow_status.json.
+
+IMAGING: CORRECTED RT, THREE TIMING MODELS, STANDARDIZED DMN COVARIATES
+- Historical Figure 4/ACC age claim is superseded. Files remain for provenance.
+- DMN younger-positive similar-minus-dissimilar offer-slope connectivity:
+  FLAME and randomise cluster t=2.6 detect effects in all three timing models;
+  21 voxels overlap across both procedures and all three timings. TFCE p is
+  .0149/.0558/.0392 (full-RT/pooled-post/partner-post); not all three pass TFCE.
+  This is a within-younger effect, not by itself an age difference.
+- DMN younger-minus-older: TFCE p=.0465/.0419/.0263. FLAME has no age cluster
+  in full-RT or pooled-post; partner-post has 92 voxels, 35 overlapping TFCE.
+  The age comparison is method/model sensitive. Unequal-variance audit pending.
+  Evidence: results/dmn_covariate_standardized/v1/{imaging,randomise};
+  new figures/influence: results/dmn_followup/v1/diagnostics after Linux run.
+- Activation: age difference in association with the similar-minus-dissimilar
+  acceptance intercept is the strongest current cross-method brain-behavior
+  candidate. All three timing models pass randomise cluster t=2.6/3.1; at 3.1,
+  61 voxels overlap across FLAME/randomise and all timings. TFCE p=.0852/.0460/
+  .0373. Left parietal, approximately [-48,-48,48]. Acceptance intercept is NOT
+  offer sensitivity, Gu norm sensitivity, or a general activation age effect.
+- Activation versus differential offer sensitivity in older adults passes
+  some permutation tests but does not spatially overlap FLAME detections.
+  Keep as method-dependent, not convergent evidence.
+- ECN: no significant permutation findings in the audited models. Do not
+  reinstate the submitted ECN effect.
+- Fixed-display supplemental task checks: positive task-wide offer slope
+  TFCE p=.0324 (15 voxels), cluster t=3.1 p=.0364 (95 voxels). Human>computer
+  task response TFCE p=.0006; computer>human p=.0045. These concern task/partner
+  responses, not a replication of the social offer-slope age interaction.
+  Human>computer offer-slope contrast does not survive permutation correction.
+  Evidence: results/permutation_audit/v1/model_contrast_summary.tsv and maps;
+  results/crossed_behavior_l3/v1/imaging; results/permutation_followup/v1/
+  figures_and_extractions (activation overlays, scatterplots, influence).
+
+FIGURE INVENTORY / PROVISIONAL ORDER
+1. Task schematic: existing results/manuscript/figures/figure1_task_schematic.png.
+   Update/verify labels against recorded ~3.5-second display, not 3 seconds.
+2. Corrected acceptance curves: results/reviewer/figures/acceptance_curves.png
+   or results/manuscript/figures/figure2_corrected_acceptance.png. Use N=47 and
+   explicit human-partner analysis; the older slide is not the revised figure.
+3. Task-wide offer-size activation: existing figure3_offer_size_activation.png
+   has an all-responded-RT source, but final figure should show the permutation
+   comparison too, not FLAME alone. Supplement human/computer task response.
+4. Brain-behavior activation: current candidate in permutation_followup/v1/
+   figures_and_extractions/activation-age-interaction (overlays + plots).
+5. DMN: provisional only, pending new influence/PALM audit. Do not reuse the
+   old figure4_corrected_dmn.png or its old selected-cluster bar estimates.
+Supplement: ratings, model/recovery diagnostics, complete null/sensitivity
+tables, design and covariate audits. Final numbering depends on final results.
+
+ATTACHED SLIDES
+Slide 21: revise N=50 to N=47 for the paper, display duration to ~3.5 s, and
+replace 'All participants were sensitive' with 'Acceptance increased with
+offer size; we did not detect age moderation in the social-choice model.'
+Slide 22: the vmPFC claim has not been re-established with current corrected
+L2 estimates. masks/roi-VMPFC.nii.gz and legacy extracts exist, but
+code/extractROI.sh targets historical L3 outputs. None of the new DMN or
+parietal results validates the vmPFC assertion. Re-extract the independently
+specified vmPFC mask from current activation COPEs 2/4/6 and rerun the planned
+age-by-partner analysis before reusing those bars/claim. This is a remaining
+analysis, not a null result. No new vmPFC model is launched by the DMN batch.
+
+PUBLICATION GATES
+- Finish DMN selected-ROI diagnostics and heteroscedastic PALM audit.
+- Resolve updated vmPFC ROI analysis if retaining that slide/manuscript claim.
+- Freeze primary model/estimand and distinguish exploratory sensitivity results;
+  no choosing thresholds or exclusions solely because they retain significance.
+- Rebuild final figures/tables/captions and update manuscript and responses.
+- OpenNeuro ds003745 version 2.2.0 is already published; do not list it as pending.

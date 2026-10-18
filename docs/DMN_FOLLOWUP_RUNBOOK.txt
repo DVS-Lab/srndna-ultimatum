@@ -1,0 +1,64 @@
+DMN follow-up: standardized-covariate outputs, 18 October 2026
+
+No L1/L2 reruns. No alteration of historical FLAME/randomise outputs.
+
+1. finish_dmn_diagnostics.py
+   Six anatomical panels (two contrasts x three inference methods), with all
+   three timing models in each panel. Coordinates and full-map overlap counts
+   are retained. Row-specific cuts must not be mistaken for spatial replication.
+   Extracts 47 individual L2 COPE means for each timing/target; verifies image
+   hashes against the completed permutation audit. Per target, the extraction
+   ROI is the union of significant FLAME/randomise masks over all three timing
+   models and methods. It is selected using the complete sample and stays fixed
+   during leave-one-out diagnostics. The union and each of its 26-connected
+   components are checked separately to avoid concealing local influence.
+   Reports Cook's distance, leverage,
+   studentized residuals, leave-one-out coefficients and HC3 sandwich SEs.
+   These are descriptive OLS diagnostics, not FLAME estimates, an independent
+   ROI test, whole-brain leave-one-out inference, or grounds for exclusions.
+
+2. run_dmn_heteroscedasticity.py
+   Existing standardized DMN designs have one variance group. Separate age
+   variance groups in FEAT would require splitting shared nuisance columns;
+   doing so would change the mean model. This batch does not do that.
+   PALM preserves the 47 participants, L2 COPEs, design matrices, contrasts,
+   covariates and tested masks, using younger/older variance groups and 10,000
+   independent symmetric-error sign flips (Freedman-Lane nuisance adjustment).
+   This does not assume unrestricted exchangeability between age groups, but
+   independence and symmetry remain assumptions. It does not use VARCOPE
+   weighting or implement FLAME outlier deweighting. The robust-labelled
+   historical designs therefore do not imply robust PALM fits.
+   Fifteen source models x three methods = 45 jobs, 288 signed result cells.
+   TFCE and cluster extent at equivalent Z=2.6/3.1. PALM -C uses equivalent Z,
+   whereas randomise -c used t. Do not describe thresholds as identical.
+   Maps are explicitly saved as 1-p. Significance is >.95 inside the mask.
+   Spatial FWE is per signed contrast; no correction across this exploratory
+   model/method search. No accelerated tail fitting or participant exclusions.
+
+   PALM pinned source: https://github.com/andersonwinkler/PALM
+   commit 9086eff76dcacf4afde12c9af5400a1fe0033b9e
+   Requires MATLAB on PATH, or Octave with image and statistics packages.
+   The runner calls the engine directly, avoiding machine-specific paths in
+   PALM's distributed shell wrapper. A real 20-shuffle, 64-voxel smoke test
+   exercises NIfTI I/O, variance groups, TFCE and cluster outputs first.
+   Smoke outputs are not scientific results. Local unit tests do not replace
+   this Linux engine check.
+
+Run on Linux1, in tmux, with conda environment srndna-ultimatum and FSL loaded:
+
+  bash code/run_dmn_followup_batch.sh /ZPOOL/data/tools/PALM-srndna-9086eff 15
+
+15 is the default concurrent PALM process count; each uses one BLAS thread.
+Can increase to 40 if memory permits. All 45 jobs are independently scheduled.
+Rerun the identical command after interruption: verified completed PALM jobs
+are skipped, incomplete attempts remain preserved and get fresh attempt paths.
+Input/software contract changes stop rather than mixing results.
+
+Outputs: results/dmn_followup/v1 (commit this entire directory, including logs
+on failure). Large merged images and detailed attempt trees stay in scratch:
+/ZPOOL/data/scratch/srndna-ultimatum-dmn-followup-v1
+
+References:
+https://fsl.fmrib.ox.ac.uk/fsl/docs/task_fmri/feat/user_guide.html
+https://fsl.fmrib.ox.ac.uk/fsl/docs/statistics/palm/user_guide.html
+https://fsl.fmrib.ox.ac.uk/fsl/docs/statistics/palm/exchangeability_blocks.html
