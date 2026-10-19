@@ -79,3 +79,15 @@ RUN: crossed__full-rt_nppi-dmn_choice-slope cluster-z3.1
 RUN: crossed__full-rt_nppi-dmn_acceptance-intercept tfce
 RUN: crossed__full-rt_nppi-dmn_acceptance-intercept cluster-z2.6
 RUN: crossed__full-rt_nppi-dmn_acceptance-intercept cluster-z3.1
+COMPLETED: partner-post__dmn-age cluster-z3.1
+COMPLETED: partner-post__dmn-age cluster-z2.6
+COMPLETED: pooled-post__dmn-age cluster-z3.1
+COMPLETED: pooled-post__dmn-age cluster-z2.6
+Traceback (most recent call last):
+  File "/ZPOOL/data/projects/srndna-ultimatum/code/run_dmn_heteroscedasticity.py", line 197, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/ZPOOL/data/projects/srndna-ultimatum/code/run_dmn_heteroscedasticity.py", line 192, in main
+    if failures:raise RuntimeError(f'{len(failures)} PALM jobs failed; completed jobs preserved; see status.json')
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: 41 PALM jobs failed; completed jobs preserved; see status.json
