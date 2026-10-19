@@ -1,0 +1,25 @@
+{
+  "outputs": {
+    "vmpfc_partner-post_covariate-adjusted.png": "2fa1ce40cbb580c7e5971bdc82af5b527c0ffb737a33c6b3e8577780cb632e36",
+    "vmpfc_full-rt_covariate-adjusted.png": "cbdadf56275b66149d481e723692bc36c1aa7f44c9e23ef91c62291d7e282fc3",
+    "age_partner_omnibus.tsv": "6331f1c6d8bd6f4021d03c1c7421d445281e83616fc6f9029b1cd0b6f74e165f",
+    "roi_tests.tsv": "e6a7c5797a7f02e93787a84abeca5bf7f3a890cf762f40e213e67d707b9651fc",
+    "vmpfc_partner-post_covariate-adjusted.svg": "1886ccee993f6cfbb76469ffb7682b3a991cedb20c2202289b6ea4151941878d",
+    "vmpfc_full-rt_covariate-adjusted.svg": "d797fc8bc851b31680792738760fa935c81950e0665013466dd0e6c7dc37194d",
+    "contract.json": "b9980a7ee03cae54d60d9115e4e4e69c00e9754a65fbfe8ea5ba4d1b8af4aa77",
+    "bar_source.tsv": "8a962706d662ba0ada42d4e92afe867f2fd4e7deb97a79a485938202204b4325",
+    "status.json": "06a940ae3c8d9fd0c26a582865dc0a87cf2279ded3e8eef3918afe569645b6dd",
+    "vmpfc_partner-post_unadjusted.png": "49d6b7e07c4384f1918d00d937d370e55c4f48cd2985abcd116cc8542c61687b",
+    "vmpfc_pooled-post_covariate-adjusted.png": "4d971c4c57bbb4dcd856e1ae5ccf9f549b176a3a03397f0dbaf991998e82f5b8",
+    "influence.tsv": "a91698f42688bdd413f8620665112bd465b43ac7e6684c09590bd9b3b07e4215",
+    "adjusted_design.tsv": "9d2c93744639c524e0e9e6b7ee3c42d8896543d8d5280a58675df588270b29d4",
+    "vmpfc_pooled-post_unadjusted.svg": "6fbbb68b9fdbcf4a9774321d5d8e87fb02b0bdda88fa7af9dc5ffb3285cf714a",
+    "plotted_participants.tsv": "fdeeec123c010e5691a79a05f5a4edf156b6c786761ac0c46a4f286469ebb815",
+    "vmpfc_full-rt_unadjusted.png": "80fb7a8f6e5df8041fe35f2182482eb0739e2efe024c262592017aaf1bae425e",
+    "vmpfc_full-rt_unadjusted.svg": "f7a3798e4c0df29e06332a58593577cac8806d3bab5d44979110acf3c0b2640a",
+    "vmpfc_pooled-post_unadjusted.png": "72ce13bd1eb3492aead4baf2085f27fb5dfcdda3df46d7a76284c89540695619",
+    "participant_extractions.tsv": "ed7964005582fb68278a906a5b81e373ca17d58e0749325539be742c1d206908",
+    "vmpfc_partner-post_unadjusted.svg": "2d2a19e227cf9acccfa6ff08d5789a6df38f4825c5dbeb65222016ba90d56f30",
+    "vmpfc_pooled-post_covariate-adjusted.svg": "ceef392f2a9831dfbc6331aaeabb7cd73b8b1b95da1ec622950ae2016e78b659"
+  }
+}

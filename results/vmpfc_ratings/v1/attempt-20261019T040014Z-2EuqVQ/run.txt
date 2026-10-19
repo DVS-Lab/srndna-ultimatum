@@ -1,0 +1,26 @@
+ed45a6f313dc07c74619bcaa5484e93c60f0f0b7
+Python 3.11.16
+test_complete_receipt_rejects_tampered_ratings (test_vmpfc_ratings.VmpfcRatingsTests.test_complete_receipt_rejects_tampered_ratings) ... PASS: three-partner ratings figures: /tmp/tmp4xjxhn1j
+SKIP_COMPLETE: verified ratings figures: /tmp/tmp4xjxhn1j
+ok
+test_design_id_alignment_and_centering (test_vmpfc_ratings.VmpfcRatingsTests.test_design_id_alignment_and_centering) ... ok
+test_hc3_against_direct_sandwich (test_vmpfc_ratings.VmpfcRatingsTests.test_hc3_against_direct_sandwich) ... ok
+test_holm (test_vmpfc_ratings.VmpfcRatingsTests.test_holm) ... ok
+test_l1_contrast_mapping_and_hash_validation (test_vmpfc_ratings.VmpfcRatingsTests.test_l1_contrast_mapping_and_hash_validation) ... ok
+test_manifest_linked_extraction_fixture (test_vmpfc_ratings.VmpfcRatingsTests.test_manifest_linked_extraction_fixture) ... PASS: full-rt, 47 participants × 3 vmPFC offer slopes
+ok
+test_mock_full_analysis_outputs_no_palM (test_vmpfc_ratings.VmpfcRatingsTests.test_mock_full_analysis_outputs_no_palM) ... ok
+test_pairing_joint_test_invariance (test_vmpfc_ratings.VmpfcRatingsTests.test_pairing_joint_test_invariance) ... ok
+test_rating_policy_and_retained_sem (test_vmpfc_ratings.VmpfcRatingsTests.test_rating_policy_and_retained_sem) ... ok
+test_retained_feat_nuisance_contrast_columns (test_vmpfc_ratings.VmpfcRatingsTests.test_retained_feat_nuisance_contrast_columns) ... ok
+test_roi_zero_values_included_and_partial_coverage_rejected (test_vmpfc_ratings.VmpfcRatingsTests.test_roi_zero_values_included_and_partial_coverage_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 11 tests in 2.282s
+
+OK
+SKIP_COMPLETE: verified ratings figures: /ZPOOL/data/projects/srndna-ultimatum/results/vmpfc_ratings/v1/ratings
+PASS: full-rt, 47 participants × 3 vmPFC offer slopes
+PASS: pooled-post, 47 participants × 3 vmPFC offer slopes
+PASS: partner-post, 47 participants × 3 vmPFC offer slopes
+PASS: corrected vmPFC analyses and six bar figures saved: /ZPOOL/data/projects/srndna-ultimatum/results/vmpfc_ratings/v1/vmpfc

@@ -1,0 +1,7 @@
+timing	adjustment	n	wald_chi2	df	p_uncorrected	reference_distribution	p_holm_six_omnibus_tests
+full-rt	unadjusted	47	0.9055974060782024	2	0.6358461146353636	asymptotic chi-square; HC3 subject-vector sandwich	1.0
+full-rt	covariate-adjusted	47	0.5271118947939675	2	0.7683146360328004	asymptotic chi-square; HC3 subject-vector sandwich	1.0
+pooled-post	unadjusted	47	2.576156100973542	2	0.27580034837317424	asymptotic chi-square; HC3 subject-vector sandwich	1.0
+pooled-post	covariate-adjusted	47	1.3336393490235925	2	0.5133385681951568	asymptotic chi-square; HC3 subject-vector sandwich	1.0
+partner-post	unadjusted	47	2.310923593505043	2	0.3149120779448363	asymptotic chi-square; HC3 subject-vector sandwich	1.0
+partner-post	covariate-adjusted	47	1.0629089796561701	2	0.5877494720443213	asymptotic chi-square; HC3 subject-vector sandwich	1.0
