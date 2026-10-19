@@ -1,5 +1,35 @@
 DMN follow-up: standardized-covariate outputs, 18 October 2026
 
+19 October recovery update (supersedes the 40-job resume command below)
+The first full batch completed 4/45 jobs and failed 41. This is not a completed
+negative audit. The failure cause must be read from the original MATLAB logs;
+40 simultaneous MATLAB instances may have exhausted resources but this is not
+yet established. The recovery does not change statistics to obtain significance.
+
+On Linux1, inside tmux:
+  python3 code/collect_palm_failure_logs.py
+  bash code/resume_palm_conservative.sh \
+    /ZPOOL/data/scratch/srndna-ultimatum-dmn-followup-v1/tools/PALM 2
+
+The collector saves current status/summary/contract/inventory and the last
+128 KiB of every failed/incomplete attempt log in a new failure-history folder.
+It records full source hashes and leaves full logs and attempts in scratch.
+Do not start while another batch holds batch.lock. Completed jobs are verified
+against their original receipts BEFORE any new MATLAB processes are launched.
+Recovery reuses the unchanged run_dmn_heteroscedasticity.py and statistical/input
+contract. All 10,000 shuffles, seeds, variance groups, contrasts and methods stay
+fixed. At most two jobs run simultaneously (use 1 for a still smaller footprint).
+The first failure stops scheduling new jobs; already-running jobs finish and
+their successes are retained. Do not repeatedly relaunch after a new failure;
+push failure-history plus the new recovery log for diagnosis first.
+
+All 15 participants.tsv files under palm/designs are now explicitly allowed by
+.gitignore. The preflight regenerates and validates these exact-order tables:
+only subject ID and variance group, not raw demographics. Broad protection for
+other participants.tsv files remains. Stage results/dmn_followup/v1 after the
+run, whether it succeeds or stops. No force-add, reset, cleanup, or force-push.
+No L1/L2/FLAME/randomise/overlay reruns are required.
+
 No L1/L2 reruns. No alteration of historical FLAME/randomise outputs.
 
 1. finish_dmn_diagnostics.py

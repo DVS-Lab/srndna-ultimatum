@@ -135,6 +135,8 @@ dmypy.json
 # potentially private
 .heudiconv
 participants.tsv
+# Audited pseudonymous subject order and variance-group assignment only.
+!/results/dmn_followup/v1/palm/designs/*/participants.tsv
 
 # imaging output
 bids/**/*.nii.gz
