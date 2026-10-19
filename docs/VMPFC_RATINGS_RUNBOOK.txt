@@ -1,0 +1,91 @@
+Corrected vmPFC ROI and three-partner ratings figures
+===================================================
+
+This workflow is independent of the running DMN/PALM audit. It never writes
+PALM scratch, reruns FEAT, changes L1/L2 files, or replaces historical figures.
+Run on Linux1 with the srndna-ultimatum conda environment:
+
+  bash code/run_vmpfc_ratings_batch.sh
+
+Commit results/vmpfc_ratings/v1, including attempt logs on failure.
+The workload is serial and single-threaded. No --jobs flag is needed.
+
+vmPFC inputs and checks
+----------------------
+Use the exact historical masks/roi-VMPFC.nii.gz, documented in masks/README.md
+as the Feng et al. (2015) fair>unfair location [6,46,-12]. Do not redraw a new
+sphere: the supplied mask contains 19 voxels on its original grid. The mask
+is independent of the current statistical maps, not selected for significance.
+
+Take corrected activation L2 COPE2/4/6 (computer/similar/dissimilar offer-size
+slopes) for the locked 47 participants, from the three completed pipelines:
+full display + all-response RT height, decision + pooled post-response, and
+decision + partner-specific post-response. No timing is selected by outcome.
+Paths come from retained revision_jobs.tsv manifests and must agree with the
+retained activation group inputs. Prepared L1 FSF hashes, contrast labels,
+original weights and compiled contrast vectors are checked for all 282 runs.
+L2 prepared FSF hashes are checked. Input/output hashes are recorded.
+
+Every ROI voxel must have positive coverage in each condition's L2 mask.
+Zero COPE values remain valid data. No nonzero-only mean or silent trimming.
+Nearest-neighbour mask resampling is allowed only to a common image grid;
+different participant/model grids and incomplete coverage stop the run.
+
+Statistics and figures
+----------------------
+For each timing report unadjusted and nuisance-adjusted analyses. Adjustment
+uses sex, tSNR, mean FD, and corrected mean RT from the existing locked tables,
+verified against retained activation group covariates. Center nuisance columns
+over all 47 participants. Do not add behavioral slopes or norm parameters.
+
+Keep three measurements per participant paired by using participant-level
+outcomes: average offer slope; each partner's slope; human mean minus computer;
+and similar minus dissimilar. Fit each outcome against centered age group,
+with/without nuisance columns. The age coefficient is older minus younger.
+Use unweighted OLS estimates with heteroscedasticity-robust HC3 SEs and a
+t(n-p) reference for scalar tests (an approximation, not an exact small-sample
+test). The joint age-by-partner test uses the two independent partner contrasts
+and their subject-vector HC3 covariance, with an asymptotic chi-square(2)
+reference. This avoids treating repeated measures as independent or imposing
+sphericity. No result depends on completion of voxelwise permutation inference.
+
+Report raw p values AND Holm adjustment across timings and adjustment variants
+within declared families: age averaged across partners, age by condition,
+age-interaction components, partner differences, and offer slopes versus zero.
+All scalar tests are two-sided; inspect the coefficient sign for direction.
+The six joint interaction tests form a separate Holm family. This is an
+exploratory ROI reanalysis, not proof that the original slide's age claim holds.
+Influence/leave-one-out estimates are reported without participant exclusions.
+
+Each timing has a six-bar raw plot and a six-bar adjusted plot. Adjusted values
+subtract fitted nuisance contributions separately by condition while retaining
+age-group effects. Error bars are participant SD/sqrt(n), NOT 95% intervals,
+HC3 model SEs or FLAME SEs. They describe dispersion of plotted values and do
+not propagate uncertainty in estimating the adjustment. Read inference from
+the tables, not from overlap of bars. No inverse-VARCOPE weighting is used:
+the mean of voxelwise VARCOPEs is not the variance of an ROI average without
+accounting for spatial covariance. COPE units differ across timing models;
+do not interpret a larger number across timings as a larger biological effect.
+
+Ratings
+-------
+Use existing audited last_complete_block summaries, age_group=all, N=42 at
+each time point, with 41 paired participants. Primary figure: pre/post fairness
+and likeability, each showing computer, similar and dissimilar partners.
+Companion figure: post-task anger and satisfaction. Means +/- participant SEM,
+fixed 0-10 axes, no invented pre-task affect measurements or repeated-session
+counts. Retained paired tests/FDR values are copied, not recalculated from
+summary means. Pre/post samples are not identical; these are levels, not
+evidence that the task produced a change. Similarity is relative to own age.
+
+Reproducibility
+---------------
+Completed outputs are checksum-verified and skipped. Changed inputs/code stop
+instead of mixing versions. Large imaging files stay on Linux1; small tables,
+PNG/SVG figures, receipts and logs are committed. The plotting code can run on
+the local clone using only the already committed ratings summaries.
+
+HC3 definition:
+https://www.statsmodels.org/stable/generated/statsmodels.regression.linear_model.OLSResults.HC3_se.html
+Holm correction:
+https://www.statsmodels.org/stable/generated/statsmodels.stats.multitest.multipletests.html

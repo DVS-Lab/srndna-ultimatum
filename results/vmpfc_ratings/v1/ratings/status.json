@@ -1,0 +1,7 @@
+{
+  "complete": true,
+  "new_tests": false,
+  "policy": "last_complete_block",
+  "error_bars": "participant SD / sqrt(n)",
+  "interpretation": "Partner rating levels, not demonstrated changes caused by the task."
+}

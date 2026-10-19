@@ -1,0 +1,8 @@
+{
+  "code": "64277018aef3e2412f006f100325d9474a0efdeac174b07f0f84f27430571fa0",
+  "inputs": {
+    "results/reviewer/ultimatum_ratings/ultimatum_ratings_descriptives.tsv": "28385362634df9eb2105d533207d89e4bd3a6290c8ac87b2d91421a010375363",
+    "results/reviewer/ultimatum_ratings/ultimatum_ratings_within_subject_tests.tsv": "21582156e1fc0d304f6b65a2fdfb1f835ddc646ce1a8fec566852f4e9eefd517",
+    "results/reviewer/ultimatum_ratings/ultimatum_ratings_sample.tsv": "6a813269e05763ef5e7a025fd45c877673ecd88903151547d6e04e8b0a0394a9"
+  }
+}

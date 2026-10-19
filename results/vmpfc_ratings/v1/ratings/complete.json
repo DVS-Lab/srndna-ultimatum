@@ -1,0 +1,12 @@
+{
+  "outputs": {
+    "three_partner_ratings.svg": "5a943c99c7fc2e15b310368ca9c74f6a5dff710c8460c69192b1abcf5c7494c8",
+    "post_task_affect.png": "378938f72926c43c3049b07c4bb5a3c4c6d9e4f597ce72d0a032b9f112de99e3",
+    "post_task_affect.svg": "e46fa4eac5979474101b78f5b083ae833f0b18579cd1d0eddddb8170a2e184b0",
+    "three_partner_ratings.png": "d24f82309d7fffe4201c973caa229b0f6f37e23ce5929cc3ea427a7a794004a5",
+    "retained_paired_tests.tsv": "ad7933d124752fef0b6077acc776c564a0391d02f3c0fea66c9b70b6a5d2e167",
+    "status.json": "cdc9d75f06d2c6504886910ff23c87cbcf50bb0690c7eeae5bf6ea33fc28228f",
+    "contract.json": "1050ddce009bbbd090a85593ab75d229131a9b9aaa79522a8401fb8d35af24a6",
+    "bar_source.tsv": "19bb71a662ac1d730dfd739b8518c8df0c2b15a24e3cc926cceba7a89e910c6f"
+  }
+}
