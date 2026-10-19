@@ -138,10 +138,21 @@ def validate_l1(row,provenance):
     provenance[str(fsf)]=expected
     text=fsf.read_text(); conpath=Path(row['output'])/'design.con'
     matrix=read_vest_matrix(conpath); provenance[str(conpath)]=digest(conpath)
+    nreal=int(fsf_value(text,'evs_real'))
+    if matrix.ndim!=2 or matrix.shape[1]<nreal or matrix.shape[0]<6 or not np.isfinite(matrix).all():
+        raise ValueError(f'invalid compiled L1 contrast dimensions/values: {conpath}')
     for _,cope,title in CONDITIONS:
         if fsf_value(text,f'conname_real.{cope}')!=title or fsf_value(text,f'conname_orig.{cope}')!=title:
             raise ValueError(f'offer-slope contrast label mismatch: {fsf}, cope {cope}')
-        expected_row=np.array([float(fsf_value(text,f'con_real{cope}.{j}')) for j in range(1,matrix.shape[1]+1)])
+        # FEAT appends external nuisance columns beyond the template evs_real.
+        # These must have zero weight; missing modeled-EV weights are errors,
+        # not implicit zeros. Compare the entire compiled contrast row.
+        expected_row=np.zeros(matrix.shape[1])
+        for j in range(1,nreal+1):
+            value=fsf_value(text,f'con_real{cope}.{j}')
+            if value is None:
+                raise ValueError(f'missing modeled contrast weight con_real{cope}.{j}: {fsf}')
+            expected_row[j-1]=float(value)
         if not np.allclose(matrix[cope-1],expected_row,atol=1e-6,rtol=0):
             raise ValueError(f'compiled L1 contrast mismatch: {conpath}, cope {cope}')
         n=int(fsf_value(text,'evs_orig'))

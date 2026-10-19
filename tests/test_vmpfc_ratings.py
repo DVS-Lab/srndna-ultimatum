@@ -101,7 +101,7 @@ class VmpfcRatingsTests(unittest.TestCase):
     def test_l1_contrast_mapping_and_hash_validation(self):
         with tempfile.TemporaryDirectory() as tmp:
             root=Path(tmp);fsf=root/'prepared.fsf'
-            text=['set fmri(evs_orig) 6']
+            text=['set fmri(evs_orig) 6','set fmri(evs_real) 6']
             for _,cope,name in vm.CONDITIONS:
                 text.extend([f'set fmri(conname_real.{cope}) "{name}"',
                              f'set fmri(conname_orig.{cope}) "{name}"'])
@@ -118,6 +118,31 @@ class VmpfcRatingsTests(unittest.TestCase):
             with self.assertRaises(ValueError):vm.validate_l1(row,{})
             fsf.write_text(fsf.read_text()+'# changed\n')
             with self.assertRaises(ValueError):vm.validate_l1(row,{})
+
+    def test_retained_feat_nuisance_contrast_columns(self):
+        source=rat.ROOT/'results/decision_postresponse_partner/design_examples/act_sub-105_run-01'
+        with tempfile.TemporaryDirectory() as tmp:
+            root=Path(tmp);fsf=root/'prepared.fsf';con=root/'design.con'
+            fsf.write_text((source/'design.fsf').read_text())
+            con.write_text((source/'design.con').read_text())
+            row=dict(fsf=str(fsf),fsf_sha256=vm.digest(fsf),output=str(root))
+            self.assertEqual(int(vm.fsf_value(fsf.read_text(),'evs_real')),10)
+            matrix=vm.read_vest_matrix(con)
+            self.assertEqual(matrix.shape[1],28)
+            vm.validate_l1(row,{})
+            # A nuisance weight must not silently enter an offer contrast.
+            matrix[1,-1]=1
+            con.write_text('/NumWaves 28\n/NumContrasts 10\n/Matrix\n'+
+                '\n'.join(' '.join(str(v) for v in r) for r in matrix))
+            with self.assertRaisesRegex(ValueError,'compiled L1 contrast mismatch'):
+                vm.validate_l1(row,{})
+            con.write_text((source/'design.con').read_text())
+            # Missing weights inside evs_real must never be zero-filled.
+            text='\n'.join(line for line in fsf.read_text().splitlines()
+                if not line.startswith('set fmri(con_real2.10)'))+'\n'
+            fsf.write_text(text);row['fsf_sha256']=vm.digest(fsf)
+            with self.assertRaisesRegex(ValueError,'missing modeled contrast weight'):
+                vm.validate_l1(row,{})
 
     def test_manifest_linked_extraction_fixture(self):
         subjects,sample,rt=self.sample()
