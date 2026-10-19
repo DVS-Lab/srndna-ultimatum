@@ -1,0 +1,38 @@
+339890702c48a57fd74b72a459d3e503042dadeb
+Python 3.11.16
+test_complete_receipt_rejects_tampered_ratings (test_vmpfc_ratings.VmpfcRatingsTests.test_complete_receipt_rejects_tampered_ratings) ... PASS: three-partner ratings figures: /tmp/tmpx0tqj7wz
+SKIP_COMPLETE: verified ratings figures: /tmp/tmpx0tqj7wz
+ok
+test_design_id_alignment_and_centering (test_vmpfc_ratings.VmpfcRatingsTests.test_design_id_alignment_and_centering) ... ok
+test_hc3_against_direct_sandwich (test_vmpfc_ratings.VmpfcRatingsTests.test_hc3_against_direct_sandwich) ... ok
+test_holm (test_vmpfc_ratings.VmpfcRatingsTests.test_holm) ... ok
+test_l1_contrast_mapping_and_hash_validation (test_vmpfc_ratings.VmpfcRatingsTests.test_l1_contrast_mapping_and_hash_validation) ... ok
+test_manifest_linked_extraction_fixture (test_vmpfc_ratings.VmpfcRatingsTests.test_manifest_linked_extraction_fixture) ... PASS: full-rt, 47 participants × 3 vmPFC offer slopes
+ok
+test_mock_full_analysis_outputs_no_palM (test_vmpfc_ratings.VmpfcRatingsTests.test_mock_full_analysis_outputs_no_palM) ... ok
+test_pairing_joint_test_invariance (test_vmpfc_ratings.VmpfcRatingsTests.test_pairing_joint_test_invariance) ... ok
+test_rating_policy_and_retained_sem (test_vmpfc_ratings.VmpfcRatingsTests.test_rating_policy_and_retained_sem) ... ok
+test_roi_zero_values_included_and_partial_coverage_rejected (test_vmpfc_ratings.VmpfcRatingsTests.test_roi_zero_values_included_and_partial_coverage_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 2.349s
+
+OK
+SKIP_COMPLETE: verified ratings figures: /ZPOOL/data/projects/srndna-ultimatum/results/vmpfc_ratings/v1/ratings
+Traceback (most recent call last):
+  File "/ZPOOL/data/projects/srndna-ultimatum/code/analyze_corrected_vmpfc.py", line 311, in <module>
+    args=parser.parse_args();run(ROOT,args.output.resolve(),args.execute)
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/ZPOOL/data/projects/srndna-ultimatum/code/analyze_corrected_vmpfc.py", line 278, in run
+    subjects,sample,rt,records=collect(repo,provenance)
+                               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/ZPOOL/data/projects/srndna-ultimatum/code/analyze_corrected_vmpfc.py", line 179, in collect
+    for row in l1: validate_l1(row,provenance)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/ZPOOL/data/projects/srndna-ultimatum/code/analyze_corrected_vmpfc.py", line 144, in validate_l1
+    expected_row=np.array([float(fsf_value(text,f'con_real{cope}.{j}')) for j in range(1,matrix.shape[1]+1)])
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/ZPOOL/data/projects/srndna-ultimatum/code/analyze_corrected_vmpfc.py", line 144, in <listcomp>
+    expected_row=np.array([float(fsf_value(text,f'con_real{cope}.{j}')) for j in range(1,matrix.shape[1]+1)])
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: float() argument must be a string or a real number, not 'NoneType'

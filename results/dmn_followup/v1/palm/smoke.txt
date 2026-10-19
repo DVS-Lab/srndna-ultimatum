@@ -16,28 +16,157 @@
 =======================================================================
                  Permutation Analysis of Linear Models
 =======================================================================
-{Error using fgets
-Invalid file identifier. Use fopen to generate a valid file identifier.
-
-Error in fgetl (line 4)
-[tline,lt] = fgets(fid);
-             ^^^^^^^^^^
-Error in palm_help>showversion (line 504)
-        hash = fgetl(fid);
-               ^^^^^^^^^^
-Error in palm_help (line 47)
-        varargout{1} = showversion;
-                       ^^^^^^^^^^^
-Error in palm_config (line 49)
-    [~,ver] = strtok(palm_help('version'),'(');
-                     ^^^^^^^^^^^^^^^^^^^^
-Error in palm_takeargs (line 54)
-    palm_config(vararginx,cfgname);
-    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Error in palm_core (line 33)
-[opts,plm] = palm_takeargs(varargin{:});
-             ^^^^^^^^^^^^^^^^^^^^^^^^^^
-Error in palm (line 86)
-palm_core(varargin{:});
-^^^^^^^^^^^^^^^^^^^^^^
-} 
+Running PALM (GitHub/commit:9086eff) using MATLAB 24.2.0.2712019 (R2024b) with the following options:
+-i /ZPOOL/data/scratch/srndna-ultimatum-dmn-followup-v1/palm/smoke/copes.nii.gz
+-m /ZPOOL/data/scratch/srndna-ultimatum-dmn-followup-v1/palm/smoke/mask.nii.gz
+-d /ZPOOL/data/scratch/srndna-ultimatum-dmn-followup-v1/palm/smoke/design.mat
+-t /ZPOOL/data/scratch/srndna-ultimatum-dmn-followup-v1/palm/smoke/design.con
+-vg /ZPOOL/data/scratch/srndna-ultimatum-dmn-followup-v1/palm/smoke/variance_groups.csv
+-ise
+-rmethod Freedman-Lane
+-n 20
+-seed 42
+-zstat
+-save1-p
+-savemax
+-noniiclass
+-o /ZPOOL/data/scratch/srndna-ultimatum-dmn-followup-v1/palm/smoke/palm
+-T
+-C 3.1
+-Cstat extent
+PALM is located at /ZPOOL/data/scratch/srndna-ultimatum-dmn-followup-v1/tools/PALM
+Found FSL in /usr/local/fsl
+Image Processing Toolbox is available.
+Reading input 1/1: /ZPOOL/data/scratch/srndna-ultimatum-dmn-followup-v1/palm/smoke/copes.nii.gz
+Reading design matrix and contrasts.
+Elapsed time parsing inputs: ~ 5.90612 seconds.
+Number of possible sign-flips is 1.40737e+14 = 2^47.
+Generating 20 shufflings (sign-flips only).
+Building null distribution.
+1.25%	 [Design 1/1, Contrast 1/4, Shuffling 1/20, Modality 1/1]
+	 Saving file: /ZPOOL/data/scratch/srndna-ultimatum-dmn-followup-v1/palm/smoke/palm_vox_zvstat_c1
+2.5%	 [Design 1/1, Contrast 1/4, Shuffling 2/20, Modality 1/1]
+3.75%	 [Design 1/1, Contrast 1/4, Shuffling 3/20, Modality 1/1]
+5%	 [Design 1/1, Contrast 1/4, Shuffling 4/20, Modality 1/1]
+6.25%	 [Design 1/1, Contrast 1/4, Shuffling 5/20, Modality 1/1]
+7.5%	 [Design 1/1, Contrast 1/4, Shuffling 6/20, Modality 1/1]
+8.75%	 [Design 1/1, Contrast 1/4, Shuffling 7/20, Modality 1/1]
+10%	 [Design 1/1, Contrast 1/4, Shuffling 8/20, Modality 1/1]
+11.2%	 [Design 1/1, Contrast 1/4, Shuffling 9/20, Modality 1/1]
+12.5%	 [Design 1/1, Contrast 1/4, Shuffling 10/20, Modality 1/1]
+13.8%	 [Design 1/1, Contrast 1/4, Shuffling 11/20, Modality 1/1]
+15%	 [Design 1/1, Contrast 1/4, Shuffling 12/20, Modality 1/1]
+16.2%	 [Design 1/1, Contrast 1/4, Shuffling 13/20, Modality 1/1]
+17.5%	 [Design 1/1, Contrast 1/4, Shuffling 14/20, Modality 1/1]
+18.8%	 [Design 1/1, Contrast 1/4, Shuffling 15/20, Modality 1/1]
+20%	 [Design 1/1, Contrast 1/4, Shuffling 16/20, Modality 1/1]
+21.2%	 [Design 1/1, Contrast 1/4, Shuffling 17/20, Modality 1/1]
+22.5%	 [Design 1/1, Contrast 1/4, Shuffling 18/20, Modality 1/1]
+23.8%	 [Design 1/1, Contrast 1/4, Shuffling 19/20, Modality 1/1]
+25%	 [Design 1/1, Contrast 1/4, Shuffling 20/20, Modality 1/1]
+Number of possible sign-flips is 1.40737e+14 = 2^47.
+Generating 20 shufflings (sign-flips only).
+Building null distribution.
+26.2%	 [Design 1/1, Contrast 2/4, Shuffling 1/20, Modality 1/1]
+	 Saving file: /ZPOOL/data/scratch/srndna-ultimatum-dmn-followup-v1/palm/smoke/palm_vox_zvstat_c2
+27.5%	 [Design 1/1, Contrast 2/4, Shuffling 2/20, Modality 1/1]
+28.7%	 [Design 1/1, Contrast 2/4, Shuffling 3/20, Modality 1/1]
+30%	 [Design 1/1, Contrast 2/4, Shuffling 4/20, Modality 1/1]
+31.2%	 [Design 1/1, Contrast 2/4, Shuffling 5/20, Modality 1/1]
+32.5%	 [Design 1/1, Contrast 2/4, Shuffling 6/20, Modality 1/1]
+33.8%	 [Design 1/1, Contrast 2/4, Shuffling 7/20, Modality 1/1]
+35%	 [Design 1/1, Contrast 2/4, Shuffling 8/20, Modality 1/1]
+36.2%	 [Design 1/1, Contrast 2/4, Shuffling 9/20, Modality 1/1]
+37.5%	 [Design 1/1, Contrast 2/4, Shuffling 10/20, Modality 1/1]
+38.8%	 [Design 1/1, Contrast 2/4, Shuffling 11/20, Modality 1/1]
+40%	 [Design 1/1, Contrast 2/4, Shuffling 12/20, Modality 1/1]
+41.2%	 [Design 1/1, Contrast 2/4, Shuffling 13/20, Modality 1/1]
+42.5%	 [Design 1/1, Contrast 2/4, Shuffling 14/20, Modality 1/1]
+43.8%	 [Design 1/1, Contrast 2/4, Shuffling 15/20, Modality 1/1]
+45%	 [Design 1/1, Contrast 2/4, Shuffling 16/20, Modality 1/1]
+46.2%	 [Design 1/1, Contrast 2/4, Shuffling 17/20, Modality 1/1]
+47.5%	 [Design 1/1, Contrast 2/4, Shuffling 18/20, Modality 1/1]
+48.8%	 [Design 1/1, Contrast 2/4, Shuffling 19/20, Modality 1/1]
+50%	 [Design 1/1, Contrast 2/4, Shuffling 20/20, Modality 1/1]
+Number of possible sign-flips is 1.40737e+14 = 2^47.
+Generating 20 shufflings (sign-flips only).
+Building null distribution.
+51.2%	 [Design 1/1, Contrast 3/4, Shuffling 1/20, Modality 1/1]
+	 Saving file: /ZPOOL/data/scratch/srndna-ultimatum-dmn-followup-v1/palm/smoke/palm_vox_zvstat_c3
+52.5%	 [Design 1/1, Contrast 3/4, Shuffling 2/20, Modality 1/1]
+53.8%	 [Design 1/1, Contrast 3/4, Shuffling 3/20, Modality 1/1]
+55%	 [Design 1/1, Contrast 3/4, Shuffling 4/20, Modality 1/1]
+56.2%	 [Design 1/1, Contrast 3/4, Shuffling 5/20, Modality 1/1]
+57.5%	 [Design 1/1, Contrast 3/4, Shuffling 6/20, Modality 1/1]
+58.8%	 [Design 1/1, Contrast 3/4, Shuffling 7/20, Modality 1/1]
+60%	 [Design 1/1, Contrast 3/4, Shuffling 8/20, Modality 1/1]
+61.3%	 [Design 1/1, Contrast 3/4, Shuffling 9/20, Modality 1/1]
+62.5%	 [Design 1/1, Contrast 3/4, Shuffling 10/20, Modality 1/1]
+63.7%	 [Design 1/1, Contrast 3/4, Shuffling 11/20, Modality 1/1]
+65%	 [Design 1/1, Contrast 3/4, Shuffling 12/20, Modality 1/1]
+66.2%	 [Design 1/1, Contrast 3/4, Shuffling 13/20, Modality 1/1]
+67.5%	 [Design 1/1, Contrast 3/4, Shuffling 14/20, Modality 1/1]
+68.8%	 [Design 1/1, Contrast 3/4, Shuffling 15/20, Modality 1/1]
+70%	 [Design 1/1, Contrast 3/4, Shuffling 16/20, Modality 1/1]
+71.2%	 [Design 1/1, Contrast 3/4, Shuffling 17/20, Modality 1/1]
+72.5%	 [Design 1/1, Contrast 3/4, Shuffling 18/20, Modality 1/1]
+73.8%	 [Design 1/1, Contrast 3/4, Shuffling 19/20, Modality 1/1]
+75%	 [Design 1/1, Contrast 3/4, Shuffling 20/20, Modality 1/1]
+Number of possible sign-flips is 1.40737e+14 = 2^47.
+Generating 20 shufflings (sign-flips only).
+Building null distribution.
+76.2%	 [Design 1/1, Contrast 4/4, Shuffling 1/20, Modality 1/1]
+	 Saving file: /ZPOOL/data/scratch/srndna-ultimatum-dmn-followup-v1/palm/smoke/palm_vox_zvstat_c4
+77.5%	 [Design 1/1, Contrast 4/4, Shuffling 2/20, Modality 1/1]
+78.8%	 [Design 1/1, Contrast 4/4, Shuffling 3/20, Modality 1/1]
+80%	 [Design 1/1, Contrast 4/4, Shuffling 4/20, Modality 1/1]
+81.2%	 [Design 1/1, Contrast 4/4, Shuffling 5/20, Modality 1/1]
+82.5%	 [Design 1/1, Contrast 4/4, Shuffling 6/20, Modality 1/1]
+83.8%	 [Design 1/1, Contrast 4/4, Shuffling 7/20, Modality 1/1]
+85%	 [Design 1/1, Contrast 4/4, Shuffling 8/20, Modality 1/1]
+86.2%	 [Design 1/1, Contrast 4/4, Shuffling 9/20, Modality 1/1]
+87.5%	 [Design 1/1, Contrast 4/4, Shuffling 10/20, Modality 1/1]
+88.8%	 [Design 1/1, Contrast 4/4, Shuffling 11/20, Modality 1/1]
+90%	 [Design 1/1, Contrast 4/4, Shuffling 12/20, Modality 1/1]
+91.2%	 [Design 1/1, Contrast 4/4, Shuffling 13/20, Modality 1/1]
+92.5%	 [Design 1/1, Contrast 4/4, Shuffling 14/20, Modality 1/1]
+93.8%	 [Design 1/1, Contrast 4/4, Shuffling 15/20, Modality 1/1]
+95%	 [Design 1/1, Contrast 4/4, Shuffling 16/20, Modality 1/1]
+96.2%	 [Design 1/1, Contrast 4/4, Shuffling 17/20, Modality 1/1]
+97.5%	 [Design 1/1, Contrast 4/4, Shuffling 18/20, Modality 1/1]
+98.8%	 [Design 1/1, Contrast 4/4, Shuffling 19/20, Modality 1/1]
+100%	 [Design 1/1, Contrast 4/4, Shuffling 20/20, Modality 1/1]
+Elapsed time with permutations: ~ 11.3896 seconds.
+Computing p-values.
+Saving p-values (uncorrected, and corrected within modality and within contrast).
+	 Saving file: /ZPOOL/data/scratch/srndna-ultimatum-dmn-followup-v1/palm/smoke/palm_vox_zvstat_uncp_c1
+	 Saving file: /ZPOOL/data/scratch/srndna-ultimatum-dmn-followup-v1/palm/smoke/palm_vox_zvstat_fwep_c1
+	 Saving file: /ZPOOL/data/scratch/srndna-ultimatum-dmn-followup-v1/palm/smoke/palm_clustere_zvstat_c1
+	 Saving file: /ZPOOL/data/scratch/srndna-ultimatum-dmn-followup-v1/palm/smoke/palm_clustere_zvstat_fwep_c1
+	 Saving file: /ZPOOL/data/scratch/srndna-ultimatum-dmn-followup-v1/palm/smoke/palm_tfce_zvstat_c1
+	 Saving file: /ZPOOL/data/scratch/srndna-ultimatum-dmn-followup-v1/palm/smoke/palm_tfce_zvstat_uncp_c1
+	 Saving file: /ZPOOL/data/scratch/srndna-ultimatum-dmn-followup-v1/palm/smoke/palm_tfce_zvstat_fwep_c1
+	 Saving file: /ZPOOL/data/scratch/srndna-ultimatum-dmn-followup-v1/palm/smoke/palm_vox_zvstat_uncp_c2
+	 Saving file: /ZPOOL/data/scratch/srndna-ultimatum-dmn-followup-v1/palm/smoke/palm_vox_zvstat_fwep_c2
+	 Saving file: /ZPOOL/data/scratch/srndna-ultimatum-dmn-followup-v1/palm/smoke/palm_clustere_zvstat_c2
+	 Saving file: /ZPOOL/data/scratch/srndna-ultimatum-dmn-followup-v1/palm/smoke/palm_clustere_zvstat_fwep_c2
+	 Saving file: /ZPOOL/data/scratch/srndna-ultimatum-dmn-followup-v1/palm/smoke/palm_tfce_zvstat_c2
+	 Saving file: /ZPOOL/data/scratch/srndna-ultimatum-dmn-followup-v1/palm/smoke/palm_tfce_zvstat_uncp_c2
+	 Saving file: /ZPOOL/data/scratch/srndna-ultimatum-dmn-followup-v1/palm/smoke/palm_tfce_zvstat_fwep_c2
+	 Saving file: /ZPOOL/data/scratch/srndna-ultimatum-dmn-followup-v1/palm/smoke/palm_vox_zvstat_uncp_c3
+	 Saving file: /ZPOOL/data/scratch/srndna-ultimatum-dmn-followup-v1/palm/smoke/palm_vox_zvstat_fwep_c3
+	 Saving file: /ZPOOL/data/scratch/srndna-ultimatum-dmn-followup-v1/palm/smoke/palm_clustere_zvstat_c3
+	 Saving file: /ZPOOL/data/scratch/srndna-ultimatum-dmn-followup-v1/palm/smoke/palm_clustere_zvstat_fwep_c3
+	 Saving file: /ZPOOL/data/scratch/srndna-ultimatum-dmn-followup-v1/palm/smoke/palm_tfce_zvstat_c3
+	 Saving file: /ZPOOL/data/scratch/srndna-ultimatum-dmn-followup-v1/palm/smoke/palm_tfce_zvstat_uncp_c3
+	 Saving file: /ZPOOL/data/scratch/srndna-ultimatum-dmn-followup-v1/palm/smoke/palm_tfce_zvstat_fwep_c3
+	 Saving file: /ZPOOL/data/scratch/srndna-ultimatum-dmn-followup-v1/palm/smoke/palm_vox_zvstat_uncp_c4
+	 Saving file: /ZPOOL/data/scratch/srndna-ultimatum-dmn-followup-v1/palm/smoke/palm_vox_zvstat_fwep_c4
+	 Saving file: /ZPOOL/data/scratch/srndna-ultimatum-dmn-followup-v1/palm/smoke/palm_clustere_zvstat_c4
+	 Saving file: /ZPOOL/data/scratch/srndna-ultimatum-dmn-followup-v1/palm/smoke/palm_clustere_zvstat_fwep_c4
+	 Saving file: /ZPOOL/data/scratch/srndna-ultimatum-dmn-followup-v1/palm/smoke/palm_tfce_zvstat_c4
+	 Saving file: /ZPOOL/data/scratch/srndna-ultimatum-dmn-followup-v1/palm/smoke/palm_tfce_zvstat_uncp_c4
+	 Saving file: /ZPOOL/data/scratch/srndna-ultimatum-dmn-followup-v1/palm/smoke/palm_tfce_zvstat_fwep_c4
+Elapsed time generating and saving results: ~ 0.349095 seconds.
+Overall elapsed time: ~ 17.6448 seconds.
+PALM finished at 18-Oct-2026 18:37:00.
