@@ -1,0 +1,212 @@
+{
+  "complete": false,
+  "failures": [
+    {
+      "error": "PALM failed (-9): /ZPOOL/data/scratch/srndna-ultimatum-dmn-followup-v1/palm/jobs/full-rt__dmn-age/tfce/attempt-tgvgrcwo/run.txt",
+      "method": "tfce",
+      "model": "full-rt__dmn-age"
+    },
+    {
+      "error": "PALM failed (1): /ZPOOL/data/scratch/srndna-ultimatum-dmn-followup-v1/palm/jobs/full-rt__dmn-age/cluster-z2.6/attempt-mwqbxs1s/run.txt",
+      "method": "cluster-z2.6",
+      "model": "full-rt__dmn-age"
+    },
+    {
+      "error": "PALM failed (1): /ZPOOL/data/scratch/srndna-ultimatum-dmn-followup-v1/palm/jobs/full-rt__dmn-age/cluster-z3.1/attempt-unkeu9_j/run.txt",
+      "method": "cluster-z3.1",
+      "model": "full-rt__dmn-age"
+    },
+    {
+      "error": "PALM failed (1): /ZPOOL/data/scratch/srndna-ultimatum-dmn-followup-v1/palm/jobs/full-rt__dmn-simple-effects/tfce/attempt-or6978xm/run.txt",
+      "method": "tfce",
+      "model": "full-rt__dmn-simple-effects"
+    },
+    {
+      "error": "PALM failed (1): /ZPOOL/data/scratch/srndna-ultimatum-dmn-followup-v1/palm/jobs/full-rt__dmn-simple-effects/cluster-z2.6/attempt-s9a0knhl/run.txt",
+      "method": "cluster-z2.6",
+      "model": "full-rt__dmn-simple-effects"
+    },
+    {
+      "error": "PALM failed (1): /ZPOOL/data/scratch/srndna-ultimatum-dmn-followup-v1/palm/jobs/full-rt__dmn-simple-effects/cluster-z3.1/attempt-quv81o_f/run.txt",
+      "method": "cluster-z3.1",
+      "model": "full-rt__dmn-simple-effects"
+    },
+    {
+      "error": "PALM failed (1): /ZPOOL/data/scratch/srndna-ultimatum-dmn-followup-v1/palm/jobs/full-rt__dmn-outlier-deweighted/tfce/attempt-cy3v96om/run.txt",
+      "method": "tfce",
+      "model": "full-rt__dmn-outlier-deweighted"
+    },
+    {
+      "error": "PALM failed (1): /ZPOOL/data/scratch/srndna-ultimatum-dmn-followup-v1/palm/jobs/full-rt__dmn-outlier-deweighted/cluster-z2.6/attempt-abnh1pvp/run.txt",
+      "method": "cluster-z2.6",
+      "model": "full-rt__dmn-outlier-deweighted"
+    },
+    {
+      "error": "PALM failed (1): /ZPOOL/data/scratch/srndna-ultimatum-dmn-followup-v1/palm/jobs/full-rt__dmn-outlier-deweighted/cluster-z3.1/attempt-iahocx_7/run.txt",
+      "method": "cluster-z3.1",
+      "model": "full-rt__dmn-outlier-deweighted"
+    },
+    {
+      "error": "PALM failed (1): /ZPOOL/data/scratch/srndna-ultimatum-dmn-followup-v1/palm/jobs/pooled-post__dmn-age/tfce/attempt-wzqza7tz/run.txt",
+      "method": "tfce",
+      "model": "pooled-post__dmn-age"
+    },
+    {
+      "error": "PALM failed (1): /ZPOOL/data/scratch/srndna-ultimatum-dmn-followup-v1/palm/jobs/pooled-post__dmn-simple-effects/tfce/attempt-o920vzgj/run.txt",
+      "method": "tfce",
+      "model": "pooled-post__dmn-simple-effects"
+    },
+    {
+      "error": "PALM failed (-9): /ZPOOL/data/scratch/srndna-ultimatum-dmn-followup-v1/palm/jobs/pooled-post__dmn-simple-effects/cluster-z2.6/attempt-dgw2d49l/run.txt",
+      "method": "cluster-z2.6",
+      "model": "pooled-post__dmn-simple-effects"
+    },
+    {
+      "error": "PALM failed (-9): /ZPOOL/data/scratch/srndna-ultimatum-dmn-followup-v1/palm/jobs/pooled-post__dmn-simple-effects/cluster-z3.1/attempt-izytx0ha/run.txt",
+      "method": "cluster-z3.1",
+      "model": "pooled-post__dmn-simple-effects"
+    },
+    {
+      "error": "PALM failed (1): /ZPOOL/data/scratch/srndna-ultimatum-dmn-followup-v1/palm/jobs/pooled-post__dmn-outlier-deweighted/tfce/attempt-odmwe3iq/run.txt",
+      "method": "tfce",
+      "model": "pooled-post__dmn-outlier-deweighted"
+    },
+    {
+      "error": "PALM failed (-11): /ZPOOL/data/scratch/srndna-ultimatum-dmn-followup-v1/palm/jobs/pooled-post__dmn-outlier-deweighted/cluster-z2.6/attempt-2zqabbsm/run.txt",
+      "method": "cluster-z2.6",
+      "model": "pooled-post__dmn-outlier-deweighted"
+    },
+    {
+      "error": "PALM failed (1): /ZPOOL/data/scratch/srndna-ultimatum-dmn-followup-v1/palm/jobs/pooled-post__dmn-outlier-deweighted/cluster-z3.1/attempt-_edmzwph/run.txt",
+      "method": "cluster-z3.1",
+      "model": "pooled-post__dmn-outlier-deweighted"
+    },
+    {
+      "error": "PALM failed (1): /ZPOOL/data/scratch/srndna-ultimatum-dmn-followup-v1/palm/jobs/partner-post__dmn-age/tfce/attempt-w9oky6d5/run.txt",
+      "method": "tfce",
+      "model": "partner-post__dmn-age"
+    },
+    {
+      "error": "PALM failed (-11): /ZPOOL/data/scratch/srndna-ultimatum-dmn-followup-v1/palm/jobs/partner-post__dmn-simple-effects/tfce/attempt-6o40s1oy/run.txt",
+      "method": "tfce",
+      "model": "partner-post__dmn-simple-effects"
+    },
+    {
+      "error": "PALM failed (-11): /ZPOOL/data/scratch/srndna-ultimatum-dmn-followup-v1/palm/jobs/partner-post__dmn-simple-effects/cluster-z2.6/attempt-bkb4navi/run.txt",
+      "method": "cluster-z2.6",
+      "model": "partner-post__dmn-simple-effects"
+    },
+    {
+      "error": "PALM failed (1): /ZPOOL/data/scratch/srndna-ultimatum-dmn-followup-v1/palm/jobs/partner-post__dmn-simple-effects/cluster-z3.1/attempt-m2ph6tpf/run.txt",
+      "method": "cluster-z3.1",
+      "model": "partner-post__dmn-simple-effects"
+    },
+    {
+      "error": "PALM failed (1): /ZPOOL/data/scratch/srndna-ultimatum-dmn-followup-v1/palm/jobs/partner-post__dmn-outlier-deweighted/tfce/attempt-j7jh9wtn/run.txt",
+      "method": "tfce",
+      "model": "partner-post__dmn-outlier-deweighted"
+    },
+    {
+      "error": "PALM failed (1): /ZPOOL/data/scratch/srndna-ultimatum-dmn-followup-v1/palm/jobs/partner-post__dmn-outlier-deweighted/cluster-z2.6/attempt-z8xyp_za/run.txt",
+      "method": "cluster-z2.6",
+      "model": "partner-post__dmn-outlier-deweighted"
+    },
+    {
+      "error": "PALM failed (1): /ZPOOL/data/scratch/srndna-ultimatum-dmn-followup-v1/palm/jobs/partner-post__dmn-outlier-deweighted/cluster-z3.1/attempt-j_wt0nix/run.txt",
+      "method": "cluster-z3.1",
+      "model": "partner-post__dmn-outlier-deweighted"
+    },
+    {
+      "error": "PALM failed (1): /ZPOOL/data/scratch/srndna-ultimatum-dmn-followup-v1/palm/jobs/crossed__partner-post_nppi-dmn_choice-slope/tfce/attempt-zd8blqz8/run.txt",
+      "method": "tfce",
+      "model": "crossed__partner-post_nppi-dmn_choice-slope"
+    },
+    {
+      "error": "PALM failed (1): /ZPOOL/data/scratch/srndna-ultimatum-dmn-followup-v1/palm/jobs/crossed__partner-post_nppi-dmn_choice-slope/cluster-z2.6/attempt-lkk6liqe/run.txt",
+      "method": "cluster-z2.6",
+      "model": "crossed__partner-post_nppi-dmn_choice-slope"
+    },
+    {
+      "error": "PALM failed (1): /ZPOOL/data/scratch/srndna-ultimatum-dmn-followup-v1/palm/jobs/crossed__partner-post_nppi-dmn_choice-slope/cluster-z3.1/attempt-2ivqwd3e/run.txt",
+      "method": "cluster-z3.1",
+      "model": "crossed__partner-post_nppi-dmn_choice-slope"
+    },
+    {
+      "error": "PALM failed (-11): /ZPOOL/data/scratch/srndna-ultimatum-dmn-followup-v1/palm/jobs/crossed__partner-post_nppi-dmn_acceptance-intercept/tfce/attempt-nlizgrb6/run.txt",
+      "method": "tfce",
+      "model": "crossed__partner-post_nppi-dmn_acceptance-intercept"
+    },
+    {
+      "error": "PALM failed (1): /ZPOOL/data/scratch/srndna-ultimatum-dmn-followup-v1/palm/jobs/crossed__partner-post_nppi-dmn_acceptance-intercept/cluster-z2.6/attempt-46a0f9jj/run.txt",
+      "method": "cluster-z2.6",
+      "model": "crossed__partner-post_nppi-dmn_acceptance-intercept"
+    },
+    {
+      "error": "PALM failed (-11): /ZPOOL/data/scratch/srndna-ultimatum-dmn-followup-v1/palm/jobs/crossed__partner-post_nppi-dmn_acceptance-intercept/cluster-z3.1/attempt-jtn7q1xh/run.txt",
+      "method": "cluster-z3.1",
+      "model": "crossed__partner-post_nppi-dmn_acceptance-intercept"
+    },
+    {
+      "error": "PALM failed (1): /ZPOOL/data/scratch/srndna-ultimatum-dmn-followup-v1/palm/jobs/crossed__pooled-post_nppi-dmn_choice-slope/tfce/attempt-kyzif5nc/run.txt",
+      "method": "tfce",
+      "model": "crossed__pooled-post_nppi-dmn_choice-slope"
+    },
+    {
+      "error": "PALM failed (-9): /ZPOOL/data/scratch/srndna-ultimatum-dmn-followup-v1/palm/jobs/crossed__pooled-post_nppi-dmn_choice-slope/cluster-z2.6/attempt-plfbk5fu/run.txt",
+      "method": "cluster-z2.6",
+      "model": "crossed__pooled-post_nppi-dmn_choice-slope"
+    },
+    {
+      "error": "PALM failed (1): /ZPOOL/data/scratch/srndna-ultimatum-dmn-followup-v1/palm/jobs/crossed__pooled-post_nppi-dmn_choice-slope/cluster-z3.1/attempt-7e750a0n/run.txt",
+      "method": "cluster-z3.1",
+      "model": "crossed__pooled-post_nppi-dmn_choice-slope"
+    },
+    {
+      "error": "PALM failed (1): /ZPOOL/data/scratch/srndna-ultimatum-dmn-followup-v1/palm/jobs/crossed__pooled-post_nppi-dmn_acceptance-intercept/tfce/attempt-7sii3tz4/run.txt",
+      "method": "tfce",
+      "model": "crossed__pooled-post_nppi-dmn_acceptance-intercept"
+    },
+    {
+      "error": "PALM failed (-11): /ZPOOL/data/scratch/srndna-ultimatum-dmn-followup-v1/palm/jobs/crossed__pooled-post_nppi-dmn_acceptance-intercept/cluster-z2.6/attempt-20ysbjqv/run.txt",
+      "method": "cluster-z2.6",
+      "model": "crossed__pooled-post_nppi-dmn_acceptance-intercept"
+    },
+    {
+      "error": "PALM failed (1): /ZPOOL/data/scratch/srndna-ultimatum-dmn-followup-v1/palm/jobs/crossed__pooled-post_nppi-dmn_acceptance-intercept/cluster-z3.1/attempt-_5pwlrxe/run.txt",
+      "method": "cluster-z3.1",
+      "model": "crossed__pooled-post_nppi-dmn_acceptance-intercept"
+    },
+    {
+      "error": "PALM failed (-11): /ZPOOL/data/scratch/srndna-ultimatum-dmn-followup-v1/palm/jobs/crossed__full-rt_nppi-dmn_choice-slope/tfce/attempt-zn49d1bk/run.txt",
+      "method": "tfce",
+      "model": "crossed__full-rt_nppi-dmn_choice-slope"
+    },
+    {
+      "error": "PALM failed (-9): /ZPOOL/data/scratch/srndna-ultimatum-dmn-followup-v1/palm/jobs/crossed__full-rt_nppi-dmn_choice-slope/cluster-z2.6/attempt-5wkh2fn2/run.txt",
+      "method": "cluster-z2.6",
+      "model": "crossed__full-rt_nppi-dmn_choice-slope"
+    },
+    {
+      "error": "PALM failed (-9): /ZPOOL/data/scratch/srndna-ultimatum-dmn-followup-v1/palm/jobs/crossed__full-rt_nppi-dmn_choice-slope/cluster-z3.1/attempt-el9xgnnp/run.txt",
+      "method": "cluster-z3.1",
+      "model": "crossed__full-rt_nppi-dmn_choice-slope"
+    },
+    {
+      "error": "PALM failed (-11): /ZPOOL/data/scratch/srndna-ultimatum-dmn-followup-v1/palm/jobs/crossed__full-rt_nppi-dmn_acceptance-intercept/tfce/attempt-vrg9tfgs/run.txt",
+      "method": "tfce",
+      "model": "crossed__full-rt_nppi-dmn_acceptance-intercept"
+    },
+    {
+      "error": "PALM failed (-9): /ZPOOL/data/scratch/srndna-ultimatum-dmn-followup-v1/palm/jobs/crossed__full-rt_nppi-dmn_acceptance-intercept/cluster-z2.6/attempt-ebceqkli/run.txt",
+      "method": "cluster-z2.6",
+      "model": "crossed__full-rt_nppi-dmn_acceptance-intercept"
+    },
+    {
+      "error": "PALM failed (-11): /ZPOOL/data/scratch/srndna-ultimatum-dmn-followup-v1/palm/jobs/crossed__full-rt_nppi-dmn_acceptance-intercept/cluster-z3.1/attempt-cspvgz_g/run.txt",
+      "method": "cluster-z3.1",
+      "model": "crossed__full-rt_nppi-dmn_acceptance-intercept"
+    }
+  ],
+  "jobs": 45,
+  "summary_rows": 16
+}

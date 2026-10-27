@@ -1,0 +1,155 @@
+{
+  "assumptions": "independent symmetric errors; Freedman-Lane sign flips; age variance groups",
+  "code": "a75adc555b27211febbc625cb20eb3663884ef8c1fa8ea793ff129c287a66abc",
+  "engine": "/usr/local/MATLAB/R2024b/bin/matlab",
+  "engine_sha256": "513dfb661307f598ca6d1d4426c1c98bd6a817a1e9cf472b85ecab6a34d60761",
+  "helper": "47e820f83e2fa50617d4a13204a699165522fe221282013cc6f19c4265012033",
+  "input_provenance": "b3327018d8891f3e7343c7352fbda3470a415a5f186c7b3288e8d38592d78e36",
+  "limitations": "Unweighted, not FLAME. Spatial FWE per signed contrast; not corrected across methods/models. Cluster thresholds equivalent Z, not randomise t. No automatic exclusions.",
+  "methods": {
+    "cluster-z2.6": [
+      "-C",
+      "2.6",
+      "-Cstat",
+      "extent"
+    ],
+    "cluster-z3.1": [
+      "-C",
+      "3.1",
+      "-Cstat",
+      "extent"
+    ],
+    "tfce": [
+      "-T"
+    ]
+  },
+  "models": [
+    "full-rt__dmn-age",
+    "full-rt__dmn-simple-effects",
+    "full-rt__dmn-outlier-deweighted",
+    "pooled-post__dmn-age",
+    "pooled-post__dmn-simple-effects",
+    "pooled-post__dmn-outlier-deweighted",
+    "partner-post__dmn-age",
+    "partner-post__dmn-simple-effects",
+    "partner-post__dmn-outlier-deweighted",
+    "crossed__partner-post_nppi-dmn_choice-slope",
+    "crossed__partner-post_nppi-dmn_acceptance-intercept",
+    "crossed__pooled-post_nppi-dmn_choice-slope",
+    "crossed__pooled-post_nppi-dmn_acceptance-intercept",
+    "crossed__full-rt_nppi-dmn_choice-slope",
+    "crossed__full-rt_nppi-dmn_acceptance-intercept"
+  ],
+  "palm_commit": "9086eff76dcacf4afde12c9af5400a1fe0033b9e",
+  "seed": 20261018,
+  "shuffles": 10000,
+  "source": "22653cdf7dc3f33a68e2651de2250cb0d60f559cd9ead027e3f955de97f6902d",
+  "source_designs": {
+    "crossed__full-rt_nppi-dmn_acceptance-intercept": {
+      "/ZPOOL/data/projects/srndna-ultimatum/results/dmn_covariate_standardized/v1/imaging/crossed__full-rt_nppi-dmn_acceptance-intercept/design/design.con": "5637b8144a0723bdebed1466e6972d765d9cb52e761782577ed14ab7d54b1c47",
+      "/ZPOOL/data/projects/srndna-ultimatum/results/dmn_covariate_standardized/v1/imaging/crossed__full-rt_nppi-dmn_acceptance-intercept/design/design.fsf": "8b68b871ca50200950d9df81bc9aed8a6aabb0312b60bf27b2a46c3960bb6b28",
+      "/ZPOOL/data/projects/srndna-ultimatum/results/dmn_covariate_standardized/v1/imaging/crossed__full-rt_nppi-dmn_acceptance-intercept/design/design.grp": "6692c23c4c2a7d456f75f60ea843637b4ce7cf40ee37750253b4c72bbb518dbf",
+      "/ZPOOL/data/projects/srndna-ultimatum/results/dmn_covariate_standardized/v1/imaging/crossed__full-rt_nppi-dmn_acceptance-intercept/design/design.mat": "0ca4e94048ae5f38d3124363bc7d51d8208fe5b8522b0f8ea87a80b16af5bfca",
+      "/ZPOOL/data/projects/srndna-ultimatum/results/dmn_covariate_standardized/v1/imaging/crossed__full-rt_nppi-dmn_acceptance-intercept/poststats/mask.nii.gz": "12777cdd6c1a4a34e1c86b5f0e1f0664601b2b735b7578826db61d77084d71e6"
+    },
+    "crossed__full-rt_nppi-dmn_choice-slope": {
+      "/ZPOOL/data/projects/srndna-ultimatum/results/dmn_covariate_standardized/v1/imaging/crossed__full-rt_nppi-dmn_choice-slope/design/design.con": "677c21fc783dd8127c0981cb0aee789a499eefd84729399157997cd2395de036",
+      "/ZPOOL/data/projects/srndna-ultimatum/results/dmn_covariate_standardized/v1/imaging/crossed__full-rt_nppi-dmn_choice-slope/design/design.fsf": "50358e8584d4d4bb2b743ed30bae9ab35907ae1e898346c8536a9fe9b5a712ac",
+      "/ZPOOL/data/projects/srndna-ultimatum/results/dmn_covariate_standardized/v1/imaging/crossed__full-rt_nppi-dmn_choice-slope/design/design.grp": "6692c23c4c2a7d456f75f60ea843637b4ce7cf40ee37750253b4c72bbb518dbf",
+      "/ZPOOL/data/projects/srndna-ultimatum/results/dmn_covariate_standardized/v1/imaging/crossed__full-rt_nppi-dmn_choice-slope/design/design.mat": "db35e3cce6a54a4e6e0769521fab780ae3eba0d7d8b034a22710d5634ad60b1f",
+      "/ZPOOL/data/projects/srndna-ultimatum/results/dmn_covariate_standardized/v1/imaging/crossed__full-rt_nppi-dmn_choice-slope/poststats/mask.nii.gz": "12777cdd6c1a4a34e1c86b5f0e1f0664601b2b735b7578826db61d77084d71e6"
+    },
+    "crossed__partner-post_nppi-dmn_acceptance-intercept": {
+      "/ZPOOL/data/projects/srndna-ultimatum/results/dmn_covariate_standardized/v1/imaging/crossed__partner-post_nppi-dmn_acceptance-intercept/design/design.con": "5637b8144a0723bdebed1466e6972d765d9cb52e761782577ed14ab7d54b1c47",
+      "/ZPOOL/data/projects/srndna-ultimatum/results/dmn_covariate_standardized/v1/imaging/crossed__partner-post_nppi-dmn_acceptance-intercept/design/design.fsf": "889a6619227ead7b5c5a7bb34efd390399bdac237aac7eebdb2aad9dd6df3854",
+      "/ZPOOL/data/projects/srndna-ultimatum/results/dmn_covariate_standardized/v1/imaging/crossed__partner-post_nppi-dmn_acceptance-intercept/design/design.grp": "6692c23c4c2a7d456f75f60ea843637b4ce7cf40ee37750253b4c72bbb518dbf",
+      "/ZPOOL/data/projects/srndna-ultimatum/results/dmn_covariate_standardized/v1/imaging/crossed__partner-post_nppi-dmn_acceptance-intercept/design/design.mat": "0ca4e94048ae5f38d3124363bc7d51d8208fe5b8522b0f8ea87a80b16af5bfca",
+      "/ZPOOL/data/projects/srndna-ultimatum/results/dmn_covariate_standardized/v1/imaging/crossed__partner-post_nppi-dmn_acceptance-intercept/poststats/mask.nii.gz": "12777cdd6c1a4a34e1c86b5f0e1f0664601b2b735b7578826db61d77084d71e6"
+    },
+    "crossed__partner-post_nppi-dmn_choice-slope": {
+      "/ZPOOL/data/projects/srndna-ultimatum/results/dmn_covariate_standardized/v1/imaging/crossed__partner-post_nppi-dmn_choice-slope/design/design.con": "677c21fc783dd8127c0981cb0aee789a499eefd84729399157997cd2395de036",
+      "/ZPOOL/data/projects/srndna-ultimatum/results/dmn_covariate_standardized/v1/imaging/crossed__partner-post_nppi-dmn_choice-slope/design/design.fsf": "05739dca0d6bd149d2a40602236457a1793a53c7dd634dfe51e7f03605a3dcf4",
+      "/ZPOOL/data/projects/srndna-ultimatum/results/dmn_covariate_standardized/v1/imaging/crossed__partner-post_nppi-dmn_choice-slope/design/design.grp": "6692c23c4c2a7d456f75f60ea843637b4ce7cf40ee37750253b4c72bbb518dbf",
+      "/ZPOOL/data/projects/srndna-ultimatum/results/dmn_covariate_standardized/v1/imaging/crossed__partner-post_nppi-dmn_choice-slope/design/design.mat": "db35e3cce6a54a4e6e0769521fab780ae3eba0d7d8b034a22710d5634ad60b1f",
+      "/ZPOOL/data/projects/srndna-ultimatum/results/dmn_covariate_standardized/v1/imaging/crossed__partner-post_nppi-dmn_choice-slope/poststats/mask.nii.gz": "12777cdd6c1a4a34e1c86b5f0e1f0664601b2b735b7578826db61d77084d71e6"
+    },
+    "crossed__pooled-post_nppi-dmn_acceptance-intercept": {
+      "/ZPOOL/data/projects/srndna-ultimatum/results/dmn_covariate_standardized/v1/imaging/crossed__pooled-post_nppi-dmn_acceptance-intercept/design/design.con": "5637b8144a0723bdebed1466e6972d765d9cb52e761782577ed14ab7d54b1c47",
+      "/ZPOOL/data/projects/srndna-ultimatum/results/dmn_covariate_standardized/v1/imaging/crossed__pooled-post_nppi-dmn_acceptance-intercept/design/design.fsf": "40c74c1b81fc2f43b10084bfb29948ed9e4cd764166918733203515e6c73e504",
+      "/ZPOOL/data/projects/srndna-ultimatum/results/dmn_covariate_standardized/v1/imaging/crossed__pooled-post_nppi-dmn_acceptance-intercept/design/design.grp": "6692c23c4c2a7d456f75f60ea843637b4ce7cf40ee37750253b4c72bbb518dbf",
+      "/ZPOOL/data/projects/srndna-ultimatum/results/dmn_covariate_standardized/v1/imaging/crossed__pooled-post_nppi-dmn_acceptance-intercept/design/design.mat": "0ca4e94048ae5f38d3124363bc7d51d8208fe5b8522b0f8ea87a80b16af5bfca",
+      "/ZPOOL/data/projects/srndna-ultimatum/results/dmn_covariate_standardized/v1/imaging/crossed__pooled-post_nppi-dmn_acceptance-intercept/poststats/mask.nii.gz": "12777cdd6c1a4a34e1c86b5f0e1f0664601b2b735b7578826db61d77084d71e6"
+    },
+    "crossed__pooled-post_nppi-dmn_choice-slope": {
+      "/ZPOOL/data/projects/srndna-ultimatum/results/dmn_covariate_standardized/v1/imaging/crossed__pooled-post_nppi-dmn_choice-slope/design/design.con": "677c21fc783dd8127c0981cb0aee789a499eefd84729399157997cd2395de036",
+      "/ZPOOL/data/projects/srndna-ultimatum/results/dmn_covariate_standardized/v1/imaging/crossed__pooled-post_nppi-dmn_choice-slope/design/design.fsf": "cc4fd56b8bb0c62244c95e98e67ffc43356b3ab104f4606edf874a07dc52527f",
+      "/ZPOOL/data/projects/srndna-ultimatum/results/dmn_covariate_standardized/v1/imaging/crossed__pooled-post_nppi-dmn_choice-slope/design/design.grp": "6692c23c4c2a7d456f75f60ea843637b4ce7cf40ee37750253b4c72bbb518dbf",
+      "/ZPOOL/data/projects/srndna-ultimatum/results/dmn_covariate_standardized/v1/imaging/crossed__pooled-post_nppi-dmn_choice-slope/design/design.mat": "db35e3cce6a54a4e6e0769521fab780ae3eba0d7d8b034a22710d5634ad60b1f",
+      "/ZPOOL/data/projects/srndna-ultimatum/results/dmn_covariate_standardized/v1/imaging/crossed__pooled-post_nppi-dmn_choice-slope/poststats/mask.nii.gz": "12777cdd6c1a4a34e1c86b5f0e1f0664601b2b735b7578826db61d77084d71e6"
+    },
+    "full-rt__dmn-age": {
+      "/ZPOOL/data/projects/srndna-ultimatum/results/dmn_covariate_standardized/v1/imaging/full-rt__dmn-age/design/design.con": "371ef1f3908f2f70f0a13c75479844b75caa10cb5e43a6599cbc01380ccae524",
+      "/ZPOOL/data/projects/srndna-ultimatum/results/dmn_covariate_standardized/v1/imaging/full-rt__dmn-age/design/design.fsf": "8816ac3e780f3042f45e4feb1b1936607843a6a837fdb3dfde29b1e6b82b1553",
+      "/ZPOOL/data/projects/srndna-ultimatum/results/dmn_covariate_standardized/v1/imaging/full-rt__dmn-age/design/design.grp": "6692c23c4c2a7d456f75f60ea843637b4ce7cf40ee37750253b4c72bbb518dbf",
+      "/ZPOOL/data/projects/srndna-ultimatum/results/dmn_covariate_standardized/v1/imaging/full-rt__dmn-age/design/design.mat": "11f0e45e125990c6ea47efde9f1068d7b314bd2e67a2b0db1217bd232fd7ebf2",
+      "/ZPOOL/data/projects/srndna-ultimatum/results/dmn_covariate_standardized/v1/imaging/full-rt__dmn-age/poststats/mask.nii.gz": "12777cdd6c1a4a34e1c86b5f0e1f0664601b2b735b7578826db61d77084d71e6"
+    },
+    "full-rt__dmn-outlier-deweighted": {
+      "/ZPOOL/data/projects/srndna-ultimatum/results/dmn_covariate_standardized/v1/imaging/full-rt__dmn-outlier-deweighted/design/design.con": "738fba8db9e5ef1cd2afd9b7cbba83dbe8866b70a4971e168f75de6cd1f244e4",
+      "/ZPOOL/data/projects/srndna-ultimatum/results/dmn_covariate_standardized/v1/imaging/full-rt__dmn-outlier-deweighted/design/design.fsf": "fee4a82771084be743b3ae6a0451f6f8d18078d821d866258674fc597ae269c4",
+      "/ZPOOL/data/projects/srndna-ultimatum/results/dmn_covariate_standardized/v1/imaging/full-rt__dmn-outlier-deweighted/design/design.grp": "6692c23c4c2a7d456f75f60ea843637b4ce7cf40ee37750253b4c72bbb518dbf",
+      "/ZPOOL/data/projects/srndna-ultimatum/results/dmn_covariate_standardized/v1/imaging/full-rt__dmn-outlier-deweighted/design/design.mat": "11f0e45e125990c6ea47efde9f1068d7b314bd2e67a2b0db1217bd232fd7ebf2",
+      "/ZPOOL/data/projects/srndna-ultimatum/results/dmn_covariate_standardized/v1/imaging/full-rt__dmn-outlier-deweighted/poststats/mask.nii.gz": "12777cdd6c1a4a34e1c86b5f0e1f0664601b2b735b7578826db61d77084d71e6"
+    },
+    "full-rt__dmn-simple-effects": {
+      "/ZPOOL/data/projects/srndna-ultimatum/results/dmn_covariate_standardized/v1/imaging/full-rt__dmn-simple-effects/design/design.con": "738fba8db9e5ef1cd2afd9b7cbba83dbe8866b70a4971e168f75de6cd1f244e4",
+      "/ZPOOL/data/projects/srndna-ultimatum/results/dmn_covariate_standardized/v1/imaging/full-rt__dmn-simple-effects/design/design.fsf": "b6535e3b5b5575704580487c2d1054123e0ab12d10306e4fa40baf62fc2e6e1c",
+      "/ZPOOL/data/projects/srndna-ultimatum/results/dmn_covariate_standardized/v1/imaging/full-rt__dmn-simple-effects/design/design.grp": "6692c23c4c2a7d456f75f60ea843637b4ce7cf40ee37750253b4c72bbb518dbf",
+      "/ZPOOL/data/projects/srndna-ultimatum/results/dmn_covariate_standardized/v1/imaging/full-rt__dmn-simple-effects/design/design.mat": "11f0e45e125990c6ea47efde9f1068d7b314bd2e67a2b0db1217bd232fd7ebf2",
+      "/ZPOOL/data/projects/srndna-ultimatum/results/dmn_covariate_standardized/v1/imaging/full-rt__dmn-simple-effects/poststats/mask.nii.gz": "12777cdd6c1a4a34e1c86b5f0e1f0664601b2b735b7578826db61d77084d71e6"
+    },
+    "partner-post__dmn-age": {
+      "/ZPOOL/data/projects/srndna-ultimatum/results/dmn_covariate_standardized/v1/imaging/partner-post__dmn-age/design/design.con": "371ef1f3908f2f70f0a13c75479844b75caa10cb5e43a6599cbc01380ccae524",
+      "/ZPOOL/data/projects/srndna-ultimatum/results/dmn_covariate_standardized/v1/imaging/partner-post__dmn-age/design/design.fsf": "8069074385c894bb0461e149dfa1434ae666b2baeca3a1f7f18f3f5ed0ba1fb6",
+      "/ZPOOL/data/projects/srndna-ultimatum/results/dmn_covariate_standardized/v1/imaging/partner-post__dmn-age/design/design.grp": "6692c23c4c2a7d456f75f60ea843637b4ce7cf40ee37750253b4c72bbb518dbf",
+      "/ZPOOL/data/projects/srndna-ultimatum/results/dmn_covariate_standardized/v1/imaging/partner-post__dmn-age/design/design.mat": "11f0e45e125990c6ea47efde9f1068d7b314bd2e67a2b0db1217bd232fd7ebf2",
+      "/ZPOOL/data/projects/srndna-ultimatum/results/dmn_covariate_standardized/v1/imaging/partner-post__dmn-age/poststats/mask.nii.gz": "12777cdd6c1a4a34e1c86b5f0e1f0664601b2b735b7578826db61d77084d71e6"
+    },
+    "partner-post__dmn-outlier-deweighted": {
+      "/ZPOOL/data/projects/srndna-ultimatum/results/dmn_covariate_standardized/v1/imaging/partner-post__dmn-outlier-deweighted/design/design.con": "738fba8db9e5ef1cd2afd9b7cbba83dbe8866b70a4971e168f75de6cd1f244e4",
+      "/ZPOOL/data/projects/srndna-ultimatum/results/dmn_covariate_standardized/v1/imaging/partner-post__dmn-outlier-deweighted/design/design.fsf": "c0cb0b68ce97dd9d39a2770ee9d3edac0635c918f95adb1f1ee86c4a80d967ab",
+      "/ZPOOL/data/projects/srndna-ultimatum/results/dmn_covariate_standardized/v1/imaging/partner-post__dmn-outlier-deweighted/design/design.grp": "6692c23c4c2a7d456f75f60ea843637b4ce7cf40ee37750253b4c72bbb518dbf",
+      "/ZPOOL/data/projects/srndna-ultimatum/results/dmn_covariate_standardized/v1/imaging/partner-post__dmn-outlier-deweighted/design/design.mat": "11f0e45e125990c6ea47efde9f1068d7b314bd2e67a2b0db1217bd232fd7ebf2",
+      "/ZPOOL/data/projects/srndna-ultimatum/results/dmn_covariate_standardized/v1/imaging/partner-post__dmn-outlier-deweighted/poststats/mask.nii.gz": "12777cdd6c1a4a34e1c86b5f0e1f0664601b2b735b7578826db61d77084d71e6"
+    },
+    "partner-post__dmn-simple-effects": {
+      "/ZPOOL/data/projects/srndna-ultimatum/results/dmn_covariate_standardized/v1/imaging/partner-post__dmn-simple-effects/design/design.con": "738fba8db9e5ef1cd2afd9b7cbba83dbe8866b70a4971e168f75de6cd1f244e4",
+      "/ZPOOL/data/projects/srndna-ultimatum/results/dmn_covariate_standardized/v1/imaging/partner-post__dmn-simple-effects/design/design.fsf": "10305b99acd8126b8b128ab621bdca6a9bbb4cbddcac6732da7e7a0b5ef531c6",
+      "/ZPOOL/data/projects/srndna-ultimatum/results/dmn_covariate_standardized/v1/imaging/partner-post__dmn-simple-effects/design/design.grp": "6692c23c4c2a7d456f75f60ea843637b4ce7cf40ee37750253b4c72bbb518dbf",
+      "/ZPOOL/data/projects/srndna-ultimatum/results/dmn_covariate_standardized/v1/imaging/partner-post__dmn-simple-effects/design/design.mat": "11f0e45e125990c6ea47efde9f1068d7b314bd2e67a2b0db1217bd232fd7ebf2",
+      "/ZPOOL/data/projects/srndna-ultimatum/results/dmn_covariate_standardized/v1/imaging/partner-post__dmn-simple-effects/poststats/mask.nii.gz": "12777cdd6c1a4a34e1c86b5f0e1f0664601b2b735b7578826db61d77084d71e6"
+    },
+    "pooled-post__dmn-age": {
+      "/ZPOOL/data/projects/srndna-ultimatum/results/dmn_covariate_standardized/v1/imaging/pooled-post__dmn-age/design/design.con": "371ef1f3908f2f70f0a13c75479844b75caa10cb5e43a6599cbc01380ccae524",
+      "/ZPOOL/data/projects/srndna-ultimatum/results/dmn_covariate_standardized/v1/imaging/pooled-post__dmn-age/design/design.fsf": "8568d941985b57d3f3c9c639594e8c4c5f8c582ef45a3df40b9f46d951a85057",
+      "/ZPOOL/data/projects/srndna-ultimatum/results/dmn_covariate_standardized/v1/imaging/pooled-post__dmn-age/design/design.grp": "6692c23c4c2a7d456f75f60ea843637b4ce7cf40ee37750253b4c72bbb518dbf",
+      "/ZPOOL/data/projects/srndna-ultimatum/results/dmn_covariate_standardized/v1/imaging/pooled-post__dmn-age/design/design.mat": "11f0e45e125990c6ea47efde9f1068d7b314bd2e67a2b0db1217bd232fd7ebf2",
+      "/ZPOOL/data/projects/srndna-ultimatum/results/dmn_covariate_standardized/v1/imaging/pooled-post__dmn-age/poststats/mask.nii.gz": "12777cdd6c1a4a34e1c86b5f0e1f0664601b2b735b7578826db61d77084d71e6"
+    },
+    "pooled-post__dmn-outlier-deweighted": {
+      "/ZPOOL/data/projects/srndna-ultimatum/results/dmn_covariate_standardized/v1/imaging/pooled-post__dmn-outlier-deweighted/design/design.con": "738fba8db9e5ef1cd2afd9b7cbba83dbe8866b70a4971e168f75de6cd1f244e4",
+      "/ZPOOL/data/projects/srndna-ultimatum/results/dmn_covariate_standardized/v1/imaging/pooled-post__dmn-outlier-deweighted/design/design.fsf": "dab7e7125c7152bad6cb8b484fe34d89e19900f0b7c14c83ddfa0ec3ef0852e3",
+      "/ZPOOL/data/projects/srndna-ultimatum/results/dmn_covariate_standardized/v1/imaging/pooled-post__dmn-outlier-deweighted/design/design.grp": "6692c23c4c2a7d456f75f60ea843637b4ce7cf40ee37750253b4c72bbb518dbf",
+      "/ZPOOL/data/projects/srndna-ultimatum/results/dmn_covariate_standardized/v1/imaging/pooled-post__dmn-outlier-deweighted/design/design.mat": "11f0e45e125990c6ea47efde9f1068d7b314bd2e67a2b0db1217bd232fd7ebf2",
+      "/ZPOOL/data/projects/srndna-ultimatum/results/dmn_covariate_standardized/v1/imaging/pooled-post__dmn-outlier-deweighted/poststats/mask.nii.gz": "12777cdd6c1a4a34e1c86b5f0e1f0664601b2b735b7578826db61d77084d71e6"
+    },
+    "pooled-post__dmn-simple-effects": {
+      "/ZPOOL/data/projects/srndna-ultimatum/results/dmn_covariate_standardized/v1/imaging/pooled-post__dmn-simple-effects/design/design.con": "738fba8db9e5ef1cd2afd9b7cbba83dbe8866b70a4971e168f75de6cd1f244e4",
+      "/ZPOOL/data/projects/srndna-ultimatum/results/dmn_covariate_standardized/v1/imaging/pooled-post__dmn-simple-effects/design/design.fsf": "9d7cba3bae60ba7174b22db1ffd6af66c8dec18b008ba6e3c0c8332cdb8aabc8",
+      "/ZPOOL/data/projects/srndna-ultimatum/results/dmn_covariate_standardized/v1/imaging/pooled-post__dmn-simple-effects/design/design.grp": "6692c23c4c2a7d456f75f60ea843637b4ce7cf40ee37750253b4c72bbb518dbf",
+      "/ZPOOL/data/projects/srndna-ultimatum/results/dmn_covariate_standardized/v1/imaging/pooled-post__dmn-simple-effects/design/design.mat": "11f0e45e125990c6ea47efde9f1068d7b314bd2e67a2b0db1217bd232fd7ebf2",
+      "/ZPOOL/data/projects/srndna-ultimatum/results/dmn_covariate_standardized/v1/imaging/pooled-post__dmn-simple-effects/poststats/mask.nii.gz": "12777cdd6c1a4a34e1c86b5f0e1f0664601b2b735b7578826db61d77084d71e6"
+    }
+  },
+  "table": "4667fe6df9147019eedf2f520c77ebf0c69287b453d0f67e1cf4badfbdbc0ce0"
+}

@@ -1,0 +1,8 @@
+{
+  "collector_code_sha256": "fd33503b62935ed4217b6dd28f7bc44fc98523f98d3b39955340bca40c00862e",
+  "complete_jobs": 4,
+  "max_concurrent_matlab": 2,
+  "original_contract_sha256": "73030ac78180476a844f1bc725e91619b0cb85ad58c7f376470fa085f40ab399",
+  "pending_jobs": 41,
+  "recovery_code_sha256": "d33f3926d0b1c32a6741d936ac0e6f033d9ad6e932874bdf2aea61a49672ab21"
+}

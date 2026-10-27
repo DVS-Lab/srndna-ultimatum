@@ -1,0 +1,6 @@
+[
+  "/usr/local/bin/matlab",
+  "-singleCompThread",
+  "-batch",
+  "addpath('/ZPOOL/data/scratch/srndna-ultimatum-dmn-followup-v1/tools/PALM');disp(version);palm('-i','/ZPOOL/data/scratch/srndna-ultimatum-dmn-followup-v1/palm/designs/full-rt__dmn-simple-effects/copes.nii.gz','-m','/ZPOOL/data/scratch/srndna-ultimatum-dmn-followup-v1/palm/designs/full-rt__dmn-simple-effects/mask.nii.gz','-d','/ZPOOL/data/scratch/srndna-ultimatum-dmn-followup-v1/palm/designs/full-rt__dmn-simple-effects/design.mat','-t','/ZPOOL/data/scratch/srndna-ultimatum-dmn-followup-v1/palm/designs/full-rt__dmn-simple-effects/design.con','-vg','/ZPOOL/data/scratch/srndna-ultimatum-dmn-followup-v1/palm/designs/full-rt__dmn-simple-effects/variance_groups.csv','-ise','-rmethod','Freedman-Lane','-n','10000','-seed','20261018','-zstat','-save1-p','-savemax','-noniiclass','-o','/ZPOOL/data/scratch/srndna-ultimatum-dmn-followup-v1/palm/jobs/full-rt__dmn-simple-effects/cluster-z2.6/attempt-s9a0knhl/palm','-C','2.6','-Cstat','extent');"
+]
