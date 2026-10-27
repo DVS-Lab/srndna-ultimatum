@@ -1,5 +1,17 @@
 DMN follow-up: standardized-covariate outputs, 18 October 2026
 
+27 October collection update
+To inspect and collect progress without starting or stopping any models:
+  python3 -u code/collect_palm_progress.py
+This works while the batch lock is held. It verifies every available completion
+receipt against its output hashes and copies those artifacts, compact designs,
+and log excerpts into a new palm/collections/<UTC>-<unique>/ directory. Existing
+reports, scratch attempts and receipts are preserved. Missing receipts mean
+unfinished, which can include running jobs. The copied last_batch_summary.tsv
+may lag newly completed jobs; completed_jobs.tsv and collection_status.json
+describe the receipt-based collection. No new statistical fits are performed.
+Commit results/dmn_followup/v1, including the new collection, for review.
+
 19 October recovery update (supersedes the 40-job resume command below)
 The first full batch completed 4/45 jobs and failed 41. This is not a completed
 negative audit. The failure cause must be read from the original MATLAB logs;
