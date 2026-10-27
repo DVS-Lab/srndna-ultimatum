@@ -57,6 +57,18 @@ class PalmProgressTests(unittest.TestCase):
             self.assertFalse(json.loads(states[0].read_text())['collection_complete'])
             self.assertEqual(artifact.read_bytes(), b'tampered')
 
+    def test_metadata_only_verifies_outputs_without_duplicating_maps(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            work, report, receipt, artifact = self.fixture(Path(tmp))
+            output = collector.collect(work, report, metadata_only=True)
+            self.assertTrue(json.loads((output / 'collection_status.json').read_text())['metadata_only'])
+            self.assertTrue((output / 'completed/model/tfce/complete.json').is_file())
+            self.assertFalse((output / 'completed/model/tfce/map.nii.gz').exists())
+            self.assertTrue(artifact.is_file())
+            artifact.write_bytes(b'tampered')
+            with self.assertRaisesRegex(ValueError,'output changed'):
+                collector.collect(work, report, metadata_only=True)
+
     def test_receipt_cannot_collect_an_unrelated_directory(self):
         with tempfile.TemporaryDirectory() as tmp:
             work, report, receipt, artifact = self.fixture(Path(tmp))

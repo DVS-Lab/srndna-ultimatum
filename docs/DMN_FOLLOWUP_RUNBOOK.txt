@@ -1,5 +1,50 @@
 DMN follow-up: standardized-covariate outputs, 18 October 2026
 
+27 October headless recovery (supersedes earlier resume commands)
+The October 19 two-process recovery also failed: MATLAB R2024b recorded a
+mathcore segmentation violation during permutations, in addition to earlier
+service/licensing errors (5006). The precise crash cause is not established.
+The original run_dmn_heteroscedasticity.py and run_permutation_audit.py remain
+byte-for-byte unchanged so the original statistical/input contract still checks.
+
+Inside tmux on Linux1, with the srndna-ultimatum conda environment activated:
+  bash code/resume_palm_headless.sh \
+    /ZPOOL/data/scratch/srndna-ultimatum-dmn-followup-v1/tools/PALM 2
+
+Recovery verifies all existing completed jobs first. New MATLAB children use
+documented -nojvm/-nodisplay/-singleCompThread flags, run from their own attempt
+directory with private preferences/temp directories, restore MATLAB's default
+search path, remove inherited display/preload/library-path overrides and Conda
+PATH entries, and retain HOME/licensing settings. The Python process and the
+interactive environment are unchanged. No service is killed, reinstalled, or
+reauthenticated, and no engine update or statistical option is substituted.
+
+Before releasing pending jobs, the launcher repeats the existing 64-voxel,
+20-shuffle smoke under this runtime and compares both raw spatial statistics
+and corrected probability maps to the saved original (atol/rtol 1e-6). A mismatch
+stops. It then completes one full pending 10,000-shuffle job in isolation; this
+canary is itself retained scientific output, not an extra or shortened fit.
+Only after it passes do the remaining jobs run, at most two at once. Existing
+completed jobs and all failed attempts remain in place. Any new failure stops
+further scheduling. Repeat the identical command after an interruption; verified
+completed jobs, smoke equivalence, and canary receipts are reused.
+
+Execution changes have a separate hashed runtime contract and per-attempt
+command/environment-policy metadata. Statistical seed, shuffles, masks,
+covariates, sign flips, variance groups and all 45 model/method jobs are unchanged.
+Runtime smoke logs/maps, fatal logs, and batch logs are collected automatically
+under results/dmn_followup/v1, including on failure. Large inputs stay in scratch.
+The final collection uses --metadata-only: it verifies completed hashes and saves
+receipts/logs without duplicating the maps already exported under palm/maps.
+Do not claim this fixes the Linux crash until the real smoke and canary pass.
+If error 5006 persists, it is a MATLAB licensing/service issue, not a statistical
+failure; push logs rather than repeating the batch or changing credentials.
+
+MathWorks R2024b launch documentation:
+https://www.mathworks.com/help/releases/R2024b/matlab/ref/matlablinux.html
+MathWorks service-error explanation:
+https://www.mathworks.com/matlabcentral/answers/1815370
+
 27 October collection update
 To inspect and collect progress without starting or stopping any models:
   python3 -u code/collect_palm_progress.py

@@ -55,7 +55,7 @@ def validate_participants(models, report, sample):
     print(f'PASS: {len(models)} pseudonymous participant-order tables verified',flush=True)
 
 
-def recover(work, report, source, palm_root, jobs, execute):
+def recover(work, report, source, palm_root, jobs, execute, pending_job=None, before_pending=None):
     logs.collect(work,report)  # Snapshot old status BEFORE preparation overwrites it.
     subprocess.run([sys.executable,str(palm.ROOT/'code/prepare_palm_resume.py'),
         '--palm-root',str(palm_root),'--work-root',str(work),'--report-root',str(report)],check=True)
@@ -80,7 +80,10 @@ def recover(work, report, source, palm_root, jobs, execute):
         tasks=[(m,method) for m in models for method in palm.METHODS]
         def worker(item):
             model,method=item
-            return palm.job(model,method,work/'designs'/model['name'],work,report,
+            runner = palm.job
+            if pending_job is not None and not (work/'jobs'/model['name']/method/'complete.json').exists():
+                runner = pending_job
+            return runner(model,method,work/'designs'/model['name'],work,report,
                 frozen['engine'],palm_root,frozen['shuffles'])
         summaries=[];pending=[]
         # Validate ALL existing completed jobs before starting ANY new MATLAB job.
@@ -101,6 +104,16 @@ def recover(work, report, source, palm_root, jobs, execute):
             print('DRY RUN: no MATLAB jobs launched',flush=True)
             return
         palm.pa.write_json(report/'status.json',dict(complete=False,stage='conservative-recovery-running'))
+        if before_pending is not None and pending:
+            try:
+                before_pending(pending, frozen)
+            except Exception as exc:
+                if summaries:
+                    palm.pa.write_rows(report/'summary.tsv',summaries)
+                palm.pa.write_json(report/'status.json',dict(complete=False,stage='runtime-validation-failed',
+                    jobs=len(tasks),summary_rows=len(summaries),error=str(exc)))
+                logs.snapshot(work,report)
+                raise
         new,failures,not_attempted=bounded_run(pending,worker,jobs)
         summaries.extend(new)
         if summaries:

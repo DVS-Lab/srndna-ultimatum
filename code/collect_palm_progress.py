@@ -39,7 +39,7 @@ def batch_active(work):
         return False
 
 
-def collect(work, report):
+def collect(work, report, metadata_only=False):
     contract_path = work / 'contract.json'
     contract_bytes = contract_path.read_bytes()
     contract = json.loads(contract_bytes)
@@ -76,14 +76,15 @@ def collect(work, report):
                     raise ValueError(f'unexpected completed artifact: {source}')
                 if digest(source) != expected:
                     raise ValueError(f'completed output changed: {source}')
-                target = destination / source.name
-                shutil.copyfile(source, target)
-                if digest(target) != expected:
-                    raise ValueError(f'collected output checksum differs: {source}')
+                if not metadata_only:
+                    target = destination / source.name
+                    shutil.copyfile(source, target)
+                    if digest(target) != expected:
+                        raise ValueError(f'collected output checksum differs: {source}')
             if receipt.read_bytes() != receipt_bytes:
                 raise ValueError(f'completion receipt changed during collection: {receipt}')
             (destination / 'complete.json').write_bytes(receipt_bytes)
-            for name in ('design.mat', 'design.con', 'variance_groups.csv', 'participants.tsv', 'mask.nii.gz'):
+            for name in (() if metadata_only else ('design.mat', 'design.con', 'variance_groups.csv', 'participants.tsv', 'mask.nii.gz')):
                 source = report / 'designs' / model / name
                 if source.is_file():
                     target = output / 'designs' / model / name
@@ -100,7 +101,8 @@ def collect(work, report):
             with source.open('rb') as stream:
                 stream.seek(max(0, source.stat().st_size - TAIL_BYTES))
                 target.write_bytes(stream.read(TAIL_BYTES))
-    for pattern in ('recovery-*/run.txt', 'recovery-*/exit_status.txt', 'resume-*/run.txt', 'resume-*/exit_status.txt'):
+    for pattern in ('recovery-*/run.txt', 'recovery-*/exit_status.txt', 'resume-*/run.txt',
+                    'resume-*/exit_status.txt', 'headless-*/run.txt', 'headless-*/exit_status.txt'):
         for source in sorted(report.parent.glob(pattern)):
             target = output / 'batch_logs' / source.parent.name / source.name
             target.parent.mkdir(parents=True, exist_ok=True)
@@ -112,12 +114,14 @@ def collect(work, report):
     write_rows(output / 'completed_jobs.tsv', complete, ['model', 'method', 'attempt', 'verified_files'])
     write_rows(output / 'unfinished_jobs.tsv', pending, ['model', 'method', 'status'])
     state = dict(collection_complete=True, all_jobs_complete=not pending,
+                 metadata_only=metadata_only,
                  verified_completed_jobs=len(complete), unfinished_jobs=len(pending),
                  expected_jobs=len(complete) + len(pending), batch_lock_held_at_start=active,
                  finished_utc=datetime.now(timezone.utc).isoformat(),
                  collector_sha256=digest(Path(__file__)),
                  interpretation='Receipt-based collection; unfinished can include running jobs. '
                  'last_batch_summary.tsv may omit jobs completed since that summary was written. '
+                 'Metadata-only collections retain verified receipts rather than duplicate maps. '
                  'No jobs launched, stopped, or overwritten.')
     write_json(output / 'collection_status.json', state)
     files = [dict(path=str(p.relative_to(output)), sha256=digest(p), bytes=p.stat().st_size)
@@ -133,5 +137,7 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--work-root', type=Path, default=WORK)
     parser.add_argument('--report-root', type=Path, default=REPORT)
+    parser.add_argument('--metadata-only', action='store_true',
+                        help='Verify completed outputs and collect receipts/logs without duplicating maps.')
     args = parser.parse_args()
-    collect(args.work_root.resolve(), args.report_root.resolve())
+    collect(args.work_root.resolve(), args.report_root.resolve(), args.metadata_only)
