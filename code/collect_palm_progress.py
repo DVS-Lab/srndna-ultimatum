@@ -102,7 +102,8 @@ def collect(work, report, metadata_only=False):
                 stream.seek(max(0, source.stat().st_size - TAIL_BYTES))
                 target.write_bytes(stream.read(TAIL_BYTES))
     for pattern in ('recovery-*/run.txt', 'recovery-*/exit_status.txt', 'resume-*/run.txt',
-                    'resume-*/exit_status.txt', 'headless-*/run.txt', 'headless-*/exit_status.txt'):
+                    'resume-*/exit_status.txt', 'headless-*/run.txt', 'headless-*/exit_status.txt',
+                    'scale-*/run.txt', 'scale-*/exit_status.txt'):
         for source in sorted(report.parent.glob(pattern)):
             target = output / 'batch_logs' / source.parent.name / source.name
             target.parent.mkdir(parents=True, exist_ok=True)

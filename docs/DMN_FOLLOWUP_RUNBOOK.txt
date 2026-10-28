@@ -1,5 +1,33 @@
 DMN follow-up: standardized-covariate outputs, 18 October 2026
 
+28 October concurrency increase after full canary validation
+Two MATLAB processes were the troubleshooting cap, not a statistical limit.
+In a NEW tmux window on Linux1, after pulling the new code:
+  bash code/scale_palm_recovery.sh \
+    /ZPOOL/data/scratch/srndna-ultimatum-dmn-followup-v1/tools/PALM 8
+
+This command requires verified startup/smoke/full-canary receipts. It identifies
+at most one same-user Python scheduler in this repository and checks its SIGINT
+handler. It signals only that Python PID (never MATLAB or a process group).
+The existing bounded executor drains its two active jobs and saves receipts
+before its KeyboardInterrupt exit. The new window waits for this; it does not
+terminate any MATLAB fit. The old window may show that intentional interrupt.
+
+After draining, it requests eight concurrent jobs, capped by CPU affinity and
+available host/cgroup memory. The estimate reserves max(4 GiB, 1.5 x observed
+descendant high-water RSS) per slot plus 15% RAM or 2 GiB of headroom. These are
+resource estimates, not guarantees against unrelated jobs consuming memory.
+Requested/selected concurrency and the memory evidence are saved in capacity-*
+folders. Values up to 40 can be requested; start with eight.
+
+The original numerical runtime, conservative scheduler, PALM source and
+statistical helper are unchanged. Therefore completed startup/smoke/canary
+validation is reused rather than forcing another serial canary. Every completed
+job is hash-verified and skipped. A new worker failure stops further scheduling
+and drains active workers. No outcomes, thresholds, or participants select jobs.
+The only new execution policy is resource-checked higher concurrency.
+Do not press Ctrl-C in the old window, which could interrupt its MATLAB group.
+
 27 October startup correction (supersedes the launch policy below)
 The first headless attempt exited 1 before PALM emitted any output: run.txt was
 empty. This is a startup failure, not evidence of another permutation crash.
