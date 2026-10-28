@@ -1,0 +1,93 @@
+b124d498b6bc5bf9d8ddc0dc8264ca21aab4f542
+test_completed_smoke_untouched (test_palm_resume.PalmResumeTests.test_completed_smoke_untouched) ... ok
+test_detached_head_fixed_without_source_changes_and_idempotent (test_palm_resume.PalmResumeTests.test_detached_head_fixed_without_source_changes_and_idempotent) ... HEAD is now at cb27f1d fixture
+Switched to a new branch 'srndna-palm-pinned-cb27f1d'
+ok
+test_dirty_or_wrong_commit_rejected (test_palm_resume.PalmResumeTests.test_dirty_or_wrong_commit_rejected) ... ok
+test_incomplete_smoke_archived_with_symlinks_and_logs (test_palm_resume.PalmResumeTests.test_incomplete_smoke_archived_with_symlinks_and_logs) ... ok
+test_packed_branch_gets_readable_ref_without_moving_old_branch (test_palm_resume.PalmResumeTests.test_packed_branch_gets_readable_ref_without_moving_old_branch) ... Switched to a new branch 'srndna-palm-pinned-cb27f1d'
+ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.150s
+
+OK
+test_all_retained_models_have_288_summary_cells (test_dmn_followup.FollowupTests.test_all_retained_models_have_288_summary_cells) ... ok
+test_engine_escaping (test_dmn_followup.FollowupTests.test_engine_escaping) ... ok
+test_groups_follow_ids_not_positions (test_dmn_followup.FollowupTests.test_groups_follow_ids_not_positions) ... ok
+test_hc3_matches_sandwich_and_column_reordering (test_dmn_followup.FollowupTests.test_hc3_matches_sandwich_and_column_reordering) ... ok
+test_probability_semantics_and_missing_maps (test_dmn_followup.FollowupTests.test_probability_semantics_and_missing_maps) ... ok
+test_resume_requires_verified_outputs (test_dmn_followup.FollowupTests.test_resume_requires_verified_outputs) ... SKIP_COMPLETE: test tfce
+ok
+test_signflip_contract (test_dmn_followup.FollowupTests.test_signflip_contract) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.025s
+
+OK
+Switched to a new branch 'srndna-palm-pinned-9086eff'
+{
+  "commit": "9086eff76dcacf4afde12c9af5400a1fe0033b9e",
+  "branch": "srndna-palm-pinned-9086eff",
+  "changed": true,
+  "preserved_smoke": "/ZPOOL/data/scratch/srndna-ultimatum-dmn-followup-v1/palm/smoke-attempts/20261018T223621Z-e3lol231/smoke"
+}
+PASS: pinned PALM source unchanged; retained analyses preserved
+PASS: 15 locked DMN models, 45 PALM jobs, 288 signed contrast/method summaries planned; no fits run
+RUN: full-rt__dmn-age cluster-z3.1
+RUN: full-rt__dmn-simple-effects cluster-z2.6
+RUN: full-rt__dmn-age cluster-z2.6
+RUN: full-rt__dmn-age tfce
+RUN: full-rt__dmn-simple-effects tfce
+RUN: full-rt__dmn-simple-effects cluster-z3.1
+RUN: full-rt__dmn-outlier-deweighted cluster-z2.6
+RUN: full-rt__dmn-outlier-deweighted tfce
+RUN: full-rt__dmn-outlier-deweighted cluster-z3.1
+RUN: pooled-post__dmn-age cluster-z3.1
+RUN: pooled-post__dmn-age cluster-z2.6
+RUN: pooled-post__dmn-simple-effects cluster-z3.1
+RUN: pooled-post__dmn-simple-effects cluster-z2.6
+RUN: pooled-post__dmn-age tfce
+RUN: pooled-post__dmn-outlier-deweighted cluster-z2.6
+RUN: pooled-post__dmn-outlier-deweighted tfce
+RUN: pooled-post__dmn-simple-effects tfce
+RUN: pooled-post__dmn-outlier-deweighted cluster-z3.1
+RUN: partner-post__dmn-age tfce
+RUN: partner-post__dmn-age cluster-z3.1
+RUN: partner-post__dmn-age cluster-z2.6
+RUN: partner-post__dmn-simple-effects cluster-z3.1
+RUN: partner-post__dmn-simple-effects cluster-z2.6
+RUN: partner-post__dmn-outlier-deweighted cluster-z3.1
+RUN: partner-post__dmn-simple-effects tfce
+RUN: partner-post__dmn-outlier-deweighted tfce
+RUN: partner-post__dmn-outlier-deweighted cluster-z2.6
+RUN: crossed__partner-post_nppi-dmn_choice-slope cluster-z2.6
+RUN: crossed__partner-post_nppi-dmn_choice-slope tfce
+RUN: crossed__partner-post_nppi-dmn_choice-slope cluster-z3.1
+RUN: crossed__partner-post_nppi-dmn_acceptance-intercept tfce
+RUN: crossed__partner-post_nppi-dmn_acceptance-intercept cluster-z2.6RUN: crossed__pooled-post_nppi-dmn_choice-slope cluster-z2.6
+
+RUN: crossed__pooled-post_nppi-dmn_choice-slope tfce
+RUN: crossed__pooled-post_nppi-dmn_choice-slope cluster-z3.1
+RUN: crossed__pooled-post_nppi-dmn_acceptance-intercept tfce
+RUN: crossed__partner-post_nppi-dmn_acceptance-intercept cluster-z3.1
+RUN: crossed__pooled-post_nppi-dmn_acceptance-intercept cluster-z2.6
+RUN: crossed__pooled-post_nppi-dmn_acceptance-intercept cluster-z3.1
+RUN: crossed__full-rt_nppi-dmn_choice-slope tfce
+RUN: crossed__full-rt_nppi-dmn_choice-slope cluster-z2.6
+RUN: crossed__full-rt_nppi-dmn_choice-slope cluster-z3.1
+RUN: crossed__full-rt_nppi-dmn_acceptance-intercept tfce
+RUN: crossed__full-rt_nppi-dmn_acceptance-intercept cluster-z2.6
+RUN: crossed__full-rt_nppi-dmn_acceptance-intercept cluster-z3.1
+COMPLETED: partner-post__dmn-age cluster-z3.1
+COMPLETED: partner-post__dmn-age cluster-z2.6
+COMPLETED: pooled-post__dmn-age cluster-z3.1
+COMPLETED: pooled-post__dmn-age cluster-z2.6
+Traceback (most recent call last):
+  File "/ZPOOL/data/projects/srndna-ultimatum/code/run_dmn_heteroscedasticity.py", line 197, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/ZPOOL/data/projects/srndna-ultimatum/code/run_dmn_heteroscedasticity.py", line 192, in main
+    if failures:raise RuntimeError(f'{len(failures)} PALM jobs failed; completed jobs preserved; see status.json')
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: 41 PALM jobs failed; completed jobs preserved; see status.json

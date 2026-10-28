@@ -1,0 +1,8 @@
+[
+  "/usr/local/MATLAB/R2024b/bin/matlab",
+  "-nojvm",
+  "-nodisplay",
+  "-singleCompThread",
+  "-batch",
+  "restoredefaultpath;addpath('/ZPOOL/data/scratch/srndna-ultimatum-dmn-followup-v1/tools/PALM');assert(~usejava('jvm'),'JVM unexpectedly enabled');disp(version);palm('-i','/ZPOOL/data/scratch/srndna-ultimatum-dmn-followup-v1/palm/runtime-headless/e373274bb4670b22c75b/smoke-3cvge4ng/copes.nii.gz','-m','/ZPOOL/data/scratch/srndna-ultimatum-dmn-followup-v1/palm/runtime-headless/e373274bb4670b22c75b/smoke-3cvge4ng/mask.nii.gz','-d','/ZPOOL/data/scratch/srndna-ultimatum-dmn-followup-v1/palm/runtime-headless/e373274bb4670b22c75b/smoke-3cvge4ng/design.mat','-t','/ZPOOL/data/scratch/srndna-ultimatum-dmn-followup-v1/palm/runtime-headless/e373274bb4670b22c75b/smoke-3cvge4ng/design.con','-vg','/ZPOOL/data/scratch/srndna-ultimatum-dmn-followup-v1/palm/runtime-headless/e373274bb4670b22c75b/smoke-3cvge4ng/variance_groups.csv','-ise','-rmethod','Freedman-Lane','-n','20','-seed','42','-zstat','-save1-p','-savemax','-noniiclass','-o','/ZPOOL/data/scratch/srndna-ultimatum-dmn-followup-v1/palm/runtime-headless/e373274bb4670b22c75b/smoke-3cvge4ng/palm','-T','-C','3.1','-Cstat','extent');"
+]

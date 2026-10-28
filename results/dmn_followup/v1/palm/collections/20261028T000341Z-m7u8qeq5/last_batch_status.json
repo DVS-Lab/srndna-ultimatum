@@ -1,0 +1,7 @@
+{
+  "complete": false,
+  "error": "headless MATLAB failed (1); inspect /ZPOOL/data/scratch/srndna-ultimatum-dmn-followup-v1/palm/runtime-headless/e373274bb4670b22c75b/smoke-3cvge4ng/run.txt",
+  "jobs": 45,
+  "stage": "runtime-validation-failed",
+  "summary_rows": 16
+}

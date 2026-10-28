@@ -1,0 +1,27 @@
+{
+  "engine": "/usr/local/MATLAB/R2024b/bin/matlab",
+  "engine_sha256": "513dfb661307f598ca6d1d4426c1c98bd6a817a1e9cf472b85ecab6a34d60761",
+  "flags": [
+    "-nojvm",
+    "-nodisplay",
+    "-singleCompThread"
+  ],
+  "original_contract_sha256": "73030ac78180476a844f1bc725e91619b0cb85ad58c7f376470fa085f40ab399",
+  "removed_env": [
+    "DISPLAY",
+    "WAYLAND_DISPLAY",
+    "XAUTHORITY",
+    "LD_PRELOAD",
+    "LD_LIBRARY_PATH",
+    "MATLABPATH",
+    "MATLAB_JAVA",
+    "PYTHONHOME",
+    "PYTHONPATH",
+    "QT_PLUGIN_PATH",
+    "QT_QPA_PLATFORM_PLUGIN_PATH"
+  ],
+  "runtime_code_sha256": "64f463561eb32e7abd7a99e76908f751bec449344808f90d85d8ba575628a3d1",
+  "scheduler_sha256": "3c8e17e4754ab153ddb2682cedbd4c70310def31d0f327816b1a95d2200fe326",
+  "smoke_atol": 1e-06,
+  "smoke_rtol": 1e-06
+}

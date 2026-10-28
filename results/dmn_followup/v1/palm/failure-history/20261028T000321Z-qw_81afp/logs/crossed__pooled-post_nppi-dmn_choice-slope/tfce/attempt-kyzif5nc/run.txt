@@ -1,0 +1,58 @@
+24.2.0.2712019 (R2024b)
+.......................................................................
+=======================================================================
+             ___         ___                         ___
+            /  /\       /  /\                       /__/\
+           /  /::\     /  /::\                     |  |::\
+          /  /:/\:\   /  /:/\:\    ___     ___     |  |:|:\
+         /  /:/~/:/  /  /:/~/::\  /__/\   /  /\  __|__|:|\:\
+        /__/:/ /:/  /__/:/ /:/\:\ \  \:\ /  /:/ /__/::::| \:\
+        \  \:\/:/   \  \:\/:/__\/  \  \:\  /:/  \  \:\~~\__\/
+         \  \::/     \  \::/        \  \:\/:/    \  \:\
+          \  \:\      \  \:\         \  \::/      \  \:\
+           \  \:\      \  \:\         \__\/        \  \:\
+            \__\/       \__\/                       \__\/
+
+=======================================================================
+                 Permutation Analysis of Linear Models
+=======================================================================
+Running PALM (GitHub/commit:9086eff) using MATLAB 24.2.0.2712019 (R2024b) with the following options:
+-i /ZPOOL/data/scratch/srndna-ultimatum-dmn-followup-v1/palm/designs/crossed__pooled-post_nppi-dmn_choice-slope/copes.nii.gz
+-m /ZPOOL/data/scratch/srndna-ultimatum-dmn-followup-v1/palm/designs/crossed__pooled-post_nppi-dmn_choice-slope/mask.nii.gz
+-d /ZPOOL/data/scratch/srndna-ultimatum-dmn-followup-v1/palm/designs/crossed__pooled-post_nppi-dmn_choice-slope/design.mat
+-t /ZPOOL/data/scratch/srndna-ultimatum-dmn-followup-v1/palm/designs/crossed__pooled-post_nppi-dmn_choice-slope/design.con
+-vg /ZPOOL/data/scratch/srndna-ultimatum-dmn-followup-v1/palm/designs/crossed__pooled-post_nppi-dmn_choice-slope/variance_groups.csv
+-ise
+-rmethod Freedman-Lane
+-n 10000
+-seed 20261018
+-zstat
+-save1-p
+-savemax
+-noniiclass
+-o /ZPOOL/data/scratch/srndna-ultimatum-dmn-followup-v1/palm/jobs/crossed__pooled-post_nppi-dmn_choice-slope/tfce/attempt-kyzif5nc/palm
+-T
+PALM is located at /ZPOOL/data/scratch/srndna-ultimatum-dmn-followup-v1/tools/PALM
+Found FSL in /usr/local/fsl
+Image Processing Toolbox is available.
+{Unexpected error during communication with services required to run MATLAB
+(error 5006).
+
+Troubleshoot this issue by visiting:
+https://www.mathworks.com/support/lme/5006
+
+
+
+Error in palm_miscread (line 166)
+                        X.extra.hdr = niftiinfo(X.filename);
+                                      ^^^^^^^^^^^^^^^^^^^^^
+Error in palm_takeargs (line 1622)
+        plm.masks{m} = palm_miscread(opts.m{m},opts.useniiclass,opts.precision,false);
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Error in palm_core (line 33)
+[opts,plm] = palm_takeargs(varargin{:});
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+Error in palm (line 86)
+palm_core(varargin{:});
+^^^^^^^^^^^^^^^^^^^^^^
+} 

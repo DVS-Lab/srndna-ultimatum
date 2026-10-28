@@ -1,0 +1,26 @@
+{
+  "conda_path_entries_removed": true,
+  "cpu_count": 48,
+  "flags": [
+    "-nojvm",
+    "-nodisplay",
+    "-singleCompThread"
+  ],
+  "platform": "Linux-6.17.0-23-generic-x86_64",
+  "private_preferences": true,
+  "private_tmp": true,
+  "removed_environment_variables": [
+    "DISPLAY",
+    "WAYLAND_DISPLAY",
+    "XAUTHORITY",
+    "LD_PRELOAD",
+    "LD_LIBRARY_PATH",
+    "MATLABPATH",
+    "MATLAB_JAVA",
+    "PYTHONHOME",
+    "PYTHONPATH",
+    "QT_PLUGIN_PATH",
+    "QT_QPA_PLATFORM_PLUGIN_PATH"
+  ],
+  "runtime_code_sha256": "64f463561eb32e7abd7a99e76908f751bec449344808f90d85d8ba575628a3d1"
+}
