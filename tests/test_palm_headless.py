@@ -28,7 +28,8 @@ class HeadlessTests(unittest.TestCase):
             original=dict(HOME='/home/researcher',MLM_LICENSE_FILE='license-location',
                 CONDA_PREFIX='/tools/conda/envs/project',PATH='/tools/conda/envs/project/bin:/usr/bin:/usr/local/fsl/bin',
                 LD_LIBRARY_PATH='/tools/conda/lib',LD_PRELOAD='injected.so',
-                DISPLAY='localhost:10.0',MATLABPATH='/old/startup',OMP_NUM_THREADS='40')
+                DISPLAY='localhost:10.0',MATLABPATH='/old/startup',OMP_NUM_THREADS='40',
+                MATLAB_PREFDIR='/home/researcher/.matlab/R2024b')
             before=original.copy()
             env=headless.child_environment(Path(tmp),original)
             self.assertEqual(original,before)
@@ -38,18 +39,28 @@ class HeadlessTests(unittest.TestCase):
             self.assertEqual(env['OMP_NUM_THREADS'],'1')
             for key in ('DISPLAY','LD_LIBRARY_PATH','LD_PRELOAD','MATLABPATH'):
                 self.assertNotIn(key,env)
-            self.assertTrue(Path(env['MATLAB_PREFDIR']).is_dir())
+            self.assertEqual(env['MATLAB_PREFDIR'],original['MATLAB_PREFDIR'])
             self.assertTrue(Path(env['TMPDIR']).is_dir())
+            inherited=headless.child_environment(Path(tmp),original,mode='inherited')
+            for key in ('LD_LIBRARY_PATH','LD_PRELOAD','MATLABPATH','PATH','MATLAB_PREFDIR'):
+                self.assertEqual(inherited[key],original[key])
+            self.assertNotIn('DISPLAY',inherited)
 
     def test_command_preserves_statistical_arguments_and_quotes(self):
         args=headless.palm.arguments(Path('/input'), 'tfce', Path('/out/palm'),10000,20261018)
         cmd=headless.command('/original/matlab',Path("/tools/PALM's"),args)
-        self.assertEqual(cmd[1:4],headless.FLAGS)
+        self.assertEqual(cmd[1:1+len(headless.FLAGS)],headless.FLAGS)
         self.assertIn("addpath('/tools/PALM''s')",cmd[-1])
         for value in args:
             self.assertIn(headless.palm.quote(value),cmd[-1])
         self.assertIn('restoredefaultpath;',cmd[-1])
         self.assertNotIn('-nojit',cmd)
+        self.assertNotIn('-nojvm',cmd)
+        self.assertNotIn("assert(~usejava",cmd[-1])
+        probe=headless.command('/original/matlab',Path('/palm'),[],Path('/log.txt'),True)
+        self.assertIn('-logfile',probe)
+        self.assertIn(headless.STARTED,probe[-1])
+        self.assertNotIn('palm(',probe[-1])
         with self.assertRaisesRegex(ValueError,'no engine substitution'):
             headless.command('/tools/octave',Path('/palm'),args)
 
@@ -99,7 +110,8 @@ class HeadlessTests(unittest.TestCase):
             model=dict(name='test',c=[[1]],labels=['positive'])
             runtime=headless.HeadlessRecovery(root,root/'report',root/'PALM')
             runtime.profile=root/'profile';runtime.profile.mkdir();(runtime.profile/'contract.json').write_text('{}')
-            def launch(engine,palm,args,attempt):
+            runtime.mode='clean'
+            def launch(engine,palm,args,attempt,**kwargs):
                 self.assertEqual(args[args.index('-n')+1],'10000')
                 self.assertEqual(args[args.index('-seed')+1],'20261018')
                 self.maps(attempt,mask)
@@ -116,7 +128,8 @@ class HeadlessTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as tmp:
             root=Path(tmp);runtime=headless.HeadlessRecovery(root,root/'report',root/'PALM')
             runtime.profile=root/'profile';runtime.profile.mkdir()
-            def launch(engine,palm,args,attempt):
+            runtime.mode='clean'
+            def launch(engine,palm,args,attempt,**kwargs):
                 (attempt/'run.txt').write_text('fatal error')
                 raise RuntimeError('engine crash')
             with patch.object(headless,'launch',side_effect=launch):
@@ -157,9 +170,10 @@ class HeadlessTests(unittest.TestCase):
             runtime=headless.HeadlessRecovery(work,report,root/'PALM')
             model=dict(name='model',c=[[1]])
             runtime.models=[model];calls=[]
-            def smoke(engine,palm,args,attempt):
-                calls.append('smoke')
-                self.assertEqual(args[args.index('-n')+1],'20')
+            def smoke(engine,palm,args,attempt,mode='clean',startup_only=False):
+                calls.append('startup' if startup_only else 'smoke')
+                if not startup_only:
+                    self.assertEqual(args[args.index('-n')+1],'20')
                 (attempt/'run.txt').write_text('smoke complete')
             def job(m,method,*args):
                 calls.append('canary')
@@ -170,8 +184,65 @@ class HeadlessTests(unittest.TestCase):
                  patch.object(headless,'compare_smoke',return_value=[dict(map='test',max_abs_difference=0)]), \
                  patch.object(runtime,'job',side_effect=job):
                 runtime.validate([(model,'tfce')],frozen)
-            self.assertEqual(calls,['smoke','canary'])
+            self.assertEqual(calls,['startup','smoke','canary'])
             self.assertTrue((runtime.profile/'canary_complete.json').is_file())
+
+    def test_zero_exit_without_startup_marker_is_rejected(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            with patch.object(headless.subprocess,'run',return_value=subprocess.CompletedProcess([],0)):
+                with self.assertRaisesRegex(RuntimeError,'headless MATLAB failed'):
+                    headless.launch('matlab',Path('/palm'),[],Path(tmp),startup_only=True)
+            state=json.loads((Path(tmp)/'exit_status.json').read_text())
+            self.assertFalse(state['statement_reached'])
+
+    def test_runtime_snapshot_does_not_copy_symlinked_inputs(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root=Path(tmp);attempt=root/'attempt';attempt.mkdir()
+            source=root/'large-input.nii.gz';source.write_bytes(b'input')
+            (attempt/'copes.nii.gz').symlink_to(source)
+            (attempt/'run.txt').write_text('diagnostic')
+            headless.snapshot_report(attempt,root/'report')
+            self.assertFalse((root/'report/copes.nii.gz').exists())
+            self.assertEqual(source.read_bytes(),b'input')
+
+    def test_failed_startup_profiles_never_release_canary(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root=Path(tmp);work=root/'work';report=root/'report';work.mkdir();report.mkdir()
+            (work/'contract.json').write_text('{}')
+            engine=root/'matlab';engine.write_text('engine')
+            frozen=dict(engine=str(engine),engine_sha256=headless.palm.pa.digest(engine))
+            runtime=headless.HeadlessRecovery(work,report,root/'PALM')
+            with patch.object(headless,'launch',side_effect=RuntimeError('empty startup')) as launch, \
+                 patch.object(runtime,'job',side_effect=AssertionError('no canary')) as job:
+                with self.assertRaisesRegex(RuntimeError,'cannot start in either'):
+                    runtime.validate([(dict(name='test'),'tfce')],frozen)
+                self.assertEqual([call.kwargs['mode'] for call in launch.call_args_list],['clean','inherited'])
+                self.assertEqual(job.call_count,0)
+
+    def test_inherited_fallback_is_selected_from_startup_before_scientific_test(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root=Path(tmp);work=root/'work';report=root/'report';work.mkdir();report.mkdir()
+            (work/'contract.json').write_text('{}')
+            original=work/'smoke';original.mkdir()
+            for name in ('copes.nii.gz','mask.nii.gz','design.mat','design.con','variance_groups.csv'):
+                (original/name).write_text('original')
+            engine=root/'matlab';engine.write_text('engine')
+            frozen=dict(engine=str(engine),engine_sha256=headless.palm.pa.digest(engine),models=['model'],shuffles=10000)
+            runtime=headless.HeadlessRecovery(work,report,root/'PALM')
+            model=dict(name='model',c=[[1]]);runtime.models=[model];calls=[]
+            def launch(engine,palm,args,attempt,mode='clean',startup_only=False):
+                calls.append((mode,startup_only))
+                if startup_only and mode=='clean':
+                    raise RuntimeError('cleaned environment cannot start')
+                (attempt/'run.txt').write_text(headless.STARTED)
+            with patch.object(headless,'launch',side_effect=launch), \
+                 patch.object(headless,'compare_smoke',side_effect=ValueError('numerical mismatch')), \
+                 patch.object(runtime,'job',side_effect=AssertionError('no canary')) as job:
+                with self.assertRaisesRegex(ValueError,'numerical mismatch'):
+                    runtime.validate([(model,'tfce')],frozen)
+                self.assertEqual(calls,[('clean',True),('inherited',True),('inherited',False)])
+                self.assertEqual(job.call_count,0)
+                self.assertEqual(runtime.mode,'inherited')
 
 
 if __name__=='__main__':

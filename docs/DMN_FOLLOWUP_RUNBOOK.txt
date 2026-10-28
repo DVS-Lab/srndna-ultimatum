@@ -1,5 +1,25 @@
 DMN follow-up: standardized-covariate outputs, 18 October 2026
 
+27 October startup correction (supersedes the launch policy below)
+The first headless attempt exited 1 before PALM emitted any output: run.txt was
+empty. This is a startup failure, not evidence of another permutation crash.
+The launcher now keeps the JVM enabled and preserves existing MATLAB preference
+settings. It retains -nodisplay/-singleCompThread/-batch and adds -logfile with
+an explicit startup marker. No license/account settings are edited.
+
+Before the numerical smoke, a trivial startup probe (120-second timeout) tries
+the cleaned child environment. If that cannot start MATLAB, it tries the
+inherited library/PATH/temp environment with display disabled. Selection is
+based only on successful startup, never on statistical output. Each probe is
+logged and preserved; both failing stops before PALM. The selected environment
+is recorded and reused for the smoke/canary/full jobs. The smoke equivalence
+and full serial canary gates remain required. Input symlinks are no longer
+dereferenced into compact diagnostic exports. No existing outputs are removed.
+
+The command is unchanged:
+  bash code/resume_palm_headless.sh \
+    /ZPOOL/data/scratch/srndna-ultimatum-dmn-followup-v1/tools/PALM 2
+
 27 October headless recovery (supersedes earlier resume commands)
 The October 19 two-process recovery also failed: MATLAB R2024b recorded a
 mathcore segmentation violation during permutations, in addition to earlier

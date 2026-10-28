@@ -21,16 +21,20 @@ import collect_palm_failure_logs as logs
 import resume_palm_conservative as recovery
 
 palm = recovery.palm
-FLAGS = ['-nojvm', '-nodisplay', '-singleCompThread']
+FLAGS = ['-nodisplay', '-singleCompThread']
+STARTED = 'SRNDNA_MATLAB_STARTED'
+STARTUP_MODES = ('clean', 'inherited')
 REMOVED_ENV = ('DISPLAY', 'WAYLAND_DISPLAY', 'XAUTHORITY', 'LD_PRELOAD',
                'LD_LIBRARY_PATH', 'MATLABPATH', 'MATLAB_JAVA', 'PYTHONHOME',
                'PYTHONPATH', 'QT_PLUGIN_PATH', 'QT_QPA_PLATFORM_PLUGIN_PATH')
 
 
-def child_environment(attempt, original=None):
+def child_environment(attempt, original=None, mode='clean'):
     """Keep HOME/licensing settings; change only the MATLAB child environment."""
     env = dict(os.environ if original is None else original)
-    for name in REMOVED_ENV:
+    if mode not in STARTUP_MODES:
+        raise ValueError(f'unknown MATLAB startup mode: {mode}')
+    for name in (REMOVED_ENV if mode == 'clean' else ('DISPLAY', 'WAYLAND_DISPLAY', 'XAUTHORITY')):
         env.pop(name, None)
     prefixes = [Path(value) for key, value in env.items()
                 if (key == 'CONDA_PREFIX' or key.startswith('CONDA_PREFIX_')) and value]
@@ -39,34 +43,41 @@ def child_environment(attempt, original=None):
         return any(path == prefix or prefix in path.parents for prefix in prefixes) or any(
             part.lower() in ('anaconda3', 'miniconda3', 'miniforge3', 'condabin')
             for part in path.parts)
-    env['PATH'] = os.pathsep.join(value for value in env.get('PATH', os.defpath).split(os.pathsep)
-                                  if value and not conda_path(value))
+    if mode == 'clean':
+        env['PATH'] = os.pathsep.join(value for value in env.get('PATH', os.defpath).split(os.pathsep)
+                                      if value and not conda_path(value))
     for name in ('OMP_NUM_THREADS', 'OPENBLAS_NUM_THREADS', 'MKL_NUM_THREADS'):
         env[name] = '1'
-    for name, folder in [('MATLAB_PREFDIR', 'preferences'), ('TMPDIR', 'tmp')]:
-        target = attempt / folder
+    # Existing preferences can participate in sign-in/licensing initialization.
+    # Batch mode already disables preference changes; do not redirect them.
+    if mode == 'clean':
+        target = attempt / 'tmp'
         target.mkdir(exist_ok=True)
-        env[name] = str(target)
+        env['TMPDIR'] = str(target)
     return env
 
 
-def command(engine, palm_root, args):
+def command(engine, palm_root, args, logfile=None, startup_only=False):
     if 'octave' in Path(engine).name.lower():
         raise ValueError('this recovery requires the original MATLAB engine; no engine substitution')
-    expression = ('restoredefaultpath;' + 'addpath(' + palm.quote(palm_root) + ');' +
-                  "assert(~usejava('jvm'),'JVM unexpectedly enabled');disp(version);" +
-                  'palm(' + ','.join(palm.quote(value) for value in args) + ');')
-    return [str(engine), *FLAGS, '-batch', expression]
+    expression = f"fprintf('{STARTED}\\n');disp(version);"
+    if not startup_only:
+        expression += ('restoredefaultpath;addpath(' + palm.quote(palm_root) + ');' +
+                       'palm(' + ','.join(palm.quote(value) for value in args) + ');')
+    log_args = ['-logfile',str(logfile)] if logfile is not None else []
+    return [str(engine), *FLAGS, *log_args, '-batch', expression]
 
 
-def launch(engine, palm_root, args, attempt):
-    cmd = command(engine, palm_root, args)
-    env = child_environment(attempt)
+def launch(engine, palm_root, args, attempt, mode='clean', startup_only=False):
+    cmd = command(engine, palm_root, args, attempt/'matlab_console.txt',startup_only)
+    env = child_environment(attempt,mode=mode)
     palm.pa.write_json(attempt / 'command.json', cmd)
     # Record policy and system context, never the complete environment or tokens.
     palm.pa.write_json(attempt / 'runtime.json', dict(flags=FLAGS,
-        removed_environment_variables=list(REMOVED_ENV),conda_path_entries_removed=True,
-        private_preferences=True,private_tmp=True,
+        startup_mode=mode,startup_only=startup_only,
+        removed_environment_variables=list(REMOVED_ENV if mode == 'clean' else ('DISPLAY','WAYLAND_DISPLAY','XAUTHORITY')),
+        conda_path_entries_removed=mode == 'clean',
+        private_preferences=False,private_tmp=mode == 'clean',
         platform='-'.join((platform.system(),platform.release(),platform.machine())),
         cpu_count=os.cpu_count(),runtime_code_sha256=palm.pa.digest(Path(__file__))))
     for name in ('meminfo', 'self/limits', 'self/cgroup'):
@@ -77,18 +88,28 @@ def launch(engine, palm_root, args, attempt):
         source = Path('/sys/fs/cgroup') / name
         if source.is_file():
             (attempt / ('cgroup-' + name)).write_text(source.read_text())
-    with (attempt / 'run.txt').open('w') as stream:
-        result = subprocess.run(cmd, cwd=attempt, env=env, stdout=stream, stderr=subprocess.STDOUT)
-    palm.pa.write_json(attempt / 'exit_status.json', dict(returncode=result.returncode))
-    if result.returncode:
-        raise RuntimeError(f'headless MATLAB failed ({result.returncode}); inspect {attempt}/run.txt')
+    try:
+        with (attempt / 'run.txt').open('w') as stream:
+            result = subprocess.run(cmd, cwd=attempt, env=env, stdout=stream,
+                                    stderr=subprocess.STDOUT,timeout=120 if startup_only else None)
+    except subprocess.TimeoutExpired:
+        palm.pa.write_json(attempt/'exit_status.json',dict(returncode=None,timeout_seconds=120))
+        raise RuntimeError(f'MATLAB startup timed out; inspect {attempt}') from None
+    text = '\n'.join(p.read_text(errors='replace') for p in
+                     (attempt/'run.txt',attempt/'matlab_console.txt') if p.is_file())
+    reached = STARTED in text
+    palm.pa.write_json(attempt/'exit_status.json',dict(returncode=result.returncode,statement_reached=reached))
+    if result.returncode or not reached:
+        print(f'MATLAB mode={mode}, exit={result.returncode}, statement reached={reached}',flush=True)
+        print(text[-4000:] if text.strip() else 'Both MATLAB output logs are empty; failure precedes the startup marker.',flush=True)
+        raise RuntimeError(f'headless MATLAB failed ({result.returncode}); inspect {attempt}/run.txt and matlab_console.txt')
 
 
 def snapshot_report(attempt, target):
     """Copy small files into a fresh report folder; preserve scratch originals."""
     target.mkdir(parents=True, exist_ok=True)
     for source in attempt.iterdir():
-        if source.is_file():
+        if source.is_file() and not source.is_symlink():
             if source.stat().st_size > 20_000_000:
                 raise ValueError(f'oversized compact runtime artifact: {source}')
             shutil.copy2(source, target / source.name)
@@ -130,12 +151,14 @@ class HeadlessRecovery:
     def __init__(self, work, report, palm_root):
         self.work, self.report, self.palm_root = work, report, palm_root
         self.profile = None
+        self.mode = None
 
     def validate(self, pending, frozen):
         profile = dict(original_contract_sha256=palm.pa.digest(self.work / 'contract.json'),
             runtime_code_sha256=palm.pa.digest(Path(__file__)),
             scheduler_sha256=palm.pa.digest(Path(recovery.__file__)),flags=FLAGS,
-            removed_env=list(REMOVED_ENV),smoke_rtol=1e-6,smoke_atol=1e-6,
+            removed_env=list(REMOVED_ENV),startup_modes=list(STARTUP_MODES),
+            preserve_preferences=True,smoke_rtol=1e-6,smoke_atol=1e-6,
             engine=frozen['engine'],engine_sha256=frozen['engine_sha256'])
         if palm.pa.digest(Path(frozen['engine'])) != frozen['engine_sha256']:
             raise ValueError('original MATLAB executable changed')
@@ -150,6 +173,33 @@ class HeadlessRecovery:
         report.mkdir(parents=True, exist_ok=True)
         shutil.copy2(contract, report / 'contract.json')
         receipt = self.profile / 'smoke_complete.json'
+        selection = self.profile / 'startup_selection.json'
+        if selection.is_file():
+            saved = json.loads(selection.read_text())
+            palm.pa.verify_files(saved['outputs'])
+            self.mode = saved['mode']
+            if self.mode not in STARTUP_MODES:
+                raise ValueError('invalid saved MATLAB startup mode')
+        else:
+            failures=[]
+            # Select from trivial startup success, never from scientific results.
+            for mode in STARTUP_MODES:
+                probe=Path(tempfile.mkdtemp(prefix='startup-'+mode+'-',dir=self.profile))
+                try:
+                    launch(frozen['engine'],self.palm_root,[],probe,mode=mode,startup_only=True)
+                    self.mode=mode
+                    palm.pa.write_json(selection,dict(mode=mode,
+                        outputs={str(p):palm.pa.digest(p) for p in probe.iterdir() if p.is_file()}))
+                    print(f'PASS: MATLAB startup with Java and existing preferences; mode={mode}',flush=True)
+                    break
+                except RuntimeError as exc:
+                    failures.append(str(exc))
+                    print(f'STARTUP_PROBE_FAILED: {mode}: {exc}',flush=True)
+                finally:
+                    snapshot_report(probe,report/probe.name)
+            if self.mode is None:
+                raise RuntimeError('MATLAB cannot start in either headless environment; no PALM jobs launched. '+ '; '.join(failures))
+        shutil.copy2(selection,report/selection.name)
         if receipt.is_file():
             palm.pa.verify_files(json.loads(receipt.read_text())['outputs'])
             print('SKIP_COMPLETE: headless MATLAB equivalence smoke', flush=True)
@@ -160,7 +210,7 @@ class HeadlessRecovery:
                 (attempt / name).symlink_to((reference / name).resolve())
             args = palm.arguments(attempt, 'tfce', attempt / 'palm', 20, 42) + ['-C', '3.1', '-Cstat', 'extent']
             try:
-                launch(frozen['engine'], self.palm_root, args, attempt)
+                launch(frozen['engine'], self.palm_root, args, attempt,mode=self.mode)
                 count = len(next(m for m in self.models if m['name'] == frozen['models'][0])['c'])
                 rows = compare_smoke(reference, attempt, count)
                 palm.pa.write_rows(attempt / 'equivalence.tsv', rows)
@@ -191,14 +241,14 @@ class HeadlessRecovery:
         folder = work/'jobs'/model['name']/method
         if (folder/'complete.json').is_file():
             return palm.job(model,method,inputs,work,report,engine,palm_root,n)
-        if self.profile is None:
+        if self.profile is None or self.mode not in STARTUP_MODES:
             raise ValueError('headless runtime not validated')
         folder.mkdir(parents=True,exist_ok=True)
         attempt = Path(tempfile.mkdtemp(prefix='attempt-headless-',dir=folder))
         args = palm.arguments(inputs,method,attempt/'palm',n,20261018)
         print(f'RUN_HEADLESS: {model["name"]} {method}',flush=True)
         try:
-            launch(engine,palm_root,args,attempt)
+            launch(engine,palm_root,args,attempt,mode=self.mode)
             palm.probability_maps(attempt,method,len(model['c']),nib.load(inputs/'mask.nii.gz'))
             palm.pa.write_json(folder/'complete.json',dict(attempt=str(attempt),
                 runtime_contract_sha256=palm.pa.digest(self.profile/'contract.json'),
