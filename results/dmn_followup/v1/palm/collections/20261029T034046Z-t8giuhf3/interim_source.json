@@ -1,0 +1,5 @@
+{
+  "config": "/ZPOOL/data/projects/srndna-ultimatum/results/dmn_covariate_standardized/v1/randomise/config.json",
+  "config_sha256": "22653cdf7dc3f33a68e2651de2250cb0d60f559cd9ead027e3f955de97f6902d",
+  "interpretation": "Completed full-shuffle jobs only; spatial FWE per signed contrast, not across models/methods. No partial-permutation results or new fits."
+}

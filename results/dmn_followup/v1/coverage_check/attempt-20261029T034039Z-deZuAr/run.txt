@@ -1,0 +1,186 @@
+12e2431c47d546036043c1029ca3b7af06ee1a80
+test_all_job_outputs_summary_and_resume_with_mocked_engines (test_dmn_coverage_check.DmnCoverageCheckTests.test_all_job_outputs_summary_and_resume_with_mocked_engines) ... CHECKED: sub-0: both L1 runs and retained L2
+CHECKED: sub-1: both L1 runs and retained L2
+CHECKED: sub-2: both L1 runs and retained L2
+CHECKED: sub-3: both L1 runs and retained L2
+CHECKED: sub-4: both L1 runs and retained L2
+CHECKED: sub-5: both L1 runs and retained L2
+CHECKED: sub-6: both L1 runs and retained L2
+CHECKED: sub-7: both L1 runs and retained L2
+CHECKED: sub-8: both L1 runs and retained L2
+CHECKED: sub-9: both L1 runs and retained L2
+CHECKED: sub-10: both L1 runs and retained L2
+CHECKED: sub-11: both L1 runs and retained L2
+CHECKED: sub-12: both L1 runs and retained L2
+CHECKED: sub-13: both L1 runs and retained L2
+CHECKED: sub-14: both L1 runs and retained L2
+CHECKED: sub-15: both L1 runs and retained L2
+CHECKED: sub-16: both L1 runs and retained L2
+CHECKED: sub-17: both L1 runs and retained L2
+CHECKED: sub-18: both L1 runs and retained L2
+CHECKED: sub-19: both L1 runs and retained L2
+CHECKED: sub-20: both L1 runs and retained L2
+CHECKED: sub-21: both L1 runs and retained L2
+CHECKED: sub-22: both L1 runs and retained L2
+CHECKED: sub-23: both L1 runs and retained L2
+CHECKED: sub-24: both L1 runs and retained L2
+CHECKED: sub-25: both L1 runs and retained L2
+CHECKED: sub-26: both L1 runs and retained L2
+CHECKED: sub-27: both L1 runs and retained L2
+CHECKED: sub-28: both L1 runs and retained L2
+CHECKED: sub-29: both L1 runs and retained L2
+CHECKED: sub-30: both L1 runs and retained L2
+CHECKED: sub-31: both L1 runs and retained L2
+CHECKED: sub-32: both L1 runs and retained L2
+CHECKED: sub-33: both L1 runs and retained L2
+CHECKED: sub-34: both L1 runs and retained L2
+CHECKED: sub-35: both L1 runs and retained L2
+CHECKED: sub-36: both L1 runs and retained L2
+CHECKED: sub-37: both L1 runs and retained L2
+CHECKED: sub-38: both L1 runs and retained L2
+CHECKED: sub-39: both L1 runs and retained L2
+CHECKED: sub-40: both L1 runs and retained L2
+CHECKED: sub-41: both L1 runs and retained L2
+CHECKED: sub-42: both L1 runs and retained L2
+CHECKED: sub-43: both L1 runs and retained L2
+CHECKED: sub-44: both L1 runs and retained L2
+CHECKED: sub-45: both L1 runs and retained L2
+CHECKED: sub-46: both L1 runs and retained L2
+{
+  "participants": 47,
+  "runs": 94,
+  "original_search_voxels": 64,
+  "original_nonconstant_search_voxels": 64,
+  "common_valid_estimation_voxels": 61,
+  "tested_voxels": 61,
+  "constant_voxels_removed": 0,
+  "previous_selected_roi_voxels": 51,
+  "previous_roi_valid_voxels": 48,
+  "policy": "Original whole-brain mask INTERSECT finite COPE, finite positive VARCOPE and FEAT mask in all 94 L1 runs and all 47 L2 estimates; remove between-participant constants.",
+  "changes": "Search mask only. No imputation, participant exclusion, L1/L2 refit, covariate change or significance-based mask choice.",
+  "limitations": "Strict complete-coverage sensitivity analysis changes spatial search domain and FWE calibration; not a repair of low-signal voxels or independent replication."
+}
+RUN: coverage palm tfce -> /tmp/tmph8u4ezm4/new-work/jobs/palm/tfce/attempt-zcr8hs5v
+COMPLETED: coverage palm tfce
+RUN: coverage palm cluster-z2.6 -> /tmp/tmph8u4ezm4/new-work/jobs/palm/cluster-z2.6/attempt-da6l2ral
+COMPLETED: coverage palm cluster-z2.6
+RUN: coverage palm cluster-z3.1 -> /tmp/tmph8u4ezm4/new-work/jobs/palm/cluster-z3.1/attempt-af8zldxv
+COMPLETED: coverage palm cluster-z3.1
+RUN: coverage randomise-contrast1 tfce -> /tmp/tmph8u4ezm4/new-work/jobs/randomise-contrast1/tfce/attempt-d2_640aj
+COMPLETED: coverage randomise-contrast1 tfce
+RUN: coverage randomise-contrast1 cluster-t2.6 -> /tmp/tmph8u4ezm4/new-work/jobs/randomise-contrast1/cluster-t2.6/attempt-7ktsjzih
+COMPLETED: coverage randomise-contrast1 cluster-t2.6
+RUN: coverage randomise-contrast1 cluster-t3.1 -> /tmp/tmph8u4ezm4/new-work/jobs/randomise-contrast1/cluster-t3.1/attempt-9y3j36pt
+COMPLETED: coverage randomise-contrast1 cluster-t3.1
+RUN: coverage randomise-contrast2 tfce -> /tmp/tmph8u4ezm4/new-work/jobs/randomise-contrast2/tfce/attempt-e6_uqo6e
+COMPLETED: coverage randomise-contrast2 tfce
+RUN: coverage randomise-contrast2 cluster-t2.6 -> /tmp/tmph8u4ezm4/new-work/jobs/randomise-contrast2/cluster-t2.6/attempt-e0tnrzif
+COMPLETED: coverage randomise-contrast2 cluster-t2.6
+RUN: coverage randomise-contrast2 cluster-t3.1 -> /tmp/tmph8u4ezm4/new-work/jobs/randomise-contrast2/cluster-t3.1/attempt-024sssf7
+COMPLETED: coverage randomise-contrast2 cluster-t3.1
+RUN: coverage randomise-contrast3 tfce -> /tmp/tmph8u4ezm4/new-work/jobs/randomise-contrast3/tfce/attempt-staa8s2m
+COMPLETED: coverage randomise-contrast3 tfce
+RUN: coverage randomise-contrast3 cluster-t2.6 -> /tmp/tmph8u4ezm4/new-work/jobs/randomise-contrast3/cluster-t2.6/attempt-mfgc75fx
+COMPLETED: coverage randomise-contrast3 cluster-t2.6
+RUN: coverage randomise-contrast3 cluster-t3.1 -> /tmp/tmph8u4ezm4/new-work/jobs/randomise-contrast3/cluster-t3.1/attempt-0n19a_ll
+COMPLETED: coverage randomise-contrast3 cluster-t3.1
+RUN: coverage randomise-contrast4 tfce -> /tmp/tmph8u4ezm4/new-work/jobs/randomise-contrast4/tfce/attempt-ivrq1xz5
+COMPLETED: coverage randomise-contrast4 tfce
+RUN: coverage randomise-contrast4 cluster-t2.6 -> /tmp/tmph8u4ezm4/new-work/jobs/randomise-contrast4/cluster-t2.6/attempt-oml2vzwm
+COMPLETED: coverage randomise-contrast4 cluster-t2.6
+RUN: coverage randomise-contrast4 cluster-t3.1 -> /tmp/tmph8u4ezm4/new-work/jobs/randomise-contrast4/cluster-t3.1/attempt-ot_4cv9c
+COMPLETED: coverage randomise-contrast4 cluster-t3.1
+SKIP_COMPLETE: coverage palm tfce
+ok
+test_completed_job_receipt_is_required_for_resume_and_tampering_stops (test_dmn_coverage_check.DmnCoverageCheckTests.test_completed_job_receipt_is_required_for_resume_and_tampering_stops) ... ok
+test_failed_film_check_does_not_prepare_models_or_launch_engines (test_dmn_coverage_check.DmnCoverageCheckTests.test_failed_film_check_does_not_prepare_models_or_launch_engines) ... ok
+test_film_threshold_parser_modern_legacy_html_and_no_defaults (test_dmn_coverage_check.DmnCoverageCheckTests.test_film_threshold_parser_modern_legacy_html_and_no_defaults) ... ok
+test_preparation_full_sample_whole_brain_rule_and_resume_preserve_sources (test_dmn_coverage_check.DmnCoverageCheckTests.test_preparation_full_sample_whole_brain_rule_and_resume_preserve_sources) ... CHECKED: sub-0: both L1 runs and retained L2
+CHECKED: sub-1: both L1 runs and retained L2
+CHECKED: sub-2: both L1 runs and retained L2
+CHECKED: sub-3: both L1 runs and retained L2
+CHECKED: sub-4: both L1 runs and retained L2
+CHECKED: sub-5: both L1 runs and retained L2
+CHECKED: sub-6: both L1 runs and retained L2
+CHECKED: sub-7: both L1 runs and retained L2
+CHECKED: sub-8: both L1 runs and retained L2
+CHECKED: sub-9: both L1 runs and retained L2
+CHECKED: sub-10: both L1 runs and retained L2
+CHECKED: sub-11: both L1 runs and retained L2
+CHECKED: sub-12: both L1 runs and retained L2
+CHECKED: sub-13: both L1 runs and retained L2
+CHECKED: sub-14: both L1 runs and retained L2
+CHECKED: sub-15: both L1 runs and retained L2
+CHECKED: sub-16: both L1 runs and retained L2
+CHECKED: sub-17: both L1 runs and retained L2
+CHECKED: sub-18: both L1 runs and retained L2
+CHECKED: sub-19: both L1 runs and retained L2
+CHECKED: sub-20: both L1 runs and retained L2
+CHECKED: sub-21: both L1 runs and retained L2
+CHECKED: sub-22: both L1 runs and retained L2
+CHECKED: sub-23: both L1 runs and retained L2
+CHECKED: sub-24: both L1 runs and retained L2
+CHECKED: sub-25: both L1 runs and retained L2
+CHECKED: sub-26: both L1 runs and retained L2
+CHECKED: sub-27: both L1 runs and retained L2
+CHECKED: sub-28: both L1 runs and retained L2
+CHECKED: sub-29: both L1 runs and retained L2
+CHECKED: sub-30: both L1 runs and retained L2
+CHECKED: sub-31: both L1 runs and retained L2
+CHECKED: sub-32: both L1 runs and retained L2
+CHECKED: sub-33: both L1 runs and retained L2
+CHECKED: sub-34: both L1 runs and retained L2
+CHECKED: sub-35: both L1 runs and retained L2
+CHECKED: sub-36: both L1 runs and retained L2
+CHECKED: sub-37: both L1 runs and retained L2
+CHECKED: sub-38: both L1 runs and retained L2
+CHECKED: sub-39: both L1 runs and retained L2
+CHECKED: sub-40: both L1 runs and retained L2
+CHECKED: sub-41: both L1 runs and retained L2
+CHECKED: sub-42: both L1 runs and retained L2
+CHECKED: sub-43: both L1 runs and retained L2
+CHECKED: sub-44: both L1 runs and retained L2
+CHECKED: sub-45: both L1 runs and retained L2
+CHECKED: sub-46: both L1 runs and retained L2
+{
+  "participants": 47,
+  "runs": 94,
+  "original_search_voxels": 64,
+  "original_nonconstant_search_voxels": 64,
+  "common_valid_estimation_voxels": 61,
+  "tested_voxels": 61,
+  "constant_voxels_removed": 0,
+  "previous_selected_roi_voxels": 51,
+  "previous_roi_valid_voxels": 48,
+  "policy": "Original whole-brain mask INTERSECT finite COPE, finite positive VARCOPE and FEAT mask in all 94 L1 runs and all 47 L2 estimates; remove between-participant constants.",
+  "changes": "Search mask only. No imputation, participant exclusion, L1/L2 refit, covariate change or significance-based mask choice.",
+  "limitations": "Strict complete-coverage sensitivity analysis changes spatial search domain and FWE calibration; not a repair of low-signal voxels or independent replication."
+}
+ok
+test_pseudonymous_order_table_is_tracked_but_private_tables_stay_ignored (test_dmn_coverage_check.DmnCoverageCheckTests.test_pseudonymous_order_table_is_tracked_but_private_tables_stay_ignored) ... ok
+test_validity_keeps_true_zero_cope_and_rejects_missing_variance_or_mask (test_dmn_coverage_check.DmnCoverageCheckTests.test_validity_keeps_true_zero_cope_and_rejects_missing_variance_or_mask) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 4.416s
+
+OK
+CHECKED: sub-104: both L1 runs and retained L2
+CHECKED: sub-105: both L1 runs and retained L2
+CHECKED: sub-106: both L1 runs and retained L2
+CHECKED: sub-107: both L1 runs and retained L2
+Traceback (most recent call last):
+  File "/ZPOOL/data/projects/srndna-ultimatum/code/run_dmn_coverage_check.py", line 369, in <module>
+    main()
+  File "/ZPOOL/data/projects/srndna-ultimatum/code/run_dmn_coverage_check.py", line 328, in main
+    prepared = prepare(ROOT, work, args.audit_root.resolve())
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/ZPOOL/data/projects/srndna-ultimatum/code/run_dmn_coverage_check.py", line 139, in prepare
+    threshold, evidence = film_evidence(folder)
+                          ^^^^^^^^^^^^^^^^^^^^^
+  File "/ZPOOL/data/projects/srndna-ultimatum/code/run_dmn_coverage_check.py", line 58, in film_evidence
+    values = film_thresholds(text)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "/ZPOOL/data/projects/srndna-ultimatum/code/run_dmn_coverage_check.py", line 45, in film_thresholds
+    result.append(float(value))
+                  ^^^^^^^^^^^^
+ValueError: could not convert string to float: '--'
