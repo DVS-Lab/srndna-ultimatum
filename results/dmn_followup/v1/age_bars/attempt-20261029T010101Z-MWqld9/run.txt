@@ -1,0 +1,50 @@
+4fbe4cb5bf311f7e7cfa035b1075207f3d8c9ece
+test_adjusted_bars_match_group_coefficients_and_conditional_sem (test_palm_age_bars.PalmAgeBarTests.test_adjusted_bars_match_group_coefficients_and_conditional_sem) ... ok
+test_extraction_includes_zero_values_and_rejects_tampering (test_palm_age_bars.PalmAgeBarTests.test_extraction_includes_zero_values_and_rejects_tampering) ... ok
+test_full_export_records_exact_roi_no_independent_test (test_palm_age_bars.PalmAgeBarTests.test_full_export_records_exact_roi_no_independent_test) ... ok
+test_invalid_membership_or_nonfinite_values_stop (test_palm_age_bars.PalmAgeBarTests.test_invalid_membership_or_nonfinite_values_stop) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.397s
+
+OK
+PASS: exact 51-voxel PALM ROI; 47 verified participant images; descriptive adjusted means ± participant SEM
+[
+  {
+    "age_group": "younger",
+    "n": 25,
+    "adjusted_mean": 4.036237203063832,
+    "conditional_participant_sem": 0.2035131500104336,
+    "raw_mean": 4.371478353142921,
+    "raw_participant_sem": 0.2396361723344676
+  },
+  {
+    "age_group": "older",
+    "n": 22,
+    "adjusted_mean": -1.8041017475490173,
+    "conditional_participant_sem": 0.17997275730190673,
+    "raw_mean": -1.7873440395859703,
+    "raw_participant_sem": 0.3458915281340186
+  }
+]
+Saved bar plot and source estimates: /tmp/tmpib8dilzx/bars
+PASS: exact 51-voxel PALM ROI; 47 verified participant images; descriptive adjusted means ± participant SEM
+[
+  {
+    "age_group": "younger",
+    "n": 25,
+    "adjusted_mean": 20.08138095987964,
+    "conditional_participant_sem": 3.41354726635065,
+    "raw_mean": 12.300678943442,
+    "raw_participant_sem": 3.93692901023417
+  },
+  {
+    "age_group": "older",
+    "n": 22,
+    "adjusted_mean": -16.657256316687096,
+    "conditional_participant_sem": 3.3503315895678436,
+    "raw_mean": -7.808123275777075,
+    "raw_participant_sem": 3.583968898234504
+  }
+]
+Saved bar plot and source estimates: /ZPOOL/data/projects/srndna-ultimatum/results/dmn_followup/v1/age_bars/attempt-20261029T010101Z-MWqld9/outputs
