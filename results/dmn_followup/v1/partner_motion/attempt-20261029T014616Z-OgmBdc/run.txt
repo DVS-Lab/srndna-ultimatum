@@ -1,0 +1,189 @@
+77fa9715b2957bdeb69ec768d590fb6345ef3cfe
+test_common_weight_decomposition_is_exact_and_validates_inputs (test_palm_partner_motion.PartnerMotionTests.test_common_weight_decomposition_is_exact_and_validates_inputs) ... ok
+test_failed_exact_reconstruction_saves_native_diagnostics_without_exclusions (test_palm_partner_motion.PartnerMotionTests.test_failed_exact_reconstruction_saves_native_diagnostics_without_exclusions) ... EXTRACTED: sub-0; common-weight reconstruction=0
+EXTRACTED: sub-1; common-weight reconstruction=1
+EXTRACTED: sub-2; common-weight reconstruction=1
+EXTRACTED: sub-3; common-weight reconstruction=1
+EXTRACTED: sub-4; common-weight reconstruction=1
+EXTRACTED: sub-5; common-weight reconstruction=1
+EXTRACTED: sub-6; common-weight reconstruction=1
+EXTRACTED: sub-7; common-weight reconstruction=1
+EXTRACTED: sub-8; common-weight reconstruction=1
+EXTRACTED: sub-9; common-weight reconstruction=1
+EXTRACTED: sub-10; common-weight reconstruction=1
+EXTRACTED: sub-11; common-weight reconstruction=1
+EXTRACTED: sub-12; common-weight reconstruction=1
+EXTRACTED: sub-13; common-weight reconstruction=1
+EXTRACTED: sub-14; common-weight reconstruction=1
+EXTRACTED: sub-15; common-weight reconstruction=1
+EXTRACTED: sub-16; common-weight reconstruction=1
+EXTRACTED: sub-17; common-weight reconstruction=1
+EXTRACTED: sub-18; common-weight reconstruction=1
+EXTRACTED: sub-19; common-weight reconstruction=1
+EXTRACTED: sub-20; common-weight reconstruction=1
+EXTRACTED: sub-21; common-weight reconstruction=1
+EXTRACTED: sub-22; common-weight reconstruction=1
+EXTRACTED: sub-23; common-weight reconstruction=1
+EXTRACTED: sub-24; common-weight reconstruction=1
+EXTRACTED: sub-25; common-weight reconstruction=1
+EXTRACTED: sub-26; common-weight reconstruction=1
+EXTRACTED: sub-27; common-weight reconstruction=1
+EXTRACTED: sub-28; common-weight reconstruction=1
+EXTRACTED: sub-29; common-weight reconstruction=1
+EXTRACTED: sub-30; common-weight reconstruction=1
+EXTRACTED: sub-31; common-weight reconstruction=1
+EXTRACTED: sub-32; common-weight reconstruction=1
+EXTRACTED: sub-33; common-weight reconstruction=1
+EXTRACTED: sub-34; common-weight reconstruction=1
+EXTRACTED: sub-35; common-weight reconstruction=1
+EXTRACTED: sub-36; common-weight reconstruction=1
+EXTRACTED: sub-37; common-weight reconstruction=1
+EXTRACTED: sub-38; common-weight reconstruction=1
+EXTRACTED: sub-39; common-weight reconstruction=1
+EXTRACTED: sub-40; common-weight reconstruction=1
+EXTRACTED: sub-41; common-weight reconstruction=1
+EXTRACTED: sub-42; common-weight reconstruction=1
+EXTRACTED: sub-43; common-weight reconstruction=1
+EXTRACTED: sub-44; common-weight reconstruction=1
+EXTRACTED: sub-45; common-weight reconstruction=1
+EXTRACTED: sub-46; common-weight reconstruction=1
+ok
+test_full_three_partner_export_preserves_inputs_and_reconstructs_primary (test_palm_partner_motion.PartnerMotionTests.test_full_three_partner_export_preserves_inputs_and_reconstructs_primary) ... {
+  "full_age_gap": 4.771955607717152,
+  "refitted_no_group_fd_age_gap": 4.242550256409758,
+  "change_when_adding_group_fd": 0.5294053513073944,
+  "full_fd_coefficient": 0.5335160393212853,
+  "fd_age_gap_adjusted_for_other_covariates": -0.9922950994704456,
+  "omitted_fd_product": -0.529405351307393,
+  "identity": "no-FD age gap - full age gap = full FD coefficient x adjusted FD age gap"
+}
+Saved partner/motion diagnostics: /tmp/tmpakb2_c71/outputs
+EXTRACTED: sub-0; common-weight reconstruction=1
+EXTRACTED: sub-1; common-weight reconstruction=1
+EXTRACTED: sub-2; common-weight reconstruction=1
+EXTRACTED: sub-3; common-weight reconstruction=1
+EXTRACTED: sub-4; common-weight reconstruction=1
+EXTRACTED: sub-5; common-weight reconstruction=1
+EXTRACTED: sub-6; common-weight reconstruction=1
+EXTRACTED: sub-7; common-weight reconstruction=1
+EXTRACTED: sub-8; common-weight reconstruction=1
+EXTRACTED: sub-9; common-weight reconstruction=1
+EXTRACTED: sub-10; common-weight reconstruction=1
+EXTRACTED: sub-11; common-weight reconstruction=1
+EXTRACTED: sub-12; common-weight reconstruction=1
+EXTRACTED: sub-13; common-weight reconstruction=1
+EXTRACTED: sub-14; common-weight reconstruction=1
+EXTRACTED: sub-15; common-weight reconstruction=1
+EXTRACTED: sub-16; common-weight reconstruction=1
+EXTRACTED: sub-17; common-weight reconstruction=1
+EXTRACTED: sub-18; common-weight reconstruction=1
+EXTRACTED: sub-19; common-weight reconstruction=1
+EXTRACTED: sub-20; common-weight reconstruction=1
+EXTRACTED: sub-21; common-weight reconstruction=1
+EXTRACTED: sub-22; common-weight reconstruction=1
+EXTRACTED: sub-23; common-weight reconstruction=1
+EXTRACTED: sub-24; common-weight reconstruction=1
+EXTRACTED: sub-25; common-weight reconstruction=1
+EXTRACTED: sub-26; common-weight reconstruction=1
+EXTRACTED: sub-27; common-weight reconstruction=1
+EXTRACTED: sub-28; common-weight reconstruction=1
+EXTRACTED: sub-29; common-weight reconstruction=1
+EXTRACTED: sub-30; common-weight reconstruction=1
+EXTRACTED: sub-31; common-weight reconstruction=1
+EXTRACTED: sub-32; common-weight reconstruction=1
+EXTRACTED: sub-33; common-weight reconstruction=1
+EXTRACTED: sub-34; common-weight reconstruction=1
+EXTRACTED: sub-35; common-weight reconstruction=1
+EXTRACTED: sub-36; common-weight reconstruction=1
+EXTRACTED: sub-37; common-weight reconstruction=1
+EXTRACTED: sub-38; common-weight reconstruction=1
+EXTRACTED: sub-39; common-weight reconstruction=1
+EXTRACTED: sub-40; common-weight reconstruction=1
+EXTRACTED: sub-41; common-weight reconstruction=1
+EXTRACTED: sub-42; common-weight reconstruction=1
+EXTRACTED: sub-43; common-weight reconstruction=1
+EXTRACTED: sub-44; common-weight reconstruction=1
+EXTRACTED: sub-45; common-weight reconstruction=1
+EXTRACTED: sub-46; common-weight reconstruction=1
+ok
+test_omitted_fd_identity_refits_all_remaining_slopes (test_palm_partner_motion.PartnerMotionTests.test_omitted_fd_identity_refits_all_remaining_slopes) ... ok
+test_policies_remove_only_requested_columns_and_are_canonical_invariant (test_palm_partner_motion.PartnerMotionTests.test_policies_remove_only_requested_columns_and_are_canonical_invariant) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 6.138s
+
+OK
+{
+  "full_age_gap": 4.771955607717152,
+  "refitted_no_group_fd_age_gap": 4.242550256409758,
+  "change_when_adding_group_fd": 0.5294053513073944,
+  "full_fd_coefficient": 0.5335160393212853,
+  "fd_age_gap_adjusted_for_other_covariates": -0.9922950994704456,
+  "omitted_fd_product": -0.529405351307393,
+  "identity": "no-FD age gap - full age gap = full FD coefficient x adjusted FD age gap"
+}
+Saved partner/motion diagnostics: /tmp/tmps_v7zju6/outputs
+PASS: all three partners; nested group-FD sensitivity; exact contrast decomposition verified for all 47 participants
+EXTRACTED: sub-104; common-weight reconstruction=1
+EXTRACTED: sub-105; common-weight reconstruction=1
+EXTRACTED: sub-106; common-weight reconstruction=1
+EXTRACTED: sub-107; common-weight reconstruction=1
+EXTRACTED: sub-108; common-weight reconstruction=0
+EXTRACTED: sub-109; common-weight reconstruction=1
+EXTRACTED: sub-110; common-weight reconstruction=1
+EXTRACTED: sub-111; common-weight reconstruction=1
+EXTRACTED: sub-112; common-weight reconstruction=0
+EXTRACTED: sub-113; common-weight reconstruction=1
+EXTRACTED: sub-115; common-weight reconstruction=1
+EXTRACTED: sub-116; common-weight reconstruction=1
+EXTRACTED: sub-117; common-weight reconstruction=1
+EXTRACTED: sub-118; common-weight reconstruction=1
+EXTRACTED: sub-121; common-weight reconstruction=1
+EXTRACTED: sub-122; common-weight reconstruction=1
+EXTRACTED: sub-124; common-weight reconstruction=1
+EXTRACTED: sub-125; common-weight reconstruction=0
+EXTRACTED: sub-126; common-weight reconstruction=1
+EXTRACTED: sub-127; common-weight reconstruction=1
+EXTRACTED: sub-128; common-weight reconstruction=1
+EXTRACTED: sub-129; common-weight reconstruction=1
+EXTRACTED: sub-130; common-weight reconstruction=1
+EXTRACTED: sub-132; common-weight reconstruction=1
+EXTRACTED: sub-133; common-weight reconstruction=1
+EXTRACTED: sub-134; common-weight reconstruction=1
+EXTRACTED: sub-135; common-weight reconstruction=1
+EXTRACTED: sub-136; common-weight reconstruction=1
+EXTRACTED: sub-137; common-weight reconstruction=1
+EXTRACTED: sub-138; common-weight reconstruction=1
+EXTRACTED: sub-140; common-weight reconstruction=1
+EXTRACTED: sub-141; common-weight reconstruction=1
+EXTRACTED: sub-142; common-weight reconstruction=1
+EXTRACTED: sub-143; common-weight reconstruction=1
+EXTRACTED: sub-144; common-weight reconstruction=1
+EXTRACTED: sub-147; common-weight reconstruction=1
+EXTRACTED: sub-149; common-weight reconstruction=1
+EXTRACTED: sub-150; common-weight reconstruction=1
+EXTRACTED: sub-151; common-weight reconstruction=1
+EXTRACTED: sub-152; common-weight reconstruction=1
+EXTRACTED: sub-153; common-weight reconstruction=1
+EXTRACTED: sub-154; common-weight reconstruction=1
+EXTRACTED: sub-155; common-weight reconstruction=1
+EXTRACTED: sub-156; common-weight reconstruction=1
+EXTRACTED: sub-157; common-weight reconstruction=1
+EXTRACTED: sub-158; common-weight reconstruction=1
+EXTRACTED: sub-159; common-weight reconstruction=1
+{
+  "full_age_gap": 36.738637276566735,
+  "refitted_no_group_fd_age_gap": 25.07521513579333,
+  "change_when_adding_group_fd": 11.663422140773406,
+  "full_fd_coefficient": 13.29828724013137,
+  "fd_age_gap_adjusted_for_other_covariates": -0.8770619802507866,
+  "omitted_fd_product": -11.663422140773386,
+  "identity": "no-FD age gap - full age gap = full FD coefficient x adjusted FD age gap"
+}
+Saved partner/motion diagnostics: /ZPOOL/data/projects/srndna-ultimatum/results/dmn_followup/v1/partner_motion/attempt-20261029T014616Z-OgmBdc/outputs
+Traceback (most recent call last):
+  File "/ZPOOL/data/projects/srndna-ultimatum/code/audit_palm_partner_motion.py", line 337, in <module>
+    build(args.repository.resolve(), args.baseline_bars.resolve(), args.output_root.resolve())
+  File "/ZPOOL/data/projects/srndna-ultimatum/code/audit_palm_partner_motion.py", line 327, in build
+    raise RuntimeError('native plots saved, but exact common-weight decomposition needs review; inspect run_weight_reconstruction.tsv. No participants excluded or fits rerun.')
+RuntimeError: native plots saved, but exact common-weight decomposition needs review; inspect run_weight_reconstruction.tsv. No participants excluded or fits rerun.
