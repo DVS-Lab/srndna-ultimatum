@@ -1,5 +1,43 @@
 DMN follow-up: standardized-covariate outputs, 18 October 2026
 
+28 October three-partner and group-motion diagnostic (safe during PALM)
+  bash code/collect_palm_partner_motion.sh
+
+The wrapper writes a NEW dated partner_motion attempt and refreshes the PALM
+snapshot. It does not launch imaging/permutation jobs or edit PALM scratch.
+The 51-voxel mask, all 47 participants, full-display L1 inputs and primary
+six-column group model remain fixed. Hash-verified COPE7 estimates must reproduce
+the completed primary bars before the diagnostic is accepted.
+
+Native condition bars use L2 COPE2 (computer), COPE4 (similar/own-age) and COPE6
+(dissimilar/other-age), all in this same selected ROI. Their fixed-effect run
+weights differ by contrast, so native similar-minus-dissimilar need not equal
+COPE7. Do not interpret them as an exact algebraic decomposition.
+
+A second, explicitly labeled matched panel applies each voxel's inverse run
+VARCOPE7 weights to all three partners. Before plotting, L1 EV/contrast mapping
+is verified, L1 COPE4-minus-COPE6 must reproduce L1 COPE7, the common-weight
+run combination must reproduce retained L2 COPE7, and adjusted partner bars must
+subtract to the primary difference for every policy and group. Computer is
+shown for context and is NOT part of the similar-minus-dissimilar age contrast.
+Nonpositive variances, missing inputs or reconstruction disagreement are not
+fixed by exclusions/substitution: native plots and failure diagnostics are saved,
+matched panels are withheld for ALL participants, and the wrapper exits nonzero.
+
+Policies: age groups only; full model minus FD; full model minus FD and tSNR;
+original full model (sex/tSNR/FD/mean RT). Remaining nuisance terms are REFITTED
+for each policy; L1 motion confounds and preprocessing are unchanged. An exact
+omitted-variable regression identity checks the full-versus-no-FD age gap.
+The tables include descriptive HC3 contrast SE, fixed-ROI leave-one-out ranges,
+covariate distributions, native/matched participant estimates and run-weight
+validation. Figures show three partners, motion-policy bars and raw/partial FD
+associations. Error bars are conditional participant SEM, not PALM uncertainty.
+
+These selected-ROI diagnostics supply no independent p-values, new whole-brain
+thresholds or replacement primary model. They cannot establish a causal motion
+effect or resolve the anatomical boundary/coverage concern. Commit/push both
+partner_motion and palm/collections, including logs when validation fails.
+
 28 October exact PALM age-effect bars (safe while PALM runs)
   bash code/collect_palm_age_bars.sh
 
