@@ -35,29 +35,39 @@ N = 10000
 
 def film_thresholds(text):
     """Extract explicit thresholds only, never guess from a current default."""
+    # A character class such as [-+\d.eE]+ also accepts '--'. In a modern
+    # command, design.mat is commonly followed by another option, not a legacy
+    # positional threshold. Require an entire real-number token instead.
+    number = r'[-+]?(?:\d+(?:\.\d*)?|\.\d+)(?:[eE][-+]?\d+)?'
+    end = r'(?=$|[\s<>\"\';&])'
     result = []
     for line in html.unescape(text).splitlines():
         if not re.search(r'\bfilm_gls\b', line):
             continue
-        modern = re.findall(r'--thr(?:eshold)?(?:=|\s+)([-+\d.eE]+)', line)
-        old = re.findall(r'\bdesign\.mat[\"\']?\s+([-+\d.eE]+)', line)
+        modern = re.findall(r'--thr(?:eshold)?(?:=|\s+)(' + number + ')' + end, line)
+        old = re.findall(r'\bdesign\.mat[\"\']?\s+(' + number + ')' + end, line)
         for value in modern+old:
             result.append(float(value))
     return result
 
 
-def film_evidence(folder):
+def film_evidence(folder, snapshot=None):
     paths = [folder/'report_log.html', folder/'stats/logfile']
     if (folder/'logs').is_dir():
         paths += sorted(p for p in (folder/'logs').rglob('*') if p.is_file())
-    evidence = []
+    evidence, candidates = [], []
     for path in sorted(set(paths)):
         if not path.is_file() or path.stat().st_size > 8_000_000:
             continue
         text = path.read_text(errors='replace')
+        lines = [html.unescape(s).strip() for s in text.splitlines() if re.search(r'\bfilm_gls\b', s)]
+        if lines:
+            candidates.append(dict(path=str(path), sha256=pa.digest(path), commands=lines))
+            # Retain real command evidence even if parsing/uniqueness later fails.
+            if snapshot is not None:
+                pa.write_json(snapshot, candidates)
         values = film_thresholds(text)
         if values:
-            lines = [html.unescape(s).strip() for s in text.splitlines() if re.search(r'\bfilm_gls\b', s)]
             evidence.append(dict(path=str(path), sha256=pa.digest(path), thresholds=values, commands=lines))
     thresholds = sorted({v for row in evidence for v in row['thresholds']})
     if len(thresholds) != 1 or not np.isfinite(thresholds[0]):
@@ -136,7 +146,7 @@ def prepare(repo, work, audit=AUDIT):
             records.append(dict(subject=subject, run=run, original_search_voxels=int(retained.sum()),
                 valid_estimates_in_original_search=int(np.sum(retained & valid))))
             if subject in flagged:
-                threshold, evidence = film_evidence(folder)
+                threshold, evidence = film_evidence(folder, root/'film_command_evidence.json')
                 mean = reader.load(folder/'mean_func.nii.gz', 'flagged mean EPI')
                 # Confirm the observed whole-volume boundary, not only selected ROI voxels.
                 bad = (m > 0) & (v <= 0); positive = (m > 0) & (v > 0)

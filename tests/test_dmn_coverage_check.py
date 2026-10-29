@@ -1,4 +1,6 @@
 import json
+import io
+from contextlib import redirect_stdout
 from pathlib import Path
 import sys
 import tempfile
@@ -15,6 +17,12 @@ import test_palm_partner_motion as fixtures
 
 
 class DmnCoverageCheckTests(unittest.TestCase):
+    def setUp(self):
+        # Fixture counts and mocked fits are not real study results. Keep them
+        # out of Linux batch logs while retaining unittest's stderr diagnostics.
+        capture=redirect_stdout(io.StringIO());capture.__enter__()
+        self.addCleanup(capture.__exit__,None,None,None)
+
     def test_pseudonymous_order_table_is_tracked_but_private_tables_stay_ignored(self):
         for path, expected in [('results/dmn_followup/v1/coverage_check/v1/preparation/participants.tsv',1),
                                ('source_data/participants.tsv',0)]:
@@ -35,6 +43,26 @@ class DmnCoverageCheckTests(unittest.TestCase):
             self.assertEqual(value,1000);self.assertEqual(len(evidence),2)
             (p/'logs/stats.o2').write_text('film_gls --thr=0\n')
             with self.assertRaisesRegex(ValueError,'unique explicit'):check.film_evidence(p)
+
+    def test_modern_pd_before_threshold_does_not_parse_next_option_as_number(self):
+        command='/usr/local/fsl/bin/film_gls --in=filtered_func_data --rn=stats --pd=design.mat --thr=1000.000000 --sa --ms=5 --con=design.con'
+        self.assertEqual(check.film_thresholds(command),[1000])
+        self.assertEqual(check.film_thresholds('film_gls --pd=design.mat --con=design.con --thr 1e+3'),[1000])
+        self.assertEqual(check.film_thresholds('film_gls --pd=design.mat --sa'),[])
+        self.assertEqual(check.film_thresholds('film_gls --thr=-- --pd=design.mat'),[])
+        self.assertEqual(check.film_thresholds('film_gls --thr=1000garbage'),[])
+        self.assertEqual(check.film_thresholds('film_gls input design.mat -1.25e-3'),[-.00125])
+
+    def test_ambiguous_real_command_evidence_survives_preflight_failure(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            p=Path(tmp);(p/'logs').mkdir()
+            (p/'report_log.html').write_text('film_gls --pd=design.mat --thr=1000\n')
+            (p/'logs/stats.o1').write_text('film_gls --pd=design.mat --thr=500\n')
+            snapshot=p/'saved-command-evidence.json'
+            with self.assertRaisesRegex(ValueError,'unique explicit'):
+                check.film_evidence(p,snapshot)
+            saved=json.loads(snapshot.read_text());self.assertEqual(len(saved),2)
+            self.assertTrue(any('--thr=1000' in line for row in saved for line in row['commands']))
 
     def test_validity_keeps_true_zero_cope_and_rejects_missing_variance_or_mask(self):
         valid=check.valid_estimate(np.array([0,1,np.nan,1,1,1]),

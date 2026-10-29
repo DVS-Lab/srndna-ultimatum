@@ -438,3 +438,14 @@ Historical standardized full-RT younger-minus-older results (10,000 resamples):
   PALM TFCE p=.0642, cluster-Z2.6 p=.0434, cluster-Z3.1 p=.2535.
 Thus the age effect was not unique to PALM. Do not equate different cluster
 threshold statistics or describe the two procedures as identical replications.
+
+Coverage-check parser recovery (29 October 2026 UTC)
+The first real preflight stopped before launching inference: the legacy numeric
+regex accepted '--' immediately after '--pd=design.mat' in a modern FILM command.
+The parser now requires a full signed decimal/scientific numeric token and saves
+real command evidence before validation. Regression tests cover option order,
+malformed tokens and preservation of ambiguous command logs. Synthetic test
+stdout is suppressed so fixture counts cannot be mistaken for study results.
+Keep the interrupted preparation intact and rerun the identical wrapper. Without
+a prepared.json receipt it creates a fresh preparation; it never restarts old
+PALM jobs or reuses an incomplete coverage preparation as completed inference.
