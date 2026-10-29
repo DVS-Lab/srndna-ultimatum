@@ -1,0 +1,4 @@
+subject	x_mni_mm	y_mni_mm	z_mni_mm	cut_rule
+sub-108	37.2850022315979	54.79900312423706	-20.53999948501587	invalid-variance voxel nearest their centroid, or ROI centroid fallback
+sub-112	37.2850022315979	54.79900312423706	-20.53999948501587	invalid-variance voxel nearest their centroid, or ROI centroid fallback
+sub-125	37.2850022315979	54.79900312423706	-20.53999948501587	invalid-variance voxel nearest their centroid, or ROI centroid fallback

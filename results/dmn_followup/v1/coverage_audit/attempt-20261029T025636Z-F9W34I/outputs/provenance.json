@@ -1,0 +1,21 @@
+{
+  "display": "Nearest-neighbor overlays/masks and linear mean-EPI resampling for display only; counts and coordinates from native grid.",
+  "flagged": [
+    "sub-108",
+    "sub-112",
+    "sub-125"
+  ],
+  "hypotheses": "Existing L2 compared with inverse-variance combination of finite positive run variances; single-positive-run and no-positive-run cases explicitly separated. Hypotheses are never used to replace estimates.",
+  "limits": "ROI selected using age contrast. FEAT masks and signal variability are descriptive coverage evidence, not proof of neural validity. Missing optional masks/signals remain unknown. No primary masks, weights, runs, participants, COPEs, VARCOPEs or PALM jobs changed.",
+  "scope": "94 runs/47 retained participants for context; detailed signal and MNI overlays only for flagged participants",
+  "sources": {
+    "/ZPOOL/data/projects/srndna-ultimatum/code/audit_palm_partner_motion.py": "c1147fd0e9c14604f517d986c7baccd9fdff45d18de35b7272bfc39b509352c5",
+    "/ZPOOL/data/projects/srndna-ultimatum/code/audit_palm_varcope_coverage.py": "b4370332af547070a3225352554b031c8a58747e314c4063774ec378ca6d523e",
+    "/ZPOOL/data/projects/srndna-ultimatum/results/dmn_covariate_standardized/v1/randomise/config.json": "22653cdf7dc3f33a68e2651de2250cb0d60f559cd9ead027e3f955de97f6902d",
+    "/ZPOOL/data/projects/srndna-ultimatum/results/dmn_covariate_standardized/v1/randomise/input_provenance.json": "b3327018d8891f3e7343c7352fbda3470a415a5f186c7b3288e8d38592d78e36",
+    "/ZPOOL/data/projects/srndna-ultimatum/results/dmn_followup/v1/age_bars/attempt-20261029T010101Z-MWqld9/outputs/inventory.tsv": "18e296fdbc6a6133c0d83639b8385f6555d6212e4e8814923ef5dabb64a53047",
+    "/ZPOOL/data/projects/srndna-ultimatum/results/dmn_followup/v1/age_bars/attempt-20261029T010101Z-MWqld9/outputs/selected_age_roi.nii.gz": "953a18fd35f0e1f9bc18c67b07ff65ddadca6a646c39bfb1c7e5bb8da45b4d15",
+    "/ZPOOL/data/projects/srndna-ultimatum/results/dmn_followup/v1/partner_motion/attempt-20261029T014616Z-OgmBdc/outputs/inventory.tsv": "9e3973ff3390489e7ed2815e5088702f4f4befbc28cf63869fdf63bc73184252",
+    "/usr/local/fsl/data/standard/MNI152_T1_2mm_brain.nii.gz": "09c925ad165dfbe6b41b572876d67e9bbf8c5e26517e7817f9b43a8256227f53"
+  }
+}

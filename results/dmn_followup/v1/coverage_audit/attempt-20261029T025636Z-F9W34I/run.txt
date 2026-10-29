@@ -1,0 +1,107 @@
+ff364f4daddd88890d27cdd50678b57334de42f3
+test_classification_does_not_guess_coverage_from_zero_variance (test_palm_coverage.CoverageTests.test_classification_does_not_guess_coverage_from_zero_variance) ... ok
+test_full_read_only_audit_accepts_partial_partner_report (test_palm_coverage.CoverageTests.test_full_read_only_audit_accepts_partial_partner_report) ... AUDITED: sub-0; ROI voxels with positive run variance 2/1/0 = 50/1/0
+AUDITED: sub-1; ROI voxels with positive run variance 2/1/0 = 50/1/0
+AUDITED: sub-2; ROI voxels with positive run variance 2/1/0 = 50/1/0
+AUDITED: sub-3; ROI voxels with positive run variance 2/1/0 = 51/0/0
+AUDITED: sub-4; ROI voxels with positive run variance 2/1/0 = 51/0/0
+AUDITED: sub-5; ROI voxels with positive run variance 2/1/0 = 51/0/0
+AUDITED: sub-6; ROI voxels with positive run variance 2/1/0 = 51/0/0
+AUDITED: sub-7; ROI voxels with positive run variance 2/1/0 = 51/0/0
+AUDITED: sub-8; ROI voxels with positive run variance 2/1/0 = 51/0/0
+AUDITED: sub-9; ROI voxels with positive run variance 2/1/0 = 51/0/0
+AUDITED: sub-10; ROI voxels with positive run variance 2/1/0 = 51/0/0
+AUDITED: sub-11; ROI voxels with positive run variance 2/1/0 = 51/0/0
+AUDITED: sub-12; ROI voxels with positive run variance 2/1/0 = 51/0/0
+AUDITED: sub-13; ROI voxels with positive run variance 2/1/0 = 51/0/0
+AUDITED: sub-14; ROI voxels with positive run variance 2/1/0 = 51/0/0
+AUDITED: sub-15; ROI voxels with positive run variance 2/1/0 = 51/0/0
+AUDITED: sub-16; ROI voxels with positive run variance 2/1/0 = 51/0/0
+AUDITED: sub-17; ROI voxels with positive run variance 2/1/0 = 51/0/0
+AUDITED: sub-18; ROI voxels with positive run variance 2/1/0 = 51/0/0
+AUDITED: sub-19; ROI voxels with positive run variance 2/1/0 = 51/0/0
+AUDITED: sub-20; ROI voxels with positive run variance 2/1/0 = 51/0/0
+AUDITED: sub-21; ROI voxels with positive run variance 2/1/0 = 51/0/0
+AUDITED: sub-22; ROI voxels with positive run variance 2/1/0 = 51/0/0
+AUDITED: sub-23; ROI voxels with positive run variance 2/1/0 = 51/0/0
+AUDITED: sub-24; ROI voxels with positive run variance 2/1/0 = 51/0/0
+AUDITED: sub-25; ROI voxels with positive run variance 2/1/0 = 51/0/0
+AUDITED: sub-26; ROI voxels with positive run variance 2/1/0 = 51/0/0
+AUDITED: sub-27; ROI voxels with positive run variance 2/1/0 = 51/0/0
+AUDITED: sub-28; ROI voxels with positive run variance 2/1/0 = 51/0/0
+AUDITED: sub-29; ROI voxels with positive run variance 2/1/0 = 51/0/0
+AUDITED: sub-30; ROI voxels with positive run variance 2/1/0 = 51/0/0
+AUDITED: sub-31; ROI voxels with positive run variance 2/1/0 = 51/0/0
+AUDITED: sub-32; ROI voxels with positive run variance 2/1/0 = 51/0/0
+AUDITED: sub-33; ROI voxels with positive run variance 2/1/0 = 51/0/0
+AUDITED: sub-34; ROI voxels with positive run variance 2/1/0 = 51/0/0
+AUDITED: sub-35; ROI voxels with positive run variance 2/1/0 = 51/0/0
+AUDITED: sub-36; ROI voxels with positive run variance 2/1/0 = 51/0/0
+AUDITED: sub-37; ROI voxels with positive run variance 2/1/0 = 51/0/0
+AUDITED: sub-38; ROI voxels with positive run variance 2/1/0 = 51/0/0
+AUDITED: sub-39; ROI voxels with positive run variance 2/1/0 = 51/0/0
+AUDITED: sub-40; ROI voxels with positive run variance 2/1/0 = 51/0/0
+AUDITED: sub-41; ROI voxels with positive run variance 2/1/0 = 51/0/0
+AUDITED: sub-42; ROI voxels with positive run variance 2/1/0 = 51/0/0
+AUDITED: sub-43; ROI voxels with positive run variance 2/1/0 = 51/0/0
+AUDITED: sub-44; ROI voxels with positive run variance 2/1/0 = 51/0/0
+AUDITED: sub-45; ROI voxels with positive run variance 2/1/0 = 51/0/0
+AUDITED: sub-46; ROI voxels with positive run variance 2/1/0 = 51/0/0
+ok
+test_reader_checks_hash_and_geometry_but_preserves_nonfinite_values (test_palm_coverage.CoverageTests.test_reader_checks_hash_and_geometry_but_preserves_nonfinite_values) ... ok
+test_temporal_summary_includes_zero_signal_and_reports_nonfinite (test_palm_coverage.CoverageTests.test_temporal_summary_includes_zero_signal_and_reports_nonfinite) ... ok
+test_variance_hypotheses_separate_two_one_and_no_supported_runs (test_palm_coverage.CoverageTests.test_variance_hypotheses_separate_two_one_and_no_supported_runs) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 3.768s
+
+OK
+PASS: read-only coverage/VARCOPE audit saved: /tmp/tmpbap6vh75/audit
+AUDITED: sub-104; ROI voxels with positive run variance 2/1/0 = 51/0/0
+AUDITED: sub-105; ROI voxels with positive run variance 2/1/0 = 51/0/0
+AUDITED: sub-106; ROI voxels with positive run variance 2/1/0 = 51/0/0
+AUDITED: sub-107; ROI voxels with positive run variance 2/1/0 = 51/0/0
+AUDITED: sub-108; ROI voxels with positive run variance 2/1/0 = 50/0/1
+AUDITED: sub-109; ROI voxels with positive run variance 2/1/0 = 51/0/0
+AUDITED: sub-110; ROI voxels with positive run variance 2/1/0 = 51/0/0
+AUDITED: sub-111; ROI voxels with positive run variance 2/1/0 = 51/0/0
+AUDITED: sub-112; ROI voxels with positive run variance 2/1/0 = 50/1/0
+AUDITED: sub-113; ROI voxels with positive run variance 2/1/0 = 51/0/0
+AUDITED: sub-115; ROI voxels with positive run variance 2/1/0 = 51/0/0
+AUDITED: sub-116; ROI voxels with positive run variance 2/1/0 = 51/0/0
+AUDITED: sub-117; ROI voxels with positive run variance 2/1/0 = 51/0/0
+AUDITED: sub-118; ROI voxels with positive run variance 2/1/0 = 51/0/0
+AUDITED: sub-121; ROI voxels with positive run variance 2/1/0 = 51/0/0
+AUDITED: sub-122; ROI voxels with positive run variance 2/1/0 = 51/0/0
+AUDITED: sub-124; ROI voxels with positive run variance 2/1/0 = 51/0/0
+AUDITED: sub-125; ROI voxels with positive run variance 2/1/0 = 49/1/1
+AUDITED: sub-126; ROI voxels with positive run variance 2/1/0 = 51/0/0
+AUDITED: sub-127; ROI voxels with positive run variance 2/1/0 = 51/0/0
+AUDITED: sub-128; ROI voxels with positive run variance 2/1/0 = 51/0/0
+AUDITED: sub-129; ROI voxels with positive run variance 2/1/0 = 51/0/0
+AUDITED: sub-130; ROI voxels with positive run variance 2/1/0 = 51/0/0
+AUDITED: sub-132; ROI voxels with positive run variance 2/1/0 = 51/0/0
+AUDITED: sub-133; ROI voxels with positive run variance 2/1/0 = 51/0/0
+AUDITED: sub-134; ROI voxels with positive run variance 2/1/0 = 51/0/0
+AUDITED: sub-135; ROI voxels with positive run variance 2/1/0 = 51/0/0
+AUDITED: sub-136; ROI voxels with positive run variance 2/1/0 = 51/0/0
+AUDITED: sub-137; ROI voxels with positive run variance 2/1/0 = 51/0/0
+AUDITED: sub-138; ROI voxels with positive run variance 2/1/0 = 51/0/0
+AUDITED: sub-140; ROI voxels with positive run variance 2/1/0 = 51/0/0
+AUDITED: sub-141; ROI voxels with positive run variance 2/1/0 = 51/0/0
+AUDITED: sub-142; ROI voxels with positive run variance 2/1/0 = 51/0/0
+AUDITED: sub-143; ROI voxels with positive run variance 2/1/0 = 51/0/0
+AUDITED: sub-144; ROI voxels with positive run variance 2/1/0 = 51/0/0
+AUDITED: sub-147; ROI voxels with positive run variance 2/1/0 = 51/0/0
+AUDITED: sub-149; ROI voxels with positive run variance 2/1/0 = 51/0/0
+AUDITED: sub-150; ROI voxels with positive run variance 2/1/0 = 51/0/0
+AUDITED: sub-151; ROI voxels with positive run variance 2/1/0 = 51/0/0
+AUDITED: sub-152; ROI voxels with positive run variance 2/1/0 = 51/0/0
+AUDITED: sub-153; ROI voxels with positive run variance 2/1/0 = 51/0/0
+AUDITED: sub-154; ROI voxels with positive run variance 2/1/0 = 51/0/0
+AUDITED: sub-155; ROI voxels with positive run variance 2/1/0 = 51/0/0
+AUDITED: sub-156; ROI voxels with positive run variance 2/1/0 = 51/0/0
+AUDITED: sub-157; ROI voxels with positive run variance 2/1/0 = 51/0/0
+AUDITED: sub-158; ROI voxels with positive run variance 2/1/0 = 51/0/0
+AUDITED: sub-159; ROI voxels with positive run variance 2/1/0 = 51/0/0
+PASS: read-only coverage/VARCOPE audit saved: /ZPOOL/data/projects/srndna-ultimatum/results/dmn_followup/v1/coverage_audit/attempt-20261029T025636Z-F9W34I/outputs

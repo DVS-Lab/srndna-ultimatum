@@ -1,0 +1,64 @@
+e4502f2c6b6911010550b9c6c7c1b086fafdeb08
+test_all_success_and_concurrency_limit (test_palm_conservative.PalmConservativeTests.test_all_success_and_concurrency_limit) ... ok
+test_collect_preserves_originals_and_skips_completed_attempt (test_palm_conservative.PalmConservativeTests.test_collect_preserves_originals_and_skips_completed_attempt) ... COLLECTED: 1 failed/incomplete attempt logs -> /tmp/tmp2tbg4b9u/report/failure-history/20261019T130254Z-v4umlv9k
+COLLECTED: 1 failed/incomplete attempt logs -> /tmp/tmp2tbg4b9u/report/failure-history/20261019T130254Z-tgjl41jv
+ok
+test_collector_refuses_active_batch (test_palm_conservative.PalmConservativeTests.test_collector_refuses_active_batch) ... ok
+test_damaged_completed_receipt_blocks_all_new_work (test_palm_conservative.PalmConservativeTests.test_damaged_completed_receipt_blocks_all_new_work) ... COLLECTED: 0 failed/incomplete attempt logs -> /tmp/tmpkjf6iyhh/report/failure-history/20261019T130254Z-6aysp4ad
+ok
+test_ignore_exception_is_narrow (test_palm_conservative.PalmConservativeTests.test_ignore_exception_is_narrow) ... ok
+test_participant_table_alignment (test_palm_conservative.PalmConservativeTests.test_participant_table_alignment) ... PASS: 1 pseudonymous participant-order tables verified
+ok
+test_recovery_retains_complete_job_and_records_new_failure (test_palm_conservative.PalmConservativeTests.test_recovery_retains_complete_job_and_records_new_failure) ... COLLECTED: 0 failed/incomplete attempt logs -> /tmp/tmpwvlbg4lg/report/failure-history/20261019T130254Z-k42une62
+READY: 1 verified complete; 2 pending; concurrency=1
+STOP_SCHEDULING: test cluster-z2.6: new engine failure
+COLLECTED: 0 failed/incomplete attempt logs -> /tmp/tmpwvlbg4lg/report/failure-history/20261019T130254Z-wch1lm_0
+ok
+test_serial_stops_after_first_failure (test_palm_conservative.PalmConservativeTests.test_serial_stops_after_first_failure) ... STOP_SCHEDULING: 1 tfce: engine failed
+ok
+test_two_jobs_drain_without_starting_a_third (test_palm_conservative.PalmConservativeTests.test_two_jobs_drain_without_starting_a_third) ... STOP_SCHEDULING: 0 tfce: failure
+ok
+
+----------------------------------------------------------------------
+Ran 9 tests in 0.057s
+
+OK
+test_all_retained_models_have_288_summary_cells (test_dmn_followup.FollowupTests.test_all_retained_models_have_288_summary_cells) ... ok
+test_engine_escaping (test_dmn_followup.FollowupTests.test_engine_escaping) ... ok
+test_groups_follow_ids_not_positions (test_dmn_followup.FollowupTests.test_groups_follow_ids_not_positions) ... ok
+test_hc3_matches_sandwich_and_column_reordering (test_dmn_followup.FollowupTests.test_hc3_matches_sandwich_and_column_reordering) ... ok
+test_probability_semantics_and_missing_maps (test_dmn_followup.FollowupTests.test_probability_semantics_and_missing_maps) ... ok
+test_resume_requires_verified_outputs (test_dmn_followup.FollowupTests.test_resume_requires_verified_outputs) ... SKIP_COMPLETE: test tfce
+ok
+test_signflip_contract (test_dmn_followup.FollowupTests.test_signflip_contract) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.025s
+
+OK
+COLLECTED: 41 failed/incomplete attempt logs -> /ZPOOL/data/projects/srndna-ultimatum/results/dmn_followup/v1/palm/failure-history/20261019T130255Z-e7gfhnfz
+{
+  "commit": "9086eff76dcacf4afde12c9af5400a1fe0033b9e",
+  "branch": "srndna-palm-pinned-9086eff",
+  "changed": false,
+  "preserved_smoke": null
+}
+PASS: pinned PALM source unchanged; retained analyses preserved
+PASS: 15 locked DMN models, 45 PALM jobs, 288 signed contrast/method summaries planned; no fits run
+PASS: 15 pseudonymous participant-order tables verified
+SKIP_COMPLETE: pooled-post__dmn-age cluster-z2.6
+SKIP_COMPLETE: pooled-post__dmn-age cluster-z3.1
+SKIP_COMPLETE: partner-post__dmn-age cluster-z2.6
+SKIP_COMPLETE: partner-post__dmn-age cluster-z3.1
+READY: 4 verified complete; 41 pending; concurrency=2
+RUN: full-rt__dmn-age cluster-z2.6
+RUN: full-rt__dmn-age tfce
+STOP_SCHEDULING: full-rt__dmn-age tfce: PALM failed (-9): /ZPOOL/data/scratch/srndna-ultimatum-dmn-followup-v1/palm/jobs/full-rt__dmn-age/tfce/attempt-19c0wb3a/run.txt
+STOP_SCHEDULING: full-rt__dmn-age cluster-z2.6: PALM failed (-11): /ZPOOL/data/scratch/srndna-ultimatum-dmn-followup-v1/palm/jobs/full-rt__dmn-age/cluster-z2.6/attempt-k1iyybfy/run.txt
+COLLECTED: 43 failed/incomplete attempt logs -> /ZPOOL/data/projects/srndna-ultimatum/results/dmn_followup/v1/palm/failure-history/20261019T133127Z-28ytlgy1
+Traceback (most recent call last):
+  File "/ZPOOL/data/projects/srndna-ultimatum/code/resume_palm_conservative.py", line 130, in <module>
+    recover(a.work_root.resolve(),a.report_root.resolve(),a.source.resolve(),a.palm_root.resolve(),a.jobs,a.execute)
+  File "/ZPOOL/data/projects/srndna-ultimatum/code/resume_palm_conservative.py", line 117, in recover
+    raise RuntimeError(f'PALM recovery stopped: {len(failures)} failures, {len(not_attempted)} not launched; all completed jobs preserved')
+RuntimeError: PALM recovery stopped: 2 failures, 39 not launched; all completed jobs preserved

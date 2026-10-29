@@ -1,0 +1,14 @@
+{
+  "analysis_changed": false,
+  "complete": true,
+  "detailed_participants": [
+    "sub-108",
+    "sub-112",
+    "sub-125"
+  ],
+  "exclusions": 0,
+  "meaning": "Audit completed, not a declaration that flagged data are valid or repaired",
+  "new_fits": 0,
+  "participants": 47,
+  "runs": 94
+}
