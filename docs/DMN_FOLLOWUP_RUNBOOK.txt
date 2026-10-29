@@ -1,5 +1,30 @@
 DMN follow-up: standardized-covariate outputs, 18 October 2026
 
+28 October exact PALM age-effect bars (safe while PALM runs)
+  bash code/collect_palm_age_bars.sh
+
+This reads 47 existing participant L2 COPE7 images and the exact 51-voxel mask
+from anatomy/attempt-20261029T003733Z-mGOh6z. It verifies anatomical-export and
+participant-source hashes against the frozen PALM configuration/provenance.
+The new dated age_bars attempt contains the plot, participant estimates, exact
+group design, mask, summary and provenance. No FEAT/PALM refit or scratch edit.
+
+Two bars show covariate-adjusted participant COPE7 means by age, with within-
+group participant SD/sqrt(n) after subtracting fitted nuisance contributions.
+This conditional participant SEM is NOT the inferential group-coefficient SE.
+No precision weights are added: PALM is unweighted, unlike FLAME. The selected
+ROI makes the plot descriptive/circular; it supplies no independent ROI p-value
+and does not resolve the anatomical boundary/coverage concern.
+
+Contrast: L1 nPPI COPE7 = EV14 minus EV16 (DMN x similar-partner offer slope
+minus DMN x dissimilar-partner offer slope), combined across two runs by L2
+fixed effects, then younger minus older in the six-column group design.
+Group nuisance covariates: sex, standardized tSNR, standardized FD and corrected
+task-wide mean RT. This is the full-display + complete RT-height model, not the
+decision/post-response model. Offers covary with own monetary payoff; acceptance
+and rejection are not contrasted. PPI is conditional statistical coupling, not
+causal/directional connectivity or a uniquely identified fairness process.
+
 28 October completed-job anatomical overlays (safe while PALM runs)
 In a separate terminal/tmux window, leave the fitting batch running:
   bash code/collect_palm_anatomy.sh
