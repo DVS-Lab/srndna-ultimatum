@@ -336,3 +336,47 @@ References:
 https://fsl.fmrib.ox.ac.uk/fsl/docs/task_fmri/feat/user_guide.html
 https://fsl.fmrib.ox.ac.uk/fsl/docs/statistics/palm/user_guide.html
 https://fsl.fmrib.ox.ac.uk/fsl/docs/statistics/palm/exchangeability_blocks.html
+
+Read-only coverage/VARCOPE inspection (29 October 2026 UTC)
+
+The three-partner diagnostic retained all 47 participants but withheld the
+matched-run-weight decomposition: sub-108, sub-112 and sub-125 have at least one
+nonpositive run VARCOPE7 in the fixed 51-voxel age ROI. This is a diagnostic
+failure, not an exclusion rule. Existing native partner summaries and PALM jobs
+remain unchanged. Do not zero-fill, trim the ROI, discard participants or assign
+infinite precision to a zero VARCOPE.
+
+Run alongside the existing PALM batch; no MATLAB or PALM restart is involved:
+
+  bash code/collect_palm_coverage.sh
+
+This exports a new dated attempt under results/dmn_followup/v1/coverage_audit:
+
+  run_coverage.tsv: all 94 runs, positive/zero/negative/nonfinite VARCOPE counts
+    and overlap with retained FEAT masks in the exact selected ROI.
+  l2_handling.tsv: all 47 participants, voxels supported by two, one or no runs
+    with finite positive variance; comparison of the EXISTING L2 estimates with
+    positive-variance-only combination hypotheses. This does not apply weights
+    or replace any estimates. Agreement is numerical evidence, not proof of the
+    internal FSL algorithm; disagreement requires further inspection.
+  flagged_voxels.tsv: both runs' COPE/VARCOPE, FEAT masks, mean EPI, temporal SD,
+    nonfinite time-point counts and residual variance for each of the three
+    participants x 51 voxels. i/j/k are zero-based native indices; x/y/z are mm.
+    Distinguishes outside-mask zeros from flat/variable signal inside a mask.
+  cohort_voxel_support.tsv: participant-by-voxel support and retained L2 variance.
+  sub-*_coverage_varcope.png: native-derived coverage/variance overlays on mean
+    EPI and MNI T1. Display resampling only; shared cuts pass through an invalid
+    voxel nearest the invalid-voxel centroid. The L2 EPI underlay is explicitly
+    a display-only average of run means, NOT the L2 mean_func image.
+  maps/: compact 3D source volumes for the three flagged participants only.
+  input_inventory.tsv, provenance.json, inventory.tsv, status.json: geometry,
+    input hashes, source contract, output checksums and completion state.
+
+Missing optional masks/mean EPI/filtered signal/residual variance are explicitly
+unknown; no substitute inputs are guessed. Required COPE/VARCOPE, native-grid or
+recorded-hash mismatches stop the audit. The selected ROI remains descriptive
+and circular for effect inference; coverage does not establish neural validity.
+A complete audit status means the inspection finished, not that the data were
+repaired. This collector also saves a noninterrupting PALM progress snapshot.
+No fits, exclusions, primary-output edits or changes to PALM runtime contracts.
+Commit the new audit attempts and palm/collections, including failure logs.
