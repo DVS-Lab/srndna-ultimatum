@@ -1,5 +1,28 @@
 DMN follow-up: standardized-covariate outputs, 18 October 2026
 
+28 October live progress and completed-job interim results
+In a separate Linux1 terminal/tmux window, leave all MATLAB fits running:
+  python3 -u code/collect_palm_progress.py --metadata-only --summarize
+
+This writes a NEW dated collection under results/dmn_followup/v1/palm/collections.
+progress.tsv reports receipt-verified completions and the latest logged overall
+percentage, contrast/shuffle counters, log age and explicit failed exit status
+where present. An unfinished job is not necessarily running; a stale log alone
+does not establish a crash. Percentages are PALM's overall progress across
+contrasts, not just the current contrast's shuffle fraction, and are not ETAs.
+
+interim_results.tsv includes ALL signed contrasts (including null results) from
+fully completed, hash-verified jobs only. It reuses the frozen probability-map
+reader and verifies source configuration and original analysis-mask hashes.
+No partial-permutation maps enter the summary. Spatial FWE is per signed
+contrast, not corrected across models/methods. Keep the full fixed job list;
+these interim results must not select jobs or determine early stopping.
+
+No fit is launched, stopped or overwritten; no canonical summary/receipt or
+statistical/runtime code is changed. The canonical summary can lag until the
+batch returns. Metadata-only snapshots avoid duplicating imaging maps. Commit
+and push results/dmn_followup/v1 to share the dated snapshot while fits continue.
+
 28 October concurrency increase after full canary validation
 Two MATLAB processes were the troubleshooting cap, not a statistical limit.
 In a NEW tmux window on Linux1, after pulling the new code:
