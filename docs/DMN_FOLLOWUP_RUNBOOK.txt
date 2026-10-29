@@ -1,5 +1,37 @@
 DMN follow-up: standardized-covariate outputs, 18 October 2026
 
+28 October completed-job anatomical overlays (safe while PALM runs)
+In a separate terminal/tmux window, leave the fitting batch running:
+  bash code/collect_palm_anatomy.sh
+
+The wrapper tests the exporter, takes a new verified --summarize snapshot and
+writes a NEW dated attempt under results/dmn_followup/v1/anatomy. Override the
+underlay only explicitly, for example --standard /path/to/MNI152_T1_2mm_brain.nii.gz.
+Default: $FSLDIR/data/standard/MNI152_T1_2mm_brain.nii.gz, or /usr/local/fsl.
+No MATLAB call, scratch edit or inference change is made.
+
+All four signed contrasts of completed DMN-age jobs are exported as compressed
+voxelwise Z-equivalent maps, saved PALM 1-p FWE maps and strict p<.05 masks.
+Native summary p-values/counts must reproduce the snapshot. Partial jobs are
+not opened. Completion receipts, source configuration, original analysis masks
+and displayed maps are hash-verified. New completed non-age models remain in
+the snapshot but are not silently reinterpreted as age models.
+
+Six main panels compare all three methods at identical coordinates within each
+timing/contrast: younger-positive and younger-minus-older, for three timings.
+Null and pending panels remain labeled. Every significant age-difference
+component gets a supplemental anatomical panel, without size filtering.
+Coordinates, counts, descriptive 26-connected components, actual display cuts
+and source hashes are exported. Component subdivisions are NOT new cluster
+tests or PALM's original cluster labels; minimum FWE p is not a new peak test.
+Colors show voxelwise Z-equivalent values, NOT TFCE scores or cluster extents.
+Only display overlays are nearest-neighbor resampled; native inference is not.
+
+These are interim anatomical QC figures, not an independent replication or
+evidence that a threshold-dependent finding is robust. Keep the fixed job list,
+all nulls and all methods; anatomical plausibility must not select a favorable
+model/threshold. Commit/push the dated anatomy and collection directories.
+
 28 October live progress and completed-job interim results
 In a separate Linux1 terminal/tmux window, leave all MATLAB fits running:
   python3 -u code/collect_palm_progress.py --metadata-only --summarize
