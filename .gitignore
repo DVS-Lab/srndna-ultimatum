@@ -138,6 +138,7 @@ participants.tsv
 # Audited pseudonymous subject order and variance-group assignment only.
 !/results/dmn_followup/v1/palm/designs/*/participants.tsv
 !/results/dmn_followup/v1/palm/collections/*/designs/*/participants.tsv
+!/results/dmn_followup/v1/coverage_check/v1/preparation/participants.tsv
 
 # imaging output
 bids/**/*.nii.gz

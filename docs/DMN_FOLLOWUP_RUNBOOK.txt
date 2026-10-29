@@ -380,3 +380,61 @@ A complete audit status means the inspection finished, not that the data were
 repaired. This collector also saves a noninterrupting PALM progress snapshot.
 No fits, exclusions, primary-output edits or changes to PALM runtime contracts.
 Commit the new audit attempts and palm/collections, including failure logs.
+
+FILM verification and separate coverage-restricted permutation check
+
+Run code/run_dmn_coverage_check.sh in a separate tmux pane on Linux1. The wrapper
+first performs a dry run, then executes, and saves a dated log even on failure.
+The original PALM batch stays active. No frozen runtime/statistical source files,
+original job receipts, L1/L2 images, FLAME fits or selected-ROI masks are edited.
+
+Scope is the full-RT DMN-age primary model: same 47 participants, four signed
+contrasts, canonical six-column design (age groups, sex, tSNR, FD, mean RT).
+This does not rerun the full 15-model exploratory catalog. The additional check
+uses PALM's validated headless MATLAB runtime, younger/older variance groups and
+Freedman-Lane symmetric-error sign flips, with the original seed 20261018.
+Randomise retains its original contrast-specific seeds and -R -N options.
+Both use 10,000 resamples. The unused FSF GUI field randomisePermutations=5000 is
+NOT the count in the actual randomise commands/logs. PALM cluster extent uses
+equivalent Z=2.6/3.1; randomise uses t=2.6/3.1. Both also use TFCE.
+
+FILM verification reads the six flagged runs' recorded film_gls commands from
+report_log.html or logs (legacy positional and modern --thr syntax). No current
+default is inferred. Missing/ambiguous commands stop preparation. All six must
+confirm threshold 1000 and the observed mean-EPI/zero-VARCOPE boundary. Command
+excerpts, source paths/checksums and counts are exported as evidence.
+
+Mask rule is independent of group effects and selected clusters: intersect the
+original whole-brain analysis mask with finite COPE, finite positive VARCOPE and
+positive finite FEAT mask in EVERY one of 94 L1 runs and all 47 L2 estimates.
+Remove between-participant constants as in the prior permutation preparation.
+Genuine zero COPE values with valid positive variance are retained. No missing
+value is replaced and no participant is dropped. Only after constructing this
+whole-brain mask is overlap with the previous selected ROI tabulated.
+
+Scratch: /ZPOOL/data/scratch/srndna-ultimatum-dmn-coverage-v1
+Report: results/dmn_followup/v1/coverage_check/v1
+Logs: results/dmn_followup/v1/coverage_check/attempt-*
+Outputs include coverage_summary.json, all-run coverage, recorded FILM evidence,
+valid-run/L2 count maps, original/new masks, exact design and participant order,
+historical randomise summary, 24 signed result cells and compact inference maps.
+Merged 4D COPEs and all detailed job attempts remain in separate scratch.
+
+There are 15 jobs: three PALM jobs with four contrasts each, and twelve randomise
+jobs (four contrasts x three methods). Default concurrency is two ADDITIONAL
+single-threaded processes; --jobs 4 requests up to four, with current-memory
+headroom checks. The old PALM scheduler is never signalled or locked. New-check
+failures stop scheduling and let its active jobs finish. Resume with the exact
+same command; completed source/output/software hashes are verified first.
+
+This is a strict complete-coverage sensitivity check, not an L1 signal repair or
+independent replication. Changing the whole-brain search domain changes spatial
+FWE calibration; do not attribute a changed p-value only to the two affected
+selected-ROI voxels. Spatial FWE remains per signed contrast, not across the
+model/method search. Existing uncorrected-search outputs are preserved.
+
+Historical standardized full-RT younger-minus-older results (10,000 resamples):
+  randomise TFCE p=.0465, cluster-t2.6 p=.0641, cluster-t3.1 p=.0484.
+  PALM TFCE p=.0642, cluster-Z2.6 p=.0434, cluster-Z3.1 p=.2535.
+Thus the age effect was not unique to PALM. Do not equate different cluster
+threshold statistics or describe the two procedures as identical replications.
