@@ -1,0 +1,107 @@
+1d70029e2dc7568960f97af0a090ea0a73bfa267
+test_all_job_outputs_summary_and_resume_with_mocked_engines (test_dmn_coverage_check.DmnCoverageCheckTests.test_all_job_outputs_summary_and_resume_with_mocked_engines) ... ok
+test_ambiguous_real_command_evidence_survives_preflight_failure (test_dmn_coverage_check.DmnCoverageCheckTests.test_ambiguous_real_command_evidence_survives_preflight_failure) ... ok
+test_completed_job_receipt_is_required_for_resume_and_tampering_stops (test_dmn_coverage_check.DmnCoverageCheckTests.test_completed_job_receipt_is_required_for_resume_and_tampering_stops) ... ok
+test_failed_film_check_does_not_prepare_models_or_launch_engines (test_dmn_coverage_check.DmnCoverageCheckTests.test_failed_film_check_does_not_prepare_models_or_launch_engines) ... ok
+test_film_threshold_parser_modern_legacy_html_and_no_defaults (test_dmn_coverage_check.DmnCoverageCheckTests.test_film_threshold_parser_modern_legacy_html_and_no_defaults) ... ok
+test_modern_pd_before_threshold_does_not_parse_next_option_as_number (test_dmn_coverage_check.DmnCoverageCheckTests.test_modern_pd_before_threshold_does_not_parse_next_option_as_number) ... ok
+test_preparation_full_sample_whole_brain_rule_and_resume_preserve_sources (test_dmn_coverage_check.DmnCoverageCheckTests.test_preparation_full_sample_whole_brain_rule_and_resume_preserve_sources) ... ok
+test_pseudonymous_order_table_is_tracked_but_private_tables_stay_ignored (test_dmn_coverage_check.DmnCoverageCheckTests.test_pseudonymous_order_table_is_tracked_but_private_tables_stay_ignored) ... ok
+test_validity_keeps_true_zero_cope_and_rejects_missing_variance_or_mask (test_dmn_coverage_check.DmnCoverageCheckTests.test_validity_keeps_true_zero_cope_and_rejects_missing_variance_or_mask) ... ok
+
+----------------------------------------------------------------------
+Ran 9 tests in 4.353s
+
+OK
+CHECKED: sub-104: both L1 runs and retained L2
+CHECKED: sub-105: both L1 runs and retained L2
+CHECKED: sub-106: both L1 runs and retained L2
+CHECKED: sub-107: both L1 runs and retained L2
+CHECKED: sub-108: both L1 runs and retained L2
+CHECKED: sub-109: both L1 runs and retained L2
+CHECKED: sub-110: both L1 runs and retained L2
+CHECKED: sub-111: both L1 runs and retained L2
+CHECKED: sub-112: both L1 runs and retained L2
+CHECKED: sub-113: both L1 runs and retained L2
+CHECKED: sub-115: both L1 runs and retained L2
+CHECKED: sub-116: both L1 runs and retained L2
+CHECKED: sub-117: both L1 runs and retained L2
+CHECKED: sub-118: both L1 runs and retained L2
+CHECKED: sub-121: both L1 runs and retained L2
+CHECKED: sub-122: both L1 runs and retained L2
+CHECKED: sub-124: both L1 runs and retained L2
+CHECKED: sub-125: both L1 runs and retained L2
+CHECKED: sub-126: both L1 runs and retained L2
+CHECKED: sub-127: both L1 runs and retained L2
+CHECKED: sub-128: both L1 runs and retained L2
+CHECKED: sub-129: both L1 runs and retained L2
+CHECKED: sub-130: both L1 runs and retained L2
+CHECKED: sub-132: both L1 runs and retained L2
+CHECKED: sub-133: both L1 runs and retained L2
+CHECKED: sub-134: both L1 runs and retained L2
+CHECKED: sub-135: both L1 runs and retained L2
+CHECKED: sub-136: both L1 runs and retained L2
+CHECKED: sub-137: both L1 runs and retained L2
+CHECKED: sub-138: both L1 runs and retained L2
+CHECKED: sub-140: both L1 runs and retained L2
+CHECKED: sub-141: both L1 runs and retained L2
+CHECKED: sub-142: both L1 runs and retained L2
+CHECKED: sub-143: both L1 runs and retained L2
+CHECKED: sub-144: both L1 runs and retained L2
+CHECKED: sub-147: both L1 runs and retained L2
+CHECKED: sub-149: both L1 runs and retained L2
+CHECKED: sub-150: both L1 runs and retained L2
+CHECKED: sub-151: both L1 runs and retained L2
+CHECKED: sub-152: both L1 runs and retained L2
+CHECKED: sub-153: both L1 runs and retained L2
+CHECKED: sub-154: both L1 runs and retained L2
+CHECKED: sub-155: both L1 runs and retained L2
+CHECKED: sub-156: both L1 runs and retained L2
+CHECKED: sub-157: both L1 runs and retained L2
+CHECKED: sub-158: both L1 runs and retained L2
+CHECKED: sub-159: both L1 runs and retained L2
+{
+  "participants": 47,
+  "runs": 94,
+  "original_search_voxels": 64444,
+  "original_nonconstant_search_voxels": 64444,
+  "common_valid_estimation_voxels": 59297,
+  "tested_voxels": 59297,
+  "constant_voxels_removed": 0,
+  "previous_selected_roi_voxels": 51,
+  "previous_roi_valid_voxels": 49,
+  "policy": "Original whole-brain mask INTERSECT finite COPE, finite positive VARCOPE and FEAT mask in all 94 L1 runs and all 47 L2 estimates; remove between-participant constants.",
+  "changes": "Search mask only. No imputation, participant exclusion, L1/L2 refit, covariate change or significance-based mask choice.",
+  "limitations": "Strict complete-coverage sensitivity analysis changes spatial search domain and FWE calibration; not a repair of low-signal voxels or independent replication."
+}
+PASS: FILM thresholds verified; separate whole-brain coverage check; 0/15 completed jobs
+Dry run: no MATLAB or randomise launched; original PALM remains untouched
+PASS: FILM thresholds verified; separate whole-brain coverage check; 0/15 completed jobs
+Additional coverage-check workers: 4; original PALM batch untouched
+RUN: coverage palm cluster-z2.6 -> /ZPOOL/data/scratch/srndna-ultimatum-dmn-coverage-v1/jobs/palm/cluster-z2.6/attempt-qfwlshu7
+RUN: coverage palm tfce -> /ZPOOL/data/scratch/srndna-ultimatum-dmn-coverage-v1/jobs/palm/tfce/attempt-a9634wbu
+RUN: coverage palm cluster-z3.1 -> /ZPOOL/data/scratch/srndna-ultimatum-dmn-coverage-v1/jobs/palm/cluster-z3.1/attempt-6wi2vb1m
+RUN: coverage randomise-contrast1 tfce -> /ZPOOL/data/scratch/srndna-ultimatum-dmn-coverage-v1/jobs/randomise-contrast1/tfce/attempt-htewnz8u
+COMPLETED: coverage randomise-contrast1 tfce
+RUN: coverage randomise-contrast1 cluster-t2.6 -> /ZPOOL/data/scratch/srndna-ultimatum-dmn-coverage-v1/jobs/randomise-contrast1/cluster-t2.6/attempt-2kow8dee
+COMPLETED: coverage randomise-contrast1 cluster-t2.6
+RUN: coverage randomise-contrast1 cluster-t3.1 -> /ZPOOL/data/scratch/srndna-ultimatum-dmn-coverage-v1/jobs/randomise-contrast1/cluster-t3.1/attempt-plvlbvau
+COMPLETED: coverage randomise-contrast1 cluster-t3.1
+RUN: coverage randomise-contrast2 tfce -> /ZPOOL/data/scratch/srndna-ultimatum-dmn-coverage-v1/jobs/randomise-contrast2/tfce/attempt-9l_xvage
+COMPLETED: coverage randomise-contrast2 tfce
+RUN: coverage randomise-contrast2 cluster-t2.6 -> /ZPOOL/data/scratch/srndna-ultimatum-dmn-coverage-v1/jobs/randomise-contrast2/cluster-t2.6/attempt-ragba5ab
+COMPLETED: coverage randomise-contrast2 cluster-t2.6
+RUN: coverage randomise-contrast2 cluster-t3.1 -> /ZPOOL/data/scratch/srndna-ultimatum-dmn-coverage-v1/jobs/randomise-contrast2/cluster-t3.1/attempt-ajd773ku
+COMPLETED: coverage randomise-contrast2 cluster-t3.1
+RUN: coverage randomise-contrast3 tfce -> /ZPOOL/data/scratch/srndna-ultimatum-dmn-coverage-v1/jobs/randomise-contrast3/tfce/attempt-qcovz_5t
+COMPLETED: coverage randomise-contrast3 tfce
+RUN: coverage randomise-contrast3 cluster-t2.6 -> /ZPOOL/data/scratch/srndna-ultimatum-dmn-coverage-v1/jobs/randomise-contrast3/cluster-t2.6/attempt-dwby_idm
+COMPLETED: coverage randomise-contrast3 cluster-t2.6
+RUN: coverage randomise-contrast3 cluster-t3.1 -> /ZPOOL/data/scratch/srndna-ultimatum-dmn-coverage-v1/jobs/randomise-contrast3/cluster-t3.1/attempt-l0j43v2p
+COMPLETED: coverage randomise-contrast3 cluster-t3.1
+RUN: coverage randomise-contrast4 tfce -> /ZPOOL/data/scratch/srndna-ultimatum-dmn-coverage-v1/jobs/randomise-contrast4/tfce/attempt-stq2tkqo
+COMPLETED: coverage randomise-contrast4 tfce
+RUN: coverage randomise-contrast4 cluster-t2.6 -> /ZPOOL/data/scratch/srndna-ultimatum-dmn-coverage-v1/jobs/randomise-contrast4/cluster-t2.6/attempt-hi1icxa0
+COMPLETED: coverage randomise-contrast4 cluster-t2.6
+RUN: coverage randomise-contrast4 cluster-t3.1 -> /ZPOOL/data/scratch/srndna-ultimatum-dmn-coverage-v1/jobs/randomise-contrast4/cluster-t3.1/attempt-hz__qdlc
+COMPLETED: coverage randomise-contrast4 cluster-t3.1

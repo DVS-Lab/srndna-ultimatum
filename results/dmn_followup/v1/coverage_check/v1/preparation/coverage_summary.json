@@ -1,0 +1,14 @@
+{
+  "changes": "Search mask only. No imputation, participant exclusion, L1/L2 refit, covariate change or significance-based mask choice.",
+  "common_valid_estimation_voxels": 59297,
+  "constant_voxels_removed": 0,
+  "limitations": "Strict complete-coverage sensitivity analysis changes spatial search domain and FWE calibration; not a repair of low-signal voxels or independent replication.",
+  "original_nonconstant_search_voxels": 64444,
+  "original_search_voxels": 64444,
+  "participants": 47,
+  "policy": "Original whole-brain mask INTERSECT finite COPE, finite positive VARCOPE and FEAT mask in all 94 L1 runs and all 47 L2 estimates; remove between-participant constants.",
+  "previous_roi_valid_voxels": 49,
+  "previous_selected_roi_voxels": 51,
+  "runs": 94,
+  "tested_voxels": 59297
+}

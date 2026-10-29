@@ -1,0 +1,182 @@
+[
+  {
+    "commands": [
+      "/usr/local/fsl/bin/film_gls --in=filtered_func_data --rn=stats --pd=design.mat --thr=1000.0 --sa --ms=5 --con=design.con"
+    ],
+    "path": "/ZPOOL/data/scratch/srndna-ultimatum-rt-correction-v1/derivatives/nppi-dmn/sub-108/L1_run-01.feat/logs/feat3_stats",
+    "sha256": "ceacd7401d408d8b9ccb706acf1b3981ed7d038843a61ed90a49c48173cdd662",
+    "thresholds": [
+      1000.0
+    ]
+  },
+  {
+    "commands": [
+      "/usr/local/fsl/bin/film_gls --in=filtered_func_data --rn=stats --pd=design.mat --thr=1000.0 --sa --ms=5 --con=design.con"
+    ],
+    "path": "/ZPOOL/data/scratch/srndna-ultimatum-rt-correction-v1/derivatives/nppi-dmn/sub-108/L1_run-01.feat/report_log.html",
+    "sha256": "d959e371b3a9f0738d30b500a4a26664defd0e0d9cabd82669ff8b356406939d",
+    "thresholds": [
+      1000.0
+    ]
+  },
+  {
+    "commands": [
+      "/usr/local/fsl/bin/film_gls --in=filtered_func_data --rn=stats --pd=design.mat --thr=1000.0 --sa --ms=5 --con=design.con"
+    ],
+    "path": "/ZPOOL/data/scratch/srndna-ultimatum-rt-correction-v1/derivatives/nppi-dmn/sub-108/L1_run-01.feat/stats/logfile",
+    "sha256": "7e29ca3a8bdd0dbafdce291cf8057954de10a1e4733723af4e35163b1b3239a9",
+    "thresholds": [
+      1000.0
+    ]
+  },
+  {
+    "commands": [
+      "/usr/local/fsl/bin/film_gls --in=filtered_func_data --rn=stats --pd=design.mat --thr=1000.0 --sa --ms=5 --con=design.con"
+    ],
+    "path": "/ZPOOL/data/scratch/srndna-ultimatum-rt-correction-v1/derivatives/nppi-dmn/sub-108/L1_run-02.feat/logs/feat3_stats",
+    "sha256": "d83e8bcc3b3160b53526ef325363602f0f026a9957cab3ee541e1a10df8af5cd",
+    "thresholds": [
+      1000.0
+    ]
+  },
+  {
+    "commands": [
+      "/usr/local/fsl/bin/film_gls --in=filtered_func_data --rn=stats --pd=design.mat --thr=1000.0 --sa --ms=5 --con=design.con"
+    ],
+    "path": "/ZPOOL/data/scratch/srndna-ultimatum-rt-correction-v1/derivatives/nppi-dmn/sub-108/L1_run-02.feat/report_log.html",
+    "sha256": "0b41356e9e7f50c4e86dc0702999c1489b838ee7cf639a0a17e2c8e44bb29b25",
+    "thresholds": [
+      1000.0
+    ]
+  },
+  {
+    "commands": [
+      "/usr/local/fsl/bin/film_gls --in=filtered_func_data --rn=stats --pd=design.mat --thr=1000.0 --sa --ms=5 --con=design.con"
+    ],
+    "path": "/ZPOOL/data/scratch/srndna-ultimatum-rt-correction-v1/derivatives/nppi-dmn/sub-108/L1_run-02.feat/stats/logfile",
+    "sha256": "7e29ca3a8bdd0dbafdce291cf8057954de10a1e4733723af4e35163b1b3239a9",
+    "thresholds": [
+      1000.0
+    ]
+  },
+  {
+    "commands": [
+      "/usr/local/fsl/bin/film_gls --in=filtered_func_data --rn=stats --pd=design.mat --thr=1000.0 --sa --ms=5 --con=design.con"
+    ],
+    "path": "/ZPOOL/data/scratch/srndna-ultimatum-rt-correction-v1/derivatives/nppi-dmn/sub-112/L1_run-01.feat/logs/feat3_stats",
+    "sha256": "cbeffadc923af2cd7277c3b0a5862b7da0ebba6cc2399bd19ef3a2bd43802f0a",
+    "thresholds": [
+      1000.0
+    ]
+  },
+  {
+    "commands": [
+      "/usr/local/fsl/bin/film_gls --in=filtered_func_data --rn=stats --pd=design.mat --thr=1000.0 --sa --ms=5 --con=design.con"
+    ],
+    "path": "/ZPOOL/data/scratch/srndna-ultimatum-rt-correction-v1/derivatives/nppi-dmn/sub-112/L1_run-01.feat/report_log.html",
+    "sha256": "2dfcab8e59d58553b48c357c65d18c65594176679818bd0795a0531221b715ce",
+    "thresholds": [
+      1000.0
+    ]
+  },
+  {
+    "commands": [
+      "/usr/local/fsl/bin/film_gls --in=filtered_func_data --rn=stats --pd=design.mat --thr=1000.0 --sa --ms=5 --con=design.con"
+    ],
+    "path": "/ZPOOL/data/scratch/srndna-ultimatum-rt-correction-v1/derivatives/nppi-dmn/sub-112/L1_run-01.feat/stats/logfile",
+    "sha256": "7e29ca3a8bdd0dbafdce291cf8057954de10a1e4733723af4e35163b1b3239a9",
+    "thresholds": [
+      1000.0
+    ]
+  },
+  {
+    "commands": [
+      "/usr/local/fsl/bin/film_gls --in=filtered_func_data --rn=stats --pd=design.mat --thr=1000.0 --sa --ms=5 --con=design.con"
+    ],
+    "path": "/ZPOOL/data/scratch/srndna-ultimatum-rt-correction-v1/derivatives/nppi-dmn/sub-112/L1_run-02.feat/logs/feat3_stats",
+    "sha256": "d428bf73639b86ccdbb4eab089b88d62d17e55cb0c124f643c029863b476350f",
+    "thresholds": [
+      1000.0
+    ]
+  },
+  {
+    "commands": [
+      "/usr/local/fsl/bin/film_gls --in=filtered_func_data --rn=stats --pd=design.mat --thr=1000.0 --sa --ms=5 --con=design.con"
+    ],
+    "path": "/ZPOOL/data/scratch/srndna-ultimatum-rt-correction-v1/derivatives/nppi-dmn/sub-112/L1_run-02.feat/report_log.html",
+    "sha256": "3a7606bb1712af72eb7af858898e5ad925e7c1ddb80c6bbc7377ffb5fea6d768",
+    "thresholds": [
+      1000.0
+    ]
+  },
+  {
+    "commands": [
+      "/usr/local/fsl/bin/film_gls --in=filtered_func_data --rn=stats --pd=design.mat --thr=1000.0 --sa --ms=5 --con=design.con"
+    ],
+    "path": "/ZPOOL/data/scratch/srndna-ultimatum-rt-correction-v1/derivatives/nppi-dmn/sub-112/L1_run-02.feat/stats/logfile",
+    "sha256": "7e29ca3a8bdd0dbafdce291cf8057954de10a1e4733723af4e35163b1b3239a9",
+    "thresholds": [
+      1000.0
+    ]
+  },
+  {
+    "commands": [
+      "/usr/local/fsl/bin/film_gls --in=filtered_func_data --rn=stats --pd=design.mat --thr=1000.0 --sa --ms=5 --con=design.con"
+    ],
+    "path": "/ZPOOL/data/scratch/srndna-ultimatum-rt-correction-v1/derivatives/nppi-dmn/sub-125/L1_run-01.feat/logs/feat3_stats",
+    "sha256": "c060786663d32aed2550c8e5747cd47bc0a261c65a729c3ec0ea826286dfa2fc",
+    "thresholds": [
+      1000.0
+    ]
+  },
+  {
+    "commands": [
+      "/usr/local/fsl/bin/film_gls --in=filtered_func_data --rn=stats --pd=design.mat --thr=1000.0 --sa --ms=5 --con=design.con"
+    ],
+    "path": "/ZPOOL/data/scratch/srndna-ultimatum-rt-correction-v1/derivatives/nppi-dmn/sub-125/L1_run-01.feat/report_log.html",
+    "sha256": "8cfbe3e3df9c85e7ac32aae0701b70ed89ba3611cf322b0fb8b89cba46ac5012",
+    "thresholds": [
+      1000.0
+    ]
+  },
+  {
+    "commands": [
+      "/usr/local/fsl/bin/film_gls --in=filtered_func_data --rn=stats --pd=design.mat --thr=1000.0 --sa --ms=5 --con=design.con"
+    ],
+    "path": "/ZPOOL/data/scratch/srndna-ultimatum-rt-correction-v1/derivatives/nppi-dmn/sub-125/L1_run-01.feat/stats/logfile",
+    "sha256": "7e29ca3a8bdd0dbafdce291cf8057954de10a1e4733723af4e35163b1b3239a9",
+    "thresholds": [
+      1000.0
+    ]
+  },
+  {
+    "commands": [
+      "/usr/local/fsl/bin/film_gls --in=filtered_func_data --rn=stats --pd=design.mat --thr=1000.0 --sa --ms=5 --con=design.con"
+    ],
+    "path": "/ZPOOL/data/scratch/srndna-ultimatum-rt-correction-v1/derivatives/nppi-dmn/sub-125/L1_run-02.feat/logs/feat3_stats",
+    "sha256": "e66d79295bed4fd0eb4fdd62af408df940973b8180b27b0273b2c57886b6a68e",
+    "thresholds": [
+      1000.0
+    ]
+  },
+  {
+    "commands": [
+      "/usr/local/fsl/bin/film_gls --in=filtered_func_data --rn=stats --pd=design.mat --thr=1000.0 --sa --ms=5 --con=design.con"
+    ],
+    "path": "/ZPOOL/data/scratch/srndna-ultimatum-rt-correction-v1/derivatives/nppi-dmn/sub-125/L1_run-02.feat/report_log.html",
+    "sha256": "f086c863a8d9634fdd177be7e6cf73af5117f373d270048ec3966835a26de56e",
+    "thresholds": [
+      1000.0
+    ]
+  },
+  {
+    "commands": [
+      "/usr/local/fsl/bin/film_gls --in=filtered_func_data --rn=stats --pd=design.mat --thr=1000.0 --sa --ms=5 --con=design.con"
+    ],
+    "path": "/ZPOOL/data/scratch/srndna-ultimatum-rt-correction-v1/derivatives/nppi-dmn/sub-125/L1_run-02.feat/stats/logfile",
+    "sha256": "7e29ca3a8bdd0dbafdce291cf8057954de10a1e4733723af4e35163b1b3239a9",
+    "thresholds": [
+      1000.0
+    ]
+  }
+]

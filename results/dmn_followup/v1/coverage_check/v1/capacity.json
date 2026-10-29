@@ -1,0 +1,9 @@
+{
+  "available_bytes": 105887322112,
+  "estimated_bytes_per_job": 4294967296,
+  "observed_peak_bytes": 0,
+  "policy": "max(4 GiB, 1.5 x observed descendant peak) per slot; reserve 15% RAM or 2 GiB",
+  "requested_jobs": 4,
+  "reserved_bytes": 20227336396,
+  "selected_jobs": 4
+}

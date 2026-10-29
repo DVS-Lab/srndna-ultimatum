@@ -1,0 +1,15 @@
+{
+  "attempt": "/ZPOOL/data/scratch/srndna-ultimatum-dmn-coverage-v1/jobs/randomise-contrast2/tfce/attempt-9l_xvage",
+  "contract": "65652b79743568fd7f96",
+  "contrast": 2,
+  "engine": "randomise",
+  "method": "tfce",
+  "outputs": {
+    "/ZPOOL/data/scratch/srndna-ultimatum-dmn-coverage-v1/jobs/randomise-contrast2/tfce/attempt-9l_xvage/command.json": "114762ba89f8e0c0b7b3ea43c6fee6d0163c47b0a492599a4d35792736e7bdd3",
+    "/ZPOOL/data/scratch/srndna-ultimatum-dmn-coverage-v1/jobs/randomise-contrast2/tfce/attempt-9l_xvage/randomise_tfce_corrp_tstat1.nii.gz": "631fd920bde9539a797aaa9a0361474c9aaf567149c8f4168e614d21d602f611",
+    "/ZPOOL/data/scratch/srndna-ultimatum-dmn-coverage-v1/jobs/randomise-contrast2/tfce/attempt-9l_xvage/randomise_tfce_corrp_tstat1.txt": "dbd523bfd0d506d32c7bb947dd64f01052a31a4c18a21e269a0722a80a43322e",
+    "/ZPOOL/data/scratch/srndna-ultimatum-dmn-coverage-v1/jobs/randomise-contrast2/tfce/attempt-9l_xvage/randomise_tfce_tstat1.nii.gz": "14ca16e431c6062afd77e66b8dfb99716acc31a3913d2d55e7fbb62f5cb9d089",
+    "/ZPOOL/data/scratch/srndna-ultimatum-dmn-coverage-v1/jobs/randomise-contrast2/tfce/attempt-9l_xvage/randomise_tstat1.nii.gz": "79585c759920a46272f6584ad8483681ce8a44787d280e4c8fbbe049769cb418",
+    "/ZPOOL/data/scratch/srndna-ultimatum-dmn-coverage-v1/jobs/randomise-contrast2/tfce/attempt-9l_xvage/run.txt": "65790ff3971d998e5ec3bc5378da4c1a30cc0bb2b2364691e00f6eb2b66de615"
+  }
+}

@@ -1,0 +1,20 @@
+[
+  "/usr/local/fsl/share/fsl/bin/randomise",
+  "-i",
+  "/ZPOOL/data/scratch/srndna-ultimatum-dmn-coverage-v1/preparation-i1zvkwxa/inputs/copes.nii.gz",
+  "-o",
+  "/ZPOOL/data/scratch/srndna-ultimatum-dmn-coverage-v1/jobs/randomise-contrast1/cluster-t2.6/attempt-2kow8dee/randomise",
+  "-d",
+  "/ZPOOL/data/scratch/srndna-ultimatum-dmn-coverage-v1/preparation-i1zvkwxa/inputs/design.mat",
+  "-t",
+  "/ZPOOL/data/scratch/srndna-ultimatum-dmn-coverage-v1/preparation-i1zvkwxa/inputs/contrast1/design.con",
+  "-m",
+  "/ZPOOL/data/scratch/srndna-ultimatum-dmn-coverage-v1/preparation-i1zvkwxa/inputs/mask.nii.gz",
+  "-n",
+  "10000",
+  "--seed=143380676",
+  "-R",
+  "-N",
+  "-c",
+  "2.6"
+]

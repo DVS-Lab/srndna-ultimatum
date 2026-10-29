@@ -1,0 +1,29 @@
+{
+  "code_sha256": "f5f474bcf40bd67fd01d2ccb24c383bfae25fe9b4e758961abee4b8723ed8d07",
+  "helper_hashes": {
+    "/ZPOOL/data/projects/srndna-ultimatum/code/audit_palm_varcope_coverage.py": "b4370332af547070a3225352554b031c8a58747e314c4063774ec378ca6d523e",
+    "/ZPOOL/data/projects/srndna-ultimatum/code/resume_palm_headless.py": "edf6138e0e55ed5884d6a2a5ac3274eaa2440e1f50bbde141ee1a74257f029ff",
+    "/ZPOOL/data/projects/srndna-ultimatum/code/run_dmn_heteroscedasticity.py": "a75adc555b27211febbc625cb20eb3663884ef8c1fa8ea793ff129c287a66abc",
+    "/ZPOOL/data/projects/srndna-ultimatum/code/run_permutation_audit.py": "47e820f83e2fa50617d4a13204a699165522fe221282013cc6f19c4265012033",
+    "/ZPOOL/data/projects/srndna-ultimatum/code/scale_palm_recovery.py": "c8b79e60b636d27e2eb3d7d13cd2814e5981b74453a48d472df63a9232eb56a5"
+  },
+  "permutations": 10000,
+  "prepared_sha256": "707eedd47d63abf1c9d2de28a34966d8e693d80b5be5c51c9ae1956e8cb3eec4",
+  "randomise": "/usr/local/fsl/share/fsl/bin/randomise",
+  "randomise_sha256": "253e949575ba7848b5ff120689c1017646550243a263dfa046f3e7b7bb39f0a5",
+  "runtime": {
+    "engine": "/usr/local/MATLAB/R2024b/bin/matlab",
+    "engine_sha256": "513dfb661307f598ca6d1d4426c1c98bd6a817a1e9cf472b85ecab6a34d60761",
+    "evidence": {
+      "/ZPOOL/data/scratch/srndna-ultimatum-dmn-followup-v1/palm/contract.json": "73030ac78180476a844f1bc725e91619b0cb85ad58c7f376470fa085f40ab399",
+      "/ZPOOL/data/scratch/srndna-ultimatum-dmn-followup-v1/palm/runtime-headless/b5df114aef52029d5e5f/canary_complete.json": "d620fd18a2ec1a0b75265ec5cdf1ad6d8aa64fdf4499d4bf4b7068d75dfa477a",
+      "/ZPOOL/data/scratch/srndna-ultimatum-dmn-followup-v1/palm/runtime-headless/b5df114aef52029d5e5f/contract.json": "e00358eb9d10d1cce133a6139751efe0d18c02154845bf83d648f118888c3f02",
+      "/ZPOOL/data/scratch/srndna-ultimatum-dmn-followup-v1/palm/runtime-headless/b5df114aef52029d5e5f/smoke_complete.json": "2f6223b0c5bd947c082f1644ac88563c8f432a1d435fe80530791ee8af50f5e8",
+      "/ZPOOL/data/scratch/srndna-ultimatum-dmn-followup-v1/palm/runtime-headless/b5df114aef52029d5e5f/startup_selection.json": "c2b055ccd334b1657ff3272dadc7c12e5a723a9d5652e0bfd2250ade46afcce4"
+    },
+    "mode": "inherited",
+    "palm_commit": "9086eff76dcacf4afde12c9af5400a1fe0033b9e",
+    "palm_root": "/ZPOOL/data/scratch/srndna-ultimatum-dmn-followup-v1/tools/PALM",
+    "profile": "/ZPOOL/data/scratch/srndna-ultimatum-dmn-followup-v1/palm/runtime-headless/b5df114aef52029d5e5f"
+  }
+}
