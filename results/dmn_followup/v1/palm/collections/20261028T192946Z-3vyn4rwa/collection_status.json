@@ -1,0 +1,12 @@
+{
+  "all_jobs_complete": false,
+  "batch_lock_held_at_start": false,
+  "collection_complete": true,
+  "collector_sha256": "760efaef401c54c3da347ca2510dca6d71e61297821673f3ec878ac930005ff9",
+  "expected_jobs": 45,
+  "finished_utc": "2026-10-28T19:29:47.690650+00:00",
+  "interpretation": "Receipt-based collection; unfinished can include running jobs. last_batch_summary.tsv may omit jobs completed since that summary was written. Metadata-only collections retain verified receipts rather than duplicate maps. No jobs launched, stopped, or overwritten.",
+  "metadata_only": true,
+  "unfinished_jobs": 38,
+  "verified_completed_jobs": 7
+}
