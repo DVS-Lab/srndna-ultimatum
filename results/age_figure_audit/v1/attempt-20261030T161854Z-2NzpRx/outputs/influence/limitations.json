@@ -1,0 +1,10 @@
+{
+  "coverage_flags": 12,
+  "error_bars": "Slope-coefficient bars: HC3 SE for OLS only; Huber/Theil-Sen bars have no uncertainty bars. Condition means: participant SEM.",
+  "exclusions": 0,
+  "huber": "Fixed OLS-residual MAD scale, tuning 1.345; full-design refit. Downweights response residuals, not high-leverage predictor values.",
+  "independent_inference": false,
+  "next_decision": "If estimates collapse or reverse under joint deletion/robust fitting, weaken the claim; do not select exclusions to preserve significance.",
+  "selection": "Existing 125-voxel randomise intersection across all three timing-model cluster-t3.1 results; circular/descriptive. The previously reported 61 voxels also required FLAME overlap and are not the scatterplot extraction region.",
+  "theil_sen": "Within-group slopes on OLS-nuisance-adjusted outcomes; diagnostic only; nuisance fit itself remains OLS."
+}

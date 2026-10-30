@@ -1,0 +1,7 @@
+{
+  "coverage_flags": 19,
+  "error_bars": "SD of adjusted participant values / sqrt(n); conditional on fitted nuisance slopes; not coefficient SE",
+  "full_sample": "Pooled sample mean at the retained covariate adjustment; age-split bars are descriptive, not additional tests",
+  "limitations": "Same-data region selection; no independent ROI inference. Task responses may reflect visual/attentional differences.",
+  "selection": "all significant voxels from the named signed randomise cluster-t3.1 test; no further peak/cluster selection"
+}

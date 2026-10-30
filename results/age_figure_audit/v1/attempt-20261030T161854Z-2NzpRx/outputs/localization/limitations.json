@@ -1,0 +1,9 @@
+{
+  "atlas": "FSL Harvard-Oxford probability atlases, 2 mm, linearly sampled at native statistical voxel centres",
+  "categories": "Cortex and named subcortical gray structures; cerebral white matter; lateral ventricles; brainstem separate",
+  "dominant": "Largest summed category probability; zero support is unassigned. Relative winner alone does not establish anatomical certainty.",
+  "exclusions": 0,
+  "limitations": "Ventricular CSF labels do not include all sulcal/extra-axial CSF. Template registration, interpolation and partial volume limit tissue assignments. Atlas summaries do not validate participant registration, repair low-signal estimates, or independently establish functional specificity.",
+  "probability": "Original 0..100 atlas percentages; not normalized to sum to 100 and not subject-specific tissue fractions",
+  "statistical_changes": 0
+}

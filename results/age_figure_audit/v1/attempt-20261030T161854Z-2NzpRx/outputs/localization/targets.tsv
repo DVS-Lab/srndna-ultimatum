@@ -1,0 +1,8 @@
+target	title	selected_voxels	model	contrast	existing_minimum_spatial_fwe_p	selection
+offer-mean-positive	Task-wide positive offer-size response	95	taskwide-offer	1	0.036400020122528076	signed cluster-t3.1
+human-computer-mean	Human > computer task response	633	human-computer-response	1	0.001600027084350586	signed cluster-t3.1
+computer-human-mean	Computer > human task response	262	human-computer-response	2	0.014999985694885254	signed cluster-t3.1
+offer-age	Task-wide offer-size response: younger > older	77	taskwide-offer	4	0.04629999399185181	signed cluster-t3.1
+human-computer-age	Human − computer response: younger > older	102	human-computer-response	4	0.02799999713897705	signed cluster-t3.1
+dmn-age-49	Coverage-corrected DMN age region	49			0.0451	PALM cluster-Z2.6 age
+parietal-interaction-61	Shared parietal age × acceptance interaction	125				intersection across timing models; no separate p-value

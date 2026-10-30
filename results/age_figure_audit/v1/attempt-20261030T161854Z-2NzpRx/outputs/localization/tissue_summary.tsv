@@ -1,0 +1,36 @@
+target	tissue	roi_voxels	mean_atlas_probability_percent	dominant_voxels	dominant_fraction
+offer-mean-positive	gray_matter	95	63.8452107310001	88	0.9263157894736842
+offer-mean-positive	white_matter	95	26.16259145014184	7	0.07368421052631578
+offer-mean-positive	ventricular_csf	95	0.0	0	0.0
+offer-mean-positive	brainstem_other	95	0.0	0	0.0
+offer-mean-positive	unassigned	95		0	0.0
+human-computer-mean	gray_matter	633	65.4940569645609	589	0.9304897314375987
+human-computer-mean	white_matter	633	21.83227455517311	44	0.06951026856240126
+human-computer-mean	ventricular_csf	633	0.0	0	0.0
+human-computer-mean	brainstem_other	633	0.0	0	0.0
+human-computer-mean	unassigned	633		0	0.0
+computer-human-mean	gray_matter	262	54.38094339801245	165	0.6297709923664122
+computer-human-mean	white_matter	262	40.921155442263334	88	0.33587786259541985
+computer-human-mean	ventricular_csf	262	4.059490404176879	9	0.03435114503816794
+computer-human-mean	brainstem_other	262	0.0	0	0.0
+computer-human-mean	unassigned	262		0	0.0
+offer-age	gray_matter	77	54.63650403007284	49	0.6363636363636364
+offer-age	white_matter	77	44.61640823971141	28	0.36363636363636365
+offer-age	ventricular_csf	77	0.015366139558639812	0	0.0
+offer-age	brainstem_other	77	0.0	0	0.0
+offer-age	unassigned	77		0	0.0
+human-computer-age	gray_matter	102	71.8384095948605	86	0.8431372549019608
+human-computer-age	white_matter	102	20.178295142840593	16	0.1568627450980392
+human-computer-age	ventricular_csf	102	0.0998180866559358	0	0.0
+human-computer-age	brainstem_other	102	0.0	0	0.0
+human-computer-age	unassigned	102		0	0.0
+dmn-age-49	gray_matter	49	65.7062346010792	49	1.0
+dmn-age-49	white_matter	49	3.8855360715973135	0	0.0
+dmn-age-49	ventricular_csf	49	0.0	0	0.0
+dmn-age-49	brainstem_other	49	0.0	0	0.0
+dmn-age-49	unassigned	49		0	0.0
+parietal-interaction-61	gray_matter	125	63.679704023361204	125	1.0
+parietal-interaction-61	white_matter	125	12.552786438255259	0	0.0
+parietal-interaction-61	ventricular_csf	125	0.0	0	0.0
+parietal-interaction-61	brainstem_other	125	0.0	0	0.0
+parietal-interaction-61	unassigned	125		0	0.0

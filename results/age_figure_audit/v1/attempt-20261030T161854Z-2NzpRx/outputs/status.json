@@ -1,0 +1,28 @@
+{
+  "complete": true,
+  "exclusions": 0,
+  "interpretation": "Descriptive selected-ROI figures and diagnostics; existing inference unchanged.",
+  "no_new_imaging_fits": true,
+  "phases": [
+    {
+      "complete": true,
+      "error": "",
+      "phase": "dmn"
+    },
+    {
+      "complete": true,
+      "error": "",
+      "phase": "effects"
+    },
+    {
+      "complete": true,
+      "error": "",
+      "phase": "influence"
+    },
+    {
+      "complete": true,
+      "error": "",
+      "phase": "localization"
+    }
+  ]
+}

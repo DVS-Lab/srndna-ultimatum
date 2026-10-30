@@ -1,0 +1,70 @@
+8af9abb0850426481d4e1471ffcaed50dae56a95
+Python 3.11.16
+test_all_deletions_refit_and_include_rank_loss (test_age_figure_audit.AgeFigureTests.test_all_deletions_refit_and_include_rank_loss) ... ok
+test_batch_preserves_failed_phase_and_runs_independent_phases (test_age_figure_audit.AgeFigureTests.test_batch_preserves_failed_phase_and_runs_independent_phases) ... ok
+test_dmn_49_export_preserves_distinct_masks_and_matched_decomposition (test_age_figure_audit.AgeFigureTests.test_dmn_49_export_preserves_distinct_masks_and_matched_decomposition) ... ok
+test_exact_49_voxel_selection_and_checksum_guard (test_age_figure_audit.AgeFigureTests.test_exact_49_voxel_selection_and_checksum_guard) ... ok
+test_extraction_flags_variance_and_includes_real_zero_cope (test_age_figure_audit.AgeFigureTests.test_extraction_flags_variance_and_includes_real_zero_cope) ... ok
+test_full_influence_export_uses_original_not_canonical_column_order (test_age_figure_audit.AgeFigureTests.test_full_influence_export_uses_original_not_canonical_column_order) ... ok
+test_full_supplemental_extraction_bars_sign_and_coverage_export (test_age_figure_audit.AgeFigureTests.test_full_supplemental_extraction_bars_sign_and_coverage_export) ... ok
+test_hc3_and_original_group_coding (test_age_figure_audit.AgeFigureTests.test_hc3_and_original_group_coding) ... ok
+test_huber_limits_response_outlier_without_deletion (test_age_figure_audit.AgeFigureTests.test_huber_limits_response_outlier_without_deletion) ... ok
+test_localization_exports_atlas_probabilities_without_normalization (test_age_figure_audit.AgeFigureTests.test_localization_exports_atlas_probabilities_without_normalization) ... ok
+test_pooled_and_group_bars_keep_original_nuisance_adjustment (test_age_figure_audit.AgeFigureTests.test_pooled_and_group_bars_keep_original_nuisance_adjustment) ... ok
+test_probability_sampling_and_xml_volume_indices (test_age_figure_audit.AgeFigureTests.test_probability_sampling_and_xml_volume_indices) ... ok
+
+----------------------------------------------------------------------
+Ran 12 tests in 12.200s
+
+OK
+EXTRACTED: sub-104; common-weight reconstruction=1
+EXTRACTED: sub-105; common-weight reconstruction=1
+EXTRACTED: sub-106; common-weight reconstruction=1
+EXTRACTED: sub-107; common-weight reconstruction=1
+EXTRACTED: sub-108; common-weight reconstruction=1
+EXTRACTED: sub-109; common-weight reconstruction=1
+EXTRACTED: sub-110; common-weight reconstruction=1
+EXTRACTED: sub-111; common-weight reconstruction=1
+EXTRACTED: sub-112; common-weight reconstruction=1
+EXTRACTED: sub-113; common-weight reconstruction=1
+EXTRACTED: sub-115; common-weight reconstruction=1
+EXTRACTED: sub-116; common-weight reconstruction=1
+EXTRACTED: sub-117; common-weight reconstruction=1
+EXTRACTED: sub-118; common-weight reconstruction=1
+EXTRACTED: sub-121; common-weight reconstruction=1
+EXTRACTED: sub-122; common-weight reconstruction=1
+EXTRACTED: sub-124; common-weight reconstruction=1
+EXTRACTED: sub-125; common-weight reconstruction=1
+EXTRACTED: sub-126; common-weight reconstruction=1
+EXTRACTED: sub-127; common-weight reconstruction=1
+EXTRACTED: sub-128; common-weight reconstruction=1
+EXTRACTED: sub-129; common-weight reconstruction=1
+EXTRACTED: sub-130; common-weight reconstruction=1
+EXTRACTED: sub-132; common-weight reconstruction=1
+EXTRACTED: sub-133; common-weight reconstruction=1
+EXTRACTED: sub-134; common-weight reconstruction=1
+EXTRACTED: sub-135; common-weight reconstruction=1
+EXTRACTED: sub-136; common-weight reconstruction=1
+EXTRACTED: sub-137; common-weight reconstruction=1
+EXTRACTED: sub-138; common-weight reconstruction=1
+EXTRACTED: sub-140; common-weight reconstruction=1
+EXTRACTED: sub-141; common-weight reconstruction=1
+EXTRACTED: sub-142; common-weight reconstruction=1
+EXTRACTED: sub-143; common-weight reconstruction=1
+EXTRACTED: sub-144; common-weight reconstruction=1
+EXTRACTED: sub-147; common-weight reconstruction=1
+EXTRACTED: sub-149; common-weight reconstruction=1
+EXTRACTED: sub-150; common-weight reconstruction=1
+EXTRACTED: sub-151; common-weight reconstruction=1
+EXTRACTED: sub-152; common-weight reconstruction=1
+EXTRACTED: sub-153; common-weight reconstruction=1
+EXTRACTED: sub-154; common-weight reconstruction=1
+EXTRACTED: sub-155; common-weight reconstruction=1
+EXTRACTED: sub-156; common-weight reconstruction=1
+EXTRACTED: sub-157; common-weight reconstruction=1
+EXTRACTED: sub-158; common-weight reconstruction=1
+EXTRACTED: sub-159; common-weight reconstruction=1
+PASS: dmn; saved /ZPOOL/data/projects/srndna-ultimatum/results/age_figure_audit/v1/attempt-20261030T161854Z-2NzpRx/outputs/dmn
+PASS: effects; saved /ZPOOL/data/projects/srndna-ultimatum/results/age_figure_audit/v1/attempt-20261030T161854Z-2NzpRx/outputs/effects
+PASS: influence; saved /ZPOOL/data/projects/srndna-ultimatum/results/age_figure_audit/v1/attempt-20261030T161854Z-2NzpRx/outputs/influence
+PASS: localization; saved /ZPOOL/data/projects/srndna-ultimatum/results/age_figure_audit/v1/attempt-20261030T161854Z-2NzpRx/outputs/localization

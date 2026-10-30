@@ -1,0 +1,9 @@
+{
+  "change_when_adding_group_fd": 11.632819550320477,
+  "fd_age_gap_adjusted_for_other_covariates": -0.8770619802507866,
+  "full_age_gap": 36.856761894541556,
+  "full_fd_coefficient": 13.263395076131546,
+  "identity": "no-FD age gap - full age gap = full FD coefficient x adjusted FD age gap",
+  "omitted_fd_product": -11.632819550320468,
+  "refitted_no_group_fd_age_gap": 25.22394234422108
+}

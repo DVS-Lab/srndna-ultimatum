@@ -1,0 +1,113 @@
+target	atlas	label	mean_probability_percent	maximum_probability_percent
+offer-mean-positive	subcortical_tissue	Right Cerebral Cortex	63.178958129882815	82.70520782470703
+offer-mean-positive	subcortical_tissue	Right Cerebral White Matter	26.15626299773392	60.58956527709961
+offer-mean-positive	subcortical_tissue	Left Cerebral Cortex	0.6662526011172878	11.450547218322754
+offer-mean-positive	subcortical_tissue	Left Cerebral White Matter	0.006328452407921616	0.28953954577445984
+offer-mean-positive	subcortical_tissue	Left Lateral Ventricle	0.0	0.0
+offer-mean-positive	subcortical_tissue	Left Thalamus	0.0	0.0
+offer-mean-positive	subcortical_tissue	Left Caudate	0.0	0.0
+offer-mean-positive	subcortical_tissue	Left Putamen	0.0	0.0
+offer-mean-positive	cortical	Lingual Gyrus	36.17894736842105	75.0
+offer-mean-positive	cortical	Occipital Fusiform Gyrus	18.0	50.0
+offer-mean-positive	cortical	Occipital Pole	4.052631578947368	45.0
+offer-mean-positive	cortical	Intracalcarine Cortex	3.210526315789474	34.0
+offer-mean-positive	cortical	Lateral Occipital Cortex, inferior division	0.30526315789473685	3.0
+offer-mean-positive	cortical	Temporal Occipital Fusiform Cortex	0.08421052631578947	3.0
+offer-mean-positive	cortical	Supracalcarine Cortex	0.05263157894736842	2.0
+offer-mean-positive	cortical	Frontal Pole	0.0	0.0
+human-computer-mean	subcortical_tissue	Right Cerebral Cortex	45.28431513109855	90.9432601928711
+human-computer-mean	subcortical_tissue	Left Cerebral Cortex	20.209741833462346	92.2030258178711
+human-computer-mean	subcortical_tissue	Right Cerebral White Matter	15.085370134726302	70.24871826171875
+human-computer-mean	subcortical_tissue	Left Cerebral White Matter	6.746904420446808	66.31653594970703
+human-computer-mean	subcortical_tissue	Left Lateral Ventricle	0.0	0.0
+human-computer-mean	subcortical_tissue	Left Thalamus	0.0	0.0
+human-computer-mean	subcortical_tissue	Left Caudate	0.0	0.0
+human-computer-mean	subcortical_tissue	Left Putamen	0.0	0.0
+human-computer-mean	cortical	Lateral Occipital Cortex, inferior division	34.91943127962085	85.0
+human-computer-mean	cortical	Temporal Occipital Fusiform Cortex	11.631911532385466	82.0
+human-computer-mean	cortical	Occipital Fusiform Gyrus	6.962085308056872	61.0
+human-computer-mean	cortical	Inferior Temporal Gyrus, temporooccipital part	4.184834123222749	56.0
+human-computer-mean	cortical	Temporal Fusiform Cortex, posterior division	1.8246445497630333	78.0
+human-computer-mean	cortical	Lateral Occipital Cortex, superior division	1.296998420221169	52.0
+human-computer-mean	cortical	Occipital Pole	0.7709320695102686	27.0
+human-computer-mean	cortical	Middle Temporal Gyrus, temporooccipital part	0.6224328593996841	20.0
+computer-human-mean	subcortical_tissue	Left Cerebral Cortex	28.133958131928026	92.84136962890625
+computer-human-mean	subcortical_tissue	Left Cerebral White Matter	27.137931745470937	96.05146789550781
+computer-human-mean	subcortical_tissue	Right Cerebral Cortex	24.740095058515937	92.86290740966797
+computer-human-mean	subcortical_tissue	Right Cerebral White Matter	13.7832236967924	84.13353729248047
+computer-human-mean	subcortical_tissue	Left Lateral Ventricle	3.3516255125144387	68.06365203857422
+computer-human-mean	subcortical_tissue	Right Hippocampus	0.7692826831436055	28.854248046875
+computer-human-mean	subcortical_tissue	Left Hippocampus	0.7375086200883868	42.61628723144531
+computer-human-mean	subcortical_tissue	Right Lateral Ventricle	0.7078648916624406	59.16948318481445
+computer-human-mean	cortical	Temporal Occipital Fusiform Cortex	21.080152671755727	68.0
+computer-human-mean	cortical	Lingual Gyrus	18.671755725190838	66.0
+computer-human-mean	cortical	Occipital Fusiform Gyrus	5.370229007633588	63.0
+computer-human-mean	cortical	Temporal Fusiform Cortex, posterior division	3.866412213740458	50.0
+computer-human-mean	cortical	Parahippocampal Gyrus, posterior division	2.4618320610687023	30.0
+computer-human-mean	cortical	Precuneous Cortex	0.1183206106870229	14.0
+computer-human-mean	cortical	Intracalcarine Cortex	0.05725190839694656	4.0
+computer-human-mean	cortical	Cingulate Gyrus, posterior division	0.03816793893129771	3.0
+offer-age	subcortical_tissue	Left Cerebral Cortex	30.648914144410714	80.62466430664062
+offer-age	subcortical_tissue	Left Cerebral White Matter	25.151091149875096	87.08272552490234
+offer-age	subcortical_tissue	Right Cerebral Cortex	23.98758988566213	82.22927856445312
+offer-age	subcortical_tissue	Right Cerebral White Matter	19.46531708983632	84.54148864746094
+offer-age	subcortical_tissue	Right Lateral Ventricle	0.014577941981132155	1.1079164743423462
+offer-age	subcortical_tissue	Left Lateral Ventricle	0.0007881975775076585	0.06007583066821098
+offer-age	subcortical_tissue	Left Thalamus	0.0	0.0
+offer-age	subcortical_tissue	Left Caudate	0.0	0.0
+offer-age	cortical	Precuneous Cortex	39.0	65.0
+offer-age	cortical	Supracalcarine Cortex	6.922077922077922	29.0
+offer-age	cortical	Cingulate Gyrus, posterior division	5.402597402597403	53.0
+offer-age	cortical	Intracalcarine Cortex	1.3766233766233766	10.0
+offer-age	cortical	Cuneal Cortex	0.6103896103896104	4.0
+offer-age	cortical	Lingual Gyrus	0.14285714285714285	4.0
+offer-age	cortical	Frontal Pole	0.0	0.0
+offer-age	cortical	Insular Cortex	0.0	0.0
+human-computer-age	subcortical_tissue	Left Cerebral Cortex	50.878127098083496	90.89018249511719
+human-computer-age	subcortical_tissue	Right Cerebral Cortex	20.791306051553466	79.74322509765625
+human-computer-age	subcortical_tissue	Left Cerebral White Matter	18.494899174367426	89.01611328125
+human-computer-age	subcortical_tissue	Right Cerebral White Matter	1.6833959684731692	41.55081558227539
+human-computer-age	subcortical_tissue	Left Hippocampus	0.15712767923205143	9.823027610778809
+human-computer-age	subcortical_tissue	Left Lateral Ventricle	0.0998180866559358	3.442314863204956
+human-computer-age	subcortical_tissue	Right Hippocampus	0.01184876599148208	1.1327900886535645
+human-computer-age	subcortical_tissue	Left Thalamus	0.0	0.0
+human-computer-age	cortical	Precuneous Cortex	31.215686274509803	80.0
+human-computer-age	cortical	Cingulate Gyrus, posterior division	22.980392156862745	77.0
+human-computer-age	cortical	Lingual Gyrus	7.637254901960785	67.0
+human-computer-age	cortical	Intracalcarine Cortex	3.715686274509804	52.0
+human-computer-age	cortical	Supracalcarine Cortex	2.2450980392156863	25.0
+human-computer-age	cortical	Cuneal Cortex	0.3137254901960784	6.0
+human-computer-age	cortical	Parahippocampal Gyrus, posterior division	0.0196078431372549	1.0
+human-computer-age	cortical	Frontal Pole	0.0	0.0
+dmn-age-49	subcortical_tissue	Right Cerebral Cortex	65.7062346010792	94.66716766357422
+dmn-age-49	subcortical_tissue	Right Cerebral White Matter	3.8855360715973135	21.69632911682129
+dmn-age-49	subcortical_tissue	Left Cerebral White Matter	0.0	0.0
+dmn-age-49	subcortical_tissue	Left Cerebral Cortex	0.0	0.0
+dmn-age-49	subcortical_tissue	Left Lateral Ventricle	0.0	0.0
+dmn-age-49	subcortical_tissue	Left Thalamus	0.0	0.0
+dmn-age-49	subcortical_tissue	Left Caudate	0.0	0.0
+dmn-age-49	subcortical_tissue	Left Putamen	0.0	0.0
+dmn-age-49	cortical	Frontal Pole	45.08163265306123	83.0
+dmn-age-49	cortical	Frontal Orbital Cortex	18.122448979591837	84.0
+dmn-age-49	cortical	Insular Cortex	0.0	0.0
+dmn-age-49	cortical	Superior Frontal Gyrus	0.0	0.0
+dmn-age-49	cortical	Middle Frontal Gyrus	0.0	0.0
+dmn-age-49	cortical	Inferior Frontal Gyrus, pars triangularis	0.0	0.0
+dmn-age-49	cortical	Inferior Frontal Gyrus, pars opercularis	0.0	0.0
+dmn-age-49	cortical	Precentral Gyrus	0.0	0.0
+parietal-interaction-61	subcortical_tissue	Left Cerebral Cortex	63.679704023361204	88.20056915283203
+parietal-interaction-61	subcortical_tissue	Left Cerebral White Matter	12.552786438255259	38.99814224243164
+parietal-interaction-61	subcortical_tissue	Left Lateral Ventricle	0.0	0.0
+parietal-interaction-61	subcortical_tissue	Left Thalamus	0.0	0.0
+parietal-interaction-61	subcortical_tissue	Left Caudate	0.0	0.0
+parietal-interaction-61	subcortical_tissue	Left Putamen	0.0	0.0
+parietal-interaction-61	subcortical_tissue	Left Pallidum	0.0	0.0
+parietal-interaction-61	subcortical_tissue	Brain-Stem	0.0	0.0
+parietal-interaction-61	cortical	Supramarginal Gyrus, posterior division	20.592	63.0
+parietal-interaction-61	cortical	Superior Parietal Lobule	11.88	48.0
+parietal-interaction-61	cortical	Supramarginal Gyrus, anterior division	11.208	75.0
+parietal-interaction-61	cortical	Angular Gyrus	9.784	34.0
+parietal-interaction-61	cortical	Lateral Occipital Cortex, superior division	4.84	46.0
+parietal-interaction-61	cortical	Parietal Operculum Cortex	0.56	7.0
+parietal-interaction-61	cortical	Postcentral Gyrus	0.208	4.0
+parietal-interaction-61	cortical	Planum Temporale	0.048	2.0

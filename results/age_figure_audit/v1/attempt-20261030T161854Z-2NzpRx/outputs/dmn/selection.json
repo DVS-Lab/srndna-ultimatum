@@ -1,0 +1,8 @@
+{
+  "note": "The two 49-voxel regions are not identical; do not substitute their intersection.",
+  "overlap_voxels": 46,
+  "palm_voxels": 49,
+  "randomise_voxels": 49,
+  "selection": "PALM cluster-Z2.6 age region: original 51 intersected with valid coverage",
+  "union_voxels": 52
+}
