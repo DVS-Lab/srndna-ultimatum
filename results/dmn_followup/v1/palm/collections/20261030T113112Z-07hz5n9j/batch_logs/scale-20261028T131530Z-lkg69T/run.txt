@@ -1,0 +1,489 @@
+3237f5b3f45126b1c121ef941060ef3764c4a344
+test_bad_signal_handler_or_changed_pid_is_never_signalled (test_palm_scale.ScaleTests.test_bad_signal_handler_or_changed_pid_is_never_signalled) ... ok
+test_capacity_reserves_ram_and_honors_request_and_cpu_limits (test_palm_scale.ScaleTests.test_capacity_reserves_ram_and_honors_request_and_cpu_limits) ... ok
+test_driver_selection_rejects_other_users_repositories_and_matlab (test_palm_scale.ScaleTests.test_driver_selection_rejects_other_users_repositories_and_matlab) ... ok
+test_eight_workers_can_run_without_a_large_queued_backlog (test_palm_scale.ScaleTests.test_eight_workers_can_run_without_a_large_queued_backlog) ... ok
+test_first_failure_drains_active_workers_and_does_not_queue_more (test_palm_scale.ScaleTests.test_first_failure_drains_active_workers_and_does_not_queue_more) ... STOP_SCHEDULING: 0 tfce: engine failure
+ok
+test_original_runtime_and_statistical_files_remain_at_validated_hashes (test_palm_scale.ScaleTests.test_original_runtime_and_statistical_files_remain_at_validated_hashes) ... ok
+test_sigint_to_python_driver_allows_both_subprocess_jobs_to_finish (test_palm_scale.ScaleTests.test_sigint_to_python_driver_allows_both_subprocess_jobs_to_finish) ... DRAIN: asking Python PID 3489680 to stop scheduling; current MATLAB jobs finish normally
+PASS: old Python scheduler drained and exited; no MATLAB process was signalled
+ok
+test_validated_runtime_is_reused_and_tampering_blocks_handoff (test_palm_scale.ScaleTests.test_validated_runtime_is_reused_and_tampering_blocks_handoff) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.746s
+
+OK
+DRAIN: asking Python PID 3010760 to stop scheduling; current MATLAB jobs finish normally
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+DRAIN: waiting for the existing MATLAB jobs and completion receipts
+PASS: old Python scheduler drained and exited; no MATLAB process was signalled
+CAPACITY: requested 8; selected 8; available RAM 109.6 GiB
+COLLECTED: 43 failed/incomplete attempt logs -> /ZPOOL/data/projects/srndna-ultimatum/results/dmn_followup/v1/palm/failure-history/20261028T192949Z-w83jmcmj
+{
+  "commit": "9086eff76dcacf4afde12c9af5400a1fe0033b9e",
+  "branch": "srndna-palm-pinned-9086eff",
+  "changed": false,
+  "preserved_smoke": null
+}
+PASS: pinned PALM source unchanged; retained analyses preserved
+PASS: 15 locked DMN models, 45 PALM jobs, 288 signed contrast/method summaries planned; no fits run
+PASS: 15 pseudonymous participant-order tables verified
+SKIP_COMPLETE: full-rt__dmn-age tfce
+SKIP_COMPLETE: full-rt__dmn-age cluster-z2.6
+SKIP_COMPLETE: full-rt__dmn-age cluster-z3.1
+SKIP_COMPLETE: pooled-post__dmn-age cluster-z2.6
+SKIP_COMPLETE: pooled-post__dmn-age cluster-z3.1
+SKIP_COMPLETE: partner-post__dmn-age cluster-z2.6
+SKIP_COMPLETE: partner-post__dmn-age cluster-z3.1
+READY: 7 verified complete; 38 pending; concurrency=2
+DRY RUN: no MATLAB jobs launched
+PASS: 15 pseudonymous participant-order tables verified
+SKIP_COMPLETE: full-rt__dmn-age tfce
+SKIP_COMPLETE: full-rt__dmn-age cluster-z2.6
+SKIP_COMPLETE: full-rt__dmn-age cluster-z3.1
+SKIP_COMPLETE: pooled-post__dmn-age cluster-z2.6
+SKIP_COMPLETE: pooled-post__dmn-age cluster-z3.1
+SKIP_COMPLETE: partner-post__dmn-age cluster-z2.6
+SKIP_COMPLETE: partner-post__dmn-age cluster-z3.1
+SKIP_COMPLETE: headless MATLAB equivalence smoke
+SKIP_COMPLETE: full headless canary
+PARALLEL: 38 pending jobs; at most 8 MATLAB processes
+RUN_HEADLESS: full-rt__dmn-simple-effects tfce
+RUN_HEADLESS: full-rt__dmn-simple-effects cluster-z2.6
+RUN_HEADLESS: full-rt__dmn-simple-effects cluster-z3.1
+RUN_HEADLESS: full-rt__dmn-outlier-deweighted tfce
+RUN_HEADLESS: full-rt__dmn-outlier-deweighted cluster-z2.6
+RUN_HEADLESS: full-rt__dmn-outlier-deweighted cluster-z3.1
+RUN_HEADLESS: pooled-post__dmn-age tfceRUN_HEADLESS: pooled-post__dmn-simple-effects tfce
+
+COMPLETED_HEADLESS: pooled-post__dmn-age tfce
+SKIP_COMPLETE: pooled-post__dmn-age tfce
+RUN_HEADLESS: pooled-post__dmn-simple-effects cluster-z2.6
+COMPLETED_HEADLESS: full-rt__dmn-outlier-deweighted cluster-z2.6
+SKIP_COMPLETE: full-rt__dmn-outlier-deweighted cluster-z2.6
+RUN_HEADLESS: pooled-post__dmn-simple-effects cluster-z3.1
+COMPLETED_HEADLESS: full-rt__dmn-simple-effects cluster-z2.6
+SKIP_COMPLETE: full-rt__dmn-simple-effects cluster-z2.6
+RUN_HEADLESS: pooled-post__dmn-outlier-deweighted tfce
+COMPLETED_HEADLESS: full-rt__dmn-outlier-deweighted cluster-z3.1
+SKIP_COMPLETE: full-rt__dmn-outlier-deweighted cluster-z3.1
+RUN_HEADLESS: pooled-post__dmn-outlier-deweighted cluster-z2.6
+COMPLETED_HEADLESS: full-rt__dmn-simple-effects cluster-z3.1
+SKIP_COMPLETE: full-rt__dmn-simple-effects cluster-z3.1
+RUN_HEADLESS: pooled-post__dmn-outlier-deweighted cluster-z3.1
+COMPLETED_HEADLESS: full-rt__dmn-outlier-deweighted tfce
+SKIP_COMPLETE: full-rt__dmn-outlier-deweighted tfce
+RUN_HEADLESS: partner-post__dmn-age tfce
+COMPLETED_HEADLESS: full-rt__dmn-simple-effects tfce
+SKIP_COMPLETE: full-rt__dmn-simple-effects tfce
+RUN_HEADLESS: partner-post__dmn-simple-effects tfce
+COMPLETED_HEADLESS: pooled-post__dmn-simple-effects tfce
+SKIP_COMPLETE: pooled-post__dmn-simple-effects tfce
+RUN_HEADLESS: partner-post__dmn-simple-effects cluster-z2.6
+COMPLETED_HEADLESS: pooled-post__dmn-simple-effects cluster-z3.1
+SKIP_COMPLETE: pooled-post__dmn-simple-effects cluster-z3.1
+RUN_HEADLESS: partner-post__dmn-simple-effects cluster-z3.1
+COMPLETED_HEADLESS: pooled-post__dmn-simple-effects cluster-z2.6
+SKIP_COMPLETE: pooled-post__dmn-simple-effects cluster-z2.6
+RUN_HEADLESS: partner-post__dmn-outlier-deweighted tfce
+COMPLETED_HEADLESS: pooled-post__dmn-outlier-deweighted cluster-z2.6
+SKIP_COMPLETE: pooled-post__dmn-outlier-deweighted cluster-z2.6
+RUN_HEADLESS: partner-post__dmn-outlier-deweighted cluster-z2.6
+COMPLETED_HEADLESS: pooled-post__dmn-outlier-deweighted cluster-z3.1
+SKIP_COMPLETE: pooled-post__dmn-outlier-deweighted cluster-z3.1
+RUN_HEADLESS: partner-post__dmn-outlier-deweighted cluster-z3.1
+COMPLETED_HEADLESS: partner-post__dmn-simple-effects cluster-z2.6
+SKIP_COMPLETE: partner-post__dmn-simple-effects cluster-z2.6
+RUN_HEADLESS: crossed__partner-post_nppi-dmn_choice-slope tfce
+COMPLETED_HEADLESS: partner-post__dmn-age tfce
+SKIP_COMPLETE: partner-post__dmn-age tfce
+RUN_HEADLESS: crossed__partner-post_nppi-dmn_choice-slope cluster-z2.6
+COMPLETED_HEADLESS: pooled-post__dmn-outlier-deweighted tfce
+SKIP_COMPLETE: pooled-post__dmn-outlier-deweighted tfce
+RUN_HEADLESS: crossed__partner-post_nppi-dmn_choice-slope cluster-z3.1
+COMPLETED_HEADLESS: partner-post__dmn-simple-effects tfce
+SKIP_COMPLETE: partner-post__dmn-simple-effects tfce
+RUN_HEADLESS: crossed__partner-post_nppi-dmn_acceptance-intercept tfce
+COMPLETED_HEADLESS: partner-post__dmn-simple-effects cluster-z3.1
+SKIP_COMPLETE: partner-post__dmn-simple-effects cluster-z3.1
+RUN_HEADLESS: crossed__partner-post_nppi-dmn_acceptance-intercept cluster-z2.6
+COMPLETED_HEADLESS: partner-post__dmn-outlier-deweighted cluster-z2.6
+SKIP_COMPLETE: partner-post__dmn-outlier-deweighted cluster-z2.6
+RUN_HEADLESS: crossed__partner-post_nppi-dmn_acceptance-intercept cluster-z3.1
+COMPLETED_HEADLESS: partner-post__dmn-outlier-deweighted cluster-z3.1
+SKIP_COMPLETE: partner-post__dmn-outlier-deweighted cluster-z3.1
+RUN_HEADLESS: crossed__pooled-post_nppi-dmn_choice-slope tfce

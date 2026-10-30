@@ -1,0 +1,68 @@
+1249ee14ceb00817c266583c86f8203afea429de
+Python 3.11.16
+test_complete_export_does_not_launch_jobs_or_modify_inputs (test_palm_anatomy.PalmAnatomyTests.test_complete_export_does_not_launch_jobs_or_modify_inputs) ... ok
+test_grid_mismatch_rejected (test_palm_anatomy.PalmAnatomyTests.test_grid_mismatch_rejected) ... ok
+test_no_significant_cut_does_not_use_unthresholded_peak (test_palm_anatomy.PalmAnatomyTests.test_no_significant_cut_does_not_use_unthresholded_peak) ... ok
+test_plane_orientation_and_native_components (test_palm_anatomy.PalmAnatomyTests.test_plane_orientation_and_native_components) ... ok
+test_probability_threshold_is_strict (test_palm_anatomy.PalmAnatomyTests.test_probability_threshold_is_strict) ... ok
+test_tampered_completed_map_or_collection_rejected (test_palm_anatomy.PalmAnatomyTests.test_tampered_completed_map_or_collection_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 6.200s
+
+OK
+PALM: 3/9 verified completed jobs; 6 unfinished
+Batch lock held at start: True
+Collected results and logs: /tmp/tmpn1053w8d/report/collections/20261030T113105Z-yxq9n8gh
+Completed-job interim results: /tmp/tmpn1053w8d/report/collections/20261030T113105Z-yxq9n8gh/interim_results.tsv (12 rows)
+Per-job progress: /tmp/tmpn1053w8d/report/collections/20261030T113105Z-yxq9n8gh/progress.tsv
+OBSERVED: partner-post__dmn-age tfce: unfinished, 40.0% overall, log age 0s
+PASS: exported 3 completed DMN age jobs; 12 signed contrasts; no new fits
+Anatomical panels, native components and compressed source maps: /tmp/tmpn1053w8d/outputs
+FOCAL AGE COMPONENT: {"bound_x_max_mm": 2.0, "bound_x_min_mm": 0.0, "bound_y_max_mm": 4.0, "bound_y_min_mm": 2.0, "bound_z_max_mm": 2.0, "bound_z_min_mm": 0.0, "centroid_x_mni_mm": 1.0, "centroid_y_mni_mm": 3.0, "centroid_z_mni_mm": 1.0, "component": 1, "contrast": 3, "contrast_name": "younger-older", "method": "cluster-z2.6", "minimum_spatial_fwe_p": 0.043399999999999994, "model": "full-rt__dmn-age", "native_voxels": 8, "peak_x_mni_mm": 2.0, "peak_y_mni_mm": 4.0, "peak_z_equivalent": 4.2, "peak_z_mni_mm": 2.0, "volume_mm3": 63.999999999999986}
+PALM: 1/9 verified completed jobs; 8 unfinished
+Batch lock held at start: True
+Collected results and logs: /tmp/tmp8yc4531c/report/collections/20261030T113111Z-v3apu8mt
+Completed-job interim results: /tmp/tmp8yc4531c/report/collections/20261030T113111Z-v3apu8mt/interim_results.tsv (4 rows)
+Per-job progress: /tmp/tmp8yc4531c/report/collections/20261030T113111Z-v3apu8mt/progress.tsv
+OBSERVED: partner-post__dmn-age tfce: unfinished, 40.0% overall, log age 0s
+PALM: 1/9 verified completed jobs; 8 unfinished
+Batch lock held at start: False
+Collected results and logs: /tmp/tmp8yc4531c/report/collections/20261030T113111Z-0_7x0vcs
+Completed-job interim results: /tmp/tmp8yc4531c/report/collections/20261030T113111Z-0_7x0vcs/interim_results.tsv (4 rows)
+Per-job progress: /tmp/tmp8yc4531c/report/collections/20261030T113111Z-0_7x0vcs/progress.tsv
+OBSERVED: partner-post__dmn-age tfce: unfinished, 40.0% overall, log age 0s
+PALM: 1/9 verified completed jobs; 8 unfinished
+Batch lock held at start: True
+Collected results and logs: /tmp/tmpby0k_al_/report/collections/20261030T113111Z-8ke4adaf
+Completed-job interim results: /tmp/tmpby0k_al_/report/collections/20261030T113111Z-8ke4adaf/interim_results.tsv (4 rows)
+Per-job progress: /tmp/tmpby0k_al_/report/collections/20261030T113111Z-8ke4adaf/progress.tsv
+OBSERVED: partner-post__dmn-age tfce: unfinished, 40.0% overall, log age 0s
+PALM: 1/9 verified completed jobs; 8 unfinished
+Batch lock held at start: False
+Collected results and logs: /tmp/tmpby0k_al_/report/collections/20261030T113111Z-hdqhyqok
+Completed-job interim results: /tmp/tmpby0k_al_/report/collections/20261030T113111Z-hdqhyqok/interim_results.tsv (4 rows)
+Per-job progress: /tmp/tmpby0k_al_/report/collections/20261030T113111Z-hdqhyqok/progress.tsv
+OBSERVED: partner-post__dmn-age tfce: unfinished, 40.0% overall, log age 0s
+PALM: 1/9 verified completed jobs; 8 unfinished
+Batch lock held at start: True
+Collected results and logs: /tmp/tmpzr1jcgfl/report/collections/20261030T113111Z-9faok9id
+Completed-job interim results: /tmp/tmpzr1jcgfl/report/collections/20261030T113111Z-9faok9id/interim_results.tsv (4 rows)
+Per-job progress: /tmp/tmpzr1jcgfl/report/collections/20261030T113111Z-9faok9id/progress.tsv
+OBSERVED: partner-post__dmn-age tfce: unfinished, 40.0% overall, log age 0s
+PALM: 26/45 verified completed jobs; 19 unfinished
+Batch lock held at start: True
+Collected results and logs: /ZPOOL/data/projects/srndna-ultimatum/results/dmn_followup/v1/palm/collections/20261030T113112Z-07hz5n9j
+Completed-job interim results: /ZPOOL/data/projects/srndna-ultimatum/results/dmn_followup/v1/palm/collections/20261030T113112Z-07hz5n9j/interim_results.tsv (138 rows)
+Per-job progress: /ZPOOL/data/projects/srndna-ultimatum/results/dmn_followup/v1/palm/collections/20261030T113112Z-07hz5n9j/progress.tsv
+OBSERVED: partner-post__dmn-outlier-deweighted tfce: unfinished, 88.9% overall, log age 0s
+OBSERVED: crossed__partner-post_nppi-dmn_choice-slope cluster-z3.1: unfinished, 55.6% overall, log age 0s
+OBSERVED: crossed__partner-post_nppi-dmn_choice-slope tfce: unfinished, 38.8% overall, log age 0s
+OBSERVED: crossed__pooled-post_nppi-dmn_choice-slope tfce: unfinished, 7.99% overall, log age 0s
+OBSERVED: crossed__partner-post_nppi-dmn_choice-slope cluster-z2.6: unfinished, 53.0% overall, log age 1s
+OBSERVED: crossed__partner-post_nppi-dmn_acceptance-intercept cluster-z2.6: unfinished, 19.1% overall, log age 1s
+OBSERVED: crossed__partner-post_nppi-dmn_acceptance-intercept cluster-z3.1: unfinished, 16.1% overall, log age 1s
+OBSERVED: crossed__partner-post_nppi-dmn_acceptance-intercept tfce: unfinished, 16.6% overall, log age 1s
+PASS: exported 9 completed DMN age jobs; 36 signed contrasts; no new fits
+Anatomical panels, native components and compressed source maps: /ZPOOL/data/projects/srndna-ultimatum/results/dmn_followup/v1/anatomy/attempt-20261030T113102Z-C3pj5n/outputs
+FOCAL AGE COMPONENT: {"bound_x_max_mm": 43.23100233078003, "bound_x_min_mm": 19.447001934051514, "bound_y_max_mm": 60.74500322341919, "bound_y_min_mm": 25.069002628326416, "bound_z_max_mm": -10.87999939918518, "bound_z_min_mm": -23.7599995136261, "centroid_x_mni_mm": 31.863649199990675, "centroid_y_mni_mm": 43.78141470516431, "centroid_z_mni_mm": -17.572548478257424, "component": 1, "contrast": 3, "contrast_name": "younger-older", "method": "cluster-z2.6", "minimum_spatial_fwe_p": 0.043399999999999994, "model": "full-rt__dmn-age", "native_voxels": 51, "peak_x_mni_mm": 28.366002082824707, "peak_y_mni_mm": 39.93400287628174, "peak_z_equivalent": 3.3949417855900808, "peak_z_mni_mm": -20.53999948501587, "volume_mm3": 1451.496137700082}

@@ -1,0 +1,73 @@
+cut_rule	timing	method	contrast	panel	axis	actual_cut_mm
+Largest Z-equivalent value in union of completed significant maps; identical cuts across methods	full-rt	tfce	1	0	x	28.0
+Largest Z-equivalent value in union of completed significant maps; identical cuts across methods	full-rt	tfce	1	1	y	40.0
+Largest Z-equivalent value in union of completed significant maps; identical cuts across methods	full-rt	tfce	1	2	z	-20.0
+Largest Z-equivalent value in union of completed significant maps; identical cuts across methods	full-rt	tfce	1	3	z	-20.0
+Largest Z-equivalent value in union of completed significant maps; identical cuts across methods	full-rt	cluster-z2.6	1	0	x	28.0
+Largest Z-equivalent value in union of completed significant maps; identical cuts across methods	full-rt	cluster-z2.6	1	1	y	40.0
+Largest Z-equivalent value in union of completed significant maps; identical cuts across methods	full-rt	cluster-z2.6	1	2	z	-20.0
+Largest Z-equivalent value in union of completed significant maps; identical cuts across methods	full-rt	cluster-z2.6	1	3	z	-20.0
+Largest Z-equivalent value in union of completed significant maps; identical cuts across methods	full-rt	cluster-z3.1	1	0	x	28.0
+Largest Z-equivalent value in union of completed significant maps; identical cuts across methods	full-rt	cluster-z3.1	1	1	y	40.0
+Largest Z-equivalent value in union of completed significant maps; identical cuts across methods	full-rt	cluster-z3.1	1	2	z	-20.0
+Largest Z-equivalent value in union of completed significant maps; identical cuts across methods	full-rt	cluster-z3.1	1	3	z	-20.0
+Largest Z-equivalent value in union of completed significant maps; identical cuts across methods	pooled-post	tfce	1	0	x	-14.0
+Largest Z-equivalent value in union of completed significant maps; identical cuts across methods	pooled-post	tfce	1	1	y	34.0
+Largest Z-equivalent value in union of completed significant maps; identical cuts across methods	pooled-post	tfce	1	2	z	30.0
+Largest Z-equivalent value in union of completed significant maps; identical cuts across methods	pooled-post	tfce	1	3	z	30.0
+Largest Z-equivalent value in union of completed significant maps; identical cuts across methods	pooled-post	cluster-z2.6	1	0	x	-14.0
+Largest Z-equivalent value in union of completed significant maps; identical cuts across methods	pooled-post	cluster-z2.6	1	1	y	34.0
+Largest Z-equivalent value in union of completed significant maps; identical cuts across methods	pooled-post	cluster-z2.6	1	2	z	30.0
+Largest Z-equivalent value in union of completed significant maps; identical cuts across methods	pooled-post	cluster-z2.6	1	3	z	30.0
+Largest Z-equivalent value in union of completed significant maps; identical cuts across methods	pooled-post	cluster-z3.1	1	0	x	-14.0
+Largest Z-equivalent value in union of completed significant maps; identical cuts across methods	pooled-post	cluster-z3.1	1	1	y	34.0
+Largest Z-equivalent value in union of completed significant maps; identical cuts across methods	pooled-post	cluster-z3.1	1	2	z	30.0
+Largest Z-equivalent value in union of completed significant maps; identical cuts across methods	pooled-post	cluster-z3.1	1	3	z	30.0
+No significant voxels: full-RT matched target cut, or MNI [0,0,0] fallback	partner-post	tfce	1	0	x	28.0
+No significant voxels: full-RT matched target cut, or MNI [0,0,0] fallback	partner-post	tfce	1	1	y	40.0
+No significant voxels: full-RT matched target cut, or MNI [0,0,0] fallback	partner-post	tfce	1	2	z	-20.0
+No significant voxels: full-RT matched target cut, or MNI [0,0,0] fallback	partner-post	tfce	1	3	z	-20.0
+No significant voxels: full-RT matched target cut, or MNI [0,0,0] fallback	partner-post	cluster-z2.6	1	0	x	28.0
+No significant voxels: full-RT matched target cut, or MNI [0,0,0] fallback	partner-post	cluster-z2.6	1	1	y	40.0
+No significant voxels: full-RT matched target cut, or MNI [0,0,0] fallback	partner-post	cluster-z2.6	1	2	z	-20.0
+No significant voxels: full-RT matched target cut, or MNI [0,0,0] fallback	partner-post	cluster-z2.6	1	3	z	-20.0
+No significant voxels: full-RT matched target cut, or MNI [0,0,0] fallback	partner-post	cluster-z3.1	1	0	x	28.0
+No significant voxels: full-RT matched target cut, or MNI [0,0,0] fallback	partner-post	cluster-z3.1	1	1	y	40.0
+No significant voxels: full-RT matched target cut, or MNI [0,0,0] fallback	partner-post	cluster-z3.1	1	2	z	-20.0
+No significant voxels: full-RT matched target cut, or MNI [0,0,0] fallback	partner-post	cluster-z3.1	1	3	z	-20.0
+Largest Z-equivalent value in union of completed significant maps; identical cuts across methods	full-rt	tfce	3	0	x	28.0
+Largest Z-equivalent value in union of completed significant maps; identical cuts across methods	full-rt	tfce	3	1	y	40.0
+Largest Z-equivalent value in union of completed significant maps; identical cuts across methods	full-rt	tfce	3	2	z	-20.0
+Largest Z-equivalent value in union of completed significant maps; identical cuts across methods	full-rt	tfce	3	3	z	-20.0
+Largest Z-equivalent value in union of completed significant maps; identical cuts across methods	full-rt	cluster-z2.6	3	0	x	28.0
+Largest Z-equivalent value in union of completed significant maps; identical cuts across methods	full-rt	cluster-z2.6	3	1	y	40.0
+Largest Z-equivalent value in union of completed significant maps; identical cuts across methods	full-rt	cluster-z2.6	3	2	z	-20.0
+Largest Z-equivalent value in union of completed significant maps; identical cuts across methods	full-rt	cluster-z2.6	3	3	z	-20.0
+Largest Z-equivalent value in union of completed significant maps; identical cuts across methods	full-rt	cluster-z3.1	3	0	x	28.0
+Largest Z-equivalent value in union of completed significant maps; identical cuts across methods	full-rt	cluster-z3.1	3	1	y	40.0
+Largest Z-equivalent value in union of completed significant maps; identical cuts across methods	full-rt	cluster-z3.1	3	2	z	-20.0
+Largest Z-equivalent value in union of completed significant maps; identical cuts across methods	full-rt	cluster-z3.1	3	3	z	-20.0
+No significant voxels: full-RT matched target cut, or MNI [0,0,0] fallback	pooled-post	tfce	3	0	x	28.0
+No significant voxels: full-RT matched target cut, or MNI [0,0,0] fallback	pooled-post	tfce	3	1	y	40.0
+No significant voxels: full-RT matched target cut, or MNI [0,0,0] fallback	pooled-post	tfce	3	2	z	-20.0
+No significant voxels: full-RT matched target cut, or MNI [0,0,0] fallback	pooled-post	tfce	3	3	z	-20.0
+No significant voxels: full-RT matched target cut, or MNI [0,0,0] fallback	pooled-post	cluster-z2.6	3	0	x	28.0
+No significant voxels: full-RT matched target cut, or MNI [0,0,0] fallback	pooled-post	cluster-z2.6	3	1	y	40.0
+No significant voxels: full-RT matched target cut, or MNI [0,0,0] fallback	pooled-post	cluster-z2.6	3	2	z	-20.0
+No significant voxels: full-RT matched target cut, or MNI [0,0,0] fallback	pooled-post	cluster-z2.6	3	3	z	-20.0
+No significant voxels: full-RT matched target cut, or MNI [0,0,0] fallback	pooled-post	cluster-z3.1	3	0	x	28.0
+No significant voxels: full-RT matched target cut, or MNI [0,0,0] fallback	pooled-post	cluster-z3.1	3	1	y	40.0
+No significant voxels: full-RT matched target cut, or MNI [0,0,0] fallback	pooled-post	cluster-z3.1	3	2	z	-20.0
+No significant voxels: full-RT matched target cut, or MNI [0,0,0] fallback	pooled-post	cluster-z3.1	3	3	z	-20.0
+Largest Z-equivalent value in union of completed significant maps; identical cuts across methods	partner-post	tfce	3	0	x	-22.0
+Largest Z-equivalent value in union of completed significant maps; identical cuts across methods	partner-post	tfce	3	1	y	-14.0
+Largest Z-equivalent value in union of completed significant maps; identical cuts across methods	partner-post	tfce	3	2	z	-26.0
+Largest Z-equivalent value in union of completed significant maps; identical cuts across methods	partner-post	tfce	3	3	z	-26.0
+Largest Z-equivalent value in union of completed significant maps; identical cuts across methods	partner-post	cluster-z2.6	3	0	x	-22.0
+Largest Z-equivalent value in union of completed significant maps; identical cuts across methods	partner-post	cluster-z2.6	3	1	y	-14.0
+Largest Z-equivalent value in union of completed significant maps; identical cuts across methods	partner-post	cluster-z2.6	3	2	z	-26.0
+Largest Z-equivalent value in union of completed significant maps; identical cuts across methods	partner-post	cluster-z2.6	3	3	z	-26.0
+Largest Z-equivalent value in union of completed significant maps; identical cuts across methods	partner-post	cluster-z3.1	3	0	x	-22.0
+Largest Z-equivalent value in union of completed significant maps; identical cuts across methods	partner-post	cluster-z3.1	3	1	y	-14.0
+Largest Z-equivalent value in union of completed significant maps; identical cuts across methods	partner-post	cluster-z3.1	3	2	z	-26.0
+Largest Z-equivalent value in union of completed significant maps; identical cuts across methods	partner-post	cluster-z3.1	3	3	z	-26.0
