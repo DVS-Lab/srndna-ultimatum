@@ -1,0 +1,4 @@
+model	method	status	overall_percent	contrast_current	contrasts_total	shuffle_current	shuffles_per_contrast	log_age_seconds	attempt
+coverage-DMN-age	tfce	verified_complete	100	4	4	10000	10000	47678	/ZPOOL/data/scratch/srndna-ultimatum-dmn-coverage-v1/jobs/palm/tfce/attempt-a9634wbu
+coverage-DMN-age	cluster-z2.6	verified_complete	100	4	4	10000	10000	60708	/ZPOOL/data/scratch/srndna-ultimatum-dmn-coverage-v1/jobs/palm/cluster-z2.6/attempt-qfwlshu7
+coverage-DMN-age	cluster-z3.1	verified_complete	100	4	4	10000	10000	59520	/ZPOOL/data/scratch/srndna-ultimatum-dmn-coverage-v1/jobs/palm/cluster-z3.1/attempt-6wi2vb1m

@@ -1,0 +1,127 @@
+e2717907221c806cb5d994dfeef711250023b8d6
+test_child_environment_is_isolated_and_preserves_licensing (test_palm_headless.HeadlessTests.test_child_environment_is_isolated_and_preserves_licensing) ... ok
+test_command_preserves_statistical_arguments_and_quotes (test_palm_headless.HeadlessTests.test_command_preserves_statistical_arguments_and_quotes) ... ok
+test_completed_job_never_launches_and_receipt_is_untouched (test_palm_headless.HeadlessTests.test_completed_job_never_launches_and_receipt_is_untouched) ... SKIP_COMPLETE: test tfce
+ok
+test_failed_new_job_has_no_completion_receipt (test_palm_headless.HeadlessTests.test_failed_new_job_has_no_completion_receipt) ... RUN_HEADLESS: test tfce
+ok
+test_failed_startup_profiles_never_release_canary (test_palm_headless.HeadlessTests.test_failed_startup_profiles_never_release_canary) ... STARTUP_PROBE_FAILED: clean: empty startup
+STARTUP_PROBE_FAILED: inherited: empty startup
+ok
+test_gate_failure_blocks_remaining_jobs (test_palm_headless.HeadlessTests.test_gate_failure_blocks_remaining_jobs) ... COLLECTED: 0 failed/incomplete attempt logs -> /tmp/tmpuqx5zuxl/report/failure-history/20261028T001740Z-31hgzkn1
+READY: 0 verified complete; 3 pending; concurrency=1
+COLLECTED: 0 failed/incomplete attempt logs -> /tmp/tmpuqx5zuxl/report/failure-history/20261028T001740Z-caam04df
+ok
+test_inherited_fallback_is_selected_from_startup_before_scientific_test (test_palm_headless.HeadlessTests.test_inherited_fallback_is_selected_from_startup_before_scientific_test) ... STARTUP_PROBE_FAILED: clean: cleaned environment cannot start
+PASS: MATLAB startup with Java and existing preferences; mode=inherited
+ok
+test_launch_records_failure_and_uses_child_only_environment (test_palm_headless.HeadlessTests.test_launch_records_failure_and_uses_child_only_environment) ... MATLAB mode=clean, exit=-11, statement reached=False
+Both MATLAB output logs are empty; failure precedes the startup marker.
+ok
+test_runtime_snapshot_does_not_copy_symlinked_inputs (test_palm_headless.HeadlessTests.test_runtime_snapshot_does_not_copy_symlinked_inputs) ... ok
+test_smoke_requires_equal_raw_and_corrected_maps (test_palm_headless.HeadlessTests.test_smoke_requires_equal_raw_and_corrected_maps) ... ok
+test_successful_new_job_keeps_old_failed_attempt_and_marks_runtime (test_palm_headless.HeadlessTests.test_successful_new_job_keeps_old_failed_attempt_and_marks_runtime) ... RUN_HEADLESS: test tfce
+COMPLETED_HEADLESS: test tfce
+SKIP_COMPLETE: test tfce
+ok
+test_validation_starts_smoke_and_canary_before_other_jobs (test_palm_headless.HeadlessTests.test_validation_starts_smoke_and_canary_before_other_jobs) ... PASS: MATLAB startup with Java and existing preferences; mode=clean
+PASS: headless smoke matches original raw and corrected maps
+CANARY: serial full job model tfce; all other jobs wait
+PASS: full 10,000-shuffle headless canary complete; releasing pending jobs
+ok
+test_zero_exit_without_startup_marker_is_rejected (test_palm_headless.HeadlessTests.test_zero_exit_without_startup_marker_is_rejected) ... MATLAB mode=clean, exit=0, statement reached=False
+Both MATLAB output logs are empty; failure precedes the startup marker.
+ok
+
+----------------------------------------------------------------------
+Ran 13 tests in 0.084s
+
+OK
+test_all_success_and_concurrency_limit (test_palm_conservative.PalmConservativeTests.test_all_success_and_concurrency_limit) ... ok
+test_collect_preserves_originals_and_skips_completed_attempt (test_palm_conservative.PalmConservativeTests.test_collect_preserves_originals_and_skips_completed_attempt) ... COLLECTED: 1 failed/incomplete attempt logs -> /tmp/tmpbhtryhup/report/failure-history/20261028T001740Z-t5rleyqy
+COLLECTED: 1 failed/incomplete attempt logs -> /tmp/tmpbhtryhup/report/failure-history/20261028T001740Z-9fclmfhe
+ok
+test_collector_refuses_active_batch (test_palm_conservative.PalmConservativeTests.test_collector_refuses_active_batch) ... ok
+test_damaged_completed_receipt_blocks_all_new_work (test_palm_conservative.PalmConservativeTests.test_damaged_completed_receipt_blocks_all_new_work) ... COLLECTED: 0 failed/incomplete attempt logs -> /tmp/tmpns3hdphy/report/failure-history/20261028T001740Z-vckecx9n
+ok
+test_ignore_exception_is_narrow (test_palm_conservative.PalmConservativeTests.test_ignore_exception_is_narrow) ... ok
+test_participant_table_alignment (test_palm_conservative.PalmConservativeTests.test_participant_table_alignment) ... PASS: 1 pseudonymous participant-order tables verified
+ok
+test_recovery_retains_complete_job_and_records_new_failure (test_palm_conservative.PalmConservativeTests.test_recovery_retains_complete_job_and_records_new_failure) ... COLLECTED: 0 failed/incomplete attempt logs -> /tmp/tmpzv2319vq/report/failure-history/20261028T001740Z-28zhu945
+READY: 1 verified complete; 2 pending; concurrency=1
+STOP_SCHEDULING: test cluster-z2.6: new engine failure
+COLLECTED: 0 failed/incomplete attempt logs -> /tmp/tmpzv2319vq/report/failure-history/20261028T001740Z-r2d5o5o9
+ok
+test_serial_stops_after_first_failure (test_palm_conservative.PalmConservativeTests.test_serial_stops_after_first_failure) ... STOP_SCHEDULING: 1 tfce: engine failed
+ok
+test_two_jobs_drain_without_starting_a_third (test_palm_conservative.PalmConservativeTests.test_two_jobs_drain_without_starting_a_third) ... STOP_SCHEDULING: 0 tfce: failure
+ok
+
+----------------------------------------------------------------------
+Ran 9 tests in 0.057s
+
+OK
+test_all_retained_models_have_288_summary_cells (test_dmn_followup.FollowupTests.test_all_retained_models_have_288_summary_cells) ... ok
+test_engine_escaping (test_dmn_followup.FollowupTests.test_engine_escaping) ... ok
+test_groups_follow_ids_not_positions (test_dmn_followup.FollowupTests.test_groups_follow_ids_not_positions) ... ok
+test_hc3_matches_sandwich_and_column_reordering (test_dmn_followup.FollowupTests.test_hc3_matches_sandwich_and_column_reordering) ... ok
+test_probability_semantics_and_missing_maps (test_dmn_followup.FollowupTests.test_probability_semantics_and_missing_maps) ... ok
+test_resume_requires_verified_outputs (test_dmn_followup.FollowupTests.test_resume_requires_verified_outputs) ... SKIP_COMPLETE: test tfce
+ok
+test_signflip_contract (test_dmn_followup.FollowupTests.test_signflip_contract) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.025s
+
+OK
+COLLECTED: 43 failed/incomplete attempt logs -> /ZPOOL/data/projects/srndna-ultimatum/results/dmn_followup/v1/palm/failure-history/20261028T001742Z-d5gi5ktl
+{
+  "commit": "9086eff76dcacf4afde12c9af5400a1fe0033b9e",
+  "branch": "srndna-palm-pinned-9086eff",
+  "changed": false,
+  "preserved_smoke": null
+}
+PASS: pinned PALM source unchanged; retained analyses preserved
+PASS: 15 locked DMN models, 45 PALM jobs, 288 signed contrast/method summaries planned; no fits run
+PASS: 15 pseudonymous participant-order tables verified
+SKIP_COMPLETE: pooled-post__dmn-age cluster-z2.6
+SKIP_COMPLETE: pooled-post__dmn-age cluster-z3.1
+SKIP_COMPLETE: partner-post__dmn-age cluster-z2.6
+SKIP_COMPLETE: partner-post__dmn-age cluster-z3.1
+READY: 4 verified complete; 41 pending; concurrency=2
+MATLAB mode=clean, exit=1, statement reached=False
+Both MATLAB output logs are empty; failure precedes the startup marker.
+STARTUP_PROBE_FAILED: clean: headless MATLAB failed (1); inspect /ZPOOL/data/scratch/srndna-ultimatum-dmn-followup-v1/palm/runtime-headless/b5df114aef52029d5e5f/startup-clean-f8qoj4w9/run.txt and matlab_console.txt
+PASS: MATLAB startup with Java and existing preferences; mode=inherited
+PASS: headless smoke matches original raw and corrected maps
+CANARY: serial full job full-rt__dmn-age tfce; all other jobs wait
+RUN_HEADLESS: full-rt__dmn-age tfce
+COMPLETED_HEADLESS: full-rt__dmn-age tfce
+SKIP_COMPLETE: full-rt__dmn-age tfce
+PASS: full 10,000-shuffle headless canary complete; releasing pending jobs
+RUN_HEADLESS: full-rt__dmn-age cluster-z2.6
+SKIP_COMPLETE: full-rt__dmn-age tfce
+RUN_HEADLESS: full-rt__dmn-age cluster-z3.1
+COMPLETED_HEADLESS: full-rt__dmn-age cluster-z3.1
+SKIP_COMPLETE: full-rt__dmn-age cluster-z3.1
+COMPLETED_HEADLESS: full-rt__dmn-age cluster-z2.6
+SKIP_COMPLETE: full-rt__dmn-age cluster-z2.6
+Traceback (most recent call last):
+  File "/ZPOOL/data/projects/srndna-ultimatum/code/resume_palm_headless.py", line 280, in <module>
+    main()
+  File "/ZPOOL/data/projects/srndna-ultimatum/code/resume_palm_headless.py", line 275, in main
+    recovery.recover(work,report,source,args.palm_root.resolve(),args.jobs,args.execute,
+  File "/ZPOOL/data/projects/srndna-ultimatum/code/resume_palm_conservative.py", line 117, in recover
+    new,failures,not_attempted=bounded_run(pending,worker,jobs)
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/ZPOOL/data/projects/srndna-ultimatum/code/resume_palm_conservative.py", line 32, in bounded_run
+    done,_=wait(active,return_when=FIRST_COMPLETED)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/ZPOOL/data/tools/anaconda/tug87422/anaconda3/envs/srndna-ultimatum/lib/python3.11/concurrent/futures/_base.py", line 305, in wait
+    waiter.event.wait(timeout)
+  File "/ZPOOL/data/tools/anaconda/tug87422/anaconda3/envs/srndna-ultimatum/lib/python3.11/threading.py", line 629, in wait
+    signaled = self._cond.wait(timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/ZPOOL/data/tools/anaconda/tug87422/anaconda3/envs/srndna-ultimatum/lib/python3.11/threading.py", line 327, in wait
+    waiter.acquire()
+KeyboardInterrupt

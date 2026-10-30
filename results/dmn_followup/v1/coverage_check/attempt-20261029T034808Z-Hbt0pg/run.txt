@@ -105,3 +105,7 @@ RUN: coverage randomise-contrast4 cluster-t2.6 -> /ZPOOL/data/scratch/srndna-ult
 COMPLETED: coverage randomise-contrast4 cluster-t2.6
 RUN: coverage randomise-contrast4 cluster-t3.1 -> /ZPOOL/data/scratch/srndna-ultimatum-dmn-coverage-v1/jobs/randomise-contrast4/cluster-t3.1/attempt-hz__qdlc
 COMPLETED: coverage randomise-contrast4 cluster-t3.1
+COMPLETED: coverage palm cluster-z2.6
+COMPLETED: coverage palm cluster-z3.1
+COMPLETED: coverage palm tfce
+PASS: coverage-restricted PALM/randomise complete; 24 signed result cells; original batch unchanged

@@ -1,0 +1,20 @@
+# Configuration file for PALM.
+# Version (GitHub/commit:9086eff), running in MATLAB 24.2.0.2712019 (R2024b).
+# 28-Oct-2026 23:48:38
+
+-i /ZPOOL/data/scratch/srndna-ultimatum-dmn-coverage-v1/preparation-i1zvkwxa/inputs/copes.nii.gz
+-m /ZPOOL/data/scratch/srndna-ultimatum-dmn-coverage-v1/preparation-i1zvkwxa/inputs/mask.nii.gz
+-d /ZPOOL/data/scratch/srndna-ultimatum-dmn-coverage-v1/preparation-i1zvkwxa/inputs/design.mat
+-t /ZPOOL/data/scratch/srndna-ultimatum-dmn-coverage-v1/preparation-i1zvkwxa/inputs/design.con
+-vg /ZPOOL/data/scratch/srndna-ultimatum-dmn-coverage-v1/preparation-i1zvkwxa/inputs/variance_groups.csv
+-ise
+-rmethod Freedman-Lane
+-n 10000
+-seed 20261018
+-zstat
+-save1-p
+-savemax
+-noniiclass
+-o /ZPOOL/data/scratch/srndna-ultimatum-dmn-coverage-v1/jobs/palm/cluster-z3.1/attempt-6wi2vb1m/palm
+-C 3.1
+-Cstat extent

@@ -1,0 +1,13 @@
+PALM: 15/45 verified completed jobs; 30 unfinished
+Batch lock held at start: True
+Collected results and logs: /ZPOOL/data/projects/srndna-ultimatum/results/dmn_followup/v1/palm/collections/20261029T151434Z-rehzbzd1
+Completed-job interim results: /ZPOOL/data/projects/srndna-ultimatum/results/dmn_followup/v1/palm/collections/20261029T151434Z-rehzbzd1/interim_results.tsv (74 rows)
+Per-job progress: /ZPOOL/data/projects/srndna-ultimatum/results/dmn_followup/v1/palm/collections/20261029T151434Z-rehzbzd1/progress.tsv
+OBSERVED: pooled-post__dmn-simple-effects cluster-z2.6: unfinished, 62.1% overall, log age 0s
+OBSERVED: pooled-post__dmn-outlier-deweighted cluster-z2.6: unfinished, 55.2% overall, log age 0s
+OBSERVED: pooled-post__dmn-simple-effects cluster-z3.1: unfinished, 60.5% overall, log age 1s
+OBSERVED: pooled-post__dmn-outlier-deweighted cluster-z3.1: unfinished, 52.8% overall, log age 1s
+OBSERVED: pooled-post__dmn-outlier-deweighted tfce: unfinished, 39.5% overall, log age 1s
+OBSERVED: partner-post__dmn-age tfce: unfinished, 15.6% overall, log age 1s
+OBSERVED: partner-post__dmn-simple-effects cluster-z2.6: unfinished, 12.4% overall, log age 1s
+OBSERVED: partner-post__dmn-simple-effects tfce: unfinished, 9.21% overall, log age 1s

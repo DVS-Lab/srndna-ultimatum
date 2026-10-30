@@ -1,0 +1,9 @@
+[
+  "/usr/local/MATLAB/R2024b/bin/matlab",
+  "-nodisplay",
+  "-singleCompThread",
+  "-logfile",
+  "/ZPOOL/data/scratch/srndna-ultimatum-dmn-coverage-v1/jobs/palm/tfce/attempt-a9634wbu/matlab_console.txt",
+  "-batch",
+  "fprintf('SRNDNA_MATLAB_STARTED\\n');disp(version);restoredefaultpath;addpath('/ZPOOL/data/scratch/srndna-ultimatum-dmn-followup-v1/tools/PALM');palm('-i','/ZPOOL/data/scratch/srndna-ultimatum-dmn-coverage-v1/preparation-i1zvkwxa/inputs/copes.nii.gz','-m','/ZPOOL/data/scratch/srndna-ultimatum-dmn-coverage-v1/preparation-i1zvkwxa/inputs/mask.nii.gz','-d','/ZPOOL/data/scratch/srndna-ultimatum-dmn-coverage-v1/preparation-i1zvkwxa/inputs/design.mat','-t','/ZPOOL/data/scratch/srndna-ultimatum-dmn-coverage-v1/preparation-i1zvkwxa/inputs/design.con','-vg','/ZPOOL/data/scratch/srndna-ultimatum-dmn-coverage-v1/preparation-i1zvkwxa/inputs/variance_groups.csv','-ise','-rmethod','Freedman-Lane','-n','10000','-seed','20261018','-zstat','-save1-p','-savemax','-noniiclass','-o','/ZPOOL/data/scratch/srndna-ultimatum-dmn-coverage-v1/jobs/palm/tfce/attempt-a9634wbu/palm','-T');"
+]
