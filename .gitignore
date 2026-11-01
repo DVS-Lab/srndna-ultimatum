@@ -139,6 +139,7 @@ participants.tsv
 !/results/dmn_followup/v1/palm/designs/*/participants.tsv
 !/results/dmn_followup/v1/palm/collections/*/designs/*/participants.tsv
 !/results/dmn_followup/v1/coverage_check/v1/preparation/participants.tsv
+!/results/palm_age_main/*/preparation/*/participants.tsv
 
 # imaging output
 bids/**/*.nii.gz
