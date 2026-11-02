@@ -1,0 +1,20 @@
+{
+  "01_across_partner_offer_activation.png": "e1f7daa384c04693f555b5e0e9f3a9281109d4ed992fb9ba840ac8c9f326edf7",
+  "01_choice_behavior.png": "0b14d85e750ede2ada43a163daca910f745ad94830b73478c59e385bdfb7cc53",
+  "02_insula_dacc_descriptive.png": "f6b4a33d00d3475f08ae59ff000239aadf222c756bdb6ef1f3809b5de66a3598",
+  "02_partner_ratings.png": "4cc97c00124862630fa85765d8bb83c50651251e35b61f2403026915a2839a21",
+  "03_offer_network_means.png": "aee454239963a2ee7f87857fa969398cb453799686f6ddfaa122f1f225bae549",
+  "04_dmn_offer_age_sensitivity.png": "cf40844fe8fb91a5dc8797a76664b2736c24f17322ba70831981353154dfd973",
+  "06_dmn_partner_bars.png": "c6eab2fd96c4e3c5b1dfb2032884f95cd390e0c456185cb6c701ba91a57ae549",
+  "08_parametric_inventory.png": "bb3967d4c6f243b6748ff9d9dd15f6891016ead229b2ab3b67cac846707137a4",
+  "across_partner_activation_results.tsv": "cb26a857573b53816f725a3dd91efc4cb5caba7e977127cd62531bde8447d586",
+  "choice_participant_source.tsv": "4171224f94e7690c05965ae6a62698eca41e4071ca10cd85e41466a687ba6770",
+  "figure_manifest.json": "1d9345965896f7f6118781e1e4b7730ab079d4385b38075f197652baf3b9c4e3",
+  "flame_positive_cluster_atlas.tsv": "6afa1c756e40aa11a435d1adda4d1ae6560a97ad9024655e8863d3324e248767",
+  "index.html": "89f76b3fc1c0427711ed2ced0c4c27fcb3e50c217dbb11fed680dd28987c1f2a",
+  "insula_cluster_permutation_overlap.tsv": "b4fcd82d6fdbe20d6d8fcf6f566dc71739ec40d8ecf77233186128574af2298f",
+  "map_provenance.json": "34d6549f5fd1aee3748d3394fab83a18eb65610b250ec94ad34eec997c81f9fe",
+  "output/pdf/srndna_parametric_results_2026-11-02.pdf": "fd41a15d13b107303fc31e6af9066da919cb9cd96c7a3e69efeaa69080ba7679",
+  "predefined_region_map_check.tsv": "70491b48ecc82164587d1037c5c1e7d346aea66fee9e8d02e07d42e42b7509ea",
+  "source_inventory.json": "c0b5ba1cc6b7b76f881cb3a4a6bdd84820c028b5b7a65a3b61b2a2fc4c24731d"
+}

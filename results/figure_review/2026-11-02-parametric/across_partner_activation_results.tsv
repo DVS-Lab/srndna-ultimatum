@@ -1,0 +1,11 @@
+engine	direction	threshold	minimum_spatial_fwe_p	significant_voxels	covariates	mask
+FLAME	larger-offer-positive	Z=3.1	2.56e-06	348	historical	historical whole brain
+randomise	larger-offer-positive	cluster-t3.1	0.036400020122528076	95	historical	historical whole brain
+randomise	larger-offer-positive	cluster-t2.6	0.11349999904632568	0	historical	historical whole brain
+PALM	larger-offer-positive	cluster-z3.1	0.005199999999999982	45	verified standardized controls	all 94 L1 / 47 L2 valid coverage
+PALM	larger-offer-positive	cluster-z2.6	0.03810000000000002	96	verified standardized controls	all 94 L1 / 47 L2 valid coverage
+FLAME	smaller-offer-negative	Z=3.1		0	historical	historical whole brain
+randomise	smaller-offer-negative	cluster-t3.1	0.28140002489089966	0	historical	historical whole brain
+randomise	smaller-offer-negative	cluster-t2.6	0.4503999948501587	0	historical	historical whole brain
+PALM	smaller-offer-negative	cluster-z3.1	0.7646	0	verified standardized controls	all 94 L1 / 47 L2 valid coverage
+PALM	smaller-offer-negative	cluster-z2.6	0.2763	0	verified standardized controls	all 94 L1 / 47 L2 valid coverage

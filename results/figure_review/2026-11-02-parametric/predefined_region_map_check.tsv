@@ -1,0 +1,13 @@
+roi	engine	direction	roi_native_voxels	whole_brain_corrected_overlap_voxels	maximum_descriptive_signed_statistic	interpretation
+roi-aINS	FLAME	larger-offer-positive	38	0	3.7471084594726562	descriptive inspection of an existing whole-brain map; not an ROI test
+roi-aINS	FLAME	smaller-offer-negative	38	0	1.041674256324768	descriptive inspection of an existing whole-brain map; not an ROI test
+roi-aINS	randomise	larger-offer-positive	38	0	3.8657543659210205	descriptive inspection of an existing whole-brain map; not an ROI test
+roi-aINS	randomise	smaller-offer-negative	38	0	1.323056936264038	descriptive inspection of an existing whole-brain map; not an ROI test
+roi-aINS	PALM	larger-offer-positive	38	0	3.100382109327521	descriptive inspection of an existing whole-brain map; not an ROI test
+roi-aINS	PALM	smaller-offer-negative	38	0	1.2463055632759095	descriptive inspection of an existing whole-brain map; not an ROI test
+roi-dACC	FLAME	larger-offer-positive	19	0	-0.14816607534885406	descriptive inspection of an existing whole-brain map; not an ROI test
+roi-dACC	FLAME	smaller-offer-negative	19	0	1.986058235168457	descriptive inspection of an existing whole-brain map; not an ROI test
+roi-dACC	randomise	larger-offer-positive	19	0	0.2526794970035553	descriptive inspection of an existing whole-brain map; not an ROI test
+roi-dACC	randomise	smaller-offer-negative	19	0	1.5382921695709229	descriptive inspection of an existing whole-brain map; not an ROI test
+roi-dACC	PALM	larger-offer-positive	19	0	0.24776655869451902	descriptive inspection of an existing whole-brain map; not an ROI test
+roi-dACC	PALM	smaller-offer-negative	19	0	1.418362715591985	descriptive inspection of an existing whole-brain map; not an ROI test
