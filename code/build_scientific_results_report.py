@@ -67,7 +67,9 @@ class Report(Review):
             'historical_palm': str(COLLECTION/'interim_results.tsv'),
         }.items():
             path = self.source(ROOT/rel); self.tables[key] = rows(path)
-            shutil.copyfile(path, self.export/(key+'.tsv'))
+            # Normalize copied Windows line endings without changing tabular
+            # values; the original source bytes remain recorded in provenance.
+            (self.export/(key+'.tsv')).write_text(path.read_text())
         write_table(self.export/'palm_age_main_all_96.tsv', self.summary)
         self.contract = json.loads(self.source(self.palm/'contract.json').read_text())
         self.old_status = json.loads(self.source(ROOT/COLLECTION/'collection_status.json').read_text())
