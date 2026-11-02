@@ -1,0 +1,5 @@
+model	palm_contrast	palm_voxels	flame_overlap	randomise_overlap
+taskwide-offer	1	45	45	45
+human-computer-response	1	270	270	270
+human-computer-response	2	155	155	155
+human-computer-response	3	25	25	25

@@ -1,0 +1,68 @@
+[
+  {
+    "name": "00_model_questions",
+    "title": "Model clarification | What we have and have not tested",
+    "caption": "Schematic curves, not participant data. The existing offer modulator tests a linear response to amount. Its negative contrast tests a linear increase for smaller offers. A categorical unfair-minus-fair test would require separately modeled categories (or an appropriate richer basis); it cannot be obtained by relabeling the negative linear slope. The third curve illustrates one possible nonlinear response, not evidence that such a response exists in this dataset. No categorical refit is included in this report.",
+    "image": "00_model_questions.png"
+  },
+  {
+    "name": "01_choice_behavior",
+    "title": "Draft Figure 1 | Corrected social-choice behavior",
+    "caption": "Acceptance increased with offer size. The corrected random-intercept/random-offer-slope model converged without singularity. No reliable age or age-by-partner moderation was detected; this does not establish equivalence. Points show observed participant means and SEM, rather than a conditional logistic curve at zero random effects. Similar/dissimilar refer to proposer age relative to the participant. Offer amount also changes the participant's monetary payoff.",
+    "image": "01_choice_behavior.png"
+  },
+  {
+    "name": "02_partner_ratings",
+    "title": "Draft Figure 2 | Partner ratings",
+    "caption": "Humans were rated fairer and more likeable than the computer before and after the task. The corresponding similar-minus-dissimilar comparisons are nonsignificant after BH adjustment. These are ratings in a subsample, not evidence that partner ratings mediate an age effect.",
+    "image": "02_partner_ratings.png"
+  },
+  {
+    "name": "06_dmn_partner_bars",
+    "title": "Sensitivity Figure | DMN three-partner bars",
+    "caption": "The age-gap direction is present before group motion adjustment, but its magnitude increases substantially after adjustment. The apparent crossover corresponds to positive offer-related coupling for younger proposers and negative coupling for older proposers in both participant groups. The computer condition supplies context and is not part of the similar-minus-dissimilar contrast. No new ROI significance test is performed.",
+    "image": "06_dmn_partner_bars.png"
+  },
+  {
+    "name": "03_foundation",
+    "title": "Whole-sample results: offer slopes and social-context responses",
+    "caption": "The first row is parametric; the other rows are unmodulated partner-response contrasts from models that also contain offer modulators. They test different quantities. Positive offer-related activation is posterior; it is not a convergent anterior-insula/dACC unfairness finding. All displayed PALM voxels lie within earlier significant FLAME and randomise maps, whose covariates/masks are not fully matched.",
+    "image": "03_foundation.png"
+  },
+  {
+    "name": "04_social_context_age",
+    "title": "Age difference in the human-computer response",
+    "caption": "Posterior midline human-minus-computer response difference: PALM p = .0163, 25 voxels at Z > 3.1; p = .0253, 118 voxels at Z > 2.6. This is an age-by-partner-context effect, not an age difference in the offer slope. It includes the modeled display period and does not isolate a pure decision operation or mentalizing. Participant bars for this exact 25-voxel map have not been extracted; previous bars from a larger selected region are not relabeled here.",
+    "image": "04_social_context_age.png"
+  },
+  {
+    "name": "05_fairness_age",
+    "title": "Offer-related age differences at Z > 2.6",
+    "caption": "Task-wide activation: p = .0352, 149 voxels. Full-display DMN PPI: p = .0468, 49 voxels. Both are corrected whole-brain findings at the lower cluster-forming threshold, with the higher-threshold results disclosed. They remain threshold-sensitive evidence, not findings rescued by choosing the threshold after inspecting results. The activation effect measures an average offer slope; the PPI effect measures a between-partner difference in offer-dependent network coupling.",
+    "image": "05_fairness_age.png"
+  },
+  {
+    "name": "07_network_means",
+    "title": "Offer-modulated coupling: small full-sample partner effects",
+    "caption": "DMN: p = .0424, 10 voxels. ECN: p = .0298, 10 voxels (pooled post); p = .0121, 13 voxels (partner post). The ECN regions overlap in 8 voxels. These effects do not survive Z > 3.1 in the full-display model; they remain exploratory and timing dependent. Precise tissue localization and influence checks are required before substantive regional interpretation.",
+    "image": "07_network_means.png"
+  },
+  {
+    "name": "01_across_partner_offer_activation",
+    "image": "01_across_partner_offer_activation.png",
+    "title": "Across-partner offer activation | Anatomical comparison",
+    "caption": "Corrected positive offer-related activation, averaged across all three partners. The retained FLAME right-insular cluster contains 82 voxels, p = .000129, Zmax = 4.49, peak [40.3, 1.29, 5.22] mm. It reflects larger offers, not greater activation for unfair offers. Neither permutation analysis confirms that insular cluster at either displayed cluster threshold. No corrected negative offer-slope cluster is established. This is whole-brain inference; no new ROI analysis is included."
+  },
+  {
+    "name": "09_parietal_diagnostics",
+    "image": "09_parietal_diagnostics.png",
+    "title": "Exploratory brain-behavior interaction | Influence diagnostics",
+    "caption": "Descriptive selected-cluster scatterplots, not independent ROI tests. Outcome: similar-minus-dissimilar activation offer slope; predictor: the corresponding acceptance-intercept difference, not the fairness choice slope and not a recovered Gu norm parameter. Robust fits and single/pair deletions preserve the interaction sign, but region selection is circular and a coverage-corrected audit remains uncollected. The 125-voxel extraction region is distinct from the 61-voxel FLAME/randomise overlap region."
+  },
+  {
+    "name": "08_complete_result_grid",
+    "title": "Audit Figure | Complete PALM inventory",
+    "caption": "All planned results are shown, including null findings. The cluster-Z = 3.1 human-computer task-response age contrast is the only primary PALM age finding. The DMN age effect and task-wide offer age effect occur only at the lower cluster threshold. Full-sample network effects depend on timing specification.",
+    "image": "08_complete_result_grid.png"
+  }
+]

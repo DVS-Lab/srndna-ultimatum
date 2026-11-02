@@ -1,0 +1,151 @@
+model	direction	engine	threshold	p	voxels	design
+taskwide-offer	full-sample-positive	FLAME	Z>3.1	2.56e-06	348	earlier corrected covariates/mask
+taskwide-offer	full-sample-positive	randomise	cluster-t3.1	0.036400020122528076	95	earlier corrected covariates/mask
+taskwide-offer	full-sample-positive	randomise	cluster-t2.6	0.11349999904632568	0	earlier corrected covariates/mask
+taskwide-offer	full-sample-negative	FLAME	Z>3.1		0	earlier corrected covariates/mask
+taskwide-offer	full-sample-negative	randomise	cluster-t3.1	0.28140002489089966	0	earlier corrected covariates/mask
+taskwide-offer	full-sample-negative	randomise	cluster-t2.6	0.4503999948501587	0	earlier corrected covariates/mask
+taskwide-offer	older-minus-younger	FLAME	Z>3.1		0	earlier corrected covariates/mask
+taskwide-offer	older-minus-younger	randomise	cluster-t3.1	0.5548999905586243	0	earlier corrected covariates/mask
+taskwide-offer	older-minus-younger	randomise	cluster-t2.6	0.23070001602172852	0	earlier corrected covariates/mask
+taskwide-offer	younger-minus-older	FLAME	Z>3.1	0.00154	125	earlier corrected covariates/mask
+taskwide-offer	younger-minus-older	randomise	cluster-t3.1	0.04629999399185181	77	earlier corrected covariates/mask
+taskwide-offer	younger-minus-older	randomise	cluster-t2.6	0.05970001220703125	0	earlier corrected covariates/mask
+human-computer-offer	full-sample-positive	FLAME	Z>3.1	0.023	32	earlier corrected covariates/mask
+human-computer-offer	full-sample-positive	randomise	cluster-t3.1	0.15719997882843018	0	earlier corrected covariates/mask
+human-computer-offer	full-sample-positive	randomise	cluster-t2.6	0.20889997482299805	0	earlier corrected covariates/mask
+human-computer-offer	full-sample-negative	FLAME	Z>3.1		0	earlier corrected covariates/mask
+human-computer-offer	full-sample-negative	randomise	cluster-t3.1	0.6446000039577484	0	earlier corrected covariates/mask
+human-computer-offer	full-sample-negative	randomise	cluster-t2.6	0.6487999856472015	0	earlier corrected covariates/mask
+human-computer-offer	older-minus-younger	FLAME	Z>3.1		0	earlier corrected covariates/mask
+human-computer-offer	older-minus-younger	randomise	cluster-t3.1	0.5994000136852264	0	earlier corrected covariates/mask
+human-computer-offer	older-minus-younger	randomise	cluster-t2.6	0.6908000111579895	0	earlier corrected covariates/mask
+human-computer-offer	younger-minus-older	FLAME	Z>3.1		0	earlier corrected covariates/mask
+human-computer-offer	younger-minus-older	randomise	cluster-t3.1	0.5665999948978424	0	earlier corrected covariates/mask
+human-computer-offer	younger-minus-older	randomise	cluster-t2.6	0.3840000033378601	0	earlier corrected covariates/mask
+human-computer-response	full-sample-positive	FLAME	Z>3.1	1.68e-15	756	earlier corrected covariates/mask
+human-computer-response	full-sample-positive	randomise	cluster-t3.1	0.001600027084350586	633	earlier corrected covariates/mask
+human-computer-response	full-sample-positive	randomise	cluster-t2.6	0.010699987411499023	1037	earlier corrected covariates/mask
+human-computer-response	full-sample-negative	FLAME	Z>3.1	2.01e-08	282	earlier corrected covariates/mask
+human-computer-response	full-sample-negative	randomise	cluster-t3.1	0.014999985694885254	262	earlier corrected covariates/mask
+human-computer-response	full-sample-negative	randomise	cluster-t2.6	0.07330000400543213	0	earlier corrected covariates/mask
+human-computer-response	older-minus-younger	FLAME	Z>3.1		0	earlier corrected covariates/mask
+human-computer-response	older-minus-younger	randomise	cluster-t3.1	0.6980000138282776	0	earlier corrected covariates/mask
+human-computer-response	older-minus-younger	randomise	cluster-t2.6	0.6263000071048737	0	earlier corrected covariates/mask
+human-computer-response	younger-minus-older	FLAME	Z>3.1	8.23e-06	202	earlier corrected covariates/mask
+human-computer-response	younger-minus-older	randomise	cluster-t3.1	0.02799999713897705	102	earlier corrected covariates/mask
+human-computer-response	younger-minus-older	randomise	cluster-t2.6	0.07829999923706055	0	earlier corrected covariates/mask
+full-rt__nppi-dmn	younger-minus-older	FLAME	Z>3.1		0	standardized DMN; earlier mask
+full-rt__nppi-dmn	younger-minus-older	randomise	cluster-t3.1	0.04839998483657837	50	standardized DMN; earlier mask
+full-rt__nppi-dmn	younger-minus-older	randomise	cluster-t2.6	0.06410002708435059	0	standardized DMN; earlier mask
+full-rt__nppi-dmn	older-minus-younger	FLAME	Z>3.1		0	standardized DMN; earlier mask
+full-rt__nppi-dmn	older-minus-younger	randomise	cluster-t3.1	0.9774999991059303	0	standardized DMN; earlier mask
+full-rt__nppi-dmn	older-minus-younger	randomise	cluster-t2.6	0.9822000004351139	0	standardized DMN; earlier mask
+pooled-post__nppi-dmn	younger-minus-older	FLAME	Z>3.1		0	standardized DMN; earlier mask
+pooled-post__nppi-dmn	younger-minus-older	randomise	cluster-t3.1	0.1308000087738037	0	standardized DMN; earlier mask
+pooled-post__nppi-dmn	younger-minus-older	randomise	cluster-t2.6	0.1226000189781189	0	standardized DMN; earlier mask
+pooled-post__nppi-dmn	older-minus-younger	FLAME	Z>3.1		0	standardized DMN; earlier mask
+pooled-post__nppi-dmn	older-minus-younger	randomise	cluster-t3.1	0.9730999991297722	0	standardized DMN; earlier mask
+pooled-post__nppi-dmn	older-minus-younger	randomise	cluster-t2.6	0.9867000002413988	0	standardized DMN; earlier mask
+partner-post__nppi-dmn	younger-minus-older	FLAME	Z>3.1	0.000719	92	standardized DMN; earlier mask
+partner-post__nppi-dmn	younger-minus-older	randomise	cluster-t3.1	0.10890001058578491	0	standardized DMN; earlier mask
+partner-post__nppi-dmn	younger-minus-older	randomise	cluster-t2.6	0.09320002794265747	0	standardized DMN; earlier mask
+partner-post__nppi-dmn	older-minus-younger	FLAME	Z>3.1		0	standardized DMN; earlier mask
+partner-post__nppi-dmn	older-minus-younger	randomise	cluster-t3.1	0.9302999973297119	0	standardized DMN; earlier mask
+partner-post__nppi-dmn	older-minus-younger	randomise	cluster-t2.6	0.9858999997377396	0	standardized DMN; earlier mask
+full-rt__act	full-sample-positive	PALM	cluster-z3.1	0.20499999999999996	0	standardized covariates; strict coverage; age variance groups
+full-rt__act	full-sample-negative	PALM	cluster-z3.1	0.4898	0	standardized covariates; strict coverage; age variance groups
+full-rt__act	younger-minus-older	PALM	cluster-z3.1	1.0	0	standardized covariates; strict coverage; age variance groups
+full-rt__act	older-minus-younger	PALM	cluster-z3.1	1.0	0	standardized covariates; strict coverage; age variance groups
+full-rt__act	full-sample-positive	PALM	cluster-z2.6	0.2755000000000001	0	standardized covariates; strict coverage; age variance groups
+full-rt__act	full-sample-negative	PALM	cluster-z2.6	0.3266	0	standardized covariates; strict coverage; age variance groups
+full-rt__act	younger-minus-older	PALM	cluster-z2.6	0.8319	0	standardized covariates; strict coverage; age variance groups
+full-rt__act	older-minus-younger	PALM	cluster-z2.6	0.6002	0	standardized covariates; strict coverage; age variance groups
+pooled-post__act	full-sample-positive	PALM	cluster-z3.1	0.5216	0	standardized covariates; strict coverage; age variance groups
+pooled-post__act	full-sample-negative	PALM	cluster-z3.1	0.28059999999999996	0	standardized covariates; strict coverage; age variance groups
+pooled-post__act	younger-minus-older	PALM	cluster-z3.1	0.7193	0	standardized covariates; strict coverage; age variance groups
+pooled-post__act	older-minus-younger	PALM	cluster-z3.1	0.4736	0	standardized covariates; strict coverage; age variance groups
+pooled-post__act	full-sample-positive	PALM	cluster-z2.6	0.5774	0	standardized covariates; strict coverage; age variance groups
+pooled-post__act	full-sample-negative	PALM	cluster-z2.6	0.19799999999999995	0	standardized covariates; strict coverage; age variance groups
+pooled-post__act	younger-minus-older	PALM	cluster-z2.6	0.8382	0	standardized covariates; strict coverage; age variance groups
+pooled-post__act	older-minus-younger	PALM	cluster-z2.6	0.5184	0	standardized covariates; strict coverage; age variance groups
+partner-post__act	full-sample-positive	PALM	cluster-z3.1	0.7559	0	standardized covariates; strict coverage; age variance groups
+partner-post__act	full-sample-negative	PALM	cluster-z3.1	0.21760000000000002	0	standardized covariates; strict coverage; age variance groups
+partner-post__act	younger-minus-older	PALM	cluster-z3.1	1.0	0	standardized covariates; strict coverage; age variance groups
+partner-post__act	older-minus-younger	PALM	cluster-z3.1	0.46310000000000007	0	standardized covariates; strict coverage; age variance groups
+partner-post__act	full-sample-positive	PALM	cluster-z2.6	0.5474	0	standardized covariates; strict coverage; age variance groups
+partner-post__act	full-sample-negative	PALM	cluster-z2.6	0.1069	0	standardized covariates; strict coverage; age variance groups
+partner-post__act	younger-minus-older	PALM	cluster-z2.6	0.9041	0	standardized covariates; strict coverage; age variance groups
+partner-post__act	older-minus-younger	PALM	cluster-z2.6	0.3944	0	standardized covariates; strict coverage; age variance groups
+full-rt__nppi-dmn	full-sample-positive	PALM	cluster-z3.1	0.374	0	standardized covariates; strict coverage; age variance groups
+full-rt__nppi-dmn	full-sample-negative	PALM	cluster-z3.1	0.5557	0	standardized covariates; strict coverage; age variance groups
+full-rt__nppi-dmn	younger-minus-older	PALM	cluster-z3.1	0.25259999999999994	0	standardized covariates; strict coverage; age variance groups
+full-rt__nppi-dmn	older-minus-younger	PALM	cluster-z3.1	1.0	0	standardized covariates; strict coverage; age variance groups
+full-rt__nppi-dmn	full-sample-positive	PALM	cluster-z2.6	0.02410000000000001	59	standardized covariates; strict coverage; age variance groups
+full-rt__nppi-dmn	full-sample-negative	PALM	cluster-z2.6	0.1987	0	standardized covariates; strict coverage; age variance groups
+full-rt__nppi-dmn	younger-minus-older	PALM	cluster-z2.6	0.04679999999999995	49	standardized covariates; strict coverage; age variance groups
+full-rt__nppi-dmn	older-minus-younger	PALM	cluster-z2.6	0.9481	0	standardized covariates; strict coverage; age variance groups
+pooled-post__nppi-dmn	full-sample-positive	PALM	cluster-z3.1	0.04239999999999999	10	standardized covariates; strict coverage; age variance groups
+pooled-post__nppi-dmn	full-sample-negative	PALM	cluster-z3.1	0.8024	0	standardized covariates; strict coverage; age variance groups
+pooled-post__nppi-dmn	younger-minus-older	PALM	cluster-z3.1	0.08940000000000003	0	standardized covariates; strict coverage; age variance groups
+pooled-post__nppi-dmn	older-minus-younger	PALM	cluster-z3.1	1.0	0	standardized covariates; strict coverage; age variance groups
+pooled-post__nppi-dmn	full-sample-positive	PALM	cluster-z2.6	0.01429999999999998	71	standardized covariates; strict coverage; age variance groups
+pooled-post__nppi-dmn	full-sample-negative	PALM	cluster-z2.6	0.6502	0	standardized covariates; strict coverage; age variance groups
+pooled-post__nppi-dmn	younger-minus-older	PALM	cluster-z2.6	0.16910000000000003	0	standardized covariates; strict coverage; age variance groups
+pooled-post__nppi-dmn	older-minus-younger	PALM	cluster-z2.6	0.9282	0	standardized covariates; strict coverage; age variance groups
+partner-post__nppi-dmn	full-sample-positive	PALM	cluster-z3.1	0.17930000000000001	0	standardized covariates; strict coverage; age variance groups
+partner-post__nppi-dmn	full-sample-negative	PALM	cluster-z3.1	0.8029	0	standardized covariates; strict coverage; age variance groups
+partner-post__nppi-dmn	younger-minus-older	PALM	cluster-z3.1	0.14090000000000003	0	standardized covariates; strict coverage; age variance groups
+partner-post__nppi-dmn	older-minus-younger	PALM	cluster-z3.1	1.0	0	standardized covariates; strict coverage; age variance groups
+partner-post__nppi-dmn	full-sample-positive	PALM	cluster-z2.6	0.01090000000000002	73	standardized covariates; strict coverage; age variance groups
+partner-post__nppi-dmn	full-sample-negative	PALM	cluster-z2.6	0.8918	0	standardized covariates; strict coverage; age variance groups
+partner-post__nppi-dmn	younger-minus-older	PALM	cluster-z2.6	0.09619999999999995	0	standardized covariates; strict coverage; age variance groups
+partner-post__nppi-dmn	older-minus-younger	PALM	cluster-z2.6	0.984	0	standardized covariates; strict coverage; age variance groups
+full-rt__nppi-ecn	full-sample-positive	PALM	cluster-z3.1	0.587	0	standardized covariates; strict coverage; age variance groups
+full-rt__nppi-ecn	full-sample-negative	PALM	cluster-z3.1	0.8531	0	standardized covariates; strict coverage; age variance groups
+full-rt__nppi-ecn	younger-minus-older	PALM	cluster-z3.1	0.31079999999999997	0	standardized covariates; strict coverage; age variance groups
+full-rt__nppi-ecn	older-minus-younger	PALM	cluster-z3.1	0.3118000000000001	0	standardized covariates; strict coverage; age variance groups
+full-rt__nppi-ecn	full-sample-positive	PALM	cluster-z2.6	0.3689	0	standardized covariates; strict coverage; age variance groups
+full-rt__nppi-ecn	full-sample-negative	PALM	cluster-z2.6	0.8509	0	standardized covariates; strict coverage; age variance groups
+full-rt__nppi-ecn	younger-minus-older	PALM	cluster-z2.6	0.6541	0	standardized covariates; strict coverage; age variance groups
+full-rt__nppi-ecn	older-minus-younger	PALM	cluster-z2.6	0.7254	0	standardized covariates; strict coverage; age variance groups
+pooled-post__nppi-ecn	full-sample-positive	PALM	cluster-z3.1	0.5841	0	standardized covariates; strict coverage; age variance groups
+pooled-post__nppi-ecn	full-sample-negative	PALM	cluster-z3.1	0.02980000000000005	10	standardized covariates; strict coverage; age variance groups
+pooled-post__nppi-ecn	younger-minus-older	PALM	cluster-z3.1	0.3436	0	standardized covariates; strict coverage; age variance groups
+pooled-post__nppi-ecn	older-minus-younger	PALM	cluster-z3.1	0.684	0	standardized covariates; strict coverage; age variance groups
+pooled-post__nppi-ecn	full-sample-positive	PALM	cluster-z2.6	0.31820000000000004	0	standardized covariates; strict coverage; age variance groups
+pooled-post__nppi-ecn	full-sample-negative	PALM	cluster-z2.6	0.10739999999999994	0	standardized covariates; strict coverage; age variance groups
+pooled-post__nppi-ecn	younger-minus-older	PALM	cluster-z2.6	0.32909999999999995	0	standardized covariates; strict coverage; age variance groups
+pooled-post__nppi-ecn	older-minus-younger	PALM	cluster-z2.6	0.45589999999999997	0	standardized covariates; strict coverage; age variance groups
+partner-post__nppi-ecn	full-sample-positive	PALM	cluster-z3.1	0.10619999999999996	0	standardized covariates; strict coverage; age variance groups
+partner-post__nppi-ecn	full-sample-negative	PALM	cluster-z3.1	0.0121	13	standardized covariates; strict coverage; age variance groups
+partner-post__nppi-ecn	younger-minus-older	PALM	cluster-z3.1	0.7031	0	standardized covariates; strict coverage; age variance groups
+partner-post__nppi-ecn	older-minus-younger	PALM	cluster-z3.1	0.6971	0	standardized covariates; strict coverage; age variance groups
+partner-post__nppi-ecn	full-sample-positive	PALM	cluster-z2.6	0.07899999999999996	0	standardized covariates; strict coverage; age variance groups
+partner-post__nppi-ecn	full-sample-negative	PALM	cluster-z2.6	0.05030000000000001	0	standardized covariates; strict coverage; age variance groups
+partner-post__nppi-ecn	younger-minus-older	PALM	cluster-z2.6	0.2742	0	standardized covariates; strict coverage; age variance groups
+partner-post__nppi-ecn	older-minus-younger	PALM	cluster-z2.6	0.5391	0	standardized covariates; strict coverage; age variance groups
+taskwide-offer	full-sample-positive	PALM	cluster-z3.1	0.005199999999999982	45	standardized covariates; strict coverage; age variance groups
+taskwide-offer	full-sample-negative	PALM	cluster-z3.1	0.7646	0	standardized covariates; strict coverage; age variance groups
+taskwide-offer	younger-minus-older	PALM	cluster-z3.1	0.10170000000000001	0	standardized covariates; strict coverage; age variance groups
+taskwide-offer	older-minus-younger	PALM	cluster-z3.1	0.5216	0	standardized covariates; strict coverage; age variance groups
+taskwide-offer	full-sample-positive	PALM	cluster-z2.6	0.03810000000000002	96	standardized covariates; strict coverage; age variance groups
+taskwide-offer	full-sample-negative	PALM	cluster-z2.6	0.2763	0	standardized covariates; strict coverage; age variance groups
+taskwide-offer	younger-minus-older	PALM	cluster-z2.6	0.03520000000000001	149	standardized covariates; strict coverage; age variance groups
+taskwide-offer	older-minus-younger	PALM	cluster-z2.6	0.17620000000000002	0	standardized covariates; strict coverage; age variance groups
+human-computer-offer	full-sample-positive	PALM	cluster-z3.1	0.34529999999999994	0	standardized covariates; strict coverage; age variance groups
+human-computer-offer	full-sample-negative	PALM	cluster-z3.1	0.6275	0	standardized covariates; strict coverage; age variance groups
+human-computer-offer	younger-minus-older	PALM	cluster-z3.1	0.3320000000000001	0	standardized covariates; strict coverage; age variance groups
+human-computer-offer	older-minus-younger	PALM	cluster-z3.1	0.6394	0	standardized covariates; strict coverage; age variance groups
+human-computer-offer	full-sample-positive	PALM	cluster-z2.6	0.13759999999999994	0	standardized covariates; strict coverage; age variance groups
+human-computer-offer	full-sample-negative	PALM	cluster-z2.6	0.6326	0	standardized covariates; strict coverage; age variance groups
+human-computer-offer	younger-minus-older	PALM	cluster-z2.6	0.6236	0	standardized covariates; strict coverage; age variance groups
+human-computer-offer	older-minus-younger	PALM	cluster-z2.6	0.5856	0	standardized covariates; strict coverage; age variance groups
+human-computer-response	full-sample-positive	PALM	cluster-z3.1	0.00019999999999997797	270	standardized covariates; strict coverage; age variance groups
+human-computer-response	full-sample-negative	PALM	cluster-z3.1	0.0011999999999999789	155	standardized covariates; strict coverage; age variance groups
+human-computer-response	younger-minus-older	PALM	cluster-z3.1	0.01629999999999998	25	standardized covariates; strict coverage; age variance groups
+human-computer-response	older-minus-younger	PALM	cluster-z3.1	1.0	0	standardized covariates; strict coverage; age variance groups
+human-computer-response	full-sample-positive	PALM	cluster-z2.6	0.0020999999999999908	617	standardized covariates; strict coverage; age variance groups
+human-computer-response	full-sample-negative	PALM	cluster-z2.6	0.014900000000000024	266	standardized covariates; strict coverage; age variance groups
+human-computer-response	younger-minus-older	PALM	cluster-z2.6	0.02529999999999999	118	standardized covariates; strict coverage; age variance groups
+human-computer-response	older-minus-younger	PALM	cluster-z2.6	0.6475	0	standardized covariates; strict coverage; age variance groups

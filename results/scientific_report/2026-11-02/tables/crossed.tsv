@@ -1,0 +1,145 @@
+model	contrast	contrast_name	clusters	voxels	minimum_cluster_p	maximum_z	status
+partner-post_act_choice-slope	1	older-minus-younger_behavior	0	0			complete
+partner-post_act_choice-slope	2	younger-minus-older_behavior	1	30	0.0341	4.22	complete
+partner-post_act_choice-slope	3	younger-minus-older_at-mean-behavior	0	0			complete
+partner-post_act_choice-slope	4	older-minus-younger_at-mean-behavior	0	0			complete
+partner-post_act_choice-slope	5	younger_behavior-positive	1	28	0.0455	3.77	complete
+partner-post_act_choice-slope	6	younger_behavior-negative	0	0			complete
+partner-post_act_choice-slope	7	older_behavior-positive	0	0			complete
+partner-post_act_choice-slope	8	older_behavior-negative	1	31	0.0296	4.08	complete
+partner-post_nppi-dmn_choice-slope	1	older-minus-younger_behavior	2	48	0.0273	4.16	complete
+partner-post_nppi-dmn_choice-slope	2	younger-minus-older_behavior	0	0			complete
+partner-post_nppi-dmn_choice-slope	3	younger-minus-older_at-mean-behavior	6	234	2.97e-05	4.23	complete
+partner-post_nppi-dmn_choice-slope	4	older-minus-younger_at-mean-behavior	0	0			complete
+partner-post_nppi-dmn_choice-slope	5	younger_behavior-positive	0	0			complete
+partner-post_nppi-dmn_choice-slope	6	younger_behavior-negative	0	0			complete
+partner-post_nppi-dmn_choice-slope	7	older_behavior-positive	2	48	0.0227	4.16	complete
+partner-post_nppi-dmn_choice-slope	8	older_behavior-negative	1	33	0.00656	3.81	complete
+partner-post_nppi-ecn_choice-slope	1	older-minus-younger_behavior	1	24	0.0216	3.92	complete
+partner-post_nppi-ecn_choice-slope	2	younger-minus-older_behavior	0	0			complete
+partner-post_nppi-ecn_choice-slope	3	younger-minus-older_at-mean-behavior	0	0			complete
+partner-post_nppi-ecn_choice-slope	4	older-minus-younger_at-mean-behavior	0	0			complete
+partner-post_nppi-ecn_choice-slope	5	younger_behavior-positive	0	0			complete
+partner-post_nppi-ecn_choice-slope	6	younger_behavior-negative	0	0			complete
+partner-post_nppi-ecn_choice-slope	7	older_behavior-positive	1	21	0.0402	3.69	complete
+partner-post_nppi-ecn_choice-slope	8	older_behavior-negative	0	0			complete
+partner-post_act_acceptance-intercept	1	older-minus-younger_behavior	3	205	4.77e-07	4.58	complete
+partner-post_act_acceptance-intercept	2	younger-minus-older_behavior	0	0			complete
+partner-post_act_acceptance-intercept	3	younger-minus-older_at-mean-behavior	0	0			complete
+partner-post_act_acceptance-intercept	4	older-minus-younger_at-mean-behavior	0	0			complete
+partner-post_act_acceptance-intercept	5	younger_behavior-positive	0	0			complete
+partner-post_act_acceptance-intercept	6	younger_behavior-negative	1	46	0.00384	4.02	complete
+partner-post_act_acceptance-intercept	7	older_behavior-positive	0	0			complete
+partner-post_act_acceptance-intercept	8	older_behavior-negative	0	0			complete
+partner-post_nppi-dmn_acceptance-intercept	1	older-minus-younger_behavior	0	0			complete
+partner-post_nppi-dmn_acceptance-intercept	2	younger-minus-older_behavior	0	0			complete
+partner-post_nppi-dmn_acceptance-intercept	3	younger-minus-older_at-mean-behavior	3	187	1.02e-05	4.23	complete
+partner-post_nppi-dmn_acceptance-intercept	4	older-minus-younger_at-mean-behavior	0	0			complete
+partner-post_nppi-dmn_acceptance-intercept	5	younger_behavior-positive	0	0			complete
+partner-post_nppi-dmn_acceptance-intercept	6	younger_behavior-negative	0	0			complete
+partner-post_nppi-dmn_acceptance-intercept	7	older_behavior-positive	0	0			complete
+partner-post_nppi-dmn_acceptance-intercept	8	older_behavior-negative	3	108	0.00126	4.69	complete
+partner-post_nppi-ecn_acceptance-intercept	1	older-minus-younger_behavior	0	0			complete
+partner-post_nppi-ecn_acceptance-intercept	2	younger-minus-older_behavior	0	0			complete
+partner-post_nppi-ecn_acceptance-intercept	3	younger-minus-older_at-mean-behavior	0	0			complete
+partner-post_nppi-ecn_acceptance-intercept	4	older-minus-younger_at-mean-behavior	0	0			complete
+partner-post_nppi-ecn_acceptance-intercept	5	younger_behavior-positive	1	25	0.0179	3.98	complete
+partner-post_nppi-ecn_acceptance-intercept	6	younger_behavior-negative	0	0			complete
+partner-post_nppi-ecn_acceptance-intercept	7	older_behavior-positive	0	0			complete
+partner-post_nppi-ecn_acceptance-intercept	8	older_behavior-negative	0	0			complete
+pooled-post_act_choice-slope	1	older-minus-younger_behavior	0	0			complete
+pooled-post_act_choice-slope	2	younger-minus-older_behavior	0	0			complete
+pooled-post_act_choice-slope	3	younger-minus-older_at-mean-behavior	0	0			complete
+pooled-post_act_choice-slope	4	older-minus-younger_at-mean-behavior	0	0			complete
+pooled-post_act_choice-slope	5	younger_behavior-positive	0	0			complete
+pooled-post_act_choice-slope	6	younger_behavior-negative	0	0			complete
+pooled-post_act_choice-slope	7	older_behavior-positive	0	0			complete
+pooled-post_act_choice-slope	8	older_behavior-negative	1	28	0.0496	3.9	complete
+pooled-post_nppi-dmn_choice-slope	1	older-minus-younger_behavior	0	0			complete
+pooled-post_nppi-dmn_choice-slope	2	younger-minus-older_behavior	0	0			complete
+pooled-post_nppi-dmn_choice-slope	3	younger-minus-older_at-mean-behavior	4	106	0.00687	4.53	complete
+pooled-post_nppi-dmn_choice-slope	4	older-minus-younger_at-mean-behavior	0	0			complete
+pooled-post_nppi-dmn_choice-slope	5	younger_behavior-positive	0	0			complete
+pooled-post_nppi-dmn_choice-slope	6	younger_behavior-negative	1	28	0.0164	4.17	complete
+pooled-post_nppi-dmn_choice-slope	7	older_behavior-positive	2	49	0.0236	4.18	complete
+pooled-post_nppi-dmn_choice-slope	8	older_behavior-negative	1	25	0.0283	3.87	complete
+pooled-post_nppi-ecn_choice-slope	1	older-minus-younger_behavior	1	24	0.0238	4.09	complete
+pooled-post_nppi-ecn_choice-slope	2	younger-minus-older_behavior	1	22	0.0357	4.15	complete
+pooled-post_nppi-ecn_choice-slope	3	younger-minus-older_at-mean-behavior	0	0			complete
+pooled-post_nppi-ecn_choice-slope	4	older-minus-younger_at-mean-behavior	0	0			complete
+pooled-post_nppi-ecn_choice-slope	5	younger_behavior-positive	1	28	0.0109	4.18	complete
+pooled-post_nppi-ecn_choice-slope	6	younger_behavior-negative	0	0			complete
+pooled-post_nppi-ecn_choice-slope	7	older_behavior-positive	1	32	0.00514	4.04	complete
+pooled-post_nppi-ecn_choice-slope	8	older_behavior-negative	1	24	0.0238	3.98	complete
+pooled-post_act_acceptance-intercept	1	older-minus-younger_behavior	2	147	3.46e-06	4.36	complete
+pooled-post_act_acceptance-intercept	2	younger-minus-older_behavior	0	0			complete
+pooled-post_act_acceptance-intercept	3	younger-minus-older_at-mean-behavior	0	0			complete
+pooled-post_act_acceptance-intercept	4	older-minus-younger_at-mean-behavior	0	0			complete
+pooled-post_act_acceptance-intercept	5	younger_behavior-positive	0	0			complete
+pooled-post_act_acceptance-intercept	6	younger_behavior-negative	1	38	0.0122	4.07	complete
+pooled-post_act_acceptance-intercept	7	older_behavior-positive	0	0			complete
+pooled-post_act_acceptance-intercept	8	older_behavior-negative	0	0			complete
+pooled-post_nppi-dmn_acceptance-intercept	1	older-minus-younger_behavior	0	0			complete
+pooled-post_nppi-dmn_acceptance-intercept	2	younger-minus-older_behavior	0	0			complete
+pooled-post_nppi-dmn_acceptance-intercept	3	younger-minus-older_at-mean-behavior	1	59	0.000127	4.2	complete
+pooled-post_nppi-dmn_acceptance-intercept	4	older-minus-younger_at-mean-behavior	0	0			complete
+pooled-post_nppi-dmn_acceptance-intercept	5	younger_behavior-positive	0	0			complete
+pooled-post_nppi-dmn_acceptance-intercept	6	younger_behavior-negative	0	0			complete
+pooled-post_nppi-dmn_acceptance-intercept	7	older_behavior-positive	0	0			complete
+pooled-post_nppi-dmn_acceptance-intercept	8	older_behavior-negative	5	144	0.00353	4.39	complete
+pooled-post_nppi-ecn_acceptance-intercept	1	older-minus-younger_behavior	0	0			complete
+pooled-post_nppi-ecn_acceptance-intercept	2	younger-minus-older_behavior	0	0			complete
+pooled-post_nppi-ecn_acceptance-intercept	3	younger-minus-older_at-mean-behavior	0	0			complete
+pooled-post_nppi-ecn_acceptance-intercept	4	older-minus-younger_at-mean-behavior	0	0			complete
+pooled-post_nppi-ecn_acceptance-intercept	5	younger_behavior-positive	0	0			complete
+pooled-post_nppi-ecn_acceptance-intercept	6	younger_behavior-negative	0	0			complete
+pooled-post_nppi-ecn_acceptance-intercept	7	older_behavior-positive	0	0			complete
+pooled-post_nppi-ecn_acceptance-intercept	8	older_behavior-negative	0	0			complete
+full-rt_act_choice-slope	1	older-minus-younger_behavior	0	0			complete
+full-rt_act_choice-slope	2	younger-minus-older_behavior	1	31	0.04	4.12	complete
+full-rt_act_choice-slope	3	younger-minus-older_at-mean-behavior	0	0			complete
+full-rt_act_choice-slope	4	older-minus-younger_at-mean-behavior	0	0			complete
+full-rt_act_choice-slope	5	younger_behavior-positive	0	0			complete
+full-rt_act_choice-slope	6	younger_behavior-negative	0	0			complete
+full-rt_act_choice-slope	7	older_behavior-positive	0	0			complete
+full-rt_act_choice-slope	8	older_behavior-negative	0	0			complete
+full-rt_nppi-dmn_choice-slope	1	older-minus-younger_behavior	0	0			complete
+full-rt_nppi-dmn_choice-slope	2	younger-minus-older_behavior	0	0			complete
+full-rt_nppi-dmn_choice-slope	3	younger-minus-older_at-mean-behavior	2	82	0.000314	4.1	complete
+full-rt_nppi-dmn_choice-slope	4	older-minus-younger_at-mean-behavior	0	0			complete
+full-rt_nppi-dmn_choice-slope	5	younger_behavior-positive	0	0			complete
+full-rt_nppi-dmn_choice-slope	6	younger_behavior-negative	0	0			complete
+full-rt_nppi-dmn_choice-slope	7	older_behavior-positive	0	0			complete
+full-rt_nppi-dmn_choice-slope	8	older_behavior-negative	0	0			complete
+full-rt_nppi-ecn_choice-slope	1	older-minus-younger_behavior	0	0			complete
+full-rt_nppi-ecn_choice-slope	2	younger-minus-older_behavior	0	0			complete
+full-rt_nppi-ecn_choice-slope	3	younger-minus-older_at-mean-behavior	0	0			complete
+full-rt_nppi-ecn_choice-slope	4	older-minus-younger_at-mean-behavior	0	0			complete
+full-rt_nppi-ecn_choice-slope	5	younger_behavior-positive	0	0			complete
+full-rt_nppi-ecn_choice-slope	6	younger_behavior-negative	0	0			complete
+full-rt_nppi-ecn_choice-slope	7	older_behavior-positive	1	31	0.00622	3.92	complete
+full-rt_nppi-ecn_choice-slope	8	older_behavior-negative	0	0			complete
+full-rt_act_acceptance-intercept	1	older-minus-younger_behavior	2	134	0.000207	4.46	complete
+full-rt_act_acceptance-intercept	2	younger-minus-older_behavior	0	0			complete
+full-rt_act_acceptance-intercept	3	younger-minus-older_at-mean-behavior	0	0			complete
+full-rt_act_acceptance-intercept	4	older-minus-younger_at-mean-behavior	0	0			complete
+full-rt_act_acceptance-intercept	5	younger_behavior-positive	0	0			complete
+full-rt_act_acceptance-intercept	6	younger_behavior-negative	0	0			complete
+full-rt_act_acceptance-intercept	7	older_behavior-positive	1	48	0.00472	4.09	complete
+full-rt_act_acceptance-intercept	8	older_behavior-negative	0	0			complete
+full-rt_nppi-dmn_acceptance-intercept	1	older-minus-younger_behavior	0	0			complete
+full-rt_nppi-dmn_acceptance-intercept	2	younger-minus-older_behavior	0	0			complete
+full-rt_nppi-dmn_acceptance-intercept	3	younger-minus-older_at-mean-behavior	1	40	0.00224	3.98	complete
+full-rt_nppi-dmn_acceptance-intercept	4	older-minus-younger_at-mean-behavior	0	0			complete
+full-rt_nppi-dmn_acceptance-intercept	5	younger_behavior-positive	0	0			complete
+full-rt_nppi-dmn_acceptance-intercept	6	younger_behavior-negative	0	0			complete
+full-rt_nppi-dmn_acceptance-intercept	7	older_behavior-positive	0	0			complete
+full-rt_nppi-dmn_acceptance-intercept	8	older_behavior-negative	1	23	0.0419	4.29	complete
+full-rt_nppi-ecn_acceptance-intercept	1	older-minus-younger_behavior	0	0			complete
+full-rt_nppi-ecn_acceptance-intercept	2	younger-minus-older_behavior	0	0			complete
+full-rt_nppi-ecn_acceptance-intercept	3	younger-minus-older_at-mean-behavior	0	0			complete
+full-rt_nppi-ecn_acceptance-intercept	4	older-minus-younger_at-mean-behavior	0	0			complete
+full-rt_nppi-ecn_acceptance-intercept	5	younger_behavior-positive	0	0			complete
+full-rt_nppi-ecn_acceptance-intercept	6	younger_behavior-negative	0	0			complete
+full-rt_nppi-ecn_acceptance-intercept	7	older_behavior-positive	0	0			complete
+full-rt_nppi-ecn_acceptance-intercept	8	older_behavior-negative	0	0			complete

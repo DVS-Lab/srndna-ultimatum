@@ -1,0 +1,97 @@
+model	contrast	contrast_name	clusters	voxels	minimum_cluster_p	maximum_z	status
+full-rt__dmn-age	1	younger	5	213	5.19e-06	4.64	complete
+full-rt__dmn-age	2	older	0	0			complete
+full-rt__dmn-age	3	younger-older	0	0			complete
+full-rt__dmn-age	4	older-younger	0	0			complete
+full-rt__dmn-simple-effects	1	younger-positive	5	213	5.19e-06	4.64	complete
+full-rt__dmn-simple-effects	2	older-positive	0	0			complete
+full-rt__dmn-simple-effects	3	younger-minus-older	0	0			complete
+full-rt__dmn-simple-effects	4	older-minus-younger	0	0			complete
+full-rt__dmn-simple-effects	5	younger-negative	0	0			complete
+full-rt__dmn-simple-effects	6	older-negative	0	0			complete
+full-rt__dmn-outlier-deweighted	1	younger-positive	5	212	5.01e-06	4.66	complete
+full-rt__dmn-outlier-deweighted	2	older-positive	0	0			complete
+full-rt__dmn-outlier-deweighted	3	younger-minus-older	0	0			complete
+full-rt__dmn-outlier-deweighted	4	older-minus-younger	0	0			complete
+full-rt__dmn-outlier-deweighted	5	younger-negative	0	0			complete
+full-rt__dmn-outlier-deweighted	6	older-negative	0	0			complete
+pooled-post__dmn-age	1	younger	6	224	6.68e-05	4.61	complete
+pooled-post__dmn-age	2	older	0	0			complete
+pooled-post__dmn-age	3	younger-older	0	0			complete
+pooled-post__dmn-age	4	older-younger	0	0			complete
+pooled-post__dmn-simple-effects	1	younger-positive	6	224	6.68e-05	4.61	complete
+pooled-post__dmn-simple-effects	2	older-positive	0	0			complete
+pooled-post__dmn-simple-effects	3	younger-minus-older	0	0			complete
+pooled-post__dmn-simple-effects	4	older-minus-younger	0	0			complete
+pooled-post__dmn-simple-effects	5	younger-negative	0	0			complete
+pooled-post__dmn-simple-effects	6	older-negative	1	27	0.0202	4.39	complete
+pooled-post__dmn-outlier-deweighted	1	younger-positive	3	133	6.37e-05	4.41	complete
+pooled-post__dmn-outlier-deweighted	2	older-positive	0	0			complete
+pooled-post__dmn-outlier-deweighted	3	younger-minus-older	1	22	0.0498	4.29	complete
+pooled-post__dmn-outlier-deweighted	4	older-minus-younger	0	0			complete
+pooled-post__dmn-outlier-deweighted	5	younger-negative	0	0			complete
+pooled-post__dmn-outlier-deweighted	6	older-negative	1	27	0.0197	4.39	complete
+partner-post__dmn-age	1	younger	4	197	2.12e-05	4.82	complete
+partner-post__dmn-age	2	older	0	0			complete
+partner-post__dmn-age	3	younger-older	2	92	0.000719	3.96	complete
+partner-post__dmn-age	4	older-younger	0	0			complete
+partner-post__dmn-simple-effects	1	younger-positive	4	197	2.12e-05	4.82	complete
+partner-post__dmn-simple-effects	2	older-positive	0	0			complete
+partner-post__dmn-simple-effects	3	younger-minus-older	2	92	0.000719	3.96	complete
+partner-post__dmn-simple-effects	4	older-minus-younger	0	0			complete
+partner-post__dmn-simple-effects	5	younger-negative	0	0			complete
+partner-post__dmn-simple-effects	6	older-negative	1	22	0.0493	4.11	complete
+partner-post__dmn-outlier-deweighted	1	younger-positive	4	168	3.49e-05	4.82	complete
+partner-post__dmn-outlier-deweighted	2	older-positive	0	0			complete
+partner-post__dmn-outlier-deweighted	3	younger-minus-older	2	72	0.00111	3.82	complete
+partner-post__dmn-outlier-deweighted	4	older-minus-younger	0	0			complete
+partner-post__dmn-outlier-deweighted	5	younger-negative	0	0			complete
+partner-post__dmn-outlier-deweighted	6	older-negative	1	22	0.0486	4.11	complete
+crossed__partner-post_nppi-dmn_choice-slope	1	older-minus-younger_behavior	2	46	0.0398	4.37	complete
+crossed__partner-post_nppi-dmn_choice-slope	2	younger-minus-older_behavior	0	0			complete
+crossed__partner-post_nppi-dmn_choice-slope	3	younger-minus-older_at-mean-behavior	5	197	3.42e-05	4.27	complete
+crossed__partner-post_nppi-dmn_choice-slope	4	older-minus-younger_at-mean-behavior	0	0			complete
+crossed__partner-post_nppi-dmn_choice-slope	5	younger_behavior-positive	0	0			complete
+crossed__partner-post_nppi-dmn_choice-slope	6	younger_behavior-negative	0	0			complete
+crossed__partner-post_nppi-dmn_choice-slope	7	older_behavior-positive	2	51	0.0189	4.22	complete
+crossed__partner-post_nppi-dmn_choice-slope	8	older_behavior-negative	1	34	0.00555	3.81	complete
+crossed__partner-post_nppi-dmn_acceptance-intercept	1	older-minus-younger_behavior	0	0			complete
+crossed__partner-post_nppi-dmn_acceptance-intercept	2	younger-minus-older_behavior	0	0			complete
+crossed__partner-post_nppi-dmn_acceptance-intercept	3	younger-minus-older_at-mean-behavior	3	168	2.25e-05	4.06	complete
+crossed__partner-post_nppi-dmn_acceptance-intercept	4	older-minus-younger_at-mean-behavior	0	0			complete
+crossed__partner-post_nppi-dmn_acceptance-intercept	5	younger_behavior-positive	0	0			complete
+crossed__partner-post_nppi-dmn_acceptance-intercept	6	younger_behavior-negative	0	0			complete
+crossed__partner-post_nppi-dmn_acceptance-intercept	7	older_behavior-positive	0	0			complete
+crossed__partner-post_nppi-dmn_acceptance-intercept	8	older_behavior-negative	3	113	0.000681	4.56	complete
+crossed__pooled-post_nppi-dmn_choice-slope	1	older-minus-younger_behavior	0	0			complete
+crossed__pooled-post_nppi-dmn_choice-slope	2	younger-minus-older_behavior	0	0			complete
+crossed__pooled-post_nppi-dmn_choice-slope	3	younger-minus-older_at-mean-behavior	3	80	0.00818	4.53	complete
+crossed__pooled-post_nppi-dmn_choice-slope	4	older-minus-younger_at-mean-behavior	0	0			complete
+crossed__pooled-post_nppi-dmn_choice-slope	5	younger_behavior-positive	0	0			complete
+crossed__pooled-post_nppi-dmn_choice-slope	6	younger_behavior-negative	1	28	0.0165	4.09	complete
+crossed__pooled-post_nppi-dmn_choice-slope	7	older_behavior-positive	1	26	0.0236	4.14	complete
+crossed__pooled-post_nppi-dmn_choice-slope	8	older_behavior-negative	1	25	0.0284	3.8	complete
+crossed__pooled-post_nppi-dmn_acceptance-intercept	1	older-minus-younger_behavior	0	0			complete
+crossed__pooled-post_nppi-dmn_acceptance-intercept	2	younger-minus-older_behavior	0	0			complete
+crossed__pooled-post_nppi-dmn_acceptance-intercept	3	younger-minus-older_at-mean-behavior	1	52	0.000348	4.13	complete
+crossed__pooled-post_nppi-dmn_acceptance-intercept	4	older-minus-younger_at-mean-behavior	0	0			complete
+crossed__pooled-post_nppi-dmn_acceptance-intercept	5	younger_behavior-positive	0	0			complete
+crossed__pooled-post_nppi-dmn_acceptance-intercept	6	younger_behavior-negative	0	0			complete
+crossed__pooled-post_nppi-dmn_acceptance-intercept	7	older_behavior-positive	0	0			complete
+crossed__pooled-post_nppi-dmn_acceptance-intercept	8	older_behavior-negative	3	89	0.00417	4.33	complete
+crossed__full-rt_nppi-dmn_choice-slope	1	older-minus-younger_behavior	0	0			complete
+crossed__full-rt_nppi-dmn_choice-slope	2	younger-minus-older_behavior	0	0			complete
+crossed__full-rt_nppi-dmn_choice-slope	3	younger-minus-older_at-mean-behavior	3	86	0.00601	4.29	complete
+crossed__full-rt_nppi-dmn_choice-slope	4	older-minus-younger_at-mean-behavior	0	0			complete
+crossed__full-rt_nppi-dmn_choice-slope	5	younger_behavior-positive	0	0			complete
+crossed__full-rt_nppi-dmn_choice-slope	6	younger_behavior-negative	0	0			complete
+crossed__full-rt_nppi-dmn_choice-slope	7	older_behavior-positive	0	0			complete
+crossed__full-rt_nppi-dmn_choice-slope	8	older_behavior-negative	0	0			complete
+crossed__full-rt_nppi-dmn_acceptance-intercept	1	older-minus-younger_behavior	0	0			complete
+crossed__full-rt_nppi-dmn_acceptance-intercept	2	younger-minus-older_behavior	0	0			complete
+crossed__full-rt_nppi-dmn_acceptance-intercept	3	younger-minus-older_at-mean-behavior	2	64	0.00191	3.96	complete
+crossed__full-rt_nppi-dmn_acceptance-intercept	4	older-minus-younger_at-mean-behavior	0	0			complete
+crossed__full-rt_nppi-dmn_acceptance-intercept	5	younger_behavior-positive	0	0			complete
+crossed__full-rt_nppi-dmn_acceptance-intercept	6	younger_behavior-negative	0	0			complete
+crossed__full-rt_nppi-dmn_acceptance-intercept	7	older_behavior-positive	0	0			complete
+crossed__full-rt_nppi-dmn_acceptance-intercept	8	older_behavior-negative	0	0			complete
