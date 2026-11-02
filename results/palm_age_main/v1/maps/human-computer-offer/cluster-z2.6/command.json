@@ -1,0 +1,9 @@
+[
+  "/usr/local/MATLAB/R2024b/bin/matlab",
+  "-nodisplay",
+  "-singleCompThread",
+  "-logfile",
+  "/ZPOOL/data/scratch/srndna-ultimatum-palm-age-main-v1/jobs/human-computer-offer/cluster-z2.6/attempt-jikx_q46/matlab_console.txt",
+  "-batch",
+  "fprintf('SRNDNA_MATLAB_STARTED\\n');disp(version);restoredefaultpath;addpath('/ZPOOL/data/scratch/srndna-ultimatum-dmn-followup-v1/tools/PALM');palm('-i','/ZPOOL/data/scratch/srndna-ultimatum-palm-age-main-v1/preparation-ikkw2jyx/human-computer-offer/copes.nii.gz','-m','/ZPOOL/data/scratch/srndna-ultimatum-palm-age-main-v1/preparation-ikkw2jyx/human-computer-offer/mask.nii.gz','-d','/ZPOOL/data/scratch/srndna-ultimatum-palm-age-main-v1/preparation-ikkw2jyx/human-computer-offer/design.mat','-t','/ZPOOL/data/scratch/srndna-ultimatum-palm-age-main-v1/preparation-ikkw2jyx/human-computer-offer/design.con','-vg','/ZPOOL/data/scratch/srndna-ultimatum-palm-age-main-v1/preparation-ikkw2jyx/human-computer-offer/variance_groups.csv','-ise','-rmethod','Freedman-Lane','-n','10000','-seed','20261101','-zstat','-save1-p','-savemax','-noniiclass','-o','/ZPOOL/data/scratch/srndna-ultimatum-palm-age-main-v1/jobs/human-computer-offer/cluster-z2.6/attempt-jikx_q46/palm','-C','2.6','-Cstat','extent');"
+]

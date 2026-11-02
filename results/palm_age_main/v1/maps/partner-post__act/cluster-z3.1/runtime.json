@@ -1,0 +1,19 @@
+{
+  "conda_path_entries_removed": false,
+  "cpu_count": 48,
+  "flags": [
+    "-nodisplay",
+    "-singleCompThread"
+  ],
+  "platform": "Linux-6.17.0-23-generic-x86_64",
+  "private_preferences": false,
+  "private_tmp": false,
+  "removed_environment_variables": [
+    "DISPLAY",
+    "WAYLAND_DISPLAY",
+    "XAUTHORITY"
+  ],
+  "runtime_code_sha256": "edf6138e0e55ed5884d6a2a5ac3274eaa2440e1f50bbde141ee1a74257f029ff",
+  "startup_mode": "inherited",
+  "startup_only": false
+}

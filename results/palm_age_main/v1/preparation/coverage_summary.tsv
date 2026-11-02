@@ -1,0 +1,13 @@
+model	source_model	participants	l1_runs	primary_cope	original_voxels	individual_valid_voxels	tested_voxels	design_rank	residual_df
+full-rt__act	full-rt__activation-norm	47	94	7	64444	59297	59297	6	41
+pooled-post__act	pooled-post__activation-norm	47	94	7	64444	59297	59297	6	41
+partner-post__act	partner-post__activation-norm	47	94	7	64444	59297	59297	6	41
+full-rt__nppi-dmn	full-rt__dmn-age	47	94	7	64444	59297	59297	6	41
+pooled-post__nppi-dmn	pooled-post__dmn-age	47	94	7	64444	59297	59297	6	41
+partner-post__nppi-dmn	partner-post__dmn-age	47	94	7	64444	59297	59297	6	41
+full-rt__nppi-ecn	full-rt__ecn-sensitivity	47	94	7	64444	59297	59297	6	41
+pooled-post__nppi-ecn	pooled-post__ecn-sensitivity	47	94	7	64444	59297	59297	6	41
+partner-post__nppi-ecn	partner-post__ecn-sensitivity	47	94	7	64444	59297	59297	6	41
+taskwide-offer	taskwide-offer	47	94	11	64444	59297	59297	6	41
+human-computer-offer	human-computer-offer	47	94	8	64444	59297	59297	6	41
+human-computer-response	human-computer-response	47	94	10	64444	59297	59297	6	41

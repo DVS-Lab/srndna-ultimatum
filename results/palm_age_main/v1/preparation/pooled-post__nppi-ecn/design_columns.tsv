@@ -1,0 +1,7 @@
+column	name
+1	mean
+2	older_centered
+3	ismale
+4	tsnr
+5	fd_mean
+6	RT

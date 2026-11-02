@@ -1,0 +1,60 @@
+{
+  "covariates": "verified participant-table tSNR/FD; retained corrected sex/RT; all centered",
+  "helpers": {
+    "/ZPOOL/data/projects/srndna-ultimatum/code/analyze_corrected_vmpfc.py": "66b800692710b1ff2da0b4b61c202a1d2928e33b03cf03ae7678a0d0db8ee615",
+    "/ZPOOL/data/projects/srndna-ultimatum/code/audit_age_figures.py": "d3b8ff523208bd6e8d130abcf804923a041aa0fe567a9cbb2dc9d804b271637d",
+    "/ZPOOL/data/projects/srndna-ultimatum/code/audit_l1_designs.py": "e20b784d7d7d92b3259c677a57146f5667319c07740b2790187fdee103909ee5",
+    "/ZPOOL/data/projects/srndna-ultimatum/code/audit_palm_partner_motion.py": "c1147fd0e9c14604f517d986c7baccd9fdff45d18de35b7272bfc39b509352c5",
+    "/ZPOOL/data/projects/srndna-ultimatum/code/audit_palm_varcope_coverage.py": "b4370332af547070a3225352554b031c8a58747e314c4063774ec378ca6d523e",
+    "/ZPOOL/data/projects/srndna-ultimatum/code/collect_palm_failure_logs.py": "fd33503b62935ed4217b6dd28f7bc44fc98523f98d3b39955340bca40c00862e",
+    "/ZPOOL/data/projects/srndna-ultimatum/code/collect_palm_progress.py": "8101d0c48fa38f8ca4254114ee2027cd59db363c7aca636133273c0d2d365fdf",
+    "/ZPOOL/data/projects/srndna-ultimatum/code/make_fsl_confounds.py": "4f489ca3e9022310788c55b9df4e7157e05fee9a846154e030935e2a51fac29c",
+    "/ZPOOL/data/projects/srndna-ultimatum/code/make_ultimatum_3col.py": "072061391f13716bb5b58ff6a3036e0cd1e51988f964ba50d1f149077680bae0",
+    "/ZPOOL/data/projects/srndna-ultimatum/code/plot_completed_palm_anatomy.py": "8edeed102c7218b15e704a8ef42de35b4db742caf88b624839dc2b5cfb001276",
+    "/ZPOOL/data/projects/srndna-ultimatum/code/plot_palm_age_bars.py": "207238cc661bb59f43bba4b2f564fecbba4e5a1449751cc669710302ed7b705d",
+    "/ZPOOL/data/projects/srndna-ultimatum/code/plot_permutation_followup.py": "f4ed32e9ef1de8f0a1a716be4a0022bf1073cdc7ea88032e0cc9cb922a11fc67",
+    "/ZPOOL/data/projects/srndna-ultimatum/code/plot_three_partner_ratings.py": "64277018aef3e2412f006f100325d9474a0efdeac174b07f0f84f27430571fa0",
+    "/ZPOOL/data/projects/srndna-ultimatum/code/prepare_sub144_imaging_repair.py": "f2e935506c3560558c0add251014e80085d443171fdec597edc2bc74e8853627",
+    "/ZPOOL/data/projects/srndna-ultimatum/code/prepare_ultimatum_l3_repair.py": "24656bd5f140464467a452e7b8668909ff5848441fddf3667c4a471a9b033af3",
+    "/ZPOOL/data/projects/srndna-ultimatum/code/resume_palm_conservative.py": "3c8e17e4754ab153ddb2682cedbd4c70310def31d0f327816b1a95d2200fe326",
+    "/ZPOOL/data/projects/srndna-ultimatum/code/resume_palm_headless.py": "edf6138e0e55ed5884d6a2a5ac3274eaa2440e1f50bbde141ee1a74257f029ff",
+    "/ZPOOL/data/projects/srndna-ultimatum/code/run_activation_coverage.py": "aee02dbcdd7cff41d17903ab1e4c7cfa22c73b2684b5aafd4f87e7bd15f8e514",
+    "/ZPOOL/data/projects/srndna-ultimatum/code/run_dmn_coverage_check.py": "f5f474bcf40bd67fd01d2ccb24c383bfae25fe9b4e758961abee4b8723ed8d07",
+    "/ZPOOL/data/projects/srndna-ultimatum/code/run_dmn_heteroscedasticity.py": "a75adc555b27211febbc625cb20eb3663884ef8c1fa8ea793ff129c287a66abc",
+    "/ZPOOL/data/projects/srndna-ultimatum/code/run_palm_age_main.py": "be7ceb79a4414cc7e4060130435e75b8cb8d47614af0506a94053a0a70f1d9d4",
+    "/ZPOOL/data/projects/srndna-ultimatum/code/run_permutation_audit.py": "47e820f83e2fa50617d4a13204a699165522fe221282013cc6f19c4265012033",
+    "/ZPOOL/data/projects/srndna-ultimatum/code/scale_palm_recovery.py": "c8b79e60b636d27e2eb3d7d13cd2814e5981b74453a48d472df63a9232eb56a5"
+  },
+  "inference": "age variance groups; independent symmetric-error sign flips; Freedman-Lane; no FLAME VARCOPE weighting",
+  "labels": [
+    "full-sample-positive",
+    "full-sample-negative",
+    "younger-minus-older",
+    "older-minus-younger"
+  ],
+  "mean": "sample-weighted adjusted mean of 25 younger and 22 older participants",
+  "methods": [
+    "cluster-z3.1",
+    "cluster-z2.6"
+  ],
+  "multiplicity": "spatial FWE per signed contrast; not corrected across models, directions or thresholds",
+  "preparation": "372491c926c4a42ac01dd93f7031243404c462ddd391df952f7e9a33523a5a02",
+  "primary_method": "cluster-z3.1",
+  "runtime": {
+    "engine": "/usr/local/MATLAB/R2024b/bin/matlab",
+    "engine_sha256": "513dfb661307f598ca6d1d4426c1c98bd6a817a1e9cf472b85ecab6a34d60761",
+    "evidence": {
+      "/ZPOOL/data/scratch/srndna-ultimatum-dmn-followup-v1/palm/contract.json": "73030ac78180476a844f1bc725e91619b0cb85ad58c7f376470fa085f40ab399",
+      "/ZPOOL/data/scratch/srndna-ultimatum-dmn-followup-v1/palm/runtime-headless/b5df114aef52029d5e5f/canary_complete.json": "d620fd18a2ec1a0b75265ec5cdf1ad6d8aa64fdf4499d4bf4b7068d75dfa477a",
+      "/ZPOOL/data/scratch/srndna-ultimatum-dmn-followup-v1/palm/runtime-headless/b5df114aef52029d5e5f/contract.json": "e00358eb9d10d1cce133a6139751efe0d18c02154845bf83d648f118888c3f02",
+      "/ZPOOL/data/scratch/srndna-ultimatum-dmn-followup-v1/palm/runtime-headless/b5df114aef52029d5e5f/smoke_complete.json": "2f6223b0c5bd947c082f1644ac88563c8f432a1d435fe80530791ee8af50f5e8",
+      "/ZPOOL/data/scratch/srndna-ultimatum-dmn-followup-v1/palm/runtime-headless/b5df114aef52029d5e5f/startup_selection.json": "c2b055ccd334b1657ff3272dadc7c12e5a723a9d5652e0bfd2250ade46afcce4"
+    },
+    "mode": "inherited",
+    "palm_commit": "9086eff76dcacf4afde12c9af5400a1fe0033b9e",
+    "palm_root": "/ZPOOL/data/scratch/srndna-ultimatum-dmn-followup-v1/tools/PALM",
+    "profile": "/ZPOOL/data/scratch/srndna-ultimatum-dmn-followup-v1/palm/runtime-headless/b5df114aef52029d5e5f"
+  },
+  "seed": 20261101,
+  "shuffles": 10000
+}
