@@ -1,0 +1,14 @@
+{
+  "source": "Linux1 terminal output from the retained FEAT extraction",
+  "participants": 47,
+  "runs": 94,
+  "cluster_voxels": 25,
+  "maximum_absolute_cope10_reconstruction_difference": 2.7725702e-05,
+  "full_display_model": "human-computer-response",
+  "contrast": 3,
+  "method": "cluster-z3.1",
+  "spatial_fwe_p": 0.0163,
+  "source_analysis_commit": "96129d359186544102db08e0f17dccb96dce3332",
+  "extractor_sha256": "1ea528e7399f2bd440ea6b74095e32fe04b5379366987ae4ec5f457a3166c77a",
+  "aggregate_tsv_sha256": "f4d7d1cf3be5d5f0b3784eda5a4e04b95e1d0702b2861b3b1e54e319f5ceac2f"
+}
