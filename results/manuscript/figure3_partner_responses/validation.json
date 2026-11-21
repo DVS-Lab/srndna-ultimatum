@@ -1,0 +1,11 @@
+{
+  "participants": 47,
+  "runs": 94,
+  "insula_voxels": 38,
+  "human_gt_computer_voxels": 270,
+  "maximum_cope10_error": 5.49176007780261e-05,
+  "insula_sha256": "5a1261604d598273495ec90f875a6305caa84c4d96866c60677d6b0b8d733374",
+  "palm_corrected_map_sha256": "4c2884e6f44b1679d7be2fc13a795ccf52051e907fbba0318fd938569dbcd4fe",
+  "input_inventory_sha256": "539dff6e12dc6aba33f54128127dd77ef385ee11f12346428ef6f998cf0ac5d6",
+  "design_sha256": "8db47e786cb27b10fa1b5b5f484cf1715a01d1c9072fe62014b197c9dbc7e7ea"
+}

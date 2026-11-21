@@ -1,0 +1,10 @@
+region	quantity	partner	n	adjusted_mean	adjusted_sem
+anterior_insula	display	computer	47	0.1980039768666911	3.044983490662008
+anterior_insula	display	similar	47	2.9001992666374656	2.8719230405281824
+anterior_insula	display	dissimilar	47	1.006380883142743	3.0856788254293983
+anterior_insula	offer_slope	computer	47	0.24910889134637756	0.41958541620514395
+anterior_insula	offer_slope	similar	47	0.9863462258243814	0.38032346067017364
+anterior_insula	offer_slope	dissimilar	47	0.06279246937301164	0.422701836753447
+human_gt_computer	display	computer	47	14.761836046506057	4.729223872340109
+human_gt_computer	display	similar	47	30.125797284202953	4.702322316254595
+human_gt_computer	display	dissimilar	47	27.615588980612436	5.1616811640614
