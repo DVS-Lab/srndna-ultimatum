@@ -27,3 +27,12 @@ python3 code/plot_neuropsychologia_figures.py "$PWD" "$FSLDIR/data/standard/MNI1
 ```
 
 The complete panel is written to `Figure4.pdf` and `Figure4.png`. To use a fresh Linux1 extraction, add `"$run_dir/condition_estimates.tsv"` as the last argument.
+
+## Optional adjusted error bars
+
+Pass `--adjusted` to the extraction command to add three columns to the six-row TSV. The original `mean` and `sem` columns retain the condition means and between-participant SEMs used in the current figure.
+
+- `within_person_sem` centers each participant on their mean across all three partners, separately within each age group, and uses the Morey standard-error correction of sqrt(3/2). Plot this quantity about the observed condition mean to describe partner differences within a group.
+- `covariate_adjusted_mean` and `covariate_adjusted_sem` use the retained six-column design to fit each partner's participant estimates. They remove the fitted sex, tSNR, mean framewise displacement and reaction-time terms while retaining age. The SEM is the sample standard deviation of the adjusted estimates within the group divided by the square root of its size, consistent with the repository's conditional participant SEM convention. Plot the adjusted SEM about its corresponding adjusted mean.
+
+Both columns give one standard error. The direct PALM age test remains the inferential comparison. Method for within-participant normalization: Baguley (2012), https://doi.org/10.3758/s13428-011-0123-7.

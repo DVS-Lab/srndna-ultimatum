@@ -62,7 +62,48 @@ def validate_design(run_folder):
     if not np.allclose(matrix[9], matrix[2] + matrix[4] - 2 * matrix[0], atol=1e-6, rtol=0):
         raise ValueError(f"COPE10 contrast weights do not match the partner displays in {run_folder}")
 
-def extract(repo, scratch):
+def adjusted_errors(estimates, roster, prep):
+    """Return within-person SEMs and the repository's conditional covariate-adjusted means/SEMs."""
+    mat = verified(prep / "design.mat", "8db47e786cb27b10fa1b5b5f484cf1715a01d1c9072fe62014b197c9dbc7e7ea")
+    colfile = verified(prep / "design_columns.tsv", "b48239508bee98858f14f5fa9cd98a05e6a467f213b74863c6243963438ff397")
+    columns = [row["name"] for row in read_rows(colfile)]
+    if columns != ["mean", "older_centered", "ismale", "tsnr", "fd_mean", "RT"]:
+        raise ValueError("Unexpected group design columns")
+    design = np.loadtxt(mat.read_text().split("/Matrix", 1)[1].splitlines())
+    older = np.array([row["variance_group"] == "2" for row in roster])
+    if design.shape != (len(roster), len(columns)) or not np.allclose(design[:, 1], older - older.mean()):
+        raise ValueError("Group design and frozen roster do not align")
+    values = np.empty((len(roster), len(CONDITIONS)))
+    groups = {"younger": ~older, "older": older}
+    for age, members in groups.items():
+        values[members] = np.asarray(estimates[age])
+    coefficients, _, rank, _ = np.linalg.lstsq(design, values, rcond=None)
+    if rank != len(columns):
+        raise ValueError("Group design is rank deficient")
+    adjusted = values - design[:, 2:] @ coefficients[2:]
+    # All three repeated partner conditions contribute to each participant's mean.
+    k = len(CONDITIONS)
+    morey = np.sqrt(k / (k - 1))
+    cells = {}
+    for age, members in groups.items():
+        raw = values[members]
+        cov_adjusted = adjusted[members]
+        normalized = raw - raw.mean(axis=1, keepdims=True) + raw.mean()
+        if not np.allclose(normalized.mean(axis=0), raw.mean(axis=0)):
+            raise ValueError("Within-person normalization changed the group condition means")
+        if not np.allclose(cov_adjusted.mean(axis=0), design[members, :2].mean(axis=0) @ coefficients[:2]):
+            raise ValueError("Adjusted means differ from group model predictions")
+        n = len(raw)
+        within_sem = morey * normalized.std(axis=0, ddof=1) / np.sqrt(n)
+        adjusted_mean = cov_adjusted.mean(axis=0)
+        conditional_sem = cov_adjusted.std(axis=0, ddof=1) / np.sqrt(n)
+        for i, partner in enumerate(CONDITIONS):
+            cells[age, partner] = dict(within_person_sem=within_sem[i],
+                                       covariate_adjusted_mean=adjusted_mean[i],
+                                       covariate_adjusted_sem=conditional_sem[i])
+    return cells
+
+def extract(repo, scratch, include_adjusted=False):
     project = repo / "results/palm_age_main/v1"
     prep = project / "preparation" / MODEL
     probability = project / "maps" / MODEL / "cluster-z3.1/palm_clustere_zvstat_fwep_c3.nii"
@@ -115,6 +156,10 @@ def extract(repo, scratch):
         for i, condition in enumerate(CONDITIONS):
             samples = data[:, i]
             records.append(dict(age_group=age, condition=condition, n=len(samples), mean=samples.mean(), sem=samples.std(ddof=1)/np.sqrt(len(samples))))
+    if include_adjusted:
+        adjustments = adjusted_errors(estimates, roster, prep)
+        for row in records:
+            row.update(adjustments[row["age_group"], row["condition"]])
     return records, largest_error
 
 def main():
@@ -122,8 +167,10 @@ def main():
     parser.add_argument("--repo", type=Path, required=True)
     parser.add_argument("--scratch-root", type=Path, default=SOURCE_ROOT, help="Local equivalent of /ZPOOL/data/scratch")
     parser.add_argument("--output", type=Path, required=True)
+    parser.add_argument("--adjusted", action="store_true",
+                        help="Also export within-participant and covariate-adjusted summaries")
     args = parser.parse_args()
-    rows, error = extract(args.repo, args.scratch_root)
+    rows, error = extract(args.repo, args.scratch_root, args.adjusted)
     with NamedTemporaryFile(mode="w", dir=args.output.parent, delete=False, newline="") as stream:
         writer = csv.DictWriter(stream, fieldnames=list(rows[0]), delimiter="\t")
         writer.writeheader()
