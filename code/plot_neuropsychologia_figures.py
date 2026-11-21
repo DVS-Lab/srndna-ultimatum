@@ -89,9 +89,13 @@ pl=audit.payload('human-computer-response','cluster-z3.1',3,'Younger > older: me
 if len(sys.argv) > 4:
     condition_path = Path(sys.argv[4])
 else:
-    condition_path = Path(__file__).with_name('condition_estimates.tsv')
-    if not condition_path.is_file():
-        condition_path = repo / 'results/manuscript/figure4_partner_displays/condition_estimates.tsv'
+    figure_dir = repo / 'results/manuscript/figure4_partner_displays'
+    candidates = [
+        folder / filename
+        for filename in ('condition_estimates_adjusted.tsv', 'condition_estimates.tsv')
+        for folder in (Path(__file__).parent, figure_dir)
+    ]
+    condition_path = next((path for path in candidates if path.is_file()), candidates[0])
 estimates = read(condition_path)
 age_groups = [('younger', 25), ('older', 22)]
 conditions = ['similar', 'dissimilar', 'computer']
@@ -99,6 +103,12 @@ records = {(row['age_group'], row['condition']): row for row in estimates}
 expected = {(age, partner) for age, _ in age_groups for partner in conditions}
 if len(estimates) != 6 or set(records) != expected:
     raise ValueError('Expected one estimate per age group and partner condition')
+adjusted_keys = {'covariate_adjusted_mean', 'covariate_adjusted_sem'}
+available = adjusted_keys.intersection(estimates[0])
+if available and available != adjusted_keys:
+    raise ValueError('Covariate-adjusted means and SEMs must be supplied together')
+use_adjusted = available == adjusted_keys
+mean_key, sem_key = ('covariate_adjusted_mean', 'covariate_adjusted_sem') if use_adjusted else ('mean', 'sem')
 fig = plt.figure(figsize=(7.35, 3.35))
 grid = fig.add_gridspec(1, 2, left=.035, right=.98, bottom=.27, top=.83,
                         wspace=.38, width_ratios=[1, 1.25])
@@ -108,8 +118,8 @@ plane(mapax, pl, 0)
 mapax.set_title('Sagittal   x = −2 mm', fontsize=9, pad=4)
 for i, (age, n) in enumerate(age_groups):
     rows = [records[age, partner] for partner in conditions]
-    means = np.array([float(r['mean']) for r in rows])
-    sems = np.array([float(r['sem']) for r in rows])
+    means = np.array([float(r[mean_key]) for r in rows])
+    sems = np.array([float(r[sem_key]) for r in rows])
     if any(int(r['n']) != n for r in rows) or not np.isfinite([means, sems]).all() or min(sems) < 0:
         raise ValueError(f'Invalid Figure 4 estimates for {age}')
     ax.bar(np.arange(3) + (i-.5)*.36, means, width=.34, yerr=sems, color=colors[i],
@@ -118,7 +128,7 @@ ax.axhline(0, color='#404040', lw=.85)
 ax.grid(axis='y', alpha=.16)
 ax.set_axisbelow(True)
 ax.set_xticks(range(3), ['Age-similar', 'Age-dissimilar', 'Computer'], fontsize=9)
-ax.set_ylabel('Display estimate (model units)', size=9)
+ax.set_ylabel('Adjusted display estimate (model units)' if use_adjusted else 'Display estimate (model units)', size=9)
 ax.tick_params(axis='y', labelsize=8)
 ax.legend(frameon=False, ncol=2, loc='upper center', bbox_to_anchor=(.5, -.18),
           handlelength=1.1, columnspacing=1.3, fontsize=8)
