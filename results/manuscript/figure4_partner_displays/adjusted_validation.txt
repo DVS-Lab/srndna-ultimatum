@@ -1,0 +1,1 @@
+Validated 47 participants, 94 runs, 25 voxels. Maximum absolute COPE10 reconstruction difference: 2.7725702e-05.
