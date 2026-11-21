@@ -1,12 +1,11 @@
-"""Rebuild Figures 2–4 using saved results. Usage: python SCRIPT REPO MNI_TEMPLATE OUTPUT [CONDITION_SUMMARY_TSV]. The fourth argument overrides the saved Figure 4 aggregate TSV."""
+"""Prepare Figures 2–5 using saved results. Usage: python SCRIPT REPO MNI_TEMPLATE OUTPUT [CONDITION_SUMMARY_TSV]. The fourth argument overrides the saved Figure 4 aggregate TSV."""
 from pathlib import Path
 from collections import defaultdict
 import csv,json,sys,os
 os.environ.setdefault('SOURCE_DATE_EPOCH', '1795219200')
 import numpy as np
 import nibabel as nib
-from scipy.ndimage import label
-from nibabel.processing import resample_from_to
+from shutil import copyfile
 import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
@@ -14,6 +13,7 @@ from matplotlib.colors import Normalize,LinearSegmentedColormap
 from matplotlib.cm import ScalarMappable
 repo,template,out=map(Path,sys.argv[1:4]);out.mkdir(exist_ok=True,parents=True)
 sys.path.insert(0,str(repo/'code'))
+from plot_vmpfc_offer_age import figure5
 from plot_current_result_review import Review
 from plot_permutation_followup import slice_plane
 audit=Review(repo,out,template)
@@ -44,46 +44,13 @@ for age,col,mark in [('younger',colors[0],'o'),('older',colors[1],'s')]:
  ax.errorbar(amounts,[np.mean(x) for x in samples],yerr=[np.std(x,ddof=1)/np.sqrt(len(x)) for x in samples],color=col,marker=mark,lw=1.7,ms=4.4,capsize=2.6,label=age.capitalize())
 ax.set(xticks=amounts,xlim=(.65,10.35),ylim=(-.015,1.06),yticks=[0,.25,.50,.75,1],xlabel='Offer amount ($)',ylabel='Mean proportion accepted')
 ax.grid(axis='y',alpha=.19);ax.legend(frameon=False,loc='lower right');save(fig,'Figure2')
-names=['Positive offer slope','Human > computer displays','Computer > human displays','Right insula · FLAME sensitivity analysis']
-specs=[('taskwide-offer',1,45,.0052),('human-computer-response',1,270,.0002),('human-computer-response',2,155,.0012),('human-computer-response',3,25,.0163)]
-flame=repo/'results/reviewer';summary=[]
-fig=plt.figure(figsize=(7.55,9.0))
-gs=fig.add_gridspec(4,3,width_ratios=[1,1,1.18],left=.025,right=.97,top=.946,bottom=.095,hspace=.63,wspace=.18)
-for i in range(4):
- if i < 3:
-  model,c,n,p=specs[i]
-  pl=audit.payload(model,'cluster-z3.1',c,names[i]);rec=pl[0];assert rec['native_voxels']==n and abs(rec['minimum_spatial_fwe_p']-p)<1e-9
-  q=repo/'results/palm_age_main/v1/maps'/model/'cluster-z3.1'/f'palm_clustere_zvstat_fwep_c{c}.nii'
-  im=nib.load(q);mask=(im.get_fdata()>.95) & (nib.load(repo/'results/palm_age_main/v1/preparation'/model/'mask.nii.gz').get_fdata()>0)
-  fp=flame/('activation_fairness_main/focal_contrast1/cope1.nii.gz' if i==0 else f'activation_social_computer/social_task_response/contrast{c}/cope{c}.nii.gz')
- else:
-  dp=flame/'activation_fairness_main/focal_contrast1';im=nib.load(dp/'cluster_mask_zstat1.nii.gz');mask=im.get_fdata()==4
-  stat=nib.load(dp/'zstat1.nii.gz');z=stat.get_fdata();n=82
-  assert np.allclose(im.affine,stat.affine) and mask.sum()==n and round(float(z[mask].max()),2)==4.49
-  peak=np.argwhere(mask)[z[mask].argmax()];cuts=nib.affines.apply_affine(im.affine,peak);assert np.allclose(cuts,[40.3,1.29,5.22],atol=.1)
-  overlap=read(repo/'results/figure_review/2026-11-02-parametric/insula_cluster_permutation_overlap.tsv')
-  assert len(overlap)==4 and all(int(r['corrected_overlap_voxels'])==0 for r in overlap)
-  rec=dict(model='positive offer slope, earlier covariates and mask',method='FLAME',contrast=1,title=names[i],native_voxels=n,cluster_fwe_p=.000129,cluster_id=4,statistic_map=str(dp/'zstat1.nii.gz'),native_cut_x=float(cuts[0]),native_cut_y=float(cuts[1]),native_cut_z=float(cuts[2]))
-  audit.map_records.append(rec)
-  overlay=resample_from_to(nib.Nifti1Image(np.where(mask,z,0).astype('float32'),im.affine),audit.bg,order=0).get_fdata()
-  pl=(rec,overlay,cuts);fp=dp/'cope1.nii.gz'
- for j,axis in enumerate([0,2]):plane(fig.add_subplot(gs[i,j]),pl,axis)
- amp=nib.load(fp);assert amp.shape==im.shape and np.allclose(amp.affine,im.affine)
- components,nc=label(mask,structure=np.ones((3,3,3)));values=[]
- for k in range(1,nc+1):
-  vox=np.argwhere(components==k);xyz=nib.affines.apply_affine(im.affine,vox).mean(axis=0);vals=amp.get_fdata()[components==k];assert np.all(np.isfinite(vals))
-  hemi='L' if xyz[0]<0 else 'R'
-  values.append((hemi,int(len(vox)),float(vals.mean())))
- values.sort(key=lambda x:(x[0],-x[1]));assert sum(v[1] for v in values)==n
- for h,size,mean in values:summary.append(dict(panel='ABCD'[i],hemisphere=h,voxels=size,mean_cope=mean,source=str(fp.relative_to(repo))))
- ax=fig.add_subplot(gs[i,2]);xx=np.arange(len(values));axismax=max(v[2] for v in values)*1.35
- ax.bar(xx,[v[2] for v in values],width=.50,color='#57778d');ax.set_xlim(-.7,len(values)-.3);ax.set_ylim(0,axismax);ax.set_xticks(xx,[f'{h}\n{size} vx' for h,size,_ in values],fontsize=8)
- ax.set_title('Mean FLAME estimate',fontsize=9,pad=3);ax.set_ylabel('Offer slope (a.u.)' if i in [0,3] else 'Display contrast (a.u.)',fontsize=8);ax.tick_params(axis='y',labelsize=8)
- ax.grid(axis='y',alpha=.16);ax.set_axisbelow(True)
- bbox=gs[i,0].get_position(fig);fig.text(.027,bbox.y1+.031,f"{'ABCD'[i]}   {names[i]}",fontsize=12,weight='bold',va='bottom')
-fig.text(.52,.050,'D: no corrected overlap in PALM or randomise',fontsize=8.2,ha='left');zbar(fig,fig.add_axes([.065,.052,.34,.013]));save(fig,'Figure3')
-with (out/'figure3_component_estimates.tsv').open('w') as h:
- writer=csv.DictWriter(h,fieldnames=list(summary[0]),delimiter='\t');writer.writeheader();writer.writerows(summary)
+# The validated Linux1 render is the publication copy. Its maps and three condition
+# bars can be regenerated directly with plot_figure3_responses.py and the saved TSV.
+figure3 = repo / 'results/manuscript/figure3_partner_responses'
+for extension in ('pdf', 'png'):
+    copyfile(figure3 / f'human_gt_computer.{extension}', out / f'Figure3.{extension}')
+copyfile(figure3 / 'condition_estimates.tsv', out / 'figure3_condition_estimates.tsv')
+audit.payload('human-computer-response', 'cluster-z3.1', 1, 'Mean human > computer display response')
 pl=audit.payload('human-computer-response','cluster-z3.1',3,'Younger > older: mean human − computer display response');assert pl[0]['native_voxels']==25
 # A publication rebuild always includes the six Linux1 condition estimates.
 if len(sys.argv) > 4:
@@ -136,5 +103,7 @@ fig.text(.038, .965, 'A   Direct age contrast', weight='bold', fontsize=11, va='
 fig.text(grid[0, 1].get_position(fig).x0, .965, 'B   Response by partner', weight='bold', fontsize=11, va='top')
 zbar(fig, fig.add_axes([.083, .16, .24, .018]), 'Z (younger > older)')
 save(fig, 'Figure4')
+figure5(repo,out,audit.bg,audit.anatomy,audit.vmax)
+audit.payload('taskwide-offer','cluster-z2.6',3,'Younger > older: average offer slope')
 for rec in audit.map_records:rec['statistic_map']=str(Path(rec['statistic_map']).relative_to(repo))
 (out/'map_provenance.json').write_text(json.dumps(audit.map_records,indent=2))

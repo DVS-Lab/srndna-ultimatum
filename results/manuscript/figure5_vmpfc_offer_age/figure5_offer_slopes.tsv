@@ -1,0 +1,7 @@
+timing	adjustment	partner	age_group	n	mean	participant_sem	error_definition
+full-rt	covariate-adjusted	computer	younger	25	3.3058568953480205	0.6095962787988602	SD of plotted participant values / sqrt(n); descriptive, not model SE
+full-rt	covariate-adjusted	computer	older	22	-2.0062433235989645	0.9108454913828439	SD of plotted participant values / sqrt(n); descriptive, not model SE
+full-rt	covariate-adjusted	similar	younger	25	3.030277394675869	0.9491525182691376	SD of plotted participant values / sqrt(n); descriptive, not model SE
+full-rt	covariate-adjusted	similar	older	22	-1.5352335769452226	0.7411644204346602	SD of plotted participant values / sqrt(n); descriptive, not model SE
+full-rt	covariate-adjusted	dissimilar	younger	25	2.0288729321693113	1.073966658218539	SD of plotted participant values / sqrt(n); descriptive, not model SE
+full-rt	covariate-adjusted	dissimilar	older	22	-1.463986161468643	0.7781970663204083	SD of plotted participant values / sqrt(n); descriptive, not model SE
