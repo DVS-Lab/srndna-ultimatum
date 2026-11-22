@@ -1,0 +1,3 @@
+model	loglik	AIC
+random_intercept	-1031.75598229738	2101.51196459476
+random_intercept_and_offer_slope	-902.265058889631	1846.53011777926

@@ -1,0 +1,8 @@
+comparison	reduced	extended	likelihood_ratio	df	p_asymptotic
+activation	behavior	activation	79.1973944758633	10	7.21062094613697e-13
+same_trial	activation	same_trial	3.97779060304538	1	0.0461039993436115
+activation_age	activation	activation_age	7.95445468370326	5	0.158763646660309
+same_trial_age	joint_age_base	joint_age	3.56672650313567	1	0.0589484099352126
+gppi	activation	gppi	13.1411026933079	4	0.0106065297990734
+gppi_after_same_trial	same_trial	joint_gppi	12.3918464897765	4	0.0146632840217233
+gppi_age	gppi_age_base	gppi_age	6.53941901593498	4	0.162323549896455
