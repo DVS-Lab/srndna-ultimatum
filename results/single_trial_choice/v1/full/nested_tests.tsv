@@ -1,0 +1,5 @@
+comparison	reduced	extended	likelihood_ratio	df	p_asymptotic
+activation	behavior	activation_dmn_atlas	6.29191922403788	8	0.614568583380854
+dmn_atlas	activation_dmn_atlas	dmn_atlas	15.5547437167274	4	0.00367870375888322
+dmn_focus	activation_dmn_focus	dmn_focus	12.0543252387974	4	0.0169518279828272
+ecn_vmpfc	activation_ecn_vmpfc	ecn_vmpfc	3.69026373787869	4	0.449543591817038

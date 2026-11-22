@@ -1,0 +1,3 @@
+comparison	reduced	extended	likelihood_ratio	df	p_asymptotic
+activation	behavior	activation_dmn_atlas	6.36370058478019	8	0.606562366687181
+dmn_atlas	activation_dmn_atlas	dmn_atlas	15.5390578411948	4	0.00370435608883236
