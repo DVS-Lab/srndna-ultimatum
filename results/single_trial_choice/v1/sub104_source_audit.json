@@ -1,0 +1,154 @@
+[
+  {
+    "run": 1,
+    "location": "release",
+    "format": "packed",
+    "volumes": 72,
+    "overlap": 72,
+    "exact_overlap": 72,
+    "max_absolute_voxel_difference": 0.0,
+    "min_spatial_correlation": 0.9999999999999998,
+    "datapaper_2025": {
+      "matching_trial_ids": 72,
+      "max_expected_trial_roi_error": 2.2759197193522596e-08
+    },
+    "ultimatum_2022": {
+      "matching_trial_ids": 0,
+      "max_expected_trial_roi_error": 1.7141832807123263
+    },
+    "release_equivalent_complete": true
+  },
+  {
+    "run": 1,
+    "location": "analysis",
+    "format": "numbered",
+    "volumes": 72,
+    "overlap": 72,
+    "exact_overlap": 0,
+    "max_absolute_voxel_difference": 21.224716186523438,
+    "min_spatial_correlation": 0.6488642965989917,
+    "datapaper_2025": {
+      "matching_trial_ids": 0,
+      "max_expected_trial_roi_error": 1.714183279022313
+    },
+    "ultimatum_2022": {
+      "matching_trial_ids": 72,
+      "max_expected_trial_roi_error": 4.887172888601299e-10
+    },
+    "release_equivalent_complete": false
+  },
+  {
+    "run": 1,
+    "location": "analysis",
+    "format": "merged",
+    "volumes": 72,
+    "overlap": 72,
+    "exact_overlap": 0,
+    "max_absolute_voxel_difference": 21.224716186523438,
+    "min_spatial_correlation": 0.6488642965989917,
+    "datapaper_2025": {
+      "matching_trial_ids": 0,
+      "max_expected_trial_roi_error": 1.714183279022313
+    },
+    "ultimatum_2022": {
+      "matching_trial_ids": 72,
+      "max_expected_trial_roi_error": 4.887172888601299e-10
+    },
+    "release_equivalent_complete": false
+  },
+  {
+    "run": 1,
+    "location": "projects/srndna-ug/derivatives/fsl",
+    "format": "packed",
+    "volumes": 72,
+    "overlap": 72,
+    "exact_overlap": 72,
+    "max_absolute_voxel_difference": 0.0,
+    "min_spatial_correlation": 0.9999999999999998,
+    "datapaper_2025": {
+      "matching_trial_ids": 72,
+      "max_expected_trial_roi_error": 2.2759197193522596e-08
+    },
+    "ultimatum_2022": {
+      "matching_trial_ids": 0,
+      "max_expected_trial_roi_error": 1.7141832807123263
+    },
+    "release_equivalent_complete": true
+  },
+  {
+    "run": 2,
+    "location": "release",
+    "format": "packed",
+    "volumes": 55,
+    "overlap": 55,
+    "exact_overlap": 55,
+    "max_absolute_voxel_difference": 0.0,
+    "min_spatial_correlation": 0.9999999999999998,
+    "datapaper_2025": {
+      "matching_trial_ids": 55,
+      "max_expected_trial_roi_error": 4.9930809931098e-08
+    },
+    "ultimatum_2022": {
+      "matching_trial_ids": 0,
+      "max_expected_trial_roi_error": 1.0945101886844164
+    },
+    "release_equivalent_complete": false
+  },
+  {
+    "run": 2,
+    "location": "analysis",
+    "format": "numbered",
+    "volumes": 72,
+    "overlap": 55,
+    "exact_overlap": 0,
+    "max_absolute_voxel_difference": 19.56588363647461,
+    "min_spatial_correlation": 0.5688822470358339,
+    "datapaper_2025": {
+      "matching_trial_ids": 0,
+      "max_expected_trial_roi_error": 1.094510198133959
+    },
+    "ultimatum_2022": {
+      "matching_trial_ids": 72,
+      "max_expected_trial_roi_error": 4.847429124765767e-10
+    },
+    "release_equivalent_complete": false
+  },
+  {
+    "run": 2,
+    "location": "analysis",
+    "format": "merged",
+    "volumes": 72,
+    "overlap": 55,
+    "exact_overlap": 0,
+    "max_absolute_voxel_difference": 19.56588363647461,
+    "min_spatial_correlation": 0.5688822470358339,
+    "datapaper_2025": {
+      "matching_trial_ids": 0,
+      "max_expected_trial_roi_error": 1.094510198133959
+    },
+    "ultimatum_2022": {
+      "matching_trial_ids": 72,
+      "max_expected_trial_roi_error": 4.847429124765767e-10
+    },
+    "release_equivalent_complete": false
+  },
+  {
+    "run": 2,
+    "location": "projects/srndna-ug/derivatives/fsl",
+    "format": "packed",
+    "volumes": 55,
+    "overlap": 55,
+    "exact_overlap": 55,
+    "max_absolute_voxel_difference": 0.0,
+    "min_spatial_correlation": 0.9999999999999998,
+    "datapaper_2025": {
+      "matching_trial_ids": 55,
+      "max_expected_trial_roi_error": 4.9930809931098e-08
+    },
+    "ultimatum_2022": {
+      "matching_trial_ids": 0,
+      "max_expected_trial_roi_error": 1.0945101886844164
+    },
+    "release_equivalent_complete": false
+  }
+]
