@@ -91,5 +91,5 @@ if __name__=="__main__":
     p.add_argument("--scratch",type=Path);p.add_argument("--background",type=Path,required=True);p.add_argument("--output",type=Path,required=True)
     a=p.parse_args()
     if a.scratch:estimates(a.repo,a.scratch,a.output)
-    bg=nib.load(a.background);brain=bg.get_fdata()
+    bg=nib.as_closest_canonical(nib.load(a.background));brain=bg.get_fdata()
     figure5(a.repo,a.output,bg,brain,np.percentile(brain[brain>0],98))
