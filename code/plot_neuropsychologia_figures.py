@@ -13,7 +13,7 @@ from matplotlib.colors import Normalize,LinearSegmentedColormap
 from matplotlib.cm import ScalarMappable
 repo,template,out=map(Path,sys.argv[1:4]);out.mkdir(exist_ok=True,parents=True)
 sys.path.insert(0,str(repo/'code'))
-from plot_vmpfc_offer_age import figure5
+from figure5_wholebrain import figure5
 from plot_current_result_review import Review
 from plot_permutation_followup import slice_plane
 audit=Review(repo,out,template)

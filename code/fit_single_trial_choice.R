@@ -24,25 +24,57 @@ d$fold <- subjects$fold[match(d$subject, subjects$subject)]
 base <- paste("accept ~ offer_c * partner * age + I(offer_c^2) + I(offer_c^3)",
               "+ fair + run2 + order_c + ismale + tsnr + fd_mean + (1 + offer_c | subject)")
 amp_terms <- function(sites) as.vector(outer(sites,c("_within","_mean"),paste0))
-families <- list(dmn_atlas=list(regions=c("vmpfc","insula","dmn","pole"), ppi="dmn_pole"),
-                 dmn_focus=list(regions=c("vmpfc","insula","dmn","focus"), ppi="dmn_focus"),
-                 ecn_vmpfc=list(regions=c("vmpfc","insula","ecn"), ppi="ecn_vmpfc"))
-if (activation_only || recovered) families <- families["dmn_atlas"]
-forms <- list(behavior=as.formula(base))
-comparisons <- list()
-for (f in names(families)) {
-  spec <- families[[f]]
-  regions <- amp_terms(spec$regions)
-  a <- paste0("activation_",f)
-  forms[[a]] <- as.formula(paste(base,"+",paste(regions,collapse=" + ")))
-  if (f == "dmn_atlas") comparisons$activation <- c("behavior",a)
-  if (!activation_only) {
-    forms[[f]] <- update(forms[[a]],paste(". ~ . +",spec$ppi,"* offer_c * partner"))
-    comparisons[[f]] <- c(a,f)
+if ("--whole-brain" %in% args) {
+  stopifnot(!recovered, nrow(d)==4382L, all(is.finite(d$rt)))
+  d$rt_mean <- ave(d$rt, d$subject, FUN=mean)
+  d$rt_within <- d$rt - d$rt_mean
+  behavior <- update(as.formula(base), . ~ . + rt_mean + rt_within)
+  sites <- c("medial_frontal", "precuneus", "visual", "dmn", "frontal_target")
+  brain <- amp_terms(sites)
+  activation <- update(behavior, as.formula(paste(". ~ . +", paste(brain, collapse=" + "))))
+  joint <- update(activation, . ~ . + dmn_within:frontal_target_within)
+  forms <- list(behavior=behavior, activation=activation, same_trial=joint)
+  comparisons <- list(activation=c("behavior","activation"), same_trial=c("activation","same_trial"))
+  age_terms <- paste(paste0("age:",sites,"_within"),collapse=" + ")
+  activation_age <- update(activation, as.formula(paste(". ~ . +",age_terms)))
+  joint_age_base <- update(activation_age,. ~ . + dmn_within:frontal_target_within)
+  forms$activation_age <- activation_age
+  forms$joint_age_base <- joint_age_base
+  forms$joint_age <- update(joint_age_base,. ~ . + age:dmn_within:frontal_target_within)
+  comparisons$activation_age <- c("activation","activation_age")
+  comparisons$same_trial_age <- c("joint_age_base","joint_age")
+  scale_vars <- c("tsnr", "fd_mean", "rt_mean", "rt_within", brain)
+  if ("opposite_run_dmn" %in% names(d)) {
+    forms$gppi <- update(activation, . ~ . + opposite_run_dmn * offer_c * partner)
+    forms$joint_gppi <- update(joint, . ~ . + opposite_run_dmn * offer_c * partner)
+    comparisons$gppi <- c("activation","gppi")
+    comparisons$gppi_after_same_trial <- c("same_trial","joint_gppi")
+    forms$gppi_age_base <- update(activation_age,. ~ . + opposite_run_dmn * offer_c * partner)
+    forms$gppi_age <- update(forms$gppi_age_base,. ~ . + opposite_run_dmn * offer_c * partner * age)
+    comparisons$gppi_age <- c("gppi_age_base","gppi_age")
+    scale_vars <- c(scale_vars,"opposite_run_dmn")
   }
+} else {
+  families <- list(dmn_atlas=list(regions=c("vmpfc","insula","dmn","pole"), ppi="dmn_pole"),
+                   dmn_focus=list(regions=c("vmpfc","insula","dmn","focus"), ppi="dmn_focus"),
+                   ecn_vmpfc=list(regions=c("vmpfc","insula","ecn"), ppi="ecn_vmpfc"))
+  if (activation_only || recovered) families <- families["dmn_atlas"]
+  forms <- list(behavior=as.formula(base))
+  comparisons <- list()
+  for (f in names(families)) {
+    spec <- families[[f]]
+    regions <- amp_terms(spec$regions)
+    a <- paste0("activation_",f)
+    forms[[a]] <- as.formula(paste(base,"+",paste(regions,collapse=" + ")))
+    if (f == "dmn_atlas") comparisons$activation <- c("behavior",a)
+    if (!activation_only) {
+      forms[[f]] <- update(forms[[a]],paste(". ~ . +",spec$ppi,"* offer_c * partner"))
+      comparisons[[f]] <- c(a,f)
+    }
+  }
+  scale_vars <- unique(c("tsnr","fd_mean", unlist(lapply(families,function(x) amp_terms(x$regions))),
+                        if (!activation_only) vapply(families,function(x)x$ppi, "")))
 }
-scale_vars <- unique(c("tsnr","fd_mean", unlist(lapply(families,function(x) amp_terms(x$regions))),
-                      if (!activation_only) vapply(families,function(x)x$ppi, "")))
 needed <- unique(unlist(lapply(forms,all.vars)))
 missing_vars <- setdiff(needed,names(d))
 if (length(missing_vars)) stop("Missing model inputs: ",paste(missing_vars,collapse=", "))
@@ -143,5 +175,19 @@ summary <- do.call(rbind,lapply(names(comparisons),function(n) {
        brier_reduction=mean(x$brier.x-x$brier.y),participants_improved=sum(delta>0))
 }))
 write_tsv(summary,"heldout_gains.tsv")
+if ("--whole-brain" %in% args) {
+  group_summary <- do.call(rbind,lapply(names(comparisons),function(n) {
+    pair <- comparisons[[n]]
+    x <- merge(subset(by_id, model==pair[1]),subset(by_id, model==pair[2]),by=c("subject","age"))
+    gain <- split(x$log_loss.x-x$log_loss.y, x$age)
+    younger <- gain[["-0.5"]]; older <- gain[["0.5"]]
+    stopifnot(length(younger)==25L,length(older)==22L)
+    boot <- replicate(5000,mean(sample(older,replace=TRUE))-mean(sample(younger,replace=TRUE)))
+    ci <- quantile(boot,c(.025,.975),names=FALSE)
+    data.frame(comparison=n, younger_gain=mean(younger), older_gain=mean(older),
+               older_minus_younger=mean(older)-mean(younger),conditional_lo=ci[1],conditional_hi=ci[2])
+  }))
+  write_tsv(group_summary,"heldout_by_age.tsv")
+}
 writeLines(c(R.version.string,paste("lme4",packageVersion("lme4"))),file.path(out,"software.txt"))
 print(summary,row.names=FALSE)
