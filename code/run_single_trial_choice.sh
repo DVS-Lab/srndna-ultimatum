@@ -19,7 +19,7 @@ if ! git diff --quiet FETCH_HEAD..HEAD -- . ":(exclude)$dest"; then
     echo "Local main contains unpublished changes outside $dest. Use a checkout synced with origin/main." >&2
     exit 1
 fi
-if [[ -n $(git status --porcelain -- "${paths[@]}" "$dest/recovered" code/extract_single_trial_choice.py code/fit_single_trial_choice.R code/run_single_trial_choice.sh results/single_trial_choice/v1/{openneuro_2.2.0_inputs.tsv,right_frontal_pole.nii.gz}) ]]; then
+if [[ -n $(git status --porcelain -- "${paths[@]}" "$dest/recovered" code/extract_single_trial_choice.py code/fit_single_trial_choice.R code/choice_r_runtime.sh code/run_single_trial_choice.sh results/single_trial_choice/v1/{openneuro_2.2.0_inputs.tsv,sub104_roi_reference.tsv,right_frontal_pole.nii.gz}) ]]; then
     echo "There are existing edits to a model input, script or result path. Preserve them before regenerating." >&2
     exit 1
 fi
@@ -29,11 +29,9 @@ py=(python3)
 if ! python3 -c 'import nibabel,numpy,scipy' 2>/dev/null; then
     py=(conda run --no-capture-output -n srndna-ultimatum python3)
 fi
-rr=(Rscript)
-if ! Rscript -e 'quit(status=as.integer(!requireNamespace("lme4",quietly=TRUE)))' 2>/dev/null; then
-    rr=(conda run --no-capture-output -n srndna-ultimatum Rscript)
-fi
-"${rr[@]}" -e 'stopifnot(requireNamespace("lme4",quietly=TRUE))'
+source "$repo/code/choice_r_runtime.sh"
+select_choice_r
+"${rr[@]}" -e 'cat(R.version.string, "with lme4", as.character(packageVersion("lme4")), "\n")'
 umask 077
 stage=$(mktemp -d "${TMPDIR:-/tmp}/srndna-choice.XXXXXX")
 echo "Private trial table and working records: $stage"
@@ -50,6 +48,14 @@ for name in "${files[@]}"; do test -s "$stage/$name"; done
 if [[ -d $dest/recovered && ! -d $stage/recovered ]]; then
     echo "An earlier run recovered the partial series. Supply its SRNDNA_LSS_ROOT to reproduce those results." >&2
     exit 1
+fi
+if [[ -s $dest/validation.json ]]; then
+    python3 - "$dest/validation.json" "$stage/validation.json" <<'PY_CHECK'
+import json, sys
+with open(sys.argv[1]) as old, open(sys.argv[2]) as new:
+    if json.load(old)["additional_recovered_human_choices"] > json.load(new)["additional_recovered_human_choices"]:
+        sys.exit("A prior sensitivity analysis verified more trials. Set SRNDNA_LSS_ROOT to its retained source directory.")
+PY_CHECK
 fi
 mkdir -p "$dest"
 for name in "${files[@]}"; do install -m 644 "$stage/$name" "$dest/$name"; done

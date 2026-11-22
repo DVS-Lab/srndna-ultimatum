@@ -137,6 +137,57 @@ def network_runs(repo, scratch, base, maps):
     return results
 
 
+def archived_trial_ids(image, repo, run):
+    """Match trial z images against four published ROI series from the 2025 rerun."""
+    reference = [r for r in read_rows(repo/VERSION/"sub104_roi_reference.tsv") if int(r["run"]) == run]
+    if [int(r["trial"]) for r in reference] != list(range(1, 73)):
+        raise ValueError("The archived trial reference is incomplete")
+    names = ("VMPFC", "aINS", "dACC", "VS")
+    observed = []
+    data = np.asarray(image.dataobj)
+    for name in names:
+        roi = nib.load(repo/f"masks/roi-{name}.nii.gz")
+        if roi.shape != image.shape[:3] or not np.allclose(roi.affine, image.affine, rtol=0, atol=1e-4):
+            raise ValueError("Grid mismatch in the sub-104 trial reference")
+        observed.append(data[roi.get_fdata() > 0].mean(axis=0, dtype=np.float64))
+    expected = np.array([[float(r[name]) for name in names] for r in reference])
+    errors = np.abs(np.array(observed).T[:, None, :] - expected[None, :, :]).max(axis=2)
+    matches = errors <= 1e-5
+    if not np.all(matches.sum(axis=1) == 1):
+        raise ValueError("At least one image has no unique four-region reference match")
+    ids = (matches.argmax(axis=1) + 1).tolist()
+    if sorted(set(ids)) != ids:
+        raise ValueError("Matched trial IDs are duplicated or out of order")
+    metrics = {"max_roi_error": float(errors.min(axis=1).max()),
+               "min_next_closest_error": float(np.partition(errors, 1, axis=1)[:, 1].min())}
+    return ids, metrics
+
+
+def verified_packed_104(image, repo, roots, known_ids):
+    """A complete archived merge must match all 72 reference rows and the 55 released images."""
+    published = np.asarray(image.dataobj)
+    for root in dict.fromkeys(roots):
+        numbered = root/"sub-104/LSS-images_task-ultimatum_model-01_type-act_run-02"
+        files = [numbered/"sub-104_run-02_type-act_merged_z.nii.gz",
+                 root.parent/"single_trials/sub-104/sub-104_task-ultimatum_run-02_singletrial-Act.nii.gz"]
+        for path in files:
+            if not path.is_file():
+                continue
+            candidate = nib.load(path)
+            if candidate.shape != (*image.shape[:3], 72) or not np.allclose(candidate.affine,image.affine,atol=1e-4,rtol=0):
+                continue
+            values = np.asarray(candidate.dataobj)
+            if not np.array_equal(values[..., np.array(known_ids)-1], published):
+                continue
+            try:
+                ids, _ = archived_trial_ids(candidate, repo, 2)
+            except ValueError:
+                continue
+            if ids == list(range(1, 73)):
+                return candidate
+    return None
+
+
 def recover_104(image, event_path, roots, audit=None):
     """Only use numbered source volumes with matching EVs and byte-equivalent image values."""
     def voxel_hash(vol):
@@ -150,6 +201,7 @@ def recover_104(image, event_path, roots, audit=None):
         audit = {}
     audit.update(candidate_roots=len(set(roots)),source_series_found=0,max_numbered_files=0,
                  max_ev_and_grid_matches=0,max_exact_public_matches=0)
+    partial_result = (None, [])
     for root in dict.fromkeys(roots):
         folder = root/"sub-104/LSS-images_task-ultimatum_model-01_type-act_run-02"
         evbase = root/"EVfiles/sub-104/SingleTrialEVs"
@@ -195,8 +247,10 @@ def recover_104(image, event_path, roots, audit=None):
                 # Include only exact public matches when the full 72-volume series is unavailable.
                 indices = mapped
             result = nib.Nifti1Image(np.stack([values[j] for j in indices],axis=3),image.affine)
-            return result, indices
-    return None, []
+            if len(indices) == 72:
+                return result, indices
+            partial_result = (result, indices)
+    return partial_result
 
 
 def write_trials(path, rows):
@@ -210,6 +264,7 @@ def extract(repo, dataset, scratch, output, activation_only=False, lss_roots=())
     prep = repo/PREP/"full-rt__nppi-dmn"
     roster = read_rows(prep/"participants.tsv")
     manifest = read_rows(repo/VERSION/"openneuro_2.2.0_inputs.tsv")
+    manifest.sort(key=lambda r: (r["subject"], int(r["run"])))
     keys = [(r["subject"], int(r["run"])) for r in manifest]
     expected = {(r["subject"], i) for r in roster for i in (1,2)}
     if len(keys) != 94 or set(keys) != expected or Counter(r["variance_group"] for r in roster) != {"1":25,"2":22}:
@@ -233,13 +288,35 @@ def extract(repo, dataset, scratch, output, activation_only=False, lss_roots=())
         imaging = release_image(dataset/record["image"], record)
         partial = imaging.shape[-1] != 72
         ids = list(range(1,73))
+        if subject == "sub-104" and run == 1:
+            ordered, control_metrics = archived_trial_ids(imaging, repo, 1)
+            if ordered != list(range(1, 73)):
+                raise ValueError("Complete run failed the positive-control trial alignment")
         if partial:
-            if activation_only:
-                continue
-            imaging, ids = recover_104(imaging, event_path, lss_roots, recovery_audit)
+            public_ids, match_metrics = archived_trial_ids(imaging, repo, 2)
+            if len(trials) != 72 or any(t["missed"] != "0" or t["accept"] != "1" for t in trials):
+                raise ValueError("sub-104 run 2 differs from the audited behavioral record")
+            ids = public_ids
+            method = "four-region match to archived 72-trial reference"
+            if not activation_only:
+                packed = verified_packed_104(imaging, repo, lss_roots, public_ids)
+                if packed is not None:
+                    imaging, ids, method = packed, list(range(1, 73)), "verified complete archived merge"
+                else:
+                    source, numbered_ids = recover_104(imaging, event_path, lss_roots, recovery_audit)
+                    if source is not None:
+                        try:
+                            matched, _ = archived_trial_ids(source, repo, 2)
+                        except ValueError:
+                            matched = []
+                        if matched == numbered_ids and set(public_ids).issubset(matched):
+                            imaging, ids, method = source, numbered_ids, "verified numbered images and event timings"
+                        else:
+                            recovery_audit["numbered_reference_disagreement"] = True
             recovered_ids = ids
-            if imaging is None:
-                continue
+            recovery_audit.update(recovery_method=method, public_trial_ids=public_ids,
+                                  matched_run1_control=control_metrics, matched_run2=match_metrics,
+                                  behavioral_responses=72, accepted_offers=72, missed_offers=0)
         series, fractions = activation(imaging, base, common, maps)
         coverage.append(fractions)
         for j,trial_id in enumerate(ids):
@@ -281,5 +358,5 @@ if __name__ == "__main__":
     p.add_argument("--activation-only",action="store_true",help="Validate and fit the first two blocks using the public data only")
     p.add_argument("--lss-root",type=Path,action="append",default=[],help="Additional retained numbered-trial source directory")
     a=p.parse_args()
-    roots = a.lss_root + [a.dataset/"derivatives/fsl", a.repo/"derivatives/fsl", Path("/ZPOOL/data/projects/srndna-datapaper-code/derivatives/fsl"),Path("/ZPOOL/data/projects/srndna-data/derivatives/fsl")]
+    roots = a.lss_root + [a.dataset/"derivatives/fsl", a.repo/"derivatives/fsl", Path("/ZPOOL/data/projects/srndna-datapaper/derivatives/fsl"),Path("/ZPOOL/data/projects/srndna-datapaper-code/derivatives/fsl"),Path("/ZPOOL/data/projects/srndna-data/derivatives/fsl")]
     extract(a.repo,a.dataset,a.scratch,a.output,a.activation_only,roots)
