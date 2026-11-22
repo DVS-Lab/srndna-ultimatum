@@ -1,0 +1,13 @@
+fold	model	n	participants	singular	optimizer	loglik	parameters
+0	behavior	4382	47	FALSE	bobyqa	-904.092609944339	19
+0	activation_dmn_atlas	4382	47	FALSE	nloptwrap	-900.957953797422	27
+1	behavior	3443	37	FALSE	bobyqa	-752.846125441669	19
+1	activation_dmn_atlas	3443	37	FALSE	nloptwrap	-749.912796282363	27
+2	behavior	3489	37	FALSE	bobyqa	-712.724675974748	19
+2	activation_dmn_atlas	3489	37	FALSE	nloptwrap	-709.1933526163	27
+3	behavior	3549	38	FALSE	bobyqa	-734.697711212391	19
+3	activation_dmn_atlas	3549	38	FALSE	nloptwrap	-726.270222451951	27
+4	behavior	3523	38	FALSE	bobyqa	-690.941473995143	19
+4	activation_dmn_atlas	3523	38	FALSE	nloptwrap	-684.27879134497	27
+5	behavior	3524	38	FALSE	bobyqa	-704.578663909562	19
+5	activation_dmn_atlas	3524	38	FALSE	nloptwrap	-699.700919551909	27

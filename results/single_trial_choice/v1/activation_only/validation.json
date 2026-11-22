@@ -1,0 +1,22 @@
+{
+  "participants": 47,
+  "released_runs": 94,
+  "complete_runs": 93,
+  "scheduled": 6768,
+  "responded_human": 4382,
+  "incomplete_run": "sub-104 run-02: 55 public volumes for 72 scheduled offers",
+  "numbered_source_search": {},
+  "recovered_volume_ids": [],
+  "additional_recovered_human_choices": 0,
+  "openneuro": "ds003745 2.2.0",
+  "ppi_files_checked": 0,
+  "min_fraction_valid": {
+    "pole": 0.979187314172448,
+    "focus": 0.8979591836734694,
+    "vmpfc": 1.0,
+    "insula": 1.0,
+    "dmn": 0.9831863332040407,
+    "ecn": 0.9831863332040407
+  },
+  "run_to_run_pearson": {}
+}

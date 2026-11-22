@@ -1,0 +1,2 @@
+comparison	participants	trials	log_loss_reduction	conditional_lo	conditional_hi	brier_reduction	participants_improved
+activation	47	4382	-0.0035419198481805	-0.0153770020575143	0.00959698728783476	-0.0021336107622228	14
