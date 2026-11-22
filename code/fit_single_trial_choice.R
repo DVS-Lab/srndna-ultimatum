@@ -132,6 +132,11 @@ run_fold <- function(k) {
   }
   tests <- coef_table <- NULL
   if (k==0) {
+    if ("--whole-brain" %in% args) {
+      script <- sub("^--file=","",grep("^--file=",commandArgs(),value=TRUE))
+      source(file.path(dirname(normalizePath(script)),"choice_age_descriptives.R"),local=TRUE)
+      choice_descriptives(models,forms,train,out,fit_model)
+    }
     tests <- do.call(rbind,lapply(names(comparisons),function(n) {
       pair <- comparisons[[n]]
       small <- logLik(models[[pair[1]]]); large <- logLik(models[[pair[2]]])

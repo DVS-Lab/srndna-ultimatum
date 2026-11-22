@@ -6,13 +6,13 @@ cd "$repo"
 model=results/single_trial_choice/v2/full
 fig=results/manuscript/figure5_wholebrain_offer_age
 paths=()
-for n in validation.json coefficients.tsv diagnostics.tsv heldout_by_age.tsv heldout_gains.tsv heldout_scores.tsv nested_tests.tsv software.txt; do paths+=("$model/$n"); done
+for n in same_trial_by_age.tsv random_effects.tsv validation.json coefficients.tsv diagnostics.tsv heldout_by_age.tsv heldout_gains.tsv heldout_scores.tsv nested_tests.tsv software.txt; do paths+=("$model/$n"); done
 for n in Figure5.pdf Figure5.png figure5_clusters.tsv figure5_cluster_estimates.tsv; do paths+=("$fig/$n"); done
 [[ $(git branch --show-current) == main ]] || { echo "Use the main checkout of srndna-ultimatum."; exit 1; }
 git fetch origin main
 git merge --ff-only FETCH_HEAD
 git diff --quiet FETCH_HEAD..HEAD -- . ":(exclude)$model" ":(exclude)$fig" || { echo "Local main has unrelated unpublished commits."; exit 1; }
-[[ -z $(git status --porcelain -- "${paths[@]}" code/{wholebrain_choice.py,fit_single_trial_choice.R,figure5_wholebrain.py,run_wholebrain_choice.sh}) ]] || { echo "Preserve existing edits to the scripts or their outputs."; exit 1; }
+[[ -z $(git status --porcelain -- "${paths[@]}" code/{wholebrain_choice.py,fit_single_trial_choice.R,choice_age_descriptives.R,figure5_wholebrain.py,run_wholebrain_choice.sh}) ]] || { echo "Preserve existing edits to the scripts or their outputs."; exit 1; }
 dataset=${SRNDNA_DATASET_ROOT:-/ZPOOL/data/datasets/ds003745-work}
 scratch=${SRNDNA_SCRATCH:-/ZPOOL/data/scratch}
 bg=${SRNDNA_MNI_BACKGROUND:-${FSLDIR:-/usr/local/fsl}/data/standard/MNI152_T1_2mm_brain.nii.gz}
